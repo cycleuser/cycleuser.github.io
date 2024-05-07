@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo">
+                <h1><img src="/theme/image/default-logo.png" width="300" height="100" alt="CycleUser" />
+                CycleUser</h1>
+        </div> <!-- /#logo-->
+        <nav id="menu" class="main-nav"><ul class="menu">
+            <li  class="active"><a href="https://blog.cycleuser.org">Homepage</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/categories.html">Categories</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/tags.html">Tags</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/archives.html">Archives</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/about.html">About</a></li>
+
+        </ul></nav><!-- /#menu -->
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-620" >
+                <section class="breadcrumb-list">
+<a href=".">Blog</a> ›<a href="category/linux.html">Linux</a> ›Ubuntu Server 24.04 上安装 HBase 2.5.8
+                </section>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >Ubuntu Server 24.04 上安装 HBase 2.5.8</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep">Post in</span>
+        <abbr class="date" title="2024-05-07T19:00:00+08:00"> 
+            <a href="./archive/2024/5月/index.html">周二 07 五月 2024 </a>
+        </abbr>
+        <span class="meta-prep"> |Tags</span>
+                <a href="./tag/university.html">University</a>
+                <a href="./tag/linux.html">Linux</a>
+                <a href="./tag/hadoop.html">Hadoop</a>
+                <a href="./tag/hbase.html">HBase</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry">
+        <h1>虚拟机环境</h1>
+<p>为了方便一些小朋友参考，把这部分内容整理了一下。</p>
+<p>Ubuntu Server 24.04 LTS的一个 VirtualBox 虚拟机的下载链接：https://pan.baidu.com/s/1ggVI-_Cuab2ylcjvKRWRwg?pwd=z5m3 
+提取码：z5m3 </p>
+<p>用户名和密码都是hadoop。</p>
+<h1>Hadoop的安装</h1>
+<p>参考<a href="./ubuntu-server-2404-shang-an-zhuang-hadoop-340.html">之前的一篇</a></p>
+<h1>HBase的安装</h1>
+<p>HBase 的安装过程通常包括以下前置步骤：</p>
+<ul>
+<li>
+<p><strong>已经安装 Java</strong>：HBase 需要 Java 运行环境，因此首先需要在系统上安装 Java 8。</p>
+</li>
+<li>
+<p><strong>已经安装 Hadoop</strong>：HBase 需要在系统上安装 Hadoop。这一步上一单元已经完成了。。</p>
+</li>
+</ul>
+<p>以下是在已经安装好 Hadoop 的基础上，安装 HBase 的步骤：</p>
+<ol>
+<li><strong>下载 HBase</strong>：首先，从 Apache HBase 的官方网站下载最新稳定版的 HBase。你可以使用 <code>wget</code> 命令来下载：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>-c<span class="w"> </span>https://mirrors.tuna.tsinghua.edu.cn/apache/hbase/stable/hbase-2.5.8-bin.tar.gz
+</code></pre></div>
+
+<p>请注意，上述链接可能会随着新版本的发布而改变。</p>
+<ol>
+<li><strong>解压 HBase</strong>：使用 <code>tar</code> 命令解压下载的文件：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>xzf<span class="w"> </span>hbase-2.5.8-bin.tar.gz
+sudo<span class="w"> </span>mv<span class="w"> </span>hbase-2.5.8<span class="w"> </span>/usr/local/hbase
+</code></pre></div>
+
+<ol>
+<li><strong>配置 HBase</strong>：编辑 HBase 的配置文件 <code>hbase-site.xml</code>，设置 HBase 的运行模式和数据存储路径。你可以使用以下命令打开配置文件：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/usr/local/hbase/conf/hbase-site.xml<span class="w"> </span>/usr/local/hbase/conf/hbase-site.xml.back
+nano<span class="w"> </span>/usr/local/hbase/conf/hbase-site.xml
+</code></pre></div>
+
+<p>然后，添加以下内容到配置文件：</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;configuration&gt;</span>
+<span class="w">   </span><span class="nt">&lt;property&gt;</span>
+<span class="w">      </span><span class="nt">&lt;name&gt;</span>hbase.rootdir<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;value&gt;</span>hdfs://localhost:9000/hbase<span class="nt">&lt;/value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+<span class="w">    </span><span class="nt">&lt;property&gt;</span>
+<span class="w">      </span><span class="nt">&lt;name&gt;</span>hbase.cluster.distributed<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;value&gt;</span>true<span class="nt">&lt;/value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+<span class="w">    </span><span class="nt">&lt;property&gt;</span>
+<span class="w">      </span><span class="nt">&lt;name&gt;</span>hbase.unsafe.stream.capability.enforce<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;value&gt;</span>false<span class="nt">&lt;/value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+<span class="w">    </span><span class="nt">&lt;property&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>hbase.master.info.port<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;value&gt;</span>16010<span class="nt">&lt;/value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+<span class="w">    </span><span class="nt">&lt;property&gt;</span>
+<span class="w">        </span><span class="nt">&lt;name&gt;</span>hbase.regionserver.info.port<span class="nt">&lt;/name&gt;</span>
+<span class="w">        </span><span class="nt">&lt;value&gt;</span>16020<span class="nt">&lt;/value&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></div>
+
+<p>然后修改<code>/usr/local/hbase/conf/hbase-env.sh</code></p>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>/usr/local/hbase/conf/hbase-env.sh
+</code></pre></div>
+
+<p>添加下面的内容：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm/java-1.8.0-openjdk-amd64
+<span class="nb">export</span><span class="w"> </span><span class="nv">HBASE_CLASSPATH</span><span class="o">=</span>/usr/local/hbase/conf<span class="w"> </span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">HBASE_MANAGES_ZK</span><span class="o">=</span><span class="nb">true</span><span class="w">   </span>
+</code></pre></div>
+
+<ol>
+<li><strong>配置 HBase 环境变量</strong>：编辑 <code>~/.bashrc</code> 文件，添加 HBase 的环境变量。你可以使用以下命令打开配置文件：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>~/.bashrc
+</code></pre></div>
+
+<p>然后，添加以下内容到文件末尾：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm/java-1.8.0-openjdk-amd64
+<span class="nb">export</span><span class="w"> </span><span class="nv">JRE_HOME</span><span class="o">=</span><span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/jre
+<span class="nb">export</span><span class="w"> </span><span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/lib:<span class="si">${</span><span class="nv">JRE_HOME</span><span class="si">}</span>/lib
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/hadoop/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/hadoop/sbin:<span class="nv">$PATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/hbase/bin
+</code></pre></div>
+
+<p>然后，运行以下命令使环境变量生效：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+
+<ol>
+<li><strong>启动 HBase</strong>：最后，你可以使用以下命令启动 HBase：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>start-hbase.sh
+</code></pre></div>
+
+<p>现在，你应该已经成功安装并启动了 HBase。你可以通过访问 <code>http://localhost:16010</code> 来查看 HBase 的状态。</p>
+<h2>4.5. HBase的使用</h2>
+<p>安装好的 HBase 有多种使用方式：</p>
+<ol>
+<li>
+<p><strong>HBase Shell</strong>：HBase 提供了一个交互式的 shell，可以使用它来执行各种 HBase 命令，如创建表、插入数据、查询数据等。可以通过运行 <code>./bin/hbase shell</code> 来启动 HBase shell。</p>
+</li>
+<li>
+<p><strong>Java API</strong>：HBase 提供了一个丰富的 Java API，可以使用它来编写 Java 程序操作 HBase。例如，可以使用 HTable 类来操作 HBase 表，使用 Put 类来插入数据，使用 Get 类来查询数据等。</p>
+</li>
+<li>
+<p><strong>REST API</strong>：HBase 提供了一个 REST API，可以使用任何支持 HTTP 的编程语言通过 HTTP 请求来操作 HBase。</p>
+</li>
+<li>
+<p><strong>Thrift API</strong>：HBase 还提供了一个 Thrift API，可以使用任何支持 Thrift 的编程语言来操作 HBase。</p>
+</li>
+<li>
+<p><strong>JDBC</strong>：HBase 提供了一个 JDBC 驱动，可以使用 JDBC 来操作 HBase。这使得可以使用 SQL 语言来查询 HBase 数据，也可以使用任何支持 JDBC 的工具或框架来操作 HBase。</p>
+</li>
+<li>
+<p><strong>HBase Admin UI</strong>：HBase 提供了一个 Web UI，可以通过浏览器访问它来查看 HBase 的状态和性能指标，以及执行一些管理操作。</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># 进入HBase shell</span>
+hbase<span class="w"> </span>shell
+
+<span class="c1"># 创建一个名为&#39;test_table&#39;的表，有一个名为&#39;test_family&#39;的列族</span>
+create<span class="w"> </span><span class="s1">&#39;test_table&#39;</span>,<span class="w"> </span><span class="s1">&#39;test_family&#39;</span>
+
+<span class="c1"># 插入一些随机数据</span>
+put<span class="w"> </span><span class="s1">&#39;test_table&#39;</span>,<span class="w"> </span><span class="s1">&#39;row1&#39;</span>,<span class="w"> </span><span class="s1">&#39;test_family:col1&#39;</span>,<span class="w"> </span><span class="s1">&#39;value1&#39;</span>
+put<span class="w"> </span><span class="s1">&#39;test_table&#39;</span>,<span class="w"> </span><span class="s1">&#39;row2&#39;</span>,<span class="w"> </span><span class="s1">&#39;test_family:col2&#39;</span>,<span class="w"> </span><span class="s1">&#39;value2&#39;</span>
+put<span class="w"> </span><span class="s1">&#39;test_table&#39;</span>,<span class="w"> </span><span class="s1">&#39;row3&#39;</span>,<span class="w"> </span><span class="s1">&#39;test_family:col3&#39;</span>,<span class="w"> </span><span class="s1">&#39;value3&#39;</span>
+
+<span class="c1"># 扫描并打印表中的所有数据</span>
+scan<span class="w"> </span><span class="s1">&#39;test_table&#39;</span>
+</code></pre></div>
+
+<h2>4.6. HBase操作的Python演示</h2>
+<p>在HBase shell中，可以使用以下命令来删除所有的表：</p>
+<div class="highlight"><pre><span></span><code>hbase<span class="w"> </span>shell
+list.each<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="p">|</span>table<span class="p">|</span><span class="w"> </span>disable<span class="w"> </span>table<span class="p">;</span><span class="w"> </span>drop<span class="w"> </span>table<span class="w"> </span><span class="o">}</span>
+</code></pre></div>
+
+<p>这段代码首先列出所有的表，然后对每个表执行<code>disable</code>和<code>drop</code>操作。<code>disable</code>操作是必要的，因为不能删除一个正在使用的表。</p>
+<p>请注意，这将删除所有的表，包括任何重要的数据。在执行这个操作之前，请确保已经备份了所有重要的数据。</p>
+<p>要在 Python 中使用 HBase，可以使用 <code>happybase</code> 库。以下是一个简单的示例，展示如何连接到 HBase，创建表，插入数据，然后查询数据：</p>
+<p>首先，要启动thrift，然后确保已经安装了 <code>happybase</code>。如果没有，可以使用 pip 安装：</p>
+<div class="highlight"><pre><span></span><code>start-all.sh
+start-hbase.sh
+nohup<span class="w"> </span>hbase<span class="w"> </span>thrift<span class="w"> </span>start<span class="w"> </span>&gt;<span class="w"> </span>hbase_thrift.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+pip<span class="w"> </span>install<span class="w"> </span>happybase<span class="w"> </span>hbase<span class="w"> </span>--break-system-packages
+</code></pre></div>
+
+<p>然后，可以使用以下 Python 代码来操作 HBase：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">happybase</span>
+
+<span class="c1"># 连接到 HBase</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">happybase</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">9090</span><span class="p">)</span>
+<span class="c1"># 获取表名列表</span>
+<span class="n">table_names</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">tables</span><span class="p">()</span>
+<span class="c1"># 解码表名</span>
+<span class="n">table_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">table_names</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table_names</span><span class="p">)</span>
+
+<span class="c1"># 从环境变量获取表名和列族</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;HBASE_TABLE_NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;score_info&#39;</span><span class="p">)</span>
+<span class="n">families</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">max_versions</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+    <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">max_versions</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">block_cache_enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+    <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(),</span>  <span class="c1"># 使用默认值</span>
+<span class="p">}</span>
+<span class="c1"># 检查表是否存在</span>
+<span class="k">if</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="n">connection</span><span class="o">.</span><span class="n">tables</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Table </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> already exists.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">families</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Table </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> created.&quot;</span><span class="p">)</span>
+
+<span class="c1"># 获取表</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
+
+<span class="c1"># 插入数据</span>
+<span class="n">table</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;student1&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">&#39;name:full_name&#39;</span><span class="p">:</span> <span class="s2">&quot;Fred&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;score:poltics&#39;</span><span class="p">:</span> <span class="s1">&#39;74&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;score:english&#39;</span><span class="p">:</span> <span class="s1">&#39;104&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;score:chinese&#39;</span><span class="p">:</span> <span class="s1">&#39;117&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;date:created&#39;</span><span class="p">:</span> <span class="s1">&#39;2024-01-09&#39;</span>
+<span class="p">})</span>
+
+<span class="c1"># 插入数据</span>
+<span class="n">table</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;student2&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">&#39;name:full_name&#39;</span><span class="p">:</span> <span class="s2">&quot;于同学&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;score:政治&#39;</span><span class="p">:</span> <span class="s1">&#39;74&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;score:英语&#39;</span><span class="p">:</span> <span class="s1">&#39;104&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;score:语文&#39;</span><span class="p">:</span> <span class="s1">&#39;117&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;date:created&#39;</span><span class="p">:</span> <span class="s1">&#39;2024-01-09&#39;</span>
+<span class="p">})</span>
+
+<span class="c1"># 查询数据</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="s1">&#39;student2&#39;</span><span class="p">)</span>
+
+<span class="c1"># 打印数据</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>请注意，这个示例假设 HBase Thrift 服务正在本地运行，并且监听的是默认的端口（9090）。如果 HBase Thrift 服务在其他地方运行，或者使用的是其他端口，需要在创建 <code>happybase.Connection</code> 时提供正确的主机名和端口号。</p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep">Category:</span>
+        <abbr class="category">
+            <a href="./category/linux.html">Linux</a>
+        </abbr>
+       </footer>
+    <section id="respond">
+        <div id="disqus_thread">
+        <script type="text/javascript">
+        var disqus_identifier = "ubuntu-server-2404-shang-an-zhuang-hbase-258.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://cycleuser.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        </script>
+        </div>
+
+            
+
+    </section>
+</section>
+
+
+        </section><!-- #content -->
+        <section id="widgets" class="grid col-300 fit" >
+            <!--
+            <section id="widget-search" class="widget-wrapper widget_search">
+
+                <form id="searchform" action="https://www.google.com/search" method="get">
+                    <input id="q" class="field" type="text" placeholder="Search Blog" name="q" ></input>
+                    <input id="ie" name="ie" type="hidden" value="utf-8" ></input>
+                    <input id="oe" name="oe" type="hidden" value="utf-8" ></input>
+                    <input id="channel" name="channel" type="hidden" value="suggest" ></input>
+                    <input id="searchsubmit" class="submit" type="submit" value="">
+                </form>
+            </section>
+            -->
+            <section id="widget-category" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Category
+                </div>
+                <ul>
+                        <li><a href="./category/camera.html" >Camera </a></li>
+                        <li><a href="./category/chromebook.html" >ChromeBook </a></li>
+                        <li><a href="./category/diy.html" >DIY </a></li>
+                        <li><a href="./category/duke.html" >Duke </a></li>
+                        <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
+                        <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/linux.html" >Linux </a></li>
+                        <li><a href="./category/mac.html" >Mac </a></li>
+                        <li><a href="./category/nas.html" >NAS </a></li>
+                        <li><a href="./category/photography.html" >Photography </a></li>
+                        <li><a href="./category/python.html" >Python </a></li>
+                        <li><a href="./category/qgis.html" >QGIS </a></li>
+                        <li><a href="./category/qt.html" >QT </a></li>
+                        <li><a href="./category/raspbian.html" >Raspbian </a></li>
+                        <li><a href="./category/sdr.html" >SDR </a></li>
+                        <li><a href="./category/software.html" >Software </a></li>
+                        <li><a href="./category/story.html" >Story </a></li>
+                        <li><a href="./category/work.html" >Work </a></li>
+                </ul>
+            </section>
+
+            <section id="widget-tagcloud" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Tagcloud
+                </div>
+                <div>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/translate.html">Translate</a></span>
+                        <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/phd.html">PHD</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/hbase.html">HBase</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
+                        <span><a href="./tag/visualization.html">Visualization</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/book.html">Book</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/pyenv.html">Pyenv</a></span>
+                        <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/diy.html">DIY</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/hadoop.html">Hadoop</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                </div>
+            </section>
+
+
+            <section id="widget-links" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Links
+                </div>
+                <ul>
+                        <li><a href="https://chinageology.com">ChinaGeology</a></li>
+                        <li><a href="http://doc.geopython.com/">GeoPython</a></li>
+                        <li><a href="https://fanzheng.org">Fan</a></li>
+                        <li><a href="http://o00o.site">FlagPlus</a></li>
+                        <li><a href="http://blog.cosli.top">CosLi</a></li>
+                        <li><a href="http://akagi201.org">Akagi201</a></li>
+                        <li><a href="http://xuanwo.org/">XuanWo</a></li>
+                        <li><a href="https://blog.daftme.com">4Orange</a></li>
+                        <li><a href="http://blog.riverrun.xyz/">River</a></li>
+                        <li><a href="https://www.logcg.com">LogCG Blog</a></li>
+                        <li><a href="http://guolao.me/">GuoLao</a></li>
+                </ul>
+            </section>
+            
+        </section><!-- widgets -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+</body>
+</html>

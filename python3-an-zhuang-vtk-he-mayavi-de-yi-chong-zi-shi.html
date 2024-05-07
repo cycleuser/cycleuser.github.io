@@ -19,7 +19,6 @@ var _hmt = _hmt || [];
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
-    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
 </head>
 
 <body id="index" class="blog">
@@ -52,7 +51,7 @@ var _hmt = _hmt || [];
     <div class="post-meta">
         <span class="meta-prep">Post in</span>
         <abbr class="date" title="2017-11-18T00:00:00+08:00"> 
-            <a href="./archive/2017/Nov/index.html">Sat 18 November 2017 </a>
+            <a href="./archive/2017/11月/index.html">周六 18 十一月 2017 </a>
         </abbr>
         <span class="meta-prep"> |Tags</span>
                 <a href="./tag/python.html">Python</a>
@@ -86,12 +85,12 @@ var _hmt = _hmt || [];
 <p>有经验的朋友可能看了上面的 1234 之后就知道该怎么做了，甚至自己完全还有更好的思路能够分享出来。然而本专栏定位是从入门开始的学习者，所以我觉得有必要把这部分详细列出来介绍一下。</p>
 <p>（这里假设你已经安装好了 pip，如果这部分有问题，请去搜索，相信这点问题难不住有探索精神的学习者。我这里用的 pip3 而不是 pip，是为了区分我同时安装的 Python2 所用的 pip 和 Python3 所用的 pip3，建议新人们只安装 Python3 就好了。如果下面的代码中使用 pip3 不成，你替换成 pip 试试又不会得病。）</p>
 <p>首先，我们用 PIP 来安装 conda。</p>
-<div class="highlight"><pre><span></span><code>pip3 install conda
+<div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>conda
 </code></pre></div>
 
 <p>这一步骤中如果有出错提示，可能是一些 conda 必备的依赖包没有安装。可能为 ruamel.yaml, pycosat, idna, certifi, chardet, urllib3, requests 这几个。</p>
 <p>可以尝试一起装：</p>
-<div class="highlight"><pre><span></span><code>pip3 install ruamel.yaml pycosat idna certifi chardet urllib3 requests conda
+<div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>ruamel.yaml<span class="w"> </span>pycosat<span class="w"> </span>idna<span class="w"> </span>certifi<span class="w"> </span>chardet<span class="w"> </span>urllib3<span class="w"> </span>requests<span class="w"> </span>conda
 </code></pre></div>
 
 <p>这好办，如果一下安装报上面这些包的错，那就一个个用 pip 来安装了就可以了，不再赘述。</p>
@@ -99,33 +98,33 @@ var _hmt = _hmt || [];
 <p>这里就是到了一个稍微关键一点的地方，3.5 要用 menpo，3.6要用 clinicalgraphics。</p>
 <p>另外，由于咱们是在 Python 中使用 pip 安装的 conda，而不是一开始安装的 miniconda 或者 anaconda，所以<strong>不能直接使用 conda 命令，而是要当作一个 python 模块来用</strong>，所以下面的几个命令里面，都<strong>加上了 python3 -m</strong>，这也是和我在 <a href="https://www.zhihu.com/question/62747523/answer/202794539">Anaconda 上安装 VTK 的回答</a> 很不一样的，<strong>新手可能会对此不太注意</strong>，从而导致安装错误，所以一定仔细阅读哦。</p>
 <p><strong>适用于3.5：</strong></p>
-<div class="highlight"><pre><span></span><code>python3 -m conda install -c menpo <span class="nv">vtk</span><span class="o">=</span><span class="m">7</span>   
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>menpo<span class="w"> </span><span class="nv">vtk</span><span class="o">=</span><span class="m">7</span><span class="w">   </span>
 </code></pre></div>
 
 <p><strong>适用于3.6：</strong></p>
-<div class="highlight"><pre><span></span><code>python3 -m conda install -c clinicalgraphics <span class="nv">vtk</span><span class="o">=</span><span class="m">7</span>.1.0 
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>clinicalgraphics<span class="w"> </span><span class="nv">vtk</span><span class="o">=</span><span class="m">7</span>.1.0<span class="w"> </span>
 </code></pre></div>
 
 <p>关于版本的指定上，建议你也按照下面的来，避免自己走弯路，我虽然不算老司机，但这些代码都好歹是安装成功过的。我当然知道 VTK 官方版本最新的 Release 已经 8.01 了，但是我自己没弄成功，就没办法来分享安装最新版的成功经验了。</p>
 <h2>3 安装好了 VTK 之后再用 pip 安装 MayaVi</h2>
 <p>刚这一步安装好了 VTK 之后，就可以用 pip 来安装 MayaVi 了。</p>
-<div class="highlight"><pre><span></span><code>pip3 install mayavi
+<div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>mayavi
 </code></pre></div>
 
 <h2>4 再用 conda 安装 SfePy</h2>
 <p>我安装 MayaVi 是为了 安装 SfePy，所以上面的弄妥了之后自然直接安装了：</p>
-<div class="highlight"><pre><span></span><code>python3 -m conda install -c conda-forge sfepy
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>sfepy
 </code></pre></div>
 
 <p>当然了，每一步安装完成之后，都建议你测试一下是否安装成功，在<strong> Bash 或者 CMD 等终端内运行</strong>：</p>
-<div class="highlight"><pre><span></span><code>python3 -c <span class="s2">&quot;import vtk&quot;</span>         <span class="c1">#这是测试 VTK </span>
-python3 -c <span class="s2">&quot;import mayavi&quot;</span>      <span class="c1">#这是测试 MayaVi </span>
-python3 -c <span class="s2">&quot;import sfepy&quot;</span>       <span class="c1">#这是测试 sfepy</span>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import vtk&quot;</span><span class="w">         </span><span class="c1">#这是测试 VTK </span>
+python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import mayavi&quot;</span><span class="w">      </span><span class="c1">#这是测试 MayaVi </span>
+python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import sfepy&quot;</span><span class="w">       </span><span class="c1">#这是测试 sfepy</span>
 </code></pre></div>
 
 <p>如果没什么问题，就不会有报错什么的。另外注意是在<strong>终端内运行</strong>，不是在 Python 解释器里面。这几个命令实际上就是让 Python3 来导入这几个模块，来看看是不是报错，没报错就一般都是安装完毕没问题咯。</p>
 <p>其实 conda 还有个好处，就是可以用来升级已经安装的模块，可以在终端内输入如下命令来实现：</p>
-<div class="highlight"><pre><span></span><code>python3 -m conda update --all
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>conda<span class="w"> </span>update<span class="w"> </span>--all
 </code></pre></div>
 
 <p>跟直接使用 Anaconda 相比，也就是多加了前缀 python3 -m 而已。</p>
@@ -180,6 +179,7 @@ python3 -c <span class="s2">&quot;import sfepy&quot;</span>       <span class="c
                         <li><a href="./category/duke.html" >Duke </a></li>
                         <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
                         <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/linux.html" >Linux </a></li>
                         <li><a href="./category/mac.html" >Mac </a></li>
                         <li><a href="./category/nas.html" >NAS </a></li>
                         <li><a href="./category/photography.html" >Photography </a></li>
@@ -199,78 +199,79 @@ python3 -c <span class="s2">&quot;import sfepy&quot;</span>       <span class="c
                     Tagcloud
                 </div>
                 <div>
-                        <span><a href="./tag/diy.html">DIY</a></span>
-                        <span><a href="./tag/shit.html">Shit</a></span>
-                        <span><a href="./tag/vtk.html">VTK</a></span>
-                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
-                        <span><a href="./tag/download.html">Download</a></span>
-                        <span><a href="./tag/qgis.html">QGIS</a></span>
-                        <span><a href="./tag/game.html">Game</a></span>
-                        <span><a href="./tag/video.html">Video</a></span>
-                        <span><a href="./tag/communicate.html">Communicate</a></span>
-                        <span><a href="./tag/geology.html">Geology</a></span>
-                        <span><a href="./tag/scholar.html">Scholar</a></span>
-                        <span><a href="./tag/mac.html">Mac</a></span>
-                        <span><a href="./tag/microscope.html">Microscope</a></span>
-                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
-                        <span><a href="./tag/photography.html">Photography</a></span>
-                        <span><a href="./tag/ide.html">IDE</a></span>
-                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
-                        <span><a href="./tag/lesson.html">Lesson</a></span>
-                        <span><a href="./tag/macos.html">macOS</a></span>
-                        <span><a href="./tag/qt.html">QT</a></span>
-                        <span><a href="./tag/disease.html">Disease</a></span>
-                        <span><a href="./tag/xcode.html">Xcode</a></span>
-                        <span><a href="./tag/poem.html">Poem</a></span>
-                        <span><a href="./tag/story.html">Story</a></span>
-                        <span><a href="./tag/chat.html">Chat</a></span>
-                        <span><a href="./tag/camera.html">Camera</a></span>
-                        <span><a href="./tag/software.html">Software</a></span>
-                        <span><a href="./tag/translation.html">Translation</a></span>
-                        <span><a href="./tag/learning.html">Learning</a></span>
-                        <span><a href="./tag/vispy.html">VisPy</a></span>
-                        <span><a href="./tag/server.html">Server</a></span>
-                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
-                        <span><a href="./tag/radio.html">Radio</a></span>
-                        <span><a href="./tag/data.html">Data</a></span>
-                        <span><a href="./tag/telescope.html">Telescope</a></span>
-                        <span><a href="./tag/science.html">Science</a></span>
-                        <span><a href="./tag/library.html">Library</a></span>
                         <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
-                        <span><a href="./tag/hack.html">Hack</a></span>
-                        <span><a href="./tag/geopython.html">GeoPython</a></span>
-                        <span><a href="./tag/moon.html">Moon</a></span>
-                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
-                        <span><a href="./tag/nas.html">NAS</a></span>
                         <span><a href="./tag/phd.html">PHD</a></span>
-                        <span><a href="./tag/programming.html">Programming</a></span>
-                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
-                        <span><a href="./tag/hardware.html">Hardware</a></span>
-                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
-                        <span><a href="./tag/gis.html">GIS</a></span>
-                        <span><a href="./tag/hate.html">Hate</a></span>
-                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
-                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
                         <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
-                        <span><a href="./tag/junck.html">Junck</a></span>
-                        <span><a href="./tag/university.html">University</a></span>
-                        <span><a href="./tag/conda.html">Conda</a></span>
-                        <span><a href="./tag/discuss.html">Discuss</a></span>
-                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
-                        <span><a href="./tag/cuda.html">CUDA</a></span>
-                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
                         <span><a href="./tag/pyenv.html">Pyenv</a></span>
-                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
                         <span><a href="./tag/translate.html">Translate</a></span>
                         <span><a href="./tag/visualization.html">Visualization</a></span>
-                        <span><a href="./tag/python.html">Python</a></span>
-                        <span><a href="./tag/kivy.html">Kivy</a></span>
-                        <span><a href="./tag/photo.html">Photo</a></span>
-                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
-                        <span><a href="./tag/memory.html">Memory</a></span>
-                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
-                        <span><a href="./tag/life.html">Life</a></span>
                         <span><a href="./tag/book.html">Book</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/hadoop.html">Hadoop</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/diy.html">DIY</a></span>
                 </div>
             </section>
 

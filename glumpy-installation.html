@@ -19,7 +19,6 @@ var _hmt = _hmt || [];
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
-    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
 </head>
 
 <body id="index" class="blog">
@@ -52,7 +51,7 @@ var _hmt = _hmt || [];
     <div class="post-meta">
         <span class="meta-prep">Post in</span>
         <abbr class="date" title="2017-03-10T00:00:00+08:00"> 
-            <a href="./archive/2017/Mar/index.html">Fri 10 March 2017 </a>
+            <a href="./archive/2017/3月/index.html">周五 10 三月 2017 </a>
         </abbr>
         <span class="meta-prep"> |Tags</span>
                 <a href="./tag/python.html">Python</a>
@@ -71,11 +70,11 @@ var _hmt = _hmt || [];
 <p>GlumPy 给我的印象很棒，因为官方开发人员很及时地跟我互动讨论<a href="https://github.com/glumpy/glumpy/issues/87">一些运行错误产生的原因</a>，虽然他们的 example 里面的一些一两年的 bug 也没有修改，比如 earth.py 似乎需要把 Arcball 替换成 Trackball，而且对 numpy 的特定版本的需求也需要提示一些，参考<a href="https://github.com/glumpy/glumpy/issues/106">这里查看更多内容</a>。</p>
 <h2>安装方法</h2>
 <p>最简单直接的安装方法就是用 pip 了：</p>
-<div class="highlight"><pre><span></span><code>pip install glumpy
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>glumpy
 </code></pre></div>
 
 <p>还可以对已经安装的版本进行升级：</p>
-<div class="highlight"><pre><span></span><code>pip install --upgrade glumpy
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>glumpy
 </code></pre></div>
 
 <h2>依赖包</h2>
@@ -89,18 +88,18 @@ var _hmt = _hmt || [];
 </ul>
 </blockquote>
 <p>安装这些依赖包最简单的方法莫过于用 pip 了：</p>
-<div class="highlight"><pre><span></span><code>pip install numpy
-pip install cython
-pip install pyopengl
-pip install triangle
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>numpy
+pip<span class="w"> </span>install<span class="w"> </span>cython
+pip<span class="w"> </span>install<span class="w"> </span>pyopengl
+pip<span class="w"> </span>install<span class="w"> </span>triangle
 </code></pre></div>
 
 <p>（译者注：推荐你先安装 cython ，然后是 numpy 接着是 pyopengl 和 triangle。在安装 triangle 的时候可能遇到报错，比如缺少 packaging ，解决方案是用 <code>pip install packaging</code> 这样的命令来把缺少的包安装上就行。）</p>
 <p>如果已经安装过上面这些包，可以用下面的命令来升级到最新版本：</p>
-<div class="highlight"><pre><span></span><code>pip install --upgrade numpy
-pip install --upgrade pyopengl
-pip install --upgrade cython
-pip install --upgrade triangle
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>numpy
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pyopengl
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>cython
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>triangle
 </code></pre></div>
 
 <h2>后端需求</h2>
@@ -305,21 +304,21 @@ pip install --upgrade triangle
 
 <p>上面这个命令执行之后会显示出一大堆结果，就是和你显卡相关的信息了。这时候最重要的是要看看你能否有权限直接使用显卡（direct ），以及你的显卡支持的 GL 版本以及 着色器语言（ shading language ） 的版本。</p>
 <div class="highlight"><pre><span></span><code>...
-direct rendering: Yes
+direct<span class="w"> </span>rendering:<span class="w"> </span>Yes
 ...
-OpenGL vendor string: NVIDIA Corporation
-OpenGL renderer string: NVIDIA GeForce GT 650M OpenGL Engine
-OpenGL version string: <span class="m">2</span>.1 NVIDIA-8.24.9 <span class="m">310</span>.40.25f01
-OpenGL shading language version string: <span class="m">1</span>.20
+OpenGL<span class="w"> </span>vendor<span class="w"> </span>string:<span class="w"> </span>NVIDIA<span class="w"> </span>Corporation
+OpenGL<span class="w"> </span>renderer<span class="w"> </span>string:<span class="w"> </span>NVIDIA<span class="w"> </span>GeForce<span class="w"> </span>GT<span class="w"> </span>650M<span class="w"> </span>OpenGL<span class="w"> </span>Engine
+OpenGL<span class="w"> </span>version<span class="w"> </span>string:<span class="w"> </span><span class="m">2</span>.1<span class="w"> </span>NVIDIA-8.24.9<span class="w"> </span><span class="m">310</span>.40.25f01
+OpenGL<span class="w"> </span>shading<span class="w"> </span>language<span class="w"> </span>version<span class="w"> </span>string:<span class="w"> </span><span class="m">1</span>.20
 ...
 </code></pre></div>
 
 <p>译者注：上面这样子现实的内容太繁杂了，完全可以用 <code>glxinfo |grep direct &amp;&amp; glxinfo |grep OpenGL</code> 这样一个命令，在我的机器上输出如下所示：</p>
-<div class="highlight"><pre><span></span><code>direct rendering: Yes
-OpenGL vendor string: NVIDIA Corporation
-OpenGL renderer string: NVIDIA GeForce GTX TITAN OpenGL Engine
-OpenGL version string: <span class="m">2</span>.1 NVIDIA-10.15.20 <span class="m">367</span>.15.10.35f01
-OpenGL shading language  version string: <span class="m">1</span>.20
+<div class="highlight"><pre><span></span><code>direct<span class="w"> </span>rendering:<span class="w"> </span>Yes
+OpenGL<span class="w"> </span>vendor<span class="w"> </span>string:<span class="w"> </span>NVIDIA<span class="w"> </span>Corporation
+OpenGL<span class="w"> </span>renderer<span class="w"> </span>string:<span class="w"> </span>NVIDIA<span class="w"> </span>GeForce<span class="w"> </span>GTX<span class="w"> </span>TITAN<span class="w"> </span>OpenGL<span class="w"> </span>Engine
+OpenGL<span class="w"> </span>version<span class="w"> </span>string:<span class="w"> </span><span class="m">2</span>.1<span class="w"> </span>NVIDIA-10.15.20<span class="w"> </span><span class="m">367</span>.15.10.35f01
+OpenGL<span class="w"> </span>shading<span class="w"> </span>language<span class="w">  </span>version<span class="w"> </span>string:<span class="w"> </span><span class="m">1</span>.20
 </code></pre></div>
 
 <p>OpenGL 版本最低是 2.1，着色器语言的版本至少要 1.1。如果不符合的话，你需要安装最新版本的对应软件。可以看看你的操作系统是否提供了文档，或者在线搜索一下怎么来操作吧。</p>
@@ -335,14 +334,14 @@ OpenGL shading language  version string: <span class="m">1</span>.20
 </ul>
 </blockquote>
 <h4>然后是安装依赖包（一定要从管理员权限的 cmd 控制台或者 powershell）：</h4>
-<div class="highlight"><pre><span></span><code>C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt; pip install numpy
-C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt; pip install cython
-C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt; pip install pyopengl
-C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt; pip install triangle
+<div class="highlight"><pre><span></span><code>C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt;<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>numpy
+C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt;<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>cython
+C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt;<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pyopengl
+C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt;<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>triangle
 </code></pre></div>
 
 <h4>接下来安装 GlumPy（一定要从管理员权限的 cmd 控制台或者 powershell）：</h4>
-<div class="highlight"><pre><span></span><code>C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt; pip install glumpy
+<div class="highlight"><pre><span></span><code>C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt;<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>glumpy
 </code></pre></div>
 
 <h4>关键部分了，安装 FreeType：</h4>
@@ -415,6 +414,7 @@ C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt; pip inst
                         <li><a href="./category/duke.html" >Duke </a></li>
                         <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
                         <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/linux.html" >Linux </a></li>
                         <li><a href="./category/mac.html" >Mac </a></li>
                         <li><a href="./category/nas.html" >NAS </a></li>
                         <li><a href="./category/photography.html" >Photography </a></li>
@@ -434,78 +434,79 @@ C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt; pip inst
                     Tagcloud
                 </div>
                 <div>
-                        <span><a href="./tag/diy.html">DIY</a></span>
-                        <span><a href="./tag/shit.html">Shit</a></span>
-                        <span><a href="./tag/vtk.html">VTK</a></span>
-                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
-                        <span><a href="./tag/download.html">Download</a></span>
-                        <span><a href="./tag/qgis.html">QGIS</a></span>
-                        <span><a href="./tag/game.html">Game</a></span>
-                        <span><a href="./tag/video.html">Video</a></span>
-                        <span><a href="./tag/communicate.html">Communicate</a></span>
-                        <span><a href="./tag/geology.html">Geology</a></span>
-                        <span><a href="./tag/scholar.html">Scholar</a></span>
-                        <span><a href="./tag/mac.html">Mac</a></span>
-                        <span><a href="./tag/microscope.html">Microscope</a></span>
-                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
-                        <span><a href="./tag/photography.html">Photography</a></span>
-                        <span><a href="./tag/ide.html">IDE</a></span>
-                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
-                        <span><a href="./tag/lesson.html">Lesson</a></span>
-                        <span><a href="./tag/macos.html">macOS</a></span>
-                        <span><a href="./tag/qt.html">QT</a></span>
-                        <span><a href="./tag/disease.html">Disease</a></span>
-                        <span><a href="./tag/xcode.html">Xcode</a></span>
-                        <span><a href="./tag/poem.html">Poem</a></span>
-                        <span><a href="./tag/story.html">Story</a></span>
-                        <span><a href="./tag/chat.html">Chat</a></span>
-                        <span><a href="./tag/camera.html">Camera</a></span>
-                        <span><a href="./tag/software.html">Software</a></span>
-                        <span><a href="./tag/translation.html">Translation</a></span>
-                        <span><a href="./tag/learning.html">Learning</a></span>
-                        <span><a href="./tag/vispy.html">VisPy</a></span>
-                        <span><a href="./tag/server.html">Server</a></span>
-                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
-                        <span><a href="./tag/radio.html">Radio</a></span>
-                        <span><a href="./tag/data.html">Data</a></span>
-                        <span><a href="./tag/telescope.html">Telescope</a></span>
-                        <span><a href="./tag/science.html">Science</a></span>
-                        <span><a href="./tag/library.html">Library</a></span>
                         <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
-                        <span><a href="./tag/hack.html">Hack</a></span>
-                        <span><a href="./tag/geopython.html">GeoPython</a></span>
-                        <span><a href="./tag/moon.html">Moon</a></span>
-                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
-                        <span><a href="./tag/nas.html">NAS</a></span>
                         <span><a href="./tag/phd.html">PHD</a></span>
-                        <span><a href="./tag/programming.html">Programming</a></span>
-                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
-                        <span><a href="./tag/hardware.html">Hardware</a></span>
-                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
-                        <span><a href="./tag/gis.html">GIS</a></span>
-                        <span><a href="./tag/hate.html">Hate</a></span>
-                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
-                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
                         <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
-                        <span><a href="./tag/junck.html">Junck</a></span>
-                        <span><a href="./tag/university.html">University</a></span>
-                        <span><a href="./tag/conda.html">Conda</a></span>
-                        <span><a href="./tag/discuss.html">Discuss</a></span>
-                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
-                        <span><a href="./tag/cuda.html">CUDA</a></span>
-                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
                         <span><a href="./tag/pyenv.html">Pyenv</a></span>
-                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
                         <span><a href="./tag/translate.html">Translate</a></span>
                         <span><a href="./tag/visualization.html">Visualization</a></span>
-                        <span><a href="./tag/python.html">Python</a></span>
-                        <span><a href="./tag/kivy.html">Kivy</a></span>
-                        <span><a href="./tag/photo.html">Photo</a></span>
-                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
-                        <span><a href="./tag/memory.html">Memory</a></span>
-                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
-                        <span><a href="./tag/life.html">Life</a></span>
                         <span><a href="./tag/book.html">Book</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/hadoop.html">Hadoop</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/diy.html">DIY</a></span>
                 </div>
             </section>
 

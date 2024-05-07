@@ -19,7 +19,6 @@ var _hmt = _hmt || [];
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
-    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
 </head>
 
 <body id="index" class="blog">
@@ -52,7 +51,7 @@ var _hmt = _hmt || [];
     <div class="post-meta">
         <span class="meta-prep">Post in</span>
         <abbr class="date" title="2016-10-20T11:20:00+08:00"> 
-            <a href="./archive/2016/Oct/index.html">Thu 20 October 2016 </a>
+            <a href="./archive/2016/10月/index.html">周四 20 十月 2016 </a>
         </abbr>
         <span class="meta-prep"> |Tags</span>
                 <a href="./tag/python.html">Python</a>
@@ -67,12 +66,12 @@ var _hmt = _hmt || [];
 <p>This post is a guide for newbie users of PyCUDA. We use Pyenv here and that means we can build different versions of working environments.</p>
 <h4>Install Git and Pyenv</h4>
 <p>In order to download the PyCUDA code, we need to install Git. In order to control multiple versions of Python and creat isolated environment for different projects, we need to use Pyenv. To install Pyenv, we need to install <a href="http://brew.sh/index_zh-cn.html">Brew</a> first by running this in terminal:</p>
-<div class="highlight"><pre><span></span><code>/usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code>/usr/bin/ruby<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
 
 <p>Then run the command below to install Pyenv.</p>
-<div class="highlight"><pre><span></span><code>brew install git
-brew install pyenv
+<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>git
+brew<span class="w"> </span>install<span class="w"> </span>pyenv
 </code></pre></div>
 
 <h4>The Most Important Trick</h4>
@@ -81,41 +80,41 @@ brew install pyenv
 <h4>Install Xcode, Command Line Tools and CUDA</h4>
 <p>As I posted in <a href="http://blog.cycleuser.org/use-cuda-80-with-macos-sierra-1012.html">the earlier article</a>, the latest version of CUDA cannot work with the newest version of Xcode. At this moment I am typing, the latest CUDA is still version 8.04, which requires XCode 7.3.1 and Command Line Tools for XCode 7.3.1. And <a href="https://developer.apple.com/download">HERE</a> is the place you can download them.</p>
 <p>Please make sure that your Xcode is the version that works with your CUDA. Then you need to install the <a href="https://developer.nvidia.com/compute/cuda/8.0/Prod/local_installers/cuda_8.0.47_mac-dmg">CUDA</a> and check the version of nvcc with following command int terminal:</p>
-<div class="highlight"><pre><span></span><code>nvcc --version
+<div class="highlight"><pre><span></span><code>nvcc<span class="w"> </span>--version
 </code></pre></div>
 
 <p>It will be OK if the output seems like this:</p>
-<div class="highlight"><pre><span></span><code>$ nvcc --version
-nvcc: NVIDIA <span class="o">(</span>R<span class="o">)</span> Cuda compiler driver
-Copyright <span class="o">(</span>c<span class="o">)</span> <span class="m">2005</span>-2016 NVIDIA Corporation
-Built on Sun_Sep_18_22:16:08_CDT_2016
-Cuda compilation tools, release <span class="m">8</span>.0, V8.0.46
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>nvcc<span class="w"> </span>--version
+nvcc:<span class="w"> </span>NVIDIA<span class="w"> </span><span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Cuda<span class="w"> </span>compiler<span class="w"> </span>driver
+Copyright<span class="w"> </span><span class="o">(</span>c<span class="o">)</span><span class="w"> </span><span class="m">2005</span>-2016<span class="w"> </span>NVIDIA<span class="w"> </span>Corporation
+Built<span class="w"> </span>on<span class="w"> </span>Sun_Sep_18_22:16:08_CDT_2016
+Cuda<span class="w"> </span>compilation<span class="w"> </span>tools,<span class="w"> </span>release<span class="w"> </span><span class="m">8</span>.0,<span class="w"> </span>V8.0.46
 </code></pre></div>
 
 <h4>Use Pyenv to install a version of Python</h4>
 <p>Using the following command in terminal to see the available versions of Python:</p>
-<div class="highlight"><pre><span></span><code>pyenv install --list
+<div class="highlight"><pre><span></span><code>pyenv<span class="w"> </span>install<span class="w"> </span>--list
 </code></pre></div>
 
 <p>Here we use 3.5.2:</p>
-<div class="highlight"><pre><span></span><code>pyenv install <span class="m">3</span>.5.2
+<div class="highlight"><pre><span></span><code>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.5.2
 </code></pre></div>
 
 <p>Then we have a brand new Python, which we can do anything inside without worrying about messing up with the system.</p>
 <h4>Install PyCUDA</h4>
 <p>Paste following command in terminal to get the source code of PyCUDA:</p>
-<div class="highlight"><pre><span></span><code>git clone --recursive http://git.tiker.net/trees/pycuda.git
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>http://git.tiker.net/trees/pycuda.git
 </code></pre></div>
 
 <p>Get into its folder and set the local Python to the one we installed using Pyenv:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> pycuda
-pyenv <span class="nb">local</span> <span class="m">3</span>.5.2
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>pycuda
+pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">3</span>.5.2
 </code></pre></div>
 
 <p>Then we use these commands to proceed the installation:</p>
-<div class="highlight"><pre><span></span><code>python configure.py
-sudo make
-sudo make install
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>configure.py
+sudo<span class="w"> </span>make
+sudo<span class="w"> </span>make<span class="w"> </span>install
 </code></pre></div>
 
 <p>If there is nothing wrong, we could use a piece of code from the examples of PyCUDA as a file named "test.py" :</p>
@@ -134,27 +133,27 @@ sudo make install
 </code></pre></div>
 
 <p>If you get similar output like this:</p>
-<div class="highlight"><pre><span></span><code>$ python test.py
-original array:
-<span class="o">[[</span> <span class="m">0</span>.27740544 -1.44831014  <span class="m">0</span>.6379782   <span class="m">0</span>.15358959<span class="o">]</span>
- <span class="o">[</span>-0.21130283 -0.19202329 -2.23594046  <span class="m">0</span>.14036565<span class="o">]</span>
- <span class="o">[</span>-0.69078982 -0.44290611  <span class="m">1</span>.2644769   <span class="m">1</span>.55474603<span class="o">]</span>
- <span class="o">[</span>-1.08704031  <span class="m">2</span>.22870898  <span class="m">0</span>.85237521  <span class="m">0</span>.15609477<span class="o">]]</span>
-doubled with gpuarray:
-<span class="o">[[</span> <span class="m">0</span>.55481088 -2.89662027  <span class="m">1</span>.27595639  <span class="m">0</span>.30717918<span class="o">]</span>
- <span class="o">[</span>-0.42260566 -0.38404658 -4.47188091  <span class="m">0</span>.28073129<span class="o">]</span>
- <span class="o">[</span>-1.38157964 -0.88581222  <span class="m">2</span>.52895379  <span class="m">3</span>.10949206<span class="o">]</span>
- <span class="o">[</span>-2.17408061  <span class="m">4</span>.45741796  <span class="m">1</span>.70475042  <span class="m">0</span>.31218955<span class="o">]]</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python<span class="w"> </span>test.py
+original<span class="w"> </span>array:
+<span class="o">[[</span><span class="w"> </span><span class="m">0</span>.27740544<span class="w"> </span>-1.44831014<span class="w">  </span><span class="m">0</span>.6379782<span class="w">   </span><span class="m">0</span>.15358959<span class="o">]</span>
+<span class="w"> </span><span class="o">[</span>-0.21130283<span class="w"> </span>-0.19202329<span class="w"> </span>-2.23594046<span class="w">  </span><span class="m">0</span>.14036565<span class="o">]</span>
+<span class="w"> </span><span class="o">[</span>-0.69078982<span class="w"> </span>-0.44290611<span class="w">  </span><span class="m">1</span>.2644769<span class="w">   </span><span class="m">1</span>.55474603<span class="o">]</span>
+<span class="w"> </span><span class="o">[</span>-1.08704031<span class="w">  </span><span class="m">2</span>.22870898<span class="w">  </span><span class="m">0</span>.85237521<span class="w">  </span><span class="m">0</span>.15609477<span class="o">]]</span>
+doubled<span class="w"> </span>with<span class="w"> </span>gpuarray:
+<span class="o">[[</span><span class="w"> </span><span class="m">0</span>.55481088<span class="w"> </span>-2.89662027<span class="w">  </span><span class="m">1</span>.27595639<span class="w">  </span><span class="m">0</span>.30717918<span class="o">]</span>
+<span class="w"> </span><span class="o">[</span>-0.42260566<span class="w"> </span>-0.38404658<span class="w"> </span>-4.47188091<span class="w">  </span><span class="m">0</span>.28073129<span class="o">]</span>
+<span class="w"> </span><span class="o">[</span>-1.38157964<span class="w"> </span>-0.88581222<span class="w">  </span><span class="m">2</span>.52895379<span class="w">  </span><span class="m">3</span>.10949206<span class="o">]</span>
+<span class="w"> </span><span class="o">[</span>-2.17408061<span class="w">  </span><span class="m">4</span>.45741796<span class="w">  </span><span class="m">1</span>.70475042<span class="w">  </span><span class="m">0</span>.31218955<span class="o">]]</span>
 </code></pre></div>
 
 <h4>Something More</h4>
 <p>If you need to install PyCUDA to another version of Python, you just need to install another Python with Pyenv and change the local version of the path of pycuda. For example, we install a Python 3.5.1 and install the PyCUDA to it with commands below:</p>
-<div class="highlight"><pre><span></span><code>pyenv install <span class="m">3</span>.5.1
-<span class="nb">cd</span> ~/pycuda
-pyenv <span class="nb">local</span> <span class="m">3</span>.5.1
-python configure.py
-sudo make
-sudo make install
+<div class="highlight"><pre><span></span><code>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.5.1
+<span class="nb">cd</span><span class="w"> </span>~/pycuda
+pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">3</span>.5.1
+python<span class="w"> </span>configure.py
+sudo<span class="w"> </span>make
+sudo<span class="w"> </span>make<span class="w"> </span>install
 </code></pre></div>
 
 <p>Then everything will be OK.</p>
@@ -208,6 +207,7 @@ sudo make install
                         <li><a href="./category/duke.html" >Duke </a></li>
                         <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
                         <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/linux.html" >Linux </a></li>
                         <li><a href="./category/mac.html" >Mac </a></li>
                         <li><a href="./category/nas.html" >NAS </a></li>
                         <li><a href="./category/photography.html" >Photography </a></li>
@@ -227,78 +227,79 @@ sudo make install
                     Tagcloud
                 </div>
                 <div>
-                        <span><a href="./tag/diy.html">DIY</a></span>
-                        <span><a href="./tag/shit.html">Shit</a></span>
-                        <span><a href="./tag/vtk.html">VTK</a></span>
-                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
-                        <span><a href="./tag/download.html">Download</a></span>
-                        <span><a href="./tag/qgis.html">QGIS</a></span>
-                        <span><a href="./tag/game.html">Game</a></span>
-                        <span><a href="./tag/video.html">Video</a></span>
-                        <span><a href="./tag/communicate.html">Communicate</a></span>
-                        <span><a href="./tag/geology.html">Geology</a></span>
-                        <span><a href="./tag/scholar.html">Scholar</a></span>
-                        <span><a href="./tag/mac.html">Mac</a></span>
-                        <span><a href="./tag/microscope.html">Microscope</a></span>
-                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
-                        <span><a href="./tag/photography.html">Photography</a></span>
-                        <span><a href="./tag/ide.html">IDE</a></span>
-                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
-                        <span><a href="./tag/lesson.html">Lesson</a></span>
-                        <span><a href="./tag/macos.html">macOS</a></span>
-                        <span><a href="./tag/qt.html">QT</a></span>
-                        <span><a href="./tag/disease.html">Disease</a></span>
-                        <span><a href="./tag/xcode.html">Xcode</a></span>
-                        <span><a href="./tag/poem.html">Poem</a></span>
-                        <span><a href="./tag/story.html">Story</a></span>
-                        <span><a href="./tag/chat.html">Chat</a></span>
-                        <span><a href="./tag/camera.html">Camera</a></span>
-                        <span><a href="./tag/software.html">Software</a></span>
-                        <span><a href="./tag/translation.html">Translation</a></span>
-                        <span><a href="./tag/learning.html">Learning</a></span>
-                        <span><a href="./tag/vispy.html">VisPy</a></span>
-                        <span><a href="./tag/server.html">Server</a></span>
-                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
-                        <span><a href="./tag/radio.html">Radio</a></span>
-                        <span><a href="./tag/data.html">Data</a></span>
-                        <span><a href="./tag/telescope.html">Telescope</a></span>
-                        <span><a href="./tag/science.html">Science</a></span>
-                        <span><a href="./tag/library.html">Library</a></span>
                         <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
-                        <span><a href="./tag/hack.html">Hack</a></span>
-                        <span><a href="./tag/geopython.html">GeoPython</a></span>
-                        <span><a href="./tag/moon.html">Moon</a></span>
-                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
-                        <span><a href="./tag/nas.html">NAS</a></span>
                         <span><a href="./tag/phd.html">PHD</a></span>
-                        <span><a href="./tag/programming.html">Programming</a></span>
-                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
-                        <span><a href="./tag/hardware.html">Hardware</a></span>
-                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
-                        <span><a href="./tag/gis.html">GIS</a></span>
-                        <span><a href="./tag/hate.html">Hate</a></span>
-                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
-                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
                         <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
-                        <span><a href="./tag/junck.html">Junck</a></span>
-                        <span><a href="./tag/university.html">University</a></span>
-                        <span><a href="./tag/conda.html">Conda</a></span>
-                        <span><a href="./tag/discuss.html">Discuss</a></span>
-                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
-                        <span><a href="./tag/cuda.html">CUDA</a></span>
-                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
                         <span><a href="./tag/pyenv.html">Pyenv</a></span>
-                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
                         <span><a href="./tag/translate.html">Translate</a></span>
                         <span><a href="./tag/visualization.html">Visualization</a></span>
-                        <span><a href="./tag/python.html">Python</a></span>
-                        <span><a href="./tag/kivy.html">Kivy</a></span>
-                        <span><a href="./tag/photo.html">Photo</a></span>
-                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
-                        <span><a href="./tag/memory.html">Memory</a></span>
-                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
-                        <span><a href="./tag/life.html">Life</a></span>
                         <span><a href="./tag/book.html">Book</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/hadoop.html">Hadoop</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/diy.html">DIY</a></span>
                 </div>
             </section>
 

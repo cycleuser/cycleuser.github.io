@@ -19,7 +19,6 @@ var _hmt = _hmt || [];
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
-    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
 </head>
 
 <body id="index" class="blog">
@@ -52,7 +51,7 @@ var _hmt = _hmt || [];
     <div class="post-meta">
         <span class="meta-prep">Post in</span>
         <abbr class="date" title="2017-05-09T16:20:00+08:00"> 
-            <a href="./archive/2017/May/index.html">Tue 09 May 2017 </a>
+            <a href="./archive/2017/5月/index.html">周二 09 五月 2017 </a>
         </abbr>
         <span class="meta-prep"> |Tags</span>
                 <a href="./tag/raspbian.html">Raspbian</a>
@@ -82,13 +81,13 @@ var _hmt = _hmt || [];
 <h2>更换更新源</h2>
 <p>安装好之后的第一件事，就是改用清华提供的更新源：</p>
 <p>这里需要改动 /etc/apt 目录下的 sources.list 文件，所以需要使用管理员权限（sudo），安装好的系统应该已经自带 nano 了，就用这个来编辑一下 /etc/apt/sources.list 文件。参考命令行为：</p>
-<div class="highlight"><pre><span></span><code>sudo nano /etc/apt/sources.list
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/apt/sources.list
 </code></pre></div>
 
 <p>先在行首添加 <code>#</code> 来注释掉所有已有的源。
 刚刚我们那个下载链接里面的是基于 Debian 8 的，所以接下来在另起一行添加下面两行内容：</p>
-<div class="highlight"><pre><span></span><code>deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ jessie main non-free contrib
-deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ jessie main non-free contrib
+<div class="highlight"><pre><span></span><code>deb<span class="w"> </span>http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/<span class="w"> </span>jessie<span class="w"> </span>main<span class="w"> </span>non-free<span class="w"> </span>contrib
+deb-src<span class="w"> </span>http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/<span class="w"> </span>jessie<span class="w"> </span>main<span class="w"> </span>non-free<span class="w"> </span>contrib
 </code></pre></div>
 
 <blockquote>
@@ -98,23 +97,23 @@ deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ jessie main non-f
 <h2>安装开发工具</h2>
 <p>准备工作都做好了，现在就是要安装咱们要用的 Python 包了，比如常用的 cython、numpy、matplotlib 之类的包，以及 spyder 之类的 IDE。</p>
 <p>这里推荐使用 apt 安装，因为我尝试了用 pip 安装的时候发现各种错误，很麻烦。 apt 安装的步骤如下：</p>
-<div class="highlight"><pre><span></span><code>sudo apt update
-sudo apt install python-matplotlib
-sudo apt install python3-matplotlib
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python-matplotlib
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-matplotlib
 </code></pre></div>
 
 <p>这样使用 apt 来安装 matplotlib 的过程中会同时安装其他必要的包，例如 numpy 等等。所以依赖关系比较好解决</p>
 <p>接下来就是安装我非常喜欢的 IDE 了，界面很赞的 Spyder:</p>
-<div class="highlight"><pre><span></span><code>sudo apt update
-sudo apt install spyder
-sudo apt install spyder3
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>spyder
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>spyder3
 </code></pre></div>
 
 <p>我还需要用到 pandas 和 xlrd，这两个我就在安装了上面的包之后用 pip 来安装了：</p>
-<div class="highlight"><pre><span></span><code>sudo apt update
-sudo apt install python-dev python-pip python3-dev python3-pip
-pip install pandas xlrd
-pip3 install pandas xlrd
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python-dev<span class="w"> </span>python-pip<span class="w"> </span>python3-dev<span class="w"> </span>python3-pip
+pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>xlrd
+pip3<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>xlrd
 </code></pre></div>
 
 <p>上面的命令中，先是手动安一下 pip 以避免系统没有自带 pip，然后是再通过 pip 来安装这两个包。</p>
@@ -122,23 +121,23 @@ pip3 install pandas xlrd
 <p>Raspberry Pi 上面有的包无法安装，比如 Anaconda 和 TensorFlow，这两个我就没能用 pip 安装成功，似乎是不支持 armv6l。</p>
 <p>我这个初代的 Raspberry Pi 只能安装一个 Miniconda 3.5.5 armv6l，下载地址在<a href="http://repo.continuum.io/miniconda/Miniconda-3.5.5-Linux-armv6l.sh">这里</a>。</p>
 <p>下载这个 sh 文件之后，复制到 home 目录下的个人目录，例如我的用户名是 pi，那就复制到 /home/pi/ 这个文件夹下面。然后在终端中输入：</p>
-<div class="highlight"><pre><span></span><code>/bin/bash Miniconda-3.5.5-Linux-armv6l.sh
+<div class="highlight"><pre><span></span><code>/bin/bash<span class="w"> </span>Miniconda-3.5.5-Linux-armv6l.sh
 </code></pre></div>
 
 <p>接下来就是按照指示来进行安装即可了。</p>
 <p>不太推荐使用这个，版本太旧了。</p>
 <h2>使用 PyEnv 安装和管理多版本</h2>
 <p>首先安装依赖包：</p>
-<div class="highlight"><pre><span></span><code>sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>make<span class="w"> </span>build-essential<span class="w"> </span>libssl-dev<span class="w"> </span>zlib1g-dev<span class="w"> </span>libbz2-dev<span class="w"> </span>libreadline-dev<span class="w"> </span>libsqlite3-dev<span class="w"> </span>wget<span class="w"> </span>curl<span class="w"> </span>llvm
 </code></pre></div>
 
 <p>然后使用脚本安装 Pyenv：</p>
-<div class="highlight"><pre><span></span><code>curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer <span class="p">|</span> bash
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span>https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
 </code></pre></div>
 
 <p>根据提示修改环境变量，然后重新运行终端。</p>
 <p>接下来就是来安装一个全新的 Python 3.6.1，我非常喜欢这个版本，因为字典有序了，所以我就喜欢，爱咋地咋地咯~</p>
-<div class="highlight"><pre><span></span><code>pyenv install <span class="m">3</span>.6.1
+<div class="highlight"><pre><span></span><code>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.6.1
 </code></pre></div>
 
 <p>剩下的内容就跟全新配置开发环境一样，使用 pip 来安装你想要的包就可以了。</p>
@@ -197,6 +196,7 @@ pip3 install pandas xlrd
                         <li><a href="./category/duke.html" >Duke </a></li>
                         <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
                         <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/linux.html" >Linux </a></li>
                         <li><a href="./category/mac.html" >Mac </a></li>
                         <li><a href="./category/nas.html" >NAS </a></li>
                         <li><a href="./category/photography.html" >Photography </a></li>
@@ -216,78 +216,79 @@ pip3 install pandas xlrd
                     Tagcloud
                 </div>
                 <div>
-                        <span><a href="./tag/diy.html">DIY</a></span>
-                        <span><a href="./tag/shit.html">Shit</a></span>
-                        <span><a href="./tag/vtk.html">VTK</a></span>
-                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
-                        <span><a href="./tag/download.html">Download</a></span>
-                        <span><a href="./tag/qgis.html">QGIS</a></span>
-                        <span><a href="./tag/game.html">Game</a></span>
-                        <span><a href="./tag/video.html">Video</a></span>
-                        <span><a href="./tag/communicate.html">Communicate</a></span>
-                        <span><a href="./tag/geology.html">Geology</a></span>
-                        <span><a href="./tag/scholar.html">Scholar</a></span>
-                        <span><a href="./tag/mac.html">Mac</a></span>
-                        <span><a href="./tag/microscope.html">Microscope</a></span>
-                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
-                        <span><a href="./tag/photography.html">Photography</a></span>
-                        <span><a href="./tag/ide.html">IDE</a></span>
-                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
-                        <span><a href="./tag/lesson.html">Lesson</a></span>
-                        <span><a href="./tag/macos.html">macOS</a></span>
-                        <span><a href="./tag/qt.html">QT</a></span>
-                        <span><a href="./tag/disease.html">Disease</a></span>
-                        <span><a href="./tag/xcode.html">Xcode</a></span>
-                        <span><a href="./tag/poem.html">Poem</a></span>
-                        <span><a href="./tag/story.html">Story</a></span>
-                        <span><a href="./tag/chat.html">Chat</a></span>
-                        <span><a href="./tag/camera.html">Camera</a></span>
-                        <span><a href="./tag/software.html">Software</a></span>
-                        <span><a href="./tag/translation.html">Translation</a></span>
-                        <span><a href="./tag/learning.html">Learning</a></span>
-                        <span><a href="./tag/vispy.html">VisPy</a></span>
-                        <span><a href="./tag/server.html">Server</a></span>
-                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
-                        <span><a href="./tag/radio.html">Radio</a></span>
-                        <span><a href="./tag/data.html">Data</a></span>
-                        <span><a href="./tag/telescope.html">Telescope</a></span>
-                        <span><a href="./tag/science.html">Science</a></span>
-                        <span><a href="./tag/library.html">Library</a></span>
                         <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
-                        <span><a href="./tag/hack.html">Hack</a></span>
-                        <span><a href="./tag/geopython.html">GeoPython</a></span>
-                        <span><a href="./tag/moon.html">Moon</a></span>
-                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
-                        <span><a href="./tag/nas.html">NAS</a></span>
                         <span><a href="./tag/phd.html">PHD</a></span>
-                        <span><a href="./tag/programming.html">Programming</a></span>
-                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
-                        <span><a href="./tag/hardware.html">Hardware</a></span>
-                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
-                        <span><a href="./tag/gis.html">GIS</a></span>
-                        <span><a href="./tag/hate.html">Hate</a></span>
-                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
-                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
                         <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
-                        <span><a href="./tag/junck.html">Junck</a></span>
-                        <span><a href="./tag/university.html">University</a></span>
-                        <span><a href="./tag/conda.html">Conda</a></span>
-                        <span><a href="./tag/discuss.html">Discuss</a></span>
-                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
-                        <span><a href="./tag/cuda.html">CUDA</a></span>
-                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
                         <span><a href="./tag/pyenv.html">Pyenv</a></span>
-                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
                         <span><a href="./tag/translate.html">Translate</a></span>
                         <span><a href="./tag/visualization.html">Visualization</a></span>
-                        <span><a href="./tag/python.html">Python</a></span>
-                        <span><a href="./tag/kivy.html">Kivy</a></span>
-                        <span><a href="./tag/photo.html">Photo</a></span>
-                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
-                        <span><a href="./tag/memory.html">Memory</a></span>
-                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
-                        <span><a href="./tag/life.html">Life</a></span>
                         <span><a href="./tag/book.html">Book</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/hadoop.html">Hadoop</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/diy.html">DIY</a></span>
                 </div>
             </section>
 

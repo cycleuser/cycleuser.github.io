@@ -5,30 +5,37 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>blog.cycleuser.org/</loc>
-<lastmod>2022-12-16T11:31:32-00:00</lastmod>
+<lastmod>2024-05-07T19:14:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>blog.cycleuser.org/archives.html</loc>
-<lastmod>2022-12-16T11:31:32-00:00</lastmod>
+<lastmod>2024-05-07T19:14:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>blog.cycleuser.org/tags.html</loc>
-<lastmod>2022-12-16T11:31:32-00:00</lastmod>
+<lastmod>2024-05-07T19:14:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>blog.cycleuser.org/categories.html</loc>
-<lastmod>2022-12-16T11:31:32-00:00</lastmod>
+<lastmod>2024-05-07T19:14:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
+</url>
+
+<url>
+<loc>blog.cycleuser.org/ubuntu-server-2404-shang-an-zhuang-hadoop-340.html</loc>
+<lastmod>2024-05-07T18:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -683,6 +690,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>blog.cycleuser.org/category/linux.html</loc>
+<lastmod>2024-05-07T18:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
 <loc>blog.cycleuser.org/category/mac.html</loc>
 <lastmod>2016-10-01T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -755,6 +769,27 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>blog.cycleuser.org/category/work.html</loc>
 <lastmod>2017-10-01T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>blog.cycleuser.org/tag/university.html</loc>
+<lastmod>2024-05-07T18:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>blog.cycleuser.org/tag/linux.html</loc>
+<lastmod>2024-05-07T18:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>blog.cycleuser.org/tag/hadoop.html</loc>
+<lastmod>2024-05-07T18:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -1054,13 +1089,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>blog.cycleuser.org/tag/linux.html</loc>
-<lastmod>2017-05-09T16:20:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
 <loc>blog.cycleuser.org/tag/discuss.html</loc>
 <lastmod>2017-04-22T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -1069,13 +1097,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>blog.cycleuser.org/tag/communicate.html</loc>
-<lastmod>2017-04-22T00:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>blog.cycleuser.org/tag/university.html</loc>
 <lastmod>2017-04-22T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
@@ -1265,7 +1286,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>blog.cycleuser.org/author/cycleusyer.html</loc>
-<lastmod>2022-06-08T23:59:00+08:06</lastmod>
+<lastmod>2024-05-07T18:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>

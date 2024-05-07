@@ -19,7 +19,6 @@ var _hmt = _hmt || [];
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
-    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
 </head>
 
 <body id="index" class="blog">
@@ -52,7 +51,7 @@ var _hmt = _hmt || [];
     <div class="post-meta">
         <span class="meta-prep">Post in</span>
         <abbr class="date" title="2022-01-11T23:59:00+08:00"> 
-            <a href="./archive/2022/Jan/index.html">Tue 11 January 2022 </a>
+            <a href="./archive/2022/1月/index.html">周二 11 一月 2022 </a>
         </abbr>
         <span class="meta-prep"> |Tags</span>
                 <a href="./tag/gis.html">GIS</a>
@@ -293,10 +292,10 @@ latitude = 37.7739
 longitude = -121.5687
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>print(type(population))
+<div class="highlight"><pre><span></span><code><span class="nx">print</span><span class="p">(</span><span class="k">type</span><span class="p">(</span><span class="nx">population</span><span class="p">))</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>print(type(latitude))
+<div class="highlight"><pre><span></span><code><span class="nx">print</span><span class="p">(</span><span class="k">type</span><span class="p">(</span><span class="nx">latitude</span><span class="p">))</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>elevation_feet = 934
@@ -316,7 +315,7 @@ print(density)
 </ul>
 <p>在下面的代码基础上添加语句并运行，结果应该是2569.37。</p>
 <div class="highlight"><pre><span></span><code>distance_km = 4135
-# Remove this line and add code here
+<span class="gh">#</span> Remove this line and add code here
 </code></pre></div>
 
 <hr>
@@ -400,8 +399,8 @@ print(data)
 <p>从下面的字典中要读取经纬度的值，怎么实现？
 下面字典的地理位置是纽约城，从中提取一下经纬度。
 正确的结果应该是：</p>
-<div class="highlight"><pre><span></span><code><span class="mf">40.661</span><span class="w"></span>
-<span class="o">-</span><span class="mf">73.944</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="mf">40.661</span>
+<span class="o">-</span><span class="mf">73.944</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>nyc_data = {&#39;city&#39;: &#39;New York&#39;, &#39;population&#39;: 8175133, &#39;coordinates&#39;: (40.661, -73.944) }
@@ -438,7 +437,7 @@ print(len(city))
 <p>这时候，就可以在Python字符串中使用反斜杠*<em>*</em>，这是一个特殊字符，也叫做「转义字符」。将这个字符添加在任何字符前面，都使得该字符成为一个常规字符。（提示，反斜杠前面放一个反斜杠会使得后者也变成一个常规的反斜杠字符而没有特殊作用。）</p>
 <p>另外，反斜杠也用于表示特定的语义字符，比如\n就是换行，\t就是一个tab（四个空格或者八个空格，和系统相关）等等。</p>
 <p>删除掉#号，就可以去掉块中的注释，然后就能运行了。</p>
-<div class="highlight"><pre><span></span><code># my_string = &#39;It&#39;s a beautiful day!&#39;
+<div class="highlight"><pre><span></span><code><span class="gh">#</span> my_string = &#39;It&#39;s a beautiful day!&#39;
 </code></pre></div>
 
 <p>因为单引号没有加转义字符，所以会报错。可以通过在单引号前面添加反斜杠来解决掉这个问题。</p>
@@ -486,9 +485,9 @@ print(coordinates)
 <hr>
 <h2>练习</h2>
 <p>使用字符串切片提取并打印度分秒。输出应该如下所示：</p>
-<div class="highlight"><pre><span></span><code><span class="mf">37</span><span class="w"></span>
-<span class="mf">46</span><span class="w"></span>
-<span class="mf">26.2992</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="mf">37</span>
+<span class="mf">46</span>
+<span class="mf">26.2992</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>latitude = &#39;&#39;&#39;37° 46&#39; 26.2992&quot;&#39;&#39;&#39;
@@ -499,88 +498,88 @@ print(coordinates)
 <h1>循环和条件</h1>
 <h2>For 循环</h2>
 <p>For 循环要使用一个序列进行迭代（iterating）。这个序列可以是列表、元组、字典、集合，或者字符串。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>[<span class="s1">&#39;San Francisco&#39;</span>,<span class="w"> </span><span class="s1">&#39;Los Angeles&#39;</span>,<span class="w"> </span><span class="s1">&#39;New York&#39;</span>,<span class="w"> </span><span class="s1">&#39;Atlanta&#39;</span>]<span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nv">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>[<span class="s1">&#39;San Francisco&#39;</span>,<span class="w"> </span><span class="s1">&#39;Los Angeles&#39;</span>,<span class="w"> </span><span class="s1">&#39;New York&#39;</span>,<span class="w"> </span><span class="s1">&#39;Atlanta&#39;</span>]
 
-<span class="k">for</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">cities</span>:<span class="w"></span>
-<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="nv">city</span><span class="ss">)</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">cities</span>:
+<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="nv">city</span><span class="ss">)</span>
 </code></pre></div>
 
 <p>要对一个字典进行迭代，可以调用<code>items()</code>方法，返回的是一个元组，由一个键和值组成。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>{<span class="s1">&#39;city&#39;</span>:<span class="w"> </span><span class="s1">&#39;San Francisco&#39;</span>,<span class="w"> </span><span class="s1">&#39;population&#39;</span>:<span class="w"> </span><span class="mi">881549</span>,<span class="w"> </span><span class="s1">&#39;coordinates&#39;</span>:<span class="w"> </span><span class="ss">(</span><span class="o">-</span><span class="mi">122</span>.<span class="mi">4194</span>,<span class="w"> </span><span class="mi">37</span>.<span class="mi">7749</span><span class="ss">)</span><span class="w"> </span>}<span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>{<span class="s1">&#39;city&#39;</span>:<span class="w"> </span><span class="s1">&#39;San Francisco&#39;</span>,<span class="w"> </span><span class="s1">&#39;population&#39;</span>:<span class="w"> </span><span class="mi">881549</span>,<span class="w"> </span><span class="s1">&#39;coordinates&#39;</span>:<span class="w"> </span><span class="ss">(</span><span class="o">-</span><span class="mi">122</span>.<span class="mi">4194</span>,<span class="w"> </span><span class="mi">37</span>.<span class="mi">7749</span><span class="ss">)</span><span class="w"> </span>}
 
-<span class="k">for</span><span class="w"> </span><span class="nv">x</span>,<span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">data</span>.<span class="nv">items</span><span class="ss">()</span>:<span class="w"></span>
-<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="nv">x</span>,<span class="w"> </span><span class="nv">y</span><span class="ss">)</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="nv">x</span>,<span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">data</span>.<span class="nv">items</span><span class="ss">()</span>:
+<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="nv">x</span>,<span class="w"> </span><span class="nv">y</span><span class="ss">)</span>
 </code></pre></div>
 
 <p>内置的<code>range()</code>允许你基于数值来创建可迭代的序列。</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">range</span><span class="ss">(</span><span class="mi">5</span><span class="ss">)</span>:<span class="w"></span>
-<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">range</span><span class="ss">(</span><span class="mi">5</span><span class="ss">)</span>:
+<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span>
 </code></pre></div>
 
 <p>还可以设置起止点和步长。</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">range</span><span class="ss">(</span><span class="mi">1</span>,<span class="w"> </span><span class="mi">10</span>,<span class="w"> </span><span class="mi">2</span><span class="ss">)</span>:<span class="w"></span>
-<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">range</span><span class="ss">(</span><span class="mi">1</span>,<span class="w"> </span><span class="mi">10</span>,<span class="w"> </span><span class="mi">2</span><span class="ss">)</span>:
+<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="nv">x</span><span class="ss">)</span>
 </code></pre></div>
 
 <h1>条件判断</h1>
 <p>Python支持的逻辑条件包括等于、不等、大于、小于、大于等于、小于等于等等。这些条件可以有多种用法，最常见的是放在if语句和循环体中。</p>
 <p>很自然，<em>if 语句</em>就是用<code>if</code>关键词写的了。</p>
 <p>注意：有一个常见的错误就是在逻辑条件判断的时候使用单等号<em>=</em>，单个等号<em>=</em>是用来赋值的，不是用来判断相等关系的。判断相等关系要用双等号<em>==</em>才行。</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">cities</span>:<span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Atlanta&#39;</span>:<span class="w"></span>
-<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="nv">city</span><span class="ss">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">cities</span>:
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Atlanta&#39;</span>:
+<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="nv">city</span><span class="ss">)</span>
 </code></pre></div>
 
 <p>和<code>if</code>配合使用的<code>else</code>就可以做多个条件的判断了。</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">cities</span>:<span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Atlanta&#39;</span>:<span class="w"></span>
-<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="nv">city</span><span class="ss">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">else</span>:<span class="w"></span>
-<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="s1">&#39;This is not Atlanta&#39;</span><span class="ss">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">cities</span>:
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Atlanta&#39;</span>:
+<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="nv">city</span><span class="ss">)</span>
+<span class="w">    </span><span class="k">else</span>:
+<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="s1">&#39;This is not Atlanta&#39;</span><span class="ss">)</span>
 </code></pre></div>
 
 <p>Python的代码要靠缩进来区分段落。所以一定要做好代码缩进。
 使用<code>elif</code>还可以评估一系列的判断条件。
 多个条件的组合可以使用<code>and</code> 和 <code>or</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">cities_population</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>{<span class="w"></span>
-<span class="w">    </span><span class="s1">&#39;San Francisco&#39;</span>:<span class="w"> </span><span class="mi">881549</span>,<span class="w"></span>
-<span class="w">    </span><span class="s1">&#39;Los Angeles&#39;</span>:<span class="w"> </span><span class="mi">3792621</span>,<span class="w"></span>
-<span class="w">    </span><span class="s1">&#39;New York&#39;</span>:<span class="w"> </span><span class="mi">8175133</span>,<span class="w"></span>
-<span class="w">    </span><span class="s1">&#39;Atlanta&#39;</span>:<span class="mi">498044</span><span class="w"></span>
-}<span class="w"></span>
+<div class="highlight"><pre><span></span><code>cities_population = {
+    &#39;San Francisco&#39;: 881549,
+    &#39;Los Angeles&#39;: 3792621,
+    &#39;New York&#39;: 8175133,
+    &#39;Atlanta&#39;:498044
+}
 
-<span class="k">for</span><span class="w"> </span><span class="nv">city</span>,<span class="w"> </span><span class="nv">population</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">cities_population</span>.<span class="nv">items</span><span class="ss">()</span>:<span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">population</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000000</span>:<span class="w"></span>
-<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="s1">&#39;{} is a small city&#39;</span>.<span class="nv">format</span><span class="ss">(</span><span class="nv">city</span><span class="ss">))</span><span class="w"></span>
-<span class="w">    </span><span class="nv">elif</span><span class="w"> </span><span class="nv">population</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1000000</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">population</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5000000</span>:<span class="w"></span>
-<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="s1">&#39;{} is a big city&#39;</span>.<span class="nv">format</span><span class="ss">(</span><span class="nv">city</span><span class="ss">))</span><span class="w"></span>
-<span class="w">    </span><span class="k">else</span>:<span class="w"></span>
-<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="s1">&#39;{} is a mega city&#39;</span>.<span class="nv">format</span><span class="ss">(</span><span class="nv">city</span><span class="ss">))</span><span class="w"></span>
+for city, population in cities_population.items():
+    if population &lt; 1000000:
+        print(&#39;{} is a small city&#39;.format(city))
+    elif population &gt; 1000000 and population &lt; 5000000:
+        print(&#39;{} is a big city&#39;.format(city))
+    else:
+        print(&#39;{} is a mega city&#39;.format(city))
 </code></pre></div>
 
 <h2>控制语句</h2>
 <p>For循环每次在序列中迭代一个元素。有时候可能要停止执行，或者跳过某部分。这时候可以使用<code>break</code>、<code>continue</code>、<code>pass</code>这三种语句。</p>
 <p><code>break</code> 停止循环并跳出。</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">cities</span>:<span class="w"></span>
-<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="nv">city</span><span class="ss">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Los Angeles&#39;</span>:<span class="w"></span>
-<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="s1">&#39;I found Los Angeles&#39;</span><span class="ss">)</span><span class="w"></span>
-<span class="w">        </span><span class="k">break</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">cities</span>:
+<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="nv">city</span><span class="ss">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Los Angeles&#39;</span>:
+<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="s1">&#39;I found Los Angeles&#39;</span><span class="ss">)</span>
+<span class="w">        </span><span class="k">break</span>
 </code></pre></div>
 
 <p><code>continue</code> 跳过循环体内剩余部分直接进行下一部分迭代。</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">cities</span>:<span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Los Angeles&#39;</span>:<span class="w"></span>
-<span class="w">        </span><span class="k">continue</span><span class="w"></span>
-<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="nv">city</span><span class="ss">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">cities</span>:
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Los Angeles&#39;</span>:
+<span class="w">        </span><span class="k">continue</span>
+<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="nv">city</span><span class="ss">)</span>
 </code></pre></div>
 
 <p><code>pass</code> 语句什么都不做。这个在你需完成一些语法结构但还不希望任何代码执行的时候就很有用。一般用作未完成函数部分的占位符。</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">cities</span>:<span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Los Angeles&#39;</span>:<span class="w"></span>
-<span class="w">        </span><span class="nv">pass</span><span class="w"></span>
-<span class="w">    </span><span class="k">else</span>:<span class="w"></span>
-<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="nv">city</span><span class="ss">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">cities</span>:
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">city</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Los Angeles&#39;</span>:
+<span class="w">        </span><span class="nv">pass</span>
+<span class="w">    </span><span class="k">else</span>:
+<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="nv">city</span><span class="ss">)</span>
 </code></pre></div>
 
 <h2>练习</h2>
@@ -596,11 +595,11 @@ print(coordinates)
 <li>其他情况输出这个数本身</li>
 </ul>
 <p>提示：代码如下所示。这里要使用求余数运算符（modulus operator）<strong>%</strong>来验证一个数能不能被另一个数整除。比如<code>10 % 5</code> 等于0，余数为零，那就是能整除了。</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">range</span><span class="ss">(</span><span class="mi">1</span>,<span class="w"> </span><span class="mi">10</span><span class="ss">)</span>:<span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">x</span><span class="o">%</span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span>:<span class="w"></span>
-<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="s1">&#39;{} is divisible by 2&#39;</span>.<span class="nv">format</span><span class="ss">(</span><span class="nv">x</span><span class="ss">))</span><span class="w"></span>
-<span class="w">    </span><span class="k">else</span>:<span class="w"></span>
-<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="s1">&#39;{} is not divisible by 2&#39;</span>.<span class="nv">format</span><span class="ss">(</span><span class="nv">x</span><span class="ss">))</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">range</span><span class="ss">(</span><span class="mi">1</span>,<span class="w"> </span><span class="mi">10</span><span class="ss">)</span>:
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">x</span><span class="o">%</span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span>:
+<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="s1">&#39;{} is divisible by 2&#39;</span>.<span class="nv">format</span><span class="ss">(</span><span class="nv">x</span><span class="ss">))</span>
+<span class="w">    </span><span class="k">else</span>:
+<span class="w">        </span><span class="nv">print</span><span class="ss">(</span><span class="s1">&#39;{} is not divisible by 2&#39;</span>.<span class="nv">format</span><span class="ss">(</span><span class="nv">x</span><span class="ss">))</span>
 </code></pre></div>
 
 <hr>
@@ -609,17 +608,17 @@ print(coordinates)
 <h1>函数（Functions）</h1>
 <p>函数是一段代码，接受一个或多个输入<em>inputs</em>，进行一些内部处理，然后返回一个或多个输出<em>outputs</em>。函数内的代码只在函数被调用的时候才会被运行。（译者注：编程语言里的函数都是把重复使用的代码封装起来，有没有输入输出都可以；另外，python多个输出时其实也是一个元组tuple，无输出的时候可以看作是一个空的元组tuple。）</p>
 <p>定义函数要使用<code>def</code>关键词，如下所示：</p>
-<div class="highlight"><pre><span></span><code><span class="nv">def</span><span class="w"> </span><span class="nv">my_function</span><span class="ss">()</span>:<span class="w"></span>
-<span class="w">    </span>....<span class="w"></span>
-<span class="w">    </span>....<span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nv">something</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>def my_function():
+    ....
+    ....
+    return something
 </code></pre></div>
 
 <p>函数非常有用处，可以让我们关注的代码的逻辑，然后每次用不同的输入来获得不同的输出，复用代码。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">def</span><span class="w"> </span><span class="nv">greet</span><span class="ss">(</span><span class="nv">name</span><span class="ss">)</span>:<span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;Hello &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">name</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nv">def</span><span class="w"> </span><span class="nv">greet</span><span class="ss">(</span><span class="nv">name</span><span class="ss">)</span>:
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;Hello &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">name</span>
 
-<span class="nv">print</span><span class="ss">(</span><span class="nv">greet</span><span class="ss">(</span><span class="s1">&#39;World&#39;</span><span class="ss">))</span><span class="w"></span>
+<span class="nv">print</span><span class="ss">(</span><span class="nv">greet</span><span class="ss">(</span><span class="s1">&#39;World&#39;</span><span class="ss">))</span>
 </code></pre></div>
 
 <p>函数可以接受多个参数（arguments）。接下来就写一个坐标单位转换的函数，将度分秒转换成十进制下的度。这个转换在处理收集的GPS位置数据的时候会经常用到。</p>
@@ -633,12 +632,12 @@ print(coordinates)
 <p>如果度数是负值：</p>
 <p><code>十进制度 Decimal Degrees = 度degrees - (分minutes/60) - (秒seconds/3600)</code></p>
 <p>代码如下：</p>
-<div class="highlight"><pre><span></span><code><span class="nv">def</span><span class="w"> </span><span class="nv">dms_to_decimal</span><span class="ss">(</span><span class="nv">degrees</span>,<span class="w"> </span><span class="nv">minutes</span>,<span class="w"> </span><span class="nv">seconds</span><span class="ss">)</span>:<span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">degrees</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span>:<span class="w"></span>
-<span class="w">        </span><span class="nb">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">degrees</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">minutes</span><span class="o">/</span><span class="mi">60</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">seconds</span><span class="o">/</span><span class="mi">3600</span><span class="w"></span>
-<span class="w">    </span><span class="k">else</span>:<span class="w"></span>
-<span class="w">        </span><span class="nb">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">degrees</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">minutes</span><span class="o">/</span><span class="mi">60</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">seconds</span><span class="o">/</span><span class="mi">3600</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">result</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>def dms_to_decimal(degrees, minutes, seconds):
+    if degrees &lt; 0:
+        result = degrees - minutes/60 - seconds/3600
+    else:
+        result = degrees + minutes/60 + seconds/3600
+    return result
 </code></pre></div>
 
 <p>运行一下试试：</p>
@@ -648,27 +647,27 @@ print(output)
 
 <h2>练习</h2>
 <p>对任意一个度分秒的坐标值，调用上面的<code>dms_to_decimal</code>函数将其转换成十进制的度。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">def</span><span class="w"> </span><span class="nv">dms_to_decimal</span><span class="ss">(</span><span class="nv">degrees</span>,<span class="w"> </span><span class="nv">minutes</span>,<span class="w"> </span><span class="nv">seconds</span><span class="ss">)</span>:<span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nv">degrees</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span>:<span class="w"></span>
-<span class="w">        </span><span class="nb">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">degrees</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">minutes</span><span class="o">/</span><span class="mi">60</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">seconds</span><span class="o">/</span><span class="mi">3600</span><span class="w"></span>
-<span class="w">    </span><span class="k">else</span>:<span class="w"></span>
-<span class="w">        </span><span class="nb">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">degrees</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">minutes</span><span class="o">/</span><span class="mi">60</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">seconds</span><span class="o">/</span><span class="mi">3600</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">result</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>def dms_to_decimal(degrees, minutes, seconds):
+    if degrees &lt; 0:
+        result = degrees - minutes/60 - seconds/3600
+    else:
+        result = degrees + minutes/60 + seconds/3600
+    return result
 
-<span class="nv">coordinate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;&#39;37° 46&#39;</span><span class="w"> </span><span class="mi">26</span>.<span class="mi">2992</span><span class="err">&quot;&#39;&#39;&#39;</span>
+coordinate = &#39;&#39;&#39;37° 46&#39; 26.2992&quot;&#39;&#39;&#39;
 
-<span class="err"># 在下面添加代码，从字符串中提取出坐标数值</span>
-<span class="err"># 然后调用函数将坐标转换成十进制度并打印输出</span>
-<span class="err"># 正确结果应该是 37.773972</span><span class="w"></span>
+<span class="gh">#</span> 在下面添加代码，从字符串中提取出坐标数值
+<span class="gh">#</span> 然后调用函数将坐标转换成十进制度并打印输出
+<span class="gh">#</span> 正确结果应该是 37.773972
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code># 提示：先将字符串转换成淑芝
-# 当你直接从字符串中提取坐标的时候，提取到的是字符串
-# 所以你需要使用内置的浮点数转换函数foat()来将其转换成数值
-x = &#39;25&#39;
-print(x, type(x))
-y = int(x)
-print(y, type(y))
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="nx">提示</span><span class="err">：</span><span class="nx">先将字符串转换成淑芝</span>
+<span class="err">#</span><span class="w"> </span><span class="nx">当你直接从字符串中提取坐标的时候</span><span class="err">，</span><span class="nx">提取到的是字符串</span>
+<span class="err">#</span><span class="w"> </span><span class="nx">所以你需要使用内置的浮点数转换函数foat</span><span class="p">()</span><span class="nx">来将其转换成数值</span>
+<span class="nx">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">25</span><span class="err">&#39;</span>
+<span class="nx">print</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="k">type</span><span class="p">(</span><span class="nx">x</span><span class="p">))</span>
+<span class="nx">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">int</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+<span class="nx">print</span><span class="p">(</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="k">type</span><span class="p">(</span><span class="nx">y</span><span class="p">))</span>
 </code></pre></div>
 
 <hr>
@@ -693,17 +692,17 @@ print(y, type(y))
 new_york = (40.661, -73.944)
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="nv">def</span><span class="w"> </span><span class="nv">haversine_distance</span><span class="ss">(</span><span class="nv">origin</span>,<span class="w"> </span><span class="nv">destination</span><span class="ss">)</span>:<span class="w"></span>
-<span class="w">  </span><span class="nv">lat1</span>,<span class="w"> </span><span class="nv">lon1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">origin</span><span class="w"></span>
-<span class="w">  </span><span class="nv">lat2</span>,<span class="w"> </span><span class="nv">lon2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">destination</span><span class="w"></span>
-<span class="w">  </span><span class="nv">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6371000</span><span class="w"></span>
-<span class="w">  </span><span class="nv">dlat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">radians</span><span class="ss">(</span><span class="nv">lat2</span><span class="o">-</span><span class="nv">lat1</span><span class="ss">)</span><span class="w"></span>
-<span class="w">  </span><span class="nv">dlon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">radians</span><span class="ss">(</span><span class="nv">lon2</span><span class="o">-</span><span class="nv">lon1</span><span class="ss">)</span><span class="w"></span>
-<span class="w">  </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">sin</span><span class="ss">(</span><span class="nv">dlat</span><span class="o">/</span><span class="mi">2</span><span class="ss">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">sin</span><span class="ss">(</span><span class="nv">dlat</span><span class="o">/</span><span class="mi">2</span><span class="ss">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">cos</span><span class="ss">(</span><span class="nv">math</span>.<span class="nv">radians</span><span class="ss">(</span><span class="nv">lat1</span><span class="ss">))</span><span class="w"> </span>\<span class="w"></span>
-<span class="w">    </span><span class="o">*</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">cos</span><span class="ss">(</span><span class="nv">math</span>.<span class="nv">radians</span><span class="ss">(</span><span class="nv">lat2</span><span class="ss">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">sin</span><span class="ss">(</span><span class="nv">dlon</span><span class="o">/</span><span class="mi">2</span><span class="ss">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">sin</span><span class="ss">(</span><span class="nv">dlon</span><span class="o">/</span><span class="mi">2</span><span class="ss">)</span><span class="w"></span>
-<span class="w">  </span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">atan2</span><span class="ss">(</span><span class="nv">math</span>.<span class="nv">sqrt</span><span class="ss">(</span><span class="nv">a</span><span class="ss">)</span>,<span class="w"> </span><span class="nv">math</span>.<span class="nv">sqrt</span><span class="ss">(</span><span class="mi">1</span><span class="o">-</span><span class="nv">a</span><span class="ss">))</span><span class="w"></span>
-<span class="w">  </span><span class="nv">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">c</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nv">distance</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>def haversine_distance(origin, destination):
+  lat1, lon1 = origin
+  lat2, lon2 = destination
+  radius = 6371000
+  dlat = math.radians(lat2-lat1)
+  dlon = math.radians(lon2-lon1)
+  a = math.sin(dlat/2) <span class="gs">* math.sin(dlat/2) + math.cos(math.radians(lat1)) \</span>
+<span class="gs">    *</span> math.cos(math.radians(lat2)) <span class="gs">* math.sin(dlon/2) *</span> math.sin(dlon/2)
+  c = 2 <span class="gs">* math.atan2(math.sqrt(a), math.sqrt(1-a))</span>
+<span class="gs">  distance = radius *</span> c
+  return distance
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>distance = haversine_distance(san_francisco, new_york)
@@ -720,21 +719,21 @@ print(distance/1000, &#39;km&#39;)
 <p>另外可以参考 <a href="https://towardsdatascience.com/7-easter-eggs-in-python-7765dc15a203">Python 里的彩蛋列表</a>。</p>
 <h2>练习</h2>
 <p>找两个你身边城市的位置坐标，然后计算两地之间的距离，使用下面的<code>haversine_distance</code>函数。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">def</span><span class="w"> </span><span class="nv">haversine_distance</span><span class="ss">(</span><span class="nv">origin</span>,<span class="w"> </span><span class="nv">destination</span><span class="ss">)</span>:<span class="w"></span>
-<span class="w">  </span><span class="nv">lat1</span>,<span class="w"> </span><span class="nv">lon1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">origin</span><span class="w"></span>
-<span class="w">  </span><span class="nv">lat2</span>,<span class="w"> </span><span class="nv">lon2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">destination</span><span class="w"></span>
-<span class="w">  </span><span class="nv">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6371000</span><span class="w"></span>
-<span class="w">  </span><span class="nv">dlat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">radians</span><span class="ss">(</span><span class="nv">lat2</span><span class="o">-</span><span class="nv">lat1</span><span class="ss">)</span><span class="w"></span>
-<span class="w">  </span><span class="nv">dlon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">radians</span><span class="ss">(</span><span class="nv">lon2</span><span class="o">-</span><span class="nv">lon1</span><span class="ss">)</span><span class="w"></span>
-<span class="w">  </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">sin</span><span class="ss">(</span><span class="nv">dlat</span><span class="o">/</span><span class="mi">2</span><span class="ss">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">sin</span><span class="ss">(</span><span class="nv">dlat</span><span class="o">/</span><span class="mi">2</span><span class="ss">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">cos</span><span class="ss">(</span><span class="nv">math</span>.<span class="nv">radians</span><span class="ss">(</span><span class="nv">lat1</span><span class="ss">))</span><span class="w"> </span>\<span class="w"></span>
-<span class="w">    </span><span class="o">*</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">cos</span><span class="ss">(</span><span class="nv">math</span>.<span class="nv">radians</span><span class="ss">(</span><span class="nv">lat2</span><span class="ss">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">sin</span><span class="ss">(</span><span class="nv">dlon</span><span class="o">/</span><span class="mi">2</span><span class="ss">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">sin</span><span class="ss">(</span><span class="nv">dlon</span><span class="o">/</span><span class="mi">2</span><span class="ss">)</span><span class="w"></span>
-<span class="w">  </span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">math</span>.<span class="nv">atan2</span><span class="ss">(</span><span class="nv">math</span>.<span class="nv">sqrt</span><span class="ss">(</span><span class="nv">a</span><span class="ss">)</span>,<span class="w"> </span><span class="nv">math</span>.<span class="nv">sqrt</span><span class="ss">(</span><span class="mi">1</span><span class="o">-</span><span class="nv">a</span><span class="ss">))</span><span class="w"></span>
-<span class="w">  </span><span class="nv">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">c</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nv">distance</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>def haversine_distance(origin, destination):
+  lat1, lon1 = origin
+  lat2, lon2 = destination
+  radius = 6371000
+  dlat = math.radians(lat2-lat1)
+  dlon = math.radians(lon2-lon1)
+  a = math.sin(dlat/2) <span class="gs">* math.sin(dlat/2) + math.cos(math.radians(lat1)) \</span>
+<span class="gs">    *</span> math.cos(math.radians(lat2)) <span class="gs">* math.sin(dlon/2) *</span> math.sin(dlon/2)
+  c = 2 <span class="gs">* math.atan2(math.sqrt(a), math.sqrt(1-a))</span>
+<span class="gs">  distance = radius *</span> c
+  return distance
 
-#<span class="w"> </span><span class="nv">city1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">(</span><span class="nv">lat1</span>,<span class="w"> </span><span class="nv">lng1</span><span class="ss">)</span><span class="w"></span>
-#<span class="w"> </span><span class="nv">city2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">(</span><span class="nv">lat2</span>,<span class="w"> </span><span class="nv">lng2</span><span class="ss">)</span><span class="w"></span>
-#<span class="w"> </span><span class="k">call</span><span class="w"> </span><span class="nl">the</span><span class="w"> </span><span class="nv">function</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">print</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nb">result</span><span class="w"></span>
+<span class="gh">#</span> city1 = (lat1, lng1)
+<span class="gh">#</span> city2 = (lat2, lng2)
+<span class="gh">#</span> call the function and print the result
 </code></pre></div>
 
 <hr>
@@ -794,18 +793,18 @@ print(distance/1000, &#39;km&#39;)
 <p>JSON 是 <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation 的缩写。这个文件格式是用来存储和传输数据的，也是接口之间进行数据传输的事实上的标准。GeoJSON就是对JSON格式的扩展，使之用于表征空间数据。</p>
 <p>Python 有一个内置的<code>json</code>模块，内部的方法可以读取JSON并将其转化成Python对象，还可以反过来将Python对象存储成JSON文件。在这个例子中，我们使用<code>requests</code> 模块来查询接口来实现转化。Python中最基础的JSON方法也有必要学习一下。</p>
 <p>GeoJSON 数据包含很多特征（<em>features</em>），其中每个特征都有若干属性（<em>properties</em>）和集合信息（<em>geometry</em>）。</p>
-<div class="highlight"><pre><span></span><code>geojson_string = &#39;&#39;&#39;
-{
-  &quot;type&quot;: &quot;FeatureCollection&quot;,
-  &quot;features&quot;: [
-    {&quot;type&quot;: &quot;Feature&quot;,
-      &quot;properties&quot;: {&quot;name&quot;: &quot;San Francisco&quot;},
-      &quot;geometry&quot;: {&quot;type&quot;: &quot;Point&quot;, &quot;coordinates&quot;: [-121.5687, 37.7739]}
-    }
-  ]
-}
-&#39;&#39;&#39;
-print(geojson_string)
+<div class="highlight"><pre><span></span><code><span class="nx">geojson_string</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="err">&#39;&#39;&#39;</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="s">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;FeatureCollection&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;features&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="s">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Feature&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;San Francisco&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="s">&quot;geometry&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Point&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;coordinates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="m m-Double">121.5687</span><span class="p">,</span><span class="w"> </span><span class="m m-Double">37.7739</span><span class="p">]}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+<span class="err">&#39;&#39;&#39;</span>
+<span class="nx">print</span><span class="p">(</span><span class="nx">geojson_string</span><span class="p">)</span>
 </code></pre></div>
 
 <p>使用<code>json.loads()</code> 方法可以将JSON字符串转换成Python对象（这也就是解析JSON）。</p>
@@ -958,13 +957,13 @@ f.close()
 
 <p>对文件中的每一行分别调用<code>readline()</code>函数就太麻烦了。理想情况下，我们希望循环访问文件中的所有行。可以使用下面代码的方法来进行遍历。</p>
 <p>可以对文件中的每一行进行循环，然后每次循环一行就在一个计数变量<code>count</code>上加一。这样在末尾，<code>count</code>这个变量的值就等于文件的行数了。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">open</span><span class="ss">(</span><span class="nv">path</span>,<span class="w"> </span><span class="s1">&#39;r&#39;</span>,<span class="w"> </span><span class="nv">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="ss">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">open</span><span class="ss">(</span><span class="nv">path</span>,<span class="w"> </span><span class="s1">&#39;r&#39;</span>,<span class="w"> </span><span class="nv">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="ss">)</span>
 
-<span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">f</span>:<span class="w"></span>
-<span class="w">    </span><span class="nv">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="nv">f</span>.<span class="nv">close</span><span class="ss">()</span><span class="w"></span>
-<span class="nv">print</span><span class="ss">(</span><span class="nv">count</span><span class="ss">)</span><span class="w"></span>
+<span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">for</span><span class="w"> </span><span class="nv">line</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">f</span>:
+<span class="w">    </span><span class="nv">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">f</span>.<span class="nv">close</span><span class="ss">()</span>
+<span class="nv">print</span><span class="ss">(</span><span class="nv">count</span><span class="ss">)</span>
 </code></pre></div>
 
 <h2>练习</h2>
@@ -1005,19 +1004,19 @@ f.close()
 
 <h2>使用枚举函数<code>enumerate()</code></h2>
 <p>在对一个对象进行迭代的时候，经常要用到计数器。之前的例子中，我们使用了一个<code>count</code>变量，每次迭代都加一，以此来计数。有一种更简单的方法来实现这个目的，就是使用内置的<code>enumerate()</code>函数。</p>
-<div class="highlight"><pre><span></span><code><span class="n">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Los Angeles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;New York&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Atlanta&#39;</span><span class="p">]</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">cities</span><span class="p">):</span><span class="w"></span>
-<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Los Angeles&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;New York&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Atlanta&#39;</span><span class="p">]</span>
+<span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">cities</span><span class="p">):</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div>
 
 <p>可以在任何可迭代对象上使用enumerate()函数，然后得到一个元组，包含了一个索引和每次迭代值。接下来就用这个函数来输出DictReader对象的前五行。</p>
-<div class="highlight"><pre><span></span><code><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="n">csv_reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">csv_reader</span><span class="p">):</span><span class="w"></span>
-<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="k">break</span><span class="w"></span>
-<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="n">csv_reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+<span class="k">for</span><span class="w"> </span><span class="n">index</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">csv_reader</span><span class="p">):</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">:</span>
+<span class="w">        </span><span class="k">break</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
 
 <h2>使用 <code>with</code> 语句</h2>
@@ -1031,36 +1030,36 @@ f.close()
 <h2>筛选行</h2>
 <p>对行迭代，使用条件语句，然后就可以选择和处理满足特定条件的行。假设要计算一下一个文件中有多少个城市属于某个特定国家。</p>
 <p>在下面的代码中的<code>home_country</code>变量替换成任意国家。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">home_country</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Italy&#39;</span><span class="w"></span>
-<span class="nv">num_cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>home_country = &#39;Italy&#39;
+num_cities = 0
 
-<span class="nv">with</span><span class="w"> </span><span class="nv">open</span><span class="ss">(</span><span class="nv">path</span>,<span class="w"> </span><span class="s1">&#39;r&#39;</span>,<span class="w"> </span><span class="nv">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="ss">)</span><span class="w"> </span><span class="nv">as</span><span class="w"> </span><span class="nv">f</span>:<span class="w"></span>
-<span class="w">    </span><span class="nv">csv_reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">csv</span>.<span class="nv">DictReader</span><span class="ss">(</span><span class="nv">f</span><span class="ss">)</span><span class="w"></span>
+with open(path, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:
+    csv_reader = csv.DictReader(f)
 
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">csv_reader</span>:<span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nv">row</span>[<span class="s1">&#39;country&#39;</span>]<span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">home_country</span>:<span class="w"></span>
-<span class="w">            </span><span class="nv">num_cities</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+    for row in csv_reader:
+        if row[&#39;country&#39;] == home_country:
+            num_cities += 1
 
-<span class="nv">print</span><span class="ss">(</span><span class="nv">num_cities</span><span class="ss">)</span><span class="w"></span>
+print(num_cities)
 </code></pre></div>
 
 <h2>计算距离</h2>
 <p>将目前所学都用到一个复杂问题场景。我们要读取CSV文件<code>worldcities.csv</code>，然后找到某个国家或地区的所有城市，计算一下从所有城市到某个城市的距离，并写出结果，保存成一个新的CSV文件。</p>
 <p>首先从文件中找到所选的<code>home_city</code>的坐标值。然后将代码中的<code>home_city</code>替换成你感兴趣的城市地名。要注意这里使用的是<code>city_ascii</code>来进行城市名称对比，所以要确定<code>home_city</code>变量包含的是ASCII版本的城市名称。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">home_city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Rome&#39;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>home_city = &#39;Rome&#39;
 
-<span class="nv">home_city_coordinates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">()</span><span class="w"></span>
+home_city_coordinates = ()
 
-<span class="nv">with</span><span class="w"> </span><span class="nv">open</span><span class="ss">(</span><span class="nv">path</span>,<span class="w"> </span><span class="s1">&#39;r&#39;</span>,<span class="w"> </span><span class="nv">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="ss">)</span><span class="w"> </span><span class="nv">as</span><span class="w"> </span><span class="nv">f</span>:<span class="w"></span>
-<span class="w">    </span><span class="nv">csv_reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">csv</span>.<span class="nv">DictReader</span><span class="ss">(</span><span class="nv">f</span><span class="ss">)</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">csv_reader</span>:<span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nv">row</span>[<span class="s1">&#39;city_ascii&#39;</span>]<span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">home_city</span>:<span class="w"></span>
-<span class="w">            </span><span class="nv">lat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">row</span>[<span class="s1">&#39;lat&#39;</span>]<span class="w"></span>
-<span class="w">            </span><span class="nv">lng</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">row</span>[<span class="s1">&#39;lng&#39;</span>]<span class="w"></span>
-<span class="w">            </span><span class="nv">home_city_coordinates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">(</span><span class="nv">lat</span>,<span class="w"> </span><span class="nv">lng</span><span class="ss">)</span><span class="w"></span>
-<span class="w">            </span><span class="k">break</span><span class="w"></span>
+with open(path, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:
+    csv_reader = csv.DictReader(f)
+    for row in csv_reader:
+        if row[&#39;city_ascii&#39;] == home_city:
+            lat = row[&#39;lat&#39;]
+            lng = row[&#39;lng&#39;]
+            home_city_coordinates = (lat, lng)
+            break
 
-<span class="nv">print</span><span class="ss">(</span><span class="nv">home_city_coordinates</span><span class="ss">)</span><span class="w"></span>
+print(home_city_coordinates)
 </code></pre></div>
 
 <p>接下来就循环遍历文件，找到选中国家或地区的城市，然后调用<code>geopy.distance.geodesic()</code>函数来计算距离。在下面的代码样例中，只计算前面五对。</p>
@@ -1085,33 +1084,33 @@ f.close()
 <h2>写入文件</h2>
 <p>这次咱们不再使用打印输出，而是将得到的结果写入到一个新的文件里。读文件用的是<code>csv.DictReader()</code>方法，写文件就可以用<code>csv.DictWriter()</code>方法。创建一个<code>csv_writer</code>对象，然后使用<code>writerow()</code>方法按行写入。</p>
 <p>首先创建一个<code>output</code>文件夹来保存结果。可以先检查一下这个文件夹是否存在，如果不存在就可以创建了。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">output_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;output&#39;</span><span class="w"></span>
-<span class="k">if</span><span class="w"> </span><span class="nv">not</span><span class="w"> </span><span class="nv">os</span>.<span class="nv">path</span>.<span class="nv">exists</span><span class="ss">(</span><span class="nv">output_dir</span><span class="ss">)</span>:<span class="w"></span>
-<span class="w">    </span><span class="nv">os</span>.<span class="nv">mkdir</span><span class="ss">(</span><span class="nv">output_dir</span><span class="ss">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>output_dir = &#39;output&#39;
+if not os.path.exists(output_dir):
+    os.mkdir(output_dir)
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="nv">output_filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;cities_distance.csv&#39;</span><span class="w"></span>
-<span class="nv">output_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">os</span>.<span class="nv">path</span>.<span class="nv">join</span><span class="ss">(</span><span class="nv">output_dir</span>,<span class="w"> </span><span class="nv">output_filename</span><span class="ss">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>output_filename = &#39;cities_distance.csv&#39;
+output_path = os.path.join(output_dir, output_filename)
 
-<span class="nv">with</span><span class="w"> </span><span class="nv">open</span><span class="ss">(</span><span class="nv">output_path</span>,<span class="w"> </span><span class="nv">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span>,<span class="w"> </span><span class="nv">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="ss">)</span><span class="w"> </span><span class="nv">as</span><span class="w"> </span><span class="nv">output_file</span>:<span class="w"></span>
-<span class="w">    </span><span class="nv">fieldnames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>[<span class="s1">&#39;city&#39;</span>,<span class="w"> </span><span class="s1">&#39;distance_from_home&#39;</span>]<span class="w"></span>
-<span class="w">    </span><span class="nv">csv_writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">csv</span>.<span class="nv">DictWriter</span><span class="ss">(</span><span class="nv">output_file</span>,<span class="w"> </span><span class="nv">fieldnames</span><span class="o">=</span><span class="nv">fieldnames</span><span class="ss">)</span><span class="w"></span>
-<span class="w">    </span><span class="nv">csv_writer</span>.<span class="nv">writeheader</span><span class="ss">()</span><span class="w"></span>
+with open(output_path, mode=&#39;w&#39;, encoding=&#39;utf-8&#39;) as output_file:
+    fieldnames = [&#39;city&#39;, &#39;distance_from_home&#39;]
+    csv_writer = csv.DictWriter(output_file, fieldnames=fieldnames)
+    csv_writer.writeheader()
 
-<span class="w">    </span>#<span class="w"> </span><span class="nv">Now</span><span class="w"> </span><span class="nv">we</span><span class="w"> </span><span class="nv">read</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">input</span><span class="w"> </span><span class="nv">file</span>,<span class="w"> </span><span class="nv">calculate</span><span class="w"> </span><span class="nv">distance</span><span class="w"> </span><span class="nv">and</span><span class="w"></span>
-<span class="w">    </span>#<span class="w"> </span><span class="nv">write</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">output</span><span class="w"> </span>
-<span class="w">    </span><span class="nv">with</span><span class="w"> </span><span class="nv">open</span><span class="ss">(</span><span class="nv">path</span>,<span class="w"> </span><span class="s1">&#39;r&#39;</span>,<span class="w"> </span><span class="nv">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="ss">)</span><span class="w"> </span><span class="nv">as</span><span class="w"> </span><span class="nv">f</span>:<span class="w"></span>
-<span class="w">        </span><span class="nv">csv_reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">csv</span>.<span class="nv">DictReader</span><span class="ss">(</span><span class="nv">f</span><span class="ss">)</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">csv_reader</span>:<span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">row</span>[<span class="s1">&#39;country&#39;</span>]<span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">home_country</span><span class="w"> </span><span class="nv">and</span><span class="w"></span>
-<span class="w">                </span><span class="nv">row</span>[<span class="s1">&#39;city_ascii&#39;</span>]<span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nv">home_city</span><span class="ss">)</span>:<span class="w"></span>
-<span class="w">                </span><span class="nv">city_coordinates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">(</span><span class="nv">row</span>[<span class="s1">&#39;lat&#39;</span>],<span class="w"> </span><span class="nv">row</span>[<span class="s1">&#39;lng&#39;</span>]<span class="ss">)</span><span class="w"></span>
-<span class="w">                </span><span class="nv">city_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">distance</span>.<span class="nv">geodesic</span><span class="ss">(</span><span class="w"></span>
-<span class="w">                    </span><span class="nv">city_coordinates</span>,<span class="w"> </span><span class="nv">home_city_coordinates</span><span class="ss">)</span>.<span class="nv">km</span><span class="w"></span>
-<span class="w">                </span><span class="nv">csv_writer</span>.<span class="nv">writerow</span><span class="ss">(</span><span class="w"></span>
-<span class="w">                    </span>{<span class="s1">&#39;city&#39;</span>:<span class="w"> </span><span class="nv">row</span>[<span class="s1">&#39;city_ascii&#39;</span>],<span class="w"></span>
-<span class="w">                     </span><span class="s1">&#39;distance_from_home&#39;</span>:<span class="w"> </span><span class="nv">city_distance</span>}<span class="w"></span>
-<span class="w">                </span><span class="ss">)</span><span class="w"></span>
+    # Now we read the input file, calculate distance and
+    # write a row to the output 
+    with open(path, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:
+        csv_reader = csv.DictReader(f)
+        for row in csv_reader:
+            if (row[&#39;country&#39;] == home_country and
+                row[&#39;city_ascii&#39;] != home_city):
+                city_coordinates = (row[&#39;lat&#39;], row[&#39;lng&#39;])
+                city_distance = distance.geodesic(
+                    city_coordinates, home_city_coordinates).km
+                csv_writer.writerow(
+                    {&#39;city&#39;: row[&#39;city_ascii&#39;],
+                     &#39;distance_from_home&#39;: city_distance}
+                )
 </code></pre></div>
 
 <p>下面的是读取、筛选、计算距离并写入结果到文件的完整代码。</p>
@@ -1443,8 +1442,8 @@ print(&#39;Successfully written output file at {}&#39;.format(output_path))
 
 <h2>数组（Arrays）</h2>
 <p>NumPy的数据对象叫做<code>ndarray</code>。这一数据类型提供了很多支持函数，处理数组又快又方便。数组（Array）和Python的列表很相似，但<code>ndarray</code>在数学运算上至少要更快50倍。可以使用<code>array()</code>方法来创建一个数组。得到的对象就是<code>numpy.ndarray</code>。</p>
-<div class="highlight"><pre><span></span><code>a = np.array([1, 2, 3, 4])
-print(type(a))
+<div class="highlight"><pre><span></span><code><span class="nx">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">np</span><span class="p">.</span><span class="nx">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">])</span>
+<span class="nx">print</span><span class="p">(</span><span class="k">type</span><span class="p">(</span><span class="nx">a</span><span class="p">))</span>
 </code></pre></div>
 
 <p>数组可以有任意的维度<em>dimensions</em>。下面的代码是创建一个二维数组。<code>ndarray</code>对象的属性<code>ndim</code>存储的就是数组维度数。另外也可以使用<code>shape</code>属性来查看数组尺寸。</p>
@@ -1544,11 +1543,11 @@ print(all_files)
 </code></pre></div>
 
 <p><code>rasterio.merge</code>模块有一个<code>merge()</code>方法，接收一个数据集列表，返回合并的数据集。所以茶u你国军爱你一个空列表，然后打开每个文件，将其添加到列表中。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">dataset_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>[]<span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">all_files</span>:<span class="w"></span>
-<span class="w">    </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">os</span>.<span class="nv">path</span>.<span class="nv">join</span><span class="ss">(</span><span class="nv">srtm_path</span>,<span class="w"> </span><span class="nv">file</span><span class="ss">)</span><span class="w"></span>
-<span class="w">    </span><span class="nv">dataset_list</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">rasterio</span>.<span class="nv">open</span><span class="ss">(</span><span class="nv">path</span><span class="ss">))</span><span class="w"></span>
-<span class="nv">print</span><span class="ss">(</span><span class="nv">dataset_list</span><span class="ss">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>dataset_list = []
+for file in all_files:
+    path = os.path.join(srtm_path, file)
+    dataset_list.append(rasterio.open(path))
+print(dataset_list)
 </code></pre></div>
 
 <p>我们可以将地图切片数据集的列表传递给合并方法，然后得到合并后的数据和一个新的变换（<em>transform</em>），其中包含着合并后栅格数据的更新范围。</p>
@@ -1575,18 +1574,18 @@ output_path = os.path.join(output_dir, output_filename)
 
 <p>对输出的数据集，要设置很多元数据参数来初始化。一些参数值可以直接从输入文件中复制，比如<code>crs</code>、<code>dtype</code>、<code>nodata</code>等，而其他的就需要从合并的数据集里面来获取，比如高度<code>height</code>和宽度<code>width</code>。</p>
 <p>一定要记得在完成文件并写入到磁盘后，要调用<code>close()</code>方法来关闭文件。</p>
-<div class="highlight"><pre><span></span><code>new_dataset = rasterio.open(output_path, &#39;w&#39;, 
-                            driver=&#39;GTiff&#39;,
-                            height=merged_data.shape[1],
-                            width=merged_data.shape[2],
-                            count=1,
-                            nodata=-32768.0,
-                            dtype=merged_data.dtype,
-                            crs=&#39;+proj=latlong&#39;,
-                            transform=merged_transform)
-new_dataset.write(merged_data)
-new_dataset.close()
-print(&#39;Successfully written output file at {}&#39;.format(output_path))
+<div class="highlight"><pre><span></span><code><span class="nx">new_dataset</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">rasterio</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">output_path</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;w&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                            </span><span class="nx">driver</span><span class="p">=</span><span class="err">&#39;</span><span class="nx">GTiff</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w">                            </span><span class="nx">height</span><span class="p">=</span><span class="nx">merged_data</span><span class="p">.</span><span class="nx">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+<span class="w">                            </span><span class="nx">width</span><span class="p">=</span><span class="nx">merged_data</span><span class="p">.</span><span class="nx">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+<span class="w">                            </span><span class="nx">count</span><span class="p">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                            </span><span class="nx">nodata</span><span class="p">=</span><span class="o">-</span><span class="m m-Double">32768.0</span><span class="p">,</span>
+<span class="w">                            </span><span class="nx">dtype</span><span class="p">=</span><span class="nx">merged_data</span><span class="p">.</span><span class="nx">dtype</span><span class="p">,</span>
+<span class="w">                            </span><span class="nx">crs</span><span class="p">=</span><span class="err">&#39;</span><span class="o">+</span><span class="nx">proj</span><span class="p">=</span><span class="nx">latlong</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w">                            </span><span class="nx">transform</span><span class="p">=</span><span class="nx">merged_transform</span><span class="p">)</span>
+<span class="nx">new_dataset</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">merged_data</span><span class="p">)</span>
+<span class="nx">new_dataset</span><span class="p">.</span><span class="nx">close</span><span class="p">()</span>
+<span class="nx">print</span><span class="p">(</span><span class="err">&#39;</span><span class="nx">Successfully</span><span class="w"> </span><span class="nx">written</span><span class="w"> </span><span class="nx">output</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="p">{}</span><span class="err">&#39;</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">output_path</span><span class="p">))</span>
 </code></pre></div>
 
 <h2>练习</h2>
@@ -1631,7 +1630,7 @@ print(&#39;Successfully written output file at {}&#39;.format(output_path))
 <ol>
 <li>定位到包含脚本的文件夹，使用<code>cd</code>命令。</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="n">cd</span><span class="w"> </span><span class="n">Downloads</span>\<span class="n">python_foundation</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">cd</span><span class="w"> </span><span class="n">Downloads</span>\<span class="n">python_foundation</span>
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/GeoPython/win_script2.png"></p>
@@ -1657,7 +1656,7 @@ print(&#39;Successfully written output file at {}&#39;.format(output_path))
 <ol>
 <li>定位到包含脚本的文件夹，使用<code>cd</code>命令。</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="n">cd</span><span class="w"> </span><span class="n">Downloads</span><span class="o">/</span><span class="n">python_foundation</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">cd</span><span class="w"> </span><span class="n">Downloads</span><span class="o">/</span><span class="n">python_foundation</span>
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/GeoPython/mac_script3.png"></p>
@@ -1775,14 +1774,14 @@ fig
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/GeoPython/supplement1_plotting_20_0.png"></p>
 <p>现在地图就完成了，可以使用<code>savefig()</code>函数将地图保存到电脑中。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">output_filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;map_layout.png&#39;</span><span class="w"></span>
-<span class="nv">output_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;output&#39;</span><span class="w"></span>
-<span class="nv">output_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">os</span>.<span class="nv">path</span>.<span class="nv">join</span><span class="ss">(</span><span class="nv">output_dir</span>,<span class="w"> </span><span class="nv">output_filename</span><span class="ss">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>output_filename = &#39;map_layout.png&#39;
+output_dir = &#39;output&#39;
+output_path = os.path.join(output_dir, output_filename)
 
-<span class="k">if</span><span class="w"> </span><span class="nv">not</span><span class="w"> </span><span class="nv">os</span>.<span class="nv">path</span>.<span class="nv">exists</span><span class="ss">(</span><span class="nv">output_dir</span><span class="ss">)</span>:<span class="w"></span>
-<span class="w">    </span><span class="nv">os</span>.<span class="nv">mkdir</span><span class="ss">(</span><span class="nv">output_dir</span><span class="ss">)</span><span class="w"></span>
+if not os.path.exists(output_dir):
+    os.mkdir(output_dir)
 
-<span class="nv">fig</span>.<span class="nv">savefig</span><span class="ss">(</span><span class="nv">output_path</span>,<span class="w"> </span><span class="nv">dpi</span><span class="o">=</span><span class="mi">300</span><span class="ss">)</span><span class="w"></span>
+fig.savefig(output_path, dpi=300)
 </code></pre></div>
 
 <h3>创建多层地图</h3>
@@ -1804,18 +1803,18 @@ plt.savefig(output_path, dpi=300)
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/GeoPython/supplement1_plotting_25_0.png"></p>
 <h3>标注特征</h3>
 <p>还可以在地图上增加标注，不过这就需要一点预处理。假如要给每个行政区多边形家上标注。首先，需要确定好标签的锚定位置。可以使用<code>representative_point()</code>来得到每个多边形内的一个最能代表该几何形状的点。这和找中心（centroid）类似，但能够保证在多边形内不。下面的代码就在GeoDataFrame内创建了一个名为<code>label_position</code>的新域，存储的就是锚定点的坐标。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">districts</span>[<span class="s1">&#39;label_position&#39;</span>]<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">districts</span>[<span class="s1">&#39;geometry&#39;</span>].<span class="nv">apply</span><span class="ss">(</span><span class="nv">lambda</span><span class="w"> </span><span class="nv">x</span>:<span class="w"> </span><span class="nv">x</span>.<span class="nv">representative_point</span><span class="ss">()</span>.<span class="nv">coords</span>[:]<span class="ss">)</span><span class="w"></span>
-<span class="nv">districts</span>[<span class="s1">&#39;label_position&#39;</span>]<span class="w"> </span><span class="o">=</span><span class="w"> </span>[<span class="nv">coords</span>[<span class="mi">0</span>]<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">coords</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">districts</span>[<span class="s1">&#39;label_position&#39;</span>]]<span class="w"></span>
+<div class="highlight"><pre><span></span><code>districts[&#39;label_position&#39;] = districts[&#39;geometry&#39;].apply(lambda x: x.representative_point().coords[:])
+districts[&#39;label_position&#39;] = [coords[0] for coords in districts[&#39;label_position&#39;]]
 </code></pre></div>
 
 <p>然后可以使用<code>annotate()</code>函数来对每个多边形进行迭代，从<em>DISTRICT</em>列中添加对应的行政区名，对应的位置就是<em>label_position</em>列的坐标。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">fig</span>,<span class="w"> </span><span class="nv">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">plt</span>.<span class="nv">subplots</span><span class="ss">(</span><span class="nv">figsize</span><span class="o">=</span><span class="ss">(</span><span class="mi">10</span>,<span class="w"> </span><span class="mi">15</span><span class="ss">))</span><span class="w"></span>
-<span class="nv">plt</span>.<span class="nv">axis</span><span class="ss">(</span><span class="s1">&#39;off&#39;</span><span class="ss">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>fig, ax = plt.subplots(figsize=(10, 15))
+plt.axis(&#39;off&#39;)
 
-<span class="nv">districts</span>.<span class="nv">plot</span><span class="ss">(</span><span class="nv">ax</span><span class="o">=</span><span class="nv">ax</span>,<span class="w"> </span><span class="nv">linewidth</span><span class="o">=</span><span class="mi">1</span>,<span class="w"> </span><span class="nv">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span>,<span class="w"> </span><span class="nv">edgecolor</span><span class="o">=</span><span class="s1">&#39;#252525&#39;</span><span class="ss">)</span><span class="w"></span>
+districts.plot(ax=ax, linewidth=1, facecolor=&#39;none&#39;, edgecolor=&#39;#252525&#39;)
 
-<span class="k">for</span><span class="w"> </span><span class="nv">idx</span>,<span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">districts</span>.<span class="nv">iterrows</span><span class="ss">()</span>:<span class="w"></span>
-<span class="w">    </span><span class="nv">plt</span>.<span class="nv">annotate</span><span class="ss">(</span><span class="nv">text</span><span class="o">=</span><span class="nv">row</span>[<span class="s1">&#39;DISTRICT&#39;</span>],<span class="w"> </span><span class="nv">xy</span><span class="o">=</span><span class="nv">row</span>[<span class="s1">&#39;label_position&#39;</span>],<span class="w"> </span><span class="nv">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="ss">)</span><span class="w"></span>
+for idx, row in districts.iterrows():
+    plt.annotate(text=row[&#39;DISTRICT&#39;], xy=row[&#39;label_position&#39;], horizontalalignment=&#39;center&#39;)
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/GeoPython/supplement1_plotting_30_0.png"></p>
@@ -1842,7 +1841,7 @@ plt.savefig(output_path, dpi=300)
 </code></pre></div>
 
 <p>得到的就是一个<code>xarray.DataArray</code>对象。</p>
-<div class="highlight"><pre><span></span><code>type(rds)
+<div class="highlight"><pre><span></span><code><span class="k">type</span><span class="p">(</span><span class="nx">rds</span><span class="p">)</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>xarray.core.dataarray.DataArray
@@ -1852,13 +1851,13 @@ plt.savefig(output_path, dpi=300)
 <div class="highlight"><pre><span></span><code>rds.values
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>array([[[5217, 5211, 5208, ..., 5097, 5098, 5089],
-        [5206, 5201, 5200, ..., 5080, 5075, 5069],
-        [5199, 5194, 5191, ..., 5063, 5055, 5048],
-        ...,
-        [5347, 5345, 5343, ..., 5747, 5750, 5757],
-        [5338, 5338, 5336, ..., 5737, 5740, 5747],
-        [5332, 5331, 5332, ..., 5734, 5736, 5744]]], dtype=int16)
+<div class="highlight"><pre><span></span><code><span class="nx">array</span><span class="p">([[[</span><span class="mi">5217</span><span class="p">,</span><span class="w"> </span><span class="mi">5211</span><span class="p">,</span><span class="w"> </span><span class="mi">5208</span><span class="p">,</span><span class="w"> </span><span class="o">...</span><span class="p">,</span><span class="w"> </span><span class="mi">5097</span><span class="p">,</span><span class="w"> </span><span class="mi">5098</span><span class="p">,</span><span class="w"> </span><span class="mi">5089</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="mi">5206</span><span class="p">,</span><span class="w"> </span><span class="mi">5201</span><span class="p">,</span><span class="w"> </span><span class="mi">5200</span><span class="p">,</span><span class="w"> </span><span class="o">...</span><span class="p">,</span><span class="w"> </span><span class="mi">5080</span><span class="p">,</span><span class="w"> </span><span class="mi">5075</span><span class="p">,</span><span class="w"> </span><span class="mi">5069</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="mi">5199</span><span class="p">,</span><span class="w"> </span><span class="mi">5194</span><span class="p">,</span><span class="w"> </span><span class="mi">5191</span><span class="p">,</span><span class="w"> </span><span class="o">...</span><span class="p">,</span><span class="w"> </span><span class="mi">5063</span><span class="p">,</span><span class="w"> </span><span class="mi">5055</span><span class="p">,</span><span class="w"> </span><span class="mi">5048</span><span class="p">],</span>
+<span class="w">        </span><span class="o">...</span><span class="p">,</span>
+<span class="w">        </span><span class="p">[</span><span class="mi">5347</span><span class="p">,</span><span class="w"> </span><span class="mi">5345</span><span class="p">,</span><span class="w"> </span><span class="mi">5343</span><span class="p">,</span><span class="w"> </span><span class="o">...</span><span class="p">,</span><span class="w"> </span><span class="mi">5747</span><span class="p">,</span><span class="w"> </span><span class="mi">5750</span><span class="p">,</span><span class="w"> </span><span class="mi">5757</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="mi">5338</span><span class="p">,</span><span class="w"> </span><span class="mi">5338</span><span class="p">,</span><span class="w"> </span><span class="mi">5336</span><span class="p">,</span><span class="w"> </span><span class="o">...</span><span class="p">,</span><span class="w"> </span><span class="mi">5737</span><span class="p">,</span><span class="w"> </span><span class="mi">5740</span><span class="p">,</span><span class="w"> </span><span class="mi">5747</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="mi">5332</span><span class="p">,</span><span class="w"> </span><span class="mi">5331</span><span class="p">,</span><span class="w"> </span><span class="mi">5332</span><span class="p">,</span><span class="w"> </span><span class="o">...</span><span class="p">,</span><span class="w"> </span><span class="mi">5734</span><span class="p">,</span><span class="w"> </span><span class="mi">5736</span><span class="p">,</span><span class="w"> </span><span class="mi">5744</span><span class="p">]]],</span><span class="w"> </span><span class="nx">dtype</span><span class="p">=</span><span class="nx">int16</span><span class="p">)</span>
 </code></pre></div>
 
 <p>一个<code>xarray.DataArray</code>对象也包含一个或多个坐标<code>coordinates</code>。每个坐标都是一个一维数组，表示的沿着一个数据轴的值。在单通道的SRTM高程数据中，就有三个坐标（coordinates）：<code>x</code>、<code>y</code>、<code>band</code>。</p>
@@ -1866,9 +1865,9 @@ plt.savefig(output_path, dpi=300)
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>Coordinates:
-  * band         (band) int64 1
-  * x            (x) float64 87.0 87.0 87.0 87.0 87.0 ... 88.0 88.0 88.0 88.0
-  * y            (y) float64 29.0 29.0 29.0 29.0 29.0 ... 28.0 28.0 28.0 28.0
+  <span class="k">*</span> band         (band) int64 1
+  <span class="k">*</span> x            (x) float64 87.0 87.0 87.0 87.0 87.0 ... 88.0 88.0 88.0 88.0
+  <span class="k">*</span> y            (y) float64 29.0 29.0 29.0 29.0 29.0 ... 28.0 28.0 28.0 28.0
     spatial_ref  int64 0
 </code></pre></div>
 
@@ -1884,11 +1883,11 @@ print(&#39;Width:&#39;, rds.rio.width)
 print(&#39;Height:&#39;, rds.rio.height)
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="n">CRS</span><span class="o">:</span><span class="w"> </span><span class="n">EPSG</span><span class="o">:</span><span class="mi">4326</span><span class="w"></span>
-<span class="n">Resolution</span><span class="o">:</span><span class="w"> </span><span class="o">(</span><span class="mf">0.0002777777777777778</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="mf">0.0002777777777777778</span><span class="o">)</span><span class="w"></span>
-<span class="n">Bounds</span><span class="o">:</span><span class="w"> </span><span class="o">(</span><span class="mf">86.99986111111112</span><span class="o">,</span><span class="w"> </span><span class="mf">27.999861111111112</span><span class="o">,</span><span class="w"> </span><span class="mf">88.00013888888888</span><span class="o">,</span><span class="w"> </span><span class="mf">29.000138888888888</span><span class="o">)</span><span class="w"></span>
-<span class="n">Width</span><span class="o">:</span><span class="w"> </span><span class="mi">3601</span><span class="w"></span>
-<span class="n">Height</span><span class="o">:</span><span class="w"> </span><span class="mi">3601</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">CRS</span><span class="o">:</span><span class="w"> </span><span class="n">EPSG</span><span class="o">:</span><span class="mi">4326</span>
+<span class="n">Resolution</span><span class="o">:</span><span class="w"> </span><span class="o">(</span><span class="mf">0.0002777777777777778</span><span class="o">,</span><span class="w"> </span><span class="o">-</span><span class="mf">0.0002777777777777778</span><span class="o">)</span>
+<span class="n">Bounds</span><span class="o">:</span><span class="w"> </span><span class="o">(</span><span class="mf">86.99986111111112</span><span class="o">,</span><span class="w"> </span><span class="mf">27.999861111111112</span><span class="o">,</span><span class="w"> </span><span class="mf">88.00013888888888</span><span class="o">,</span><span class="w"> </span><span class="mf">29.000138888888888</span><span class="o">)</span>
+<span class="n">Width</span><span class="o">:</span><span class="w"> </span><span class="mi">3601</span>
+<span class="n">Height</span><span class="o">:</span><span class="w"> </span><span class="mi">3601</span>
 </code></pre></div>
 
 <h3>合并栅格数据</h3>
@@ -1910,10 +1909,10 @@ output_path = os.path.join(output_dir, output_filename)
 </code></pre></div>
 
 <p>使用<code>open_rasterio()</code>方法打开每个源文件，然后将结果数据集存储在一个列表中。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">datasets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>[]<span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">all_files</span>:<span class="w"></span>
-<span class="w">    </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">os</span>.<span class="nv">path</span>.<span class="nv">join</span><span class="ss">(</span><span class="nv">srtm_path</span>,<span class="w"> </span><span class="nv">file</span><span class="ss">)</span><span class="w"></span>
-<span class="w">    </span><span class="nv">datasets</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">rxr</span>.<span class="nv">open_rasterio</span><span class="ss">(</span><span class="nv">path</span><span class="ss">))</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>datasets = []
+for file in all_files:
+    path = os.path.join(srtm_path, file)
+    datasets.append(rxr.open_rasterio(path))
 </code></pre></div>
 
 <p>使用<code>rioxarray.merge</code>模块中的<code>merge_arrays()</code>方法合并栅格数据。</p>
@@ -1931,24 +1930,24 @@ output_path = os.path.join(output_dir, output_filename)
 </code></pre></div>
 
 <p>对任何<code>DataArray</code>对象都可以调用<code>plot()</code>方法。这里我们创建一个4个plots的行，渲染每个源SRTM栅格数据文件。可以使用<code>cmap</code>选项来指定一个彩色方案。这里使用内置的灰度<em>Greys</em>。将<strong>_r</strong>加上去可以逆转彩图方向，黑色表示低高程，浅色表示高的高程。</p>
-<div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="n">axes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
-<span class="n">fig</span><span class="p">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
-<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="k">index</span><span class="p">,</span><span class="w"> </span><span class="n">dataset</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
-<span class="w">    </span><span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axes</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="w"></span>
-<span class="w">    </span><span class="n">dataset</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys_r&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">ax</span><span class="p">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">all_files</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="w"></span>
-<span class="w">    </span><span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="n">axes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="k">for</span><span class="w"> </span><span class="k">index</span><span class="p">,</span><span class="w"> </span><span class="n">dataset</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span><span class="err">:</span>
+<span class="w">    </span><span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">axes</span><span class="o">[</span><span class="n">index</span><span class="o">]</span>
+<span class="w">    </span><span class="n">dataset</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys_r&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">ax</span><span class="p">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">all_files</span><span class="o">[</span><span class="n">index</span><span class="o">]</span>
+<span class="w">    </span><span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/GeoPython/supplement2_working_with_xarray_32_0.png"></p>
 <p>与之类似，就可以对合并的栅格数据进行可视化。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">fig</span>,<span class="w"> </span><span class="nv">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">plt</span>.<span class="nv">subplots</span><span class="ss">()</span><span class="w"></span>
-<span class="nv">fig</span>.<span class="nv">set_size_inches</span><span class="ss">(</span><span class="mi">12</span>,<span class="w"> </span><span class="mi">10</span><span class="ss">)</span><span class="w"></span>
-<span class="nv">merged</span>.<span class="nv">plot</span><span class="ss">(</span><span class="nv">ax</span><span class="o">=</span><span class="nv">ax</span>,<span class="w"> </span><span class="nv">cmap</span><span class="o">=</span><span class="s1">&#39;Greys_r&#39;</span><span class="ss">)</span><span class="w"></span>
-<span class="nv">ax</span>.<span class="nv">set_title</span><span class="ss">(</span><span class="s1">&#39;merged&#39;</span><span class="ss">)</span><span class="w"></span>
-<span class="nv">plt</span>.<span class="k">show</span><span class="ss">()</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>fig, ax = plt.subplots()
+fig.set_size_inches(12, 10)
+merged.plot(ax=ax, cmap=&#39;Greys_r&#39;)
+ax.set_title(&#39;merged&#39;)
+plt.show()
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/GeoPython/supplement2_working_with_xarray_34_0.png"></p>
@@ -2017,6 +2016,7 @@ output_path = os.path.join(output_dir, output_filename)
                         <li><a href="./category/duke.html" >Duke </a></li>
                         <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
                         <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/linux.html" >Linux </a></li>
                         <li><a href="./category/mac.html" >Mac </a></li>
                         <li><a href="./category/nas.html" >NAS </a></li>
                         <li><a href="./category/photography.html" >Photography </a></li>
@@ -2036,78 +2036,79 @@ output_path = os.path.join(output_dir, output_filename)
                     Tagcloud
                 </div>
                 <div>
-                        <span><a href="./tag/diy.html">DIY</a></span>
-                        <span><a href="./tag/shit.html">Shit</a></span>
-                        <span><a href="./tag/vtk.html">VTK</a></span>
-                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
-                        <span><a href="./tag/download.html">Download</a></span>
-                        <span><a href="./tag/qgis.html">QGIS</a></span>
-                        <span><a href="./tag/game.html">Game</a></span>
-                        <span><a href="./tag/video.html">Video</a></span>
-                        <span><a href="./tag/communicate.html">Communicate</a></span>
-                        <span><a href="./tag/geology.html">Geology</a></span>
-                        <span><a href="./tag/scholar.html">Scholar</a></span>
-                        <span><a href="./tag/mac.html">Mac</a></span>
-                        <span><a href="./tag/microscope.html">Microscope</a></span>
-                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
-                        <span><a href="./tag/photography.html">Photography</a></span>
-                        <span><a href="./tag/ide.html">IDE</a></span>
-                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
-                        <span><a href="./tag/lesson.html">Lesson</a></span>
-                        <span><a href="./tag/macos.html">macOS</a></span>
-                        <span><a href="./tag/qt.html">QT</a></span>
-                        <span><a href="./tag/disease.html">Disease</a></span>
-                        <span><a href="./tag/xcode.html">Xcode</a></span>
-                        <span><a href="./tag/poem.html">Poem</a></span>
-                        <span><a href="./tag/story.html">Story</a></span>
-                        <span><a href="./tag/chat.html">Chat</a></span>
-                        <span><a href="./tag/camera.html">Camera</a></span>
-                        <span><a href="./tag/software.html">Software</a></span>
-                        <span><a href="./tag/translation.html">Translation</a></span>
-                        <span><a href="./tag/learning.html">Learning</a></span>
-                        <span><a href="./tag/vispy.html">VisPy</a></span>
-                        <span><a href="./tag/server.html">Server</a></span>
-                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
-                        <span><a href="./tag/radio.html">Radio</a></span>
-                        <span><a href="./tag/data.html">Data</a></span>
-                        <span><a href="./tag/telescope.html">Telescope</a></span>
-                        <span><a href="./tag/science.html">Science</a></span>
-                        <span><a href="./tag/library.html">Library</a></span>
                         <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
-                        <span><a href="./tag/hack.html">Hack</a></span>
-                        <span><a href="./tag/geopython.html">GeoPython</a></span>
-                        <span><a href="./tag/moon.html">Moon</a></span>
-                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
-                        <span><a href="./tag/nas.html">NAS</a></span>
                         <span><a href="./tag/phd.html">PHD</a></span>
-                        <span><a href="./tag/programming.html">Programming</a></span>
-                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
-                        <span><a href="./tag/hardware.html">Hardware</a></span>
-                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
-                        <span><a href="./tag/gis.html">GIS</a></span>
-                        <span><a href="./tag/hate.html">Hate</a></span>
-                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
-                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
                         <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
-                        <span><a href="./tag/junck.html">Junck</a></span>
-                        <span><a href="./tag/university.html">University</a></span>
-                        <span><a href="./tag/conda.html">Conda</a></span>
-                        <span><a href="./tag/discuss.html">Discuss</a></span>
-                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
-                        <span><a href="./tag/cuda.html">CUDA</a></span>
-                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
                         <span><a href="./tag/pyenv.html">Pyenv</a></span>
-                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
                         <span><a href="./tag/translate.html">Translate</a></span>
                         <span><a href="./tag/visualization.html">Visualization</a></span>
-                        <span><a href="./tag/python.html">Python</a></span>
-                        <span><a href="./tag/kivy.html">Kivy</a></span>
-                        <span><a href="./tag/photo.html">Photo</a></span>
-                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
-                        <span><a href="./tag/memory.html">Memory</a></span>
-                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
-                        <span><a href="./tag/life.html">Life</a></span>
                         <span><a href="./tag/book.html">Book</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/hadoop.html">Hadoop</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/diy.html">DIY</a></span>
                 </div>
             </section>
 

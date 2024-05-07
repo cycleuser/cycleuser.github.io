@@ -19,7 +19,6 @@ var _hmt = _hmt || [];
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
-    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
 </head>
 
 <body id="index" class="blog">
@@ -52,7 +51,7 @@ var _hmt = _hmt || [];
     <div class="post-meta">
         <span class="meta-prep">Post in</span>
         <abbr class="date" title="2022-01-12T23:59:00+08:00"> 
-            <a href="./archive/2022/Jan/index.html">Wed 12 January 2022 </a>
+            <a href="./archive/2022/1月/index.html">周三 12 一月 2022 </a>
         </abbr>
         <span class="meta-prep"> |Tags</span>
                 <a href="./tag/gis.html">GIS</a>
@@ -141,7 +140,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>这里使用的其实就是正则表达式（<em>Regular Expression，缩写为RegEx</em>）来进行特定模式的匹配。正则表达式非常强大，可以用于很多复杂的数据筛选操作。 <a href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285">基础细节可以参考这个链接</a>。 </p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><span class="n">regexp_match</span><span class="p">(</span><span class="s">&quot;ref&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">&#39;</span><span class="o">^</span><span class="n">NH</span><span class="p">&#39;)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">regexp_match</span><span class="p">(</span><span class="s">&quot;ref&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">&#39;</span><span class="o">^</span><span class="n">NH</span><span class="p">&#39;)</span>
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka5.png"></p>
@@ -389,7 +388,7 @@ var _hmt = _hmt || [];
 <ol>
 <li>Enter the following expression to set the stroke color to 30% darker than the fill color and click OK. The map rendering will change to a much smoother visualization.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="n">darker</span><span class="p">(</span><span class="w"> </span><span class="nv">@symbol_color</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">130</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">darker</span><span class="p">(</span><span class="w"> </span><span class="nv">@symbol_color</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">130</span><span class="p">)</span>
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler26.png"></p>
@@ -538,7 +537,7 @@ var _hmt = _hmt || [];
 <li>In the <em>Expression Dialog</em>, we need to select output from any one of the <em>Extract by location</em> algorithms based on the user condition of <code>@usespatialindex</code>. We can use the <code>if</code> condition to return a layer based on user input. Use the expression below. Remember to pick the variables from the list and double-click them to enter them in your expression. If you had named the algorithms or input differently, the variable names will be different for you. Click <strong>OK</strong>.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nv">@usespatialindex</span><span class="w"> </span><span class="p">,</span><span class="w">  </span>
-<span class="w">    </span><span class="nv">@Extract_by_location__Spatial_Index__OUTPUT</span><span class="w"> </span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nv">@Extract_by_location__Spatial_Index__OUTPUT</span><span class="w"> </span><span class="p">,</span>
 <span class="w">    </span><span class="nv">@Extract_by_location__No_Spatial_Index__OUTPUT</span><span class="p">)</span><span class="w"> </span>
 </code></pre></div>
 
@@ -714,14 +713,14 @@ var _hmt = _hmt || [];
 <h1>Summary Aggregate Expressions</h1>
 <p>QGIS expression engine has a powerful function called ‘summary aggregates’ that allows evaluating a feature’s geometry and attributes with those of another layer. Expressions can be used for static calculations as well as on-the-fly computations, such as labels, virtual fields, symbology etc. This enables some powerful use cases.</p>
 <p>The summary aggregate function operates on all the values from a different layer, returning a single summary value. The syntax of the aggregate function is as follows</p>
-<div class="highlight"><pre><span></span><code><span class="n">aggregate</span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="nl">layer:</span><span class="o">=</span><span class="p">&#39;</span><span class="n">layer</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">id</span><span class="p">&#39;,</span><span class="w"></span>
-<span class="w">  </span><span class="nl">aggregate:</span><span class="o">=</span><span class="p">&#39;</span><span class="n">aggegate</span><span class="w"> </span><span class="k">type</span><span class="p">&#39;,</span><span class="w"></span>
-<span class="w">  </span><span class="nl">expression:</span><span class="o">=</span><span class="p">&#39;</span><span class="n">expression</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">aggregate</span><span class="p">&#39;,</span><span class="w"></span>
-<span class="w">  </span><span class="nl">filter:</span><span class="o">=</span><span class="p">&#39;</span><span class="n">optional</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="n">expression</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nl">concatenator:</span><span class="o">=</span><span class="p">&#39;</span><span class="n">optional</span><span class="w"> </span><span class="k">string</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">values</span><span class="p">&#39;,</span><span class="w"></span>
-<span class="w">  </span><span class="nl">order_by:</span><span class="o">=</span><span class="p">&#39;</span><span class="n">optional</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">features</span><span class="p">&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">aggregate</span><span class="p">(</span>
+<span class="w">  </span><span class="nx">layer</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">layer</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="nx">id</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">aggregate</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">aggegate</span><span class="w"> </span><span class="k">type</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">expression</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">expression</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">aggregate</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">filter</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">optional</span><span class="w"> </span><span class="nx">filter</span><span class="w"> </span><span class="nx">expression</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">concatenator</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">optional</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">join</span><span class="w"> </span><span class="nx">values</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">order_by</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">optional</span><span class="w"> </span><span class="nx">expression</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">order</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">features</span><span class="err">&#39;</span>
+<span class="w">  </span><span class="p">)</span>
 </code></pre></div>
 
 <p><a href="https://docs.google.com/presentation/d/1F-gH729oWv4zcCecXd9BYoNdqHr7KaahgMPm_4XCgBY/edit?usp=sharing">查看幻灯片</a></p>
@@ -734,11 +733,11 @@ var _hmt = _hmt || [];
 <ol>
 <li>Add a new field named <code>count</code> with the following expression. The expression is reading the features from the <code>parcels</code> layer and giving an aggregate count of the features. You will notice that the the result will be displayed at the bottom of the window.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="n">aggregate</span><span class="p">(</span><span class="w"></span>
-<span class="w"> </span><span class="nl">layer:</span><span class="o">=</span><span class="w"> </span><span class="p">&#39;</span><span class="n">parcels</span><span class="p">&#39;,</span><span class="w"></span>
-<span class="w"> </span><span class="nl">aggregate:</span><span class="o">=</span><span class="p">&#39;</span><span class="n">count</span><span class="p">&#39;,</span><span class="w"></span>
-<span class="w"> </span><span class="nl">expression:</span><span class="o">=</span><span class="n">fid</span><span class="w"></span>
-<span class="w"> </span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">aggregate</span><span class="p">(</span>
+<span class="w"> </span><span class="nl">layer:</span><span class="o">=</span><span class="w"> </span><span class="p">&#39;</span><span class="n">parcels</span><span class="p">&#39;,</span>
+<span class="w"> </span><span class="nl">aggregate:</span><span class="o">=</span><span class="p">&#39;</span><span class="n">count</span><span class="p">&#39;,</span>
+<span class="w"> </span><span class="nl">expression:</span><span class="o">=</span><span class="n">fid</span>
+<span class="w"> </span><span class="p">)</span>
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/aggregate2.png"></p>
@@ -749,12 +748,12 @@ var _hmt = _hmt || [];
 <ol>
 <li>Switch to the <strong>Attributes Form</strong> tab. Select the field <code>count</code> and choose <strong>Text Edit</strong> as the <em>Widget Type</em>. At the <strong>Default Value</strong> field at the bottom, enter the following expression. Note that additional filter value. Here the <code>$geometry</code> refers to the geometry of the <code>parcels</code> layer and <code>geometry(@parent)</code> refers to the geometry of feature from the <code>polygons</code> layer. Click OK.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="k">aggregate</span><span class="p">(</span><span class="w"></span>
-<span class="w"> </span><span class="nl">layer</span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;parcels&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="k">aggregate</span><span class="err">:</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="nl">expression</span><span class="p">:</span><span class="o">=</span><span class="n">fid</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="k">filter</span><span class="err">:</span><span class="o">=</span><span class="n">intersects</span><span class="p">(</span><span class="err">$</span><span class="n">geometry</span><span class="p">,</span><span class="w"> </span><span class="n">geometry</span><span class="p">(</span><span class="nv">@parent</span><span class="p">))</span><span class="w"></span>
-<span class="w"> </span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">aggregate</span><span class="p">(</span>
+<span class="w"> </span><span class="nl">layer</span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;parcels&#39;</span><span class="p">,</span>
+<span class="w"> </span><span class="k">aggregate</span><span class="err">:</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span>
+<span class="w"> </span><span class="nl">expression</span><span class="p">:</span><span class="o">=</span><span class="n">fid</span><span class="p">,</span>
+<span class="w"> </span><span class="k">filter</span><span class="err">:</span><span class="o">=</span><span class="n">intersects</span><span class="p">(</span><span class="err">$</span><span class="n">geometry</span><span class="p">,</span><span class="w"> </span><span class="n">geometry</span><span class="p">(</span><span class="nv">@parent</span><span class="p">))</span>
+<span class="w"> </span><span class="p">)</span>
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/aggregate4.png"></p>
@@ -766,13 +765,13 @@ var _hmt = _hmt || [];
 <ol>
 <li>There are many different types of aggregates available. We can use an aggregate called <strong>concatenate</strong> to compute a comma-separated text of all feature ids. Go to the <strong>Attribute Form</strong> properties again and select the <code>parcels</code> field. Enter the following expression as the <strong>Default Value</strong>.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="k">aggregate</span><span class="p">(</span><span class="w"></span>
-<span class="w"> </span><span class="nl">layer</span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;parcels&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="k">aggregate</span><span class="err">:</span><span class="o">=</span><span class="s1">&#39;concatenate&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="nl">concatenator</span><span class="p">:</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w"> </span><span class="nl">expression</span><span class="p">:</span><span class="o">=</span><span class="n">to_string</span><span class="p">(</span><span class="n">fid</span><span class="p">),</span><span class="w"></span>
-<span class="w"> </span><span class="k">filter</span><span class="err">:</span><span class="o">=</span><span class="n">intersects</span><span class="p">(</span><span class="err">$</span><span class="n">geometry</span><span class="p">,</span><span class="w"> </span><span class="n">geometry</span><span class="p">(</span><span class="nv">@parent</span><span class="p">))</span><span class="w"></span>
-<span class="w"> </span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">aggregate</span><span class="p">(</span>
+<span class="w"> </span><span class="nl">layer</span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;parcels&#39;</span><span class="p">,</span>
+<span class="w"> </span><span class="k">aggregate</span><span class="err">:</span><span class="o">=</span><span class="s1">&#39;concatenate&#39;</span><span class="p">,</span>
+<span class="w"> </span><span class="nl">concatenator</span><span class="p">:</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span>
+<span class="w"> </span><span class="nl">expression</span><span class="p">:</span><span class="o">=</span><span class="n">to_string</span><span class="p">(</span><span class="n">fid</span><span class="p">),</span>
+<span class="w"> </span><span class="k">filter</span><span class="err">:</span><span class="o">=</span><span class="n">intersects</span><span class="p">(</span><span class="err">$</span><span class="n">geometry</span><span class="p">,</span><span class="w"> </span><span class="n">geometry</span><span class="p">(</span><span class="nv">@parent</span><span class="p">))</span>
+<span class="w"> </span><span class="p">)</span>
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/aggregate6.png"></p>
@@ -849,6 +848,7 @@ var _hmt = _hmt || [];
                         <li><a href="./category/duke.html" >Duke </a></li>
                         <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
                         <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/linux.html" >Linux </a></li>
                         <li><a href="./category/mac.html" >Mac </a></li>
                         <li><a href="./category/nas.html" >NAS </a></li>
                         <li><a href="./category/photography.html" >Photography </a></li>
@@ -868,78 +868,79 @@ var _hmt = _hmt || [];
                     Tagcloud
                 </div>
                 <div>
-                        <span><a href="./tag/diy.html">DIY</a></span>
-                        <span><a href="./tag/shit.html">Shit</a></span>
-                        <span><a href="./tag/vtk.html">VTK</a></span>
-                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
-                        <span><a href="./tag/download.html">Download</a></span>
-                        <span><a href="./tag/qgis.html">QGIS</a></span>
-                        <span><a href="./tag/game.html">Game</a></span>
-                        <span><a href="./tag/video.html">Video</a></span>
-                        <span><a href="./tag/communicate.html">Communicate</a></span>
-                        <span><a href="./tag/geology.html">Geology</a></span>
-                        <span><a href="./tag/scholar.html">Scholar</a></span>
-                        <span><a href="./tag/mac.html">Mac</a></span>
-                        <span><a href="./tag/microscope.html">Microscope</a></span>
-                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
-                        <span><a href="./tag/photography.html">Photography</a></span>
-                        <span><a href="./tag/ide.html">IDE</a></span>
-                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
-                        <span><a href="./tag/lesson.html">Lesson</a></span>
-                        <span><a href="./tag/macos.html">macOS</a></span>
-                        <span><a href="./tag/qt.html">QT</a></span>
-                        <span><a href="./tag/disease.html">Disease</a></span>
-                        <span><a href="./tag/xcode.html">Xcode</a></span>
-                        <span><a href="./tag/poem.html">Poem</a></span>
-                        <span><a href="./tag/story.html">Story</a></span>
-                        <span><a href="./tag/chat.html">Chat</a></span>
-                        <span><a href="./tag/camera.html">Camera</a></span>
-                        <span><a href="./tag/software.html">Software</a></span>
-                        <span><a href="./tag/translation.html">Translation</a></span>
-                        <span><a href="./tag/learning.html">Learning</a></span>
-                        <span><a href="./tag/vispy.html">VisPy</a></span>
-                        <span><a href="./tag/server.html">Server</a></span>
-                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
-                        <span><a href="./tag/radio.html">Radio</a></span>
-                        <span><a href="./tag/data.html">Data</a></span>
-                        <span><a href="./tag/telescope.html">Telescope</a></span>
-                        <span><a href="./tag/science.html">Science</a></span>
-                        <span><a href="./tag/library.html">Library</a></span>
                         <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
-                        <span><a href="./tag/hack.html">Hack</a></span>
-                        <span><a href="./tag/geopython.html">GeoPython</a></span>
-                        <span><a href="./tag/moon.html">Moon</a></span>
-                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
-                        <span><a href="./tag/nas.html">NAS</a></span>
                         <span><a href="./tag/phd.html">PHD</a></span>
-                        <span><a href="./tag/programming.html">Programming</a></span>
-                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
-                        <span><a href="./tag/hardware.html">Hardware</a></span>
-                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
-                        <span><a href="./tag/gis.html">GIS</a></span>
-                        <span><a href="./tag/hate.html">Hate</a></span>
-                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
-                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
                         <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
-                        <span><a href="./tag/junck.html">Junck</a></span>
-                        <span><a href="./tag/university.html">University</a></span>
-                        <span><a href="./tag/conda.html">Conda</a></span>
-                        <span><a href="./tag/discuss.html">Discuss</a></span>
-                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
-                        <span><a href="./tag/cuda.html">CUDA</a></span>
-                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
                         <span><a href="./tag/pyenv.html">Pyenv</a></span>
-                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
                         <span><a href="./tag/translate.html">Translate</a></span>
                         <span><a href="./tag/visualization.html">Visualization</a></span>
-                        <span><a href="./tag/python.html">Python</a></span>
-                        <span><a href="./tag/kivy.html">Kivy</a></span>
-                        <span><a href="./tag/photo.html">Photo</a></span>
-                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
-                        <span><a href="./tag/memory.html">Memory</a></span>
-                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
-                        <span><a href="./tag/life.html">Life</a></span>
                         <span><a href="./tag/book.html">Book</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/hadoop.html">Hadoop</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/diy.html">DIY</a></span>
                 </div>
             </section>
 

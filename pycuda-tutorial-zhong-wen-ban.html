@@ -19,7 +19,6 @@ var _hmt = _hmt || [];
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
-    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
 </head>
 
 <body id="index" class="blog">
@@ -52,7 +51,7 @@ var _hmt = _hmt || [];
     <div class="post-meta">
         <span class="meta-prep">Post in</span>
         <abbr class="date" title="2016-10-13T11:20:00+08:00"> 
-            <a href="./archive/2016/Oct/index.html">Thu 13 October 2016 </a>
+            <a href="./archive/2016/10月/index.html">周四 13 十月 2016 </a>
         </abbr>
         <span class="meta-prep"> |Tags</span>
                 <a href="./tag/python.html">Python</a>
@@ -120,14 +119,14 @@ var _hmt = _hmt || [];
 <p>（<strong>译者注：原作者在原文中使用的是Python2，我这里用的是带括号的print，这样同时能在python2和python3上运行。</strong>）</p>
 <p>输出的效果大概就是如下所示：</p>
 <p>（<strong>译者注：上面这个是从显存中取回的翻倍过的数组，下面的是原始数组。</strong>）</p>
-<div class="highlight"><pre><span></span><code><span class="o">[[</span> <span class="m">0</span>.51360393  <span class="m">1</span>.40589952  <span class="m">2</span>.25009012  <span class="m">3</span>.02563429<span class="o">]</span>
- <span class="o">[</span>-0.75841576 -1.18757617  <span class="m">2</span>.72269917  <span class="m">3</span>.12156057<span class="o">]</span>
- <span class="o">[</span> <span class="m">0</span>.28826082 -2.92448163  <span class="m">1</span>.21624792  <span class="m">2</span>.86353827<span class="o">]</span>
- <span class="o">[</span> <span class="m">1</span>.57651746  <span class="m">0</span>.63500965  <span class="m">2</span>.21570683 -0.44537592<span class="o">]]</span>
-<span class="o">[[</span> <span class="m">0</span>.25680196  <span class="m">0</span>.70294976  <span class="m">1</span>.12504506  <span class="m">1</span>.51281714<span class="o">]</span>
- <span class="o">[</span>-0.37920788 -0.59378809  <span class="m">1</span>.36134958  <span class="m">1</span>.56078029<span class="o">]</span>
- <span class="o">[</span> <span class="m">0</span>.14413041 -1.46224082  <span class="m">0</span>.60812396  <span class="m">1</span>.43176913<span class="o">]</span>
- <span class="o">[</span> <span class="m">0</span>.78825873  <span class="m">0</span>.31750482  <span class="m">1</span>.10785341 -0.22268796<span class="o">]]</span>
+<div class="highlight"><pre><span></span><code><span class="o">[[</span><span class="w"> </span><span class="m">0</span>.51360393<span class="w">  </span><span class="m">1</span>.40589952<span class="w">  </span><span class="m">2</span>.25009012<span class="w">  </span><span class="m">3</span>.02563429<span class="o">]</span>
+<span class="w"> </span><span class="o">[</span>-0.75841576<span class="w"> </span>-1.18757617<span class="w">  </span><span class="m">2</span>.72269917<span class="w">  </span><span class="m">3</span>.12156057<span class="o">]</span>
+<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="m">0</span>.28826082<span class="w"> </span>-2.92448163<span class="w">  </span><span class="m">1</span>.21624792<span class="w">  </span><span class="m">2</span>.86353827<span class="o">]</span>
+<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="m">1</span>.57651746<span class="w">  </span><span class="m">0</span>.63500965<span class="w">  </span><span class="m">2</span>.21570683<span class="w"> </span>-0.44537592<span class="o">]]</span>
+<span class="o">[[</span><span class="w"> </span><span class="m">0</span>.25680196<span class="w">  </span><span class="m">0</span>.70294976<span class="w">  </span><span class="m">1</span>.12504506<span class="w">  </span><span class="m">1</span>.51281714<span class="o">]</span>
+<span class="w"> </span><span class="o">[</span>-0.37920788<span class="w"> </span>-0.59378809<span class="w">  </span><span class="m">1</span>.36134958<span class="w">  </span><span class="m">1</span>.56078029<span class="o">]</span>
+<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="m">0</span>.14413041<span class="w"> </span>-1.46224082<span class="w">  </span><span class="m">0</span>.60812396<span class="w">  </span><span class="m">1</span>.43176913<span class="o">]</span>
+<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="m">0</span>.78825873<span class="w">  </span><span class="m">0</span>.31750482<span class="w">  </span><span class="m">1</span>.10785341<span class="w"> </span>-0.22268796<span class="o">]]</span>
 </code></pre></div>
 
 <p>出现上面这样输出就说明成功了！整个攻略就完成了。另外很值得庆幸的是，运行输出之后PyCuda就会把所有清理和内存回收工作做好了，咱们的简介也就完毕了。不过你可以再看一下接下来的内容，里面有一些有意思的东西。</p>
@@ -264,6 +263,7 @@ Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a> &amp; <a href="http
                         <li><a href="./category/duke.html" >Duke </a></li>
                         <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
                         <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/linux.html" >Linux </a></li>
                         <li><a href="./category/mac.html" >Mac </a></li>
                         <li><a href="./category/nas.html" >NAS </a></li>
                         <li><a href="./category/photography.html" >Photography </a></li>
@@ -283,78 +283,79 @@ Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a> &amp; <a href="http
                     Tagcloud
                 </div>
                 <div>
-                        <span><a href="./tag/diy.html">DIY</a></span>
-                        <span><a href="./tag/shit.html">Shit</a></span>
-                        <span><a href="./tag/vtk.html">VTK</a></span>
-                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
-                        <span><a href="./tag/download.html">Download</a></span>
-                        <span><a href="./tag/qgis.html">QGIS</a></span>
-                        <span><a href="./tag/game.html">Game</a></span>
-                        <span><a href="./tag/video.html">Video</a></span>
-                        <span><a href="./tag/communicate.html">Communicate</a></span>
-                        <span><a href="./tag/geology.html">Geology</a></span>
-                        <span><a href="./tag/scholar.html">Scholar</a></span>
-                        <span><a href="./tag/mac.html">Mac</a></span>
-                        <span><a href="./tag/microscope.html">Microscope</a></span>
-                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
-                        <span><a href="./tag/photography.html">Photography</a></span>
-                        <span><a href="./tag/ide.html">IDE</a></span>
-                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
-                        <span><a href="./tag/lesson.html">Lesson</a></span>
-                        <span><a href="./tag/macos.html">macOS</a></span>
-                        <span><a href="./tag/qt.html">QT</a></span>
-                        <span><a href="./tag/disease.html">Disease</a></span>
-                        <span><a href="./tag/xcode.html">Xcode</a></span>
-                        <span><a href="./tag/poem.html">Poem</a></span>
-                        <span><a href="./tag/story.html">Story</a></span>
-                        <span><a href="./tag/chat.html">Chat</a></span>
-                        <span><a href="./tag/camera.html">Camera</a></span>
-                        <span><a href="./tag/software.html">Software</a></span>
-                        <span><a href="./tag/translation.html">Translation</a></span>
-                        <span><a href="./tag/learning.html">Learning</a></span>
-                        <span><a href="./tag/vispy.html">VisPy</a></span>
-                        <span><a href="./tag/server.html">Server</a></span>
-                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
-                        <span><a href="./tag/radio.html">Radio</a></span>
-                        <span><a href="./tag/data.html">Data</a></span>
-                        <span><a href="./tag/telescope.html">Telescope</a></span>
-                        <span><a href="./tag/science.html">Science</a></span>
-                        <span><a href="./tag/library.html">Library</a></span>
                         <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
-                        <span><a href="./tag/hack.html">Hack</a></span>
-                        <span><a href="./tag/geopython.html">GeoPython</a></span>
-                        <span><a href="./tag/moon.html">Moon</a></span>
-                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
-                        <span><a href="./tag/nas.html">NAS</a></span>
                         <span><a href="./tag/phd.html">PHD</a></span>
-                        <span><a href="./tag/programming.html">Programming</a></span>
-                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
-                        <span><a href="./tag/hardware.html">Hardware</a></span>
-                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
-                        <span><a href="./tag/gis.html">GIS</a></span>
-                        <span><a href="./tag/hate.html">Hate</a></span>
-                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
-                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
                         <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
-                        <span><a href="./tag/junck.html">Junck</a></span>
-                        <span><a href="./tag/university.html">University</a></span>
-                        <span><a href="./tag/conda.html">Conda</a></span>
-                        <span><a href="./tag/discuss.html">Discuss</a></span>
-                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
-                        <span><a href="./tag/cuda.html">CUDA</a></span>
-                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
                         <span><a href="./tag/pyenv.html">Pyenv</a></span>
-                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
                         <span><a href="./tag/translate.html">Translate</a></span>
                         <span><a href="./tag/visualization.html">Visualization</a></span>
-                        <span><a href="./tag/python.html">Python</a></span>
-                        <span><a href="./tag/kivy.html">Kivy</a></span>
-                        <span><a href="./tag/photo.html">Photo</a></span>
-                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
-                        <span><a href="./tag/memory.html">Memory</a></span>
-                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
-                        <span><a href="./tag/life.html">Life</a></span>
                         <span><a href="./tag/book.html">Book</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/hadoop.html">Hadoop</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/diy.html">DIY</a></span>
                 </div>
             </section>
 

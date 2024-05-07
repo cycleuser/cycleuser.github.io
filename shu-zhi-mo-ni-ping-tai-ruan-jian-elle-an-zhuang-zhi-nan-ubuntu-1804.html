@@ -19,7 +19,6 @@ var _hmt = _hmt || [];
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
     <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
-    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
 </head>
 
 <body id="index" class="blog">
@@ -52,7 +51,7 @@ var _hmt = _hmt || [];
     <div class="post-meta">
         <span class="meta-prep">Post in</span>
         <abbr class="date" title="2019-05-02T10:57:29+08:00"> 
-            <a href="./archive/2019/May/index.html">Thu 02 May 2019 </a>
+            <a href="./archive/2019/5月/index.html">周四 02 五月 2019 </a>
         </abbr>
         <span class="meta-prep"> |Tags</span>
         <!-- TOBE COMMENTS -->
@@ -62,12 +61,12 @@ var _hmt = _hmt || [];
         <p>在 http://elle.ws/installation 的原版安装指南只适用于 Ubuntu 16.04, 不适合 Ubuntu 18.04.</p>
 <h2>安装依赖包</h2>
 <h4>打开终端输入:</h4>
-<div class="highlight"><pre><span></span><code>sudo apt install gfortran gcc mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev libgtk2.0-0 zlibc zlib1g make build-essential xorg-dev libmotif-common libmotif-dev xutils-dev libgtk2.0-dev cvs xutils libx11-dev libxt-dev libxpm-dev x11proto-print-dev x11proto-xext-dev libxext-dev
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gfortran<span class="w"> </span>gcc<span class="w"> </span>mesa-common-dev<span class="w"> </span>libgl1-mesa-dev<span class="w"> </span>libglu1-mesa-dev<span class="w"> </span>libgtk2.0-0<span class="w"> </span>zlibc<span class="w"> </span>zlib1g<span class="w"> </span>make<span class="w"> </span>build-essential<span class="w"> </span>xorg-dev<span class="w"> </span>libmotif-common<span class="w"> </span>libmotif-dev<span class="w"> </span>xutils-dev<span class="w"> </span>libgtk2.0-dev<span class="w"> </span>cvs<span class="w"> </span>xutils<span class="w"> </span>libx11-dev<span class="w"> </span>libxt-dev<span class="w"> </span>libxpm-dev<span class="w"> </span>x11proto-print-dev<span class="w"> </span>x11proto-xext-dev<span class="w"> </span>libxext-dev
 </code></pre></div>
 
 <p>原版安装指南中使用的 <code>libmotif4</code> 仅用于 Ubuntu 16.04，现在在 Ubuntu 18.04 下要用 <code>libmotif-common</code> 替代.</p>
 <h4>然后运行:</h4>
-<div class="highlight"><pre><span></span><code>sudo apt-get install  libgsl-dev libgsl23 libgslcblas0  libgsl-dbg
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w">  </span>libgsl-dev<span class="w"> </span>libgsl23<span class="w"> </span>libgslcblas0<span class="w">  </span>libgsl-dbg
 </code></pre></div>
 
 <p>原版安装指南中使用的 <code>libgsl2</code> 仅用于 Ubuntu 16.04，现在在 Ubuntu 18.04 下要用  <code>libgsl23 libgslcblas0  libgsl-dbg</code> 替代.</p>
@@ -75,50 +74,50 @@ var _hmt = _hmt || [];
 <h4>下载 旧版本的 wxWidgets</h4>
 <p>只能用很古老的旧版本 2.8.12！</p>
 <p>访问 http://www.wxwidgets.org/downloads/ 下载 wxWidgets-2.8.12.zip</p>
-<div class="highlight"><pre><span></span><code>wget https://github.com/wxWidgets/wxWidgets/releases/download/v2.8.12/wxWidgets-2.8.12.zip
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://github.com/wxWidgets/wxWidgets/releases/download/v2.8.12/wxWidgets-2.8.12.zip
 </code></pre></div>
 
 <h4>安装 wxWidgets</h4>
 <p>这里一定要注意! <code>wxgtk2.8 根本不能兼容最新的标准, 需要使用上世纪的标准才行 -std=gnu++98</code>, 所以要先运行 <code>export CFLAGS=-std=c99 CXXFLAGS=-std=c++98</code>， 然后运行 <code>./configure --prefix=/usr</code>.</p>
 <h5>上述信息参考: https://bugs.alpinelinux.org/issues/6361 and https://forums.wxwidgets.org/viewtopic.php?t=43118</h5>
 <p>下载完毕了解压缩，cd 命令进入到 wxWidgets-2.8.12 目录，然后依次运行下面的命令来安装:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CFLAGS</span><span class="o">=</span>-std<span class="o">=</span>c99 <span class="nv">CXXFLAGS</span><span class="o">=</span>-std<span class="o">=</span>c++98
-./configure --prefix<span class="o">=</span>/usr
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CFLAGS</span><span class="o">=</span>-std<span class="o">=</span>c99<span class="w"> </span><span class="nv">CXXFLAGS</span><span class="o">=</span>-std<span class="o">=</span>c++98
+./configure<span class="w"> </span>--prefix<span class="o">=</span>/usr
 make
-sudo make install
+sudo<span class="w"> </span>make<span class="w"> </span>install
 </code></pre></div>
 
 <h2>安装 ELLE</h2>
 <h4>先克隆 elle-git</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> /home/
-git clone https://git.code.sf.net/p/elle/git elle-git
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/
+git<span class="w"> </span>clone<span class="w"> </span>https://git.code.sf.net/p/elle/git<span class="w"> </span>elle-git
 </code></pre></div>
 
 <p>这里的<code>elle-git</code> 目录包含了一个 <code>elle</code> 目录，这个 <code>elle</code> 目录才是最关键的。
 这里我把 <code>elle</code> 目录就放进 <code>/home/</code> 位置了，这样后面就不用折腾什么用户名了。原版指南里面是把这个文件夹放进个人目录，可是这样就要每次要求用户根据自己个人目录的不同来调整后面的命令，对一问三不知的小白来说不是闹呢么？</p>
 <p>所以这里就 cd 进入 <code>elle-git</code> 目录, 然后复制整个 <code>elle</code> 目录到 <code>/home/</code>，于是就有了 <code>/home/elle</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> elle-git 
-cp -R elle /home/
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>elle-git<span class="w"> </span>
+cp<span class="w"> </span>-R<span class="w"> </span>elle<span class="w"> </span>/home/
 </code></pre></div>
 
 <p>要安装用的东西就都在 <code>/home/elle</code> 目录内了.</p>
 <h4>终于开始安装了</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> /home/elle
-./install.sh wx
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/elle
+./install.sh<span class="w"> </span>wx
 </code></pre></div>
 
 <p>没报错的话就说明安装成功了。然后还要设置环境变量 <code>PATH</code>，在终端中运行下面的命令:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/elle/elle/binwx
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/lib:/usr/lib:/usr/local/lib
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/elle/elle/binwx
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/lib:/usr/lib:/usr/local/lib
 <span class="nv">ELLEPATH</span><span class="o">=</span>/home/elle/elle/binwx
-<span class="nb">export</span> PATH LD_LIBRARY_PATH ELLEPATH
+<span class="nb">export</span><span class="w"> </span>PATH<span class="w"> </span>LD_LIBRARY_PATH<span class="w"> </span>ELLEPATH
 </code></pre></div>
 
 <p>官网文档说让你用 <code>/home/your_user/elle</code>,而这里我们直接就用了 <code>/home/elle</code> .
 <code>your_user</code> 意思是你自己系统上面的家目录的用户名，比如我的用户名是 <code>fred</code>, 那么就要使用 <code>/home/fred/elle</code> 而不是 <code>/home/elle</code>, 这也就需要之前的步骤中把<code>elle</code> 目录复制到 <code>/home/fred/elle</code> 而不是 <code>/home/elle</code>。你自己要是搞得清楚用户目录和环境变量设置，完全可以随意设置。</p>
 <p>你要是纯小白搞不懂什么家目录，就按照上文中的命令，使用 <code>/home/elle</code> 吧。</p>
 <h4>测试安装好的 elle</h4>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> /home/elle/bin
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/elle/bin
 ./showelle
 </code></pre></div>
 
@@ -174,6 +173,7 @@ cp -R elle /home/
                         <li><a href="./category/duke.html" >Duke </a></li>
                         <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
                         <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/linux.html" >Linux </a></li>
                         <li><a href="./category/mac.html" >Mac </a></li>
                         <li><a href="./category/nas.html" >NAS </a></li>
                         <li><a href="./category/photography.html" >Photography </a></li>
@@ -193,78 +193,79 @@ cp -R elle /home/
                     Tagcloud
                 </div>
                 <div>
-                        <span><a href="./tag/diy.html">DIY</a></span>
-                        <span><a href="./tag/shit.html">Shit</a></span>
-                        <span><a href="./tag/vtk.html">VTK</a></span>
-                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
-                        <span><a href="./tag/download.html">Download</a></span>
-                        <span><a href="./tag/qgis.html">QGIS</a></span>
-                        <span><a href="./tag/game.html">Game</a></span>
-                        <span><a href="./tag/video.html">Video</a></span>
-                        <span><a href="./tag/communicate.html">Communicate</a></span>
-                        <span><a href="./tag/geology.html">Geology</a></span>
-                        <span><a href="./tag/scholar.html">Scholar</a></span>
-                        <span><a href="./tag/mac.html">Mac</a></span>
-                        <span><a href="./tag/microscope.html">Microscope</a></span>
-                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
-                        <span><a href="./tag/photography.html">Photography</a></span>
-                        <span><a href="./tag/ide.html">IDE</a></span>
-                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
-                        <span><a href="./tag/lesson.html">Lesson</a></span>
-                        <span><a href="./tag/macos.html">macOS</a></span>
-                        <span><a href="./tag/qt.html">QT</a></span>
-                        <span><a href="./tag/disease.html">Disease</a></span>
-                        <span><a href="./tag/xcode.html">Xcode</a></span>
-                        <span><a href="./tag/poem.html">Poem</a></span>
-                        <span><a href="./tag/story.html">Story</a></span>
-                        <span><a href="./tag/chat.html">Chat</a></span>
-                        <span><a href="./tag/camera.html">Camera</a></span>
-                        <span><a href="./tag/software.html">Software</a></span>
-                        <span><a href="./tag/translation.html">Translation</a></span>
-                        <span><a href="./tag/learning.html">Learning</a></span>
-                        <span><a href="./tag/vispy.html">VisPy</a></span>
-                        <span><a href="./tag/server.html">Server</a></span>
-                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
-                        <span><a href="./tag/radio.html">Radio</a></span>
-                        <span><a href="./tag/data.html">Data</a></span>
-                        <span><a href="./tag/telescope.html">Telescope</a></span>
-                        <span><a href="./tag/science.html">Science</a></span>
-                        <span><a href="./tag/library.html">Library</a></span>
                         <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
-                        <span><a href="./tag/hack.html">Hack</a></span>
-                        <span><a href="./tag/geopython.html">GeoPython</a></span>
-                        <span><a href="./tag/moon.html">Moon</a></span>
-                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
-                        <span><a href="./tag/nas.html">NAS</a></span>
                         <span><a href="./tag/phd.html">PHD</a></span>
-                        <span><a href="./tag/programming.html">Programming</a></span>
-                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
-                        <span><a href="./tag/hardware.html">Hardware</a></span>
-                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
-                        <span><a href="./tag/gis.html">GIS</a></span>
-                        <span><a href="./tag/hate.html">Hate</a></span>
-                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
-                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
                         <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
-                        <span><a href="./tag/junck.html">Junck</a></span>
-                        <span><a href="./tag/university.html">University</a></span>
-                        <span><a href="./tag/conda.html">Conda</a></span>
-                        <span><a href="./tag/discuss.html">Discuss</a></span>
-                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
-                        <span><a href="./tag/cuda.html">CUDA</a></span>
-                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
                         <span><a href="./tag/pyenv.html">Pyenv</a></span>
-                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
                         <span><a href="./tag/translate.html">Translate</a></span>
                         <span><a href="./tag/visualization.html">Visualization</a></span>
-                        <span><a href="./tag/python.html">Python</a></span>
-                        <span><a href="./tag/kivy.html">Kivy</a></span>
-                        <span><a href="./tag/photo.html">Photo</a></span>
-                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
-                        <span><a href="./tag/memory.html">Memory</a></span>
-                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
-                        <span><a href="./tag/life.html">Life</a></span>
                         <span><a href="./tag/book.html">Book</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/hadoop.html">Hadoop</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/diy.html">DIY</a></span>
                 </div>
             </section>
 

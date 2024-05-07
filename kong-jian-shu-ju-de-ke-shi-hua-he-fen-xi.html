@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
+    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo">
+                <h1><img src="/theme/image/default-logo.png" width="300" height="100" alt="CycleUser" />
+                CycleUser</h1>
+        </div> <!-- /#logo-->
+        <nav id="menu" class="main-nav"><ul class="menu">
+            <li  class="active"><a href="https://blog.cycleuser.org">Homepage</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/categories.html">Categories</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/tags.html">Tags</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/archives.html">Archives</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/about.html">About</a></li>
+
+        </ul></nav><!-- /#menu -->
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-620" >
+                <section class="breadcrumb-list">
+<a href=".">Blog</a> ›<a href="category/qgis.html">QGIS</a> ›空间数据的可视化和分析
+                </section>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >空间数据的可视化和分析</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep">Post in</span>
+        <abbr class="date" title="2022-01-01T16:59:00+08:00"> 
+            <a href="./archive/2022/Jan/index.html">Sat 01 January 2022 </a>
+        </abbr>
+        <span class="meta-prep"> |Tags</span>
+                <a href="./tag/gis.html">GIS</a>
+                <a href="./tag/qgis.html">QGIS</a>
+                <a href="./tag/python.html">Python</a>
+                <a href="./tag/learning.html">Learning</a>
+                <a href="./tag/book.html">Book</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry">
+        <p><a href="https://courses.spatialthoughts.com/spatial-data-viz.html">本文英文原版地址</a></p>
+<h3>使用 QGIS 处理空间数据集</h3>
+<h4>英文原作者：Ujaval Gandhi</h4>
+<h4>中文翻译：CycleUser</h4>
+<h1>导论</h1>
+<p>本课程对位置数据集的使用进行简要介绍。课程会涉及到一系列的使用场景和应用工具，让你能亲自上手体验地图数据的可视化，并从中提取深层信息。这门课假设你对地理信息系统、遥感都一无所知，也适合所有学科的从业人员。我们这里所有练习都用开源软件<a href="https://qgis.org/en/site/">QGIS</a> ，所以此课程也适合用于学习QGIS。</p>
+<p><a href="https://pan.baidu.com/s/1lFjSnJbUuxVpAu5qk4mu1A">点击下载课程幻灯片 提取码: nfr8 </a></p>
+<h1>软件</h1>
+<p>本课程使用的版本是 QGIS LTR version 3.16 （长期支持版本），具体的安装可以参考<a href="https://courses.spatialthoughts.com/install-qgis-ltr.html">QGIS-LTR 安装指南</a> 。【译者注：也可以自行探索，这一步挺简单的。需要注意的就是尽量用默认设置，别自己乱改安装路径导致环境变量设置不对等等自作孽。】</p>
+<h1>获取数据集</h1>
+<p>课程的练习中要用到一系列的数据集，都存放在一起来。下载之后，里面有所有的图层文件、项目文件等等，建议将这些文件到<code>Downloads</code>文件夹下。</p>
+<p><a href="https://pan.baidu.com/s/19v8StzMObZUX-K5gk3V7OQ">点击下载课程数据集 提取码: gld7 </a></p>
+<h1>完成准备工作</h1>
+<p>准备工作需要一小时。在开始练习前，理解空间数据如何建模非常重要，还要了解坐标参考系统。</p>
+<h2>关于地理信息系统的一个使用简介视频</h2>
+<p>为了对地理信息系统的基本概念有一个初步了解，可以观看下面的视频和对应幻灯片。</p>
+<p><a href="https://www.youtube.com/watch?v=yfLjnK569XY"><img alt="Video" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/intro_to_gis.png"></a></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=yfLjnK569XY">点击播放本节视频</a></li>
+<li><a href="https://pan.baidu.com/s/1fgK5anzqC_J3AkOq3QcZag">点击下载对应幻灯片 提取码: 4hic </a></li>
+</ul>
+<h2>做个测试</h2>
+<p>看完了上面的视频和幻灯片后，可以做一下下面的测试，来试试你对地理信息系统的初步了解。</p>
+<ul>
+<li><a href="https://forms.gle/p79Ssyte91NHZtkp6">原版地理信息系统基本概念测试</a></li>
+</ul>
+<h5>地理信息系统简介的基础测试</h5>
+<p>这个小测验是检测你对地理信息系统基础知识的掌握情况。
+- 每道题一分。</p>
+<ol>
+<li>
+<p>下列哪一个不是矢量数据格式（Vector data format）? </p>
+<p>a. Shapefile
+b. GeoPackage
+c. GeoTIFF
+d. CSV</p>
+</li>
+<li>
+<p>地理信息系统是用于下列哪些功能的软件工具？</p>
+<p>a. 创建地图
+b. 查看地理空间数据
+c. 分析空间数据
+d. 创建空间数据通道
+e. 以上全都对</p>
+</li>
+<li>
+<p>假如你要创建一个非洲地图，你可以选择下列哪种坐标参考系？（多选）</p>
+<p>a. Africa Lambert Conformal Conic
+b. Africa Albers Equal Area
+c. Equal Earth
+d. WGS84 Lat/Lon</p>
+</li>
+<li>
+<p>下列哪种数据类型可以用来表示地下水位？</p>
+<p>a. 点向量层，展示每个取样位置的水位
+b. 栅格数据层，整个区域的每个像素都插值表示水位
+c. 线向量层，展示水位的轮廓线
+d. 以上全都对</p>
+</li>
+<li>
+<p>在WGS84坐标系中，班加罗尔（Bangalore）的经纬度坐标是 12.9716° N, 77.5946° E，哪一个是Y坐标？</p>
+<p>a. 12.9716
+b. 77.5946</p>
+</li>
+<li>
+<p>猜一猜GPS坐标为 35.6762° N, 139.6503° E 的是下面哪座城市？</p>
+<p>a. 澳大利亚悉尼
+b. 日本东京
+c. 巴西里约热内卢
+d. 加拿大温哥华</p>
+</li>
+<li>
+<p>参考系'EPSG:4326' 中的 EPSG 是什么的缩写？</p>
+<p>a. European Petroleum Survey Group
+b. Earth Projection Standard Group
+c. European Projection Survey Group</p>
+</li>
+<li>
+<p>保角投影（如墨卡托）保留了以下哪种特性？</p>
+<p>a. 形状
+b. 面积
+c. 距离
+d. 以上全都对</p>
+</li>
+<li>
+<p>下图中红色方框所示位置的UTM分区应该是哪个？
+<img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/q8.jpg"></p>
+<p>a. 34
+b. 34S
+c. 34N
+d. 34J</p>
+</li>
+<li>
+<p>下列关于'Geoid' 命题为真的是：</p>
+<p>a. 近似地球的平均海平面
+b. 是使用精确地表高程测量得到的表面
+c. 是使用重力测量推测出的数学表面
+d. 以上全都对</p>
+</li>
+</ol>
+<h5>参考答案：</h5>
+<p>c; d; ab; d; a; b; a; a; b; d</p>
+<h1>理解空间数据</h1>
+<h2>为什么要在意位置？</h2>
+<blockquote>
+<p>“Everything is related to everything else, but near things are more related than distant things. 所有事物都和其他的事物相联系，而近距离事物之间的联系比远距离的更紧密。” - Waldo Tobler’s <a href="https://en.wikipedia.org/wiki/Tobler%27s_first_law_of_geography">《地理学第一定律（First Law of Geography）》</a></p>
+</blockquote>
+<p>当对现实世界进行建模和分析的时候，位置是一个关键的因子。非空间模型无法准确反映现实世界中发生的过程和互动。例如对<a href="https://medium.com/geoai/using-forest-based-classification-regression-to-model-and-estimate-house-values-5a0e26682c42">预测房价</a> 的问题中，空间预测模型的效果就远胜过非空间模型。</p>
+<h2>位置数据随处可见</h2>
+<p>现在获取位置数据对个人或者企业都很容易。空间数据为数据增加了额外的维度，能够揭示出原本不显著的模式。</p>
+<p>个体有了手机上的定位传感器，就可以将他们的数据附加上位置信息。智能手机拍摄的照片就有内嵌的位置信息。如果选择加入位置信息，用户就可以持续地存储和访问他们的位置历史。</p>
+<p>很多企业也有各种各样的位置数据，顾客地址、网站访客的IP地址、销售区域、供应链条等等。对于其他的一些商业活动，比如出租车服务商、餐饮快递、物流等都产生了大量的位置数据，能用来挖掘出情报。</p>
+<p>物联网设备也在收集传感器数据的同时持续采集位置数据。</p>
+<p>政府机构也在越来越多地采集和分享基于位置的数据。这些与城市基础设施、人口普查、激光雷达和航空图像等等相关的数据，正在被大量采集。很多政府都提供了开放数据共享政策，使得这些数据可以供个人和企业使用。</p>
+<h2>空间数据模型 Spatial Data Model</h2>
+<p>空间数据的模型包含两个部分：<strong>几何（geometry）</strong> + <strong>性质（properties）</strong>。</p>
+<p><em>几何（Geometry）</em> (形状 Shape) 是通过坐标和坐标参考系统定义的； <em>性质（Properties）</em> (属性 Attributes) 是用数据和数据类型来定义的。</p>
+<p>下面就是将班加罗尔这个城市表示成一个点：</p>
+<div class="highlight"><pre><span></span><code> {
+      &quot;type&quot;: &quot;Feature&quot;,
+      &quot;geometry&quot;: {
+        &quot;type&quot;: &quot;Point&quot;,
+        &quot;coordinates&quot;: [ 77.58270263671875, 12.963074139604124]
+      },
+      &quot;properties&quot;: {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Bengaluru&quot;
+      }
+  }
+</code></pre></div>
+
+<p>上面的格式使用的是 <a href="https://geojson.org/">GeoJson 格式</a> 。点的几何坐标使用了X (经度 Longitude) 和 Y (纬度 Latitude)两者来定义。这个点都被分配了两个属性，第一个 <em>id</em> 的值是 <code>1</code>，而 <em>name</em> 就设置成城市名字 <code>Bengaluru</code>。GeoJson 格式只支持一个坐标参考系统（WGS84），所以这里不需要在具体指定。</p>
+<h2>空间数据格式</h2>
+<p>前面已经讲了表征空间数据的最基本的方法。实际上有很多种数据格式能表征空间数据，这些数据格式有个字适合的不同应用。大多数情况下，空间数据格式就是对已有数据格式的扩展。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>类型</strong></th>
+<th style="text-align: left;"><strong>非空间数据</strong></th>
+<th style="text-align: left;"><strong>空间数据</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">文本</td>
+<td style="text-align: left;">csv, json, xml</td>
+<td style="text-align: left;">csv, geojson, gml, kml</td>
+</tr>
+<tr>
+<td style="text-align: left;">二进制/压缩包</td>
+<td style="text-align: left;">pdf, xls, zip</td>
+<td style="text-align: left;">shapefile, geopdf, geopackage</td>
+</tr>
+<tr>
+<td style="text-align: left;">图像</td>
+<td style="text-align: left;">tiff, jpg, png</td>
+<td style="text-align: left;">geotiff, jpeg2000</td>
+</tr>
+<tr>
+<td style="text-align: left;">数据库</td>
+<td style="text-align: left;">SQLite, PostgreSQL, Oracle</td>
+<td style="text-align: left;">Spatialite, PostGIS, Oracle Spatial</td>
+</tr>
+</tbody>
+</table>
+<h2>空间数据类型</h2>
+<p>空间数据一般可以分成两类，矢量数据（Vector）和栅格数据（Raster）。在网络上提供相关服务的这些数据一般都是被切成一个个小的块（切片，tiles），这些就可以作为第三类来分出来。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>类型</strong></th>
+<th style="text-align: left;"><strong>子类</strong></th>
+<th style="text-align: left;"><strong>样例</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">矢量</td>
+<td style="text-align: left;">点</td>
+<td style="text-align: left;"><em>传感器观测数据, 位置</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">线</td>
+<td style="text-align: left;"><em>GPS 轨迹, 道路, 河流, 轮廓线条</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">多边形</td>
+<td style="text-align: left;"><em>行政区划, 建筑</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">点云</td>
+<td style="text-align: left;"><em>激光雷达测量 LIDAR surveys</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">栅格</td>
+<td style="text-align: left;">照片</td>
+<td style="text-align: left;"><em>航拍和无人机照片</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">网格 Grids</td>
+<td style="text-align: left;"><em>卫星图像, 高程数据</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">网状结构 Mesh</td>
+<td style="text-align: left;"><em>气候和科学观测数据</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">切片</td>
+<td style="text-align: left;">栅格数据切片层</td>
+<td style="text-align: left;"><em>网络地图</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">矢量数据切片层</td>
+<td style="text-align: left;"><em>网络地图</em></td>
+</tr>
+</tbody>
+</table>
+<h2>地图投影和坐标参考系统</h2>
+<p>如果说空间数据有什么特殊之处，那一定就是坐标参考系统（Coordinate Reference System，缩写为 CRS）</p>
+<p><em>地图投影（Map Projection）</em> 将地球从立体球型（三维）投射成平面形状（二维）。</p>
+<p><em>坐标参考系（Coordinate Reference System，CRS）</em> 就定义了这个投影得到的二维地图如何关联到地球上的真实位置。</p>
+<p>在<a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/coordinate_reference_systems.html">QGIS 官方文档</a> 中提供了对这一话题的详细介绍。</p>
+<p>目前市面上有几百种不同的地图投影和对应的坐标参考系，每一种都有不同的性质和用途。最重要的是要记住，每一种投影都或多或少在某些方面存在畸变。有一篇 <a href="https://bl.ocks.org/syntagmatic/ba569633d51ebec6ec6e">地图投影集锦</a> 提供了常见投影方案的可视化介绍。更进一步的相关信息可以参考 Jochen Albrecht 所写的<a href="http://www.geo.hunter.cuny.edu/~jochen/gtech201/lectures/lec6concepts/map%20coordinate%20systems/how%20to%20choose%20a%20projection.htm">指南：选择一个投影</a>. 另外一篇 <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/tgis.12636">最近发表的文章</a> 表明了投影选择对面积和体积计算的影响。</p>
+<p>那么你要选择什么投影方案呢？这可能是一个很宏大且复杂的话题，而且答案通常是，看情况。但接下来的这些内容会帮到你。</p>
+<ul>
+<li><strong>全球地图</strong>: 如果你要绘制的是全球地图，目前的主流选择是使用<a href="http://equal-earth.com/">Equal Earth</a> 投影。这种投影的附加优势就是保持了面积，所以对于需要等面积网格进行全球规模分析的场景来说是很好的选择。相比于其他的投影方案，比如 <a href="https://en.wikipedia.org/wiki/Gall%E2%80%93Peters_projection">Gall-Peters 投影</a>等等，<a href="http://equal-earth.com/">Equal Earth</a>在视觉上效果也更好些。新版本的 QGIS 已经内置了对多种 Equal Earth 坐标参考系的支持. 如果你用的是旧版本，可以通过下面的字符串来 <a href="https://docs.qgis.org/testing/en/docs/user_manual/working_with_projections/working_with_projections.html#custom-coordinate-reference-system">自定义坐标参考系（Custom CRS）</a> ：</li>
+</ul>
+<div class="highlight"><pre><span></span><code>+proj=eqearth +datum=WGS84 +wktext
+</code></pre></div>
+
+<p><img alt="The Equal Earth Projection" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/equal-earth.jpg"></p>
+<p>The Equal Earth Projection</p>
+<ul>
+<li>
+<p><strong>国家地图</strong>: 很多国家都制定了某个特定版本的坐标参考系统，目的是最小化本国内的畸变。可以通过访问对应国家的相关机构来获取相关信息。</p>
+</li>
+<li>
+<p><strong>局部和区域地图</strong>: 和国家层面的坐标参考系类似，很多国家都还有州、省一级的坐标参考系。另外，通用横轴墨卡托变换（Universal Transverse Mercator，UTM）为全球任意地区都提供了良好的坐标参考系。在每个区域内的畸变都是最小的。如果你的研究去包含在某个UTM区域内，使用UTM是分析和制图的好选择。
+<img alt="UTM Zones of the world" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/utm_zones.png"></p>
+</li>
+</ul>
+<p>UTM Zones of the world</p>
+<h1>QGIS 简介</h1>
+<p><a href="https://qgis.org/">QGIS</a> 是一个自由、开源软件，可以用于创建、编辑、可视化、分析和出版地理空间数据。QGIS支持Windows、macOS和Linux。本课程使用的是QGIS的长期支持版（Long Term Release，缩写为LTR），可以在<a href="https://qgis.org/en/site/forusers/download.html">QGIS 官网下载页面</a> 下载安装包。</p>
+<h2>插件（Plugins）</h2>
+<p>QGIS为开发者提供了插件这种非常简单的方式来扩展软件核心功能。安装和管理插件，需要在 QGIS 的菜单中选择<strong>Plugins → Manage and Install Plugins..</strong>，然后切换到 <em>All</em> 标签，然后搜索要安装的插件。找到之后，选中，然后点击<em>Install Plugin</em> 就安装了。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/plugins.png"></p>
+<p>本课程中，我们使用的是下面两个插件，需要大家来安装一下：
+* QuickMapServices
+* QuickOSM</p>
+<h1>可视化</h1>
+<h2>点</h2>
+<p>对空间数据的最简单表述方式就是使用表格。一个地理位置可以表示成一对坐标，经度和纬度，然后再加上与之相关的其他属性信息。很多空间数据都是这样的形式，比如Excel表格、CSV逗号分隔符文本，数据库表格等。</p>
+<h3>练习：将空气质量投在地图上</h3>
+<p>世界上很多国家和地区都面对着空气质量变差的问题。要更好地理解这个问题，首先的一步是持续收集各地的空气质量数据，很多机构都有这类数据的收集和公开，比如<a href="https://openaq.org/">OpenAQ</a> 。</p>
+<p>我们使用 <a href="https://blissair.com/what-is-pm-2-5.htm">PM2.5 浓度数据</a> 中一天的数据，然后对其进行投图。目的是将表格数据转换成位置数据的可视化。</p>
+<p>本次练习中，我们使用的是2021年12月30奥地利当天的数据，下载自<a href="https://openaq.org/#/countries?_k=dmlk2k">OpenAQ Data Download</a>。</p>
+<ol>
+<li>在编辑器中打开下载的文件 <code>measurements.csv</code> 然后看一下。<code>value</code>是测量值，<code>latitude</code> 是纬度，<code>longitude</code>是经度。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq1.png"></p>
+<ol>
+<li>下载的这种<code>csv</code>格式的文件可以算作是一种<strong>分隔符文档Delimited Text</strong>，可以在QGIS里面通过<em>Data Source Manager</em>来进行导入。在QGIS主界面点击<em>Open Data Source Manager</em> 按钮即可。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq2.png"></p>
+<ol>
+<li>浏览到下载的<code>measurements.csv</code>文件打。在 <em>Data Source Manager</em> 里面选择<em>Delimited Text</em>，然后在<em>File name</em>里面定位到目标文件，在<em>Geometry Definition</em>里面选择<em>Point coordinates</em>，设置 <code>longitude</code> 为 <em>X Field</em>， <code>latitude</code>为 <em>Y Field</em>，然后选择 <code>EPSG 4326 - WGS 84</code> 作为<em>Geometry CRS</em>，点击<em>Add</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq3.png"></p>
+<ol>
+<li>然后就能看到表格数据加载到QGIS的画布上了，成了一个空间数据层。使用 <em>Identify</em> 按钮来查看各个点，就能看到对应的各项数据。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq4.png"></p>
+<ol>
+<li>点的分布在城市周围，但图上现在还没添加城市地图，所以就要加一个地图层（base-map layer）。这里使用<strong>QuickMapServices</strong> 这个插件来加载多种地图，点击 <strong>Web → QuickMapServices → OSM → OSM Standard</strong> 图层.</li>
+</ol>
+<blockquote>
+<p>注意：如果你想要用其他的地图图层，到 <strong>Web → QuickMapServices → Settings</strong> 中，切换到 <strong>More services</strong>，点击 <code>Get Contributed Pack</code>，然后点击 <strong>Save</strong>保存即可。</p>
+</blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq5.png"></p>
+<ol>
+<li>新图层就添加到左侧的 <em>Layers</em> 面板中了，也同时呈现在了画布<em>Canvas</em>中。现在你就能看到数据点出现在城区地图上面了。接下来咱们点击 <em>Open the Layer Styling Panel</em> 来让数据点看着更好一点。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq6.png"></p>
+<ol>
+<li>这回咱要根据每个点的观测到的 <code>value</code> 来对其进行着色。选择<code>Graduated</code>着色器，然后将 <code>value</code>设置为 <em>Value</em> 列。将<em>Classes</em> 到分类数设置为<code>6</code> 然后点击 <em>Classify</em>。</li>
+</ol>
+<blockquote>
+<p>注意：默认的分类模式是<em>Equal Count</em> - 这对于咱们的练习来说也能用。 关于数据分类的更多内容可以参考 <a href="https://docs.qgis.org/testing/en/docs/user_manual/working_with_vector/vector_properties.html?#graduated-renderer">QGIS 官方文档</a>。</p>
+</blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq7.png"></p>
+<p>要让分类范围再有更多的意义，可以将它们和常用范围联系起来。
+<img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq_naqi.png"></p>
+<ol>
+<li>接下来调整，将图例<em>Legend</em> 调整成人类可读性更好的分类名称，可以双击每一个类别的范围然后来修改。</li>
+</ol>
+<blockquote>
+<p>注意：这里的区间包含上界，不包含下界。所以如果一个区间是 30-60，包含的就是所有 &gt;30 而&lt;=60的值。具体的细节可以参考<a href="https://github.com/qgis/QGIS/issues/29852">QGIS的这个Issue</a> 。</p>
+</blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq8.png"></p>
+<ol>
+<li>由于你修改了分类那对应的可视化方案也要调整了。正好把空气质量调整成对应的模式。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq9.png"></p>
+<ol>
+<li>另外还可以调整一下配色，这里就将原来的单色调成红黄绿三色<code>RdYlGn</code> (Red-Yellow-Green) 。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq10.png"></p>
+<ol>
+<li>这里就发现有问题了，默认的是高值变成绿，低值是红了。我们希望的正好是反过来，所以点击刚才的下来菜单，然后选择<em>Invert Color Ramp</em>来反转配色。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq11.png"></p>
+<ol>
+<li>解下来就是要在点上添加字符标签来。切换到<em>Labels</em> 标签，如下图所示。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq12.png"></p>
+<ol>
+<li>选择 <code>Single labels</code> 然后设置 <code>value</code> 为 <em>Value</em>，下拉，再选择格式化树枝 <em>Formatted numbers</em> ，将小数点 <em>Decimal places</em> 设置为 <code>0</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq13.png"></p>
+<ol>
+<li>然后写换到<em>Background</em> 标签页，选中 <em>Draw background</em> 后调整 <em>Size X</em> 和 <em>Size Y</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq14.png"></p>
+<ol>
+<li>在下面找到 <em>Fill color</em> 部分，我们希望将每处填充上和圆点一样的颜色。点击 <em>Data defined override</em> 按钮然后选择 <em>Edit</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq15.png"></p>
+<ol>
+<li>双击 <code>@symbol_color</code> 变量，加入到表达式中，然后点击<code>OK</code>按钮确认。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq16.png"></p>
+<ol>
+<li>现在就会发现两者颜色匹配了，然后切换到 <em>Placement</em> 选项卡，选择<em>Offset from point</em>，设置 <em>Offset Y</em> 为 <code>-5</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq17.png"></p>
+<ol>
+<li>最后，点击进入 <em>Callouts</em> 标签页，然后选中 <em>Draw callouts</em> 使得所选的方块标签与对应的数据点之间连起来以便于区分。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq18.png"></p>
+<ol>
+<li>现在就点击<em>Save Project</em> 按钮来把这个项目保存成 <code>air_quality.qgz</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq19.png"></p>
+<ol>
+<li>现在标签看着都还挺清晰，但有的太近了，很拥挤。可以手动调整标签位置来解决这个问题。在工具栏区域右键任意位置打开<em>Label Toolbar</em>，如下图所示。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq20.png"></p>
+<ol>
+<li>点击<em>Move a Label</em> 按钮，然后在出现的 <em>Auxiliary Storage</em> 提示界面上点击<em>OK</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq21.png"></p>
+<ol>
+<li>由于上面激活了 <em>Move a Label</em> 按钮，现在可以点击任意一个标签来选中。然后想把它挪到哪里就点到那里即可。弄完之后，再次保存项目。现在就可以导出做好的地图了，到菜单中的<strong>Project → New Print Layout…</strong>，名字留空，直接点击<em>OK</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq22.png"></p>
+<ol>
+<li>输出图幅可以将各种元素都放在一起成为一个静态地图，包括标签、图例、指北针、比例尺等等。可以在<strong>Add Item → Add Map</strong>中来添加地图。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq23.png"></p>
+<ol>
+<li>如果你没看到完整地图扩展范围，可以点击 <em>Set Map Extent to Match Main Canvas Extent</em> 按钮，位置在工具栏中 <code>Map 1</code>的<em>Item Properties</em>的下面。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq24.png"></p>
+<ol>
+<li>接下来，添加一个 <em>Rectangle</em> ，来存放地图切片、比例尺和属性信息等等。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq25.png"></p>
+<ol>
+<li>将这个小矩形放到图幅右上角，设置<em>Corner radius</em> 为<code>10</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq26.png"></p>
+<ol>
+<li>然后在这个小矩形中添加一个 <em>Label</em> 。输入你的地图名字<code>Average PM2.5 Concentration (µg/m3)</code> 以及日期<code>15 February, 2022</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq27.png"></p>
+<ol>
+<li>还是在这个矩形中，再添加一个标签<em>Label</em> ，设置文本为 <code>Data Source: Central Pollution Control Board, EPA AirNow DOS. Downloaded from OpenAQ.org</code>。然后还要添加图例来解释图上的符号和颜色等等。到菜单栏中，找到<strong>Add Item → Add Legend</strong>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq28.png"></p>
+<ol>
+<li>拖动方框来插入图例到白色矩形中。然后再找到<em>Item Properties</em> 标签页来关闭 <em>Auto update</em>，移除 <code>OpenStreetMap monochrome</code> 图层，然后设置 <code>openaq</code>群标签为隐藏<em>Hidden</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq29.png"></p>
+<ol>
+<li>图例默认位置是淑芝的，单独一列。可以将其改成多列，弄成水平。滚轮找到<em>Columns</em>区域，然后设置<em>Count</em> 为<code>2</code>，再选中 <em>Split layers</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq30.png"></p>
+<ol>
+<li>在<em>Main Properties</em>部分，输入一个比例尺的标题<em>Title</em> ，比如 <code>Air Quality Index Category</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq31.png"></p>
+<p>彻底设置满意了，就可以将地图输出了。如果你想放在网站上，就可以用图像<strong>Image</strong> 来导出。如果你以后可能要用矢量图编辑软件来修改，就可以考虑存成 <strong>SVG</strong> 格式，这样你就可以使用 <a href="https://inkscape.org/">InkScape</a>来编辑了。不过一般更通用的可能还是PDF格式。</p>
+<p><img alt="Credit: Atanas Entchev" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/shp_to_pdf.png"></p>
+<p>Credit: Atanas Entchev</p>
+<ol>
+<li>所以接下来就用PDF格式来导出吧。导出之前，切换到布局<em>Layout</em>标签页。我们使用的是OpenStreetMap 的位图地图作为底层。这是使用对缩放有依赖的切片地图绘制的。所以有必要设置一个较高的导出分辨率，以便获得更清晰的更高分辨率的切片地图。另外导出的分辨率<em>Export resolution</em> 可以设置到 <code>100</code> dpi，更高当然也行。菜单栏中找到 <strong>Layout → Export as PDF</strong>然后试试吧。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq32.png"></p>
+<ol>
+<li>在导出选项<em>PDF Export Options</em> 中选中 <em>Create Geospatial PDF (GeoPDF)</em>，这个GeoPDF 是一种增强的PDF格式，具有空间感知，并且保留了图层和属性信息。点击<em>Save</em> 将该文件保存为<code>air_quality.pdf</code>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq33.png"></p>
+<ol>
+<li>如果你在兼容的阅读其中打开对应的这个新生成的PDF文件，比如使用<a href="https://get.adobe.com/reader/">Adobe Acrobat</a>，你就能看到各个图层的元素，还可以读取特征属性，计算距离等等。</li>
+</ol>
+<blockquote>
+<p>在 Adobe Reader 中，针对 GeoPDF 可以在工具-测量<em>Tools → Measure</em>中启用测量工具。更多信息参考<a href="https://helpx.adobe.com/in/acrobat/using/grids-guides-measurements-pdfs.html#measure_the_height_width_or_area_of_objects">Adobe 官方网站</a>。</p>
+</blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq34.png"></p>
+<h2>线条 Lines</h2>
+<p>路、桥、铁轨等很多交通设施，以及河流、溪水等自然景物，都可以用线条来建模。其它一些抽象概念，比如轮廓、轨迹等等也可以使用线性特征来建模。用于存储线条数据集的一般有Shapefiles、GeoJSON、GPX等文件格式。</p>
+<h3>练习：GPS轨迹可视化</h3>
+<p>如今生活里，GPS轨迹随处可见。大多数智能手机都内置了GPS系统，人们普遍用GPS来记录跑步或者骑行等户外活动。网约车公司也在乘客乘坐期间记录里程来计费。快递和物流公司从他们的快件中存储并分析了大规模的GPS数据来推导出位置智能（location intelligence）。</p>
+<p>这个练习中，我们使用的是一个开源的<a href="https://www.basicairdata.eu/projects/android/android-gps-logger/">GPS位置记录APP</a> ，可以运行在Android设备上。如果你用的是iOS设备，推荐你可以试试另一个开源应用<a href="https://apps.apple.com/app/open-gpx-tracker/id984503772">Open GPX Tracker</a>。存储GPS轨迹的默认格式是<a href="https://en.wikipedia.org/wiki/GPS_Exchange_Format">GPS Exchange Format (GPX)</a>。这实际上是一种基于XML的文本格式，允许在一个文件中存储点、轨迹和路径。本次练习使用的是<code>sample_gps_track.gpx</code> 文件，目的是要创建一个动态的GIF图来展示整个行程。</p>
+<ol>
+<li>将 <code>sample_gps_track.gpx</code> 文件拖动添加到QGIS的画布上。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps1.png"></p>
+<ol>
+<li>由于文件中有多条数据类型，程序会弹出一个窗口询问你选择要添加的图层（layers）。这时先按住 <em>Shift</em> 键不放，然后同时选中<code>track_points</code>和 <code>tracks</code>这两项，然后点击<em>OK</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps2.png"></p>
+<ol>
+<li>然后要添加地图，对这种情况来说，暗一点的背景地图视觉效果比较好。在菜单栏中找到<strong>Web → QuickMapServices → CartoDB → Dark Matter</strong>，点击后就在画布上添加了地图了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps3.png"></p>
+<ol>
+<li>点击 <code>sample_gps_track points</code> 图层旁边的小方块，去掉勾选，在画布中就看不到这些点了。选中<code>sample_gps_track tracks</code> 图层，然后点击 <em>Open the Layer Styling Panel</em>。将颜色<em>Color</em> 改成蓝色<code>Blue</code> ，然后设置线宽度<em>Width</em> 为<code>0.5</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps4.png"></p>
+<ol>
+<li>再选中 <code>sample_gps_track points</code> 图层使之可见。在<em>Layer Styling Panel</em>中，选择简单符号<em>Simple marker</em> 。把点的大小<em>Size</em> 设为<code>1</code> 。选择一个浅蓝色作为填充色<em>Fill color</em>，然手设置轮廓颜色<em>Stroke color</em>为透明<code>Transparent Stroke</code> 。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps5.png"></p>
+<ol>
+<li>我们希望点动起来，所以要给他加一个辉光效果（glow effect）。右键<code>gps_points</code>图层，然后选择复制图层<em>Duplicate Layer</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps6.png"></p>
+<ol>
+<li>在图层面板<em>Layers</em>中将复制出来的图层拖动到图层栈的最顶层。在复制的<code>sample_gps_track points_copy</code> 的<em>Layer Styling Panel</em>，选择一种明亮色彩作为<em>Color</em>，然后增加尺寸到 <code>1.5</code>，选中<em>Draw Effects</em> ，然后点击旁边小星星样子的 <em>Effects</em> 按钮。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps7.png"></p>
+<ol>
+<li>然后出现<em>Effects Properties</em> 面板，选中 <em>Outer Glow</em>，设置<em>Spread</em> 和<em>Blue radius</em>都为 <code>2.0</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps8.png"></p>
+<ol>
+<li>现在就可以让点动起来了。右键<code>sample_gps_track points_copy</code>图层后选中属性<em>Properties</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps9.png"></p>
+<p>10.切换到<em>Temportal</em> 标签，勾选上<em>Temportal</em> 小方块。然后将设置<em>Configuration</em>调整为<code>Single Field with Date/Time</code>。设置<em>Field</em>为时间<code>time</code> ，然后点击<em>OK</em>。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps10.png"></p>
+<ol>
+<li>现在你会发现刚刚修改的图层旁边出现了一个小时钟图标，这就表示这个图层可以通过<em>Temporal Controller</em>来控制了。接下来，右键<code>sample_gps_track points</code>图层点击<em>Properties</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps11.png"></p>
+<ol>
+<li>重复上一次的设置操作。不过这回将设置<em>Configuration</em>调整为<em>Accumulate features over time</em>。这样设置是要让已经过去的时间点依然在图层上能显示出来。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps12.png"></p>
+<ol>
+<li>在主界面的<em>Map Navigation Toolbar</em>中找到<em>Temporal Controller Panel</em> 。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps13.png"></p>
+<ol>
+<li>点击之后， <em>Temporal Controller</em> 面板就会出现在画布地图顶端了。点击像播放按钮一样的<em>Animated temportal navigation</em> 按钮。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps14.png"></p>
+<ol>
+<li>接下来，点击刷新形状的<em>Set to Full Range</em>按钮来自动加载起止时间。将步长 <em>Step</em> 设置为 <code>1</code>，然后单位选择成秒 <em>seconds</em>，点击右上角齿轮图标<em>Temporal Settings</em> 。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps15.png"></p>
+<ol>
+<li>将帧率 <em>Frame rate</em> 设置为 <code>10</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps16.png"></p>
+<ol>
+<li>设置完后返回刚刚的界面，选中循环<em>Loop</em>，然后点击播放按钮 <em>Play</em> 。你就能看到画布上的地图现实旅行过程了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps17.png"></p>
+<ol>
+<li>将每个点所对应的时间显示在地图上应该挺有用，到菜单栏中找到<strong>View → Decorations → Title Label…</strong>来设置。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps18.png"></p>
+<ol>
+<li>在标题备注设置<em>Title Label Decoration</em>中，点击插入表达式按钮 <em>Insert an Expression</em> 。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps19.png"></p>
+<ol>
+<li>地图的当前时间存储在<code>@map_start_time</code>这个变量中，可以使用<code>format_date()</code>函数将其转换成更可读的时间戳。但要注意 GPS系统的时间使用的是世界时(universal time，UTC)，所以要用<code>to_interval()</code> 函数将其转换到 UTC+8:00 才对应了北京地区的时区，输入下面的表达式：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">format_date</span><span class="p">(</span><span class="w"> </span><span class="nv">@map_start_time</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">to_interval</span><span class="p">(</span><span class="s1">&#39;8 hours&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;yyyy-MM-dd hh:mm&#39;</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps20.png"></p>
+<ol>
+<li>点击字体选项<em>Font</em> ，把字号调整到 <code>24</code>，设置背景色<em>Background bar color</em> 为白色<code>White</code>，点击<em>OK</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps21.png"></p>
+<ol>
+<li>现在你再播放动画，时间戳就会随着动画中对应点的行进更新了。点击导出动画<em>Export Animation</em> 按钮可以将动画逐帧保存。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps22.png"></p>
+<ol>
+<li>在弹出的<em>Export Map Animation</em> 对话框中，选择输出目录<em>Output directory</em>。这个文静可能有超过500秒的长度，所以可以降低帧数,将步长<em>Step</em> 设置为<code>5</code>。然后点击保存<em>Save</em> ，QGIS就会在你选的文件夹中输出一系列图片了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps23.png"></p>
+<ol>
+<li>有了多张的逐帧图片后，就可以使用一些类似 <a href="https://ezgif.com/">ezgif.com</a> 的工具来创建GIF动图了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps24.png"></p>
+<h2>多边形</h2>
+<p>区域就用多边形来建模。一般用来表示行政区划、建筑物、地块等等。多边形在几何上就是用一系列的坐标来表示的。由于形状可能会非常复杂，多边形要有更加繁琐的几何解释，所以很少使用简单的CSV文件格式。GeoJSON和 ShapeFiles 是存储多边形数据集的常用文件格式。</p>
+<h3>练习：人口普查数据可视化</h3>
+<p>人口普查数据是一个国家二级数据的一个主要来源。很多空间分析都需要人口普查数据中的详细人口学信息。</p>
+<p>Census data is usually published as tables by aggregating the raw numbers to an administrative region - typically a <em>census block</em>. To map these tables, one needs to know the <em>geometry</em> of these regions - which are supplied separately as boundary files. Both of these can be joined to create a polygon layer that can be visualized and mapped. See on how this process is carried out in QGIS.</p>
+<p>人口普查数据一般都是按照行政区发布成一个个表格，表格里是对原始数据的汇总，这样一个行政区就成了一个人口区<em>census block</em>。要将这样的表格可视化成地图，就需要知道这些区域的几何形态，也就是边界文件。人口数据和行政区划结合到一起就可以制作出一个多边形图层，这个图层就能放到地图上进行可视化了。这个过程在QGIS中的操作可以参考<a href="https://www.qgistutorials.com/en/docs/3/performing_table_joins.html">这个教程</a> 。</p>
+<p>这个练习使用的是<a href="https://sedac.ciesin.columbia.edu/data/set/india-india-village-level-geospatial-socio-econ-1991-2001">India Village-Level Geospatial Socio-Economic Data Set</a> 这一数据集，由美国航天局社会经济数据和应用中心（NASA Socioeconomic Data and Applications Center，SEDAC）出版公布。此数据集中结合了村/镇一级的边界与印度人口普查的初级人口普查摘要（PCA）和村庄目录（VD）数据系列，使用 ShapeFiles 格式发布。</p>
+<p>这个练习中使用的是印度Karnataka州的ShapeFile数据，将Gulbarga地区的识字率投在地图上。</p>
+<ol>
+<li>将 <code>india-village-census-2001-KA.shp</code> 文件拖动到QGIS画布上。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census1.png"></p>
+<ol>
+<li>这样在图层面板<em>Layers</em>中就加入了新图层<code>india-village-census-2001-KA</code>。使用<em>Identify</em>工具来点击任意一个多边形来查看属性值。每一列的定义都在数据的附加文档中有解释。我们要找的是识字率，对应的后缀<code>_LIT</code> 就很有用。<code>P_LIT</code> 这列表示的是识字人口，而<code>TOT_P</code>表示的是总人口<em>Total Population</em>，借助这两样我们接下来就要计算识字率。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census2.png"></p>
+<ol>
+<li>接下来要从这个图层的众多多边形中选中属于<em>Gulbarga</em> 地区的子集。家在<code>gulbarga_district.shp</code> 。数据中 <code>DT_CEN_CD</code> 这一列包含的就是对应区域的ID。可以用这个 ID来过滤多边形区域，<em>Gulbarga</em> 地区的这个ID是4。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census3.png"></p>
+<ol>
+<li>在图层<em>Layers</em>面板中，拖拽 <code>gulbarga_district</code> 图层到 <code>india-village-census-2001-KA</code> 图层下面。右键 <code>india-village-census-2001-KA</code>图层然后选中<em>Filter</em>进行筛选。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census4.png"></p>
+<ol>
+<li>输入表达式<code>DISTRICT = 4</code> 来选择<em>Gulbarga</em> 地区对应的部分，点击 <em>OK</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census5.png"></p>
+<ol>
+<li>这时候在<code>india-village-census-2001-KA</code> 图层旁边就能看到一个小漏斗图标，表示有一个筛选被施加在该图层上。同时地图画布上也会更新，只显示所筛选区域的多边形。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census6.png"></p>
+<ol>
+<li>接下来我们要创建一个热力图<em>thematic</em> 来展示该区域的识字率。这种场景下创建热力图（thematic (choropleth) map），需要对要投图的值进行标准化（normalize）。常见的错误是在这种地图上使用总数而非比率。</li>
+</ol>
+<p>点击<em>Open the Layer Styling Panel</em>，选中<em>Graduated</em> 着色器。在<em>Value</em>列中点击表达式按钮 <em>Expression</em>。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census7.png"></p>
+<ol>
+<li>输入下面的表达式，由于我们要投图的是识字率，就可以通过识字人口除以总人口来实现标准化。</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="mf">100</span><span class="o">*</span><span class="p">(</span><span class="s">&quot;P_LIT&quot;</span><span class="o">/</span><span class="s">&quot;TOT_P&quot;</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census8.png"></p>
+<ol>
+<li>选中一个配色方案和分类模式<em>Mode</em>，然后点击分类按钮<em>Classify</em>。这里可以选择下拉Color ramp然后选中<em>Invert color ramp</em> 使得高值深色低值浅色。点击<em>Apply</em>应用后，就能看到多边形已经根据识字率着色了。这样就很明显能看出各地区的识字率差异。</li>
+</ol>
+<blockquote>
+<p>将数据分类的方案有很多种，具体可以参考<a href="https://gisgeography.com/choropleth-maps-data-classification/">这篇文章</a> ，文中对各种分类模式的优劣进行了点评。</p>
+</blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census9.png"></p>
+<ol>
+<li>不过，如果你放大，就会发现多边形图层中间有空缺的地方。这是因为 you的城市没有对应的数据表格，因此就被排除在图层之外了。有这样的孔洞看着不太好，可以设计一种办法来插值推测这些缺少数据的值。选中 <code>gulbarga_district</code> 图层，将 <em>Symbol layer type</em>设置为 <code>Line pattern fill</code>，其他参数随便设置就好。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census10.png"></p>
+<ol>
+<li>然后你会发现这里面没有交叉的填充样式。这很好办，只要用两个相互垂直的线条填充就可以实现了。在刚才的<em>Layer Styling Panel</em>标签页中点击 <em>Duplicate the current layer</em> 按钮。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census11.png"></p>
+<ol>
+<li>在新添加的线条填充上设置旋转角度<em>Rotation</em> 值为<code>-45.00</code> 或者<code>135.00</code>，然后就会发现图中空白的位置已经被十字交叉填充了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census12.png"></p>
+<ol>
+<li>现在你就有了一个对该区域的识字率的可视化地图了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census13.png"></p>
+<h2>栅格数据（Raster）-照片（Photos）</h2>
+<p>风筝、热气球、飞机、直升机以及无人机等等空中设备的传感器获取的图像，是绘制地图的重要信息来源。这些图像通常都是位图（basemap），为其他空间数据提供了基础。从这些位图中也可以提取特征信息，再建立模型成为矢量数据。</p>
+<p>最常用的图像格式是 GeoTiff。一个 GeoTiff 文件包含了附加的元数据（metadata），允许用户将像素的行列位置与现实世界的经纬度位置进行对应。常规的照片也可以转换成这样带有空间感知的山歌数据，这种过程就叫做<a href="https://en.wikipedia.org/wiki/Georeferencing">地理配准 GeoReferencing</a>。</p>
+<h3>练习：查看无人机图像</h3>
+<p><a href="https://openaerialmap.org/">OpenAerialMap</a> 是一个提供无人机图像的分享和下载服务的开放网站。本次练习使用的是 WeRobotics 提供的加德满都大学操场（Kathmandu University Grounds）的照片。</p>
+<ol>
+<li>将<code>kathmandu_drone_imagery.tif</code> 文件拖动到 QGIS 地图画布中，使用缩放和平移来查看这张图。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/drone1.png"> </p>
+<ol>
+<li>在图像右下角，会发现坐标参考系（CRS）是 EPSG:32645，表示的是UTM分区45N。选中<em>Identify</em> 工具然后在图片中四处点击。你会发现这个图像包含红绿蓝三色通道。坐标系是投影坐标（projected coordinates0而非地理坐标（geographic coordinates）。也就是公里网格模式，横轴<em>X (Easting)</em>向东，纵轴<em>Y (Northing)</em>向北。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/drone2.png"></p>
+<ol>
+<li>这张图经过了地理坐标配准，所以可以配合其他空间图层一起查看。菜单栏中选中 <strong>Web → QuickMapServices → OSM → OSM Standard</strong>，就将叠瓦地图切片添加到图层面板<em>Layers</em> ，你就能发现这两者之间位置是匹配的，因为原图已经进行过对准。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/drone3.png"></p>
+<h2>栅格数据（Raster）-卫星图像（Satellite Images）</h2>
+<p>地球外面有几百颗观测卫星在持续捕获地球表面的图像。全球很多航空机构都将这些数据公开分享了出来。这些数据集对科学家、研究人员、政府和商业机构等等来说都是无比珍贵的。</p>
+<p>和常规照片不同，卫星图像往往包含很多的波段信息，而常规照片往往只有红绿蓝三通道的信息。卫星图像的信息丰富就为利用机器学习模型来辨别不同物体提供了便利。例如，人工草坪和真正的草坪可能看着都是绿色的，但二者对红外光的反射差距非常显著。所以使用多光谱（multi-spectral）图像所提供的附加信息就能轻松分别出来。</p>
+<h3>练习：观看和使用哨兵2（Sentinel-2）卫星影像并建立拼接</h3>
+<p><a href="https://sentinel.esa.int/web/sentinel/missions/sentinel-2">哨兵2 Sentinel-2</a> 是欧洲航天局（European Space Agency， ESA）发射的两颗卫星。所提供图像的像素分辨率是 10米。这个分辨率不如无人机和航拍的图像分辨率，但在城市和地区层次的分析上还是足够好了。更重要的是，这个系列的数据是用12个不同的波段拍摄的，这对于科学目的但应用来说非常重要。对每个地理位置，这套数据每隔5天采集一次，因此可以对全球进行连续观测。而且欧洲航天局将所有相关数据都公开了。</p>
+<p>此次练习中加载的是2020年2月18日班加罗尔（Bangalore）的数据。<code>sentinel-2</code>文件夹下面有四个JPEG2000格式的文件，分别是红（B4）、绿（B3）、蓝（B2）和近红外（B8）四个波段。</p>
+<ol>
+<li>将4个图像文件拖拽到QGIS地图画布上。放大到任意区域，在<em>Attributes Toolbar</em>中选择<em>Identify</em> 工具，然后点击图像。在<em>Identify Results</em> 窗口中，设置<em>View</em>为<code>Table</code>，然后对比同一对象在不同波段下的反射率差别。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/satellite1.png"></p>
+<ol>
+<li>接下来可以将多个波段结合起来成为一个图像然后一起来进行可视化。这就叫「彩色合成 <em>Color Composites</em>」。要将多个图像合并到一处，找到<strong>Processing → Toolbox</strong>然后选中<strong>GDAL → Raster miscellaneous → Build virtual raster</strong>。双击启动拼接工具。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/satellite2.png"></p>
+<ol>
+<li>选中全部的4个图层作为输入层<em>Input layers</em> ，然后选中 <em>Place each input file into a separate band</em>（将每个输入文件作为单独波段）。接下来点击运行<em>Run</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/satellite3.png"></p>
+<ol>
+<li>这样，在图层<em>Layers</em>中，就出现了拼合出来的新图层 <code>Virtual</code> 。这一图层包含有四个不同波段，要注意其中的波段排列顺序是字母顺序的，所以获得的图片当中的四个通道（Band）与原图的对应关系如下所示：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Virtual Raster Band</strong></th>
+<th style="text-align: left;"><strong>Image</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Band 1</td>
+<td style="text-align: left;">B02 (Blue)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Band 2</td>
+<td style="text-align: left;">B03 (Green)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Band 3</td>
+<td style="text-align: left;">B04 (Red)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Band 4</td>
+<td style="text-align: left;">B08 (NIR)</td>
+</tr>
+</tbody>
+</table>
+<p>首先我们进行「真彩色合成<em>RGB Color Composite</em>」。这也常被称作「自然彩色合成<em>Natural Color Composite</em>」，因为这种图像和人在肉眼观看的效果是一样的。设置<code>Band 3</code>、 <code>Band 2</code> 、 <code>Band 1</code> 作为对应的 <em>Red</em>、<em>Green</em> 、<em>Blue</em> 三个通道。然后将<em>Min/Max Value Settings</em>设置为<code>Cumulative count cut</code>。然后就会发现画布上的图像呈现出自然的色彩。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/satellite4.png"></p>
+<ol>
+<li>接下来要试试的是另一种可视化方案，也就是「假彩色合成<em>False Color Composite</em>」。这里我们创建一个近红外、红、绿的假彩色合成（<em>NRG Color Composite</em> ）。也就是将近红外波段设置为R通道，红光波段设置为G通道，绿光波段设置为B通道。这种合成方式强调了红光下的植被，能够更容易地进行植被解译。注意，水体和植被在自然彩色合成下几乎是一样的颜色，而在NRG假彩色合成下就很好区分了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/satellite5.png"></p>
+<h2>点云（Point Clouds）</h2>
+<p>现代的地图绘制技术包括使用激光雷达传感器（LiDAR sensor）的各种航拍手段。LiDAR是“Light Detection and Ranging”的缩写。这种传感器使用激光脉冲来测量物体距离地面的距离。对每个发出的脉冲，系统都计算对象的X、Y、Z坐标。这个数据对空间数据来说并不新奇，但在一块小区域内使用这样的方法可以获得上百万的点，常规的观看和处理工具就不适用了。这样的点云（<em>Point Cloud</em>）一般使用的是LAS或者LAZ的文件格式进行存储的。</p>
+<p><img alt="Credit: Cargyrak, Wikipedia" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/lidar.jpg"></p>
+<p>Credit: Cargyrak, Wikipedia</p>
+<h3>练习：观看航拍的点云</h3>
+<p>英国环境食品与农村事务部（UK’s Department of Environment Food &amp; Rural Affairs (DEFRA) ）提供了全国范围的LiDAR数据和产品，可以从<a href="https://environment.data.gov.uk/">Defra 数据服务平台</a> 来获得。本次练习使用LAZ格式的牛津大学点云数据集。</p>
+<ol>
+<li><a href="https://github.com/verma/plasio">Plasio</a> 是一个基于浏览器的 LAS/LAZ 格式点云查看器，访问<a href="https://plas.io/">plas.io</a>，点击<em>Browse</em> 然后定位到<code>SP5008_P_10967_20161130_20161130.laz</code>文件，点击<em>Open</em>打开。要注意这么小的区域有超过三百五十万个数据点。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pointcloud1.png"></p>
+<ol>
+<li>数据加载后，在右边的面板中滚动，找到<em>Intensity Source</em> 部分，下拉选项，选中<code>Heightmap Grayscale</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pointcloud2.png"></p>
+<ol>
+<li>使用鼠标左键和滚轮来缩放与平移视图，探索一下数据集吧。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pointcloud3.png"></p>
+<h2>栅格数据（Raster） - 高程数据（Elevation Data）</h2>
+<p>栅格数据很适合对连续对象进行建模，比如高程。栅格中的每个像素的值就是该点的高程。这是一种对地标建模的简单高效的方法。这种栅格数据也就是数字高程模型（Digital Elevation Model，DEM）。</p>
+<p>具体来说，数字高程模型还可以分为两个基本类别：</p>
+<ul>
+<li>数字地表模型（Digital Surface Model，DSM）：表示地球真实表面，包括植被覆盖和建筑物等等。</li>
+<li>数字地形模型（Digital Terrain Model，DTM）：表示裸地表和自然地形。DTM一般是基于DSM实用算法或人工处理而得到。</li>
+</ul>
+<h3>练习：查看和对比 DSM 与 DTM</h3>
+<p>英国环境食品与农村事务部（UK’s Department of Environment Food &amp; Rural Affairs (DEFRA) ）提供了全国范围的高程数据产品，可以从<a href="https://environment.data.gov.uk/">Defra 数据服务平台</a> 来获得。本次练习使用ASC格式的牛津大学高程数据：<code>dsm_F0195499_20161130_20161130_mm_units.asc</code> 和<code>dtm_F0195499_20161130_20161130_mm_units.asc</code>。</p>
+<p><code>.asc</code>文件是一种基于文本的 ASCII 编码的栅格文件格式。这种文件的数据格式很简单，头部介绍栅格信息，像素值就是对应的行列值。如果你使用文字编辑器打开，可能就像下面的样子。</p>
+<div class="highlight"><pre><span></span><code>cols          2000
+nrows         2000
+xllcorner     450000
+yllcorner     208000
+cellsize      1
+NODATA_value  -9999
+-9999 -9999 -9999 -9999 -9999 -9999 ...
+...
+...
+</code></pre></div>
+
+<p>头文件提供的信息中包含有左下角（11）的X、Y坐标。知道这个位置的坐标对，以及图像尺寸和坐标参考系（Coordinate Reference System，CRS），可以对整个图像进行地理配准了。关于坐标参考系的相关信息包含在元数据<a href="https://ckan.publishing.service.gov.uk/harvest/object/2533c88a-ccf2-41d7-8ac7-704c46bfd177/html">metadata</a> ，设置为<em>EPSG:27700 British National Grid</em>。接下来就有足够的信息来查看这些栅格数据了。</p>
+<ol>
+<li>打开 QGIS，在加载数据之前，我们要先设置项目坐标参考系与栅格数据的坐标参考系一致。在菜单栏中找到<strong>Project → Properties</strong>进行设置。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/elevation1.png"></p>
+<ol>
+<li>切换到<em>CRS</em> 标签页，然后搜索<code>EPSG:27700</code>，选中后点击<em>OK</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/elevation2.png"></p>
+<ol>
+<li>将 <code>dsm_F0195499_20161130_20161130_mm_units.asc</code> 文件拖动到试图中。选中<em>Identify</em> 然后在图像上点击任意位置。就会看到对应的<em>Band 1</em> 就是对应像素位置的高程，单位是千米.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/elevation3.png"></p>
+<ol>
+<li>点击 <em>Open the Layer Styling Panel</em>，选中单波段假彩色 <code>Singleband pseudocolor</code> 着色器。扩展到最小最大值设置<em>Min / Max Value Settings</em>部分，选择 <em>Cumulative count cut</em>。 Select a color ramp of your choice. Once the style is applied you will be able to see the building outlines, trees, riverbed etc clearly.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/elevation4.png"></p>
+<ol>
+<li>接下来将<code>dtm_F0195499_20161130_20161130_mm_units.asc</code> 也拖到视图里。要对这两者进行对比，可以考虑使用同样的参数进行可视化。好在QGIS提供了一种简单办法复用图层设置，右键要复制设置的源图层<code>dsm_F0195499_20161130_20161130_mm_units</code> 后选中 <strong>Styles → Copy Style</strong>即可复制已经做好的图层设置。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/elevation5.png"></p>
+<ol>
+<li>然后选中目标图层 <code>dtm_F0195499_20161130_20161130_mm_units</code>，右键，然后<strong>Styles → Paste Style</strong>，就可以把刚刚复制的图层粘贴上去了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/elevation6.png"></p>
+<ol>
+<li>来回切换 DSM 和 DTM 的图层顺序就可以对比二者来。你会发现 DTM只包含了地表的高程，没有任何其他的自然或者人造物。<a href="https://courses.spatialthoughts.com/images/spatial_data_viz/elevation7.gif">View Animated GIF ↗</a></li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/elevation7.png"></p>
+<h1>分析</h1>
+<h2>练习：Uber交通分析</h2>
+<p><a href="https://movement.uber.com/">Uber</a>提供了超过一百亿次打车出行的匿名数据，旨在帮助全球的城市规划。这些数据都已经免费公开课下载。该数据集中包含了旅行时间和每段路上的速度等信息。</p>
+<p>本次练习使用的是班加罗尔（Bangalore）的 <a href="https://movement.uber.com/explore/bangalore/travel-times/query?lang=hi-IN">旅行时间数据 Travel Times data</a>来分析交通模式，发现30分钟车程可达地区。这种地图也叫做<a href="https://en.wikipedia.org/wiki/Isochrone_map">等时线地图 Isochrone Map</a> ，可以用于城市规划。</p>
+<p>这份数据有两部分，首先是一个GeoJSON文件<code>bangalore_wards.json</code>描绘了城市内各区域的边界，另外有一个CSV文件<code>bangalore-wards-2019-3-OnlyWeekdays-HourlyAggregate.csv</code>包含了城市各区域和一天中各时段的旅行时间，日期是2019年的第三季度（789三个月）。<a href="https://d3i4yxtzktqr9n.cloudfront.net/web-movement/76002ded222a46a02ae89f207e91e335.pdf">一份白皮书</a>讲述了创建这些数据的方法。</p>
+<p>CSV格式文件的内容如下所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>sourceid</strong></th>
+<th style="text-align: left;"><strong>dstid</strong></th>
+<th style="text-align: left;"><strong>hod</strong></th>
+<th style="text-align: left;"><strong>mean_travel_time</strong></th>
+<th style="text-align: left;">…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">55</td>
+<td style="text-align: left;">111</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">2026.76</td>
+<td style="text-align: left;">…</td>
+</tr>
+<tr>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">770.07</td>
+<td style="text-align: left;">…</td>
+</tr>
+<tr>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>sourceid</strong> 和 <strong>dstid</strong> 指的是出发地和目的地的区块ID。</li>
+<li><strong>hod</strong>: hour-of-day，一天中的时间，从0-23。</li>
+<li><strong>mean_travel_time</strong>: 平均旅行时间，秒为单位，从所有旅行中提取。</li>
+</ul>
+<p>班加罗尔城区中有 198 个分区。CSV文件中包含任意两区之间的成对的旅行时间。总共的记录时间会有198 x 198 x 24 = 940896条。但由于在特定时间内不是所有的区都有充足的行程发生，就存在对应的空白。因此实际上这个数据是818263列。这数据规模还是挺大的，需要用一些分析方法来提取其中的正确数据集。</p>
+<ol>
+<li>选中<code>bangalore_wards.json</code>拖拽到QGIS的地图画布。然后夹在一个街景地图作为地图层，在菜单栏找到<strong>Web → QuickMapServices → OSM → OSM Standard</strong>，加载之后，点击 <em>Open Data Source Manager</em> 按钮。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber1.png"></p>
+<ol>
+<li>切换到<em>Delimited Text</em> 按钮，找到<code>bangalore-wards-2019-3-OnlyWeekdays-HourlyAggregate.csv</code> 文件并选中。由于CSV文件只是表格数据，选择<em>No geometry (attribute only table)</em> 选项然后点击添加<em>Add</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber2.png"></p>
+<ol>
+<li>CSV倒入后，图层界面<em>Layers</em> 下面就有了 <code>bangalore-wards-2019-3-OnlyWeekdays-HourlyAggregate</code> 这一项，右键然后选中<em>Show Feature Count</em>。全部的列数就出现在旁边了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber3.png"></p>
+<ol>
+<li>对于本次练习，要计算全部从<a href="https://g.page/spatialthoughts?share">Spatial Thoughts office</a>出发30分钟内车程能到达的位置。在地图上找到对应区域，可以选中<em>Identify</em> 按钮来选择<code>bangalore_wards</code>图层并点击，然后该地的位置结果就会出现，位于<em>JP Nagar</em> 区，<em>MOVEMENT_ID</em> 为<strong>193</strong>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber4.png"></p>
+<ol>
+<li>接下来可以筛选将这个区域作为目的地的行程记录。还可以限制分析范围在早高峰上午9-10点钟这个时间段内。右键<code>bangalore-wards-2019-3-OnlyWeekdays-HourlyAggregate</code> 层然后选中筛选<em>Filter</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber5.png"></p>
+<ol>
+<li>输入下面的筛选表达式，然后点击 <em>OK</em>。</li>
+</ol>
+<div class="highlight"><pre><span></span><code>&quot;dstid&quot; = 193 AND &quot;hod&quot; = 9
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber6.png"></p>
+<ol>
+<li>现在返回到QGIS的主窗口，你会发现数据项目数已经缩减到了<em>197</em>。这是因为城市中一共只有198个区，那以<code>193</code>号位置为目的地的自然只有其他197个，也就是1个目的地，197个出发地。现在到<em>Attributes</em>工具栏中使用<em>Open Attribute Table</em> 打开各图层的属性表格。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber7.png"></p>
+<ol>
+<li>现在我们在图层 <code>bangalore_wards</code>中有各区范围，在层<code>bangalore-wards-2019-3-OnlyWeekdays-HourlyAggregate</code>中有表格信息。现在就可以使用一个公用属性（common attribute）来将属性信息连接起来。此处的 <strong>MOVEMENT_ID</strong> 列来自 <code>bangalore_wards</code> 图层，而 <strong>sourceid</strong> 列来自 <code>bangalore-wards-2019-3-OnlyWeekdays-HourlyAggregate</code> ，这两个都是分区id，可以连接起来。这个操作就叫<em>Table Join</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber8.png"></p>
+<ol>
+<li>在对两个图层进行联合（join）之前，要保证两列中的数值严格一直。比如看上去一样，可能有不同的数据类型。因为GeoJSON格式不允许指定属性的数值类型，所有的值都是存储成字符串<em>String</em>，也就是文本。但当导入CSV到QGIS的时候，QGIS会智能地将这些列的类型根据值来进行解析，因此就会给<strong>sourceid</strong>这列解析成整数<em>Integer</em>。所以我们需要将GeoJSON里的列数据也转换到整数。在菜单栏中找到<strong>Processing → Toolbox</strong>，搜索<em>Vector Table → Field Calculator</em>算法，双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber9.png"></p>
+<ol>
+<li>选择<code>bangalore_wards</code> 作为输入层<em>Input Layer</em>，将要合并的<code>Field name</code>值为<code>joinfield</code> ，然后选择<em>Result field type</em> 作为整数<code>Integer</code>，输入 <code>"MOVEMENT_ID"</code>作为表达式。点击<em>…</em> 按钮，就在<em>Calculated</em>旁，然后选中<em>Save to File..</em>，输入文件名，将文件保存成<code>bangalore_wards_fixed.gpkg</code>。点击<em>Run</em>，关闭<code>Field Calculator</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber10.png"></p>
+<ol>
+<li>经过上面的步骤，在图层<em>Layers</em> 中就多了<code>bangalore_wards_fixed</code> 这一个新图层了。现在就可以进行联接（join）操作了。在<code>Processing Toolbox</code>里面搜索并找到<em>Join attributes by field value</em>算法 。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber11.png"></p>
+<ol>
+<li>选择刚刚生成的<code>bangalore_wards_fixed</code>作为输入层<em>Input layer</em> ，然后设<em>Table field</em>为<code>joinfield</code>。选择<code>bangalore-wards-2019-3-OnlyWeekdays-HourlyAggregate</code>作为第二输入层<em>Input layer 2</em>，并选择<em>Table field 2</em>作为<code>sourceid</code> 。将<em>Joined layer</em> 命名为<code>uber_travel_times.gpkg</code>然后点击<em>Run</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber12.png"></p>
+<ol>
+<li>现在一个新的 <code>uber_travel_times</code>图层就出现在图层面板<em>Layers</em>中了。接下来对其进行可视化的调整。点击<em>Open the Layer Styling Panel</em>，选择<code>Graduated</code>着色器，设置<em>Value</em>为<code>mean_travel_time</code>。选择一个配色方案然后点击<em>Classify</em>进行分类。就能看到随着距离目的地越远颜色就越深。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber13.png"></p>
+<ol>
+<li>咱们想要提取和分析的是小于三十分钟的，所以还需要进一步处理一下。切换到<em>Single symbol</em> 着色器，右键<code>uber_travel_times</code> 图层选择 <em>Filter</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber14.png"></p>
+<ol>
+<li>输入下面的表达式，选择所有平均旅程时间（mean travel time）小于等于1800秒也就是30分钟的(30 minutes) 。另外还要包含目的区域本身。</li>
+</ol>
+<div class="highlight"><pre><span></span><code>&quot;mean_travel_time&quot; &lt;= 1800 OR &quot;MOVEMENT_ID&quot; = 193
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber15.png"></p>
+<ol>
+<li>现在这个图层就显示的是我们感兴趣的区域的众多多边形了。接下来咱们将这些多边形合并成一个多边形。在处理工具箱<code>Processing Toolbox</code>中搜索<em>Dissolve</em>算法。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber16.png"></p>
+<ol>
+<li>选择<code>uber_travel_times</code> 作为输入图层<em>Input layer</em>。将融合的<em>Dissolved</em>图层命名为 <code>30min_isochrone.gpkg</code>，点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber17.png"></p>
+<ol>
+<li>这样得到的新图层<code>30min_isochrone</code> 就出现在图层面板<em>Layers</em>中了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber18.png"></p>
+<h2>练习：分析地铁可及性</h2>
+<p>在规划城市基础设施的时候，尤其是以交通为导向的发展规划（Transit-Oriented Development，TOD），一项指标就是公共交通可及性。 <a href="https://www.livemint.com/news/india/india-s-public-transport-challenge-1568355574941.html">LiveMint</a>上面有一篇关于印度公共交通挑战的文章对印度全国的地铁可及性进行了分析。这个练习中也要实现一个类似的分析过程。</p>
+<p>通过这个分析，我们要确定在班加罗尔城中有多少人口生活在地铁站1km范围内。要解决这个问题，需要用到GIS的线条，结合多个离散数据源的相关信息。要进行这次的分析，首先要查询OpenStreetMap数据库来获得班加罗尔的地铁站位置。然后计算1km范围内的缓冲区域，再将其和基于WorldPop的人口网格（population grid）来完成人口分析。</p>
+<ol>
+<li>找到<code>bangalore.geojson</code> 文件，拖拽到QGIS的地图画布上。这个多边形表示的就是城市边界。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop1.png"></p>
+<ol>
+<li>接下来查询OpenStreetMap来获得该城市上的铁路车站。到菜单栏中找到 <strong>Vector → QuickOSM → QuickOSM</strong>。OpenStreetMap 利用一个标签系统（tagging system）来记录物理特征的属性。这种标签和键值对的具体细节可以参考<a href="https://wiki.openstreetmap.org/wiki/Map_Features">OpenStreetMap wiki</a>。铁路车站的标签是<code>railway=station</code>。在键名<em>Key</em>处设置为<code>railway</code>，键值<em>Value</em>设为<code>station</code>，地理位置过滤选项<em>In</em>设置为<em>Bangalore</em> 。扩展<em>Advanced</em> 区域，只选中 <em>Node</em> 和<em>Points</em> 两个勾选框。点击运行查询<em>Run Query</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop2.png"></p>
+<ol>
+<li>查询完成后，你就能看到新图层<code>railway_station_Bangalore</code>已经加载到地图画布上了。这个图层中包含铁路车站和在建设中的车站。接下来就要进行筛选，只保留我们关注的地铁车站。右键该新图层，选择筛选<em>Filter</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop3.png"></p>
+<ol>
+<li>在<em>Query Builder</em> 输入下面的表达式，然后点击<em>OK</em>。</li>
+</ol>
+<blockquote>
+<p>注意：这里的使用的是<code>IS NOT</code> ，而不是 <code>!=</code>。这是因为这些列当中有位置为<strong>NULL</strong>。而<em>NULL</em> 并不是一个值，不能和其他值进行等于、不等于这样的比较。而<code>IS NOT</code>可以适用于所有类型，能够有效验证项目是否匹配，就包括<strong>NULL</strong>。</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>&quot;operator&quot; = &#39;BMRCL&#39; AND 
+&quot;disused&quot; IS NOT &#39;yes&#39; AND 
+&quot;disused:railway&quot; IS NOT &#39;station&#39;
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop4.png"></p>
+<ol>
+<li>已建成但未连接到整个体系的车站是由于中间的车站还在建设。所以在可视化解译中，要再对这部分车站进行清洗。点击<em>Select Features</em>按钮，选择未连接的地铁站。然后点击<em>Open Attribute Table</em>图标。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop5.png"></p>
+<ol>
+<li>在属性表格中，切换到显示所选特征<em>Show selected Features</em>。然后直邮要删除的个别特征会显示出来。 然后就会凸显出刚刚选中的。现在点击左上角小铅笔图标进入编辑模式<em>Toggle editing mode</em> 然后点击小垃圾桶图标删除选中特征<em>Delete selected features</em>。完成之后，再点击小铅笔图标 <em>Toggle editing mode</em>，然后再点击<em>Save</em>保存。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop6.png"></p>
+<ol>
+<li>现在地图就更新了，只保留了咱们想要的城区地铁站。接下来需要对这些站点应用一个缓冲处理<em>Buffer</em>来获得距离地铁站1km范围内的区域。但咱们的地图用的是EPSG:4326 WGS84地理投影，用的单位是度分秒。要将单位从度分秒转化到公里网格，就必须将图层重新投影到一个合适的坐标参考系统（coordinate reference system，CRS）。到菜单栏中找到<strong>Processing → Toolbox</strong>，搜索定位到<strong>Vector general → Reproject layer</strong> 算法，双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop7.png"></p>
+<ol>
+<li>选择 <code>railway_station_Bangalore</code>作为输入层<em>Input layer</em>。点击下图所示的小图标，目标坐标参考系<em>Target CRS</em>选择<code>EPSG:32643 - WGS 84 UTM Zone 43N</code>。将重命名的<em>Reprojected</em>图层命名为<code>metro_stations_reprojected.gpkg</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop8.png"></p>
+<ol>
+<li>重新投影的<code>metro_stations_reprojected</code>图层创建好后，在<strong>Processing Toolbox</strong>中搜索<strong>Vector geometry → Buffer</strong>然后双击运行算法。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop9.png"></p>
+<ol>
+<li>将<code>metro_stations_reprojected</code> 设做输入层<em>Input layer</em>。设置<em>Distance</em>为 <code>1 kilometer</code>。选中<em>Dissolve result</em> 选项，然后将<em>Buffered</em> 输出图层命名为<code>metro_stations_buffer.gpkg</code>。点击<em>Run</em>来运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop10.png"></p>
+<ol>
+<li>现在图层中就出现了刚刚得到的距离地铁站范围1km的多边形组成的新图层<code>metro_stations_buffer</code>了。图层上的一个个圆表示的就是距离地铁站圆心1km范围。地理处理完成了，我们接下来将得到的图层再转换回原来的坐标参考系。在<strong>Processing Toolbox</strong>中搜索<strong>Vector general → Reproject layer</strong>算法然后运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop11.png"></p>
+<ol>
+<li>选择刚刚生成的<code>metro_stations_buffer</code>图层作为输入图层<em>Input layer</em>，然后设置<em>Target CRS</em>为<code>EPSG:4326 -WGS 84</code>。将新生成的图层命名为 <code>metro_station_buffer_reprojected.gpkg</code>。点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop12.png"></p>
+<ol>
+<li>新图层 <code>metro_station_buffer_reprojected</code>就被添加到画布上了，表示的是距离地铁站1km范围内的地方。之前已经有了<code>bangalore</code> 图层表示整个城区范围。接下来要给这些图层添加人口数据。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop13.png"></p>
+<ol>
+<li>找到<code>ind_ppp_2000_KA.tif</code>文件，拖拽到画布上。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop14.png"></p>
+<ol>
+<li>选择 <code>ind_ppp_2000_KA</code> 图层，然后使用 <em>Identify</em>工具查看像素质。这个栅格图像的分辨率大约是100m x 100m，单一通道，每个像素的值是对应大小区域的估计人口。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop15.png"></p>
+<ol>
+<li>将所有落在多边形的区域中的像素加到一起就能获得对应区域的总人口。这个操作也叫区域统计<em>Zonal Statistics</em>。在<strong>Processing Toolbox</strong>中搜索<strong>Raster analysis → Zonal statistics</strong>算法。这个算法是对每个层增加了一个新属性，这个属性存储的是每个层当中包含在多边形中的总人口。双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop16.png"></p>
+<ol>
+<li>选择<code>bangalore</code>作为输入层<em>Input layer</em>，将<code>ind_ppp_2000_KA</code>作为栅格层<em>Raster layer</em>。输入<code>population_</code>作为输出列前缀<em>Output column prefix</em>。我们感兴趣的只是总和<strong>Sum</strong>，所以点击<em>Statistics to calculate</em>旁边的<code>...</code>，然后只选中<code>Sum</code>。在<em>Zonal Statistics</em> 中点击<code>...</code> 然后将生成文件设置保存为 <code>banglore_pop.gpkg</code>。点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop17.png"></p>
+<ol>
+<li>算法完成后，选择<code>metro_station_buffer_reprojected</code>作为输入层<em>Input layer</em>。然后再<em>Zonal Statistics</em> 中点击 <code>...</code>将生成层保存为<code>metro_station_buffer_pop.gpkg</code>。点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop18.png"></p>
+<ol>
+<li>现在地图画布上就出现了新生成的两个图层了。点击<code>banglore_pop</code>然后使用<em>Identify</em>工具，然后点击多边形。里面的<strong>population_sum</strong> 就应该是人口了。可以📧然后选择复制属性值<em>Copy Attribute Value</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop19.png"></p>
+<ol>
+<li>QGIS 有一个内置计算器。点击界面左下角的<em>Locator</em>窗体然后输入等号<code>=</code>。将<code>metro_station_buffer_pop</code>和<code>banglore_pop</code>的人口总数粘贴进去，算出比值。得到的结果就是班加罗尔城市中住在地铁周围1km范围内的人口比例。</li>
+</ol>
+<div class="highlight"><pre><span></span><code>= 100 * pasted value from from metro_station_buffer_pop / pasted value from banglore_pop 
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop20.png"></p>
+<h2>练习：绿地分布</h2>
+<p>拥挤的城市区域中，公园之类的开放空间很有必要。这些场所不仅能改善环境提供娱乐设施，还对人的心理健康有正面影响。</p>
+<p>本次练习中，我们使用来自Bruhat Bengaluru Mahanagara Palike (BBMP)出版的公园列表，计算城市中每个分区的公园面积。这个数据可以通过 <a href="http://opencity.in">OpenCity - Urban Data Portal</a> 获取到PDF格式的文件。本课程原作者将PDF格式数据文件使用<a href="https://www.zamzar.com/convert/pdf-to-xls/">Zamzar Online file conversion</a>转换成了表格文件<code>BBMP_Parks.xlsx</code>。</p>
+<blockquote>
+<p>注意，本练习只考虑每个区域的公园总面积。但实际上公园质量也很重要，对此的相关分析可以参考<a href="https://www.ichangemycity.com/pdf/parks-playgrounds-survey-report.pdf">Parks and Playgrounds Score of Bengaluru Report</a>。</p>
+</blockquote>
+<ol>
+<li>将<code>bangalore_wards.json</code>文件拖拽到QGIS地图画布上。然后找到<code>BBMP_Parks.xlsx</code>文件。QGIS也可以直接读取Excel文件。拽到画布上就可以，现在就有<code>bangalore_wards</code>和<code>BBMP_Parks_Area</code> 两个图层出现在图层面板<em>Layers</em> 。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park1.png"></p>
+<ol>
+<li>选中 <code>BBMP_Parks_Area</code> 图层然后点击<em>Open Attribute Table</em>。可以看到数据有超过900多行，每行都描述了一个公园和对应的面积，单位是平方米。我们不需要提取公园的地理位置坐标，但需要知道归属的区。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park2.png"></p>
+<ol>
+<li>接下来可以按照各个区计算每个区一共有多少个公园。打开<em>Processing Toolbox</em>然后搜索<strong>Vector analysis → Statistics by categories</strong> 算法，双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park3.png"></p>
+<ol>
+<li>选中<code>BBMP_Parks_Area</code>图层作为输入向量层<em>Input vector layer</em>。选中<code>Area</code>作为<em>Field to calculate statistics on</em>. 由于要按区分辨，选中<code>Ward</code>作为<em>Field(s) with categories</em>。将生成的<em>Statistics by category</em>层存储为<code>park_area_by_ward.gpkg</code>。点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park4.png"></p>
+<ol>
+<li>接下来每一个区都有一个对应的面积总和<em>sum</em>，然后可以将其于一个空间图层联接起来。在<code>Processing Toolbox</code>里面搜索<em>Join attributes by field value</em>算法。选中<code>bangalore_wards</code>作为输入层<em>Input layer</em>，然后设置<code>WARD_NO</code>作为<em>Table field</em>。选择<code>park_area_by_ward</code>作为第二输入层<em>Input layer 2</em>，设置<code>Ward</code>为<em>Table field 2</em>。这里的<code>park_area_by_ward</code>包含很多列，但我们要用的只有<em>sum</em>。所以选中<code>sum</code>作为<em>Layer 2 fields to copy</em>。将输出层命名为<code>bangalore_wards_park_area_joined.gpkg</code>然后点击<em>Run</em>运行。</li>
+</ol>
+<blockquote>
+<p>可能会有警告提示你不是所有的特征都成功联接。这是因为Excel文件并不能包涵覆盖所有区域的全部数据。这对于咱们的练习分析目的来说没啥影响，不用担心。</p>
+</blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park5.png"></p>
+<ol>
+<li>新图层<code>bangalore_wards_park_area_joined</code>就出现在图层面板<em>Layers</em>了。在完成结果之前，可以将每一列都重命名一下使之更容易理解。在<em>Processing Toolbox</em>里面搜索找到<strong>Vector table → Refactor fields</strong> 算法。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park6.png"></p>
+<ol>
+<li>选中不需要的列，然后用<em>Delete field</em>移除。对于<em>sum</em>列，输入<code>PARK_AREA</code>作为名称<em>Field name</em>。然后将<em>Refactored</em>输出的文件名设置为<code>bangalore_wards_park_area.gpkg</code>，点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park7.png"></p>
+<ol>
+<li>得到的新图层<code>bangalore_wards_park_area</code>也能在图层面板<em>Layers</em>里看到了。打开一下属性表格查看各分区的公园面积吧。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park8.png"></p>
+<h2>练习：选择最佳居住区</h2>
+<p>寻找最优区域是空间分析技术的常见实用场景。使用合适的模型，就可以将多种因素一起考虑，然后推断出排列顺序。这里我们使用的是一个真实的场景，要在一个城市中根据多个因素寻找最佳居住场所。</p>
+<p>本次练习所选用的优选因素如下：</p>
+<ul>
+<li>距离工作地必须在三十分钟车程范围内，办公地点设为<a href="https://g.page/spatialthoughts?share">Spatial Thoughts office</a>。</li>
+<li>距离地铁站点必须在1km范围内。</li>
+<li>要有公园，无公园的区域不考虑。</li>
+</ul>
+<p>前面的练习已经为这次联系准备了数据：</p>
+<ul>
+<li><code>30min_isochrone.gpkg</code> 图层表示的是距离工作地30分钟的区域。</li>
+<li><code>metro_station_buffer_reprojected.gpkg</code> 图层表示的是地铁周围1km范围。</li>
+<li><code>bangalore_wards_park_area.gpkg</code> 表示了每个区的公园面积。</li>
+</ul>
+<p>接下来就把上面这几层都用上，交叉分析出来就可以了。</p>
+<ol>
+<li>将<code>30min_isochrone.gpkg</code>、 <code>metro_station_buffer_reprojected.gpkg</code>、<code>bangalore_wards_park_area.gpkg</code>这三个文件拖拽到QGIS里面，然后在<em>Processing Toolbox</em>里面搜索<strong>Vector overlay → Intersection</strong>算法，双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay1.png"></p>
+<ol>
+<li>选中<code>30min_isochrone</code>作为输入层<em>Input layer</em>，选中<code>metro_station_buffer_reprojected</code>作为叠覆层<em>Overlay layer</em>。设置<em>Intersection</em>交叉生成文件为<code>intersection.gpkg</code>。点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay2.png"></p>
+<ol>
+<li>得到的<code>intersection</code>图层表示符合地铁站1km和开车通勤时间30分钟内这两个条件。接下来要用第三个条件筛选。在<em>Processing Toolbox</em>中搜索定位到<strong>Vector analysis → Overlap analysis</strong> 算法，双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay3.png"></p>
+<ol>
+<li>选中<code>bangalore_wards_park_area.gpkg</code>作为输入层<em>Input layer</em>。选中<code>intersection</code>作为叠覆层<em>Overlay layer</em>。将输出层<em>Output layer</em>命名为<code>park_intersection_overlap.gpkg</code>，然后点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay4.png"></p>
+<ol>
+<li>得到的新图层 <code>park_intersection_overlap</code> 比原来的多了两列：<code>intersection_area</code>和<code>intersection_pc</code>。对每个多边形，现在知道每个区域与我们感兴趣区域的交叉比例。如果假设公园在每个区都是均匀分布，就一使用<code>intersection_pc</code>这个参数计算公园比例。在<em>Processing Toolbox</em>中搜索定位到<em>Vector Table → Field Calculator</em> 算法，双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay5.png"></p>
+<ol>
+<li>输出文件<em>Output file</em>设置为<code>park_intersection_percentage_area.gpkg</code>。将输出域名<em>Output field name</em>设置为<code>perc_area</code>。输入下面的表达式，然后点击<em>OK</em>。</li>
+</ol>
+<div class="highlight"><pre><span></span><code>(&quot;intersection_pc&quot; * &quot;PARK_AREA&quot;)/100
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay6.png"></p>
+<ol>
+<li>基本就差不多了，现在就知道兴趣区内每个地区的公园总面积了。可以排一下顺序。在<em>ProcessingWe Toolbox</em>里面搜索定位到 <em>Vector Table → Add autoincremental field</em> 算法，双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay7.png"></p>
+<ol>
+<li>选择<code>park_intersection_percentage_area</code>作为输入层<em>Input layer</em>。输入<code>RANK</code>作为<em>Field name</em> ，输入<code>1</code>作为<em>Start values at</em>。扩展<em>Advanced parameter</em>区域然后选<code>perc_area</code>作为<em>Sort expression</em>。去掉勾选<em>Sort ascending</em>。将<em>Incremented</em> 输出层命名为<code>bangalore_ward_rank.gpkg</code>然后点击<em>Run</em>保存。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay8.png"></p>
+<ol>
+<li>右键新生成的<code>bangalore_ward_rank</code>图层选中筛选器<em>Filter</em>。输入下面的表达式就获得前十个候选区域。</li>
+</ol>
+<div class="highlight"><pre><span></span><code>&quot;RANK&quot; &lt;= 10
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay9.png"></p>
+<ol>
+<li>接下来看到的就是排名最靠前的十个区域。点击<em>Open the Layer Styling Panel</em> 切换到<em>Labels</em>标签页。选择<em>Single labels</em>然后设置<code>RANK</code>作为<em>Value</em>。这样地图上就显示出排序了</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay10.png"></p>
+<h1>补充资料</h1>
+<h2>查看云优化的无人机图像</h2>
+<p><a href="https://map.openaerialmap.org/#/39.220848083496094,-6.162059582511514,11/user/5ac4842b26964b0010033104">Zanzibar Mapping Initiative (ZMI)</a>是坦桑尼亚科学和技术委员会（Tanzania Commission for Science and Technology ，COSTECH）和桑吉巴尔革命政府（Revolutionary Government of Zanzibar，RGoZ）的一项合作计划。这个计划正在拍摄无人机照片来为桑吉巴尔创建航拍地图，并通过<a href="https://openaerialmap.org/">开放航拍计划 OpenAerialMap</a>公开。</p>
+<p>针对这样的大规模图像的使用和分析，有一种新文件格式叫做<a href="https://www.cogeo.org/">云优化的地理信息位图 Cloud-Optimized GeoTIFF (COG)</a> 。作为一种「云优化」（<em>Cloud-optimized</em> ）的GeoTIFF格式，和之前我们看到的常规GeoTIFF一样有地理信息，但不需要将所有图像下载到本地，你就可以读取图像的一部分（<em>portions</em>），使用的是云端服务推流技术，客户端就是QGIS这类软件。这就使得对这类数据的读取和分析非常简单方便，不用下载很大的文件了。</p>
+<p>桑吉巴尔测绘计划的所有图像的收集和处理都是以云优化的GeoTIFF格式存储在亚马逊S3云上。接下来我们用QGIS来查看一下。</p>
+<ol>
+<li>首先要在 OpenAerialMap 上访问<a href="https://map.openaerialmap.org/#/39.220848083496094,-6.162059582511514,11/user/5ac4842b26964b0010033104">Zanzibar Mapping Initiative (ZMI)</a> 的用户页面。找到你要用的图像，右键<code>Download raw .tiff image file</code>按钮，然后选中复制链接地址<em>Copy Link Address</em>。本次练习使用的是<a href="https://oin-hotosm.s3.amazonaws.com/5b00370f2b6a08001185f125/10/5b00370f2b6a08001185f130.tif">这个图像链接</a></li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/cog1.jpg"></p>
+<ol>
+<li>在QGIS中，点击<em>Open Data Source Manager</em>，或者使用快捷键<code>Ctrl+L</code> / <code>Cmd +L</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/cog2.png"></p>
+<ol>
+<li>切换到栅格<em>Raster</em>标签，然后选中协议<code>Protocol: HTTP(S), cloud etc.</code>作为数据源<em>Source type</em>。输入刚刚的geotiff链接地址作为<em>URI</em>。然后点击<em>Add</em>添加。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/cog3.png"></p>
+<ol>
+<li>初始化下载之后，图像就可以在QGIS中呈现为一个新图层了。要注意每个图像的原始大小可能有几百兆字节，但加载的时候其实只传输了必要的一小部分。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/cog4.png"></p>
+<ol>
+<li>使用<em>Identify</em> 工具来点一点图像。你会发现这是一个四通道的无人机图像，四个通道就是红、绿、蓝、明度（Red, Green, Blue, Alpha）。你不仅可以查看图像，还可以查询图像的像素值。这酒喝常规的GeoTIFF格式文件一样。如果你使用的是XYZ切片图层，是绝对无法实现这个效果的。所以一个云优化的GeoTIFF格式提供了这一独一无二的功能，具有这种快速流式访问的独特优势，同时保留了源数据的完全性。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/cog5.png"></p>
+<h1>数据来源</h1>
+<ul>
+<li>Delhi PM2.5 concentrations. Downloaded from <a href="https://openaq.org/">OpenAQ</a> <a href="https://openaq.org/#/countries?_k=dmlk2k">data download</a> service. Source data from Central Pollution Control Board (CPCB) India and EPAAirNow DOC.</li>
+<li>OSM Tile Layer, Bangalore Metro Stations : (c) OpenStreetMap contributors</li>
+<li>India Village-Level Geospatial Socio-Economic Data Set. Meiyappan, P., P. S. Roy, A. Soliman, T. Li, P. Mondal, S. Wang, and A. K. Jain. 2018. India Village-Level Geospatial Socio-Economic Data Set: 1991, 2001. Palisades, NY: NASA Socioeconomic Data and Applications Center (SEDAC). <a href="https://doi.org/10.7927/H4CN71ZJ">https://doi.org/10.7927/H4CN71ZJ</a>. Accessed 15 February 2020.</li>
+<li>Census 2001 Districts: Downloaded from <a href="https://github.com/datameet/maps/tree/master/States">Datameet Spatial Data repository</a>.</li>
+<li>Oxford Point Cloud. DTM, and DSM. Downloaded from <a href="https://environment.data.gov.uk/DefraDataDownload/">Defra Data Services Platform</a>. Crown Copyright 2019</li>
+<li>Kathmandu University Ground Drone Imagery. Downloaded from <a href="https://map.openaerialmap.org/#/85.53695037961006,27.61776421799196,20/user/59f0ecea31eff4000c3804fd/5a00c096bac48e5b1cf75232?_k=tkjpjw">OpenAerialMap</a>. Captured by <a href="https://werobotics.org/">WeRobotics</a></li>
+<li>Zanzibar Cloud-Optimized GeoTiff and XYZ Layer. Accessed from <a href="https://map.openaerialmap.org/#/39.220848083496094,-6.162059582511514,11/user/5ac4842b26964b0010033104">OpenAerialMap</a>. Commission for Lands (COLA) ; Revolutionary Government of Zanzibar (RGoZ)</li>
+<li>Bangalore Sentinel-2 Imagery. Downloaded from <a href="https://scihub.copernicus.eu/">Copernicus Open Access Hub</a>. Copyright European Space Agency - ESA.</li>
+<li>Travel Times for Bangalore. Data retrieved from Uber Movement, (c) 2020 Uber Technologies, Inc., <a href="https://movement.uber.com">https://movement.uber.com</a>.</li>
+<li>Bangalore Ward Maps Provided by <a href="http://projects.datameet.org/Municipal_Spatial_Data/">Spatial Data of Municipalities (Maps) Project</a> by Data{Meet}.</li>
+<li>Karnataka Population Grid 2020: Downloaded from <a href="https://www.worldpop.org/geodata/summary?id=6527">WorldPop</a> - School of Geography and Environmental Science, University of Southampton; Department of Geography and Geosciences, University of Louisville; Departement de Geographie, Universite de Namur) and Center for International Earth Science Information Network (CIESIN), Columbia University (2018). Global High Resolution Population Denominators Project - Funded by The Bill and Melinda Gates Foundation (OPP1134076). <a href="https://dx.doi.org/10.5258/SOTON/WP00645">https://dx.doi.org/10.5258/SOTON/WP00645</a></li>
+<li><a href="http://opencity.in/documents/bbmp-list-of-parks-wardwise">BBMP: List of Parks - wardwise</a>: Downloaded from OpenCity Urban Data Portal by Oorvani Foundation and DataMeet.</li>
+</ul>
+<h1>授权协议</h1>
+<p>本课程材料采用<a href="https://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性4.0国际许可协议</a>授权。你可以为任何非商业目的自由使用该材料。请适当注明原作者的名字。</p>
+<p>本中文翻译版本禁止商用。</p>
+<p>如果你想利用英文原版内容作为商业产品的一部分，需要 <a href="https://spatialthoughts.com/contact/">联系英文原作者</a> 询问价格和使用条款，获得<em>培训授权</em>，付对应费用。</p>
+<p>© 2020 Ujaval Gandhi <a href="https://spatialthoughts.com">www.spatialthoughts.com</a></p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep">Category:</span>
+        <abbr class="category">
+            <a href="./category/qgis.html">QGIS</a>
+        </abbr>
+       </footer>
+    <section id="respond">
+        <div id="disqus_thread">
+        <script type="text/javascript">
+        var disqus_identifier = "kong-jian-shu-ju-de-ke-shi-hua-he-fen-xi.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://cycleuser.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        </script>
+        </div>
+
+            
+
+    </section>
+</section>
+
+
+        </section><!-- #content -->
+        <section id="widgets" class="grid col-300 fit" >
+            <!--
+            <section id="widget-search" class="widget-wrapper widget_search">
+
+                <form id="searchform" action="https://www.google.com/search" method="get">
+                    <input id="q" class="field" type="text" placeholder="Search Blog" name="q" ></input>
+                    <input id="ie" name="ie" type="hidden" value="utf-8" ></input>
+                    <input id="oe" name="oe" type="hidden" value="utf-8" ></input>
+                    <input id="channel" name="channel" type="hidden" value="suggest" ></input>
+                    <input id="searchsubmit" class="submit" type="submit" value="">
+                </form>
+            </section>
+            -->
+            <section id="widget-category" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Category
+                </div>
+                <ul>
+                        <li><a href="./category/camera.html" >Camera </a></li>
+                        <li><a href="./category/chromebook.html" >ChromeBook </a></li>
+                        <li><a href="./category/diy.html" >DIY </a></li>
+                        <li><a href="./category/duke.html" >Duke </a></li>
+                        <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
+                        <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/mac.html" >Mac </a></li>
+                        <li><a href="./category/nas.html" >NAS </a></li>
+                        <li><a href="./category/photography.html" >Photography </a></li>
+                        <li><a href="./category/python.html" >Python </a></li>
+                        <li><a href="./category/qgis.html" >QGIS </a></li>
+                        <li><a href="./category/qt.html" >QT </a></li>
+                        <li><a href="./category/raspbian.html" >Raspbian </a></li>
+                        <li><a href="./category/sdr.html" >SDR </a></li>
+                        <li><a href="./category/software.html" >Software </a></li>
+                        <li><a href="./category/story.html" >Story </a></li>
+                        <li><a href="./category/work.html" >Work </a></li>
+                </ul>
+            </section>
+
+            <section id="widget-tagcloud" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Tagcloud
+                </div>
+                <div>
+                        <span><a href="./tag/diy.html">DIY</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/phd.html">PHD</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/pyenv.html">Pyenv</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/translate.html">Translate</a></span>
+                        <span><a href="./tag/visualization.html">Visualization</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/book.html">Book</a></span>
+                </div>
+            </section>
+
+
+            <section id="widget-links" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Links
+                </div>
+                <ul>
+                        <li><a href="https://chinageology.com">ChinaGeology</a></li>
+                        <li><a href="http://doc.geopython.com/">GeoPython</a></li>
+                        <li><a href="https://fanzheng.org">Fan</a></li>
+                        <li><a href="http://o00o.site">FlagPlus</a></li>
+                        <li><a href="http://blog.cosli.top">CosLi</a></li>
+                        <li><a href="http://akagi201.org">Akagi201</a></li>
+                        <li><a href="http://xuanwo.org/">XuanWo</a></li>
+                        <li><a href="https://blog.daftme.com">4Orange</a></li>
+                        <li><a href="http://blog.riverrun.xyz/">River</a></li>
+                        <li><a href="https://www.logcg.com">LogCG Blog</a></li>
+                        <li><a href="http://guolao.me/">GuoLao</a></li>
+                </ul>
+            </section>
+            
+        </section><!-- widgets -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+</body>
+</html>

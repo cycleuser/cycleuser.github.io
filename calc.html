@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="en">    <head>        <meta charset="utf-8">
+        <style>
+
+            /* 主体 */
+            .counter{
+                width: 396px;
+                height: 486px;
+                background-color: #F2F2F2;
+                border: 1px solid #C2C3C6;
+                margin: 50px auto;
+
+            }
+            /* 显示框 */
+            #box {
+                height: 70px;
+                width: 336px;
+                background-color: #323232;
+                border: none;
+                margin: 40px 25px 32px 25px;
+                font: 700 40px/70px "微软雅黑";
+                color: #ffffff;
+                padding-right: 10px;
+            }
+            /* 功能区 */
+            .funct {
+                padding: 0 20px;
+                position: relative;
+
+            }
+            /* 按钮样式 */
+            .funct input {
+                height: 40px;
+                width: 60px;
+                margin: 10px 10px;
+                font: 400 20px/40px "微软雅黑";
+            }
+            /* 清除按钮样式 */
+            .funct #res {
+                width: 150px;
+            }
+            /* + - = . 按钮浮动 */
+            #add, #reduce, #round, #sum {
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+            }
+            /* 减号位置 */
+            #reduce {
+                right: 30px;
+                top: 60px;
+            }
+
+            /* 加号位置 */
+            #add {
+                right: 30px;
+                top: 120px;
+            }
+            /* 等于号位置 */
+            #sum {
+                height: 100px;
+                right: 30px;
+                bottom: 0px;
+            }
+            /* 小数点位置 */
+            #round {
+                right: 120px;
+                bottom: 0px;
+            }
+            /* 0 */
+            #zero {
+                width: 150px;
+            }
+            
+            /* 数字区 */
+            .numb {
+                width: 280px;
+            }
+
+        </style>
+
+        <script>
+        window.onload = function(){
+
+            // 数据容器
+            var left = 0;   //被除数
+            var right = 0;  //除数
+            var sum = 0;    //和  
+
+            var numb = 0;   //此变量用来限制点的输入     
+            // 获取id并返回
+            function $(id){
+                return document.getElementById(id);
+            }
+            // 运算函数
+             function operation(id){            
+                if( $("box").value != "0"){
+                    if(left == 0)
+                    {
+                        $("box").value = $("box").value + $(id).value;
+                        left = parseFloat($("box").value);
+                    }
+                }
+
+                //numb 转为number类型 让点可以再输入一次
+                numb = 0;
+            }
+
+            // 数字盘函数
+            function figure(id){ 
+            
+                // 判断被除数是否有值
+                if(left == 0)
+                {
+                    // 改变value默认值
+                    if ($("box").value === "0" ) {
+                        $("box").value = $(id).value; 
+                    }else{
+                        $("box").value = $("box").value + $(id).value;    
+                    }                                
+                }else{
+                    $("box").value = $("box").value + $(id).value;
+                    var str = $("box").value;
+                    var num = "";                    
+                    // 获取第二次输入的数字
+                    for (var i = 0; i < str.length; i++) {
+                        // 判断加减乘除
+                        if(str[i]== "+"){
+                            for (var j = i + 1; j < str.length; j++) {
+                                num+=str[j];
+                                
+                            };
+                            right = parseFloat(num);
+                        }else if(str[i]== "-"){
+                            for (var j = i + 1; j < str.length; j++) {
+                                num+=str[j];
+                                
+                            };
+                            right = parseFloat(num);
+                        }
+                        else if(str[i]== "*"){
+                            for (var j = i + 1; j < str.length; j++) {
+                                num+=str[j];
+                                
+                            };
+                            right = parseFloat(num);
+                        }
+                        else if(str[i]== "/"){
+                            for (var j = i + 1; j < str.length; j++) {
+                                num+=str[j];
+                                
+                            };
+                            right = parseFloat(num);
+                        }
+                    };                    
+                }
+
+                // 清空所有数据  
+                if(sum != 0){
+                    left = 0;
+                    right = 0;
+                    sum = 0;
+                    numb = 0;
+                    $("box").value = $(id).value;
+                }
+            
+            }
+
+
+　　　　　　　// 数字键盘区----------------------------------------------------------开始
+            $("one").onclick = function(){ 
+                figure("one");
+            }
+            $("two").onclick = function(){ 
+                figure("two");
+            }
+            $("three").onclick = function(){ 
+                figure("three");
+            }
+            $("four").onclick = function(){ 
+                figure("four");
+            }
+            $("five").onclick = function(){ 
+                figure("five");
+            }
+            $("six").onclick = function(){ 
+                figure("six");
+            }
+            $("seven").onclick = function(){ 
+                figure("seven");
+            }
+            $("eight").onclick = function(){ 
+                figure("eight");
+            }
+            $("nine").onclick = function(){ 
+                figure("nine");
+            }
+            $("zero").onclick = function(){ 
+                figure("zero");
+            }
+ 
+　　　　　　  // 数字键盘区----------------------------------------------------------结束
+            
+
+
+
+　　　　　　　//功能区-----------------------------------------------------------开始
+
+            // 加
+            $("add").onclick = function(){             
+                operation("add");
+            }
+
+
+            //减
+            $("reduce").onclick = function(){             
+                operation("reduce");
+            }
+
+            // 乘
+            $("ride").onclick = function(){
+                operation("ride");
+            }
+            
+            // 除
+            $("division").onclick = function(){
+                operation("division");
+            }
+
+            // 点
+            $("round").onclick = function(){
+                // 限制点的输入
+                if(numb === 0 && sum == 0){ //numb值等于0 类型等于number                        
+                    $("box").value = $("box").value + $("round").value;
+                    numb = ($("box").value); //numb赋值为字符串
+                }
+
+            }
+
+            // 清除
+            $("res").onclick = function(){
+                if($("box").value != "0")
+                {                        
+                    left = 0;
+                    right = 0;
+                    sum = 0;
+                    numb = 0;
+                    $("box").value = "0";
+                }
+            }
+
+            // 求和
+            $("sum").onclick = function(){  
+                var symbol = "";           
+                if(left != 0 && right != 0){
+                    for (var i = 0; i < $("box").value.length; i ++ ) {
+                        symbol = $("box").value[i];
+                        if(symbol == "+"){
+                            sum = left + right;
+                            $("box").value = sum;
+                        }else if(symbol == "-"){
+                            sum = left - right;
+                            $("box").value = sum;
+                        }
+                        else if(symbol == "*"){
+                            sum = left * right;
+                            $("box").value = sum;
+
+                        }
+                        else if(symbol == "/"){
+                            sum = left / right;
+                            $("box").value = sum;
+                        }
+                    };
+                }                            
+            }
+            
+        }
+
+　　　　　// 功能区--------------------------------------------------------------------------结束
+        </script>
+    </head>
+    <body>
+
+        </div>
+
+        <div class="counter">
+            <input type="text" id="box" style="text-align:right" readOnly="true" value="0">
+            <div class="funct">
+                <input type="reset" id="res" value="C">
+                <input type="button" id="division" value="/">
+                <input type="button" id="ride" value="*">
+
+                <input type="button" id="add" value="+">
+                <input type="button" id="reduce" value="-">                                
+                <input type="button" id="round" value=".">
+                <input type="button" id="sum" value="=">    
+               
+                <div class="numb">
+                    <input type="button" id="one" value="1">
+                    <input type="button" id="two" value="2">
+                    <input type="button" id="three" value="3">
+                    <input type="button" id="four" value="4">
+                    <input type="button" id="five" value="5">
+                    <input type="button" id="six" value="6">
+                    <input type="button" id="seven" value="7">
+                    <input type="button" id="eight" value="8">
+                    <input type="button" id="nine" value="9">
+                    <input type="button" id="zero" value="0">
+                </div>                        
+            </div>                            
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
+    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo">
+                <h1><img src="/theme/image/default-logo.png" width="300" height="100" alt="CycleUser" />
+                CycleUser</h1>
+        </div> <!-- /#logo-->
+        <nav id="menu" class="main-nav"><ul class="menu">
+            <li  class="active"><a href="https://blog.cycleuser.org">Homepage</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/categories.html">Categories</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/tags.html">Tags</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/archives.html">Archives</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/about.html">About</a></li>
+
+        </ul></nav><!-- /#menu -->
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-620" >
+                <section class="breadcrumb-list">
+<a href=".">Blog</a> ›<a href="category/chromebook.html">ChromeBook</a> ›ChromeBook Install GalliumOS：Baytrail
+                </section>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >ChromeBook Install GalliumOS：Baytrail</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep">Post in</span>
+        <abbr class="date" title="2017-02-08T00:00:00+08:00"> 
+            <a href="./archive/2017/Feb/index.html">Wed 08 February 2017 </a>
+        </abbr>
+        <span class="meta-prep"> |Tags</span>
+                <a href="./tag/chromebook.html">ChromeBook</a>
+                <a href="./tag/hack.html">Hack</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry">
+        <h1>ChromeBook安装GalliumOS：Baytrail 平台</h1>
+<p><a href="https://wiki.galliumos.org/Installing/Baytrail#mw-head">英文原文地址</a>
+<a href="http://blog.cycleuser.org">CycleUser</a>翻译</p>
+<p>在Baytrail平台的ChromeOS设备上面安装GalliumOS有两种模式，可以双系统可选启动，也可以单独安装GalliumOS。单独安装就是把GalliumOS安装到内置存储中，替换掉ChromeOS，或者就是把GalliumOS安装到一个外置存储，比如SD卡、U盘或者USB外接固态硬盘等等，然后保持内置ChromeOS不被修改；双系统启动模式就是让GalliumOS和ChromeOS都共存在内置存储里面，然后用户可以在开机的时候通过键盘快捷键来选择要启动的系统。</p>
+<p>然而，由于Baytrail设备一般默认是不提供任何传统启动支持的，所以<a href="https://wiki.galliumos.org/Firmware">刷新固件</a> 就是必需步骤了，只有这样才能运行GalliumOS，以及除了ChromeOS之外的所有其他操作系统。</p>
+<h2>步骤说明</h2>
+<ol>
+<li>
+<p>首先是切换到开发者模式</p>
+</li>
+<li>
+<p>然后刷新固件添加传统引导模式支持</p>
+</li>
+<li>
+<p>接下来就是安装GalliumOS操作系统了</p>
+<ol>
+<li>单独安装GalliumOS</li>
+<li>双启动安装</li>
+</ol>
+</li>
+<li>
+<p>特殊设备的说明</p>
+<ol>
+<li>Lenovo 100S (ORCO)</li>
+</ol>
+</li>
+</ol>
+<h2>切换到开发者模式</h2>
+<p><code>开发者模式</code>和常规的<code>标准模式</code>/<code>安全引导模式</code>不同，允许用户完全控制整个设备和操作系统，要运行和安装GalliumOS就必须要切换到这种<code>开发者模式</code>。要注意，无论是切换成开发者模式，还是从开发者模式切换到浦东模式，都将会抹掉设备上的所有本地用户数据，所以动手之前要谨慎，一定注意多备份。</p>
+<ol>
+<li>关机</li>
+<li>
+<p>按住[ESC+F3(Refresh)+Power]这三个键，让机器引导进入恢复模式</p>
+<ul>
+<li>你会看到一个提示，上面是警告说"Chrome OS is missing or damaged" ，意思是说ChromeOS丢失或损坏，不过<strong>别怕</strong></li>
+</ul>
+</li>
+<li>
+<p>按[CTRL+D]</p>
+</li>
+<li>这下就会看到一个信息了，问你是否要开启开发者模式，同时关闭操作系统校验，当然是按回车键确认了</li>
+<li>等待数据清除完成，这估计得几分钟吧</li>
+<li>数据清除完成之后，设备会重启，然后就能看到白色的开发者模式启动背景了，会提示你操作系统校验已关闭<ul>
+<li>要注意了！千万<strong>不要</strong>按回车键或者空格键，这样会重新开机操作系统校验，这时候一定要只按[CTRL+D]来跳过这个30秒倒计时，然后引导ChromeOS，这个倒计时时间以后还可以修改</li>
+</ul>
+</li>
+</ol>
+<h2>添加传统引导模式兼容</h2>
+<ol>
+<li>
+<p>在ChromeOS登录界面，确保网络连接已经建立，但<strong>千万不要</strong>登录进入ChromeOS</p>
+</li>
+<li>
+<p>通过按[CTRL+ALT+F2]这三个键的组合或者在顶端右击来开启一个Crosh Shell</p>
+</li>
+<li>
+<p>以<code>chronos</code>的身份登录，不需要输入密码</p>
+</li>
+<li>
+<p>下载并运行<a href="https://wiki.galliumos.org/Firmware">固件更新脚本</a>，一定挑选好适合你设备的脚本来安装</p>
+</li>
+<li>
+<p>安装RW_LEGACY或者BOOT_STUB，两种固件二选一即可</p>
+<ul>
+<li>
+<p>要双系统启动的话，就一定要安装RW_LEGACY固件；BOOT_STUB那个固件不支持双系统引导</p>
+</li>
+<li>
+<p>此外，RW_LEGACY用户可能还需要更改引导默认项类型（比如默认引导ChromeOS还是Legacy），或修改引导界面倒计时的时间，这都可以通过安装脚本来完成。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2>安装GalliumOS</h2>
+<h3>独立安装</h3>
+<ol>
+<li>
+<p><a href="https://galliumos.org/download">下载针对<strong>Baytrail</strong>的GalliumOS ISO光盘镜像</a> 然后根据<a href="https://wiki.galliumos.org/Installing/Creating_Bootable_USB" title="Installing/Creating Bootable USB">安装U盘制作之南</a> 来创建安装U盘</p>
+</li>
+<li>
+<p>将安装盘插入USB口，优先使用USB2接口</p>
+</li>
+<li>
+<p>如果你安装的固件是RW_LEGACY，并且没有设传统引导模式为默认选项，那就按[CTRL+L]来启动传统引导</p>
+</li>
+<li>
+<p>在SeaBIOS启动界面，在提示出现后按ESC，就能看到引导菜单了</p>
+</li>
+<li>
+<p>选择GalliumOS U盘来启动</p>
+</li>
+<li>
+<p>如果Grub引导菜单出现了，就选择Live模式，然后按回车引导进入</p>
+</li>
+<li>
+<p>运行安装程序</p>
+</li>
+<li>
+<p>选择要安装GalliumOS的设备：
+        * 如果要安装到内置存储，就选择<code>/dev/mmcblk0</code>
+        * 如果要按照到外置的SD卡或者U盘等等，就选择<code>/dev/mmcblk1</code></p>
+</li>
+<li>
+<p>进行安装，然后重启并根据提示拔出安装盘</p>
+</li>
+<li>
+<p>然后就可以玩转GalliumOS了!</p>
+</li>
+</ol>
+<h3>双系统安装</h3>
+<p>双系统安装需要两部：首先用安装脚本对设备内置存储进行调整大小；然后再进行安装。</p>
+<ol>
+<li>
+<p>在ChromeOS登录界面，确保网络连接已经建立，但<strong>千万不要</strong>登录进入ChromeOS</p>
+</li>
+<li>
+<p>通过按[CTRL+ALT+F2]这三个键的组合或者在顶端右击来开启一个Crosh Shell</p>
+</li>
+<li>
+<p>以<code>chronos</code>的身份登录，不需要输入密码</p>
+</li>
+<li>
+<p>下载并运行<a href="http://chrx.org/">chrx安装脚本</a></p>
+<p><code>Bash
+curl -Os https://chrx.org/go &amp;&amp; sh go</code></p>
+</li>
+<li>
+<p>出现提示后，输入要分配给GalliumOS的分区空间大小</p>
+</li>
+<li>
+<p>chrx脚本会重启设备；这时候按[CTRL+D]来引导ChromeOS，然后允许系统进行<code>自我修复</code></p>
+</li>
+<li>
+<p>修复完成之后，设备又要重启了；还是按[CTRL+D]来引导ChromeOS</p>
+</li>
+<li>
+<p>通过按[CTRL+ALT+F2]这三个键的组合或者在顶端右击来开启一个Crosh Shell</p>
+</li>
+<li>
+<p>以<code>chronos</code>的身份登录，不需要输入密码</p>
+</li>
+<li>
+<p>再次下载并运行<a href="http://chrx.org/">chrx安装脚本</a></p>
+<p><code>Bash
+curl -Os https://chrx.org/go &amp;&amp; sh go</code>
+   注意: 这里你也可以添加任何其他的命令行参数，来安装额外的包，比如Kodi，Steam，Minecraft等等，更多细节参考<a href="http://chrx.org/">chrx.org</a>。</p>
+</li>
+<li>
+<p>chrx脚本会安装GalliumOS，然后安装完了就重启了；使用[CTRL+L]就能启动到传统引导模式了。（这一步需要注意，第二次运行这个chrx脚本是用来安装系统的，但是我实际测试在大陆的网络下，chrx脚本会经常出现不返回任何结果的现象，我的设备上测试发现时curl命令所指向的地址被Glory Flower Warm阻拦，然后我尝试用ss连接后运行命令，发现依然是无效的。所以用另外一种替代方式进行安装：修复ChromeOS之后，关机重启，用Ctrl+L进入legacy引导，按ESC选择USB设备安装GalliumOS，注意安装到用chrx划分出来的分区。）</p>
+</li>
+<li>
+<p>然后就可以玩转GalliumOS了!</p>
+</li>
+</ol>
+<h2>特殊设备的说明</h2>
+<h3>Lenovo 100S (ORCO)</h3>
+<ul>
+<li>
+<p>John Lewis 的固件升级脚本能够识别 联想100s ORCO 这款设备，也能安装他的BOOT_STUB， 但写本篇文档的时候(20160417)，<strong>还不能够成功引导GalliumOS</strong>。这有可能只是一个暂时的bug，不过还是建议你去<a href="https://www.reddit.com/r/GalliumOS/comments/4dr759/galliumos_on_lenovo_100s_no_sound_through/">Reddit论坛</a>来看看进展之类的信息。</p>
+</li>
+<li>
+<p>MattDevo 的 RW_LEGACY固件升级脚本 <strong>完全能够</strong> 引导GalliumOS，并且同时支持单独安装和双系统安装。更多信息参考<a href="https://wiki.galliumos.org/Firmware">固件更新脚本</a>。</p>
+</li>
+</ul>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep">Category:</span>
+        <abbr class="category">
+            <a href="./category/chromebook.html">ChromeBook</a>
+        </abbr>
+       </footer>
+    <section id="respond">
+        <div id="disqus_thread">
+        <script type="text/javascript">
+        var disqus_identifier = "chromebook-install-galliumosbaytrail.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://cycleuser.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        </script>
+        </div>
+
+            
+
+    </section>
+</section>
+
+
+        </section><!-- #content -->
+        <section id="widgets" class="grid col-300 fit" >
+            <!--
+            <section id="widget-search" class="widget-wrapper widget_search">
+
+                <form id="searchform" action="https://www.google.com/search" method="get">
+                    <input id="q" class="field" type="text" placeholder="Search Blog" name="q" ></input>
+                    <input id="ie" name="ie" type="hidden" value="utf-8" ></input>
+                    <input id="oe" name="oe" type="hidden" value="utf-8" ></input>
+                    <input id="channel" name="channel" type="hidden" value="suggest" ></input>
+                    <input id="searchsubmit" class="submit" type="submit" value="">
+                </form>
+            </section>
+            -->
+            <section id="widget-category" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Category
+                </div>
+                <ul>
+                        <li><a href="./category/camera.html" >Camera </a></li>
+                        <li><a href="./category/chromebook.html" >ChromeBook </a></li>
+                        <li><a href="./category/diy.html" >DIY </a></li>
+                        <li><a href="./category/duke.html" >Duke </a></li>
+                        <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
+                        <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/mac.html" >Mac </a></li>
+                        <li><a href="./category/nas.html" >NAS </a></li>
+                        <li><a href="./category/photography.html" >Photography </a></li>
+                        <li><a href="./category/python.html" >Python </a></li>
+                        <li><a href="./category/qgis.html" >QGIS </a></li>
+                        <li><a href="./category/qt.html" >QT </a></li>
+                        <li><a href="./category/raspbian.html" >Raspbian </a></li>
+                        <li><a href="./category/sdr.html" >SDR </a></li>
+                        <li><a href="./category/software.html" >Software </a></li>
+                        <li><a href="./category/story.html" >Story </a></li>
+                        <li><a href="./category/work.html" >Work </a></li>
+                </ul>
+            </section>
+
+            <section id="widget-tagcloud" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Tagcloud
+                </div>
+                <div>
+                        <span><a href="./tag/diy.html">DIY</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/phd.html">PHD</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/pyenv.html">Pyenv</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/translate.html">Translate</a></span>
+                        <span><a href="./tag/visualization.html">Visualization</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/book.html">Book</a></span>
+                </div>
+            </section>
+
+
+            <section id="widget-links" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Links
+                </div>
+                <ul>
+                        <li><a href="https://chinageology.com">ChinaGeology</a></li>
+                        <li><a href="http://doc.geopython.com/">GeoPython</a></li>
+                        <li><a href="https://fanzheng.org">Fan</a></li>
+                        <li><a href="http://o00o.site">FlagPlus</a></li>
+                        <li><a href="http://blog.cosli.top">CosLi</a></li>
+                        <li><a href="http://akagi201.org">Akagi201</a></li>
+                        <li><a href="http://xuanwo.org/">XuanWo</a></li>
+                        <li><a href="https://blog.daftme.com">4Orange</a></li>
+                        <li><a href="http://blog.riverrun.xyz/">River</a></li>
+                        <li><a href="https://www.logcg.com">LogCG Blog</a></li>
+                        <li><a href="http://guolao.me/">GuoLao</a></li>
+                </ul>
+            </section>
+            
+        </section><!-- widgets -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+</body>
+</html>

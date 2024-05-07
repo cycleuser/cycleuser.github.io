@@ -1,0 +1,1555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CycleUser - Story</title><link href="/" rel="alternate"></link><link href="/feeds/story.atom.xml" rel="self"></link><id>/</id><updated>2020-01-22T23:59:00+08:00</updated><entry><title>Install WeChat on Ubuntu</title><link href="/install-wechat-on-ubuntu.html" rel="alternate"></link><published>2020-01-22T23:59:00+08:00</published><updated>2020-01-22T23:59:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2020-01-22:/install-wechat-on-ubuntu.html</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;mkdir -p ~/temp &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; ~/temp
+&lt;span class="c1"&gt;# Download the Debs&lt;/span&gt;
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-wine_2.18-20_all.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-wine32_2.18-20_i386.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-wine32-preloader_2.18-20_i386.deb
+wget http://mirrors …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;mkdir -p ~/temp &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; ~/temp
+&lt;span class="c1"&gt;# Download the Debs&lt;/span&gt;
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-wine_2.18-20_all.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-wine32_2.18-20_i386.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-wine32-preloader_2.18-20_i386.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine-helper/deepin-wine-helper_1.2deepin8_i386.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine-plugin/deepin-wine-plugin_1.0deepin2_amd64.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine-plugin/deepin-wine-plugin_1.0deepin2_i386.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine-plugin-virtual/deepin-wine-plugin-virtual_1.0deepin3_all.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine-uninstaller/deepin-wine-uninstaller_0.1deepin2_i386.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/u/udis86/udis86_1.72-2_i386.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-fonts-wine_2.18-20_all.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-libwine_2.18-20_i386.deb
+wget https://mirrors.aliyun.com/deepin/pool/main/libj/libjpeg-turbo/libjpeg62-turbo_1.5.1-2_amd64.deb
+wget https://mirrors.aliyun.com/deepin/pool/main/libj/libjpeg-turbo/libjpeg62-turbo_1.5.1-2_i386.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-libwine-dbg_2.18-20_i386.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-libwine-dev_2.18-20_i386.deb
+wget http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-wine-binfmt_2.18-20_all.deb
+&lt;span class="c1"&gt;# &amp;#39;Add the i386 support&amp;#39;&lt;/span&gt;
+sudo dpkg --add-architecture i386
+&lt;span class="c1"&gt;# &amp;#39;Refresh the APT cache...&amp;#39;&lt;/span&gt;
+sudo apt update
+&lt;span class="c1"&gt;# &amp;#39;Install the debs...&amp;#39;&lt;/span&gt;
+sudo dpkg -i *.deb
+&lt;span class="c1"&gt;# if Errors occurs, try：sudo apt-get install -f&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Story"></category><category term="Camera"></category><category term="Life"></category><category term="Story"></category><category term="Photo"></category></entry><entry><title>一段时光</title><link href="/yi-duan-shi-guang.html" rel="alternate"></link><published>2019-09-15T16:31:53+08:00</published><updated>2019-09-15T16:31:53+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2019-09-15:/yi-duan-shi-guang.html</id><summary type="html">&lt;p&gt;2019年6月23日，我终于毕业了。&lt;/p&gt;
+&lt;p&gt;从 1995 年，到 2019 年，读了 24 年书。&lt;/p&gt;
+&lt;p&gt;从 2007 年，到 2019 年，在 CUGB 待了 12 年。&lt;/p&gt;
+&lt;p&gt;噫，读书 24 年，大学里面晃了 12 年， 可依然还是这么一个混人。这书真是白读了。&lt;/p&gt;
+&lt;p&gt;——————————————————————————————————————————————————————————————————————&lt;/p&gt;
+&lt;p&gt;&lt;img alt="20张火车票" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/Tickets.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;从 2019年6月23日 毕业当天 到 2019年9月14日 中秋节，我辗转于北京、沈阳、长春等多地。&lt;/p&gt;
+&lt;p&gt;偶然翻书包，发现毕业后这段时间李，已经积攒了整整 20 张火车票。&lt;/p&gt;
+&lt;p&gt;这时才意识到自己已经离开  CUGB 来 CCIT 几个月了 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;2019年6月23日，我终于毕业了。&lt;/p&gt;
+&lt;p&gt;从 1995 年，到 2019 年，读了 24 年书。&lt;/p&gt;
+&lt;p&gt;从 2007 年，到 2019 年，在 CUGB 待了 12 年。&lt;/p&gt;
+&lt;p&gt;噫，读书 24 年，大学里面晃了 12 年， 可依然还是这么一个混人。这书真是白读了。&lt;/p&gt;
+&lt;p&gt;——————————————————————————————————————————————————————————————————————&lt;/p&gt;
+&lt;p&gt;&lt;img alt="20张火车票" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/Tickets.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;从 2019年6月23日 毕业当天 到 2019年9月14日 中秋节，我辗转于北京、沈阳、长春等多地。&lt;/p&gt;
+&lt;p&gt;偶然翻书包，发现毕业后这段时间李，已经积攒了整整 20 张火车票。&lt;/p&gt;
+&lt;p&gt;这时才意识到自己已经离开  CUGB 来 CCIT 几个月了。&lt;/p&gt;
+&lt;p&gt;——————————————————————————————————————————————————————————————————————&lt;/p&gt;
+&lt;p&gt;社团招新，一群穿着正装的青年人面容灿烂表情鲜活。
+“同学有兴趣加入我们社团么？”
+“额，好啊~，有什么社团呢？”
+“同学你是新来的么？”
+“额，是的。。。”
+“咦？那你怎么没有穿军训的衣服呢？”
+“我不是本科生。。。”
+“那也可以加入我们社团的。”&lt;/p&gt;
+&lt;p&gt;——————————————————————————————————————————————————————————————————————&lt;/p&gt;
+&lt;p&gt;CCIT 是个神奇的地方，和 CUGB 一样是诞生于建国初期，也一样是多个院校合并而成，还都拥有者略显窄小又充满历史气息的校园建筑。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="实践中心" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/ChangChun/NewBuilding.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;然而也有大不同。
+CCIT 有 勘测学院、建筑学院、理学院、计算机学院、电力学院、管理学院、外语学院等多个院系，这些院系都有各自的历史沿袭，高人林立，强手如云。
+CUGB 有 地学院、能源学院、土科学院、海洋学院、地信学院、水环学院、材料学院、人文学院、外语学院等多个院系，但核心资源还是集中在地学院以及其他与地学相关的学院，地学以外的专业远不如地学相关院系有优势。
+由此看来，CCIT 远比 CUGB 更称得上是一所综合性大学。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="七教" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/ChangChun/SevenBuilding.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;也好理解，毕竟 CCIT 是由 冶金地质高专、电力高专、水利高专三所老牌院校合并而来；而 CUGB 只是各个高校的地质院系合并来的。另外由于地缘因素和历史境遇，CUGB 和 CUG 现在南北相望，一分为二多年了；而 CCIT 毕竟未遭此劫。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="远处的高楼" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/ChangChun/Cloud.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;CUGB 地处学院路和成府路交汇处，狭小一隅，守着五道口，西面清北、计算所，东面北科，北面北语、矿大，南面海跑、北航。物理所。
+CCIT 分两处，位于南湖两岸，红旗街、自由大路，周围是长春工业大学、东北师范大学、吉林大学。&lt;/p&gt;
+&lt;p&gt;学校果然都是扎堆，还都处在每天早晚高峰都拥堵的地方。相比之下还是帝都更方便，有自行车道，这在长春就是一种奢望了。&lt;/p&gt;
+&lt;p&gt;长春也偶尔会有自行车道，只是中间高低起伏的沟坎楞角让人无奈。
+早先我从吉大买了一辆小巧的折叠车，没有避震，不敢骑红旗街，只敢从延安大街沿着南湖走。
+后来实在忍不下去，就将媳妇的山地车从帝都邮寄过来，从此红旗街十三郎就是我了。&lt;/p&gt;
+&lt;p&gt;骑着车子，想起了郭德纲先生说过的“俩轱辘一转，给个县长都不换”。
+红日初起，晨风迎面，俯身减小迎风角，随着坡度变档保持踏频的稳定，那一刻就觉得生活又回到了熟悉的状态。&lt;/p&gt;
+&lt;p&gt;六年前的这个时候，我一大早从培黎除法，经过生物所、王庄路、西郊宾馆、矿大北语胡同，进到 CUGB 的西北门，再继续骑到综合楼一层的阶梯教室，才赶得上高院长的数值分析或者是柯老师的 C++。&lt;/p&gt;
+&lt;p&gt;六年后的这个时候，我一大早从宽平大路的西校区出发，走红旗街，途径外国语学院、长影、万达、欧亚，再过同光路途径吉大、师大附中，到了同志街往南骑过自由大路、自由胡同，往左拐进了 CCIT 的西门直奔实验楼的办公室。&lt;/p&gt;
+&lt;p&gt;一路上感觉自己只是换了个地方骑自行车。
+——————————————————————————————————————————————————————————————————————&lt;/p&gt;
+&lt;p&gt;&lt;img alt="逸夫图书馆和报废的老捷达车" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/ChangChun/Car.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;以前觉得好难以企及的事情，可能某一天就得到甚至被当做很寻常的东西了。
+以前我总想如果能有一辆捷达该多棒。
+现在看到好些个捷达被废弃在路边。&lt;/p&gt;
+&lt;p&gt;有青年学生充满憧憬地跟我询问 CUGB 的情景，一问得知对方想考研到 CUGB 。&lt;/p&gt;
+&lt;p&gt;“噫！那巴掌大的小区，八人寝甚至十三人寝的宿舍，何苦去那地方啊？！”
+“额，可是你不是在那里待了十几年这不也过来了么？”&lt;/p&gt;
+&lt;p&gt;顿时语塞了。
+是啊，都没想到自己这样的混人居然也能顺利毕业拿到学位。&lt;/p&gt;
+&lt;p&gt;在 CUGB 待了 12 年，在 CCIT 或许要待更久呢。&lt;/p&gt;</content><category term="Story"></category></entry><entry><title>为Pelican加GitTalk评论系统</title><link href="/wei-pelicanjia-gittalkping-lun-xi-tong.html" rel="alternate"></link><published>2019-08-04T16:31:53+08:00</published><updated>2019-08-04T16:31:53+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2019-08-04:/wei-pelicanjia-gittalkping-lun-xi-tong.html</id><summary type="html">&lt;p&gt;我一直在使用 Pelican 来写博客，而没有使用 Hexo，一来 Pelican 是 Python 的，我还是稍微熟悉一点点，二来是懒得换。
+Pelican 默认支持 Disqus，但这对墙内用户不友好。
+一时半会也没发现更好的替代品，直到发现了 &lt;a href="https://github.com/gitalk/gitalk"&gt;GtiTalk&lt;/a&gt;.
+于是试了几下安装上，发现不错，特此记录下来，防止自己忘记，也分享给有类似需求的朋友。&lt;/p&gt;
+&lt;p&gt;假设已经安装好了 Pelican。这里不再涉及 Pelican 的安装和博客的搭建。&lt;/p&gt;
+&lt;p&gt;————————————————————————————————————————————&lt;/p&gt;
+&lt;p&gt;第一步是要在 Pelican 所用的主题的 article.html 文件中加入 GitTalked 的代码。&lt;/p&gt;
+&lt;p&gt;所以要找到 Pelican 所用的主题。需要参考博客文件源目录下的一个名为 &lt;code&gt;pelicanconf.py&lt;/code&gt; 的文件。&lt;/p&gt;
+&lt;p&gt;编辑这个文件，就可以看见其中所用的主题（Theme）.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/usr/bin/env …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;我一直在使用 Pelican 来写博客，而没有使用 Hexo，一来 Pelican 是 Python 的，我还是稍微熟悉一点点，二来是懒得换。
+Pelican 默认支持 Disqus，但这对墙内用户不友好。
+一时半会也没发现更好的替代品，直到发现了 &lt;a href="https://github.com/gitalk/gitalk"&gt;GtiTalk&lt;/a&gt;.
+于是试了几下安装上，发现不错，特此记录下来，防止自己忘记，也分享给有类似需求的朋友。&lt;/p&gt;
+&lt;p&gt;假设已经安装好了 Pelican。这里不再涉及 Pelican 的安装和博客的搭建。&lt;/p&gt;
+&lt;p&gt;————————————————————————————————————————————&lt;/p&gt;
+&lt;p&gt;第一步是要在 Pelican 所用的主题的 article.html 文件中加入 GitTalked 的代码。&lt;/p&gt;
+&lt;p&gt;所以要找到 Pelican 所用的主题。需要参考博客文件源目录下的一个名为 &lt;code&gt;pelicanconf.py&lt;/code&gt; 的文件。&lt;/p&gt;
+&lt;p&gt;编辑这个文件，就可以看见其中所用的主题（Theme）.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class="c1"&gt;# -*- coding: utf-8 -*- #&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;unicode_literals&lt;/span&gt;
+
+&lt;span class="n"&gt;AUTHOR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;CycleUsyer&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;CycleUser&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;SITEURL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;blog.cycleuser.org&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;PATH&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;content&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;TIMEZONE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Asia/Chongqing&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;cutalk&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;DEFAULT_LANG&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;zh&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;从上面的样本中就可以知道我所用的主题是&lt;code&gt;THEME = "cutalk"&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;由此可知我所用的主题就是&lt;code&gt;cutalk&lt;/code&gt;，在博客源文件目录下应该就有一个名字为&lt;code&gt;cutalk&lt;/code&gt;的目录。&lt;/p&gt;
+&lt;p&gt;进入这个目录下的&lt;code&gt;templates&lt;/code&gt;目录，用编辑器打开&lt;code&gt;cutalk\templates&lt;/code&gt;目录下的&lt;code&gt;article.html&lt;/code&gt;这个文件。&lt;/p&gt;
+&lt;p&gt;搜索&lt;code&gt;&amp;lt;div id="disqus_thread"&amp;gt;&lt;/code&gt;，在同一个&lt;code&gt;section&lt;/code&gt;下加入下列代码：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt; &lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;gitalk-container&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;div&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;link&lt;/span&gt; &lt;span class="na"&gt;rel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;href&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+
+        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;gitalk&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ow"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Gitalk&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+        &lt;span class="nx"&gt;clientID&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;你的 GitHub Application Client ID&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;clientSecret&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;你的GitHub Application Client Secret&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;repo&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;你的 GitHub repo&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;owner&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;你的 GitHub repo 账户名&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;admin&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;你的 GitHub repo 账户名&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+        &lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;location&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;pathname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;      &lt;span class="c1"&gt;// Ensure uniqueness and length less than 50&lt;/span&gt;
+        &lt;span class="nx"&gt;distractionFreeMode&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;  &lt;span class="c1"&gt;// Facebook-like distraction free mode&lt;/span&gt;
+        &lt;span class="p"&gt;})&lt;/span&gt;
+
+        &lt;span class="nx"&gt;gitalk&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;render&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gitalk-container&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;需要填写的只有上面加了&lt;code&gt;你的&lt;/code&gt;字样的几处，例如我的设置就是：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;gitalk&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ow"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Gitalk&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+        &lt;span class="nx"&gt;clientID&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;7d9xxxxxxxxxxxxxxxxx&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;clientSecret&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;02e3xxxxxxxxxxxxxxxxxxxxxxxx&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;repo&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;cycleuser.github.io&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;owner&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;cycleuser&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;admin&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;cycleuser&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;repo&lt;/code&gt;那里我写的就是我的博客的&lt;code&gt;repo&lt;/code&gt;，之前我错写成了带https的地址，后来改写成直接的&lt;code&gt;cycleuser.github.io&lt;/code&gt;才能用。&lt;/p&gt;
+&lt;p&gt;上面的&lt;code&gt;GitHub Application ID&lt;/code&gt;等内容需要你&lt;a href="https://github.com/settings/applications/new"&gt;点击这里来申请&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;申请的时候这样填写：&lt;/p&gt;
+&lt;h5&gt;Application name&lt;/h5&gt;
+&lt;p&gt;这个应该是可以随便填写的，比如我写的就是&lt;code&gt;blog.cycleuser.org.talk&lt;/code&gt;。&lt;/p&gt;
+&lt;h5&gt;Homepage URL&lt;/h5&gt;
+&lt;p&gt;这个一定要写完整的博客域名，比如我写的就是&lt;code&gt;https://blog.cycleuser.org/&lt;/code&gt;。&lt;/p&gt;
+&lt;h5&gt;Application description&lt;/h5&gt;
+&lt;p&gt;这个应该是可以随便填写的，比如我写的就是&lt;code&gt;blog.cycleuser.org.talk&lt;/code&gt;。&lt;/p&gt;
+&lt;h5&gt;Authorization callback URL&lt;/h5&gt;
+&lt;p&gt;这个一定要写完整的博客域名，比如我写的就是&lt;code&gt;https://blog.cycleuser.org/&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;把上面的修改完成后，保存好刚刚修改过的&lt;code&gt;article.html&lt;/code&gt;，然后用 Pelican 重新生成 html，推送同步到博客所在的&lt;code&gt;repo&lt;/code&gt;上面，刷新博客文章页面，就应该能看到评论框了。&lt;/p&gt;
+&lt;p&gt;比如我在&lt;a href="https://blog.cycleuser.org/using-qt55-with-both-xcode7-and-xcode6.html"&gt;这篇文章&lt;/a&gt;下发个评论，就会在&lt;a href="https://github.com/cycleuser/cycleuser.github.io/issues/1"&gt;博客所在的 &lt;code&gt;repo&lt;/code&gt;&lt;/a&gt;下新增一个&lt;code&gt;issue&lt;/code&gt;。 &lt;/p&gt;</content><category term="Story"></category></entry><entry><title>东游漫记</title><link href="/dong-you-man-ji.html" rel="alternate"></link><published>2019-07-22T23:59:00+08:00</published><updated>2019-07-22T23:59:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2019-07-22:/dong-you-man-ji.html</id><summary type="html">&lt;h2&gt;2019年5月18日01:59&lt;/h2&gt;
+&lt;p&gt;深夜的火车经过了铁岭，这是一座比较大的城市。
+遇上一位头发花白的老奶奶，年逾古稀的她坚持称自己坐一整夜硬座很舒服，坚决不去买卧铺票。
+遇上一位四十岁出头上有老下有小的摄影师老哥，自己扛着图形工作站的机箱和滑轨跑去另外一个省接婚庆的活。他说儿子十八岁了在学美发，家里年迈的老人帮他照看着儿子。
+底层的劳动人民为了生存下去付出的辛苦，可能是校园里的青少年难以想象和体会的。
+五千年前，一百年前，七十年前，劳动人民可能一直是这样顽强又辛苦地生存着。
+我记得教科书上说，他们是这个国家的主人。
+希望他们能老有所养，希望他们能够治得起病，希望有工会维护《劳动法》和《劳动合同法》赋予他们的合法权利。
+这些主人们四处漂泊，只为了糊口养家。
+长太息以掩涕兮，哀民生之多艰。
+屈大夫自己尚终结于河水中，又能渡得了谁呢？
+面对现实中杰克马之类反复无常又毫无底线的既得利益群体，理想主义，唯物主义，信仰和人文关怀，唉。。。&lt;/p&gt;
+&lt;h2&gt;2019年5月23日&lt;/h2&gt;
+&lt;p&gt;我在某东北三...北欧三省的央企工作过。
+不到半年，我和同年应聘的一个同事都离职了。
+其实直接原因就是除了我俩，所在工作部门其他所有同事基本都在办公室内吸烟。
+我路过了一些当地的高校，有的是985，有的是211，有的是地方普通高校。一个共同点就是我看到很多教学楼内一边是禁烟标志，一面是烟灰缸 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;2019年5月18日01:59&lt;/h2&gt;
+&lt;p&gt;深夜的火车经过了铁岭，这是一座比较大的城市。
+遇上一位头发花白的老奶奶，年逾古稀的她坚持称自己坐一整夜硬座很舒服，坚决不去买卧铺票。
+遇上一位四十岁出头上有老下有小的摄影师老哥，自己扛着图形工作站的机箱和滑轨跑去另外一个省接婚庆的活。他说儿子十八岁了在学美发，家里年迈的老人帮他照看着儿子。
+底层的劳动人民为了生存下去付出的辛苦，可能是校园里的青少年难以想象和体会的。
+五千年前，一百年前，七十年前，劳动人民可能一直是这样顽强又辛苦地生存着。
+我记得教科书上说，他们是这个国家的主人。
+希望他们能老有所养，希望他们能够治得起病，希望有工会维护《劳动法》和《劳动合同法》赋予他们的合法权利。
+这些主人们四处漂泊，只为了糊口养家。
+长太息以掩涕兮，哀民生之多艰。
+屈大夫自己尚终结于河水中，又能渡得了谁呢？
+面对现实中杰克马之类反复无常又毫无底线的既得利益群体，理想主义，唯物主义，信仰和人文关怀，唉。。。&lt;/p&gt;
+&lt;h2&gt;2019年5月23日&lt;/h2&gt;
+&lt;p&gt;我在某东北三...北欧三省的央企工作过。
+不到半年，我和同年应聘的一个同事都离职了。
+其实直接原因就是除了我俩，所在工作部门其他所有同事基本都在办公室内吸烟。
+我路过了一些当地的高校，有的是985，有的是211，有的是地方普通高校。一个共同点就是我看到很多教学楼内一边是禁烟标志，一面是烟灰缸，以及地面上散乱的烟头。
+我看到若干人员在办公室以及教学楼吸烟，有的是工作人员，有的是学生。
+在有的人看来这是地方特色文化的体现，不过这样的反差也能体现出一些场景中规则的无力。一些规则可能会被宣传提倡，但生活中那些人们可能有不同的看法和行为选择。
+我曾经和太太提起回到当地高校工作，她问我如果办公室内有人吸烟了怎么办？
+我说我可能会回避一会直到烟味散尽。
+她又问我如果是开会之类的场景怎么办，或者有人一直吸烟一根接一根，又或者不断有吸烟的人带着点燃的烟进入。
+我就无言以对了。
+我并不是想象不到这种情况，而是见识过这样的场景，毫无办法。
+以前我和一些同学老师讨论起类似情景，他们都有些少见多怪，表示不能理解，认为不吸二手烟本来是很正当的，不理解为什么在当地居然会这么难。
+我没好意思跟他们说，这种困境已经达到了不耐受烟草成了一种特殊化，可能会被当地人视作异类。
+我很希望告别帝都的雾霾拯救自己敏感脆弱的呼吸道。我爷爷当年在朝鲜打过美国人，英雄如他也打不过空气中的敌人，最终因为鼻咽癌喉癌而逝世。
+我曾经怀有回乡教书出力的想法，这点火花如今也没有熄灭。
+只是，面对着办公室、教学楼等等地方一支支点燃的烟草。。。
+我本将心向明月，奈何明月要抽烟？
+当真没有办法？其实也未必。或许可以考虑让吸烟者和非吸烟者避免共享办公空间？但随之而来的成本是没人愿意承担的。
+而且恐怕有不少吸烟者就是喜欢随时随地点燃梦想放飞自我，其他人的感受可能从来不是他们在意的。&lt;/p&gt;
+&lt;h2&gt;2019年6月2日&lt;/h2&gt;
+&lt;p&gt;在教二楼的某间办公室，遇到了当年的龙裔，在忙党建和学生工作。
+聊了毕业的去向，又不由谈到了天际和晨风。诺德战士，红卫坦克。
+好像回到了有魔法和巨龙的冒险时代。
+“我在欧服美服都满级了，你来呗。”
+“哎，忙啊。没时间了。”&lt;/p&gt;
+&lt;p&gt;他战胜过有史以来最强大的巨龙，征服过天际省最高的山峰，以一己之力守护了雪漫城。
+现在他退出了冒险，不是膝盖中箭，可能是厌倦了巨龙的时代，也可能受迫于生活和现实。
+就算是在城里买了风宅，也怕终归只是雪漫城的过客。
+再伟大的英雄，也要直面现实这场冒险。&lt;/p&gt;
+&lt;h2&gt;2019年6月4日&lt;/h2&gt;
+&lt;p&gt;作为一个兼修龙吼和魔法的诺德人，我不知道该就留在帝都发展还是回到寒冷的天际省训练学徒。
+在北帝十二年，我有幸结识了众多英雄。于是我想听听他们的建议。
+早上我在教二楼等待龙裔，碰巧遇到了大法师，他建议我留在帝都继续深造魔法。
+法师青年时期在外征战，壮年读博回到了学城，现在负责守护学城的一切秘密。桌上摆放的照片里，他手持契约之石矗立在荒原之上，纵横睥睨，气势如虹。
+然后见了龙裔，他给我在卷轴上施加了阿卡托什的祝福。
+龙裔十七年前来到北帝，后来去冷港击败了迪拉德王子，又回到北帝成为了学生的守护者。
+我想听他的建议，我问他这些年是否开心。
+他说他不曾后悔，他说北帝法师们也只能提供建议，最终的冒险总要靠自己。
+我看到他仰坐在座椅上的微笑着抿着嘴，目光像是朝向窗外的天光云影。
+现在我跨上马鞍，从西直门朝雪漫城进发。
+又可以去河木镇看看我儿子了。
+如果是未来的他遇到这样的选择困境，我该给他怎样的建议呢？&lt;/p&gt;
+&lt;h2&gt;2019年6月7日&lt;/h2&gt;
+&lt;p&gt;骏马缓慢向前奔跑，逐渐加快，两旁的景物匆匆向后退去。
+这片土地上出现了很多新事物，高大的风车，漫山遍野，覆盖了难以耕种的丘陵。&lt;/p&gt;
+&lt;p&gt;外界都说天际经济衰落正如其冬季的寒冷。
+我此次回乡是在初夏，只觉得雪漫城一早一晚还有些凉意，白天几乎和帝都一样热气腾腾。&lt;/p&gt;
+&lt;p&gt;街上往来人，也与帝都一般。&lt;/p&gt;
+&lt;p&gt;记得帝国人也常常会调侃天际诺德人衣着和言谈举止都有一种极其醒目的土气。
+此次我却觉得已经难以将诺德人和帝国人区分了。&lt;/p&gt;
+&lt;p&gt;我将龙裔所提供的带有阿卡托什祝福的卷轴呈上后，灰胡子大师们接见了我。
+灰胡子统领看上去充满威严，我知道是他召唤了我。他严厉地告诫我不要重蹈米拉克的覆辙，又再三对我强调了纪律的重要性。我也反复跟他强调自己要求躲避火魔法的侵扰。然后我们达成了初步的一致。我试图和他交换纹章，他推脱自己很忙。
+整个谈话过程中，他没有笑过。我想他一定很紧张，他必然是生怕我又是一个像米拉克一样的叛逆者。
+他反复像我强调：“你要知道，现在学习龙吼的人还是很多的，我招募的时候是可以挑着选择的，如果你不能符合我的规则，就要面临淘汰。”我当时本来想说到自己是魔法和龙吼兼修而且以二者合用而与众人迥然不同，后来又觉得这样言谈轻佻狂妄，就没做声，只是连声答应。&lt;/p&gt;
+&lt;p&gt;大魔导师稍后也和我见了面。我一见到他笑意盈盈的面孔，就觉得熟悉，然后想起当时在初选的角斗结束后与之有过一面之缘。他也是诺德人，但不像寻常诺德人那样魁梧，身材紧凑结实，一张笑脸让人觉得亲近。他说了说自己所从事的空间魔法方面的研究，然后又谈了谈我当初也参与过的指南星的魔法项目，在发觉我对此不熟悉之后就转而谈起了城里的学区房和体育馆，并且与我相约同去打球。&lt;/p&gt;
+&lt;p&gt;离开了龙吼峰顶，我回到了河木镇，抱了抱肉嘟嘟的儿子，给他拍了一系列照片，发给了夫人。
+然后又准备了措辞来像未能投奔的学城的帝国大学士和大魔法师表示歉意。&lt;/p&gt;
+&lt;p&gt;如果留在帝都，一年的薪资大约有二十万金币；现在回到天际，可能一年都达不到五万金币。&lt;/p&gt;
+&lt;p&gt;要等待雪漫城的元老院对任命进行公示，然后才能在阿卡托什神庙签订下我的契约。&lt;/p&gt;
+&lt;p&gt;帝都学城的结业仪式也没有个准日子，一天之内朝令夕改了三番五次的。
+我只能赶紧赶回来，可能还需要去开具一份奥杜因的文案。&lt;/p&gt;
+&lt;h2&gt;2019年6月22日&lt;/h2&gt;
+&lt;p&gt;明天（2019年6月23日）就要领毕业证、学位证、报到证然后离校了。
+前天，毕业典礼。
+一师妹发消息，提到了学术方面遇到的一些困难。
+那天我忙于给众人拍照，没能顾上回复。
+晚饭后，我回了消息。聊了几句，发现师妹的文献积累不是太充裕。
+于是我强烈建议师妹去多读文献，并再次发了经常贴的一张截图 ，以表明自己这种建议并非空谈而是有所实践。
+那张图我贴了很多次，后来被夫人批评我有“自我吹嘘”之嫌，因此这里就不放了。
+我读文献的习惯，还是在陈家玮老师的启发下养成的。
+初次见他，只觉得形象喜人。听了几次课，才觉得其一些观点很有见地，值得参考。
+“一天读一篇文献，一年都有三百多篇文献，三年就积累了上千篇文献。有这么多的背景积累，写毕业论文有什么难的？”&lt;/p&gt;
+&lt;p&gt;我是个单纯的人，听了觉得有道理，就身体力行了。于是从2013年到2016年，胡乱翻看了大约有一千多篇文献，其中概括读了全文的大约有一半左右。&lt;/p&gt;
+&lt;p&gt;大家都是人，都是肉做的，不可能有正常人会有用之不竭的精力，至少我没有。&lt;/p&gt;
+&lt;p&gt;所以大部分文章，其实我也只是胡乱看看。
+翻看全文的那一小半，也不是逐字句精细抠读的。
+最主要的，无非是摘要和图表。
+摘要基本可以当做是一篇文章的剧透，好的文章读了摘要就能知道其中所用方法、所含数据、所得结论。&lt;/p&gt;
+&lt;p&gt;图表我觉得是文章的骨架，地学领域的文章往往可以实现看图理解，只要把图能看懂，就已经能大概推测出文章的主要内容了。
+走量其实只是初期的低端路线。
+要想走得高远，应该还是得读高质量的文章，也好跟楷模学习。&lt;/p&gt;
+&lt;p&gt;将文献库精简了一下，已经就只有几百篇用得上的还留着，估计接下来再精简一下就更少了。
+不过无论如何，还是要先经过早期的积累阶段，这个过程中也能逐步建立起自己的阅读习惯和偏好等等。&lt;/p&gt;
+&lt;h2&gt;2019年6月28日&lt;/h2&gt;
+&lt;p&gt;此地民风淳朴。&lt;/p&gt;
+&lt;p&gt;一些中小学学生上课喝水是被禁止的，家长对此不仅表示理解，还强烈支持，说学生就应该下课再喝水。&lt;/p&gt;
+&lt;p&gt;人口渴了喝水本是基本人权，但对于此地的中小学生来说则是遥不可及。&lt;/p&gt;
+&lt;p&gt;一个约摸有十一二岁的孩子，戴着厚厚眼镜，坐在那帮忙看守洗衣店。那些中年的家长在一旁打牌。&lt;/p&gt;
+&lt;p&gt;询问得知那小朋友读小学六年级了。&lt;/p&gt;
+&lt;p&gt;我问他学校里的老师有没有特别狗的，他说有的老师很狗有的还好。&lt;/p&gt;
+&lt;p&gt;我又问她那狗的老师是科任教师还是班主任，他说都有。&lt;/p&gt;
+&lt;p&gt;简短的回答让我觉得这孩子在学校应该是也遇到过一些不开心的事情。&lt;/p&gt;
+&lt;p&gt;我问他有没有尝试过录下来证据维权，他说没办法学校禁止携带手机之类的设备。&lt;/p&gt;
+&lt;p&gt;多年前我就想过，应该考虑弄一种类似执法记录仪的教学记录仪，允许学生们随时记录下教师在课堂上对孩子的一言一行一举一动，一旦遇到不公正待遇好方便维权。&lt;/p&gt;
+&lt;p&gt;这样一来估计就不至于让孩子成为任人摆布又缺乏保护的极端弱势群体。&lt;/p&gt;
+&lt;p&gt;有人可能会觉得这可能触碰教师权益。但师生之间明显学生群体是弱势一方，教师从事这个职业就应该准备好让自己的教学活动透明公开。学生随时可以直播，家长随时可以查看，才能构成公平正义保障人权的底线。&lt;/p&gt;
+&lt;p&gt;那些对禁止学生上课喝水持有理解甚至强烈拥护立场的家长，往往也是经历过类似驯化而非常有服从精神的底层劳动者。他们甚至可能已成了那些压迫者的支持者和帮凶。可怜之人果然有可恨之处。&lt;/p&gt;
+&lt;p&gt;当家长真容易，也不需要职业资格的认证和审核，甚至都可以泯灭一点点基本的人性，牺牲孩子的一些许人权。&lt;/p&gt;
+&lt;p&gt;门卫大叔来此漂泊几十年，买了房落了户，住上了一个比较“上档次”的小区。&lt;/p&gt;
+&lt;p&gt;他推荐我买那个小区的房子，说小区内的幼儿园一个月两三千块，是比较高端的选择，园中就读幼儿的家长都是“不一般的人”，幼儿园教学的人也都很“很厉害”，起码具有本科学历。&lt;/p&gt;
+&lt;p&gt;没想到本科学历在这样一个省会城市会被如此看重。&lt;/p&gt;
+&lt;p&gt;孩子读书入学要交“人情钱”，几乎是所遇到此地民众的“共识”。&lt;/p&gt;
+&lt;p&gt;遇到一些老乡，往往先询问我一个月赚多少钱。我如实相告自己还没正式入职而且拿的工资估计也就在四五千左右。他们多是不相信的，会直说觉得这学历应该每个月赚一万。&lt;/p&gt;
+&lt;p&gt;相比于前些年我去过的一些城市，这里总算不是每个人都吸烟了。但室内吸烟似乎还是一种“天经地义”，是“政治正确”。好在我和相关的负责人预先有过约定，遇到有吸烟的情景我可以回避。&lt;/p&gt;
+&lt;p&gt;这地方的“攀比”还是很明显。进口车、合资车、国产车，大房子、小房子、学区房，大奖项、小奖项、先进称号，总是老乡之间比较常谈起的话题。&lt;/p&gt;
+&lt;p&gt;世上有了“评比”这么个东西，真是“造福世人”。&lt;/p&gt;
+&lt;h2&gt;2019年7月1日&lt;/h2&gt;
+&lt;p&gt;这是在东北某高校的教师宿舍里面，有人将共享单车加了私锁。&lt;/p&gt;
+&lt;p&gt;共享单车上私锁放进教师宿舍
+可见公民素质并不一定随着学历而必然提高。&lt;/p&gt;
+&lt;p&gt;其实类似这样的情形在东北这里并不少见。&lt;/p&gt;
+&lt;p&gt;比如写着禁烟楼，但还是有教师会在办公室里面吸烟。&lt;/p&gt;
+&lt;p&gt;不守规则的教师又能教出怎样的学生呢？&lt;/p&gt;
+&lt;p&gt;东北是个神奇的地方，人们相信和推崇的往往是潜规则而不是明规则，遵守明规则会被看做是奇怪的人，而惊叹潜规则的无所不在又会被看做是浅薄无知的幼稚之人。&lt;/p&gt;
+&lt;p&gt;这个地区和一线城市的一大差距就是这方面。&lt;/p&gt;
+&lt;p&gt;其实在北京天津也都有给共享单车上私锁的情景，比如我在清华院里就遇到过。也存在办公室内吸烟的情况，比如学院路八大院中就有我很钦佩又熟识的院长这样做。&lt;/p&gt;
+&lt;p&gt;区别是什么呢？&lt;/p&gt;
+&lt;p&gt;我觉得最显著的区别是，在帝都，这些行为是见不得曝光的，是会多多少少让当事人心里有些愧疚感到不好意思的；而在东北，这些事情都是众人都容易理解的，甚至是事实上的政治正确。&lt;/p&gt;
+&lt;p&gt;见贤思齐。&lt;/p&gt;
+&lt;p&gt;一个高校，想要办成区域顶级，首先要看齐国内顶级，硬件条件不能一步成为MIT，但人文素养是可以提高和改进的。&lt;/p&gt;
+&lt;p&gt;一个地区，想要发展成国内先进，首先要构建基本的人文素养。&lt;/p&gt;
+&lt;p&gt;像上海学习搞垃圾分类，怕是对于朗斯普林的形象提升并不见得有本质作用。&lt;/p&gt;
+&lt;p&gt;当权者决策者怎么可能不懂得这些浅显的道理？&lt;/p&gt;
+&lt;p&gt;怕是他们所处之处也身不由己吧？&lt;/p&gt;
+&lt;p&gt;让他们身不由己的，其实正是他们最应该挑战的敌人。&lt;/p&gt;
+&lt;p&gt;我估计他们都不敢，换我我也不敢。&lt;/p&gt;
+&lt;p&gt;当地人民过马路，有的时候是不惧怕晚高峰的，更不在意灯这类细节，只要有勇气，天下无不可为！&lt;/p&gt;
+&lt;h2&gt;2019年7月10日&lt;/h2&gt;
+&lt;p&gt;朗斯普林的空气真好。待在这里的第十四天，除了中间有一两天下了些暴雨，大部分时候都是蓝天白云。&lt;/p&gt;
+&lt;p&gt;白天在路上经常能偶遇小松鼠，晚上能看到星星或者月亮。&lt;/p&gt;
+&lt;p&gt;戴着眼镜的我能看到上面的隐隐轮廓。&lt;/p&gt;
+&lt;p&gt;当年第一次拍月亮用的是35-105mm 变焦镜头的长焦端。这次再拍月亮，还是用的35-105mm 的长焦端。第一张是100%，第二张是原图。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://pic3.zhimg.com/v2-5da0c1001afa0b54993a0f2f8939a082_r.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://pic1.zhimg.com/v2-4d6fea50dc915d509d4b97aae58579a0_r.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;小时候我从来没能看清楚过月亮，后来戴了眼镜看东西清楚了却没注意看过月亮。&lt;/p&gt;
+&lt;p&gt;地球很幸运，不算太孤单。&lt;/p&gt;
+&lt;p&gt;曾经特别想以后买个顶楼的房子，架设望远镜跟我儿子一起看。&lt;/p&gt;
+&lt;p&gt;哎，慢慢攒钱吧。&lt;/p&gt;
+&lt;h2&gt;2019年7月21日&lt;/h2&gt;
+&lt;p&gt;悲伤的消息是学生放假后食堂和饭铺都将要关门了。&lt;/p&gt;
+&lt;p&gt;书包带还断开了，好在新安装的自行车后座救了一下，一些复印件还是沾了雨水，好在原件都在塑料袋内。&lt;/p&gt;
+&lt;p&gt;当年的小伙伴们，有的去了大山里，有的跑到大海边，然后众人纷纷成为房奴和奶爸宝妈，成为当年我们眼中的那些师兄师姐，成为中年人。&lt;/p&gt;
+&lt;p&gt;某财经高校的青椒在吃烤串很开心地说他终于课时费一节八十块了，饭馆的阿姨惊讶于他找有编制的工作居然不用走后门拖关系。&lt;/p&gt;
+&lt;p&gt;当公务员哥们感慨扶贫保证金，羡慕“清闲”的高校教职；高校的青椒感叹“自科”水深门派林立羡慕收入更高的事业单位员工；事业单位工作的羡慕外企收入高又办公室没人抽烟；外企的兄弟羡慕经常“令箭”在手的公务员。&lt;/p&gt;
+&lt;p&gt;现在一脸悠闲气派非常指点江山的领导也曾经是个战战兢兢生怕犯错的懵懂青年，见了更多资源在手的“上级”也还是客客气气满面春风。&lt;/p&gt;
+&lt;p&gt;为了活着，所有人都尽最大努力，戒骄戒躁，没什么过不去的。&lt;/p&gt;
+&lt;p&gt;这样的故事应该是来去不停持续重复吧？&lt;/p&gt;
+&lt;p&gt;“凭本事借的钱，为什么要还？”
+“哈哈哈哈。”&lt;/p&gt;</content><category term="Story"></category><category term="Camera"></category><category term="Life"></category><category term="Story"></category><category term="Photo"></category></entry><entry><title>天际之旅</title><link href="/tian-ji-zhi-lu.html" rel="alternate"></link><published>2019-06-04T10:20:00+08:00</published><updated>2019-06-04T10:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2019-06-04:/tian-ji-zhi-lu.html</id><summary type="html">&lt;p&gt;骏马缓慢向前奔跑，逐渐加快，两旁的景物匆匆向后退去。
+这片土地上出现了很多新事物，高大的风车，漫山遍野，覆盖了难以耕种的丘陵。&lt;/p&gt;
+&lt;p&gt;外界都说天际经济衰落正如其冬季的寒冷。
+我此次回乡是在初夏，只觉得雪漫城一早一晚还有些凉意，白天几乎和帝都一样热气腾腾。&lt;/p&gt;
+&lt;p&gt;街上往来人，也与帝都一般。&lt;/p&gt;
+&lt;p&gt;记得帝国人也常常会调侃天际诺德人衣着和言谈举止都有一种极其醒目的土气。
+此次我却觉得已经难以将诺德人和帝国人区分了。&lt;/p&gt;
+&lt;p&gt;我将龙裔所提供的带有阿卡托什祝福的卷轴呈上后，灰胡子大师们接见了我。
+灰胡子统领看上去充满威严，我知道是他召唤了我。他严厉地告诫我不要重蹈米拉克的覆辙，又再三对我强调了纪律的重要性。我也反复跟他强调自己要求躲避火魔法的侵扰。然后我们达成了初步的一致。我试图和他交换纹章，他推脱自己很忙。
+整个谈话过程中，他没有笑过。我想他一定很紧张，他必然是生怕我又是一个像米拉克一样的叛逆者。
+他反复像我强调：“你要知道，现在学习龙吼的人还是很多的，我招募的时候是可以挑着选择的，如果你不能符合我的规则，就要面临淘汰。”我当时本来想说到自己是魔法和龙吼兼修而且以二者合用而与众人迥然不同，后来又觉得这样言谈轻佻狂妄，就没做声，只是连声答应。&lt;/p&gt;
+&lt;p&gt;大魔导师稍后也和我见了面。我一见到他笑意盈盈的面孔，就觉得熟悉，然后想起当时在初选的角斗结束后与之有过一面之缘。他也是诺德人，但不像寻常诺德人那样魁梧，身材紧凑结实，一张笑脸让人觉得亲近。他说了说自己所从事的空间魔法方面的研究，然后又谈了谈我当初也参与过的指南星的魔法项目，在发觉我对此不熟悉之后就转而谈起了城里的学区房和体育馆 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;骏马缓慢向前奔跑，逐渐加快，两旁的景物匆匆向后退去。
+这片土地上出现了很多新事物，高大的风车，漫山遍野，覆盖了难以耕种的丘陵。&lt;/p&gt;
+&lt;p&gt;外界都说天际经济衰落正如其冬季的寒冷。
+我此次回乡是在初夏，只觉得雪漫城一早一晚还有些凉意，白天几乎和帝都一样热气腾腾。&lt;/p&gt;
+&lt;p&gt;街上往来人，也与帝都一般。&lt;/p&gt;
+&lt;p&gt;记得帝国人也常常会调侃天际诺德人衣着和言谈举止都有一种极其醒目的土气。
+此次我却觉得已经难以将诺德人和帝国人区分了。&lt;/p&gt;
+&lt;p&gt;我将龙裔所提供的带有阿卡托什祝福的卷轴呈上后，灰胡子大师们接见了我。
+灰胡子统领看上去充满威严，我知道是他召唤了我。他严厉地告诫我不要重蹈米拉克的覆辙，又再三对我强调了纪律的重要性。我也反复跟他强调自己要求躲避火魔法的侵扰。然后我们达成了初步的一致。我试图和他交换纹章，他推脱自己很忙。
+整个谈话过程中，他没有笑过。我想他一定很紧张，他必然是生怕我又是一个像米拉克一样的叛逆者。
+他反复像我强调：“你要知道，现在学习龙吼的人还是很多的，我招募的时候是可以挑着选择的，如果你不能符合我的规则，就要面临淘汰。”我当时本来想说到自己是魔法和龙吼兼修而且以二者合用而与众人迥然不同，后来又觉得这样言谈轻佻狂妄，就没做声，只是连声答应。&lt;/p&gt;
+&lt;p&gt;大魔导师稍后也和我见了面。我一见到他笑意盈盈的面孔，就觉得熟悉，然后想起当时在初选的角斗结束后与之有过一面之缘。他也是诺德人，但不像寻常诺德人那样魁梧，身材紧凑结实，一张笑脸让人觉得亲近。他说了说自己所从事的空间魔法方面的研究，然后又谈了谈我当初也参与过的指南星的魔法项目，在发觉我对此不熟悉之后就转而谈起了城里的学区房和体育馆，并且与我相约同去打球。&lt;/p&gt;
+&lt;p&gt;离开了龙吼峰顶，我回到了河木镇，抱了抱肉嘟嘟的儿子，给他拍了一系列照片，发给了夫人。
+然后又准备了措辞来像未能投奔的学城的帝国大学士和大魔法师表示歉意。&lt;/p&gt;
+&lt;p&gt;如果留在帝都，一年的薪资大约有二十万金币；现在回到天际，可能一年都达不到五万金币。&lt;/p&gt;
+&lt;p&gt;要等待雪漫城的元老院对任命进行公示，然后才能在阿卡托什神庙签订下我的契约。&lt;/p&gt;
+&lt;p&gt;帝都学城的结业仪式也没有个准日子，一天之内朝令夕改了三番五次的。
+我只能赶紧赶回来，可能还需要去开具一份奥杜因的文案。&lt;/p&gt;</content><category term="Story"></category></entry><entry><title>My Junck Poems</title><link href="/my-junck-poems.html" rel="alternate"></link><published>2019-05-06T15:24:52+08:00</published><updated>2019-05-06T15:24:52+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2019-05-06:/my-junck-poems.html</id><summary type="html">&lt;p&gt;四年前的一天，早上起来看到蓝天之上的鳞状云。
+突然想起一句『北地风吹云卷积』。
+感觉似乎是自己之前写过的，又怕是别人的，担心自己记错了。
+于是赶紧去网上搜索，发现确实不是别人的句子。
+可惜我又忘了后续几句我怎么写的了，唉，等会我再胡编一下。
+这件事让我想起来之前自己写过很多乱七八糟的句子。
+现在那些站点都没了，句子也没了，怪可惜的，应该留着记录一下。
+早先的时候就是无病呻吟乱扯淡，后来看到徐康老先生的作品《尘烟居诗稿》，深为触动，因此效仿来做一下记录。
+先把鳞状云这个补齐。&lt;/p&gt;
+&lt;h2&gt;2015年10月&lt;/h2&gt;
+&lt;h2&gt;大风&lt;/h2&gt;
+&lt;p&gt;北地风吹云卷积，长街车马路人稀；
+寒霜尘土飞孤叶，楼宇萧条无鸟啼。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;天气转冷，大风肆虐，空中云彩鱼鳞状了。简直冻死了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;2015年08月三段&lt;/h2&gt;
+&lt;h3&gt;铁笛&lt;/h3&gt;
+&lt;p&gt;明月依稀照沉沙，轻风古树翠无瑕；
+白衣渡水临沧海，抚卷吹笛映莲花。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;写这个的时候是我新买了一只金属材质的中音G调哨笛。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;功名&lt;/h3&gt;
+&lt;p&gt;立马横刀壮士出，平沙落日纵驰突；
+将军百战全无义，祸起庐山论罪书。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;去某处曾经批斗过某老总的一栋建筑物，回来路上看到伟光正的宣传字样有感。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;抚琴&lt;/h3&gt;
+&lt;p&gt;碧海孤帆横日月，长风末路落烟尘 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;四年前的一天，早上起来看到蓝天之上的鳞状云。
+突然想起一句『北地风吹云卷积』。
+感觉似乎是自己之前写过的，又怕是别人的，担心自己记错了。
+于是赶紧去网上搜索，发现确实不是别人的句子。
+可惜我又忘了后续几句我怎么写的了，唉，等会我再胡编一下。
+这件事让我想起来之前自己写过很多乱七八糟的句子。
+现在那些站点都没了，句子也没了，怪可惜的，应该留着记录一下。
+早先的时候就是无病呻吟乱扯淡，后来看到徐康老先生的作品《尘烟居诗稿》，深为触动，因此效仿来做一下记录。
+先把鳞状云这个补齐。&lt;/p&gt;
+&lt;h2&gt;2015年10月&lt;/h2&gt;
+&lt;h2&gt;大风&lt;/h2&gt;
+&lt;p&gt;北地风吹云卷积，长街车马路人稀；
+寒霜尘土飞孤叶，楼宇萧条无鸟啼。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;天气转冷，大风肆虐，空中云彩鱼鳞状了。简直冻死了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;2015年08月三段&lt;/h2&gt;
+&lt;h3&gt;铁笛&lt;/h3&gt;
+&lt;p&gt;明月依稀照沉沙，轻风古树翠无瑕；
+白衣渡水临沧海，抚卷吹笛映莲花。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;写这个的时候是我新买了一只金属材质的中音G调哨笛。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;功名&lt;/h3&gt;
+&lt;p&gt;立马横刀壮士出，平沙落日纵驰突；
+将军百战全无义，祸起庐山论罪书。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;去某处曾经批斗过某老总的一栋建筑物，回来路上看到伟光正的宣传字样有感。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;抚琴&lt;/h3&gt;
+&lt;p&gt;碧海孤帆横日月，长风末路落烟尘；
+白云万里轻逐马，夜雨千山慢抚琴。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;很久不练琴，偶然拿起来把玩，觉得浪费了很多时间，应该专注自己觉得有意义的事情。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;——————————————————————————————————&lt;/p&gt;
+&lt;h2&gt;2019年4月18日&lt;/h2&gt;
+&lt;h3&gt;致敬杜甫&lt;/h3&gt;
+&lt;p&gt;豺狼在邑龙在野，公侯轻蔑半残躯。
+不敢长街高声语，慎勿出口他人狙。
+昨夜东风吹明月，书生俊逸满京畿。
+昆仑万仞凭绝顶，昔何叱咤今何愚。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;某院所应聘不第，说审查不合格，多半是因为不能出野外。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;地科院之旅&lt;/h3&gt;
+&lt;p&gt;北地磨枪十五载，凭栏霜雪顾寒枝。
+卢龙节度躬相请，陇右范阳求所赐。
+朔方漫漫终非所，独往长安待沽之。
+太白仗剑行天下，枉自席前奉作诗。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;闲来无事胡乱说&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;——————————————————————————————————&lt;/p&gt;
+&lt;h2&gt;2019年5月6日&lt;/h2&gt;
+&lt;h3&gt;喜迎A股大跌&lt;/h3&gt;
+&lt;p&gt;城外桃花露雨湿，群鸦绕树不得枝；
+春光放眼山河翠，正是英雄策马时。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A股大跌，喜出望外。&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="Story"></category><category term="Junck"></category><category term="Poem"></category><category term="Story"></category></entry><entry><title>在大学学什么</title><link href="/zai-da-xue-xue-shi-yao.html" rel="alternate"></link><published>2019-03-26T00:00:00+08:00</published><updated>2019-03-26T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2019-03-26:/zai-da-xue-xue-shi-yao.html</id><summary type="html">&lt;p&gt;老七要毕业了，说这几年在大学没学到什么。 
+周围不少类似年龄段的人也都有类似的说法。
+我问过他们，在大学里面他们想要学到什么，结果他们多数是纷纷回答不知道。 
+这问题就难了。 不知道想要学什么，也不太清楚应该学什么，几年过去结果就成了没学到什么。&lt;/p&gt;
+&lt;p&gt;在大学里都学什么呢?&lt;/p&gt;
+&lt;p&gt;刚刚问夫人，她回答说当时就想着把报考的专业课程学好，然后这些年来她也是这么做的，毕业后也是找了专业相关的工作。 可见对于她这样动机明确/目标清晰/执行力充足的人来说，这实在不算是什么问题。&lt;/p&gt;
+&lt;p&gt;与之相反，我刚入学的时候就是缺乏清晰的目标，看什么都好奇，什么都想了解一点。 结果就是胡乱读了一些书，受到激发有了很多稀奇古怪的想法，但没有什么真正的见识。 如此看来我在大学最大的收获就是学会了读书。&lt;/p&gt;
+&lt;p&gt;不对，这么说还不确切。并不是学会了读书，应该是学会了如何找到书来读。嗯，这应该是我这些年在大学里面学到的主要技能了，而学到的其他内容都是凭借此技能为基础才实现的。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://blog.cycleuser.org/why-i-translate-english-books-into-chinese.html"&gt;我像祥林嫂一样说过很多次，十几岁的时候，在县城图书馆里面抄写自己感兴趣的若干书籍，就被管理人员赶出去&lt;/a&gt;。到大一的时候，错过了办理图书馆借阅卡的机会，我非常悲伤，以为自己要错过图书馆中的宝贵资源。&lt;/p&gt;
+&lt;p&gt;好在这时候我发现了学校有数字图书资源，提供了超星图书馆，还有各种文献资料的检索下载服务。
+这东西好啊,找个有校园网的地方安静地打开电脑就可以随时下载翻阅各种有意思的读物，完全不用去图书馆排队借书还有忍受他人长期不归还带来的困扰。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/Read/超星.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/Read/摄影术.png"&gt;&lt;/p&gt;
+&lt;p&gt;然而超星上面旧书很多,新出版的却少见 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;老七要毕业了，说这几年在大学没学到什么。 
+周围不少类似年龄段的人也都有类似的说法。
+我问过他们，在大学里面他们想要学到什么，结果他们多数是纷纷回答不知道。 
+这问题就难了。 不知道想要学什么，也不太清楚应该学什么，几年过去结果就成了没学到什么。&lt;/p&gt;
+&lt;p&gt;在大学里都学什么呢?&lt;/p&gt;
+&lt;p&gt;刚刚问夫人，她回答说当时就想着把报考的专业课程学好，然后这些年来她也是这么做的，毕业后也是找了专业相关的工作。 可见对于她这样动机明确/目标清晰/执行力充足的人来说，这实在不算是什么问题。&lt;/p&gt;
+&lt;p&gt;与之相反，我刚入学的时候就是缺乏清晰的目标，看什么都好奇，什么都想了解一点。 结果就是胡乱读了一些书，受到激发有了很多稀奇古怪的想法，但没有什么真正的见识。 如此看来我在大学最大的收获就是学会了读书。&lt;/p&gt;
+&lt;p&gt;不对，这么说还不确切。并不是学会了读书，应该是学会了如何找到书来读。嗯，这应该是我这些年在大学里面学到的主要技能了，而学到的其他内容都是凭借此技能为基础才实现的。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://blog.cycleuser.org/why-i-translate-english-books-into-chinese.html"&gt;我像祥林嫂一样说过很多次，十几岁的时候，在县城图书馆里面抄写自己感兴趣的若干书籍，就被管理人员赶出去&lt;/a&gt;。到大一的时候，错过了办理图书馆借阅卡的机会，我非常悲伤，以为自己要错过图书馆中的宝贵资源。&lt;/p&gt;
+&lt;p&gt;好在这时候我发现了学校有数字图书资源，提供了超星图书馆，还有各种文献资料的检索下载服务。
+这东西好啊,找个有校园网的地方安静地打开电脑就可以随时下载翻阅各种有意思的读物，完全不用去图书馆排队借书还有忍受他人长期不归还带来的困扰。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/Read/超星.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/Read/摄影术.png"&gt;&lt;/p&gt;
+&lt;p&gt;然而超星上面旧书很多,新出版的却少见.这时候很幸运赶上了亚马逊推出了Kindle电纸书以及Kindle商店.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/Read/Kindle.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/Read/地球化学.png"&gt;&lt;/p&gt;
+&lt;p&gt;从这以后，如果想学习什么东西，我就先从各地搜集电子书籍来阅读。
+我想大部分高校，就算经费再紧张，应该也还是会有图书资源的。 如果读了几年，说自己没学到什么，怕是就没有对这些资源加以利用。 就好像是来到一个堆满了食材食谱的仓库，却不去照着食谱做饭菜，而是天天喝糖水，说这段日子什么都没吃到。 非不能也是不为也，自己不学，自然学不到什么。 哪怕是像我一样不知道学什么，通过培养个读书的习惯，也多少能学会写几行粗蠢的代码来实现一些简单的用途。
+什么都没学到，怕不是每天浑浑噩噩无所事事度日? 总是应该学到点什么的，如果觉得什么都没学到，多半是人本身的原因。
+我见过一些青少年，被稍加批评，就彻底自暴自弃，更加衰颓。 面对老七，我不忍心批评他什么，怕打击到他年轻人脆弱的自尊。 也就只能宽慰他几句，同时加以鼓励，希望他不走入歧途。&lt;/p&gt;
+&lt;p&gt;那么看到这些杂乱文字的你，在大学期间，学到了什么呢？&lt;/p&gt;</content><category term="Story"></category><category term="Memory"></category><category term="Story"></category></entry><entry><title>2018</title><link href="/2018.html" rel="alternate"></link><published>2018-12-31T23:59:00+08:00</published><updated>2018-12-31T23:59:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2018-12-31:/2018.html</id><summary type="html">&lt;h2&gt;2018年回顾&lt;/h2&gt;
+&lt;p&gt;今天是这一年的最后一天,我想着从每个月拿一张照片,凑齐12个月,就可以算是对这一年的总结了.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;1月烦闷,很多事情都还没有眉目.跑去颐和园看当年关押光绪帝的玉澜堂,结果走错路了,遇到一扇锁上的门.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/1.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;2月份的时候,去了一趟湘西,山也好水也好,就是空气真糟糕.当地烟民众多,路上往来男女几乎人人嘴里一根烟.部分村镇似乎有直接露天燃烧垃圾的习惯,青烟缭绕宛如仙境一般.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/2.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;3月回京,在一个路口碰到有人拿着手机拍夕阳,其他人行色匆匆.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/3.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;4月暖和了,跑去动物园拍了鸳鸯,还遇到很多老法师,很有意思.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/4.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;5月从五棵松回来,经过玉渊潭.路边大批店铺贴出了甩卖关店的告示,不知真假.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/5.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;6月即热,在北语公交站旁有老人坐在长椅上悠闲地看手机,不知道这是不是他年轻时的梦想生活.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/6.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;7月酷热,百望山上有青少年组队捉虫做标本,跟着看了一阵,很有趣味.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/7.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;8月虫子很多,某单位的北墙外,爬满了蜗牛,黄昏下色彩很独特.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/8.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;9月心情舒坦了,路上溜达,看到三辆一模一样的三轮车按次序行驶,觉得很有趣.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/9.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;10月拍微距,用百元的国产镜头搭配百元的二手微单机身,拍摄小米鼠标垫的布料,给师弟作为示范.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/10.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;11月出门,远赴关外 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;2018年回顾&lt;/h2&gt;
+&lt;p&gt;今天是这一年的最后一天,我想着从每个月拿一张照片,凑齐12个月,就可以算是对这一年的总结了.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;1月烦闷,很多事情都还没有眉目.跑去颐和园看当年关押光绪帝的玉澜堂,结果走错路了,遇到一扇锁上的门.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/1.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;2月份的时候,去了一趟湘西,山也好水也好,就是空气真糟糕.当地烟民众多,路上往来男女几乎人人嘴里一根烟.部分村镇似乎有直接露天燃烧垃圾的习惯,青烟缭绕宛如仙境一般.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/2.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;3月回京,在一个路口碰到有人拿着手机拍夕阳,其他人行色匆匆.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/3.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;4月暖和了,跑去动物园拍了鸳鸯,还遇到很多老法师,很有意思.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/4.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;5月从五棵松回来,经过玉渊潭.路边大批店铺贴出了甩卖关店的告示,不知真假.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/5.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;6月即热,在北语公交站旁有老人坐在长椅上悠闲地看手机,不知道这是不是他年轻时的梦想生活.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/6.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;7月酷热,百望山上有青少年组队捉虫做标本,跟着看了一阵,很有趣味.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/7.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;8月虫子很多,某单位的北墙外,爬满了蜗牛,黄昏下色彩很独特.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/8.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;9月心情舒坦了,路上溜达,看到三辆一模一样的三轮车按次序行驶,觉得很有趣.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/9.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;10月拍微距,用百元的国产镜头搭配百元的二手微单机身,拍摄小米鼠标垫的布料,给师弟作为示范.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/10.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;11月出门,远赴关外,途中遇到火车拦路,足足等了半个小时.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/11.jpg?raw=true"&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;12月当爹,我儿子八斤四,小手肉嘟嘟,希望他健康无忧,快乐成长,不要像我这么胖.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/cycleuser.github.io/blob/master/img/2018/12.jpg?raw=true"&gt;&lt;/p&gt;</content><category term="Story"></category><category term="Camera"></category><category term="Life"></category><category term="Story"></category><category term="Photo"></category></entry><entry><title>2017 年终总结</title><link href="/2017-nian-zhong-zong-jie.html" rel="alternate"></link><published>2017-12-27T19:00:00+08:00</published><updated>2017-12-27T19:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-12-27:/2017-nian-zhong-zong-jie.html</id><summary type="html">&lt;p&gt;距离这一年的末尾，剩下不到一星期的时间了。&lt;/p&gt;
+&lt;p&gt;回顾一下 2017 年，这是我来北京的第十年，总体看来还是浑浑噩噩地混过去了，没有什么太大的成就。&lt;/p&gt;
+&lt;h2&gt;依然无所成&lt;/h2&gt;
+&lt;p&gt;首先是&lt;a href="https://github.com/chinageology/GeoPython"&gt;GeoPython&lt;/a&gt;，年初我开始学 PyQt，将之前的脚本图形化，后半年我学习 OpenGL，尝试利用 PyQtGraph 和 OpenGL 来实现更高性能的数据呈现，可惜还没有完成。&lt;/p&gt;
+&lt;p&gt;然后是&lt;a href="https://github.com/Kivy-CN/Stanford-CS-229-CN"&gt;斯坦福大学的 CS229 课程讲义的翻译&lt;/a&gt;，这大概倒是都做完了，不过目前还没有做好 Markdown 的，这几天我准备尽量把已经翻译完的文稿做成 Markdown 的。&lt;/p&gt;
+&lt;p&gt;接着还有就是&lt;a href="https://github.com/Kivy-CN/Duke-STA-663-CN"&gt;杜克大学的 STA663 课程讲义的翻译&lt;/a&gt;，这个在一些朋友的参与下，也基本都完成了，不过可能还需要后续跟着英文原版的课件进行改进更新。&lt;/p&gt;
+&lt;p&gt;总体来说，这一年并没有太大的成就，发起的一些其他开源项目例如 SoftBox 更是只停留在空想层面。&lt;/p&gt;
+&lt;h2&gt;所幸不孤单&lt;/h2&gt;
+&lt;p&gt;2017 年，我陆续开了几个专栏，分别是 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;距离这一年的末尾，剩下不到一星期的时间了。&lt;/p&gt;
+&lt;p&gt;回顾一下 2017 年，这是我来北京的第十年，总体看来还是浑浑噩噩地混过去了，没有什么太大的成就。&lt;/p&gt;
+&lt;h2&gt;依然无所成&lt;/h2&gt;
+&lt;p&gt;首先是&lt;a href="https://github.com/chinageology/GeoPython"&gt;GeoPython&lt;/a&gt;，年初我开始学 PyQt，将之前的脚本图形化，后半年我学习 OpenGL，尝试利用 PyQtGraph 和 OpenGL 来实现更高性能的数据呈现，可惜还没有完成。&lt;/p&gt;
+&lt;p&gt;然后是&lt;a href="https://github.com/Kivy-CN/Stanford-CS-229-CN"&gt;斯坦福大学的 CS229 课程讲义的翻译&lt;/a&gt;，这大概倒是都做完了，不过目前还没有做好 Markdown 的，这几天我准备尽量把已经翻译完的文稿做成 Markdown 的。&lt;/p&gt;
+&lt;p&gt;接着还有就是&lt;a href="https://github.com/Kivy-CN/Duke-STA-663-CN"&gt;杜克大学的 STA663 课程讲义的翻译&lt;/a&gt;，这个在一些朋友的参与下，也基本都完成了，不过可能还需要后续跟着英文原版的课件进行改进更新。&lt;/p&gt;
+&lt;p&gt;总体来说，这一年并没有太大的成就，发起的一些其他开源项目例如 SoftBox 更是只停留在空想层面。&lt;/p&gt;
+&lt;h2&gt;所幸不孤单&lt;/h2&gt;
+&lt;p&gt;2017 年，我陆续开了几个专栏，分别是&lt;a href="https://zhuanlan.zhihu.com/python-kivy"&gt;Python 学习之路&lt;/a&gt;、&lt;a href="https://zhuanlan.zhihu.com/MachineLearn"&gt;MachineLearning&lt;/a&gt; 和 &lt;a href="https://zhuanlan.zhihu.com/easycam"&gt;穷人摄影&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;其实感觉自己挺坑的，很多内容都是一边学一边写，错误恐怕也很多，分享出来有时候也担心会误导别人。&lt;/p&gt;
+&lt;p&gt;不过后来我发现，很多特别坑特别水的纯广告宣传引流的营销账号都大肆开专栏发文，自己好歹比那些人的动机良善，就鼓励自己也来试试。&lt;/p&gt;
+&lt;p&gt;没想到居然也都有了一些朋友给予关注和鼓励，让我自娱自乐之余，也有了更进一步分享更多内容的动力。&lt;/p&gt;
+&lt;h2&gt;前途路漫漫&lt;/h2&gt;
+&lt;p&gt;明年要干啥呢？&lt;/p&gt;
+&lt;p&gt;首先是攒钱。
+还清从同学朋友处借来的钱，手术就先推迟等博士后入站的时候再说了。
+前几个月的时候手头紧卖了很多东西，当时特别窘迫。
+本来以为拿得了普通级的奖学金，就没想着防万一，结果临门一脚的时候成了垫底。都怪当初不重视，先是当年卖掉了一个应用的版权，也没去申请任何的软件著作权之类的东西。不过本身学术基础就非常差，估计就算有两个软件著作权，也还是没办法和优秀人士相提并论的。
+所以明年得更加节俭，降低开支。
+唉，今年买书和买药都花了不少钱，想想就觉得很郁闷。&lt;/p&gt;
+&lt;p&gt;然后是学习。
+要把化学模拟和 CUDA 计算弄明白，强化一下 GeoPython，增加点新功能。用 OpenGL 替代掉各种坑的 Matplotlib，也需要尽量尝试一下。如果时间精力允许，还可能会把 SoftBox 稍微做点东西出来。计算机图形学和影视剪辑都挺有意思的，如果有机会可能会都看看，然后跟一些师弟一起玩耍啊开心一下啥的。&lt;/p&gt;
+&lt;p&gt;接着就是写书。
+对，自不量力，想写个书。大概思路也就是按照类似 STA663，把 Python 在某些具体领域的应用，以及一些扩展的基础知识，整理总结一下啥的。肯定很烂，到时候争取做到自己看了不生气不骂自己，估计就挺难了。这事情特别坑，因为我这刚学了两年的入门水平，写书实在是太坑了。不过之前也跟人吹过这样的牛，而我这个人又有吹牛之后尽量实现以便后续继续吹牛的好习惯，就只能一次又一次地骑虎了。&lt;/p&gt;
+&lt;p&gt;对了，还要给朋友辅导托福。
+其实我大概从 2009 年给人辅导考研地概开始，就有丰富的黑班培训从业经历了，那时候靠着给人胡侃专业课，蹭吃了好多次，应该也算最早的灰色收入了吧。
+大胖黑班，从那时候就断断续续开展，直到去年年底我做手术之后就停办了。
+最近一段，有朋友每周来探望我，给我带好吃的啥的，我就抽空给他胡讲托福。
+我想着好好练练，以教促学，也是提高自己的一个机会。毕竟地质行业不太景气，而自己的能力素质都不足以在学术圈立足，对于转行和退路，要早作打算。以后给人哄孩子教教课，大概也能糊口吧。&lt;/p&gt;</content><category term="Story"></category><category term="Camera"></category><category term="Lens"></category><category term="Photo"></category><category term="Story"></category></entry><entry><title>1900年代的彩色中国</title><link href="/1900nian-dai-de-cai-se-zhong-guo.html" rel="alternate"></link><published>2017-12-27T13:00:00+08:00</published><updated>2017-12-27T13:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-12-27:/1900nian-dai-de-cai-se-zhong-guo.html</id><summary type="html">&lt;h4&gt;本文所粘贴照片全部来自网络，侵删。&lt;/h4&gt;
+&lt;p&gt;通过冯克力老先生主编，山东画报出版社出版的《老照片》第二期，我了解到了这样一位传奇人物 — Albert Kahn。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Albert Kahn" src="http://all-that-is-interesting.com/wordpress/wp-content/uploads/2015/09/albert-kahn-balcony-portrait.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Albert Kahn 1860年3月3日生于法国 Marmoutier 城，而立之年投身银行业，赚了很多钱。
+到了四十多岁，他认为工业革命正在导致世界巨变，很多文化古迹都可能会消亡，就想把这些都记录下来。
+于是他就开始了逐梦摄影圈的环游世界之旅，雇佣了多名摄影师，采用了当时最先进的 Autochrome 彩色摄影技术，拍摄了上万张彩色照片，组成了一套“地球档案（les Archives de la Planète）”，目前收藏于塞纳河畔的 Albert Kahn 博物馆内。&lt;/p&gt;
+&lt;p&gt;说起来这位老先生，可真算是人文摄影的狂热爱好者了，为了梦想可谓不惜成本。
+当时由 卢米埃尔兄弟（Auguste Marie Louis Nicholas，1862-1954； Louis Jean，1864-1948 …&lt;/p&gt;</summary><content type="html">&lt;h4&gt;本文所粘贴照片全部来自网络，侵删。&lt;/h4&gt;
+&lt;p&gt;通过冯克力老先生主编，山东画报出版社出版的《老照片》第二期，我了解到了这样一位传奇人物 — Albert Kahn。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Albert Kahn" src="http://all-that-is-interesting.com/wordpress/wp-content/uploads/2015/09/albert-kahn-balcony-portrait.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;Albert Kahn 1860年3月3日生于法国 Marmoutier 城，而立之年投身银行业，赚了很多钱。
+到了四十多岁，他认为工业革命正在导致世界巨变，很多文化古迹都可能会消亡，就想把这些都记录下来。
+于是他就开始了逐梦摄影圈的环游世界之旅，雇佣了多名摄影师，采用了当时最先进的 Autochrome 彩色摄影技术，拍摄了上万张彩色照片，组成了一套“地球档案（les Archives de la Planète）”，目前收藏于塞纳河畔的 Albert Kahn 博物馆内。&lt;/p&gt;
+&lt;p&gt;说起来这位老先生，可真算是人文摄影的狂热爱好者了，为了梦想可谓不惜成本。
+当时由 卢米埃尔兄弟（Auguste Marie Louis Nicholas，1862-1954； Louis Jean，1864-1948）发明的 Autochrome 彩色摄影术刚刚诞生两年，操作繁琐且成本高昂。这个高成本的爱好对这样的富豪来说也可能是不小的经济负担，于是在三十年代的大萧条中，Albert Kahn 破产，后来也就停止了拍摄计划。&lt;/p&gt;
+&lt;p&gt;相比之前分享的&lt;a href="https://zhuanlan.zhihu.com/p/29859951"&gt;John Thomson 在十九世纪末拍摄的 《中国与中国人影像》（ Illustrations of China and its people）&lt;/a&gt;，Albert Kahn 的拍摄作品具有更强烈的视觉冲击力，色彩带来了强烈的代入感，甚至让我在观看的时候感觉似乎是在观看现代影视作品的剧照。&lt;/p&gt;
+&lt;p&gt;所以下面节选了一些从网络上搜索到的 Albert Kahn 拍摄计划中的作品，分享给大家。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="沈阳城门口的贫富两个儿童" src="http://beijingcream.com/wp-content/uploads/2012/12/Color-photos-China-1912a.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://beijingcream.com/wp-content/uploads/2012/12/Color-photos-China-1912f.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://beijingcream.com/wp-content/uploads/2012/12/Color-photos-China-1912b.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://beijingcream.com/wp-content/uploads/2012/12/Color-photos-China-1912c.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://beijingcream.com/wp-content/uploads/2012/12/Color-photos-China-1912d.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://beijingcream.com/wp-content/uploads/2012/12/Color-photos-China-1912e.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://beijingcream.com/wp-content/uploads/2012/12/Color-photos-China-1912g-Mongolia.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Mongolia%2C_near_Ulaanbaatar.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://creativeroots.org/wp-content/uploads/2012/12/First-Color-Photographs-of-China-1912-albert-kahn.jpeg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://upload.wikimedia.org/wikipedia/commons/1/14/China%2C_Beijing.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://upload.wikimedia.org/wikipedia/commons/b/bd/1912_Inner_Mongolia.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://s-media-cache-ak0.pinimg.com/originals/ea/d7/7b/ead77bd45ce82924033fdba22b53cfa8.jpg"&gt;&lt;/p&gt;</content><category term="Story"></category><category term="Camera"></category><category term="Lens"></category><category term="Photo"></category><category term="Story"></category></entry><entry><title>高鹫城</title><link href="/gao-jiu-cheng.html" rel="alternate"></link><published>2017-12-01T00:00:00+08:00</published><updated>2017-12-01T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-12-01:/gao-jiu-cheng.html</id><summary type="html">&lt;h1&gt;高鹫城&lt;/h1&gt;
+&lt;h5&gt;病榻之上再读燕垒生之《天行健》，感慨万千而有此渣作。&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;举兵称平等，旌旗卷江东；
+降卒遭活埋，半壁烽火中。
+文侯奇设计，武侯夺连城；
+军车十万辆，甲士百千名。
+
+平民无粮食，高鹫合围兵。
+城破遭屠戮，爷娘成牺牲。
+驰骋不曾败，武侯任孤行；
+将军饮恨葬，子弟存荒冢。
+
+奈何粮草尽，黔首赶出城；
+老幼无怜悯，妻儿四散行。
+校尉军兵挞，钱财尽毁空；
+寒风如刀斧，长夜盼来生。
+
+枫叶飘零落，山间遍地红，
+老妪途中倒，徒留一老翁。
+
+老翁沟边卧，霜尘沾满衣，
+我非京兆人，此来为生计。
+突遭天剧变，乡勇急驱离，
+桌椅尽砍斫，床榻撕如絮。
+雨雪纷纷落，涕泪漫漫起，
+所伤亦无他，唯哀余老妻。
+
+自幼美姿容，不逊班婕妤，
+诗文人皆赏，气度更清奇。
+公侯百千请，信步浣花溪 …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h1&gt;高鹫城&lt;/h1&gt;
+&lt;h5&gt;病榻之上再读燕垒生之《天行健》，感慨万千而有此渣作。&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;举兵称平等，旌旗卷江东；
+降卒遭活埋，半壁烽火中。
+文侯奇设计，武侯夺连城；
+军车十万辆，甲士百千名。
+
+平民无粮食，高鹫合围兵。
+城破遭屠戮，爷娘成牺牲。
+驰骋不曾败，武侯任孤行；
+将军饮恨葬，子弟存荒冢。
+
+奈何粮草尽，黔首赶出城；
+老幼无怜悯，妻儿四散行。
+校尉军兵挞，钱财尽毁空；
+寒风如刀斧，长夜盼来生。
+
+枫叶飘零落，山间遍地红，
+老妪途中倒，徒留一老翁。
+
+老翁沟边卧，霜尘沾满衣，
+我非京兆人，此来为生计。
+突遭天剧变，乡勇急驱离，
+桌椅尽砍斫，床榻撕如絮。
+雨雪纷纷落，涕泪漫漫起，
+所伤亦无他，唯哀余老妻。
+
+自幼美姿容，不逊班婕妤，
+诗文人皆赏，气度更清奇。
+公侯百千请，信步浣花溪，
+一见叙心志，相念更相惜。
+三餐高粱米，冬夏粗布衣，
+岁月容颜改，相敬常如昔。
+
+此乱难平复，伊人中道去，
+奈何不可替，我命不足惜，
+所惜亦无他，唯有家中子。
+
+大儿常慷慨，任侠行乡里，
+走马击长剑，与人分粮米。
+初时闻烽火，纵马随军去，
+邻人附书来，身坠长河底。
+老妪尚不知，已随身故去，
+妄自空劝慰，母子得圆聚。
+
+次子勤学苦，幼学圣人言，
+十六入府学，二十为孝廉。
+而立成小吏，每为车马烦，
+翁媪苦儿忧，攒得五两钱，
+山下勤耕种，江中弄渔船，
+馈儿购房宅，日夜不得闲。
+城中多乱事，翰林亦驱赶，
+书生多文弱，历来疾走难，
+不知儿冷暖，我心实难安。
+
+老翁兀自言，往来车马行。
+微风难撼树，寂静四无声。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Story"></category><category term="Camera"></category><category term="Lens"></category><category term="Photo"></category><category term="Story"></category></entry><entry><title>我自学编程的故事</title><link href="/wo-zi-xue-bian-cheng-de-gu-shi.html" rel="alternate"></link><published>2017-11-15T00:00:00+08:00</published><updated>2017-11-15T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-11-15:/wo-zi-xue-bian-cheng-de-gu-shi.html</id><summary type="html">&lt;p&gt;这几天忙着改稿子等一些琐事，一直没有更新专栏文章，今天就回忆一下自己学编程的以往经历，权且充个数。&lt;/p&gt;
+&lt;p&gt;七八年前的时候我曾经跟 &lt;a href="http://www.zhihu.com/people/f7915dfbda102c5b427dcb6fe6d98104"&gt;@不是假棋&lt;/a&gt; 等小伙伴在计算机软硬件啊路由器刷机方面玩耍过，但在写代码方面，我一直是门外汉，水平止步于本科层次非计算机专业的 C++选修课。真正开始认真对待编程学习，还是从读研以后。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;再学代码，穷生上课用电脑；频遭冷眼，同侪纷纷看稀奇&lt;/h2&gt;
+&lt;p&gt;2013 年，我回学校读书了，当时学校要求非计算机专业的研究生从 C++ 和 VB 两门课里面二选一，我当然选了 C++，这里不引战了，就不多说理由了。当时学校的 C++ 课程授课地点是综合楼一层阶梯教室，里面根本没有学生用的电脑，只有老师站在前面讲，学生在底下听。&lt;/p&gt;
+&lt;p&gt;我这个人死脑筋，选了一门课就想着一定要让自己花的学费值了，要学会才行，所以就伙同好基友一起购买了龙芯 8089d 笔记本电脑，更换成为 Debian 操作系统，安装了 Nano 和 GCC，在课堂上老师一边讲课的同时 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;这几天忙着改稿子等一些琐事，一直没有更新专栏文章，今天就回忆一下自己学编程的以往经历，权且充个数。&lt;/p&gt;
+&lt;p&gt;七八年前的时候我曾经跟 &lt;a href="http://www.zhihu.com/people/f7915dfbda102c5b427dcb6fe6d98104"&gt;@不是假棋&lt;/a&gt; 等小伙伴在计算机软硬件啊路由器刷机方面玩耍过，但在写代码方面，我一直是门外汉，水平止步于本科层次非计算机专业的 C++选修课。真正开始认真对待编程学习，还是从读研以后。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;再学代码，穷生上课用电脑；频遭冷眼，同侪纷纷看稀奇&lt;/h2&gt;
+&lt;p&gt;2013 年，我回学校读书了，当时学校要求非计算机专业的研究生从 C++ 和 VB 两门课里面二选一，我当然选了 C++，这里不引战了，就不多说理由了。当时学校的 C++ 课程授课地点是综合楼一层阶梯教室，里面根本没有学生用的电脑，只有老师站在前面讲，学生在底下听。&lt;/p&gt;
+&lt;p&gt;我这个人死脑筋，选了一门课就想着一定要让自己花的学费值了，要学会才行，所以就伙同好基友一起购买了龙芯 8089d 笔记本电脑，更换成为 Debian 操作系统，安装了 Nano 和 GCC，在课堂上老师一边讲课的同时，我们一边用手上的电脑来运行老师在讲解的代码。&lt;/p&gt;
+&lt;p&gt;选择龙芯，一个主要原因是因为这机器性能实在拙计很难看视频玩游戏，而且 MIPS 架构下也没有什么太容易分散注意力的应用。当然实际上真实的原因是那时候我们都穷，每个月连现在的 600 元补助都没有，而龙芯笔记本当时团购只要 279元，是我们唯一买得起的设备。&lt;/p&gt;
+&lt;p&gt;当时我们认识的很多其他同学都视我俩为奇葩，后来基友也就放弃了，只有我一个人带着龙芯笔记本上课了。&lt;/p&gt;
+&lt;p&gt;虽然我比较笨，但用这种一边听一遍运行测试的方法，居然还也大概都理解了老师讲授的内容。所以在期末的时候，我开始给一些感到吃力的同学就课上讲的内容进行辅导。&lt;/p&gt;
+&lt;p&gt;我还清晰地记得，当时还是有相当一部分同学依然认为我的这些行为都是很奇葩很脑残的，他们普遍认为计算机相关的课程应付过去就可以，没有任何用处。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;身患疾病，庸人从此无用处；机缘巧合，外行沉迷学编程&lt;/h2&gt;
+&lt;p&gt;后来我患上了代谢疾病，并且还诊断出了良性肿瘤，虽然不至于有太大危险，但是行走很不方便，基本告别了野外地质工作。那段时间，整个人非常消沉，不知道活下去还有什么用处。&lt;/p&gt;
+&lt;p&gt;人总是要找个什么兴趣爱好作为精神寄托或者突破点的，然而我手指关节已经很不灵活，吉他已拿不起来玩耍了。所以就还是玩耍一下计算机。想起来曾经跟人吹牛胡侃说要写一个地质学用途的软件，解决各种日常问题，于是就开始搜索该如何具体去做。&lt;/p&gt;
+&lt;p&gt;2014 年初，我看了唐大仕老师的 Java 视频公开课，就借机学了几句 Java，一周之后写了个 Android 小应用，但那时也谈不上入门，因为脑袋里面都还是混乱的，都是东一处西一处照着拼凑四处临摹来拼凑起来的，而且可能因为我太懒又太笨，由于语法等原因对 Java 始终没有爱。后来因为交学费缺钱，小应用也都卖掉给合伙的朋友了。&lt;/p&gt;
+&lt;p&gt;但是对编程的兴趣，倒是一点没减弱，只是觉得自己应该换一个对自己来说学习效率更高的语言。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;闲来无事，翻译资料成乐趣；开设专栏，由此结识众英雄&lt;/h2&gt;
+&lt;p&gt;这样到了 2015 年初，我开始学习 Python，才算真正开始算自学编程了，希望能自己写出自己需要的应用软件。&lt;/p&gt;
+&lt;p&gt;开始时看 codeacademy、&lt;a href="http://zetcode.com"&gt;http://zetcode.com&lt;/a&gt;、 &lt;a href="http://fenby.com"&gt;http://fenby.com&lt;/a&gt; 的资料教程，当时都让我觉得还挺难的，可能还是由于本身智力导致的。&lt;/p&gt;
+&lt;p&gt;偶然间听人推荐了 ThinkPython，&lt;em&gt;就买了一个疗程试试看&lt;/em&gt;， 抱歉，跑偏了，是就下载了原版试试看，感觉很赞，读起来很顺畅，就顺便翻译了一下，开始的时候就是自己翻译着玩，后来整理成了一个中英双语的，发到了 github 上面：&lt;a href="http://github.com/cycleuser/ThinkPython-en-cn"&gt;cycleuser/ThinkPython-en-cn&lt;/a&gt; 。&lt;/p&gt;
+&lt;p&gt;然后我想做 GUI 界面的应用，又想跨平台，想起来有朋友给推荐的 Kivy，于是又看 Kivy 的官方文档，也顺路翻译了一个：&lt;a href="http://github.com/Kivy-CN/Kivy-CN"&gt;Kivy-CN/Kivy-CN&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;对 Kivy 文档的翻译，也是产生这个专栏的最初原因，我当时想着应该放到一个人气多一点的地方，以便聚集更多志同道合有相关爱好的小伙伴。&lt;/p&gt;
+&lt;p&gt;再接下来就是对机器学习突然有了兴趣，于是开始翻译 &lt;a href="http://github.com/Kivy-CN/Stanford-CS-229-CN"&gt;Stanford-CS-229-CN&lt;/a&gt; 和 &lt;a href="http://github.com/Kivy-CN/Duke-STA-663-CN"&gt;Duke-STA-663-CN&lt;/a&gt;。这个过程中又结识了很多很有趣的小伙伴，比如 &lt;a href="http://www.zhihu.com/people/6d1a164af570b03f27b5f58534f7557e"&gt;@飞龙&lt;/a&gt;、 &lt;a href="http://www.zhihu.com/people/eaf435b228ce0b038a4afe8203f59b49"&gt;@路人甲&lt;/a&gt; 、 &lt;a href="http://www.zhihu.com/people/5bb9cc994a9029c26ed767f197c8cccd"&gt;@霍开拓&lt;/a&gt;&lt;a href="http://www.zhihu.com/people/4a0d3a504b9859139f2c003005230717"&gt;@霍华德&lt;/a&gt; 等等。&lt;/p&gt;
+&lt;p&gt;学了个马虎眼之后，我发现 Kivy 的稳定性其实一般，于是改用了 PyQt，又开始看 &lt;a href="http://zetcode.com"&gt;http://zetcode.com&lt;/a&gt;。偶然地又发现了 &lt;a href="http://www.zhihu.com/people/49bf4d728e13852bd0d56ecc1f1c7bd3"&gt;@我想飞&lt;/a&gt; 的专栏 &lt;a href="https://zhuanlan.zhihu.com/xdbcb8"&gt;PyQt5图形界面编程&lt;/a&gt; 里面的教程做得很棒很直观，也学习了一下。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;初成拙作，劫后整理先前事；前途尚远，余生不计身后名&lt;/h2&gt;
+&lt;p&gt;2016 年末，我做完了第一次手术，躺在床上，想了想也算大概学了点皮毛，于是就开始将早先写的一些脚本汇总整理起来，做成了一个图形界面的简单的小应用：&lt;a href="http://geopytool.com/zhong-wen-jian-jie.html"&gt;GeoPyTool&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;我自学的过程是很散漫的，随着兴趣和需求随时变换选用的工具。&lt;/p&gt;
+&lt;p&gt;如果是科班出身的人来做同样的事情，恐怕用不来一两天甚至几个小时就能做出来，而且还会做得更高效更美观更完善，因为他们往往很清楚各个部分需要用什么模块来实现，用哪些方法来实现最优。&lt;/p&gt;
+&lt;p&gt;不过我还会继续做这些，因为这已经从最开始的吹牛，到后来的兴趣爱好，变成了现在的一种寄托。我发现在做这些事情的时候，我还是有点用的，还能为一些人提供一点点帮助，起码也算不枉此生。&lt;/p&gt;
+&lt;p&gt;回想起来，当年那些一起上课的同学，已经各自前途远大，都成了专业领域的精英人物。我资质愚钝又性格乖僻，肯定不足与他们相提并论，就只是做一些自己想做的事情，开心一下了。&lt;/p&gt;</content><category term="Story"></category><category term="Memory"></category><category term="Story"></category></entry><entry><title>三十年前的中国，八十年代的童年，秋山亮二镜头下的小朋友</title><link href="/san-shi-nian-qian-de-zhong-guo-ba-shi-nian-dai-de-tong-nian-qiu-shan-liang-er-jing-tou-xia-de-xiao-peng-you.html" rel="alternate"></link><published>2017-10-05T23:00:00+08:00</published><updated>2017-10-05T23:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-10-05:/san-shi-nian-qian-de-zhong-guo-ba-shi-nian-dai-de-tong-nian-qiu-shan-liang-er-jing-tou-xia-de-xiao-peng-you.html</id><summary type="html">&lt;p&gt;前些天发了一篇&lt;a href="https://zhuanlan.zhihu.com/p/29814832"&gt;五十年前的中国&lt;/a&gt;，后来又发了一篇&lt;a href="https://zhuanlan.zhihu.com/p/29859951"&gt;一百五十年前的中国&lt;/a&gt;，其中有一位网友在评论中推荐了这本秋山亮二的摄影集《你好小朋友》。&lt;/p&gt;
+&lt;p&gt;我便搜索了一下，找来了一些资料，现在整理如下。&lt;/p&gt;
+&lt;p&gt;本文图片和文案选自&lt;a href="http://news.hexun.com/2014-10-23/169617135.html"&gt;和讯新闻&lt;/a&gt;和&lt;a href="http://works.ccsph.com/detail_11304.html"&gt;现代摄影网&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://i5.hexunimg.cn/2014-10-23/169617139.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;上图为刘天拍摄的本文照片的原拍摄者，日本摄影家秋山亮二，摄影家秋山青瓷之子，1942 年生于东京，在 80 年代来到中国，游历了昆明、呼和浩特、乌鲁木齐等地，拍下了当地儿童日常生活的照片。秋山在拍摄这部摄影集之前，并不会中文，也只是随着旅游团来过中国两三次，他的这次拍摄是受“柯尼卡高野影廊”的前身“小西六写真工业株式会社”的委派拍摄中国的孩子们，历时几个月，在一位翻译和另一位助手的全程参与下完成。所以这部作品实际上是一个对中国并不算很熟悉的摄影者所记录的那个年代，是对 80 年代的中国的一点很独特的记录。&lt;/p&gt;
+&lt;p&gt;1983年，这些照片以《你好，小朋友》为题在日本结集出版。目前在中国大陆似乎只能从&lt;a href="http://book.kongfz.com/154786/649333565/"&gt;孔夫子旧书网&lt;/a&gt;购买到二手的了。&lt;/p&gt;
+&lt;p&gt;我本人就是 80 后 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;前些天发了一篇&lt;a href="https://zhuanlan.zhihu.com/p/29814832"&gt;五十年前的中国&lt;/a&gt;，后来又发了一篇&lt;a href="https://zhuanlan.zhihu.com/p/29859951"&gt;一百五十年前的中国&lt;/a&gt;，其中有一位网友在评论中推荐了这本秋山亮二的摄影集《你好小朋友》。&lt;/p&gt;
+&lt;p&gt;我便搜索了一下，找来了一些资料，现在整理如下。&lt;/p&gt;
+&lt;p&gt;本文图片和文案选自&lt;a href="http://news.hexun.com/2014-10-23/169617135.html"&gt;和讯新闻&lt;/a&gt;和&lt;a href="http://works.ccsph.com/detail_11304.html"&gt;现代摄影网&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://i5.hexunimg.cn/2014-10-23/169617139.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;上图为刘天拍摄的本文照片的原拍摄者，日本摄影家秋山亮二，摄影家秋山青瓷之子，1942 年生于东京，在 80 年代来到中国，游历了昆明、呼和浩特、乌鲁木齐等地，拍下了当地儿童日常生活的照片。秋山在拍摄这部摄影集之前，并不会中文，也只是随着旅游团来过中国两三次，他的这次拍摄是受“柯尼卡高野影廊”的前身“小西六写真工业株式会社”的委派拍摄中国的孩子们，历时几个月，在一位翻译和另一位助手的全程参与下完成。所以这部作品实际上是一个对中国并不算很熟悉的摄影者所记录的那个年代，是对 80 年代的中国的一点很独特的记录。&lt;/p&gt;
+&lt;p&gt;1983年，这些照片以《你好，小朋友》为题在日本结集出版。目前在中国大陆似乎只能从&lt;a href="http://book.kongfz.com/154786/649333565/"&gt;孔夫子旧书网&lt;/a&gt;购买到二手的了。&lt;/p&gt;
+&lt;p&gt;我本人就是 80 后，然而我来自偏远落后的地区，所以童年生活远不如图片中的丰富，因此没有什么回忆和共鸣。
+分享给诸君，看看大家是否有类似的记忆。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229223.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229362.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229802.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229861.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229250.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229989.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229359.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229626.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229928.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229422.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229816.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229960.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229755.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229446.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229375.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229729.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229228.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229620.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229714.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229191.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229750.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229264.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229921.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229399.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229905.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229802.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229913.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229873.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229224.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229826.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229908.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229869.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229668.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229371.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229441.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229236.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229650.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload.art.ifeng.com/2017/0605/1496643229121.jpg"&gt;&lt;/p&gt;</content><category term="Story"></category><category term="Camera"></category><category term="Lens"></category><category term="Photo"></category><category term="Story"></category></entry><entry><title>一百五十年前的中国</title><link href="/yi-bai-wu-shi-nian-qian-de-zhong-guo.html" rel="alternate"></link><published>2017-10-03T00:00:00+08:00</published><updated>2017-10-03T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-10-03:/yi-bai-wu-shi-nian-qian-de-zhong-guo.html</id><summary type="html">&lt;p&gt;前些天发了一篇&lt;a href="https://zhuanlan.zhihu.com/p/29814832?fc=1&amp;amp;group_id=898447734963572736#comment-341178264"&gt;五十年前的中国&lt;/a&gt;，然后让我意外的是居然有了过五百的点赞，而且很多朋友还表示希望看到更早一些的照片，以及除了北方以外的南方气息。我就想到了 John Thomson 的这本 &lt;em&gt;Illustrations of China and its people&lt;/em&gt;。这本书出版于 1875 年左右，目前已经处于公有领域，英文原版可以在&lt;a href="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ct_alb_01.html"&gt;MIT 大学网站&lt;/a&gt;阅读，这个网站也是本文的图片素材和部分文字翻译原文的来源。&lt;/p&gt;
+&lt;p&gt;另外此图片集的中文版本题为《中国与中国人影像：约翰·汤姆逊记录的晚清帝国》/（英）汤姆逊著；徐家宁译，2015 年由广西师范大学出版社出版，可以在&lt;a href="https://item.jd.com/11687871.html"&gt;京东&lt;/a&gt;和&lt;a href="https://www.amazon.cn/%E4%B8%AD%E5%9B%BD%E4%B8%8E%E4%B8%AD%E5%9B%BD%E4%BA%BA%E5%BD%B1%E5%83%8F-%E8%8B%B1-%E7%BA%A6%E7%BF%B0-%E6%B1%A4%E5%A7%86%E9%80%8A%E8%91%97-%E5%BE%90%E5%AE%B6%E5%AE%81%E8%AF%91/dp/B01DNHJ1TC/ref=sr_1_1?s=digital-text&amp;amp;ie=UTF8&amp;amp;qid=1507013454&amp;amp;sr=1-1&amp;amp;keywords=%E4%B8%AD%E5%9B%BD%E4%B8%8E%E4%B8%AD%E5%9B%BD%E4%BA%BA%E5%BD%B1%E5%83%8F"&gt;亚马逊&lt;/a&gt;等网站在线购买。&lt;/p&gt;
+&lt;p&gt;另外有一个专门修复和考究旧照片的网站，非常棒，分享给大家：&lt;a href="http://jiuyingzhi.com/"&gt;旧影志&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;Illustrations of China and its people 英文原版封面：
+&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/alb_01/ct1001_1128672.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;中文翻译版封面 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;前些天发了一篇&lt;a href="https://zhuanlan.zhihu.com/p/29814832?fc=1&amp;amp;group_id=898447734963572736#comment-341178264"&gt;五十年前的中国&lt;/a&gt;，然后让我意外的是居然有了过五百的点赞，而且很多朋友还表示希望看到更早一些的照片，以及除了北方以外的南方气息。我就想到了 John Thomson 的这本 &lt;em&gt;Illustrations of China and its people&lt;/em&gt;。这本书出版于 1875 年左右，目前已经处于公有领域，英文原版可以在&lt;a href="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ct_alb_01.html"&gt;MIT 大学网站&lt;/a&gt;阅读，这个网站也是本文的图片素材和部分文字翻译原文的来源。&lt;/p&gt;
+&lt;p&gt;另外此图片集的中文版本题为《中国与中国人影像：约翰·汤姆逊记录的晚清帝国》/（英）汤姆逊著；徐家宁译，2015 年由广西师范大学出版社出版，可以在&lt;a href="https://item.jd.com/11687871.html"&gt;京东&lt;/a&gt;和&lt;a href="https://www.amazon.cn/%E4%B8%AD%E5%9B%BD%E4%B8%8E%E4%B8%AD%E5%9B%BD%E4%BA%BA%E5%BD%B1%E5%83%8F-%E8%8B%B1-%E7%BA%A6%E7%BF%B0-%E6%B1%A4%E5%A7%86%E9%80%8A%E8%91%97-%E5%BE%90%E5%AE%B6%E5%AE%81%E8%AF%91/dp/B01DNHJ1TC/ref=sr_1_1?s=digital-text&amp;amp;ie=UTF8&amp;amp;qid=1507013454&amp;amp;sr=1-1&amp;amp;keywords=%E4%B8%AD%E5%9B%BD%E4%B8%8E%E4%B8%AD%E5%9B%BD%E4%BA%BA%E5%BD%B1%E5%83%8F"&gt;亚马逊&lt;/a&gt;等网站在线购买。&lt;/p&gt;
+&lt;p&gt;另外有一个专门修复和考究旧照片的网站，非常棒，分享给大家：&lt;a href="http://jiuyingzhi.com/"&gt;旧影志&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;Illustrations of China and its people 英文原版封面：
+&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/alb_01/ct1001_1128672.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;中文翻译版封面：
+&lt;img alt="" src="https://s3.cn-north-1.amazonaws.com.cn/sitbweb-cn/content/B01DNHJ1TC/resources/399169400"&gt;&lt;/p&gt;
+&lt;h2&gt;名人&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4017_1128910b.jpg"&gt;
+上图为李鸿章。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1012_1128683.jpg"&gt;
+上图为恭亲王，爱新觉罗·奕䜣，1833—1898，咸丰皇帝的异母弟，洋务派的朝中支持者。上面这张照片大概拍摄于 1865 年前后。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1062_1128713.jpg"&gt;
+上图为两广总督，瑞麟，当时是欧洲人群众知名度最高的中国官员，他曾经参与在 1860 年与英法联军的作战，战败逃脱撤职，后清廷来与捻军作战而再次被任用。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4077_1128946b.jpg"&gt;
+上图为数学家李善兰和他的学生们的合影。&lt;/p&gt;
+&lt;h2&gt;风光&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1015_1128686.jpg"&gt;
+上面这张照片拍摄的是香港跑马地（Happy Valley）。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1017_1128688.jpg"&gt;
+上面这张照片是香港的港口，拍摄于 1869年。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1026_1128693.jpg"&gt;
+上面这张照片是香港的钟楼，在当时建成完工没过几年，算是当年比较时尚的建筑。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1028_1128695.jpg"&gt;
+上图是香港海边的街景。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1038_1128701.jpg"&gt;
+上图是一艘当时的中国帆船。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1076_1128723.jpg"&gt;
+上图是当时在英国领事馆内拍摄的一座古塔，据记载建成于梁武帝萧衍在位期间。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1081_1128726b.jpg"&gt;
+上图为广州的一所寺庙，名为 Honam Temple。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1082_1128726c.jpg"&gt;
+上图为华林寺内的一个佛堂。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1088_1128731.jpg"&gt;
+上图是广州的街景，这条巷子里面都是药店。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery2/images/ct2052_1128786.jpg"&gt;
+上面两张图是当时的鼓浪屿。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery2/images/ct2065_1128793.jpg"&gt;
+上图为当时的福州船政局，在洋务运动时期，福州开办有船政局以及船政学堂，相当于兵工厂和海事学院。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery2/images/ct2067_1128795.jpg"&gt;
+上图为福州街景。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery2/images/ct2069_1128797.jpg"&gt;
+上图为福建省永泰县的一座寺庙。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery2/images/ct2078_1128804b.jpg"&gt;
+上图为当时福建省的梯田，牛是当时的主要耕种助力。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery2/images/ct2101_1128814c.jpg"&gt;
+上图是福建延平闽江的水流，拍摄于 1871 年 12 月。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3012_1128830.jpg"&gt;
+上图为浙江宁波的福建会馆。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3014_1128832.jpg"&gt;
+上图为宁波附近的一个瀑布。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3018_1128835a.jpg"&gt;
+上图为宁波附近的一个小村落。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3024_1128838.jpg"&gt;
+上图为当时的上海。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3026_1128840.jpg"&gt;
+上图为上海的其他几座建筑。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3046_1128853.jpg"&gt;
+上图为南京全貌照片。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3054_1128857.jpg"&gt;
+上图为九江的一处租界。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3068_1128865b.jpg"&gt;
+上图为汉口租界。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3071_1128867a.jpg"&gt;
+上图为黄鹤楼。&lt;/p&gt;
+&lt;p&gt;下面几张是当时的长江沿途风光：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3089_1128879c.jpg"&gt;
+&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3090_1128879d.jpg"&gt;
+&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3093_1128881a.jpg"&gt;
+&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3104_1128885.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4023_1128913a.jpg"&gt;
+上图为山东省烟台市芝罘区是中国历史上最早的外洋通商口岸之一，因其北部的中国最大、世界最典型的陆连岛----芝罘岛而得名。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4024_1128913b.jpg"&gt;
+上图为天津街景。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4027_1128915.jpg"&gt;
+上图为北京国子监。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4029_1128917.jpg"&gt;
+上图为北京观象台。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4036_1128923a.jpg"&gt;
+上图为当时的中式楼房。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4043_1128928.jpg"&gt;
+上图为当时的北京前门大街。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4047_1128931a.jpg"&gt;
+上图为当时的北京钟楼。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4048_1128931b.jpg"&gt;
+上图为当时的北京鼓楼。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4049_1128931c.jpg"&gt;
+上图为当时的北京的一家布店。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4095_1128956.jpg"&gt;
+上图为颐和园的一座拱桥。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4110_1128967.jpg"&gt;
+上图为南口峡谷。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4114_1128970a.jpg"&gt;
+上图为长城。&lt;/p&gt;
+&lt;h2&gt;人像&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1020_1128691.jpg"&gt;
+上面几张照片中，左上是香港当年的“出租轿子”，类似如今的出租车；右上是一名香港地区的学生；左下是当时的女童；右下是一位英文音译名字为 Lumqua 的中国青年画家，他曾经跟随一位名为 Chinnery 的西方画家学习油画。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1034_1128698c.jpg"&gt;
+&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1035_1128698d.jpg"&gt;
+上两图是民间艺人，摄影者在文中提到他觉得胡琴和琵琶像是中国的提琴和吉他一样。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1045_1128704d.jpg"&gt;
+上图是当时在大烟馆里面吸大烟的华人青年。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1049_1128707a.jpg"&gt;
+上图是当时富裕阶层吸食鸦片的场景。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1050_1128707b.jpg"&gt;
+上图是一家人晚饭后的情景。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1051_1128707c.jpg"&gt;
+上图是一位读书人在待客室内拍摄的坐像。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1055_1128709a.jpg"&gt;
+上图是一位有一定文化的老年人，佩戴的是中国制造的眼镜，镜片使用水晶制作。当时福州船政学堂刚刚开设了与显微镜和望远镜制作相关的课程，推测拍摄于洋务运动时期。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1056_1128709b.jpg"&gt;
+上图是刚刚那位老先生的老伴，干净整洁，头发梳理得非常整齐。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1057_1128709c.jpg"&gt;
+上图是当时的一位青年劳工，据记载在同一个历史时期，有大量华人劳工参与了美洲的建设，包括铁路等工程当中，生活凄苦悲惨。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1064_1128715.jpg"&gt;
+上图为清军士兵，原文说明是广州的八旗炮兵，归属于当时保护广州领事 D. B. Robertson 的卫队。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1083_1128726d.jpg"&gt;
+上图为广州华林寺的住持和尚。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery1/images/ct1101_1128737c.jpg"&gt;
+上图为查验银两成色的工人。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery2/images/ct2071_1128799.jpg"&gt;
+上图为福建省某寺庙中的僧人。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery2/images/ct2084_1128807a.jpg"&gt;
+上图是福建省的两名搬运工人。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery2/images/ct2085_1128807b.jpg"&gt;
+上图是福州城的一位公职人员，原文说是马快（Ma-Qui），推测应该是类似捕头一类的负责治安的衙役。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery2/images/ct2086_1128807c.jpg"&gt;
+上图是乞丐头领（右侧用手指人者）对手下乞丐进行循环的场景，底层乞讨人员获得的收益要有相当一部分被这种“管理者”盘剥掉。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery2/images/ct2090_1128809a.jpg"&gt;
+上图为当时华人乘坐轿子的场景。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery2/images/ct2091_1128809b.jpg"&gt;
+上图是官员骑乘马匹的场景。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery2/images/ct2092_1128809c.jpg"&gt;
+上图是当时农民借助耕牛进行耕地的场景。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery2/images/ct2093_1128809d.jpg"&gt;
+上图是富裕阶层驯养的赛马。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3033_1128843a.jpg"&gt;
+上图为上海的独轮车。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3044_1128851.jpg"&gt;
+上图为金陵制造局的工作人员测试枪械。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3051_1128855c.jpg"&gt;
+上图为金陵制造局的生产车间内，工人正在操作机器。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3050_1128855b.jpg"&gt;
+上图是由洋人训练华人组成的部队，推测可能是当年曾经参与镇压太平天国的洋枪队。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3056_1128859.jpg"&gt;
+上图为九江街边的小商贩。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3060_1128862a.jpg"&gt;
+上图为九江码头的官员和人说话。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery3/images/ct3074_1128867d.jpg"&gt;
+上图为船上的船工和乘客。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4056_1128936a.jpg"&gt;
+上图为当时修脚的人。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4090_1128954a.jpg"&gt;
+上图为当时的清军火枪兵。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://ocw.mit.edu/ans7870/21f/21f.027/john_thomson_china_03/ctgallery4/images/ct4091_1128954b.jpg"&gt;
+上图为当时的清军弓箭手。&lt;/p&gt;</content><category term="Story"></category><category term="Camera"></category><category term="Lens"></category><category term="Photo"></category><category term="Story"></category></entry><entry><title>五十年前的中国</title><link href="/wu-shi-nian-qian-de-zhong-guo.html" rel="alternate"></link><published>2017-10-01T00:00:00+08:00</published><updated>2017-10-01T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-10-01:/wu-shi-nian-qian-de-zhong-guo.html</id><content type="html">&lt;h4&gt;本文所粘贴照片全部来自网络，侵删。&lt;/h4&gt;
+&lt;p&gt;Solange Brand （索朗日·布朗）是一名法国的女摄影师，生于 1946 年。在大概还未满 20 岁的时候，她来到了中国，作为法国驻中国大使馆的工作人员，使用在香港购买的宾得相机和 Agfacolor 反转片记录下了那个年代的彩色影像。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://item.jd.com/11619891.html"&gt;可以点击这里访问京东商城购买该摄影师的出版物&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;照片的力量是强大的，远比最生动的文字还要有力，能够直接将观众拉回到当年那种场景和氛围中。&lt;/p&gt;
+&lt;p&gt;或许今天我们按下快门的时候，可以考虑不仅仅去拍一些角楼飞鸟或者薄衣女性等等，也可以考虑去拍一些类似的能够对时代有所记录的内容。哪怕只拍那么一点点，可能也有助于让后来人更贴近我们所处的现实。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/1.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/2.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/3.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/4.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/5.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/6.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/7.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/8.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/9.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/10.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/11.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/12.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/13.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/14.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/15.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/16.jpg"&gt;
+&lt;img alt="" src="http://www.beaugeste-gallery.com/image/solange/17.jpg"&gt;&lt;/p&gt;</content><category term="Story"></category><category term="Camera"></category><category term="Lens"></category><category term="Photo"></category><category term="Story"></category></entry><entry><title>对号入座</title><link href="/dui-hao-ru-zuo.html" rel="alternate"></link><published>2017-07-12T23:20:00+08:00</published><updated>2017-07-12T23:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-07-12:/dui-hao-ru-zuo.html</id><summary type="html">&lt;p&gt;很无奈，今天帝都的雾霾依然如狗，令人如痴如醉。&lt;/p&gt;
+&lt;p&gt;此外手机丢失了，让我非常伤心。&lt;/p&gt;
+&lt;p&gt;然后分享一句吕思勉先生的话：“虽有弊病，人总只怪身居其位的人不好，而不怪到这制度不好。譬如我们现在，天天骂着奸商，却没有人攻击商业制度一样。”&lt;/p&gt;
+&lt;p&gt;接下来再分享另外一段吕思勉前辈的话：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="img\Worship.png"&gt;&lt;/p&gt;
+&lt;p&gt;这里面关于国人“崇古观念太重”的说法，非常赞。&lt;/p&gt;
+&lt;p&gt;然而这还不够，我以为国人的窠臼观念远远不仅限于崇古，而是发展到了“乱崇”。&lt;/p&gt;
+&lt;p&gt;何为“乱崇”？即无原则无立场地崇拜各种“怪力乱神”。&lt;/p&gt;
+&lt;p&gt;这种“乱崇”，在很多群体上都有体现。&lt;/p&gt;
+&lt;p&gt;首先就体现在那些似乎本应年高有德的一部分中老年群体，他们不考虑他人的安全和观感，不在意法律和社会规范，不认同公序良俗，不讲究理性和科学。&lt;/p&gt;
+&lt;p&gt;譬如前些日子听说有老年女性在航班飞机的发动机内扔硬币，有所谓“祈福”的解释；再比如近些天常见的各种中老年群体在机动车道上进行的所谓“暴走健身”；又比如前些日子被曝光的诸如刘洪斌之类的所谓“神医表演艺术家”；还比如所有中老年群体在朋友圈中转发的各种锦鲤和养生秘术。&lt;/p&gt;
+&lt;p&gt;此外还体现在那些本应锐意进取的某些青年人群，他们单纯认同物质财富的积累和占有，完全放弃独立思想和批判精神，极度追求类似群居动物的互相舔舐一样的吹捧，强烈保有莫名来源的盲目自信乃至拒绝任何学习更新甚至攻击撕咬所有不同观点。&lt;/p&gt;
+&lt;p&gt;譬如有大群的青年人对某些获取了巨额利润的商人、演艺圈或文化圈的名人或者政界人士高喊“父亲 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;很无奈，今天帝都的雾霾依然如狗，令人如痴如醉。&lt;/p&gt;
+&lt;p&gt;此外手机丢失了，让我非常伤心。&lt;/p&gt;
+&lt;p&gt;然后分享一句吕思勉先生的话：“虽有弊病，人总只怪身居其位的人不好，而不怪到这制度不好。譬如我们现在，天天骂着奸商，却没有人攻击商业制度一样。”&lt;/p&gt;
+&lt;p&gt;接下来再分享另外一段吕思勉前辈的话：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="img\Worship.png"&gt;&lt;/p&gt;
+&lt;p&gt;这里面关于国人“崇古观念太重”的说法，非常赞。&lt;/p&gt;
+&lt;p&gt;然而这还不够，我以为国人的窠臼观念远远不仅限于崇古，而是发展到了“乱崇”。&lt;/p&gt;
+&lt;p&gt;何为“乱崇”？即无原则无立场地崇拜各种“怪力乱神”。&lt;/p&gt;
+&lt;p&gt;这种“乱崇”，在很多群体上都有体现。&lt;/p&gt;
+&lt;p&gt;首先就体现在那些似乎本应年高有德的一部分中老年群体，他们不考虑他人的安全和观感，不在意法律和社会规范，不认同公序良俗，不讲究理性和科学。&lt;/p&gt;
+&lt;p&gt;譬如前些日子听说有老年女性在航班飞机的发动机内扔硬币，有所谓“祈福”的解释；再比如近些天常见的各种中老年群体在机动车道上进行的所谓“暴走健身”；又比如前些日子被曝光的诸如刘洪斌之类的所谓“神医表演艺术家”；还比如所有中老年群体在朋友圈中转发的各种锦鲤和养生秘术。&lt;/p&gt;
+&lt;p&gt;此外还体现在那些本应锐意进取的某些青年人群，他们单纯认同物质财富的积累和占有，完全放弃独立思想和批判精神，极度追求类似群居动物的互相舔舐一样的吹捧，强烈保有莫名来源的盲目自信乃至拒绝任何学习更新甚至攻击撕咬所有不同观点。&lt;/p&gt;
+&lt;p&gt;譬如有大群的青年人对某些获取了巨额利润的商人、演艺圈或文化圈的名人或者政界人士高喊“父亲”、“岳父”、“大大（某些地区方言中表示对父亲的称呼）”，对某些面向姣好的演艺人士或者富家子弟高喊“老公”等人类配偶之间的称呼；再比如他们不自己读书思考，而是听取某些写出来几首香艳辞赋吟唱多年而弄风月、或从传媒行业浸淫多年的油滑混账之类面相龌龊之辈给他们带来所谓“历史思考”与“逻辑思维”。又比如他们嘲笑高龄拍照爱好者的所谓老法师行径，而自己又在各种社交媒体上面大肆参与所谓集赞营销，互相给出各种违心的赞美；还比如他们在各种问答网站上面强行回答自己只是一知半解甚至根本不了解的领域，对所有纠正者进行撕咬。&lt;/p&gt;
+&lt;p&gt;而我呢？正好处于这两者中间的过渡时期，是一个丑陋的人，一个低俗的人，一个脱离了高级趣味的人。&lt;/p&gt;
+&lt;p&gt;那么你呢？&lt;/p&gt;</content><category term="Story"></category></entry><entry><title>让我害怕的</title><link href="/rang-wo-hai-pa-de.html" rel="alternate"></link><published>2017-05-06T16:20:00+08:00</published><updated>2017-05-06T16:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-05-06:/rang-wo-hai-pa-de.html</id><summary type="html">&lt;h6&gt;本文无任何参考意义，所有内容全属虚构，是本人在文学创作上的一种尝试。&lt;/h6&gt;
+&lt;p&gt;昨天发了一篇抱怨教室不安装空气净化器的文字。
+然后有网友表示对我的担忧，他说：“小心秋后算账，有人默默看着你。”&lt;/p&gt;
+&lt;p&gt;他给出了一个连接：https://www.zhihu.com/question/59191415/answer/165148856&lt;/p&gt;
+&lt;p&gt;我很感激他的关心，但我不太觉得这有什么可担心。&lt;/p&gt;
+&lt;p&gt;作为一个温和派东北人，我很少怕什么东西。&lt;/p&gt;
+&lt;p&gt;我不怕美国人，用英语对着骂街基本也都能占上风，这可能一定程度上是遗传了我爷爷的基因，他当年就在战场上打过美国人，并且胜利归国。&lt;/p&gt;
+&lt;p&gt;而且出于辩证唯物主义信仰和国际主义精神，即便敌人强大如美国，如果真发生了战争，我也愿意与之战斗，而且也会充满信心，因为我相信自己不会是单独一个人。&lt;/p&gt;
+&lt;p&gt;我也不怕公职人员，因为他们本来不就应该是服务人民大众的同志么？&lt;/p&gt;
+&lt;p&gt;我有很多同学，他们有的加入了地方的地矿单位，有的加入了黄金部队，有的去了边陲做教师，有的去当了人民警察。我曾经跟他们各种侃大山、练习题、逃课、吃烤串、出野外等等，他们是我所熟悉的公职人员的最主要的群体。&lt;/p&gt;
+&lt;p&gt;当然，在我的印象中，他们都比我忙碌很多，生活也更充实很多。其中似乎大部分都不怎么上网闲聊 …&lt;/p&gt;</summary><content type="html">&lt;h6&gt;本文无任何参考意义，所有内容全属虚构，是本人在文学创作上的一种尝试。&lt;/h6&gt;
+&lt;p&gt;昨天发了一篇抱怨教室不安装空气净化器的文字。
+然后有网友表示对我的担忧，他说：“小心秋后算账，有人默默看着你。”&lt;/p&gt;
+&lt;p&gt;他给出了一个连接：https://www.zhihu.com/question/59191415/answer/165148856&lt;/p&gt;
+&lt;p&gt;我很感激他的关心，但我不太觉得这有什么可担心。&lt;/p&gt;
+&lt;p&gt;作为一个温和派东北人，我很少怕什么东西。&lt;/p&gt;
+&lt;p&gt;我不怕美国人，用英语对着骂街基本也都能占上风，这可能一定程度上是遗传了我爷爷的基因，他当年就在战场上打过美国人，并且胜利归国。&lt;/p&gt;
+&lt;p&gt;而且出于辩证唯物主义信仰和国际主义精神，即便敌人强大如美国，如果真发生了战争，我也愿意与之战斗，而且也会充满信心，因为我相信自己不会是单独一个人。&lt;/p&gt;
+&lt;p&gt;我也不怕公职人员，因为他们本来不就应该是服务人民大众的同志么？&lt;/p&gt;
+&lt;p&gt;我有很多同学，他们有的加入了地方的地矿单位，有的加入了黄金部队，有的去了边陲做教师，有的去当了人民警察。我曾经跟他们各种侃大山、练习题、逃课、吃烤串、出野外等等，他们是我所熟悉的公职人员的最主要的群体。&lt;/p&gt;
+&lt;p&gt;当然，在我的印象中，他们都比我忙碌很多，生活也更充实很多。其中似乎大部分都不怎么上网闲聊，更很少看到有在知乎上面进行各种讨论的。&lt;/p&gt;
+&lt;p&gt;所以，我想表达的是，我所认识的公职人员基本都是楷模一样的人物，而且有的人确实为了事业而牺牲了很多，甚至一切，比如我的室友大罗去年就牺牲在野外地质调查途中。&lt;/p&gt;
+&lt;p&gt;所以看到&lt;a href="https://www.zhihu.com/question/59191415/answer/165148856"&gt;网友分享的链接&lt;/a&gt;中那些用词所体现的沟通素质和政治素养，让我很难将其与我所认识的对应群体联系起来。&lt;/p&gt;
+&lt;p&gt;网上的信息真假莫辨，比如知乎上也发生过男人冒充女人，国人冒充外国人之类的事情，所以值得怀疑的就是某些散布具有挑唆甚至敌对情绪的人员的身份，未必可以轻信。&lt;/p&gt;
+&lt;p&gt;另外我不担心什么秋后算账，毕竟我只是抱怨一下教室的硬件而已，而且从客观上来说，我的着眼点还是广大青少年学生的身体健康，以及全民的健康防范意识。&lt;/p&gt;
+&lt;p&gt;所以所谓好XX默默看着我，我并不担心，身正有何惧怕的？&lt;/p&gt;
+&lt;p&gt;下面说说我真的害怕的。&lt;/p&gt;
+&lt;p&gt;我们学校有若干教工人员，貌美温婉，笑颜如花，对其他老师艳若桃李；而对学生颐指气使，苦大仇深，冷若冰霜。&lt;/p&gt;
+&lt;p&gt;我记得当初我肿瘤手术跟她请假遭到了拒绝。所以后来我只能错过一个经验丰富的大夫。当然，我想一个学生的生命健康可能对她来说不算什么。&lt;/p&gt;
+&lt;p&gt;后来学校组织党课学员看电影《湄公河行动》，而我此前跟我太太一起自费就看过这部电影了，作为一个坚定的共产主义者以及一个节俭朴素的人，我强烈要求把机会让给没有看过的同学，正好这时候支部书记也跟我商量说有一位同学想看，让我把票让出去。出于无产阶级的革命友谊，我自然是当仁不让地把机会让给支部书记的这位同学。因为我希望学校的经费不要浪费，也希望维护好同学们的阶级友谊。&lt;/p&gt;
+&lt;p&gt;但是后来那名教工人员对我提出了强烈的批评，然后我意识到当时同学风传的一些事情可能是真的，比如她可能真的是强制要求看过的同学也要重新看一次，她可能真的是不尊重党内民主，不尊重学校的经费，不尊重科研工作。&lt;/p&gt;
+&lt;p&gt;而我这种真正的信仰者，喜欢求真务实的人，可能会让这样的群体很不舒服。&lt;/p&gt;
+&lt;p&gt;后来可能是由于坦诚直白以及坚定的信仰，我在党课班上被评为优秀学员。&lt;/p&gt;
+&lt;p&gt;我爷爷当年在朝鲜战场上都没能入党，我居然有这样的机会，作为一个坚定的共产主义者，这让我感到非常荣幸。&lt;/p&gt;
+&lt;p&gt;然而，后来我得知自己早已经被拦在后续项目的名单之前。
+似乎我们这届有两个名额，而她空下了我的名额把我踢出。&lt;/p&gt;
+&lt;p&gt;我当初在医院做手术，所以委托了一个师弟去帮我代取材料。我最初以为是我这位师弟没有尽心帮我而导致了问题的发生，于是找到学工办公室去询问情况。&lt;/p&gt;
+&lt;p&gt;结果却发现并不是我所能控制的任何原因导致的，而是因为，她把我从名单中删掉了。&lt;/p&gt;
+&lt;p&gt;她的理由是：“我作为你的辅导员，不知道你到底是几年级，更不知道你是不是直博生。”&lt;/p&gt;
+&lt;p&gt;我当时看着那张精心雕琢了妆容的面孔，那是一张非常美艳动人的面孔，却是我所见过的最令我厌恶的面孔。&lt;/p&gt;
+&lt;p&gt;我最害怕的东西有两种，一种是各种虫豸，比如蜘蛛蚂蚁蚊子苍蝇蟑螂臭虫，另一种就是这样精致妆容又让人莫名感到厌恶的人。&lt;/p&gt;
+&lt;p&gt;我一直认为，基层中的类似的一小撮人，很可能是共产主义事业最紧迫的敌人，相比网上那些散布言论的身份不明人员，这些在底层用尽各种方法来降低广大人民群众的体验的人，才是最需要整风的。&lt;/p&gt;
+&lt;p&gt;我害怕的，是自己的信仰被一小撮这样的人掌握在手中，用各种各样美好的理由和说辞来实现一些其他的目的。&lt;/p&gt;
+&lt;p&gt;我害怕的，是如果战争来临，当我和同伴们一起慷慨赴国难的时候，这样妆容精致的美人永远只会安逸地迎接最终的胜利者，成为永远的赢家。&lt;/p&gt;</content><category term="Story"></category></entry><entry><title>笨蛋徐阶的故事</title><link href="/ben-dan-xu-jie-de-gu-shi.html" rel="alternate"></link><published>2017-04-22T00:00:00+08:00</published><updated>2017-04-22T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-04-22:/ben-dan-xu-jie-de-gu-shi.html</id><summary type="html">&lt;p&gt;本文内容是对&lt;a href="http://data.book.hexun.com/chapter-1026-2-22.shtml"&gt;当年明月所写的徐阶的觉醒(7)&lt;/a&gt;的拙劣模仿，侵删。&lt;/p&gt;
+&lt;p&gt;徐阶想不通，他忿忿不平了，他出离愤怒了，这个圈子怎么会是这个样子！
+　　它不是民间所传言的那个知识殿堂，更不是自由讨论交流分享的象牙塔，这是一个灰蒙蒙的小圈子，所有的人最为关心的，只是自己的名利得失。
+　　所谓批判性思维，所谓自由思考，在那些慵懒又精明的同侪心中，统统归结为两个字——幼稚。&lt;/p&gt;
+&lt;p&gt;绝望的情绪弥漫在徐阶的心中，他突然发现，自己三十多年所信奉的人类自由、公开透明的处事原则原来竟然被人认为是毫无用处，连烧钱水文章的几个人生赢家都比不了，兼济天下、探索真理？真是笑话！&lt;/p&gt;
+&lt;p&gt;徐阶终于遇到了他人生中的最大危机——信仰的危机，多年所学已然无用，世上还有什么东西可以相信？可以坚持！？&lt;/p&gt;
+&lt;p&gt;然而他最终没有放弃，因为他还有第二个选择——良知之学，知行合一。
+　　我的一位地学专业毕业的好朋友曾经这样对我说：学校里不应该开数学、计算机等课程了，因为学生学完就扔了甚至不学，没什么卵用。&lt;/p&gt;
+&lt;p&gt;这是一句至理名言。作为这个世界上最为抽象的智慧以及这种智慧的最广泛的应用手段，数学和计算机是无数前人一生思考和探索的结晶，他们吃过许多亏，受过许多苦，才最终将其浓缩为代码上的短短数行。&lt;/p&gt;
+&lt;p&gt;一个浮躁的青年同行是不会懂得这些的，他们太自大，太自卑 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;本文内容是对&lt;a href="http://data.book.hexun.com/chapter-1026-2-22.shtml"&gt;当年明月所写的徐阶的觉醒(7)&lt;/a&gt;的拙劣模仿，侵删。&lt;/p&gt;
+&lt;p&gt;徐阶想不通，他忿忿不平了，他出离愤怒了，这个圈子怎么会是这个样子！
+　　它不是民间所传言的那个知识殿堂，更不是自由讨论交流分享的象牙塔，这是一个灰蒙蒙的小圈子，所有的人最为关心的，只是自己的名利得失。
+　　所谓批判性思维，所谓自由思考，在那些慵懒又精明的同侪心中，统统归结为两个字——幼稚。&lt;/p&gt;
+&lt;p&gt;绝望的情绪弥漫在徐阶的心中，他突然发现，自己三十多年所信奉的人类自由、公开透明的处事原则原来竟然被人认为是毫无用处，连烧钱水文章的几个人生赢家都比不了，兼济天下、探索真理？真是笑话！&lt;/p&gt;
+&lt;p&gt;徐阶终于遇到了他人生中的最大危机——信仰的危机，多年所学已然无用，世上还有什么东西可以相信？可以坚持！？&lt;/p&gt;
+&lt;p&gt;然而他最终没有放弃，因为他还有第二个选择——良知之学，知行合一。
+　　我的一位地学专业毕业的好朋友曾经这样对我说：学校里不应该开数学、计算机等课程了，因为学生学完就扔了甚至不学，没什么卵用。&lt;/p&gt;
+&lt;p&gt;这是一句至理名言。作为这个世界上最为抽象的智慧以及这种智慧的最广泛的应用手段，数学和计算机是无数前人一生思考和探索的结晶，他们吃过许多亏，受过许多苦，才最终将其浓缩为代码上的短短数行。&lt;/p&gt;
+&lt;p&gt;一个浮躁的青年同行是不会懂得这些的，他们太自大，太自卑，他们或许能够在野外定名出玄武质砂岩，却不相信有人可能在显微镜下能真正给出那些石头的来龙去脉。所以他们虽然手握样品和数据，却只是照做的机器，满怀热情地临摹前人的各种手段，也不管是否理解就上了流水线。&lt;/p&gt;
+&lt;p&gt;徐阶大致就是这样一个人，他也不懂，虽然他了解地学的各种内容，却并不知道该怎样去做。至于他对十年前在校训上看到的四个字,则更是不得要领。&lt;/p&gt;
+&lt;p&gt;什么是求真务实？答：就是求真并且务实。评：废话。&lt;/p&gt;
+&lt;p&gt;徐阶反复思考着这四个字，却始终摸不着头脑，各种老前辈谈起这几个字的时候那郑重肃穆的表情依然浮现在他的眼前，他肯定这些老先生不是在拿大家开涮。&lt;/p&gt;
+&lt;p&gt;但问题是他怎么都看不出这四个字有什么作用，难道像念咒一样把它念出来，岩石类型就能自动显示出来，构造形迹就都自觉改变成高亮颜色，各种鬼知道是否被人为调整过的数据就能跳跃起来唱歌？所谓大地之学，所谓光明之学，在这个现实的世界中，又有何用处？&lt;/p&gt;
+&lt;p&gt;于茫茫黑暗之中，光明何处去寻？！&lt;/p&gt;
+&lt;p&gt;百思不得其解的徐阶沉默了，在同学们的无视旁观和不屑嘲讽中，他开始了漫长的思考。&lt;/p&gt;
+&lt;p&gt;在痛苦的思索中，他终于发现，自己可能犯了一个根本的错误，他坚守三十年的信念和原则是存在很大问题的。这套传统道德体系或许是对的，却并无用处。真正决定大多数人行为的，是另一样东西。
+　　只要找到这样东西，就能解决所有的难题。于是徐阶决定，否定自己所有的过往，把一切推倒重来，去找到那样东西。&lt;/p&gt;
+&lt;p&gt;探索没有用，批判精神没有用，交流讨论也没有用，这玩意除了让人昏昏欲睡外，并没有任何作用。&lt;/p&gt;
+&lt;p&gt;在剥除这个丑恶世界的所有伪装之后，徐阶终于找到了最后的答案——利益。
+　　胸怀天下、舍生取义的绝对道德确实是存在的，可惜的是这玩意太高级，付出的代价太高，从古自今，除了个别先进分子外，大多数同学可能都不愿消费。&lt;/p&gt;
+&lt;p&gt;利益，只有充足的利益，才有驱动人们的魔力，这就是这个世界的真实面目，极其的残酷，却异常的真实。&lt;/p&gt;
+&lt;p&gt;在这个残酷的现实面前，徐阶终于明白了求真务实的真意，无论有多么创新的思想和革新性的手段，要让人接受，还必须懂得两个字——妥协。只有妥协，只有不触碰任何同行的满足感、成就感，只有不能让他们面对大家都需要不断学习和提高的这一现实，也只有不去进行什么信息关联度的提升和方法手段定量化程度的提高，而是要互相捧，多强调各地的独特性和复杂性，多强调新方法新工具的不足以进行否定，多强调老模型的经典以进行推崇，百般努力去证明进步是困难的所以没有必要去尝试进步，才能适应这个死水一滩的圈子。&lt;/p&gt;
+&lt;p&gt;于是在醒悟的那一天，徐阶丢弃了他曾信奉几十年的准则和理念，面对那些昏沉欲睡浑浑噩噩的同行，作出了一个司空见惯的决定。&lt;/p&gt;
+&lt;p&gt;不久之后，徐阶的同学们惊奇地发现，几乎在一夜之间，那个曾经兴奋地高谈阔论成矿作用过程中信息的最大限度提取和不同维度的成矿相关信息的比对与整合的徐阶突然退隐江湖，老老实实地转了行。&lt;/p&gt;
+&lt;p&gt;在纳闷和兴奋的情绪交织中，他们向长者通报了这个好消息，然而出乎他们意料的是，长者并没有丝毫的惊讶和喜悦，似乎这早在他预料之中。毕竟他都在这个圈子经历了这么多年，又有什么问题是他没看出来的呢？只是他要么没什么办法来解决，要么是对自己能折腾出来的波澜没有信心罢了。&lt;/p&gt;
+&lt;p&gt;毕竟你们这些年轻人啊，naive，simple，你们现在想到的问题，长者当年早都想到过的。他五十年没能解决，你们三十年又能怎样？指出问题对于解决问题意义并不大，因为老一辈人都知道这些问题的存在，他们并不比年轻的这一代笨，而且从考学的难度和筛选比例来看，老一辈人远远比现在年轻的学生们更称得上是精英。他们都面对这些问题没有奈何，只是结成了各自松散的帮派来维持生计。你们这群年轻人，看到了几个小纰漏就以为发现了大问题，就觉得愤世嫉俗要去改新革命，简直是笑话。你们看到的想到的谈论的那些个什么科学问题，那算什么？真正决定一个个项目去留以及一群群从业人员生计的，还是人际关系。而徐阶呢？不会喝酒拼酒，在酒席上动不动就端着盘子开吃；不会看人眉眼高低，自己想说什么说什么；不会顺情说好话，看着别人拍马都要吐；不会堆砌数据水文章，非要写起码能让自己信服并且不觉得丢人的文字。这简直就是一个彻头彻尾的笨蛋。&lt;/p&gt;</content><category term="Story"></category><category term="Discuss"></category><category term="Communicate"></category><category term="University"></category><category term="Scholar"></category></entry><entry><title>这些年见过的丑恶</title><link href="/zhe-xie-nian-jian-guo-de-chou-e.html" rel="alternate"></link><published>2017-04-22T00:00:00+08:00</published><updated>2017-04-22T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-04-22:/zhe-xie-nian-jian-guo-de-chou-e.html</id><summary type="html">&lt;p&gt;我现在三十岁，见识的世界十分有限。然而在这相当有限的见识中，却也遇到过很多五彩缤纷的事物。&lt;/p&gt;
+&lt;p&gt;比如丑恶。&lt;/p&gt;
+&lt;p&gt;幼儿园时期常见到的一种丑恶，是比丑心理。
+具体情况例如：小朋友 A 在墙脚嘘嘘被老师批评，然后 A 表示很不服气地说：“小朋友 B 还在门口拉粑粑呢！你为什么只管我嘘嘘呢？！”
+后来我发现这可能是一种比较常见的现象，为了方便抨击，我就胡乱称之为“比丑心理”。这种情景经常能够看得见，每当出现某些敏感的或者不敏感的丑闻的时候，总会有一些智力层次和业务水平都很有提升空间的网络舆论相关行业的从业者，会说：“XXX还不如这里呢！”“XXX国情景更差呢！”就如同那个在墙脚嘘嘘的小朋友 A 一样，他们有这样一种逻辑，就是似乎只要找到比自己更加丑恶的存在，那么就可以为自己的丑恶来辩白，证明自己的丑恶是合理的可以谅解的。&lt;/p&gt;
+&lt;p&gt;小学时期常见到的一种丑恶，是故意作恶。
+具体情况例如：小朋友 A 长大了，成为小同学 A。 某天 A 看到同学 B 的一双新鞋子很干净，就要上去踩一脚，然后辩解称 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;我现在三十岁，见识的世界十分有限。然而在这相当有限的见识中，却也遇到过很多五彩缤纷的事物。&lt;/p&gt;
+&lt;p&gt;比如丑恶。&lt;/p&gt;
+&lt;p&gt;幼儿园时期常见到的一种丑恶，是比丑心理。
+具体情况例如：小朋友 A 在墙脚嘘嘘被老师批评，然后 A 表示很不服气地说：“小朋友 B 还在门口拉粑粑呢！你为什么只管我嘘嘘呢？！”
+后来我发现这可能是一种比较常见的现象，为了方便抨击，我就胡乱称之为“比丑心理”。这种情景经常能够看得见，每当出现某些敏感的或者不敏感的丑闻的时候，总会有一些智力层次和业务水平都很有提升空间的网络舆论相关行业的从业者，会说：“XXX还不如这里呢！”“XXX国情景更差呢！”就如同那个在墙脚嘘嘘的小朋友 A 一样，他们有这样一种逻辑，就是似乎只要找到比自己更加丑恶的存在，那么就可以为自己的丑恶来辩白，证明自己的丑恶是合理的可以谅解的。&lt;/p&gt;
+&lt;p&gt;小学时期常见到的一种丑恶，是故意作恶。
+具体情况例如：小朋友 A 长大了，成为小同学 A。 某天 A 看到同学 B 的一双新鞋子很干净，就要上去踩一脚，然后辩解称：“新鞋子总要踩一踩才好穿，这是一种优良传统。”
+这种现象我后来遇到的不多。不过听闻在中原某些文化昌盛源远流长的文化大省中存在闹伴娘闹洞房等很神奇的民俗，甚至被报道出存在各种按照社会普遍道德难以认同的所谓“优良传统”。我发现那些为不文明行为辩解的人就和小朋友 A 一样，故意在作恶，而且还用各种借口来试图建立自己作恶的合理性，同时还身体力行地保卫这种维护作恶的所谓“传统”，衍生更多的恶。&lt;/p&gt;
+&lt;p&gt;中学时期常见到的一种丑恶，是极端自私。
+具体情况例如：小同学 A 又长大了，进入了中学成了同学 A。某天冬天天气很冷，屋里暖气比较热，A 穿得比较多，觉得热了，他并不脱下自己的外套，而是不顾其他同学的感受，打开窗户放进冷气，然后辩解称：“我感到特别热，所以就开窗户。你们觉得冷，为什么不多穿衣服呢？”
+这种现象后来遇到的特别多。走在学校里经常能看到各种人模狗样的龟孙在他人身边吸烟，不听任何阻拦甚至气焰嚣张。这类人往往是各种丑恶现象的集中体现，他们身上还有各种多种多样的丑恶亟待发掘和保护。&lt;/p&gt;
+&lt;p&gt;大学时期常见到的一种丑恶，是打消斗志。
+具体情况例如：那个同学 A 进入了大学，也成个大学生。每天他面对着其他同学做各种事，都要在各个阶段各个角度来去打消别人的斗志。比如经常说：“你打篮球有什么用，又不能去NBA。”“你背单词有什么用，你还能学得有多好？”这种人往往是自己不太喜欢努力，比如懒惰，比如自卑等等，但是同时又看不得别人努力，所以一定要长期在各个方面传播这种负面情绪，专门去打消他人的积极性。一旦成功了，他可能会得到莫大的成就感和满足感，因为终于又有一个人没比自己强到哪去；如果没成功，而对方努力之后并没有太大的成功，他就会沾沾自喜道：“你看你不听我的，听我的早点放弃好了吧？”；而如果对方没理这孙子而是继续努力有所作为，他就可能避而不谈，或者说一些对方的缺点短处，以此来表达：“当初我告诉你要注重其他方面的发展而你不听，现在你就发展得不够完整吖！”
+这种是最大的丑恶。因为一般情况大家都甚至很难发现其实这是一种丑恶，包括作恶者本身也根本不会意识到自己的这种丑恶。
+这种现象我经常能遇到，比如我想用计算机编程语言来实现一个地质学上某些数据的辅助评估模块，就从零开始学习和翻译编程语言教程，继而写出来一些基础的计算和分类的小公举，然后又进而学习和翻译一些机器学习相关的基础知识和算法。而我身边的一些同学中，就有人提出这种丑恶的问题：“别人都做过了，你为什么还要做？”“你弄着东西有什么用？”&lt;/p&gt;
+&lt;p&gt;我本来是想详细跟着解释一下我这个整套的设计思路和想法以及行动路线和现在的进展步骤的。后来我才想到，面对丑恶，应该怼回去怼死他才行。&lt;/p&gt;
+&lt;p&gt;为什么别人做过了，就不能再去尝试呢？别人都已经学会走路了，那么处于趴着状态还不会走路的人就不应该再去学习走路继而去奔跑了么？别人都已经拿到过奥运冠军了，为什么还是有人要继续训练和尝试挑战世界纪录呢？别人都能有自己的贡献和对他人提供的帮助了，为什么我们还要去做这些事情而不是躺在那里做伸手党呢？别人都已经在活着了，你又为什么还要活下去？&lt;/p&gt;
+&lt;p&gt;我有一万句MMP，但是这种作恶的人不值得对他说任何话。&lt;/p&gt;
+&lt;p&gt;所以我会选择像对待所有狗人一样，遇到这样的人，就对他说：嗯，你是对的。&lt;/p&gt;</content><category term="Story"></category><category term="Discuss"></category><category term="Communicate"></category><category term="University"></category><category term="Scholar"></category></entry><entry><title>Why I translate English books into Chinese</title><link href="/why-i-translate-english-books-into-chinese.html" rel="alternate"></link><published>2017-04-21T00:00:00+08:00</published><updated>2017-04-21T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-04-21:/why-i-translate-english-books-into-chinese.html</id><summary type="html">&lt;h1&gt;为何我要翻译书籍和学习资料呢？&lt;/h1&gt;
+&lt;p&gt;我曾经翻译过一些&lt;a href="https://zhuanlan.zhihu.com/p/24644499"&gt;东西&lt;/a&gt;。
+虽然我的翻译水平很差，技术水平也很差，但一直还都保持着这个习惯。
+偶尔总是陆陆续续地翻译一些自己觉得很喜欢的学习资料。
+比如&lt;a href="https://zhuanlan.zhihu.com/p/26424530"&gt;我在翻译中文版的斯坦福大学的CS229的讲义&lt;/a&gt;以及&lt;a href="https://zhuanlan.zhihu.com/p/26397099"&gt;杜克大学用Python讲计算机统计学的STA663课程的中文翻译&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;然后我经常遇到一些朋友提出类似这样的问题：&lt;/p&gt;
+&lt;p&gt;“为什么要翻译？”
+“英文版不好么？”
+“你的英文水平，直接看原版不够么？”&lt;/p&gt;
+&lt;p&gt;其实这类问题就不好回答了。
+怎么说呢？
+如果是前些年，看原版应该还费点力气。目前单就阅读和简单的理解来说，看原版基本是没有任何压力的。&lt;/p&gt;
+&lt;p&gt;在刚刚开始翻译 &lt;a href="http://lgithub.com/cycleuser/ThinkPython-CN"&gt;ThinkPython&lt;/a&gt; 的时候，一些术语对我来说还比较难，甚至是一些编程方面的基础内容，我都还很生疏。
+然后后来翻译 &lt;a href="http://github.com/cycleuser/Kivy-CN"&gt;Kivy 中文开发指南&lt;/a&gt;的时候，由于有之前的经历，一些基础的编程方面的术语我都大概了解了，所以翻译起来也不那么吃力了，不过有的内容还是初次接触，所以还是有各种地方翻译得很不理想。&lt;/p&gt;
+&lt;p&gt;所以，翻译的这个过程首先是一个学习的过程，某种程度类似费曼教学法，就好比以教促学，要表达清楚的前提是要理解透彻。当然，这两方面我还都没做到，但我依然在努力。&lt;/p&gt;
+&lt;p&gt;上面说的这些是现实原因，实际上还有更深层次的一种原因。&lt;/p&gt;
+&lt;p&gt;那就是我的信仰。&lt;/p&gt;
+&lt;p&gt;往高大上了说，我去做这类事情是因为我的共产主义信仰 …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;为何我要翻译书籍和学习资料呢？&lt;/h1&gt;
+&lt;p&gt;我曾经翻译过一些&lt;a href="https://zhuanlan.zhihu.com/p/24644499"&gt;东西&lt;/a&gt;。
+虽然我的翻译水平很差，技术水平也很差，但一直还都保持着这个习惯。
+偶尔总是陆陆续续地翻译一些自己觉得很喜欢的学习资料。
+比如&lt;a href="https://zhuanlan.zhihu.com/p/26424530"&gt;我在翻译中文版的斯坦福大学的CS229的讲义&lt;/a&gt;以及&lt;a href="https://zhuanlan.zhihu.com/p/26397099"&gt;杜克大学用Python讲计算机统计学的STA663课程的中文翻译&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;然后我经常遇到一些朋友提出类似这样的问题：&lt;/p&gt;
+&lt;p&gt;“为什么要翻译？”
+“英文版不好么？”
+“你的英文水平，直接看原版不够么？”&lt;/p&gt;
+&lt;p&gt;其实这类问题就不好回答了。
+怎么说呢？
+如果是前些年，看原版应该还费点力气。目前单就阅读和简单的理解来说，看原版基本是没有任何压力的。&lt;/p&gt;
+&lt;p&gt;在刚刚开始翻译 &lt;a href="http://lgithub.com/cycleuser/ThinkPython-CN"&gt;ThinkPython&lt;/a&gt; 的时候，一些术语对我来说还比较难，甚至是一些编程方面的基础内容，我都还很生疏。
+然后后来翻译 &lt;a href="http://github.com/cycleuser/Kivy-CN"&gt;Kivy 中文开发指南&lt;/a&gt;的时候，由于有之前的经历，一些基础的编程方面的术语我都大概了解了，所以翻译起来也不那么吃力了，不过有的内容还是初次接触，所以还是有各种地方翻译得很不理想。&lt;/p&gt;
+&lt;p&gt;所以，翻译的这个过程首先是一个学习的过程，某种程度类似费曼教学法，就好比以教促学，要表达清楚的前提是要理解透彻。当然，这两方面我还都没做到，但我依然在努力。&lt;/p&gt;
+&lt;p&gt;上面说的这些是现实原因，实际上还有更深层次的一种原因。&lt;/p&gt;
+&lt;p&gt;那就是我的信仰。&lt;/p&gt;
+&lt;p&gt;往高大上了说，我去做这类事情是因为我的共产主义信仰，翻译和分享知识，无偿分享自己的劳动成果，这算是无私奉献，是一个共产主义者的本分。&lt;/p&gt;
+&lt;p&gt;往小了说，我现在这些做法的另一方面原因是由于童年的阴影，类似某种心理创伤的后遗症之类的。&lt;/p&gt;
+&lt;p&gt;当年我十几岁的时候，别说英文书籍和资料了，连中文书籍都买不到，后来去了镇子和县城读书，在书店看到很多中文的书也买不起。我就去书店里面挑自己喜欢的书来抄，又被管理人员赶了出去。&lt;/p&gt;
+&lt;p&gt;一直到我二十岁的时候，来了北京，但是英语还很次，所以也看不了英文书，并且也不知道该看哪些，一头雾水。所以当时也还只能看中文书，而学校图书馆里面的又都是泛黄的旧书满都是过时的各种“从入门到放弃”以及“叹号墙”之类的。&lt;/p&gt;
+&lt;p&gt;所以就学英语呗，慢慢学。终于我三十岁了，然而英语也还是挺差的，不过好歹能看CS方面的一般书籍了，而且逐渐地还越发流畅无压力了。&lt;/p&gt;
+&lt;p&gt;这时候，我就会想到自己当年的无奈，无助，无人问津。&lt;/p&gt;
+&lt;p&gt;所以我如今在阅读的同时，会尽量抽时间来翻译，希望能帮助到当前这个时代中跟当年的我类似需要一点点帮助的人。
+有时也幻想，如果当年能有人稍微帮一帮我该有多好，可惜那时候我没有互联网，没有计算机，没有如今的各种。&lt;/p&gt;
+&lt;p&gt;1996年，因为价格太贵，我退回了学校里订购的 12 元的新华字典，让我母亲帮我从乡里面低价买来一本盗版的现代汉语词典。在接下来的十年里，这本现代汉语词典是我的启蒙读物，然而那时候我没有相机等拍照设备，所以没有照片。&lt;/p&gt;
+&lt;p&gt;2006年，我在县城里面的新华书店查找关于斯宾塞的书籍，并且抄写一些鲁迅作品中的片段，然后被工作人员赶了出去。后来去所就读中学的老师办公室用他的电脑，发现了搜索引擎和网络论坛这些新鲜的事物。&lt;/p&gt;
+&lt;p&gt;2016年8月14日，我使用Kindle 多看 1000 天整的日子，我一直保留着下面的这张图片作为纪念。我用它看过了上千的书籍和文献，让我有了自己前所未有的收获，激发了我各种各样的思路和想法，指导了我做各种各样的事情。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="img/Reading.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;所以为什么我要翻译东西然后无偿分享给所有人呢？
+那是一个二十年后的我希望能跨越时空去帮助二十年前的我。&lt;/p&gt;
+&lt;p&gt;这就和我在本科时代就经常在路上帮助迷路之人或者给同学辅导课程一样，只是我的一种选择，也是我的一种习惯。&lt;/p&gt;
+&lt;p&gt;我想要这样做，仅此而已。&lt;/p&gt;</content><category term="Story"></category><category term="Discuss"></category><category term="Communicate"></category><category term="Programming"></category><category term="Python"></category></entry><entry><title>My Old Man</title><link href="/my-old-man.html" rel="alternate"></link><published>2017-04-05T00:00:00+08:00</published><updated>2017-04-05T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-04-05:/my-old-man.html</id><summary type="html">&lt;h1&gt;最近在忙的一些事&lt;/h1&gt;
+&lt;h2&gt;从一首老歌开始&lt;/h2&gt;
+&lt;table&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=351385&amp;auto=0&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;a href="http://music.163.com/#/song?id=351385"&gt;这首歌&lt;/a&gt;是我父亲跟我现在一样大年纪的时候听的，他应该是个老摇滚迷，当年我记得他还听唐朝乐队。我从小就最佩服我父亲，一来是他个子比我高，二来是他能用易拉罐做电视天线，这让我觉得很神奇。&lt;/p&gt;
+&lt;p&gt;我不具备我父亲的智力、魄力、决断力，各方面来说，我都是弱化版本，我唯一胜过他的是体重。&lt;/p&gt;
+&lt;p&gt;我最钦佩他的学习和适应的能力，从青年时代开始，他从事过很多不同的工作，尝试过不同的行业，在行业下行时刻都能毅然决断，尝试新事物，探索新领域，在各个领域中都非常优秀。&lt;/p&gt;
+&lt;p&gt;这几年，我自己也遇到了行业下行的情境，内心充满忧愁，对学科的前景感到非常悲观。这时我就会想起，父亲在跟我这样大的时候，他遇到的情况要更加艰难。如果换做是我面对当年他的处境，真不知道自己能不能扛得住。然而每次挑战都被他应对了下来，并且家里从居无定所四处漂泊到逐渐安定衣食无忧，日子也越来越改善了。一直以来，他都是我的榜样，让我知道应该当断则断，眼光放长远，未来有希望。&lt;/p&gt;
+&lt;h2&gt;我当前的状况&lt;/h2&gt;
+&lt;p&gt;最近几年，我的身体素质逐渐变差，已经基本无法胜任野外地质工作了。所以我开始捡起来早些年比较关注的计算机应用方面的一些技能，重新开始学习编程，翻译了一些&lt;a href="http://blog.cycleuser.org/my-translations.html"&gt;书籍资料&lt;/a&gt;，又开始组装一些工作站 …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;最近在忙的一些事&lt;/h1&gt;
+&lt;h2&gt;从一首老歌开始&lt;/h2&gt;
+&lt;table&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=351385&amp;auto=0&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;a href="http://music.163.com/#/song?id=351385"&gt;这首歌&lt;/a&gt;是我父亲跟我现在一样大年纪的时候听的，他应该是个老摇滚迷，当年我记得他还听唐朝乐队。我从小就最佩服我父亲，一来是他个子比我高，二来是他能用易拉罐做电视天线，这让我觉得很神奇。&lt;/p&gt;
+&lt;p&gt;我不具备我父亲的智力、魄力、决断力，各方面来说，我都是弱化版本，我唯一胜过他的是体重。&lt;/p&gt;
+&lt;p&gt;我最钦佩他的学习和适应的能力，从青年时代开始，他从事过很多不同的工作，尝试过不同的行业，在行业下行时刻都能毅然决断，尝试新事物，探索新领域，在各个领域中都非常优秀。&lt;/p&gt;
+&lt;p&gt;这几年，我自己也遇到了行业下行的情境，内心充满忧愁，对学科的前景感到非常悲观。这时我就会想起，父亲在跟我这样大的时候，他遇到的情况要更加艰难。如果换做是我面对当年他的处境，真不知道自己能不能扛得住。然而每次挑战都被他应对了下来，并且家里从居无定所四处漂泊到逐渐安定衣食无忧，日子也越来越改善了。一直以来，他都是我的榜样，让我知道应该当断则断，眼光放长远，未来有希望。&lt;/p&gt;
+&lt;h2&gt;我当前的状况&lt;/h2&gt;
+&lt;p&gt;最近几年，我的身体素质逐渐变差，已经基本无法胜任野外地质工作了。所以我开始捡起来早些年比较关注的计算机应用方面的一些技能，重新开始学习编程，翻译了一些&lt;a href="http://blog.cycleuser.org/my-translations.html"&gt;书籍资料&lt;/a&gt;，又开始组装一些工作站，还开始尝试了一些并行计算方面的内容，比如 &lt;a href="http://blog.cycleuser.org/macos-pycuda-python-pyenv.html"&gt;CUDA&lt;/a&gt; 以及 &lt;a href="http://blog.cycleuser.org/pycuda-tutorial-zhong-wen-ban.html"&gt;PyCUDA&lt;/a&gt; 等等。&lt;/p&gt;
+&lt;p&gt;这几天我对&lt;a href="https://github.com/chinageology/GeoPython"&gt; GeoPython&lt;/a&gt; 逐渐进行了改进，对一些类进行了重构，增加了任意组合自定义 Harker 图解、批量锆石氧逸度计算、批量 CIPW 计算这些功能，还有更多功能处于筹划之中。&lt;/p&gt;
+&lt;p&gt;总的来说，我现在专注的内容有两方面：
+    ① 软件开发方面：以 Python 为基础，简单的跨平台开发、科学计算、数学应用等等；
+    ② 硬件搭建方面：以 CUDA 和 PHI 为主的小型并行计算平台，硬件的组建，系统的安装维护，软件体系的搭配组合。&lt;/p&gt;
+&lt;p&gt;这两方面本身我都是外行，所以我并没有打算转行去当程序员或者运维工程师等，那种想法也不太现实，因为隔行如隔山，我的水平太低，要追赶很远才可以，效率低，还浪费了我之前在地质学领域这十年的经历。&lt;/p&gt;
+&lt;p&gt;所以我的想法是，把这两方面的技能发挥到地质学相关的工作中去，在除了野外工作之外的其他环节，发挥自己的一点微薄之力。&lt;/p&gt;
+&lt;p&gt;很多人都在说，国内地学领域的生产环境技术差、管理差，学术圈子的氛围暮气重、压力大，我曾经也发过类似的抱怨。然后后来我意识到与其指手画脚，不如专心做点事情。所以我先是写了那个用移动设备测试存储产状的工具，后来又开始做 &lt;a href="https://github.com/chinageology/GeoPython"&gt;GeoPython&lt;/a&gt; 这个项目，目的就是能够改善定量程度低以及各种手绘作图的情景。&lt;/p&gt;
+&lt;p&gt;还有很多其他的想法，比如试图把一些繁琐而又以体力劳动为主的基础数据处理工作交给计算机，进而用计算机来进行基础的分析，再训练计算机进行若干稍进阶的分析识别，等等。&lt;/p&gt;
+&lt;p&gt;从某种程度上来说，其实这也算是一种转换，只是并非转换了行业，而是在行内转了方向。&lt;/p&gt;
+&lt;p&gt;只是不知道自己的选择，是吃螃蟹，吃狼桃，还是吃瘪~~&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="/img/First.jpg"&gt;&lt;/p&gt;</content><category term="Story"></category><category term="Memory"></category><category term="Story"></category></entry><entry><title>组装显微镜的那些事</title><link href="/zu-zhuang-xian-wei-jing-de-na-xie-shi.html" rel="alternate"></link><published>2017-02-16T11:20:00+08:00</published><updated>2017-02-16T11:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-02-16:/zu-zhuang-xian-wei-jing-de-na-xie-shi.html</id><summary type="html">&lt;h2&gt;此前的故事&lt;/h2&gt;
+&lt;p&gt;在之前的一篇&lt;a href="http://blog.cycleuser.org/my-first-microscope.html"&gt;很闲扯口吻的叙事&lt;/a&gt;中，我提到了自己组装显微镜的初衷，也就是满足自己拆卸部件带来的那种病态的扭曲的满足感。当然了，我可以更正面地说成是一种好奇心驱使下的探索精神。&lt;/p&gt;
+&lt;p&gt;然后知乎上有一位 ID 为&lt;a href="https://www.zhihu.com/people/peng-yu-69-10"&gt;彭宇&lt;/a&gt;的网友在&lt;a href="https://zhuanlan.zhihu.com/p/25226074"&gt;我的专栏转载&lt;/a&gt;中表示对显微镜很感兴趣，希望我能介绍一下显微镜摄影。&lt;/p&gt;
+&lt;p&gt;根据我的理解，这个问题应该分成两个部分：
+    1. 显微镜的组装；
+    2. 用显微镜来进行摄影。&lt;/p&gt;
+&lt;h2&gt;事先要做的功课&lt;/h2&gt;
+&lt;p&gt;如果有充沛的资金支持，我还是更倾向于建议购买奥林巴斯 BX51 或者 BX53 这类已经广泛在国内高校和科研单位安装使用的显微镜。原因主要是配套服务和配件替换都比较省心，出了问题都能有很可靠的解决方案，只要花钱了，就都能搞定。&lt;/p&gt;
+&lt;p&gt;然而大部分和我一样自己折腾组装显微镜的朋友，显然是不太愿意或者不太能够承担那么大的开销的。我们的需求往往简单一致，都是&lt;code&gt;能看就行&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;我们就讨论最简单的需求：能看。那么这里就要引入一个最重要的问题：你要观察的对象是什么？&lt;/p&gt;
+&lt;p&gt;按照用途粗略划分，显微镜可以分为体视显微镜、生物显微镜、偏光显微镜等等。&lt;/p&gt;
+&lt;h4&gt;体视显微镜&lt;/h4&gt;
+&lt;p&gt;似乎更多用于精密仪器和电子设备维修等等，对此我很少接触，也不了解 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;此前的故事&lt;/h2&gt;
+&lt;p&gt;在之前的一篇&lt;a href="http://blog.cycleuser.org/my-first-microscope.html"&gt;很闲扯口吻的叙事&lt;/a&gt;中，我提到了自己组装显微镜的初衷，也就是满足自己拆卸部件带来的那种病态的扭曲的满足感。当然了，我可以更正面地说成是一种好奇心驱使下的探索精神。&lt;/p&gt;
+&lt;p&gt;然后知乎上有一位 ID 为&lt;a href="https://www.zhihu.com/people/peng-yu-69-10"&gt;彭宇&lt;/a&gt;的网友在&lt;a href="https://zhuanlan.zhihu.com/p/25226074"&gt;我的专栏转载&lt;/a&gt;中表示对显微镜很感兴趣，希望我能介绍一下显微镜摄影。&lt;/p&gt;
+&lt;p&gt;根据我的理解，这个问题应该分成两个部分：
+    1. 显微镜的组装；
+    2. 用显微镜来进行摄影。&lt;/p&gt;
+&lt;h2&gt;事先要做的功课&lt;/h2&gt;
+&lt;p&gt;如果有充沛的资金支持，我还是更倾向于建议购买奥林巴斯 BX51 或者 BX53 这类已经广泛在国内高校和科研单位安装使用的显微镜。原因主要是配套服务和配件替换都比较省心，出了问题都能有很可靠的解决方案，只要花钱了，就都能搞定。&lt;/p&gt;
+&lt;p&gt;然而大部分和我一样自己折腾组装显微镜的朋友，显然是不太愿意或者不太能够承担那么大的开销的。我们的需求往往简单一致，都是&lt;code&gt;能看就行&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;我们就讨论最简单的需求：能看。那么这里就要引入一个最重要的问题：你要观察的对象是什么？&lt;/p&gt;
+&lt;p&gt;按照用途粗略划分，显微镜可以分为体视显微镜、生物显微镜、偏光显微镜等等。&lt;/p&gt;
+&lt;h4&gt;体视显微镜&lt;/h4&gt;
+&lt;p&gt;似乎更多用于精密仪器和电子设备维修等等，对此我很少接触，也不了解，就不多说了。&lt;/p&gt;
+&lt;h4&gt;生物显微镜&lt;/h4&gt;
+&lt;p&gt;顾名思义，主要用来观测各种生物切片标本，常规用10倍目镜，10、20、40 等倍数的平场物镜，100 倍香柏油物镜等等。这种显微镜的入门成本最低，只需要结实耐用的架子加上便宜够用的平场消色差目镜以及说得过去的平场物镜就行了，可以参考知乎网友&lt;a href="https://www.zhihu.com/people/urea-young"&gt;urea young&lt;/a&gt;在&lt;a href="https://www.zhihu.com/question/36690424/answer/68814621"&gt;这篇回答中的讲解&lt;/a&gt;。这位网友是一名化学专业的博士，在显微镜、望远镜和DIY等话题都具有很深的造诣，大家可以多多学习。&lt;/p&gt;
+&lt;h4&gt;偏光显微镜&lt;/h4&gt;
+&lt;p&gt;这个就是我把玩十来年的老伙伴了，可以分透射偏光显微镜和反射偏光显微镜。前者用于观察透明-半透明矿物薄片，后者用于观察金属矿物抛光表面，以及部分透明-半透明矿物的内反射色。&lt;/p&gt;
+&lt;h4&gt;偏光镜和生物镜&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;偏光显微镜，无论是透射光还是反射光，都具有内置的起偏器，具体为偏光方向垂直的两组偏光片，用于观察矿物的双折射现象。&lt;/li&gt;
+&lt;li&gt;偏光显微镜通常有 1.25、4、10、20、40、50 倍的物镜，其中低倍数物镜的用途很广泛，比如观察岩石样品中矿物颗粒之间的接触关系等，这些低倍物镜在生物显微镜中很少用到；此外偏光显微镜的镜片光学素质要求比较高，尤其是在使用锥光对晶体参数进行测量等用途。&lt;/li&gt;
+&lt;li&gt;偏光显微镜对光源素质要求极高，通常都要求具有连续的光谱，需要高显色性，因此往往使用卤素灯做光源。虽然现在有纳晶之类的所谓&lt;code&gt;高显色LED灯珠&lt;/code&gt;，但我去过的各个高校实验室还是普遍以卤素灯为主。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;显微镜的组装&lt;/h2&gt;
+&lt;h4&gt;寻觅镜架&lt;/h4&gt;
+&lt;p&gt;首先是利用各种同学关系找熟人，得知有成都理工淘汰的显微镜流出，几经周折得知是江南 XPT-6 透射光偏光显微镜。这款镜子在淘宝上也能偶尔搜到一些二手藏品，通常也都是武汉地大或者成都理工之类的老牌地质类高校淘汰的设备流出到了个人手中，成色不同，价格在 500 - 1200 之间波动。比较推荐购买这种国产的大路货，各种配件坏了多少还有机会淘到同款来替换，而且做工方面也是对得住这个价格。&lt;/p&gt;
+&lt;p&gt;淘宝上也有一些捷克或者前苏联的偏光显微镜，但是这些镜子的接口和通用配件未必能够完美兼容，所以维护和改造都是很痛苦的，虽然价格便宜也就几百元，但是不太推荐购买。&lt;/p&gt;
+&lt;p&gt;然而我这次买到的只花了大概不到 400 元，因为买到的是空架子，目镜报废，物镜只有 10 倍和 40 倍的，好在镜架的调焦螺旋等都还能够正常工作。&lt;/p&gt;
+&lt;h4&gt;搭配镜头&lt;/h4&gt;
+&lt;p&gt;接下来就是要四处买来一些零件了。首先是淘来平场消色差的 10 倍目镜，花了不到 200 ，买到了一个极品成色的来自奥林巴斯的同口径目镜；又花了 400 买来了两只成色尚可接受的 4 倍和 20 倍物镜。这枚 4 倍物镜非常难寻觅，一般用户觉得没什么用，就都不见得保管得多完好，所以为了成色又充值了一番信仰。但实际上更难找到的是可用的 1.25 倍镜，我一直都没能找到成色能够接受的又能完美使用的。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://7xnq2o.com1.z0.glb.clouddn.com/MicroScope%E9%95%9C%E5%A4%B4.jpeg?imageView/2/w/420/q/90"&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;【上图】刚收到的几个物镜，其中物镜两侧的小杆是用来调整物镜中心与载物台中心重合的旋杆&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;光源选择&lt;/h4&gt;
+&lt;p&gt;镜架和目镜、物镜都齐全了之后，就是要解决光源这个大问题了。上文说了，必须要用显色性好的光谱连续的光源，所以推荐使用欧司朗或者飞利浦的 12V 卤素灯珠，一般功率在 20W 左右，色温偏暖可以通过增加一枚蓝色玻璃来解决。我懒得单独给光源提供一个电压转换设备，所以平时都直接在中午的时候使用日光加聚光镜来观测，但这样随着太阳变化，亮度很难控制，所以在看边界形态的时候，我就直接用充电宝带一枚小米 led 来凑活了。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://7xnq2o.com1.z0.glb.clouddn.com/MicroScope%E9%95%9C%E5%AD%90.jpeg?imageView/2/w/420/q/90"&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;【上图】绝对不要跟我学着这样使用光源来观察吸收性和干涉色&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;各种调教&lt;/h4&gt;
+&lt;p&gt;目镜和物镜到手了，对镜架和目镜物镜整体用高压惰性气体吹洗除尘。之后安装上去，光源也有了，但是还不能马上就看。&lt;/p&gt;
+&lt;p&gt;第一步必须要调整偏光，校正上下偏光垂直，因为年久失修，显微镜的偏光标尺与实际的上下偏光角度可能会有偏差，所以这一步是很多新手都容易忽视的。
+接下来就是校正锥光是否正常工作，对准勃氏镜与镜筒的中心位置。
+最后一步是放上样品薄片，旋转物镜上的两根对中调节旋杆，保证光路中央与载物台圆心重合。&lt;/p&gt;
+&lt;h2&gt;拍照的那些事&lt;/h2&gt;
+&lt;p&gt;照片拍摄有三种方法，最常用的莫过于使用电子目镜，这个就不说了，简单粗暴但是挺贵的，如果你的手机拍照质量很棒，或者你已经有一台传感器尺寸大于宾得 Q 系统的可换镜头相机，就不推荐你买电子目镜了。&lt;/p&gt;
+&lt;p&gt;使用手机拍照，需要一种&lt;code&gt;显微镜接手机手机支架&lt;/code&gt;。这种支架用一个圆圈铁箍套在目镜位置，然后调节手机摄像头对准目镜，再使用手机通过目镜来进行拍摄。好处是简单便宜，缺点是对焦操作麻烦而且拍摄质量堪忧。&lt;/p&gt;
+&lt;p&gt;另一种是使用&lt;code&gt;显微镜转接单反卡口的转接环&lt;/code&gt;，这需要根据显微镜的目镜筒口径以及你的相机卡口来进行购买。这种成像质量要比电子目镜好很多，而且可以使用RAW文件，对曝光可以后期调节，对细节的呈现非常完美；缺点是缺乏一些软件的支持，添加比例尺等等有点麻烦。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://img.alicdn.com/imgextra/i1/TB1PUPhHpXXXXcpXFXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;【上图】马云家某商户的&lt;code&gt;显微镜接手机手机支架&lt;/code&gt;，侵删&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img alt="" src="https://img.alicdn.com/imgextra/i3/1759739125/TB2rG0ucFXXXXXrXXXXXXXXXXXX_!!1759739125.jpg_430x430q90.jpg"&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;【上图】马云家某商户的&lt;code&gt;显微镜转接单反卡口的转接环&lt;/code&gt;，侵删&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在选择了上面的设备之后，剩下的使用技巧就都要在实践中积累了。比如用单向解理的云母校正偏光夹角，以及用细小粒状矿物逐步调整对中，很多经验都是摸索出来的，也是难以一两句话讲述明白的。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://7xnq2o.com1.z0.glb.clouddn.com/MicroScope10*10.jpeg?imageView/2/w/420/q/90"&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;【上图】我拍摄的石榴石环带&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;平心而论，我的摄影技术是很差很差的，这可以参考我拍摄的石榴石。显微镜下的摄影，我真没什么可说，因为自己不懂摄影。因为我用显微镜拍照主要是记录一些观察到的现象，而并不具有艺术性的动机；此外我这个人比较欠缺审美的情趣，在摄影等方面没有点天赋和技能点。&lt;/p&gt;
+&lt;p&gt;但是要是说用显微镜拍照，我倒是能讲点。&lt;/p&gt;
+&lt;p&gt;首先就是显微镜拍照的视域有限，构图要突出最关注的特征。比如我拍的是石榴石的环带而不是方解石的机械双晶，这是因为当时石榴石是我的主要观察目标，而方解石则不是；相比没有环带结构的石榴石，这种在特定样品中普遍出现的环带更具有代表性。&lt;/p&gt;
+&lt;p&gt;然后就是显微镜下拍照能遇到各种问题，很考验解决问题的经验。操作灵活，光强不够怎么办？适当延长曝光时间。景深太浅怎么办？调小光圈降低进光量。手碰到了产生晃动怎么办？用快门线或者遥控。在日常拍照中的各种问题在显微镜下会体现的更加直白，稍微做一些调整，就会有很明显的效果改变。&lt;/p&gt;
+&lt;p&gt;我这全套下来的成本不超过 1000 元，其中还包括一台收来的二手微单机身。
+有限的预算加上适当的折腾，在满足需求的同时也带来极大的快乐。&lt;/p&gt;
+&lt;p&gt;和&lt;a href="http://blog.cycleuser.org/telescope.html"&gt;上一篇&lt;/a&gt;的结语一样：
+&lt;strong&gt;想要做什么，就动手试试吧。&lt;/strong&gt;&lt;/p&gt;</content><category term="Story"></category><category term="Microscope"></category><category term="Story"></category></entry><entry><title>九阴真经与苹果手机</title><link href="/jiu-yin-zhen-jing-yu-ping-guo-shou-ji.html" rel="alternate"></link><published>2017-01-17T10:20:00+08:00</published><updated>2017-01-17T10:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-01-17:/jiu-yin-zhen-jing-yu-ping-guo-shou-ji.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="http://ww4.sinaimg.cn/mw690/75006d25gw1fbtuzhh76uj21kw1877ka.jpg"&gt;
+这题目是不是有点奇怪？是不是讲苹果手机的？还是讲营销的？
+都不是。&lt;/p&gt;
+&lt;p&gt;今天跟一些青年科学家讨论关于晶体场稳定能相关的课题，大家帮我推荐了一些学者和作品，其间谈到了教材这个话题。&lt;/p&gt;
+&lt;p&gt;这几年来，我发现有相当多的一部分同学，对教材根本不重视，甚至从来不阅读，而个热衷于从教师处复制课件，从前辈师兄师姐处搜集课程笔记和往年题目，期末寄希望于题海，考完了就基本告别这门课程，甚至这一学科。&lt;/p&gt;
+&lt;p&gt;如今的这些科学文化知识，集中体现在了不同层次的文献上，进一步萃取提炼，凝结而成教材。当然，现在有的教材质量堪忧，但整体依然是对某一学科的高度的概括和总结，并且具有导论的效用。&lt;/p&gt;
+&lt;p&gt;一如既往，我脑洞大开了一下。
+如果时代背景挪到古代，那这些知识集中载体就可谓是秘籍一样的存在。而且那种很稀缺又很有效的教材对于读书人来说，正如同武功秘籍对于武林人士一样，弥足珍贵，甚至非常抢手。&lt;/p&gt;
+&lt;p&gt;然后我又再开了一层脑洞。
+假如在射雕英雄传的平行宇宙中，郭靖黄蓉获得了《九阴真经》，并且出于侠之大者共产主义的大无畏和奉献精神，把这本秘籍精心翻译，整理成通俗汉语版本，并且刊印发行，全国售卖，冀以此促进大宋的全民武术水平，能够更有力地保卫国家，抵抗外族侵略。&lt;/p&gt;
+&lt;p&gt;事情会怎么发展呢？恐怕未必尽如人意。很有可能是产生了大量围绕着《九阴真经》而编写的教辅资料，并且开始有了各种培训班 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="http://ww4.sinaimg.cn/mw690/75006d25gw1fbtuzhh76uj21kw1877ka.jpg"&gt;
+这题目是不是有点奇怪？是不是讲苹果手机的？还是讲营销的？
+都不是。&lt;/p&gt;
+&lt;p&gt;今天跟一些青年科学家讨论关于晶体场稳定能相关的课题，大家帮我推荐了一些学者和作品，其间谈到了教材这个话题。&lt;/p&gt;
+&lt;p&gt;这几年来，我发现有相当多的一部分同学，对教材根本不重视，甚至从来不阅读，而个热衷于从教师处复制课件，从前辈师兄师姐处搜集课程笔记和往年题目，期末寄希望于题海，考完了就基本告别这门课程，甚至这一学科。&lt;/p&gt;
+&lt;p&gt;如今的这些科学文化知识，集中体现在了不同层次的文献上，进一步萃取提炼，凝结而成教材。当然，现在有的教材质量堪忧，但整体依然是对某一学科的高度的概括和总结，并且具有导论的效用。&lt;/p&gt;
+&lt;p&gt;一如既往，我脑洞大开了一下。
+如果时代背景挪到古代，那这些知识集中载体就可谓是秘籍一样的存在。而且那种很稀缺又很有效的教材对于读书人来说，正如同武功秘籍对于武林人士一样，弥足珍贵，甚至非常抢手。&lt;/p&gt;
+&lt;p&gt;然后我又再开了一层脑洞。
+假如在射雕英雄传的平行宇宙中，郭靖黄蓉获得了《九阴真经》，并且出于侠之大者共产主义的大无畏和奉献精神，把这本秘籍精心翻译，整理成通俗汉语版本，并且刊印发行，全国售卖，冀以此促进大宋的全民武术水平，能够更有力地保卫国家，抵抗外族侵略。&lt;/p&gt;
+&lt;p&gt;事情会怎么发展呢？恐怕未必尽如人意。很有可能是产生了大量围绕着《九阴真经》而编写的教辅资料，并且开始有了各种培训班，《九阴真经从入门到放弃》、《7天读懂的极简九阴真经》、《难中天品九阴真经》乃至《关于深入开展学习九阴真经的若干重大决定》，恐怕就会纷至沓来。然而大宋人民却未必都真正去修炼，而且修炼者也未必都仔细研读精心琢磨，仍然是只有少部分五绝一样的人物努力钻研修炼出成果。最终这本书热了一阵之后，就成了又一本经典而已，沦为了四书五经那种远离最广大人民群众的应试教材了。&lt;/p&gt;
+&lt;p&gt;接下来脑洞回来到我们的现实世界，很多经典教材，例如《无机结构化学》、《具体数学》、《成矿地球化学》等等，其实也就跟《九阴真经》这种武功秘籍差不多，在我国知识匮乏的时代都是难能可贵的秘籍宝典，而广泛展开高等教育之后，即便是本专业的学生，也未必认真研读。总是只有一部分人，真正觉得教材是需要重视和理解的，并且身体力行地去实践，而应付过关即可的人是相当多的。&lt;/p&gt;
+&lt;p&gt;难以获得的时候就觉得有价值，普遍拥有了就不当做一回事。我觉得这就是一种短视，是人类社会目前普遍存在的一种认知障碍。&lt;/p&gt;
+&lt;p&gt;所以这时候我就要扯到苹果了。
+我清晰的记得当年那么多人疯狂抢购苹果手机，甚至为此不惜卖身卖肾等等，那时候我就很不理解他们为何要付出这么惨烈的代价。然后前几天我发现当年的那些苹果手机，现在二手售卖的价格不过数百元而已。那么那些卖身卖肾的人，或者不顾一切给父母制造经济负担的抢购者，他们会怎么想呢？&lt;/p&gt;
+&lt;p&gt;别想着《九阴真经》了，即便有完善的翻译和配套教材辅导资料给你，你也不一定认真阅读；别想着Vai或者Joe同款的电吉他了，拿到手了也可能受限于你仅仅掌握的三个和弦而无法演奏出多么高明的乐曲；没必要去买各种变焦牛头和定焦公主镜头，你现在还未必能够用好手中的套头，甚至算不清楚各种参数；别想着最新式的消费类电子产品了，过几年通常都会降价并被淘汰，所以不太值得花费过多在这些事情上面。&lt;/p&gt;
+&lt;p&gt;或者反过来，如果你遇到了《九阴真经》，不论是三块钱一本还是三十块一本，只要你感兴趣，就值得好好阅读和学习；如果你喜欢音乐，手头的琴只要音准可以并且音色过得去，就应当拿来好好练习演奏；如果你遇到一枚还过得去的镜头，就拿来记录那些你珍惜的场景画面，而别轻易就嫌弃了要换光圈更大的；如果你有一台能用的还算比较流畅的电子设备，就那么凑活着用着吧，生活有很多其他值得花费的开销。&lt;/p&gt;
+&lt;p&gt;“用发展的眼光看问题”，“尊重客观情况，避免主观臆断”，这些分别在小学语文的“刻舟求剑”和“掩耳盗铃”等章节中出现过，小时候大人们都仔细给讲解过，这些课文如何分段，以及中心思想怎样总结等等。&lt;/p&gt;
+&lt;p&gt;数不清的类似的道理，浅显无比，乃至人尽皆知，结果大人们却并不一定真当回事，甚至根本不信，不那么做。&lt;/p&gt;
+&lt;p&gt;所以，最基本的，就是做那些自己都明确知道应该做的，但是之前往往由于惰性惯性等等人性而没有做的好事，不再做那些自己也明知不该的坏事。&lt;/p&gt;
+&lt;p&gt;你还要囤积教材课件资料而当做自己已经学会了么？你还要看到更新换代就马上像求食牲畜一样急切地去抢购电子产品么？你还要在酒桌上强迫他人饮酒么？你还要在医院学校等公共场所吸烟么？你还要在有火灾隐患的高人口密度区域放鞭炮么？&lt;/p&gt;
+&lt;p&gt;问问你自己的脑子和良心吧。&lt;/p&gt;</content><category term="Story"></category><category term="Junck"></category><category term="Poem"></category><category term="Story"></category></entry><entry><title>How about using material science to solve the problem of smoke?</title><link href="/how-about-using-material-science-to-solve-the-problem-of-smoke.html" rel="alternate"></link><published>2016-06-28T10:20:00+08:00</published><updated>2016-06-28T10:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2016-06-28:/how-about-using-material-science-to-solve-the-problem-of-smoke.html</id><summary type="html">&lt;p&gt;About 20 years ago, I used to live in the Northeast of China, for several years. It was a small mountain town with many birches and lots of magpies flying and singing around. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大概二十年前，我在中国东北的某个地方生活了一些年。那是一个小山城，漫山遍野都是白桦树林，还有围绕期间纷飞鸣叫的喜鹊。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;People there were nice and friendly. They were always  willing to offer …&lt;/p&gt;</summary><content type="html">&lt;p&gt;About 20 years ago, I used to live in the Northeast of China, for several years. It was a small mountain town with many birches and lots of magpies flying and singing around. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大概二十年前，我在中国东北的某个地方生活了一些年。那是一个小山城，漫山遍野都是白桦树林，还有围绕期间纷飞鸣叫的喜鹊。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;People there were nice and friendly. They were always  willing to offer helping hands to strangers. Yet nearly all of them loved to smoke a lot.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;那里的人民淳朴友好。他们都是心肠善良的好人，很乐于助人。不过他们中间大部分人都吸烟。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Then, as a little child, I began to cough badly. The local doctor told my parents that it was pharyngitis caused by tobacco smoke, without method. I can still remember that he was saying that with a burning cigarette in his mouth.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;后来，我从很小的时候，就开始咳嗽得特别厉害。当地大夫跟我父母说，这是咽炎，被烟雾熏的，没什么办法治疗。我还记着他说话的同时最里面还叼着一根点着的烟。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I didn't understand the meaning of his words exactly,"chronic lifelong disease", and I thought everything would be OK few days later. The sad fact is that it keeps coming in the following years and gets even worse after I arriving in Beijing.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;那时候我还不太理解他说的各种术语，“慢性终身疾病”，所以我就想着估计过几天就好了。悲剧的是这病经常发作，而且自从我来了北京，就更严重了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Now, I have already figured out that with the help of PM2.5 in polluted air outside and second-hand smoke indoor, respiratory disease has become a most common, chronic lifelong disease, which seriously damages people's health. Besides, there is also serious cardiovascular including coronary heart disease caused by them.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;现在，我已经弄清了，室内二手烟和室外的PM2.5双剑合璧，已经让呼吸系统疾病成了最普遍的终身慢性疾病。另外这些还引起了很多严重的心血管疾病比如冠心病等等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Yes, I know that there is almost nothing we can change as normal common citizens to the air pollution but to pray for mighty wind, maybe. But I am pretty sure that we can control the smoke made by every individual smoker, at least.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;是啊，我也清楚，对于空气污染，普通市民除了祈祷“大风起兮云飞扬”,恐怕也做不了什么了。但我很确定的是，最起码我们能控制每一个吸烟者释放的烟雾。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It is ridiculous that, after the order of banning smoking issued by the Beijing government, many smokers began to complain about their rights violated. How do they feel about other people's right to life and health when they poison them by smoking around? Is your right to suck some bad gas larger than our lives?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;很有趣的是，当北京政府颁布了禁烟法令之后，很多吸烟的人开始抱怨自身权益被侵犯了。当他们在其他人身边吸烟来毒害别人的时候，怎么不想想其他人的生命和健康权？你们吸气体的权利大过我们生存的权利么？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In fact, I don't hate smoking people, because I don't care whether they are going to kill themselves gradually. But I care about the smoke they burn out and throw to other people, other livings, and the nature.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;事实上，我并不痛恨吸烟的人，因为我不在乎他们是不是要慢性自杀。但我在意的是他们不完全吸进去而是排放很多烟出来，用这些烟来毒害周围的人、生物，甚至整个自然界。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In my opinion, smokers should take the responsibility to clean up your smoke, preventing others from which. How about putting some special bags around their heads to make sure they can both breath and suck all smoke in their lungs? Using some material making those special breazing bags is a good way of protecting the entire universe.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在我看来，吸烟者最起码应该负责清理干净你们的烟雾，不要让其他人接触到。或者可以考虑在吸烟者的脑袋周围装上一种特制的塑料袋，保证他们能够呼吸，并且吸干净所有烟气到他们自己的肺部，这样好不好？用某种特质材料来制作这种特殊呼吸袋将会成为保护整个宇宙的好思路。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img alt="" src="http://img.taopic.com/uploads/allimg/111006/6308-11100612141597.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://health.youth.cn/jiankangzx/201501/W020150128437580685327.jpg"&gt;&lt;/p&gt;</content><category term="Story"></category><category term="Story"></category><category term="Hate"></category><category term="Disease"></category></entry><entry><title>My first Microscope</title><link href="/my-first-microscope.html" rel="alternate"></link><published>2016-04-22T11:20:00+08:00</published><updated>2016-04-22T11:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2016-04-22:/my-first-microscope.html</id><summary type="html">&lt;p&gt;In 2008, I got the dream of having a microscope of my own.
+This dream could track back to what happened in one class, when Mr Moris told me to leave the equipment alone or get out of the lab.
+I was trying to take the microscope apart by my …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In 2008, I got the dream of having a microscope of my own.
+This dream could track back to what happened in one class, when Mr Moris told me to leave the equipment alone or get out of the lab.
+I was trying to take the microscope apart by my hand.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在2008年的时候，我有一个梦想，就是有一台自己的偏光显微镜。
+梦想的来源是因为上课的时候，莫老师对我语重心长说：『再乱动仪器就不许来实验室！』
+当时我在私自拆卸目镜、物镜、载物台等等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;At that time, a lot of people agreed that I belong to the problematic youth because I always asked too many questions and brought as many problems.
+Fortunately, there came Professor White interceding for me. Then Mr Moris let me stay in the class.
+I have always been grateful for what Professor White did for me, even though he refused to accept me as his PHD student, which is reasonable to me, because I know that I had never played nice.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;现在想起来自己当时真是个问题儿童，主要体现在：①问很多问题；②总惹麻烦。
+好在白老师过来给说和，莫老师放了我一马。
+我一直特别感激白老师，虽然后来他不愿意收我为徒。
+这个我也可以理解的，因为长期以来我都带来很多问题。。。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I learned more than the structure of microscope in the following lessons, and began to distinguish Quartz, Mica, Feldspars and so on.
+Then the desire of having a microscope of myself just kept growing.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;接下来的课程中，我除了对显微镜的机械结构有所了解，也开始能分辨石英、云母、长石等等。
+然后我就更加想有一台自己的显微镜，这样就可以随时想看就看了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Finally, after 8 years, I got my own microscope, which was sold from the CDUT (Chengdu University of Technology).
+The model of it is JiangNan XPT-6, a polarizing microscope.
+It is so dilapidated that I have to buy different parts of it from many different places and then assemble them together to make it work.
+I am over 30 years old now, but I am as happy as a child who finally get the toy he stared at for so many times in the shop window.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最终，八年之后，我从成都理工买了一个显微镜，终于算是弄来一台自己的。
+型号是江南 XPT-6，偏光显微镜。
+这个镜子挺破旧的了，我得四处买来一些零件，然后拼凑起来，才勉强使用。
+我三十来岁的人了，这件事让我特开心，就好像小时候矁了很久的橱窗里的玩具，突然有人给我个一样。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The following pictures show my microscope and some other parts.
+The photos of garnets were taken with this old microscope and my old iPhone 5s.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我给这个老显微镜和各个部件拍了一些照片。
+然后我还用这个老显微镜和 iPhone 5S这款老手机来给一些石榴石拍了照片。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img alt="" src="http://7xnq2o.com1.z0.glb.clouddn.com/MicroScope%E9%9B%86%E4%BD%93.jpeg?imageView/2/w/420/q/90"&gt;
+All Together&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="http://7xnq2o.com1.z0.glb.clouddn.com/MicroScope%E9%95%9C%E5%AD%90.jpeg?imageView/2/w/420/q/90"&gt;
+Main Body&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="" src="http://7xnq2o.com1.z0.glb.clouddn.com/MicroScope%E9%95%9C%E5%A4%B4.jpeg?imageView/2/w/420/q/90"&gt;
+Lens&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="Garnet 10*10" src="http://7xnq2o.com1.z0.glb.clouddn.com/MicroScope10*10.jpeg?imageView/2/w/420/q/90"&gt;
+Garnet 10*10&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="Garnet 10*20" src="http://7xnq2o.com1.z0.glb.clouddn.com/MicroScope10*20.jpeg?imageView/2/w/420/q/90"&gt;
+Garnet 10*20&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img alt="Garnet 10*40" src="http://7xnq2o.com1.z0.glb.clouddn.com/MicroScope10*40.jpeg?imageView/2/w/420/q/90"&gt;
+Garnet 10*40&lt;/p&gt;
+&lt;hr&gt;</content><category term="Story"></category><category term="Microscope"></category><category term="Story"></category></entry><entry><title>Python, a better language for Universities in China</title><link href="/python-a-better-language-for-universities-in-china.html" rel="alternate"></link><published>2015-11-03T00:00:00+08:00</published><updated>2015-11-03T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2015-11-03:/python-a-better-language-for-universities-in-china.html</id><summary type="html">&lt;p&gt;中国大学应该广泛尝试用Python来教编程&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Koch曲线" src="http://7xnq2o.com1.z0.glb.clouddn.com/StoryKoch.jpg?imageView/2/w/619/q/90"&gt;&lt;/p&gt;
+&lt;p&gt;The picture shows a Koch curve，which may be familiar for those who know something about fractal.
+It is an example form an excise of the book &lt;em&gt;Think Python&lt;/em&gt; &lt;a href="http://blog.cycleuser.org/thinkpython-shuang-yu-xue-bian-cheng-chapter-5.html"&gt;Chapter5&lt;/a&gt;'s &lt;a href="http://thinkpython2.com/code/koch.py"&gt;sample solution&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;图片是Koch曲线，熟悉分形的同学肯定对此很了解。
+这是大胖翻译的ThinkPython这本教材中&lt;a href="http://blog.cycleuser.org/thinkpython-shuang-yu-xue-bian-cheng-chapter-5.html"&gt;第五章&lt;/a&gt;的最后练习题&lt;a href="http://thinkpython2.com/code/koch.py"&gt;样例代码&lt;/a&gt;生成的图案。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I am always a fan of coding, because all …&lt;/p&gt;</summary><content type="html">&lt;p&gt;中国大学应该广泛尝试用Python来教编程&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Koch曲线" src="http://7xnq2o.com1.z0.glb.clouddn.com/StoryKoch.jpg?imageView/2/w/619/q/90"&gt;&lt;/p&gt;
+&lt;p&gt;The picture shows a Koch curve，which may be familiar for those who know something about fractal.
+It is an example form an excise of the book &lt;em&gt;Think Python&lt;/em&gt; &lt;a href="http://blog.cycleuser.org/thinkpython-shuang-yu-xue-bian-cheng-chapter-5.html"&gt;Chapter5&lt;/a&gt;'s &lt;a href="http://thinkpython2.com/code/koch.py"&gt;sample solution&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;图片是Koch曲线，熟悉分形的同学肯定对此很了解。
+这是大胖翻译的ThinkPython这本教材中&lt;a href="http://blog.cycleuser.org/thinkpython-shuang-yu-xue-bian-cheng-chapter-5.html"&gt;第五章&lt;/a&gt;的最后练习题&lt;a href="http://thinkpython2.com/code/koch.py"&gt;样例代码&lt;/a&gt;生成的图案。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I am always a fan of coding, because all I learn from a programing class can be tested immediately. I can find out whether what the teacher says is right. So I put a lot of efforts into programing both in my college years and my postgraduate period. I really enjoy coding a lot.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我对编程一直很热衷，因为学到的内容都是可以拿来用的，我能随时来检测老师讲的内容，不会有一些难以把握正确与否的情况。因此编程课是本科和硕士时代我投入精力最多的课程之一，也是我很喜欢的一门课程。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Unfortunately, coding is not everyone's love.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;然而蜜糖砒霜。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Programing class is like some horrible nightmare for many of my classmates. Some of my friends even attended and failed a C++ class for several times. They often say that they have no chance to code in daily life and do not understand why they are forced to take a programing lesson. They are not interested in anything related to programing. They even begin to hate everything about computer science. So some of the students begin to do something dirty, like copying others' code as their homework or cheating in the exams.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于很多同学来说，编程课简直是痛苦的噩梦。一些同学甚至多次参加某一门编程课而挫败感极其强烈。他们往往认为编程课没有什么用处，也没有太大兴趣，因此非常反感，学习效果可想而知。也因此有一些应付作业应付考试的现象出现。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Of course, there are always some people trying their best to learn coding. However, for most of them, their majors are so far away from C++ or VB that the skills they learned about programing may never be used in their future. So they just forget what they learned some years after the lessons.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当然还是有一些人真的用心学习了，但往往因为自身的专业与C++或者VB之间很少有交集，而且掌握的基本内容也不足以参与一些日常开发，所以在上课之后的数年之内都很难有实践的机会，学到的内容也就只能逐渐荒废了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Some others were stuck at some panic point of the programing language such as the memory control or the address of a value. Then they gradually lost their motivation and curiosity about the lesson, and did not make any effort.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;此外，回想身边同学当年在研一时候学C++时候的状态，很大一部分人都是对语言本身的一些特点理解不够，在某些复杂的地方卡住了（比如内存管理或者地址等等），逐渐因为挫败感而失去动力了，对编程本身也没有能够培养出兴趣，更谈不上学到多少技能了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Having no motivation of coding, getting no chance of practicing, and being trapped by some complicated part of a programing language, those are the three killers which should be responsible for boring the students in China in coding lessons.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;觉得没有用而缺乏兴趣，没有实践的机会而逐渐荒废，被一些复杂内容困住而失去动力，这就是国内高校学生面对编程课的情景。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I used to help some of my classmates on the coding lessons during my college years and my postgraduate period. I found that they were all bothered by those three problems. I felt very sorry that they had to spend a lot of time on lessons they hated and they even wouldn't use anything from the lessons.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当年在本科乃至硕士上编程课的时代，我曾经若干次给身边一些同学进行过辅导，深深感觉他们都受到上述三个问题的困扰，而难以在编程课程方面有太大的兴趣和收获。对此我也没有什么办法，只能觉得特别遗憾，感慨他们花费时间去学习一门自己不喜欢、也没机会应用，并且还特别难的课程。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I haven't found any solutions until I met up with Python.
+I never give up coding since my college time. I am not a good coder at all, but I keep trying to be a better one than I used to be. I wrote some Android applications and some simple calculation functions. Then during my PHD period, I learned something new, Java, Swift, Qt-Quick , and Python.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最近我才意识到一种可能的解决办法——Python。
+从本科时代到现在我一直都没有远离编程，比如写一些Android程序或者简单的算法之类，都很肤浅，但从未扔下，并且随着论文和科研的需要，逐渐学了一些新的内容，比如Java、Swift、QT-Quick，以及Python。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I found that Python is friendlier for NON-Computer Science major students as an introduction language to programing world than C++ or Java. Python is easier to teach, learn, and use. After learning Python, students could immediately use it on their own research, and on some GUI projects or scientific calculations.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我发现Python相比C++与Java，更适合给非计算机专业的本科生和硕士生作为编程入门语言来教学，授课难度更低，学习几乎无门槛，上手最简单的，学会了之后也能立即在图形化编程或者科学计算中进行使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Firstly, Python is very easy to use on making something for fun without spending much effort on learning a lot of details about the language. Take the Koch curve at the beginning as an example, it is not very hard to do something like that. You can make it happen after you reading about one or two chapters of any textbooks of Python.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;首先Python很有趣，能做很多有趣的事情，需要在语言本身上投入太大的时间精力。比如本文开头那幅图，画出来的过程并不复杂，但是实现的过程很巧妙，对思维和数学逻辑都有训练。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Secondly, Python is used everywhere. There are many Python programs running in the real world. It is used in scientific research, website building, graphic development and cross-platform development. The use of Python could also be found in many majors. Students can practice all they learned in their own area, and use Python in real life.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其次Python应用广泛，世界上有各种各样的Python项目，科学计算、网站搭建、图形界面、跨平台开发等等领域都有Python的身影。各个学科中也都充满了在实践中使用Python的机会。同学们一旦掌握了Python，就能迅速做出一些在现实世界中的各个领域都可以发挥作用的程序。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Most importantly, Python is a lot easier than C++, Java, and VB. The code of Python is almost as easy to read as simple English. There isn’t any huge challenge in the language itself for the learners to conquer.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最重要的是Python的学习难度相比C++或者Java乃至VB这些国内比较普遍的编程语言来说，要简单很多很多。代码清晰可读，几乎就是缩进过的英语而已。这种特点可以更快速地让学生投入精力到探索编程过程中，而在语言本身上，不用花费过多时间。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Of course, Python is not perfect. The fatal flaw of Python is that it is a scrip language and runs much slower than C++ or even Java. But this disadvantage doesn't hamper us using Python as an introduction language for coding.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当然，Python并不是万能的，作为脚本语言，其致命缺点是运行效率很低，但这个对于让学生入门编程为目的的授课过程来说也不算太大问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A huge advantage of Python is the abundance of material for teaching. A lot of books and videos could be found on the Internet. It is easy to gather information and prepare forlessons. With the programing and teaching experience, teachers can grasp the core of Python quickly and use it well in classes, even for those who never meet Python before.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Python除了解决了学生学习编程的几大障碍之外，还有额外的优势，就是资料丰富，易于备课。网上比如Fenby.com等等都有详细的教材和视频资料。所以教师备课并不会特别困难。即便是没有接触过Python的授课老师掌握Python并用来授课并不会有什么困难，有其他高级语言基础，又有丰富授课经验，这种情况下大概也就一两个小时就能掌握Python的框架。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In China, C++ or VB are still used in most universities for both college students and postgraduate ones. Teachers in those lessons still use some methods from last century. In the top universities of the world, such as Stanford, Harvard, Princeton, and others, different languages are provided to students, of which Python is the most popular one.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;国内很多高校在本科和硕士阶段开设的编程课依然还是以C++和VB为主，讲授的内容也普遍停留在上世纪末的状态。而国际上以斯坦福、哈佛、普林斯顿等等所谓世界一流高校，都往往会提供更多种类以及更多层次区分的计算机课程。这些编程课程中最热门的正是Python。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Many universities in China are trying to become  top ones worldwide. But the lessons they offer are still the same as the past, which are outdated and boring. They should learn from the top ones by using Python as a beginning.
+I don't know whether they really want to make a difference or they just enjoy shouting out some slogans.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;国内很多高校都说要办世界一流的学校，而在具体课程设置上面，却偏偏依然在坚持一些旧的特色：古板、过时、落伍、僵硬无趣。
+不知道他们是真的想办好大学，还是只是说说而已。&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="Story"></category><category term="Python"></category><category term="Story"></category></entry><entry><title>About</title><link href="/about.html" rel="alternate"></link><published>2015-10-01T10:20:00+08:00</published><updated>2015-10-01T10:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2015-10-01:/about.html</id><content type="html">&lt;p&gt;I am CycleUser~~
+A really lame coder~~~&lt;/p&gt;
+&lt;p&gt;This Blog is powered by Pelican, and hosted by Github Pages.
+The Theme I use is &lt;a href="https://github.com/ir193/Responsive-Pelican/tree/a74606061d62be0f8508ca840375abe52ae24786"&gt;Responsive-Pelican&lt;/a&gt;.&lt;/p&gt;</content><category term="Story"></category></entry><entry><title>Bye</title><link href="/bye.html" rel="alternate"></link><published>2015-10-01T10:20:00+08:00</published><updated>2015-10-01T10:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2015-10-01:/bye.html</id><summary type="html">&lt;h3&gt;告别过去，告别科学网&lt;/h3&gt;
+&lt;p&gt;最终还是用github+pelican来做站点了。
+起码还有Markdown支持，排版应该比旧站点好多了。
+我会先继续更新ThinkPython的中英双语版本，争取加强一点排版了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文是我当初发布在科学网的最后一篇博文，后来还被一些朋友推荐上了排行榜，后来又莫名其妙被编辑撤下去雪藏，我就很配合地直接删除了所有科学网博客的文字。
+不过想到这个事情挺有趣的，就保留一下原文如下：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;科学网当年是我很崇敬的一个地方。
+那时候这里很多前辈高人，充满思辩和碰撞。
+那时候这里能看到不同观点的学术内容，充满了见解和讨论。
+那时候这里会有人吐槽一些掌门院士，充满了诙谐和趣味。&lt;/p&gt;
+&lt;p&gt;后来我离开学校去工作，很少上网，也更少接触学术圈了。
+甚至忘掉了最早注册的帐号是什么。&lt;/p&gt;
+&lt;p&gt;然后我回来继续读书，自然又想起当年的圣地。
+可是我来到这里，看到的却是不一样的景色。
+我看到论坛里面的盗版书、破解软件。
+我看到民科和伪科学之类的互相撕咬和聒噪。
+我看到一些人成了明星和既得利益者，受到他人的膜拜和吹捧。&lt;/p&gt;
+&lt;p&gt;转念又一想，才意识到其实这些本来就存在着。
+变化的并不是科学网，也不是学术圈。
+而是我自己，随着年岁增长，见到的内容逐渐更贴近现实，那些理想化的朦胧面纱逐渐淡化，阳光下一些不是那么美好的内容刺痛了眼睛而已。&lt;/p&gt;
+&lt;p&gt;所以我逐渐理解了。
+我理解了有的学者为了项目为了生活，不得不夹着尾巴去巴结一些掌握话语权和一些资源的学术界大人物，因而在网络上说话比现实中甚至更要圆滑。
+我理解了有些学术带头人或者教研室领袖虽然身居掌门之位，也依然还是一个转发很多一眼就能看穿的养生谣言到自己微信朋友圈并且不容反驳也不去更改的普通中老年人。
+我更理解了一些同学和青年教师为了毕业或者升职 …&lt;/p&gt;</summary><content type="html">&lt;h3&gt;告别过去，告别科学网&lt;/h3&gt;
+&lt;p&gt;最终还是用github+pelican来做站点了。
+起码还有Markdown支持，排版应该比旧站点好多了。
+我会先继续更新ThinkPython的中英双语版本，争取加强一点排版了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文是我当初发布在科学网的最后一篇博文，后来还被一些朋友推荐上了排行榜，后来又莫名其妙被编辑撤下去雪藏，我就很配合地直接删除了所有科学网博客的文字。
+不过想到这个事情挺有趣的，就保留一下原文如下：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;科学网当年是我很崇敬的一个地方。
+那时候这里很多前辈高人，充满思辩和碰撞。
+那时候这里能看到不同观点的学术内容，充满了见解和讨论。
+那时候这里会有人吐槽一些掌门院士，充满了诙谐和趣味。&lt;/p&gt;
+&lt;p&gt;后来我离开学校去工作，很少上网，也更少接触学术圈了。
+甚至忘掉了最早注册的帐号是什么。&lt;/p&gt;
+&lt;p&gt;然后我回来继续读书，自然又想起当年的圣地。
+可是我来到这里，看到的却是不一样的景色。
+我看到论坛里面的盗版书、破解软件。
+我看到民科和伪科学之类的互相撕咬和聒噪。
+我看到一些人成了明星和既得利益者，受到他人的膜拜和吹捧。&lt;/p&gt;
+&lt;p&gt;转念又一想，才意识到其实这些本来就存在着。
+变化的并不是科学网，也不是学术圈。
+而是我自己，随着年岁增长，见到的内容逐渐更贴近现实，那些理想化的朦胧面纱逐渐淡化，阳光下一些不是那么美好的内容刺痛了眼睛而已。&lt;/p&gt;
+&lt;p&gt;所以我逐渐理解了。
+我理解了有的学者为了项目为了生活，不得不夹着尾巴去巴结一些掌握话语权和一些资源的学术界大人物，因而在网络上说话比现实中甚至更要圆滑。
+我理解了有些学术带头人或者教研室领袖虽然身居掌门之位，也依然还是一个转发很多一眼就能看穿的养生谣言到自己微信朋友圈并且不容反驳也不去更改的普通中老年人。
+我更理解了一些同学和青年教师为了毕业或者升职，为了奖学金或者养家糊口，不得不去用一些数据的堆砌罗列写出一篇篇锦绣文章，然后拿着积攒的SCI数目给自己换毕业的机会以及干粮。&lt;/p&gt;
+&lt;p&gt;『科学家也是人，喝多了也吐，吃多了也撑，看到美人也动心，见了人民币也喜欢。』一位前辈当年如是告诉我，我这么久才真正明白了一点点。&lt;/p&gt;
+&lt;p&gt;观点纷乱复杂，立场波谲云诡。
+这样的一个地方，我自认为如我这般脾气简单粗暴，来自平民底层的胖子，很难去融入。&lt;/p&gt;
+&lt;p&gt;比如谁得了什么奖，谁推荐了谁，谁暗中对谁有中伤，我不觉得这些学术圈的八卦比娱乐界的就高尚有趣。
+比如谁拿了优秀，谁评了国奖，谁跟谁角力争夺三好，我不觉得这些学校里的项目比社会上的就公正干净。&lt;/p&gt;
+&lt;p&gt;但我不是故意的，我不是故意和他们爱好不同的，我天性如此。
+有人问我：『你怎么有那么多时间精力去读上千小时的书呢？』
+也有人问我：『你怎么都有时间跑去听那种没有学术小票的讲座呢？』
+还有人问我：『你怎么硕士博士都免修英语了却还要天天背单词和练翻译呢？』&lt;/p&gt;
+&lt;p&gt;答案很简单。
+我没有其他的爱好，不吸烟，不饮酒，不玩游戏，不打球，不赌博，不追女生（因为我已婚了哈），所以只能读读书，学点东西。&lt;/p&gt;
+&lt;p&gt;我记得曾经在以前的文字中提到过，自己少年时期喜欢打人，实际上这个说法也不确切，真正的喜好是打抱不平。至今我也依然保留了这个爱好，不时地帮助遇到的任何一个需要帮助的人，我爱人曾经根据我能吃以及爱好指路给我封了两个封号：『大胃王』以及『指路侠』。而且深受李白、王维以及卢纶的影响，我从小所向往的那种侠士都是做事之后抚身而去，天涯路远，纵意驰奔。&lt;/p&gt;
+&lt;p&gt;可能就像是有的人吸烟、饮酒、网游甚至跑步会上瘾，我觉得打发时间的最佳方式就是自行车或者读书写字。&lt;/p&gt;
+&lt;p&gt;所以我觉得在自己快要奔四的岁数，是时候放下一切，远离江湖，去做自己最享受的事情，不打扰他人，也不被打扰。&lt;/p&gt;
+&lt;p&gt;再见，科学网。&lt;/p&gt;
+&lt;p&gt;哦，不对，应该是『永别了，科学网』。&lt;/p&gt;</content><category term="Story"></category><category term="Story"></category><category term="Junck"></category></entry></feed>

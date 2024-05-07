@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
+    <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="CycleUser Full Atom Feed" />
+    <link href="/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="CycleUser Categories Atom Feed" />
+    
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo">
+                <h1><img src="/theme/image/default-logo.png" width="300" height="100" alt="CycleUser" />
+                CycleUser</h1>
+        </div> <!-- /#logo-->
+        <nav id="menu" class="main-nav"><ul class="menu">
+            <li  class="active"><a href="http://blog.cycleuser.org">Homepage</a></li>
+            <li  class="active"><a href="http://blog.cycleuser.org/categories.html">Categories</a></li>
+            <li  class="active"><a href="http://blog.cycleuser.org/tags.html">Tags</a></li>
+            <li  class="active"><a href="http://blog.cycleuser.org/archives.html">Archives</a></li>
+            <li  class="active"><a href="http://blog.cycleuser.org/about.html">About</a></li>
+
+        </ul></nav><!-- /#menu -->
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-620" >
+                <section class="breadcrumb-list">
+<a href="">Blog</a> ›<a href="category/python.html">Python</a> ›解决 Python 安装 Dlib 时 Cmake 找不到 boost的问题：以 macOS 和 Windows 系统为例
+                </section>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >解决 Python 安装 Dlib 时 Cmake 找不到 boost的问题：以 macOS 和 Windows 系统为例</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep">Post in</span>
+        <abbr class="date" title="2017-10-25T12:00:00+08:00"> 
+            <a href="/archive/2017/10/index.html">三 25 十月 2017 </a>
+        </abbr>
+        <span class="meta-prep"> |Tags</span>
+                <a href="/tag/cmake.html">Cmake</a>
+                <a href="/tag/python.html">Python</a>
+                <a href="/tag/dlib.html">Dlib</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry">
+        <h2>macOS</h2>
+<p>此章节为我对自己在<a href="https://stackoverflow.com/questions/42246786/issue-with-boost-and-cmake-on-mac-sierra-when-install-dlib/46923497%2346923497">Issue with Boost and CMake on Mac Sierra when install dlib 这个问题的回答</a>的中文翻译以及信息补充。</p>
+<ul>
+<li>我使用的操作系统：macOS High Sierra 10.13</li>
+<li>安装的 Python 版本：2.7.14、3.5.2、3.5.4、3.6.1、3.6.3</li>
+<li>尝试安装 dlib 所用的命令：
+    <code>Bash
+    pip install dlib --upgrade</code></li>
+<li>遇到的报错信息如本文标题图所示，主要是其中包含了：
+    <code>Bash
+    -- Could NOT find Boost</code></li>
+</ul>
+<p>然而我非常确定的是此前我已经通过 brew 安装过 boost-python 了，当时我安装的方法为：</p>
+<div class="highlight"><pre><span></span>brew install boost-python --with-python3
+</pre></div>
+
+
+<p>之后我尝试用 'brew link boost-python'之类的修复链接，都依然没有效果。</p>
+<p>然后通过搜索发现可能需要修改 bash 配置文件 ~/.bashprofile</p>
+<div class="highlight"><pre><span></span>nano  ~/.bashprofile 
+</pre></div>
+
+
+<p>在其中添加上一行对 cmake 路径 CMAKE_PREFIX_PATH 的设置：</p>
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span><span class="s2">&quot;/usr/local:/usr/local/Cellar/boost/1.65.1:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="c1"># 注意这里的 1.65.1 是和我用 brew 安装的 boost 版本一致的</span>
+<span class="c1"># 如果你安装的是其他版本，要修改为对应的版本号和安装位置</span>
+</pre></div>
+
+
+<p>如下图所示：
+<img alt="" src="https://pic4.zhimg.com/v2-1758dd8ac7fd26f22631a2051ab8d0cb_b.jpg"></p>
+<p>然后我再到各个 env 里面运行 pip install dlib --upgrade ，就全都成功了，如下图所示：</p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-b2016b322c866de1192b258635704556_b.jpg"></p>
+<h2>Windows  系统</h2>
+<p><img alt="" src="https://pic4.zhimg.com/v2-b537042fbf6bc5c770f10d1e52fa654f_r.png"></p>
+<p>这部分内容就是对我在 <a href="https://www.zhihu.com/question/62558024">Python的Dlib安装时一直出现找不到boost怎么解决？</a>这个问题里的回答的搬运。</p>
+<p>这好像也是 cmake 没有设定 boost 位置导致的。</p>
+<p>首先似乎需要到<a href="http://www.lfd.uci.edu/%7Egohlke/pythonlibs/%23boost.python">Python Extension Packages for Windows</a>下载对应系统版本的 boost python 的 whl：</p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-53d5409f0fa1f918e603b4a3fb834fd7_b.jpg"></p>
+<p>然后 <a href="https://cmake.org/download/">点击此链接去下载 CMake 安装包</a></p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-72c8653b23a8c86c4c78a9901f558314_b.jpg"></p>
+<p>另外还要 <a href="https://sourceforge.net/projects/boost/files/boost-binaries/1.65.1/">点击此链接去下载 Boost C++ 二进制安装包</a></p>
+<p><img alt="" src="https://pic4.zhimg.com/v2-8123d38a443a7d06c02184162269d58b_b.jpg"></p>
+<p>下载之后双击运行安装到默认位置；</p>
+<ol>
+<li>
+<p>然后到安装目录，找到bootstrap.bat，双击运行；</p>
+</li>
+<li>
+<p>接下来在终端（CMD 或者 Powershell）里面运行：
+    ```Bash
+    b2 install --prefix=PREFIX </p>
+</li>
+<li>这里的 <em>PREFIX </em>是一个目录位置，用来安装 Boost.Build；</li>
+<li>如果安装完成如果没有报错，接下来还在 boost 所在目录 运行
+    <code>Bash
+    b2 -a --with-python address-model=64 toolset=msvc runtime-link=static</code></li>
+<li>如果上一步还是没有报错，接下来吧设置环境变量：
+    <code>Bash
+    BOOST_ROOT=C:\local\boost_1_65_1
+    BOOST_LIBRARYDIR=C:\local\boost_1_65_1\stage\lib</code></li>
+</ol>
+<p><img alt="" src="https://pic4.zhimg.com/v2-ad3d4f807f05c9dbe658cc776f60fcb6_b.jpg"></p>
+<p>上面这些内容部分参考了 BOOST 官方文档的内容：<a href="http://www.boost.org/doc/libs/1_61_0/more/getting_started/windows.html">Getting Started on Windows</a></p>
+<p>上述步骤完成之后，使用 pip install dlib 来安装吧.
+我自己在 Windows 7 32bit 系统下测到一半提示编译错误，不过能确定的是上面这些步骤都没问题了，算了，我懒得折腾了，以上内容供参考了。
+希望大家都安装顺利，另外开发机还是 类 Unix 系统好配置啊。</p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep">Category:</span>
+        <abbr class="category">
+            <a href="/category/python.html">Python</a>
+        </abbr>
+       </footer>
+    <section id="respond">
+        <div id="disqus_thread">
+        <script type="text/javascript">
+        var disqus_identifier = "jie-jue-python-an-zhuang-dlib-shi-cmake-zhao-bu-dao-boostde-wen-ti-yi-macos-he-windows-xi-tong-wei-li.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://cycleuser.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        </script>
+        </div>
+
+                <script id='nodebb-comments-script' ourl="https://v2mm.tech" ocid="53" blogger='cycleuser' src="https://v2mm.tech/plugins/nodebb-plugin-blog-comments2/lib/simple-pelican.js"></script>
+                
+
+    </section>
+</section>
+
+
+        </section><!-- #content -->
+        <section id="widgets" class="grid col-300 fit" >
+            <!--
+            <section id="widget-search" class="widget-wrapper widget_search">
+
+                <form id="searchform" action="http://www.google.com/search" method="get">
+                    <input id="q" class="field" type="text" placeholder="Search Blog" name="q" ></input>
+                    <input id="ie" name="ie" type="hidden" value="utf-8" ></input>
+                    <input id="oe" name="oe" type="hidden" value="utf-8" ></input>
+                    <input id="channel" name="channel" type="hidden" value="suggest" ></input>
+                    <input id="searchsubmit" class="submit" type="submit" value="">
+                </form>
+            </section>
+            -->
+            <section id="widget-category" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Category
+                </div>
+                <ul>
+                        <li><a href="/category/camera.html" >Camera </a></li>
+                        <li><a href="/category/chromebook.html" >ChromeBook </a></li>
+                        <li><a href="/category/diy.html" >DIY </a></li>
+                        <li><a href="/category/duke.html" >Duke </a></li>
+                        <li><a href="/category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="/category/mac.html" >Mac </a></li>
+                        <li><a href="/category/nas.html" >NAS </a></li>
+                        <li><a href="/category/python.html" >Python </a></li>
+                        <li><a href="/category/qt.html" >QT </a></li>
+                        <li><a href="/category/raspbian.html" >Raspbian </a></li>
+                        <li><a href="/category/sdr.html" >SDR </a></li>
+                        <li><a href="/category/software.html" >Software </a></li>
+                        <li><a href="/category/story.html" >Story </a></li>
+                        <li><a href="/category/work.html" >Work </a></li>
+                </ul>
+            </section>
+
+            <section id="widget-tagcloud" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Tagcloud
+                </div>
+                <div>
+                        <span><a href="/tag/pyenv.html">Pyenv</a></span>
+                        <span><a href="/tag/telescope.html">Telescope</a></span>
+                        <span><a href="/tag/geology.html">Geology</a></span>
+                        <span><a href="/tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="/tag/scholar.html">Scholar</a></span>
+                        <span><a href="/tag/xcode.html">Xcode</a></span>
+                        <span><a href="/tag/story.html">Story</a></span>
+                        <span><a href="/tag/science.html">Science</a></span>
+                        <span><a href="/tag/game.html">Game</a></span>
+                        <span><a href="/tag/ide.html">IDE</a></span>
+                        <span><a href="/tag/chat.html">Chat</a></span>
+                        <span><a href="/tag/discuss.html">Discuss</a></span>
+                        <span><a href="/tag/raspberrypi.html">RaspberryPi</a></span>
+                        <span><a href="/tag/mac.html">Mac</a></span>
+                        <span><a href="/tag/geopython.html">GeoPython</a></span>
+                        <span><a href="/tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="/tag/download.html">Download</a></span>
+                        <span><a href="/tag/camera.html">Camera</a></span>
+                        <span><a href="/tag/radio.html">Radio</a></span>
+                        <span><a href="/tag/server.html">Server</a></span>
+                        <span><a href="/tag/lesson.html">Lesson</a></span>
+                        <span><a href="/tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="/tag/memory.html">Memory</a></span>
+                        <span><a href="/tag/diy.html">DIY</a></span>
+                        <span><a href="/tag/visualization.html">Visualization</a></span>
+                        <span><a href="/tag/software.html">Software</a></span>
+                        <span><a href="/tag/university.html">University</a></span>
+                        <span><a href="/tag/video.html">Video</a></span>
+                        <span><a href="/tag/cuda.html">CUDA</a></span>
+                        <span><a href="/tag/hate.html">Hate</a></span>
+                        <span><a href="/tag/library.html">Library</a></span>
+                        <span><a href="/tag/lens.html">Lens</a></span>
+                        <span><a href="/tag/disease.html">Disease</a></span>
+                        <span><a href="/tag/dlib.html">Dlib</a></span>
+                        <span><a href="/tag/hardware.html">Hardware</a></span>
+                        <span><a href="/tag/poem.html">Poem</a></span>
+                        <span><a href="/tag/qt.html">QT</a></span>
+                        <span><a href="/tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="/tag/communicate.html">Communicate</a></span>
+                        <span><a href="/tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="/tag/translation.html">Translation</a></span>
+                        <span><a href="/tag/book.html">Book</a></span>
+                        <span><a href="/tag/programming.html">Programming</a></span>
+                        <span><a href="/tag/microscope.html">Microscope</a></span>
+                        <span><a href="/tag/cmake.html">Cmake</a></span>
+                        <span><a href="/tag/hack.html">Hack</a></span>
+                        <span><a href="/tag/photo.html">Photo</a></span>
+                        <span><a href="/tag/kivy.html">Kivy</a></span>
+                        <span><a href="/tag/python.html">Python</a></span>
+                        <span><a href="/tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="/tag/linux.html">Linux</a></span>
+                        <span><a href="/tag/vispy.html">VisPy</a></span>
+                        <span><a href="/tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="/tag/junck.html">Junck</a></span>
+                        <span><a href="/tag/moon.html">Moon</a></span>
+                        <span><a href="/tag/data.html">Data</a></span>
+                        <span><a href="/tag/nas.html">NAS</a></span>
+                </div>
+            </section>
+
+
+            <section id="widget-links" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Links
+                </div>
+                <ul>
+                        <li><a href="https://chinageology.com">ChinaGeology</a></li>
+                        <li><a href="https://fanzheng.org">Fan</a></li>
+                        <li><a href="http://o00o.site">FlagPlus</a></li>
+                        <li><a href="http://blog.cosli.top">CosLi</a></li>
+                        <li><a href="http://akagi201.org">Akagi201</a></li>
+                        <li><a href="http://xuanwo.org/">XuanWo</a></li>
+                        <li><a href="https://blog.daftme.com">4Orange</a></li>
+                        <li><a href="http://blog.riverrun.xyz/">River</a></li>
+                        <li><a href="https://www.logcg.com">LogCG Blog</a></li>
+                        <li><a href="http://v2mm.tech/">V2MM</a></li>
+                </ul>
+            </section>
+            
+        </section><!-- widgets -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="http://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="http://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+</body>
+</html>

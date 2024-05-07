@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
+    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo">
+                <h1><img src="/theme/image/default-logo.png" width="300" height="100" alt="CycleUser" />
+                CycleUser</h1>
+        </div> <!-- /#logo-->
+        <nav id="menu" class="main-nav"><ul class="menu">
+            <li  class="active"><a href="https://blog.cycleuser.org">Homepage</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/categories.html">Categories</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/tags.html">Tags</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/archives.html">Archives</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/about.html">About</a></li>
+
+        </ul></nav><!-- /#menu -->
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-620" >
+                <section class="breadcrumb-list">
+<a href=".">Blog</a> ›<a href="category/python.html">Python</a> ›PyCUDA Tutorial 中文版
+                </section>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >PyCUDA Tutorial 中文版</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep">Post in</span>
+        <abbr class="date" title="2016-10-13T11:20:00+08:00"> 
+            <a href="./archive/2016/Oct/index.html">Thu 13 October 2016 </a>
+        </abbr>
+        <span class="meta-prep"> |Tags</span>
+                <a href="./tag/python.html">Python</a>
+                <a href="./tag/cuda.html">CUDA</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry">
+        <p><a href="https://documen.tician.de/pycuda/">PyCUDA  Tutorial 英文原文</a></p>
+<p><a href="http://blog.cycleuser.org">CycleUser</a> 翻译</p>
+<h2>开始使用</h2>
+<p>在你使用PyCuda之前，要先用import命令来导入并初始化一下。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pycuda.driver</span> <span class="k">as</span> <span class="nn">cuda</span>
+<span class="kn">import</span> <span class="nn">pycuda.autoinit</span>
+<span class="kn">from</span> <span class="nn">pycuda.compiler</span> <span class="kn">import</span> <span class="n">SourceModule</span>
+</code></pre></div>
+
+<p>这里要注意，你并不是<strong>必须</strong>使用pycuda.autoinit,初始化、内容的创建和清理也都可以手动实现。</p>
+<h2>转移数据</h2>
+<p>接下来就是要把数据转移到设备（device）上了。一般情况下，在使用PyCuda的时候，原始数据都是以NumPy数组的形式存储在宿主系统（host）中的。（不过实际上，只要符合Python缓冲区接口的数据类型就都可以使用的，甚至连字符串类型str都可以。）</p>
+<p>（<strong>译者注：宿主系统host，就是处理器-内存-外存组成的常规Python运行环境;设备device，就是你要拿来做CUDA运算的显卡或者运算卡，可以是单卡也可以是阵列。</strong>）</p>
+<p>下面这行示例代码创建了一个随机数组成的4*4大小的数组a：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+
+<p>不过要先暂停一下—咱们刚刚创建的这个数组a包含的是双精度浮点数，但大多数常用的NVIDIA显卡只支持单精度浮点数，所以需要转换一下类型：</p>
+<p>（<strong>译者注：原作者的这篇简介主要针对使用常规普通显卡的用户，比如GeForce系列的各种大家平时用到的都是这个范围的，相比专门的计算卡，在双精度浮点数等方面进行了阉割，所以作者才建议转换类型到单精度浮点数。如果你使用的是专门的计算卡，就不用这样了。</strong>）</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</code></pre></div>
+
+<p>接下来，要把已有的数据转移过去，还要设定一个目的地，所以我们要在显卡中分配一段显存：</p>
+<p>（<strong>译者注：原文说的是设备，这里就直接说成显卡了，毕竟大家用显卡的比较多。另外下面这个代码中的a.nbytes是刚刚生成的数组a的大小，这里作者是按照数组大小来分配的显存，新入门的用户要注意这里，后续的使用中，显存的高效利用是很重要的。</strong>）</p>
+<div class="highlight"><pre><span></span><code><span class="n">a_gpu</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">mem_alloc</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">nbytes</span><span class="p">)</span>
+</code></pre></div>
+
+<p>最后，咱们把刚刚生成的数组a转移到GPU里面吧：</p>
+<div class="highlight"><pre><span></span><code><span class="n">cuda</span><span class="o">.</span><span class="n">memcpy_htod</span><span class="p">(</span><span class="n">a_gpu</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+
+<h2>运行一个内核函数（kernel）</h2>
+<p>咱们这篇简介争取说的都是最简单的内容：咱们写一个代码来把a_gpu这段显存中存储的数组的每一个值都乘以2. 为了实现这个效果，我们就要写一段CUDA C代码，然后把这段代码提交给一个构造函数，这里用到了pycuda.compiler.SourceModule:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mod</span> <span class="o">=</span> <span class="n">SourceModule</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2"> __global__ void doublify(float *a)</span>
+<span class="s2"> {</span>
+<span class="s2"> int idx = threadIdx.x + threadIdx.y*4;</span>
+<span class="s2"> a[idx] *= 2;</span>
+<span class="s2"> }</span>
+<span class="s2"> &quot;&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>（<strong>译者注：上面这段代码需要对C有一定了解。这里的threadIDx是CUDA C语言的内置变量，这里借此确定了a数组所在的位置，然后通过指针对数组中每一个元素进行了自乘2的操作。</strong>）</p>
+<p>这一步如果没有出错，就说明这段代码已经编译成功，并且加载到显卡中了。然后咱们可以使用一个到咱们这个pycuda.driver.Function的引用，然后调用此引用，把显存中的数组a_gpu作为参数传过去，同时设定块大小为4x4：</p>
+<div class="highlight"><pre><span></span><code><span class="n">func</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;doublify&quot;</span><span class="p">)</span>
+<span class="n">func</span><span class="p">(</span><span class="n">a_gpu</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+
+<p>最后，咱们就把经过运算处理过的数据从GPU取回，并且将它和原始数组a一同显示出来对比一下：</p>
+<div class="highlight"><pre><span></span><code><span class="n">a_doubled</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">cuda</span><span class="o">.</span><span class="n">memcpy_dtoh</span><span class="p">(</span><span class="n">a_doubled</span><span class="p">,</span> <span class="n">a_gpu</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">a_doubled</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+
+<p>（<strong>译者注：原作者在原文中使用的是Python2，我这里用的是带括号的print，这样同时能在python2和python3上运行。</strong>）</p>
+<p>输出的效果大概就是如下所示：</p>
+<p>（<strong>译者注：上面这个是从显存中取回的翻倍过的数组，下面的是原始数组。</strong>）</p>
+<div class="highlight"><pre><span></span><code><span class="o">[[</span> <span class="m">0</span>.51360393  <span class="m">1</span>.40589952  <span class="m">2</span>.25009012  <span class="m">3</span>.02563429<span class="o">]</span>
+ <span class="o">[</span>-0.75841576 -1.18757617  <span class="m">2</span>.72269917  <span class="m">3</span>.12156057<span class="o">]</span>
+ <span class="o">[</span> <span class="m">0</span>.28826082 -2.92448163  <span class="m">1</span>.21624792  <span class="m">2</span>.86353827<span class="o">]</span>
+ <span class="o">[</span> <span class="m">1</span>.57651746  <span class="m">0</span>.63500965  <span class="m">2</span>.21570683 -0.44537592<span class="o">]]</span>
+<span class="o">[[</span> <span class="m">0</span>.25680196  <span class="m">0</span>.70294976  <span class="m">1</span>.12504506  <span class="m">1</span>.51281714<span class="o">]</span>
+ <span class="o">[</span>-0.37920788 -0.59378809  <span class="m">1</span>.36134958  <span class="m">1</span>.56078029<span class="o">]</span>
+ <span class="o">[</span> <span class="m">0</span>.14413041 -1.46224082  <span class="m">0</span>.60812396  <span class="m">1</span>.43176913<span class="o">]</span>
+ <span class="o">[</span> <span class="m">0</span>.78825873  <span class="m">0</span>.31750482  <span class="m">1</span>.10785341 -0.22268796<span class="o">]]</span>
+</code></pre></div>
+
+<p>出现上面这样输出就说明成功了！整个攻略就完成了。另外很值得庆幸的是，运行输出之后PyCuda就会把所有清理和内存回收工作做好了，咱们的简介也就完毕了。不过你可以再看一下接下来的内容，里面有一些有意思的东西。</p>
+<p>(本文的代码在PyCuda源代码目录下的examples/demo.py文件中。)</p>
+<h3>简化内存拷贝</h3>
+<p>PyCuda提供了pycuda.driver.In, pycuda.driver.Out, 以及pycuda.driver.InOut 这三个参数处理器（argument handlers），能用来简化内存和显存之间的数据拷贝。例如，咱们可以不去创建一个a_gpu，而是直接把a移动过去，下面的代码就可以实现：</p>
+<div class="highlight"><pre><span></span><code><span class="n">func</span><span class="p">(</span><span class="n">cuda</span><span class="o">.</span><span class="n">InOut</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">block</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+
+<h3>有准备地调用函数</h3>
+<p>使用内置的 pycuda.driver.Function.<strong>call</strong>() 方法来进行的函数调用，会增加类型识别的资源开销（参考显卡接口）。 要实现跟上面代码同样的效果，又不造成这种开销，这个函数就需要设定好参数类型（如Python的标准库中的结构体模块struct所示），然后再去调用该函数。这样也就不用需要再使用numpy.number类去制定参数的规模了：</p>
+<div class="highlight"><pre><span></span><code><span class="n">grid</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">block</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">func</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="s2">&quot;P&quot;</span><span class="p">)</span>
+<span class="n">func</span><span class="o">.</span><span class="n">prepared_call</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">block</span><span class="p">,</span> <span class="n">a_gpu</span><span class="p">)</span>
+</code></pre></div>
+
+<h2>抽象以降低复杂度</h2>
+<p>使用 pycuda.gpuarray.GPUArray，同样效果的代码实现起来就更加精简了：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pycuda.gpuarray</span> <span class="k">as</span> <span class="nn">gpuarray</span>
+<span class="kn">import</span> <span class="nn">pycuda.driver</span> <span class="k">as</span> <span class="nn">cuda</span>
+<span class="kn">import</span> <span class="nn">pycuda.autoinit</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">a_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+<span class="n">a_doubled</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a_gpu</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="nb">print</span> <span class="n">a_doubled</span>
+<span class="nb">print</span> <span class="n">a_gpu</span>
+</code></pre></div>
+
+<h2>进阶内容</h2>
+<h3>结构体</h3>
+<p>（由Nicholas Tung提供，代码在examples/demo_struct.py文件中)</p>
+<p>假如我们用如下的构造函数，对长度可变的数组的每一个元素的值进行翻倍：</p>
+<div class="highlight"><pre><span></span><code><span class="n">mod</span> <span class="o">=</span> <span class="n">SourceModule</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2"> struct DoubleOperation {</span>
+<span class="s2"> int datalen, __padding; // so 64-bit ptrs can be aligned</span>
+<span class="s2"> float *ptr;</span>
+<span class="s2"> };</span>
+
+<span class="s2"> __global__ void double_array(DoubleOperation *a) {</span>
+<span class="s2"> a = &amp;a[blockIdx.x];</span>
+<span class="s2"> for (int idx = threadIdx.x; idx datalen; idx += blockDim.x) {</span>
+<span class="s2"> a-&gt;ptr[idx] *= 2;</span>
+<span class="s2"> }</span>
+<span class="s2"> }</span>
+<span class="s2"> &quot;&quot;&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>网格grid中的每一个块block（这些概念参考CUDA的官方文档）都将对各个数组进行加倍。for循环允许比当前线程更多的数据成员被翻倍，当然，如果能够保证有足够多的线程的话，这样做的效率就低了。接下来，基于这个结构体进行封装出来的一个类就产生了，并且有两个数组被创建出来：</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">DoubleOpStruct</span><span class="p">:</span>
+    <span class="n">mem_size</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">intp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">nbytes</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">struct_arr_ptr</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">to_device</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">dtype</span>
+        <span class="n">cuda</span><span class="o">.</span><span class="n">memcpy_htod</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">struct_arr_ptr</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">getbuffer</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">size</span><span class="p">)))</span>
+        <span class="n">cuda</span><span class="o">.</span><span class="n">memcpy_htod</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">struct_arr_ptr</span><span class="p">)</span> <span class="o">+</span> <span class="mi">8</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">getbuffer</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">intp</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">))))</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">cuda</span><span class="o">.</span><span class="n">from_device</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
+
+<span class="n">struct_arr</span> <span class="o">=</span> <span class="n">cuda</span><span class="o">.</span><span class="n">mem_alloc</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">DoubleOpStruct</span><span class="o">.</span><span class="n">mem_size</span><span class="p">)</span>
+<span class="n">do2_ptr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">struct_arr</span><span class="p">)</span> <span class="o">+</span> <span class="n">DoubleOpStruct</span><span class="o">.</span><span class="n">mem_size</span>
+
+<span class="n">array1</span> <span class="o">=</span> <span class="n">DoubleOpStruct</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="n">struct_arr</span><span class="p">)</span>
+<span class="n">array2</span> <span class="o">=</span> <span class="n">DoubleOpStruct</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="n">do2_ptr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original arrays&quot;</span><span class="p">,</span> <span class="n">array1</span><span class="p">,</span> <span class="n">array2</span><span class="p">)</span>
+</code></pre></div>
+
+<p>上面这段代码使用了pycuda.driver.to_device() 和 pycuda.driver.from_device() 这两个函数来分配内存和复制数值，并且演示了在显存中如何利用从已分配块位置进行的偏移。最后咱们执行一下这段代码；下面的代码中演示了两种情况：对两个数组都进行加倍，以及只加倍第二个数组：</p>
+<div class="highlight"><pre><span></span><code><span class="n">func</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;double_array&quot;</span><span class="p">)</span>
+<span class="n">func</span><span class="p">(</span><span class="n">struct_arr</span><span class="p">,</span> <span class="n">block</span> <span class="o">=</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;doubled arrays&quot;</span><span class="p">,</span> <span class="n">array1</span><span class="p">,</span> <span class="n">array2</span><span class="p">)</span>
+
+<span class="n">func</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">intp</span><span class="p">(</span><span class="n">do2_ptr</span><span class="p">),</span> <span class="n">block</span> <span class="o">=</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;doubled second only&quot;</span><span class="p">,</span> <span class="n">array1</span><span class="p">,</span> <span class="n">array2</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2>接下来的征程</h2>
+<p>当你对这些基础内容感到足够熟悉了，就可以去深入探索一下显卡接口。更多的例子可以再PyCuda的源码目录下的examples子目录。这个文件夹里面也包含了一些测试程序，可以用来比对GPU和CPU计算的差别。另外PyCuda源代码目录下的test子目录里面由一些关于功能如何实现的参考。</p>
+<ul>
+<li><a href="https://github.com/inducer/pycuda">Github</a></li>
+<li><a href="https://pypi.python.org/pypi/pycuda">Download Releases</a></li>
+</ul>
+<p>©2008, Andreas Kloeckner.
+©2016, translated to Chinese by <a href="http://blog.cycleuser.org">CycleUser</a>
+Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a> &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a> | <a href="https://documen.tician.de/pycuda/_sources/tutorial.txt#getting-started">Page source</a></p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep">Category:</span>
+        <abbr class="category">
+            <a href="./category/python.html">Python</a>
+        </abbr>
+       </footer>
+    <section id="respond">
+        <div id="disqus_thread">
+        <script type="text/javascript">
+        var disqus_identifier = "pycuda-tutorial-zhong-wen-ban.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://cycleuser.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        </script>
+        </div>
+
+            
+
+    </section>
+</section>
+
+
+        </section><!-- #content -->
+        <section id="widgets" class="grid col-300 fit" >
+            <!--
+            <section id="widget-search" class="widget-wrapper widget_search">
+
+                <form id="searchform" action="https://www.google.com/search" method="get">
+                    <input id="q" class="field" type="text" placeholder="Search Blog" name="q" ></input>
+                    <input id="ie" name="ie" type="hidden" value="utf-8" ></input>
+                    <input id="oe" name="oe" type="hidden" value="utf-8" ></input>
+                    <input id="channel" name="channel" type="hidden" value="suggest" ></input>
+                    <input id="searchsubmit" class="submit" type="submit" value="">
+                </form>
+            </section>
+            -->
+            <section id="widget-category" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Category
+                </div>
+                <ul>
+                        <li><a href="./category/camera.html" >Camera </a></li>
+                        <li><a href="./category/chromebook.html" >ChromeBook </a></li>
+                        <li><a href="./category/diy.html" >DIY </a></li>
+                        <li><a href="./category/duke.html" >Duke </a></li>
+                        <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
+                        <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/mac.html" >Mac </a></li>
+                        <li><a href="./category/nas.html" >NAS </a></li>
+                        <li><a href="./category/photography.html" >Photography </a></li>
+                        <li><a href="./category/python.html" >Python </a></li>
+                        <li><a href="./category/qgis.html" >QGIS </a></li>
+                        <li><a href="./category/qt.html" >QT </a></li>
+                        <li><a href="./category/raspbian.html" >Raspbian </a></li>
+                        <li><a href="./category/sdr.html" >SDR </a></li>
+                        <li><a href="./category/software.html" >Software </a></li>
+                        <li><a href="./category/story.html" >Story </a></li>
+                        <li><a href="./category/work.html" >Work </a></li>
+                </ul>
+            </section>
+
+            <section id="widget-tagcloud" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Tagcloud
+                </div>
+                <div>
+                        <span><a href="./tag/diy.html">DIY</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/phd.html">PHD</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/pyenv.html">Pyenv</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/translate.html">Translate</a></span>
+                        <span><a href="./tag/visualization.html">Visualization</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/book.html">Book</a></span>
+                </div>
+            </section>
+
+
+            <section id="widget-links" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Links
+                </div>
+                <ul>
+                        <li><a href="https://chinageology.com">ChinaGeology</a></li>
+                        <li><a href="http://doc.geopython.com/">GeoPython</a></li>
+                        <li><a href="https://fanzheng.org">Fan</a></li>
+                        <li><a href="http://o00o.site">FlagPlus</a></li>
+                        <li><a href="http://blog.cosli.top">CosLi</a></li>
+                        <li><a href="http://akagi201.org">Akagi201</a></li>
+                        <li><a href="http://xuanwo.org/">XuanWo</a></li>
+                        <li><a href="https://blog.daftme.com">4Orange</a></li>
+                        <li><a href="http://blog.riverrun.xyz/">River</a></li>
+                        <li><a href="https://www.logcg.com">LogCG Blog</a></li>
+                        <li><a href="http://guolao.me/">GuoLao</a></li>
+                </ul>
+            </section>
+            
+        </section><!-- widgets -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+</body>
+</html>

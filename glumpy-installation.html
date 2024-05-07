@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
+    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo">
+                <h1><img src="/theme/image/default-logo.png" width="300" height="100" alt="CycleUser" />
+                CycleUser</h1>
+        </div> <!-- /#logo-->
+        <nav id="menu" class="main-nav"><ul class="menu">
+            <li  class="active"><a href="https://blog.cycleuser.org">Homepage</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/categories.html">Categories</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/tags.html">Tags</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/archives.html">Archives</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/about.html">About</a></li>
+
+        </ul></nav><!-- /#menu -->
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-620" >
+                <section class="breadcrumb-list">
+<a href=".">Blog</a> ›<a href="category/work.html">Work</a> ›GlumPy-Installation
+                </section>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >GlumPy-Installation</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep">Post in</span>
+        <abbr class="date" title="2017-03-10T00:00:00+08:00"> 
+            <a href="./archive/2017/Mar/index.html">Fri 10 March 2017 </a>
+        </abbr>
+        <span class="meta-prep"> |Tags</span>
+                <a href="./tag/python.html">Python</a>
+                <a href="./tag/glumpy.html">GlumPy</a>
+                <a href="./tag/data.html">Data</a>
+                <a href="./tag/visualization.html">Visualization</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry">
+        <h1>GlumPy 中文文档翻译：安装指南</h1>
+<p><a href="http://glumpy.readthedocs.io/en/latest/installation.html">本文档原文地址</a></p>
+<p>本文的安装过程可能还是不够详细，Windows 用户可以参考 <a href="https://zhuanlan.zhihu.com/p/25678091">我在知乎专栏这篇文章</a> 中提供的安装截图，下载<a href="https://pan.baidu.com/s/1qY7IxvI#list/path=%2F">这个链接</a>里的内容会对安装过程有所帮助。</p>
+<h2>译者前言</h2>
+<p>我弃坑了 VisPy，因为在不同操作系统上面运行的效果差距比较大，可能是因为不同操作系统的相关组件和依赖包的版本差别，或者是其他的原因吧。而且好像 GlumPy 就是对 VisPy 的继承， VisPy 的代码提交已经是几个月之前甚至几年前，GlumPy 目前还在活跃。从文档来看这二者也很相似，尤其是这部分安装指南几乎就是修改了一下的 VisPy 安装指南。</p>
+<p>GlumPy 给我的印象很棒，因为官方开发人员很及时地跟我互动讨论<a href="https://github.com/glumpy/glumpy/issues/87">一些运行错误产生的原因</a>，虽然他们的 example 里面的一些一两年的 bug 也没有修改，比如 earth.py 似乎需要把 Arcball 替换成 Trackball，而且对 numpy 的特定版本的需求也需要提示一些，参考<a href="https://github.com/glumpy/glumpy/issues/106">这里查看更多内容</a>。</p>
+<h2>安装方法</h2>
+<p>最简单直接的安装方法就是用 pip 了：</p>
+<div class="highlight"><pre><span></span><code>pip install glumpy
+</code></pre></div>
+
+<p>还可以对已经安装的版本进行升级：</p>
+<div class="highlight"><pre><span></span><code>pip install --upgrade glumpy
+</code></pre></div>
+
+<h2>依赖包</h2>
+<p>GlumPy 常规需要的标准依赖包就是下面这几个：</p>
+<blockquote>
+<ul>
+<li>numpy: <a href="http://numpy.org/">http://numpy.org</a></li>
+<li>pyopengl: <a href="http://pyopengl.sourceforge.net/">http://pyopengl.sourceforge.net</a></li>
+<li>cython: <a href="http://cython.org/">http://cython.org</a></li>
+<li>triangle: <a href="http://dzhelil.info/triangle/">http://dzhelil.info/triangle/</a></li>
+</ul>
+</blockquote>
+<p>安装这些依赖包最简单的方法莫过于用 pip 了：</p>
+<div class="highlight"><pre><span></span><code>pip install numpy
+pip install cython
+pip install pyopengl
+pip install triangle
+</code></pre></div>
+
+<p>（译者注：推荐你先安装 cython ，然后是 numpy 接着是 pyopengl 和 triangle。在安装 triangle 的时候可能遇到报错，比如缺少 packaging ，解决方案是用 <code>pip install packaging</code> 这样的命令来把缺少的包安装上就行。）</p>
+<p>如果已经安装过上面这些包，可以用下面的命令来升级到最新版本：</p>
+<div class="highlight"><pre><span></span><code>pip install --upgrade numpy
+pip install --upgrade pyopengl
+pip install --upgrade cython
+pip install --upgrade triangle
+</code></pre></div>
+
+<h2>后端需求</h2>
+<p>GlumPy 需要至少一个工具链来打开窗口创建 OpenGL 环境。这可以用很多标准的 C/C++ 工具链来实现，比如 Qt, GLFW, glut, pygame, SDL2, Wx, GTK2 or GTK3，所以就需要对应的 Python 绑定，或者类似 pyglet 这样的纯 Python 工具链。</p>
+<h4>特别警告</h4>
+<p>上面这些后端的包只需要有一个就可以了，不是都要安装！</p>
+<table>
+<thead>
+<tr>
+<th><strong>目前常用的后端</strong></th>
+<th style="text-align: center;">Qt</th>
+<th style="text-align: center;">GLFW</th>
+<th style="text-align: center;">Pyglet</th>
+<th style="text-align: center;">SDL2</th>
+<th style="text-align: center;">GTK3</th>
+<th style="text-align: right;">Wx3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>多窗口</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>无修饰窗口</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>窗口尺寸调整</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>窗口移动</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>设定 GL API</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>设定 GL Profile</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>分享 GL Context</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>全屏</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>处理使用 Unicode</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: right;">✓</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>老古董后端</strong></th>
+<th style="text-align: center;">Wx2</th>
+<th style="text-align: center;">Glut</th>
+<th style="text-align: center;">Freeglut</th>
+<th style="text-align: center;">Pygame</th>
+<th style="text-align: right;">GTK 2.x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>多窗口</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>无修饰窗口</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>窗口尺寸调整</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>窗口移动</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>设定 GL API</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td>设定 GL Profile</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr>
+<td>分享 GL Context</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>全屏</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>处理使用 Unicode</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: right;">✓</td>
+</tr>
+<tr>
+<td>滚轮事件</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: right;">✓</td>
+</tr>
+</tbody>
+</table>
+<h2>硬件需求</h2>
+<p>GlumPy 会对显卡造成很大符合。更确切地说， GlumPy 会通过着色器（shader）来高强度使用图形处理单元（GPU）。所以 GlumPy 需要起码稍微新一点的显卡（只要是最近十二年以来的估计都可以）还需要一个最新版本的显卡驱动，这样 GlumPy 才能使用可编程管线（而不是固定化的管线）。</p>
+<p>在 Linux 或者 OSX 平台，输入下面这个命令：</p>
+<div class="highlight"><pre><span></span><code>glxinfo
+</code></pre></div>
+
+<p>上面这个命令执行之后会显示出一大堆结果，就是和你显卡相关的信息了。这时候最重要的是要看看你能否有权限直接使用显卡（direct ），以及你的显卡支持的 GL 版本以及 着色器语言（ shading language ） 的版本。</p>
+<div class="highlight"><pre><span></span><code>...
+direct rendering: Yes
+...
+OpenGL vendor string: NVIDIA Corporation
+OpenGL renderer string: NVIDIA GeForce GT 650M OpenGL Engine
+OpenGL version string: <span class="m">2</span>.1 NVIDIA-8.24.9 <span class="m">310</span>.40.25f01
+OpenGL shading language version string: <span class="m">1</span>.20
+...
+</code></pre></div>
+
+<p>译者注：上面这样子现实的内容太繁杂了，完全可以用 <code>glxinfo |grep direct &amp;&amp; glxinfo |grep OpenGL</code> 这样一个命令，在我的机器上输出如下所示：</p>
+<div class="highlight"><pre><span></span><code>direct rendering: Yes
+OpenGL vendor string: NVIDIA Corporation
+OpenGL renderer string: NVIDIA GeForce GTX TITAN OpenGL Engine
+OpenGL version string: <span class="m">2</span>.1 NVIDIA-10.15.20 <span class="m">367</span>.15.10.35f01
+OpenGL shading language  version string: <span class="m">1</span>.20
+</code></pre></div>
+
+<p>OpenGL 版本最低是 2.1，着色器语言的版本至少要 1.1。如果不符合的话，你需要安装最新版本的对应软件。可以看看你的操作系统是否提供了文档，或者在线搜索一下怎么来操作吧。</p>
+<h2>在 Windows 7，8，10  x64 bit 操作系统中安装的步骤</h2>
+<h4>首先是安装 Python3：</h4>
+<blockquote>
+<ul>
+<li>从<a href="https://www.python.org/downloads/"> Python 官方网站下载页面</a>来下载 Python。（译者更推荐从<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">清华开源镜像</a>下载使用 anaconda3 ，这样一来是下载速度快一些，而来也方便使用 conda 安装管理一些包。另外 GlumPy 官方推荐 Python3， 我很钦佩，因为我特别讨厌 2，没什么合理的具体理由，可能因为个人比较 2 吧。）</li>
+<li>运行安装文件，安装到一个短一点的路径里面，比如<code>C:\python3</code>。</li>
+<li>把 Python 可执行文件所在的目录添加到系统的环境变量 PATH 中（通常在安装过程中这一步就会完成了，一般不用人手动操作）。</li>
+<li><strong>重启操作系统，之后安装好的 Python 就可以用了。</strong>
+重启了之后，在命令行里面输入 <code>python</code> 然后回车，试试能不能运行。如果能得到一个<code>&gt;&gt;&gt;</code>这样的 Python 命令行控制台解释器的提示符，就没有问题了。如果没出现这个，而是报错了，那有 99% 的可能都需要你在系统的环境变量中添加 Python 所在路径。</li>
+</ul>
+</blockquote>
+<h4>然后是安装依赖包（一定要从管理员权限的 cmd 控制台或者 powershell）：</h4>
+<div class="highlight"><pre><span></span><code>C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt; pip install numpy
+C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt; pip install cython
+C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt; pip install pyopengl
+C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt; pip install triangle
+</code></pre></div>
+
+<h4>接下来安装 GlumPy（一定要从管理员权限的 cmd 控制台或者 powershell）：</h4>
+<div class="highlight"><pre><span></span><code>C:<span class="se">\W</span>indows<span class="se">\s</span>ystem32&gt; pip install glumpy
+</code></pre></div>
+
+<h4>关键部分了，安装 FreeType：</h4>
+<blockquote>
+<ul>
+<li>从 <a href="https://github.com/ubawurinna/freetype-windows-binaries">这个链接</a> 下载一份编译好的 FreeType 文件。</li>
+<li>把 Zip 文件解压缩出来。</li>
+<li>把 freetype 字样的 dll 从 win64 这个目录里面复制到你的 Python3 安装目录。</li>
+<li>把其中的一个 <code>freetype**.dll</code> 文件重命名成为 <code>freetype.dll</code>。
+下载的压缩包中附带的一个 README 文件会详细解释区别，推荐用带有 MT 字样的那个 DLL 文件。</li>
+</ul>
+</blockquote>
+<p>（译者注：一定注意重命名这一步，文档一定要仔细读。遇到过某些学生不好好读文档，弄半天都出现找不到 freetype 的错误，然后抓狂问我怎么办。所以一定仔细阅读，而且一定注意细节，比如别把名字错误改成 fretype 等等。）</p>
+<h4>另一个关键，安装 GLFW：</h4>
+<blockquote>
+<ul>
+<li>首先是去下载了，链接地址在 <a href="http://www.glfw.org/download.html">这里</a>。</li>
+<li>还是把 Zip 文件解压缩处理。</li>
+<li>从带有 <code>lib-xxxxx</code> 字样的文件夹中复制出来一份 glfw.dll 等等文件到你的 Python3 安装目录。
+推荐使用 <code>lib-mingw-w64</code> 这一个，另外这里不用重新命名，所以别修改文件名哦。</li>
+</ul>
+</blockquote>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep">Category:</span>
+        <abbr class="category">
+            <a href="./category/work.html">Work</a>
+        </abbr>
+       </footer>
+    <section id="respond">
+        <div id="disqus_thread">
+        <script type="text/javascript">
+        var disqus_identifier = "glumpy-installation.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://cycleuser.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        </script>
+        </div>
+
+            
+
+    </section>
+</section>
+
+
+        </section><!-- #content -->
+        <section id="widgets" class="grid col-300 fit" >
+            <!--
+            <section id="widget-search" class="widget-wrapper widget_search">
+
+                <form id="searchform" action="https://www.google.com/search" method="get">
+                    <input id="q" class="field" type="text" placeholder="Search Blog" name="q" ></input>
+                    <input id="ie" name="ie" type="hidden" value="utf-8" ></input>
+                    <input id="oe" name="oe" type="hidden" value="utf-8" ></input>
+                    <input id="channel" name="channel" type="hidden" value="suggest" ></input>
+                    <input id="searchsubmit" class="submit" type="submit" value="">
+                </form>
+            </section>
+            -->
+            <section id="widget-category" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Category
+                </div>
+                <ul>
+                        <li><a href="./category/camera.html" >Camera </a></li>
+                        <li><a href="./category/chromebook.html" >ChromeBook </a></li>
+                        <li><a href="./category/diy.html" >DIY </a></li>
+                        <li><a href="./category/duke.html" >Duke </a></li>
+                        <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
+                        <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/mac.html" >Mac </a></li>
+                        <li><a href="./category/nas.html" >NAS </a></li>
+                        <li><a href="./category/photography.html" >Photography </a></li>
+                        <li><a href="./category/python.html" >Python </a></li>
+                        <li><a href="./category/qgis.html" >QGIS </a></li>
+                        <li><a href="./category/qt.html" >QT </a></li>
+                        <li><a href="./category/raspbian.html" >Raspbian </a></li>
+                        <li><a href="./category/sdr.html" >SDR </a></li>
+                        <li><a href="./category/software.html" >Software </a></li>
+                        <li><a href="./category/story.html" >Story </a></li>
+                        <li><a href="./category/work.html" >Work </a></li>
+                </ul>
+            </section>
+
+            <section id="widget-tagcloud" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Tagcloud
+                </div>
+                <div>
+                        <span><a href="./tag/diy.html">DIY</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/phd.html">PHD</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/pyenv.html">Pyenv</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/translate.html">Translate</a></span>
+                        <span><a href="./tag/visualization.html">Visualization</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/book.html">Book</a></span>
+                </div>
+            </section>
+
+
+            <section id="widget-links" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Links
+                </div>
+                <ul>
+                        <li><a href="https://chinageology.com">ChinaGeology</a></li>
+                        <li><a href="http://doc.geopython.com/">GeoPython</a></li>
+                        <li><a href="https://fanzheng.org">Fan</a></li>
+                        <li><a href="http://o00o.site">FlagPlus</a></li>
+                        <li><a href="http://blog.cosli.top">CosLi</a></li>
+                        <li><a href="http://akagi201.org">Akagi201</a></li>
+                        <li><a href="http://xuanwo.org/">XuanWo</a></li>
+                        <li><a href="https://blog.daftme.com">4Orange</a></li>
+                        <li><a href="http://blog.riverrun.xyz/">River</a></li>
+                        <li><a href="https://www.logcg.com">LogCG Blog</a></li>
+                        <li><a href="http://guolao.me/">GuoLao</a></li>
+                </ul>
+            </section>
+            
+        </section><!-- widgets -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
+    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo">
+                <h1><img src="/theme/image/default-logo.png" width="300" height="100" alt="CycleUser" />
+                CycleUser</h1>
+        </div> <!-- /#logo-->
+        <nav id="menu" class="main-nav"><ul class="menu">
+            <li  class="active"><a href="https://blog.cycleuser.org">Homepage</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/categories.html">Categories</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/tags.html">Tags</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/archives.html">Archives</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/about.html">About</a></li>
+
+        </ul></nav><!-- /#menu -->
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-620" >
+                <section class="breadcrumb-list">
+<a href=".">Blog</a> ›<a href="category/work.html">Work</a> ›Kivy For Now
+                </section>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >Kivy For Now</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep">Post in</span>
+        <abbr class="date" title="2017-03-06T00:00:00+08:00"> 
+            <a href="./archive/2017/Mar/index.html">Mon 06 March 2017 </a>
+        </abbr>
+        <span class="meta-prep"> |Tags</span>
+                <a href="./tag/python.html">Python</a>
+                <a href="./tag/kivy.html">Kivy</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry">
+        <h1>Kivy中文编程指南：翻译始末</h1>
+<h2>翻译暂告段落</h2>
+<p>从去年开始的 <a href="https://github.com/cycleuser/Kivy-CN">Kivy 编程指南中文翻译项目</a>，今天基本算是弄完了，我把 Kivy Programming Guide 里面的全部内容翻译了一遍。</p>
+<p>这里就不贴了，大家可以去我的<a href="https://zhuanlan.zhihu.com/python-kivy">知乎专栏</a>或者我的 <a href="https://github.com/cycleuser">GitHub</a> 查看详细内容。</p>
+<p>当然了，质量还是不怎么样好，所以希望大家多批评指正，我会尽快改正。</p>
+<p>最开始用 Kivy 的时候，感觉有各种各样的 bug ，觉得安装和配置各种繁琐扯皮麻烦，心情也容易变得特别臭。</p>
+<p>然后开始翻译文档的时候，也还是容易经常变得很暴躁，尤其是遇到一些原文的语法错误、逻辑错误、自己鬼扯也扯不通顺的地方等等。</p>
+<p>但是后来我逐渐地开始钦佩这些创建了 Kivy 的人们，我意识到他们也跟我一样是一群热爱 Python 的人，想为更多的同样使用 Python 的开发者提供一个完整的工具链，以便于能更简洁轻快地实现跨平台开发。</p>
+<p>所以，我觉得 Kivy 是一个因为热爱而驱动去追寻自由的项目，这也让我逐渐对 Kivy 产生了更多的好感。</p>
+<p>事到如今我可能并不一定会有机会深入使用 Kivy 去开发，也依然希望 Kivy 能够发展壮大，生根发芽，开花散种，给更多的跟我一样初入门无所适从的新手一个友好又高效的选择。</p>
+<p>我对 Kivy 官方文档的翻译，暂告一段落。后面的 API 翻译，有一位知乎上的朋友表示有兴趣进行，一位非常年轻有为的少年。看到现在的青少年人都有如此的学习动力和探索精神，不由得让我感慨时代发展之快，自己奔四的路上，还有幸结识了众多初升的太阳。我相信他们会在未来闪耀，那个时代一定更美好。</p>
+<hr>
+<p>饥饿的分割线</p>
+<hr>
+<h2>当初开始翻译的原因</h2>
+<p>从去年开始，我陆续翻译了一些Kivy官方文档中的开发指南的内容。</p>
+<p>然后我又觉得有必要找一个更大的平台，以便于能给更多人提供一点便利，所以我又开了一个<a href="https://zhuanlan.zhihu.com/python-kivy">知乎专栏</a>。</p>
+<p>然而新年这一阵，我做了个手术，身体状况不太好，感觉理解能力和表达能力也有所下降（其实本来也不行），所以我就想，不如按照之<a href="https://github.com/cycleuser/ThinkPython-en-cn">前ThinkPython的中文翻译</a>那样，直接把翻译稿开源放到Github吧，地址在<a href="https://github.com/cycleuser/Kivy-CN">这里</a>。虽然我并没有想出来这样有什么更好的。</p>
+<p>接触Kivy时间不长，一年多前最开始知道有这个项目的，当时的观感很差，因为遇到若干个Bug，反馈了之后也没见他们有什么动静。然后时间长了，发现跨平台的Python除了QT基本就只有这个了，相比之下，这个好歹不那么庞大，还是挺好玩的。但也就这样了，没有进一步关注。</p>
+<p>然后是要写<a href="https://github.com/cycleuser/GeoPython">GeoPython</a>，一些基础的方法都实现了之后，遇到了一些数学上的问题，然后学了一些数学相关的内容，大概有了解决思路之后，才意识到，TMD没有GUI啊，这样常规的地球科学领域的同行们根本懒得看对不对？日常用户才懒得吭哧吭哧学习如何在Bash或者Powershell之下使用iPython运行某个脚本对不对？所以我需要GUI，然而QT太庞大繁杂了，衡量了一下自己的智力水平，估计至少要花费半年才能大概入门。所以我又捡起来Kivy了。</p>
+<p>这个过程中我发现Kivy相关的中文资料还真不多，那我就从最基础的官方文档开始翻译一下吧，好歹自己边学习边相当于做笔记，以教促学，还能给人提供一点有用的参考，哪怕一丁点用处也好。</p>
+<p>就像我当年给人辅导研究生的C++和考博英语一样，其实也是给自己的持续学习找一个持久的动力，也是争取有一点能够积攒努力产生一个突破口。就像我的启蒙老师许先生当年给我讲的庞中华老前辈一样，一点一点积累总会有收获。</p>
+<p>我这些翻译的水平良莠不齐，其中有些简单的部分，我基本可以直接进行双语转换，这就不费什么力气。而由于我在编程的经验和水平两方面都比较差，有的部分一些术语名词翻译得不伦不类，所以我又只能心虚地标记上英文，避免对读者产生太严重的误导。</p>
+<p>但我还是会继续下去的，学习和翻译两个过程还不能停下来。我不能因为自己现在三十多岁了而且水平还很差，就停止学习提高的尝试，因为一旦停下来，就更是一点希望都没有了，那就是直接向命运举白旗投降了。</p>
+<p>虽然时代已经不同了，我还是很钦佩王江民老前辈，专注和持久而创造了传奇。我没有那么大的野心，也不奢求什么辉煌成就，只是觉得有生之年，做点不后悔的事情吧。</p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep">Category:</span>
+        <abbr class="category">
+            <a href="./category/work.html">Work</a>
+        </abbr>
+       </footer>
+    <section id="respond">
+        <div id="disqus_thread">
+        <script type="text/javascript">
+        var disqus_identifier = "kivy-for-now.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://cycleuser.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        </script>
+        </div>
+
+            
+
+    </section>
+</section>
+
+
+        </section><!-- #content -->
+        <section id="widgets" class="grid col-300 fit" >
+            <!--
+            <section id="widget-search" class="widget-wrapper widget_search">
+
+                <form id="searchform" action="https://www.google.com/search" method="get">
+                    <input id="q" class="field" type="text" placeholder="Search Blog" name="q" ></input>
+                    <input id="ie" name="ie" type="hidden" value="utf-8" ></input>
+                    <input id="oe" name="oe" type="hidden" value="utf-8" ></input>
+                    <input id="channel" name="channel" type="hidden" value="suggest" ></input>
+                    <input id="searchsubmit" class="submit" type="submit" value="">
+                </form>
+            </section>
+            -->
+            <section id="widget-category" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Category
+                </div>
+                <ul>
+                        <li><a href="./category/camera.html" >Camera </a></li>
+                        <li><a href="./category/chromebook.html" >ChromeBook </a></li>
+                        <li><a href="./category/diy.html" >DIY </a></li>
+                        <li><a href="./category/duke.html" >Duke </a></li>
+                        <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
+                        <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/mac.html" >Mac </a></li>
+                        <li><a href="./category/nas.html" >NAS </a></li>
+                        <li><a href="./category/photography.html" >Photography </a></li>
+                        <li><a href="./category/python.html" >Python </a></li>
+                        <li><a href="./category/qgis.html" >QGIS </a></li>
+                        <li><a href="./category/qt.html" >QT </a></li>
+                        <li><a href="./category/raspbian.html" >Raspbian </a></li>
+                        <li><a href="./category/sdr.html" >SDR </a></li>
+                        <li><a href="./category/software.html" >Software </a></li>
+                        <li><a href="./category/story.html" >Story </a></li>
+                        <li><a href="./category/work.html" >Work </a></li>
+                </ul>
+            </section>
+
+            <section id="widget-tagcloud" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Tagcloud
+                </div>
+                <div>
+                        <span><a href="./tag/diy.html">DIY</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/phd.html">PHD</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/pyenv.html">Pyenv</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/translate.html">Translate</a></span>
+                        <span><a href="./tag/visualization.html">Visualization</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/book.html">Book</a></span>
+                </div>
+            </section>
+
+
+            <section id="widget-links" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Links
+                </div>
+                <ul>
+                        <li><a href="https://chinageology.com">ChinaGeology</a></li>
+                        <li><a href="http://doc.geopython.com/">GeoPython</a></li>
+                        <li><a href="https://fanzheng.org">Fan</a></li>
+                        <li><a href="http://o00o.site">FlagPlus</a></li>
+                        <li><a href="http://blog.cosli.top">CosLi</a></li>
+                        <li><a href="http://akagi201.org">Akagi201</a></li>
+                        <li><a href="http://xuanwo.org/">XuanWo</a></li>
+                        <li><a href="https://blog.daftme.com">4Orange</a></li>
+                        <li><a href="http://blog.riverrun.xyz/">River</a></li>
+                        <li><a href="https://www.logcg.com">LogCG Blog</a></li>
+                        <li><a href="http://guolao.me/">GuoLao</a></li>
+                </ul>
+            </section>
+            
+        </section><!-- widgets -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+</body>
+</html>

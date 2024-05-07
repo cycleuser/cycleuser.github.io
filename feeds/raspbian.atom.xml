@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CycleUser - Raspbian</title><link href="/" rel="alternate"></link><link href="/feeds/raspbian.atom.xml" rel="self"></link><id>/</id><updated>2017-05-09T16:20:00+08:00</updated><entry><title>基于 Raspbian 构建 Python 开发环境</title><link href="/ji-yu-raspbian-gou-jian-python-kai-fa-huan-jing.html" rel="alternate"></link><published>2017-05-09T16:20:00+08:00</published><updated>2017-05-09T16:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-05-09:/ji-yu-raspbian-gou-jian-python-kai-fa-huan-jing.html</id><summary type="html">&lt;p&gt;多年以前，袁萌老前辈曾经跟我谈及当时刚刚诞生的 Raspberry Pi，表示这种单板机对于教育事业会有很大帮助。奈何那时候我见识短浅，无法完全理解老先生的思路和远见。&lt;/p&gt;
+&lt;p&gt;已经很久没有见过老先生了，上一次见到他，还是在白大哥的婚礼上，那也是三四年前了。&lt;/p&gt;
+&lt;p&gt;听说老先生现在改用 Windows 10 了，而最初还颇为无奈。
+这让我想起当年我去为老先生安装 Ubuntu 的日子，那时候我才二十几岁，懵懂无知，有机会在老先生身边听闻教诲，奈何资质愚钝。&lt;/p&gt;
+&lt;p&gt;时光飞快，五年过去了，前几天有一个同学送给我一枚初代的 Raspberry Pi。&lt;/p&gt;
+&lt;p&gt;我拿到手上那一刻，仿佛感受到了五年前的那种惊喜。&lt;/p&gt;
+&lt;p&gt;于是我大概整理记录一下，基于 Raspberry Pi 构建一个 Python 开发环境的简单过程。&lt;/p&gt;
+&lt;h2&gt;系统安装&lt;/h2&gt;
+&lt;p&gt;首先自然是安装操作系统，五年前我还是 Scientific Linux 的拥趸，还曾经带着一众小伙伴玩红帽系，而如今我已经完全倒向 Debian 了，所以我选择了 Raspbian。&lt;/p&gt;
+&lt;p&gt;安装方法可以参考 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;多年以前，袁萌老前辈曾经跟我谈及当时刚刚诞生的 Raspberry Pi，表示这种单板机对于教育事业会有很大帮助。奈何那时候我见识短浅，无法完全理解老先生的思路和远见。&lt;/p&gt;
+&lt;p&gt;已经很久没有见过老先生了，上一次见到他，还是在白大哥的婚礼上，那也是三四年前了。&lt;/p&gt;
+&lt;p&gt;听说老先生现在改用 Windows 10 了，而最初还颇为无奈。
+这让我想起当年我去为老先生安装 Ubuntu 的日子，那时候我才二十几岁，懵懂无知，有机会在老先生身边听闻教诲，奈何资质愚钝。&lt;/p&gt;
+&lt;p&gt;时光飞快，五年过去了，前几天有一个同学送给我一枚初代的 Raspberry Pi。&lt;/p&gt;
+&lt;p&gt;我拿到手上那一刻，仿佛感受到了五年前的那种惊喜。&lt;/p&gt;
+&lt;p&gt;于是我大概整理记录一下，基于 Raspberry Pi 构建一个 Python 开发环境的简单过程。&lt;/p&gt;
+&lt;h2&gt;系统安装&lt;/h2&gt;
+&lt;p&gt;首先自然是安装操作系统，五年前我还是 Scientific Linux 的拥趸，还曾经带着一众小伙伴玩红帽系，而如今我已经完全倒向 Debian 了，所以我选择了 Raspbian。&lt;/p&gt;
+&lt;p&gt;安装方法可以参考&lt;a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md"&gt;官方网站的说明&lt;/a&gt; 以及其他很多指南，这里只简要说一下。&lt;/p&gt;
+&lt;p&gt;首先为了运行操作系统，准备一个 SD 卡，我选择了一张 16 G 的闪迪 SD 卡，这样容量起码和我的 Chromebook 相当，用起来估计起码是够用了。在 Mac OS X 的磁盘工具里面选中这个存储卡，格式化成 mbr 分区表模式的 FAT （MS-DOS） 格式；根据官方说明似乎当 SD 卡容量超过 32 G 的时候就需要格式化成 FAT32 。不过这都无所谓，我没纠结这些。&lt;/p&gt;
+&lt;p&gt;然后是下载&lt;a href="http://vx2-downloads.raspberrypi.org/NOOBS/images/NOOBS-2017-04-10/NOOBS_v2_4_0.zip"&gt;这个镜像&lt;/a&gt;，用迅雷之类的都可以，速度还不错。下载之后解压缩到刚刚格式化好的 SD 卡的根目录，我选用的是 7zip。&lt;/p&gt;
+&lt;p&gt;接下来把这张 SD 卡插进 Raspberry Pi 的卡槽，连接电源、键鼠、启动，在启动界面选择安装 Raspbian 即可。&lt;/p&gt;
+&lt;p&gt;由于刚刚我给出的链接是 NOOBS 的最简单安装模式，所以应该是非常新手友善的，如果不习惯英文还可以在这个界面调整用繁体中文。&lt;/p&gt;
+&lt;p&gt;安装这一部分就不多说了。&lt;/p&gt;
+&lt;h2&gt;更换更新源&lt;/h2&gt;
+&lt;p&gt;安装好之后的第一件事，就是改用清华提供的更新源：&lt;/p&gt;
+&lt;p&gt;这里需要改动 /etc/apt 目录下的 sources.list 文件，所以需要使用管理员权限（sudo），安装好的系统应该已经自带 nano 了，就用这个来编辑一下 /etc/apt/sources.list 文件。参考命令行为：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo nano /etc/apt/sources.list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;先在行首添加 &lt;code&gt;#&lt;/code&gt; 来注释掉所有已有的源。
+刚刚我们那个下载链接里面的是基于 Debian 8 的，所以接下来在另起一行添加下面两行内容：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ jessie main non-free contrib
+deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ jessie main non-free contrib
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;注意：网址末尾的raspbian重复两次是必须的。因为Raspbian的仓库中除了APT软件源还包含其他代码。APT软件源不在仓库的根目录，而在raspbian/子目录下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;确定没问题之后，ctrl + O 写入，然后 ctrl + X 退出，接着就是用 &lt;code&gt;sudo apt update&lt;/code&gt; 命令，更新软件源列表，更新之后再 &lt;code&gt;sudo apt upgrade&lt;/code&gt; 来更新系统。&lt;/p&gt;
+&lt;h2&gt;安装开发工具&lt;/h2&gt;
+&lt;p&gt;准备工作都做好了，现在就是要安装咱们要用的 Python 包了，比如常用的 cython、numpy、matplotlib 之类的包，以及 spyder 之类的 IDE。&lt;/p&gt;
+&lt;p&gt;这里推荐使用 apt 安装，因为我尝试了用 pip 安装的时候发现各种错误，很麻烦。 apt 安装的步骤如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt update
+sudo apt install python-matplotlib
+sudo apt install python3-matplotlib
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;这样使用 apt 来安装 matplotlib 的过程中会同时安装其他必要的包，例如 numpy 等等。所以依赖关系比较好解决&lt;/p&gt;
+&lt;p&gt;接下来就是安装我非常喜欢的 IDE 了，界面很赞的 Spyder:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt update
+sudo apt install spyder
+sudo apt install spyder3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;我还需要用到 pandas 和 xlrd，这两个我就在安装了上面的包之后用 pip 来安装了：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt update
+sudo apt install python-dev python-pip python3-dev python3-pip
+pip install pandas xlrd
+pip3 install pandas xlrd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;上面的命令中，先是手动安一下 pip 以避免系统没有自带 pip，然后是再通过 pip 来安装这两个包。&lt;/p&gt;
+&lt;p&gt;上面的命令中加了 3 的表示是针对 Python3 的，没有加的就是针对 Python2 了。&lt;/p&gt;
+&lt;p&gt;Raspberry Pi 上面有的包无法安装，比如 Anaconda 和 TensorFlow，这两个我就没能用 pip 安装成功，似乎是不支持 armv6l。&lt;/p&gt;
+&lt;p&gt;我这个初代的 Raspberry Pi 只能安装一个 Miniconda 3.5.5 armv6l，下载地址在&lt;a href="http://repo.continuum.io/miniconda/Miniconda-3.5.5-Linux-armv6l.sh"&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;下载这个 sh 文件之后，复制到 home 目录下的个人目录，例如我的用户名是 pi，那就复制到 /home/pi/ 这个文件夹下面。然后在终端中输入：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;/bin/bash Miniconda-3.5.5-Linux-armv6l.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;接下来就是按照指示来进行安装即可了。&lt;/p&gt;
+&lt;p&gt;不太推荐使用这个，版本太旧了。&lt;/p&gt;
+&lt;h2&gt;使用 PyEnv 安装和管理多版本&lt;/h2&gt;
+&lt;p&gt;首先安装依赖包：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;然后使用脚本安装 Pyenv：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer &lt;span class="p"&gt;|&lt;/span&gt; bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;根据提示修改环境变量，然后重新运行终端。&lt;/p&gt;
+&lt;p&gt;接下来就是来安装一个全新的 Python 3.6.1，我非常喜欢这个版本，因为字典有序了，所以我就喜欢，爱咋地咋地咯~&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pyenv install &lt;span class="m"&gt;3&lt;/span&gt;.6.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;剩下的内容就跟全新配置开发环境一样，使用 pip 来安装你想要的包就可以了。&lt;/p&gt;
+&lt;p&gt;以上这些就是在 Raspberry Pi 上面构建 Python 开发的基本环境的基本过程。&lt;/p&gt;
+&lt;p&gt;对 Python 和 Machine Learning 感兴趣的话可以关注一下我的两个专栏：
+&lt;a href="https://zhuanlan.zhihu.com/python-kivy"&gt;Python 学习之路&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://zhuanlan.zhihu.com/MachineLearn"&gt;Machine Learning&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如果有兴趣参与对&lt;a href="https://github.com/Kivy-CN/Duke-STA-663-CN"&gt;杜克大学 STA663&lt;/a&gt; 和 &lt;a href="https://github.com/Kivy-CN/Stanford-CS-229-CN"&gt;斯坦福 CS229&lt;/a&gt; 的翻译，可以加入我们的 &lt;a href="https://github.com/kivy-cn"&gt;GitHub Team&lt;/a&gt;&lt;/p&gt;</content><category term="Raspbian"></category><category term="Raspbian"></category><category term="RaspberryPi"></category><category term="Python"></category><category term="IDE"></category><category term="Linux"></category></entry></feed>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
+    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo">
+                <h1><img src="/theme/image/default-logo.png" width="300" height="100" alt="CycleUser" />
+                CycleUser</h1>
+        </div> <!-- /#logo-->
+        <nav id="menu" class="main-nav"><ul class="menu">
+            <li  class="active"><a href="https://blog.cycleuser.org">Homepage</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/categories.html">Categories</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/tags.html">Tags</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/archives.html">Archives</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/about.html">About</a></li>
+
+        </ul></nav><!-- /#menu -->
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-620" >
+                <section class="breadcrumb-list">
+<a href=".">Blog</a> ›<a href="category/raspbian.html">Raspbian</a> ›基于 Raspbian 构建 Python 开发环境
+                </section>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >基于 Raspbian 构建 Python 开发环境</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep">Post in</span>
+        <abbr class="date" title="2017-05-09T16:20:00+08:00"> 
+            <a href="./archive/2017/May/index.html">Tue 09 May 2017 </a>
+        </abbr>
+        <span class="meta-prep"> |Tags</span>
+                <a href="./tag/raspbian.html">Raspbian</a>
+                <a href="./tag/raspberrypi.html">RaspberryPi</a>
+                <a href="./tag/python.html">Python</a>
+                <a href="./tag/ide.html">IDE</a>
+                <a href="./tag/linux.html">Linux</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry">
+        <p>多年以前，袁萌老前辈曾经跟我谈及当时刚刚诞生的 Raspberry Pi，表示这种单板机对于教育事业会有很大帮助。奈何那时候我见识短浅，无法完全理解老先生的思路和远见。</p>
+<p>已经很久没有见过老先生了，上一次见到他，还是在白大哥的婚礼上，那也是三四年前了。</p>
+<p>听说老先生现在改用 Windows 10 了，而最初还颇为无奈。
+这让我想起当年我去为老先生安装 Ubuntu 的日子，那时候我才二十几岁，懵懂无知，有机会在老先生身边听闻教诲，奈何资质愚钝。</p>
+<p>时光飞快，五年过去了，前几天有一个同学送给我一枚初代的 Raspberry Pi。</p>
+<p>我拿到手上那一刻，仿佛感受到了五年前的那种惊喜。</p>
+<p>于是我大概整理记录一下，基于 Raspberry Pi 构建一个 Python 开发环境的简单过程。</p>
+<h2>系统安装</h2>
+<p>首先自然是安装操作系统，五年前我还是 Scientific Linux 的拥趸，还曾经带着一众小伙伴玩红帽系，而如今我已经完全倒向 Debian 了，所以我选择了 Raspbian。</p>
+<p>安装方法可以参考<a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">官方网站的说明</a> 以及其他很多指南，这里只简要说一下。</p>
+<p>首先为了运行操作系统，准备一个 SD 卡，我选择了一张 16 G 的闪迪 SD 卡，这样容量起码和我的 Chromebook 相当，用起来估计起码是够用了。在 Mac OS X 的磁盘工具里面选中这个存储卡，格式化成 mbr 分区表模式的 FAT （MS-DOS） 格式；根据官方说明似乎当 SD 卡容量超过 32 G 的时候就需要格式化成 FAT32 。不过这都无所谓，我没纠结这些。</p>
+<p>然后是下载<a href="http://vx2-downloads.raspberrypi.org/NOOBS/images/NOOBS-2017-04-10/NOOBS_v2_4_0.zip">这个镜像</a>，用迅雷之类的都可以，速度还不错。下载之后解压缩到刚刚格式化好的 SD 卡的根目录，我选用的是 7zip。</p>
+<p>接下来把这张 SD 卡插进 Raspberry Pi 的卡槽，连接电源、键鼠、启动，在启动界面选择安装 Raspbian 即可。</p>
+<p>由于刚刚我给出的链接是 NOOBS 的最简单安装模式，所以应该是非常新手友善的，如果不习惯英文还可以在这个界面调整用繁体中文。</p>
+<p>安装这一部分就不多说了。</p>
+<h2>更换更新源</h2>
+<p>安装好之后的第一件事，就是改用清华提供的更新源：</p>
+<p>这里需要改动 /etc/apt 目录下的 sources.list 文件，所以需要使用管理员权限（sudo），安装好的系统应该已经自带 nano 了，就用这个来编辑一下 /etc/apt/sources.list 文件。参考命令行为：</p>
+<div class="highlight"><pre><span></span><code>sudo nano /etc/apt/sources.list
+</code></pre></div>
+
+<p>先在行首添加 <code>#</code> 来注释掉所有已有的源。
+刚刚我们那个下载链接里面的是基于 Debian 8 的，所以接下来在另起一行添加下面两行内容：</p>
+<div class="highlight"><pre><span></span><code>deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ jessie main non-free contrib
+deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ jessie main non-free contrib
+</code></pre></div>
+
+<blockquote>
+<p>注意：网址末尾的raspbian重复两次是必须的。因为Raspbian的仓库中除了APT软件源还包含其他代码。APT软件源不在仓库的根目录，而在raspbian/子目录下。</p>
+</blockquote>
+<p>确定没问题之后，ctrl + O 写入，然后 ctrl + X 退出，接着就是用 <code>sudo apt update</code> 命令，更新软件源列表，更新之后再 <code>sudo apt upgrade</code> 来更新系统。</p>
+<h2>安装开发工具</h2>
+<p>准备工作都做好了，现在就是要安装咱们要用的 Python 包了，比如常用的 cython、numpy、matplotlib 之类的包，以及 spyder 之类的 IDE。</p>
+<p>这里推荐使用 apt 安装，因为我尝试了用 pip 安装的时候发现各种错误，很麻烦。 apt 安装的步骤如下：</p>
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt install python-matplotlib
+sudo apt install python3-matplotlib
+</code></pre></div>
+
+<p>这样使用 apt 来安装 matplotlib 的过程中会同时安装其他必要的包，例如 numpy 等等。所以依赖关系比较好解决</p>
+<p>接下来就是安装我非常喜欢的 IDE 了，界面很赞的 Spyder:</p>
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt install spyder
+sudo apt install spyder3
+</code></pre></div>
+
+<p>我还需要用到 pandas 和 xlrd，这两个我就在安装了上面的包之后用 pip 来安装了：</p>
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt install python-dev python-pip python3-dev python3-pip
+pip install pandas xlrd
+pip3 install pandas xlrd
+</code></pre></div>
+
+<p>上面的命令中，先是手动安一下 pip 以避免系统没有自带 pip，然后是再通过 pip 来安装这两个包。</p>
+<p>上面的命令中加了 3 的表示是针对 Python3 的，没有加的就是针对 Python2 了。</p>
+<p>Raspberry Pi 上面有的包无法安装，比如 Anaconda 和 TensorFlow，这两个我就没能用 pip 安装成功，似乎是不支持 armv6l。</p>
+<p>我这个初代的 Raspberry Pi 只能安装一个 Miniconda 3.5.5 armv6l，下载地址在<a href="http://repo.continuum.io/miniconda/Miniconda-3.5.5-Linux-armv6l.sh">这里</a>。</p>
+<p>下载这个 sh 文件之后，复制到 home 目录下的个人目录，例如我的用户名是 pi，那就复制到 /home/pi/ 这个文件夹下面。然后在终端中输入：</p>
+<div class="highlight"><pre><span></span><code>/bin/bash Miniconda-3.5.5-Linux-armv6l.sh
+</code></pre></div>
+
+<p>接下来就是按照指示来进行安装即可了。</p>
+<p>不太推荐使用这个，版本太旧了。</p>
+<h2>使用 PyEnv 安装和管理多版本</h2>
+<p>首先安装依赖包：</p>
+<div class="highlight"><pre><span></span><code>sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm
+</code></pre></div>
+
+<p>然后使用脚本安装 Pyenv：</p>
+<div class="highlight"><pre><span></span><code>curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer <span class="p">|</span> bash
+</code></pre></div>
+
+<p>根据提示修改环境变量，然后重新运行终端。</p>
+<p>接下来就是来安装一个全新的 Python 3.6.1，我非常喜欢这个版本，因为字典有序了，所以我就喜欢，爱咋地咋地咯~</p>
+<div class="highlight"><pre><span></span><code>pyenv install <span class="m">3</span>.6.1
+</code></pre></div>
+
+<p>剩下的内容就跟全新配置开发环境一样，使用 pip 来安装你想要的包就可以了。</p>
+<p>以上这些就是在 Raspberry Pi 上面构建 Python 开发的基本环境的基本过程。</p>
+<p>对 Python 和 Machine Learning 感兴趣的话可以关注一下我的两个专栏：
+<a href="https://zhuanlan.zhihu.com/python-kivy">Python 学习之路</a></p>
+<p><a href="https://zhuanlan.zhihu.com/MachineLearn">Machine Learning</a></p>
+<p>如果有兴趣参与对<a href="https://github.com/Kivy-CN/Duke-STA-663-CN">杜克大学 STA663</a> 和 <a href="https://github.com/Kivy-CN/Stanford-CS-229-CN">斯坦福 CS229</a> 的翻译，可以加入我们的 <a href="https://github.com/kivy-cn">GitHub Team</a></p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep">Category:</span>
+        <abbr class="category">
+            <a href="./category/raspbian.html">Raspbian</a>
+        </abbr>
+       </footer>
+    <section id="respond">
+        <div id="disqus_thread">
+        <script type="text/javascript">
+        var disqus_identifier = "ji-yu-raspbian-gou-jian-python-kai-fa-huan-jing.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://cycleuser.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        </script>
+        </div>
+
+            
+
+    </section>
+</section>
+
+
+        </section><!-- #content -->
+        <section id="widgets" class="grid col-300 fit" >
+            <!--
+            <section id="widget-search" class="widget-wrapper widget_search">
+
+                <form id="searchform" action="https://www.google.com/search" method="get">
+                    <input id="q" class="field" type="text" placeholder="Search Blog" name="q" ></input>
+                    <input id="ie" name="ie" type="hidden" value="utf-8" ></input>
+                    <input id="oe" name="oe" type="hidden" value="utf-8" ></input>
+                    <input id="channel" name="channel" type="hidden" value="suggest" ></input>
+                    <input id="searchsubmit" class="submit" type="submit" value="">
+                </form>
+            </section>
+            -->
+            <section id="widget-category" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Category
+                </div>
+                <ul>
+                        <li><a href="./category/camera.html" >Camera </a></li>
+                        <li><a href="./category/chromebook.html" >ChromeBook </a></li>
+                        <li><a href="./category/diy.html" >DIY </a></li>
+                        <li><a href="./category/duke.html" >Duke </a></li>
+                        <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
+                        <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/mac.html" >Mac </a></li>
+                        <li><a href="./category/nas.html" >NAS </a></li>
+                        <li><a href="./category/photography.html" >Photography </a></li>
+                        <li><a href="./category/python.html" >Python </a></li>
+                        <li><a href="./category/qgis.html" >QGIS </a></li>
+                        <li><a href="./category/qt.html" >QT </a></li>
+                        <li><a href="./category/raspbian.html" >Raspbian </a></li>
+                        <li><a href="./category/sdr.html" >SDR </a></li>
+                        <li><a href="./category/software.html" >Software </a></li>
+                        <li><a href="./category/story.html" >Story </a></li>
+                        <li><a href="./category/work.html" >Work </a></li>
+                </ul>
+            </section>
+
+            <section id="widget-tagcloud" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Tagcloud
+                </div>
+                <div>
+                        <span><a href="./tag/diy.html">DIY</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/phd.html">PHD</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/pyenv.html">Pyenv</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/translate.html">Translate</a></span>
+                        <span><a href="./tag/visualization.html">Visualization</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/book.html">Book</a></span>
+                </div>
+            </section>
+
+
+            <section id="widget-links" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Links
+                </div>
+                <ul>
+                        <li><a href="https://chinageology.com">ChinaGeology</a></li>
+                        <li><a href="http://doc.geopython.com/">GeoPython</a></li>
+                        <li><a href="https://fanzheng.org">Fan</a></li>
+                        <li><a href="http://o00o.site">FlagPlus</a></li>
+                        <li><a href="http://blog.cosli.top">CosLi</a></li>
+                        <li><a href="http://akagi201.org">Akagi201</a></li>
+                        <li><a href="http://xuanwo.org/">XuanWo</a></li>
+                        <li><a href="https://blog.daftme.com">4Orange</a></li>
+                        <li><a href="http://blog.riverrun.xyz/">River</a></li>
+                        <li><a href="https://www.logcg.com">LogCG Blog</a></li>
+                        <li><a href="http://guolao.me/">GuoLao</a></li>
+                </ul>
+            </section>
+            
+        </section><!-- widgets -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+</body>
+</html>

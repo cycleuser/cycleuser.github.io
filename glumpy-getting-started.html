@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
+    <a rel="me" href="https://m.cmx.im/@cycleuser">Mastodon</a>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo">
+                <h1><img src="/theme/image/default-logo.png" width="300" height="100" alt="CycleUser" />
+                CycleUser</h1>
+        </div> <!-- /#logo-->
+        <nav id="menu" class="main-nav"><ul class="menu">
+            <li  class="active"><a href="https://blog.cycleuser.org">Homepage</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/categories.html">Categories</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/tags.html">Tags</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/archives.html">Archives</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/about.html">About</a></li>
+
+        </ul></nav><!-- /#menu -->
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-620" >
+                <section class="breadcrumb-list">
+<a href=".">Blog</a> ›<a href="category/work.html">Work</a> ›GlumPy-Getting started
+                </section>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >GlumPy-Getting started</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep">Post in</span>
+        <abbr class="date" title="2017-10-01T00:00:00+08:00"> 
+            <a href="./archive/2017/Oct/index.html">Sun 01 October 2017 </a>
+        </abbr>
+        <span class="meta-prep"> |Tags</span>
+                <a href="./tag/python.html">Python</a>
+                <a href="./tag/glumpy.html">GlumPy</a>
+                <a href="./tag/data.html">Data</a>
+                <a href="./tag/visualization.html">Visualization</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry">
+        <h1>GlumPy 中文文档翻译：上手简介</h1>
+<p><a href="http://glumpy.readthedocs.io/en/latest/quickstart.html">本文档原文地址</a></p>
+<p>开始上手使用一个新的库或者框架有时候可能会让人头大，尤其是要阅读超级多的参考资料的情况下。本章就仅对 GlumPy 进行一下非常简要的介绍，而不去纠结各种细节。</p>
+<p><strong>主要内容</strong></p>
+<ul>
+<li>创建窗口</li>
+<li>绘制四边形</li>
+<li>生成动画</li>
+</ul>
+<h2>创建窗口</h2>
+<p>创建一个新的窗口，这个过程代码看起来应该是比较好理解的，如下所示：
+（译者注：这里的代码每一个步骤之间都是连贯的，建议读者在 ipython 里面逐个粘贴，不要错过漏掉中间的，否则运行肯定出错。所以当你遇到运行出错的时候建议先检查一下是不是中间有漏掉的。）</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">glumpy</span> <span class="kn">import</span> <span class="n">app</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">Window</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+<p>这时候你就能在桌面上马上看到这个窗口了，可能窗口上还有一些乱七八糟的内容。这是因为我们没有对创口进行清空。所以下面这个带窗口清空的代码就更好一些：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">glumpy</span> <span class="kn">import</span> <span class="n">app</span>
+
+<span class="n">window</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">Window</span><span class="p">()</span>
+
+<span class="nd">@window</span><span class="o">.</span><span class="n">event</span>
+<span class="k">def</span> <span class="nf">on_draw</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+<p>在这个版本的代码中，使用了 on_draw() 这个事件，每当窗口需要重绘（redraw）的时候，就会调用这个事件。在 on_draw  这个 handler 中，窗口（window）区域被清理到了默认的背景颜色—黑色。</p>
+<p>最后调用了 app.run()，这就将控制器交给了 GlumPy 应用循环体，可以对鼠标和键盘之类的应用事件进行响应。</p>
+<h4>特别注意</h4>
+<p>只有当所有的应用窗口都关闭的情况下，<strong>run</strong> 方法才会返回（return），除非整个程序是运行在<strong>交互模式（interactive mode）</strong>下。如果你使用了  --interactive 这样的参数来切换到交互模式下运行，那么 app.run() 就可能不会显示出一整块。（译者注：这句话翻译得有问题，原文是 If you start the program using the --interactive switch, the app.run() is no longer blocking，回头我再详细润色。）</p>
+<h2>绘制四边形</h2>
+<p>现代的 OpenGL 非常强大，但是理解起来挺难的，编写相关程序也是如此。任何的绘制操作都需要一系列的准备步骤，这就使得在不使用第三方库的情况下，绘制过程会繁琐无比。GlumPy 通过 gloo 界面，提供了一些非常简单的使用体验，gloo 可以看做是将 NumPy 和 OpenGL 结合起来的一种“胶水（glue）”。（译者注：这也是 GlumPy 名字的意义所在，GL +  NumPy = GlumPy）</p>
+<p>接下来咱们就用 GlumPy 来绘制一个彩色的四边形吧。第一步自然还是要导入相关的模块然后创建窗口：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">glumpy</span> <span class="kn">import</span> <span class="n">app</span><span class="p">,</span> <span class="n">gloo</span><span class="p">,</span> <span class="n">gl</span>
+
+<span class="n">window</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">Window</span><span class="p">()</span>
+</code></pre></div>
+
+<p>然后我们要创建一个 GLSL 程序，用来显示这个四边形。这就要我们先来写一个顶点（vertex）和一个片段着色器（fragment shader），这两个是要用来告诉 OpenGL 要绘制什么，以及如何绘制。目前你还不用纠结去理解这些名词概念和细节，但是要注意到一个重要的点，就是这些 OpenGL 程序都是文本形式的字符串（text strings）。</p>
+<div class="highlight"><pre><span></span><code><span class="n">vertex</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">         attribute vec2 position;</span>
+<span class="s2">         void main()</span>
+<span class="s2">         {</span>
+<span class="s2">             gl_Position = vec4(position, 0.0, 1.0);</span>
+<span class="s2">         } &quot;&quot;&quot;</span>
+
+<span class="n">fragment</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">           uniform vec4 color;</span>
+<span class="s2">           void main() {</span>
+<span class="s2">               gl_FragColor = color;</span>
+<span class="s2">           } &quot;&quot;&quot;</span>
+
+<span class="n">quad</span> <span class="o">=</span> <span class="n">gloo</span><span class="o">.</span><span class="n">Program</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">fragment</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+
+<p>gloo 界面的一个好处就是可以直接上传使用非常直观易于人类理解的记号来表达的数据给 GPU（图形处理单元）。position 参数直接关联到了顶点着色器（vertex shader）的位置属性，而 color 参数则直接关联了片段着色器（fragment shader）中的颜色分布。</p>
+<div class="highlight"><pre><span></span><code><span class="n">quad</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span>
+                    <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">+</span><span class="mf">0.5</span><span class="p">),</span>
+                    <span class="p">(</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span>
+                    <span class="p">(</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">+</span><span class="mf">0.5</span><span class="p">)]</span>
+<span class="n">quad</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span>  <span class="c1"># 红色</span>
+</code></pre></div>
+
+<p>最后，在 on_draw() 方法中通过 gl.GL_TRIANGLE_STRIP 来渲染这个四边形。代码如下所示：</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@window</span><span class="o">.</span><span class="n">event</span>
+<span class="k">def</span> <span class="nf">on_draw</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">quad</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">gl</span><span class="o">.</span><span class="n">GL_TRIANGLE_STRIP</span><span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+<h2>生成动画</h2>
+<p>动画（animation）其实只是每个时间步长中对显示内容逐渐调整而实现的。我们还利用上面的四边形这个例子，让这个四边形随着时间而扩大和缩小。第一步需要在 on_draw() 函数中提供 dt 这个参数来跟踪记录时间，这个 dt 参数给出的是自从上次调用之后经过的时间。接下来我们首先要对顶点着色器的代码进行修改，使四边形的坐标随着时间变量的正弦值而变化。</p>
+<div class="highlight"><pre><span></span><code><span class="n">vertex</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">         uniform float time;</span>
+<span class="s2">         attribute vec2 position;</span>
+<span class="s2">         void main()</span>
+<span class="s2">         {</span>
+<span class="s2">             vec2 xy = vec2(sin(2.0*time));</span>
+<span class="s2">             gl_Position = vec4(position*(0.25 + 0.75*xy*xy), 0.0, 1.0);</span>
+<span class="s2">         } &quot;&quot;&quot;</span>
+
+<span class="n">quad</span> <span class="o">=</span> <span class="n">gloo</span><span class="o">.</span><span class="n">Program</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">fragment</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+
+<p>然后还需要对时间变量进行初始化，在每次绘制调用的时候对该变量进行更新。</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@window</span><span class="o">.</span><span class="n">event</span>
+<span class="k">def</span> <span class="nf">on_draw</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">quad</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span>
+    <span class="n">quad</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">gl</span><span class="o">.</span><span class="n">GL_TRIANGLE_STRIP</span><span class="p">)</span>
+
+<span class="n">quad</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">quad</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">quad</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+
+<h4>特别注意</h4>
+<p>如果你想要把动画录制下来，可以在运行程序的时候添加 --record filename 这样的后缀来实现。</p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep">Category:</span>
+        <abbr class="category">
+            <a href="./category/work.html">Work</a>
+        </abbr>
+       </footer>
+    <section id="respond">
+        <div id="disqus_thread">
+        <script type="text/javascript">
+        var disqus_identifier = "glumpy-getting-started.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://cycleuser.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        </script>
+        </div>
+
+            
+
+    </section>
+</section>
+
+
+        </section><!-- #content -->
+        <section id="widgets" class="grid col-300 fit" >
+            <!--
+            <section id="widget-search" class="widget-wrapper widget_search">
+
+                <form id="searchform" action="https://www.google.com/search" method="get">
+                    <input id="q" class="field" type="text" placeholder="Search Blog" name="q" ></input>
+                    <input id="ie" name="ie" type="hidden" value="utf-8" ></input>
+                    <input id="oe" name="oe" type="hidden" value="utf-8" ></input>
+                    <input id="channel" name="channel" type="hidden" value="suggest" ></input>
+                    <input id="searchsubmit" class="submit" type="submit" value="">
+                </form>
+            </section>
+            -->
+            <section id="widget-category" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Category
+                </div>
+                <ul>
+                        <li><a href="./category/camera.html" >Camera </a></li>
+                        <li><a href="./category/chromebook.html" >ChromeBook </a></li>
+                        <li><a href="./category/diy.html" >DIY </a></li>
+                        <li><a href="./category/duke.html" >Duke </a></li>
+                        <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
+                        <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/mac.html" >Mac </a></li>
+                        <li><a href="./category/nas.html" >NAS </a></li>
+                        <li><a href="./category/photography.html" >Photography </a></li>
+                        <li><a href="./category/python.html" >Python </a></li>
+                        <li><a href="./category/qgis.html" >QGIS </a></li>
+                        <li><a href="./category/qt.html" >QT </a></li>
+                        <li><a href="./category/raspbian.html" >Raspbian </a></li>
+                        <li><a href="./category/sdr.html" >SDR </a></li>
+                        <li><a href="./category/software.html" >Software </a></li>
+                        <li><a href="./category/story.html" >Story </a></li>
+                        <li><a href="./category/work.html" >Work </a></li>
+                </ul>
+            </section>
+
+            <section id="widget-tagcloud" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Tagcloud
+                </div>
+                <div>
+                        <span><a href="./tag/diy.html">DIY</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/phd.html">PHD</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/pyenv.html">Pyenv</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/translate.html">Translate</a></span>
+                        <span><a href="./tag/visualization.html">Visualization</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/book.html">Book</a></span>
+                </div>
+            </section>
+
+
+            <section id="widget-links" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Links
+                </div>
+                <ul>
+                        <li><a href="https://chinageology.com">ChinaGeology</a></li>
+                        <li><a href="http://doc.geopython.com/">GeoPython</a></li>
+                        <li><a href="https://fanzheng.org">Fan</a></li>
+                        <li><a href="http://o00o.site">FlagPlus</a></li>
+                        <li><a href="http://blog.cosli.top">CosLi</a></li>
+                        <li><a href="http://akagi201.org">Akagi201</a></li>
+                        <li><a href="http://xuanwo.org/">XuanWo</a></li>
+                        <li><a href="https://blog.daftme.com">4Orange</a></li>
+                        <li><a href="http://blog.riverrun.xyz/">River</a></li>
+                        <li><a href="https://www.logcg.com">LogCG Blog</a></li>
+                        <li><a href="http://guolao.me/">GuoLao</a></li>
+                </ul>
+            </section>
+            
+        </section><!-- widgets -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+</body>
+</html>

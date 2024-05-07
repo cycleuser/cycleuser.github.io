@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CycleUser - Python</title><link href="/" rel="alternate"></link><link href="/feeds/python.atom.xml" rel="self"></link><id>/</id><updated>2019-01-31T21:53:21+08:00</updated><entry><title>PyOpenCL Installation on Windows</title><link href="/pyopencl-installation-on-windows.html" rel="alternate"></link><published>2019-01-31T21:53:21+08:00</published><updated>2019-01-31T21:53:21+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2019-01-31:/pyopencl-installation-on-windows.html</id><summary type="html">&lt;h1&gt;Windows系统下安装PyOpenCL&lt;/h1&gt;
+&lt;h2&gt;挣脱CUDA&lt;/h2&gt;
+&lt;p&gt;两年多以前,我翻译了&lt;a href="https://zhuanlan.zhihu.com/p/32062796"&gt;PyCUDA Tutorial 的中文版&lt;/a&gt;,还建立了一个&lt;a href="https://github.com/Kivy-CN/PyCUDA-CN"&gt;Github Repo&lt;/a&gt;.但后来一直忙其他事情,也没跟得上更新进度.&lt;/p&gt;
+&lt;p&gt;CUDA确实很美好,但从Titan X开始就眼看着老黄将双精度浮点数(Float Point 64bit,缩写为FP64)砍到没法用,让我这样买不起Tesla的人很无奈.虽然还有初代白泰坦的1.3 ~ 1.5 TFLOPS的FP64,但毕竟显卡核心时代久远,目前存世的良品有限,且功耗感人.&lt;/p&gt;
+&lt;p&gt;反观AMD阵营,根据&lt;a href="https://en.wikipedia.org/wiki/List_of_AMD_graphics_processing_units"&gt;维基百科上面的AMD显卡核心页面&lt;/a&gt;的数据,RX580 有385.9GFLOPS的FP64, 而 Vega64 有792GFLOPS的FP64,虽然不是很高,但总算能用.&lt;/p&gt;
+&lt;p&gt;为了双精度,只能尝试挣脱CUDA的束缚,试试OpenCL了.&lt;/p&gt;
+&lt;h2&gt;PyOpenCL&lt;/h2&gt;
+&lt;p&gt;由于我这种外行人没有雄厚的代码实力,只会一点基础的 Python,就只能选择 PyOpenCL …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Windows系统下安装PyOpenCL&lt;/h1&gt;
+&lt;h2&gt;挣脱CUDA&lt;/h2&gt;
+&lt;p&gt;两年多以前,我翻译了&lt;a href="https://zhuanlan.zhihu.com/p/32062796"&gt;PyCUDA Tutorial 的中文版&lt;/a&gt;,还建立了一个&lt;a href="https://github.com/Kivy-CN/PyCUDA-CN"&gt;Github Repo&lt;/a&gt;.但后来一直忙其他事情,也没跟得上更新进度.&lt;/p&gt;
+&lt;p&gt;CUDA确实很美好,但从Titan X开始就眼看着老黄将双精度浮点数(Float Point 64bit,缩写为FP64)砍到没法用,让我这样买不起Tesla的人很无奈.虽然还有初代白泰坦的1.3 ~ 1.5 TFLOPS的FP64,但毕竟显卡核心时代久远,目前存世的良品有限,且功耗感人.&lt;/p&gt;
+&lt;p&gt;反观AMD阵营,根据&lt;a href="https://en.wikipedia.org/wiki/List_of_AMD_graphics_processing_units"&gt;维基百科上面的AMD显卡核心页面&lt;/a&gt;的数据,RX580 有385.9GFLOPS的FP64, 而 Vega64 有792GFLOPS的FP64,虽然不是很高,但总算能用.&lt;/p&gt;
+&lt;p&gt;为了双精度,只能尝试挣脱CUDA的束缚,试试OpenCL了.&lt;/p&gt;
+&lt;h2&gt;PyOpenCL&lt;/h2&gt;
+&lt;p&gt;由于我这种外行人没有雄厚的代码实力,只会一点基础的 Python,就只能选择 PyOpenCL 了.&lt;/p&gt;
+&lt;p&gt;PyOpenCL 的官网在 &lt;a href="https://mathema.tician.de/software/pyopencl/"&gt;https://mathema.tician.de/software/pyopencl/&lt;/a&gt;. 其&lt;a href="https://wiki.tiker.net/PyOpenCL/Installation/"&gt;安装指南&lt;/a&gt;内容非常繁多,新人看上去可能会一时半会摸不着头脑.至少我是懵了好一阵.&lt;/p&gt;
+&lt;p&gt;最近在外远游,随身用的是一台Windows工作站,我就尝试在Windows下安装一下,将安装过程记录下来供参考.&lt;/p&gt;
+&lt;h2&gt;根据硬件平台查询支持的OpenCL版本&lt;/h2&gt;
+&lt;p&gt;我这台机器上用的是NVIDIA 1050显卡,本来我想着这既然是比较新世代的10系卡,肯定是支持最新版本的OpenCL2.2,结果下载了二进制文件之后才发现不兼容.所以大家一定要先查清楚自己所用的设备支持的OpenCL版本!&lt;/p&gt;
+&lt;h3&gt;Intel 核显&lt;/h3&gt;
+&lt;p&gt;访问&lt;a href="https://en.wikipedia.org/wiki/List_of_Intel_graphics_processing_units"&gt;维基百科上面的Intel显示核心页面&lt;/a&gt;可以根据处理器或者核显型号来搜索到在对应的操作系统上所支持的OpenCL版本,有的设备在Windows下支持到2.0,Linux却只支持到1.2;有的设备则反过来,在Linux支持到2.0,在Windows下支持到1.2.&lt;/p&gt;
+&lt;p&gt;如果你同时也使用另外一个独立显卡,建议选择二者中更低版本的,似乎是高版本兼容的设备应该能够支持低版本的OpenCL.&lt;/p&gt;
+&lt;h3&gt;AMD 用户&lt;/h3&gt;
+&lt;p&gt;如果你使用的是AMD的核显或者独显,可以参考&lt;a href="https://en.wikipedia.org/wiki/List_of_AMD_graphics_processing_units"&gt;维基百科上面的AMD显卡核心页面&lt;/a&gt;上面列出的OpenCL版本支持信息,或者可以从AMD官网查一查.&lt;/p&gt;
+&lt;h3&gt;NVIDIA 用户&lt;/h3&gt;
+&lt;p&gt;访问&lt;a href="https://developer.nvidia.com/opencl"&gt;NVIDIA OpenCL&lt;/a&gt;这个站点,下载&lt;strong&gt;OpenCL Device Query&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://developer.download.nvidia.com/compute/DevZone/OpenCL/Projects/x64/oclDeviceQuery.zip"&gt;Win64 版本下载链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://developer.download.nvidia.com/compute/DevZone/OpenCL/Projects/oclDeviceQuery.zip"&gt;Win32 版本下载链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载之后解压缩,从中找到任意的一个名字叫做&lt;strong&gt;oclDeviceQuery.exe&lt;/strong&gt;的可执行文件,双击运行,会在同一目录下生成一个名为&lt;strong&gt;oclDeviceQuery.txt&lt;/strong&gt;的文件.用记事本等编辑器打开这个文件,从其中查找关键词&lt;code&gt;CL_PLATFORM_VERSION&lt;/code&gt;,后面就会有版本信息.&lt;/p&gt;
+&lt;p&gt;我的这台机器上的版本信息为:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;OpenCL SW Info:
+
+ CL_PLATFORM_NAME:  NVIDIA CUDA
+ CL_PLATFORM_VERSION:   OpenCL &lt;span class="m"&gt;1&lt;/span&gt;.2 CUDA &lt;span class="m"&gt;10&lt;/span&gt;.0.132
+ OpenCL SDK Revision:   &lt;span class="m"&gt;7027912&lt;/span&gt;
+
+
+OpenCL Device Info:
+
+ &lt;span class="m"&gt;1&lt;/span&gt; devices found supporting OpenCL:
+
+ ---------------------------------
+ Device GeForce GTX &lt;span class="m"&gt;1050&lt;/span&gt;
+ ---------------------------------
+  CL_DEVICE_NAME:           GeForce GTX &lt;span class="m"&gt;1050&lt;/span&gt;
+  CL_DEVICE_VENDOR:             NVIDIA Corporation
+  CL_DRIVER_VERSION:            &lt;span class="m"&gt;417&lt;/span&gt;.71
+  CL_DEVICE_VERSION:            OpenCL &lt;span class="m"&gt;1&lt;/span&gt;.2 CUDA
+  CL_DEVICE_OPENCL_C_VERSION:       OpenCL C &lt;span class="m"&gt;1&lt;/span&gt;.2 
+  CL_DEVICE_TYPE:           CL_DEVICE_TYPE_GPU
+  CL_DEVICE_MAX_COMPUTE_UNITS:      &lt;span class="m"&gt;5&lt;/span&gt;
+  CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS:   &lt;span class="m"&gt;3&lt;/span&gt;
+  CL_DEVICE_MAX_WORK_ITEM_SIZES:    &lt;span class="m"&gt;1024&lt;/span&gt; / &lt;span class="m"&gt;1024&lt;/span&gt; / &lt;span class="m"&gt;64&lt;/span&gt; 
+  CL_DEVICE_MAX_WORK_GROUP_SIZE:    &lt;span class="m"&gt;1024&lt;/span&gt;
+  CL_DEVICE_MAX_CLOCK_FREQUENCY:    &lt;span class="m"&gt;1493&lt;/span&gt; MHz
+  CL_DEVICE_ADDRESS_BITS:       &lt;span class="m"&gt;64&lt;/span&gt;
+  CL_DEVICE_MAX_MEM_ALLOC_SIZE:     &lt;span class="m"&gt;1024&lt;/span&gt; MByte
+  CL_DEVICE_GLOBAL_MEM_SIZE:        &lt;span class="m"&gt;4096&lt;/span&gt; MByte
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;很明显,只支持OpenCL1.2,这么悲剧.&lt;/p&gt;
+&lt;h2&gt;下载编译好的二进制安装文件&lt;/h2&gt;
+&lt;p&gt;在确定了所用显卡支持的OpenCL版本后,到&lt;a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyopencl"&gt;https://www.lfd.uci.edu/~gohlke/pythonlibs&lt;/a&gt;下载和OpenCL版本以及Python版本/操作系统版本都对应的whl文件.&lt;/p&gt;
+&lt;p&gt;例如,如上文所述,我的1050显卡支持的OpenCL版本是1.2,我的Python版本是3.7,我的操作系统是64bit的Windows,那么就下载&lt;strong&gt;pyopencl-2018.2.2+cl12-cp37-cp37m-win_amd64.whl&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;这里面的&lt;strong&gt;cl12&lt;/strong&gt;的意思就是OpenCL1.2,&lt;strong&gt;cp37&lt;/strong&gt;表示的应该是Python3.7,&lt;strong&gt;win_amd64&lt;/strong&gt;表示是64位Windows.&lt;/p&gt;
+&lt;p&gt;大家一定要先确定你的OpenCL版本/Python版本/Windows版本,然后找好对应的whl文件下载.&lt;/p&gt;
+&lt;h2&gt;安装和测试&lt;/h2&gt;
+&lt;p&gt;下载好了之后,通过 powershell 或者 cmd 到达刚刚下载的 whl 文件所在目录,用 pip 来安装就可以了.
+例如我这里的&lt;strong&gt;pyopencl-2018.2.2+cl12-cp37-cp37m-win_amd64.whl&lt;/strong&gt;文件在&lt;code&gt;D:\TMP\&lt;/code&gt;这个目录下:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; D:&lt;span class="se"&gt;\T&lt;/span&gt;MP&lt;span class="se"&gt;\&lt;/span&gt;
+pip install pyopencl-2018.2.2+cl12-cp37-cp37m-win_amd64.whl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;这样如果没有报错,应该就是安装成功了.&lt;/p&gt;
+&lt;p&gt;然后在Python中运行下面的来自&lt;a href="https://documen.tician.de/pyopencl/index.html"&gt;PyOpenCL官网的代码&lt;/a&gt;来测试是否能够在Python下调用CL:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;absolute_import&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;print_function&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pyopencl&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;cl&lt;/span&gt;
+
+&lt;span class="n"&gt;a_np&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;astype&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;b_np&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;50000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;astype&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;ctx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;create_some_context&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;queue&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CommandQueue&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;mf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mem_flags&lt;/span&gt;
+&lt;span class="n"&gt;a_g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Buffer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;READ_ONLY&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;mf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;COPY_HOST_PTR&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hostbuf&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a_np&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;b_g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Buffer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;READ_ONLY&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;mf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;COPY_HOST_PTR&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;hostbuf&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;b_np&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;prg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Program&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;__kernel void sum(&lt;/span&gt;
+&lt;span class="s2"&gt;    __global const float *a_g, __global const float *b_g, __global float *res_g)&lt;/span&gt;
+&lt;span class="s2"&gt;{&lt;/span&gt;
+&lt;span class="s2"&gt;  int gid = get_global_id(0);&lt;/span&gt;
+&lt;span class="s2"&gt;  res_g[gid] = a_g[gid] + b_g[gid];&lt;/span&gt;
+&lt;span class="s2"&gt;}&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;res_g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Buffer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;WRITE_ONLY&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a_np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nbytes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;prg&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;queue&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a_np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a_g&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b_g&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;res_g&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;res_np&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;empty_like&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_np&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;cl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;enqueue_copy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;queue&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;res_np&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;res_g&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Check on CPU with Numpy:&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;res_np&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_np&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b_np&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;linalg&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;norm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;res_np&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_np&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;b_np&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+&lt;span class="c1"&gt;# 代码来自 https://documen.tician.de/pyopencl/index.html&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;如果你的机器上有多个支持OpenCL的设备,比如同时有核显和独显或者多块独显,就会遇到一个提问界面,询问你用哪个设备执行上述OpenCL操作.比如我就遇到了:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Choose platform:
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &amp;lt;pyopencl.Platform &lt;span class="s1"&gt;&amp;#39;NVIDIA CUDA&amp;#39;&lt;/span&gt; at 0x184befb97a0&amp;gt;
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &amp;lt;pyopencl.Platform &lt;span class="s1"&gt;&amp;#39;Intel(R) OpenCL&amp;#39;&lt;/span&gt; at 0x184bf0fe500&amp;gt;
+Choice &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;:
+&lt;span class="c1"&gt;#这里我输入了回车键就是直接用默认的设备0&lt;/span&gt;
+Set the environment variable &lt;span class="nv"&gt;PYOPENCL_CTX&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt; to avoid being asked again.
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;. &lt;span class="m"&gt;0&lt;/span&gt;. &lt;span class="m"&gt;0&lt;/span&gt;. ... &lt;span class="m"&gt;0&lt;/span&gt;. &lt;span class="m"&gt;0&lt;/span&gt;. &lt;span class="m"&gt;0&lt;/span&gt;.&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="m"&gt;0&lt;/span&gt;.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;得到结果没报错,看来是安装成功了.&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="CUDA"></category><category term="OpenCL"></category><category term="PyOpenCL"></category></entry><entry><title>Python3 安装 VTK 和 MayaVi 的一种姿势</title><link href="/python3-an-zhuang-vtk-he-mayavi-de-yi-chong-zi-shi.html" rel="alternate"></link><published>2017-11-18T00:00:00+08:00</published><updated>2017-11-18T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-11-18:/python3-an-zhuang-vtk-he-mayavi-de-yi-chong-zi-shi.html</id><summary type="html">&lt;h1&gt;Python3 安装 VTK 和 MayaVi 的一种姿势&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文基于我之前的一个回答：&lt;a href="https://www.zhihu.com/question/62747523/answer/202794539"&gt;CycleUser：anaconda上能否安装VTK？&lt;/a&gt;
+友情提示：由于使用到了 conda，所以如果不指定使用国内 &lt;a href="http://mirrors.ustc.edu.cn/help/anaconda.html"&gt;ustc&lt;/a&gt; 或者&lt;a href="http://mirrors.tuna.tsinghua.edu.cn/help/anaconda/"&gt;tuna&lt;/a&gt; 的 anaconda 源，就可能需要&lt;strong&gt;科学的上网姿势&lt;/strong&gt;才能安装成功。但请不要问我如何使用科学的姿势，因为我不具备这方面的知识。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;思路简介&lt;/h2&gt;
+&lt;p&gt;在 Python 上面安装配置 VTK 和 MayaVi，可能对于新手来说，是一个比较痛苦的经历。&lt;/p&gt;
+&lt;p&gt;我今天正好探索 SfePy，发现似乎是要用到 VTK 和 MayaVi ，而刚刚用 pyenv 新建的 3.6.3的环境是没有安装这两个的。直接用 pip install mayavi 会提示缺少 …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Python3 安装 VTK 和 MayaVi 的一种姿势&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文基于我之前的一个回答：&lt;a href="https://www.zhihu.com/question/62747523/answer/202794539"&gt;CycleUser：anaconda上能否安装VTK？&lt;/a&gt;
+友情提示：由于使用到了 conda，所以如果不指定使用国内 &lt;a href="http://mirrors.ustc.edu.cn/help/anaconda.html"&gt;ustc&lt;/a&gt; 或者&lt;a href="http://mirrors.tuna.tsinghua.edu.cn/help/anaconda/"&gt;tuna&lt;/a&gt; 的 anaconda 源，就可能需要&lt;strong&gt;科学的上网姿势&lt;/strong&gt;才能安装成功。但请不要问我如何使用科学的姿势，因为我不具备这方面的知识。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;思路简介&lt;/h2&gt;
+&lt;p&gt;在 Python 上面安装配置 VTK 和 MayaVi，可能对于新手来说，是一个比较痛苦的经历。&lt;/p&gt;
+&lt;p&gt;我今天正好探索 SfePy，发现似乎是要用到 VTK 和 MayaVi ，而刚刚用 pyenv 新建的 3.6.3的环境是没有安装这两个的。直接用 pip install mayavi 会提示缺少 VTK 而报错，我在 macOS 下用 brew install vtk 和 brew link vtk 之后并没有见到效果，所以就想到了用 conda 安装 vtk，然后再用 pip 安装 mayavi 的思路。&lt;/p&gt;
+&lt;p&gt;这次的场景和我在 &lt;a href="https://www.zhihu.com/question/62747523/answer/202794539"&gt;Anaconda 上安装 VTK 的回答&lt;/a&gt; 还有所不同，因为原本安装的并不是 Anaconda，而就是常规的普通 Python 3.6.3。&lt;/p&gt;
+&lt;p&gt;当然，这对于万事能凑活就先对付为人生哲学的我来说，不算太大的难事，因为咱们完全可以用下面这个方案来实现：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用 pip 来给已有的 Python 3.6.3 安装一个 conda；&lt;/li&gt;
+&lt;li&gt;然后用这个 conda 再去安装 VTK；&lt;/li&gt;
+&lt;li&gt;接下来安装好了 VTK 之后再用 pip 安装 MayaVi；&lt;/li&gt;
+&lt;li&gt;然后再用 conda 安装 SfePy。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我实际按照这个思路操作了一遍，在 Python 3.5.4 和 3.6.3 上都成功了，当然这两者稍有一点差别，就是在使用 conda 安装 VTK 的时候要指定使用不同的 channel，对于3.5.4，要用 menpo，对于 3.6.3 ，要用 clinicalgraphics，这一点就和我在 &lt;a href="https://www.zhihu.com/question/62747523/answer/202794539"&gt;Anaconda 上安装 VTK 的回答&lt;/a&gt; 中写的情况类似了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;1 用 pip 安装 conda&lt;/h2&gt;
+&lt;p&gt;有经验的朋友可能看了上面的 1234 之后就知道该怎么做了，甚至自己完全还有更好的思路能够分享出来。然而本专栏定位是从入门开始的学习者，所以我觉得有必要把这部分详细列出来介绍一下。&lt;/p&gt;
+&lt;p&gt;（这里假设你已经安装好了 pip，如果这部分有问题，请去搜索，相信这点问题难不住有探索精神的学习者。我这里用的 pip3 而不是 pip，是为了区分我同时安装的 Python2 所用的 pip 和 Python3 所用的 pip3，建议新人们只安装 Python3 就好了。如果下面的代码中使用 pip3 不成，你替换成 pip 试试又不会得病。）&lt;/p&gt;
+&lt;p&gt;首先，我们用 PIP 来安装 conda。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip3 install conda
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;这一步骤中如果有出错提示，可能是一些 conda 必备的依赖包没有安装。可能为 ruamel.yaml, pycosat, idna, certifi, chardet, urllib3, requests 这几个。&lt;/p&gt;
+&lt;p&gt;可以尝试一起装：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip3 install ruamel.yaml pycosat idna certifi chardet urllib3 requests conda
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;这好办，如果一下安装报上面这些包的错，那就一个个用 pip 来安装了就可以了，不再赘述。&lt;/p&gt;
+&lt;h2&gt;2 用 conda 安装 VTK&lt;/h2&gt;
+&lt;p&gt;这里就是到了一个稍微关键一点的地方，3.5 要用 menpo，3.6要用 clinicalgraphics。&lt;/p&gt;
+&lt;p&gt;另外，由于咱们是在 Python 中使用 pip 安装的 conda，而不是一开始安装的 miniconda 或者 anaconda，所以&lt;strong&gt;不能直接使用 conda 命令，而是要当作一个 python 模块来用&lt;/strong&gt;，所以下面的几个命令里面，都&lt;strong&gt;加上了 python3 -m&lt;/strong&gt;，这也是和我在 &lt;a href="https://www.zhihu.com/question/62747523/answer/202794539"&gt;Anaconda 上安装 VTK 的回答&lt;/a&gt; 很不一样的，&lt;strong&gt;新手可能会对此不太注意&lt;/strong&gt;，从而导致安装错误，所以一定仔细阅读哦。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;适用于3.5：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python3 -m conda install -c menpo &lt;span class="nv"&gt;vtk&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;7&lt;/span&gt;   
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;适用于3.6：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python3 -m conda install -c clinicalgraphics &lt;span class="nv"&gt;vtk&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;7&lt;/span&gt;.1.0 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;关于版本的指定上，建议你也按照下面的来，避免自己走弯路，我虽然不算老司机，但这些代码都好歹是安装成功过的。我当然知道 VTK 官方版本最新的 Release 已经 8.01 了，但是我自己没弄成功，就没办法来分享安装最新版的成功经验了。&lt;/p&gt;
+&lt;h2&gt;3 安装好了 VTK 之后再用 pip 安装 MayaVi&lt;/h2&gt;
+&lt;p&gt;刚这一步安装好了 VTK 之后，就可以用 pip 来安装 MayaVi 了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip3 install mayavi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;4 再用 conda 安装 SfePy&lt;/h2&gt;
+&lt;p&gt;我安装 MayaVi 是为了 安装 SfePy，所以上面的弄妥了之后自然直接安装了：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python3 -m conda install -c conda-forge sfepy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;当然了，每一步安装完成之后，都建议你测试一下是否安装成功，在&lt;strong&gt; Bash 或者 CMD 等终端内运行&lt;/strong&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python3 -c &lt;span class="s2"&gt;&amp;quot;import vtk&amp;quot;&lt;/span&gt;         &lt;span class="c1"&gt;#这是测试 VTK &lt;/span&gt;
+python3 -c &lt;span class="s2"&gt;&amp;quot;import mayavi&amp;quot;&lt;/span&gt;      &lt;span class="c1"&gt;#这是测试 MayaVi &lt;/span&gt;
+python3 -c &lt;span class="s2"&gt;&amp;quot;import sfepy&amp;quot;&lt;/span&gt;       &lt;span class="c1"&gt;#这是测试 sfepy&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;如果没什么问题，就不会有报错什么的。另外注意是在&lt;strong&gt;终端内运行&lt;/strong&gt;，不是在 Python 解释器里面。这几个命令实际上就是让 Python3 来导入这几个模块，来看看是不是报错，没报错就一般都是安装完毕没问题咯。&lt;/p&gt;
+&lt;p&gt;其实 conda 还有个好处，就是可以用来升级已经安装的模块，可以在终端内输入如下命令来实现：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python3 -m conda update --all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;跟直接使用 Anaconda 相比，也就是多加了前缀 python3 -m 而已。&lt;/p&gt;
+&lt;p&gt;这一期就是这样，希望新手朋友们看了之后能够大概弄清楚如何安装 VTK 和 MayaVi。&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="VTK"></category><category term="MayaVi"></category><category term="Conda"></category></entry><entry><title>GeoPython 一个 Python 实现各种地质学日常用途的开源项目</title><link href="/geopython-yi-ge-python-shi-xian-ge-chong-di-zhi-xue-ri-chang-yong-tu-de-kai-yuan-xiang-mu.html" rel="alternate"></link><published>2017-07-30T16:20:00+08:00</published><updated>2017-07-30T16:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-07-30:/geopython-yi-ge-python-shi-xian-ge-chong-di-zhi-xue-ri-chang-yong-tu-de-kai-yuan-xiang-mu.html</id><summary type="html">&lt;h5&gt;作者: CycleUser&lt;/h5&gt;
+&lt;h5&gt;QQ群： 560675626&lt;/h5&gt;
+&lt;p&gt;下载以及了解更多，请访问 &lt;a href="https://github.com/chinageology/GeoPython"&gt;GitHub 项目主页&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;挖坑&lt;/h2&gt;
+&lt;p&gt;去年开始把自己编写的一系列简单的 Python 脚本整理起来，于是就有了&lt;a href="https://zhuanlan.zhihu.com/p/25786642"&gt;知乎上的那篇文章&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;后来去年年底肿瘤做了个手术，然后身体恢复得不是太好，状态一直比较狗带，所以重构工作做得也很慢。&lt;/p&gt;
+&lt;p&gt;好在现在是大概重新实现了 GUI 界面，然而并没有使用&lt;a href="https://zhuanlan.zhihu.com/python-kivy?topic=Kivy"&gt;当时翻译的 Kivy&lt;/a&gt;，而是从头学了 QT，这真是一个悲伤的故事。&lt;/p&gt;
+&lt;h2&gt;填坑&lt;/h2&gt;
+&lt;p&gt;然后现在 GeoPython 有了新的 GUI 了，能在界面中对数据文件进行简单的修改排序和保存了，而且每一个出现的图都单独弹出一个小窗口，并且可以进行各种细致的定制了。&lt;/p&gt;
+&lt;p&gt;功能上，目前还没有完全实现覆盖之前老版本的功能，不过也有点模样了。&lt;/p&gt;
+&lt;p&gt;前几天，陆续实现了 TAS、REE、Trace、当然还有计算锆石稀土中的 Ce4/Ce3 的比值来估算岩浆岩氧逸度的功能。&lt;/p&gt;
+&lt;p&gt;今天又刚刚重新实现了极射赤平投影（Stereo …&lt;/p&gt;</summary><content type="html">&lt;h5&gt;作者: CycleUser&lt;/h5&gt;
+&lt;h5&gt;QQ群： 560675626&lt;/h5&gt;
+&lt;p&gt;下载以及了解更多，请访问 &lt;a href="https://github.com/chinageology/GeoPython"&gt;GitHub 项目主页&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;挖坑&lt;/h2&gt;
+&lt;p&gt;去年开始把自己编写的一系列简单的 Python 脚本整理起来，于是就有了&lt;a href="https://zhuanlan.zhihu.com/p/25786642"&gt;知乎上的那篇文章&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;后来去年年底肿瘤做了个手术，然后身体恢复得不是太好，状态一直比较狗带，所以重构工作做得也很慢。&lt;/p&gt;
+&lt;p&gt;好在现在是大概重新实现了 GUI 界面，然而并没有使用&lt;a href="https://zhuanlan.zhihu.com/python-kivy?topic=Kivy"&gt;当时翻译的 Kivy&lt;/a&gt;，而是从头学了 QT，这真是一个悲伤的故事。&lt;/p&gt;
+&lt;h2&gt;填坑&lt;/h2&gt;
+&lt;p&gt;然后现在 GeoPython 有了新的 GUI 了，能在界面中对数据文件进行简单的修改排序和保存了，而且每一个出现的图都单独弹出一个小窗口，并且可以进行各种细致的定制了。&lt;/p&gt;
+&lt;p&gt;功能上，目前还没有完全实现覆盖之前老版本的功能，不过也有点模样了。&lt;/p&gt;
+&lt;p&gt;前几天，陆续实现了 TAS、REE、Trace、当然还有计算锆石稀土中的 Ce4/Ce3 的比值来估算岩浆岩氧逸度的功能。&lt;/p&gt;
+&lt;p&gt;今天又刚刚重新实现了极射赤平投影（Stereo）功能，其中吴尔夫网和施密特网都可以即时任意切换；另外今天还重新实现了玫瑰花图，可以随意即时切换节理、走向、倾向、倾角作图，步长从1-30任意随时动态调整，可以选择单组样品或者多组样品成图。&lt;/p&gt;
+&lt;p&gt;目前为止，据我所知，同行的软件当中实现上面这个锆石氧逸度计算功能的，好像还没有；具有赤平投影和玫瑰花图功能的，则好像没有 GeoPython 这样各种自定义即时显示；其他功能类似的，又没有GeoPython 跨平台的优势。&lt;/p&gt;
+&lt;p&gt;更多功能，还在重构之中。大家有任何需求，只要提供数学公式和样本数据用于检验，我们慢慢一个个加上去就是了。&lt;/p&gt;
+&lt;h2&gt;使用方法&lt;/h2&gt;
+&lt;p&gt;单独的 app 应用文件，以后将只提供 Windows 平台的 exe 文件；对其他平台的用户，建议大家在 Python 环境中使用 GeoPython，这样能省去开发者打包上传的时间，而且大家也能及时更新下载到最新的版本。而且这样大家逐渐开始尝试使用 Python，由于 GeoPython 现在有了重建中的图形界面，所以应该不会感觉到太多的痛苦。&lt;/p&gt;
+&lt;h3&gt;Windows 用户&lt;/h3&gt;
+&lt;p&gt;如果你在使用 Windows7 操作系统，可能会出现&lt;code&gt;api-ms-win-crt&lt;/code&gt;无法定位这样的错误，所以先要安装 KB2999226 这个补丁，然后安装 &lt;code&gt;Visual C++ Redistributable 2015&lt;/code&gt;。
+当然，我已经把这部分打包了，&lt;a href="https://pan.baidu.com/s/1kVwSQ95"&gt;32位操作系统下载&lt;/a&gt;，&lt;a href="https://pan.baidu.com/s/1qY34ocW"&gt;64位操作系统下载&lt;/a&gt;。
+然后到&lt;a href="https://github.com/chinageology/GeoPython/blob/master/Download.md"&gt;下载页面&lt;/a&gt;下载压缩包，解压缩之后探索着就可以用了。&lt;/p&gt;
+&lt;h3&gt;在 Python 中使用&lt;/h3&gt;
+&lt;h4&gt;使用 PIP 安装&lt;/h4&gt;
+&lt;p&gt;首先当然是大家要安装一个 Python，需要用 3.5 版本以上的，大家可以去&lt;a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/"&gt;清华的源下载&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;推荐使用 Anaconda3-4.0.0 以及更新的 Anaconda3 版本。&lt;/p&gt;
+&lt;p&gt;关于 Anaconda 的一些帮助可以参考&lt;a href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/"&gt;清华的官方说明&lt;/a&gt;。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip install geopython
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;在 Python 内的使用方法&lt;/h4&gt;
+&lt;p&gt;在通过 PIP 安装好了 GeoPython 之后，就可以在 Python 环境中使用它了。只需要在解释器内（例如 ipython 之类的）输入下面几行代码：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;import sys
+import geopython as gp
+sys.exit&lt;span class="o"&gt;(&lt;/span&gt;gp.begin&lt;span class="o"&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;这样就能看到全新实现的图形界面的 GeoPython 了。&lt;/p&gt;
+&lt;p&gt;界面和成图还很粗糙，相信我们以后会越来越好的。我不是专门的软件开发人员，实际上也就是一群脑袋发热的地质学人，把自己捅咕出来的锤子之类的简单工具拿出来给大家一起凑活用。如果你有高明的意见建议，欢迎提出批评指正等等，如果你要喷我们做的太丑或者代码写得丑，那也欢迎你帮我们改进。如果只是喷，那就去吃粑粑吧。&lt;/p&gt;
+&lt;p&gt;全新的 TAS 功能使用的数据文件模板为：&lt;a href="https://github.com/chinageology/GeoPython/blob/master/NewGUI/TAS.xlsx"&gt;TAS.xlsx&lt;/a&gt;
+&lt;img alt="" src="https://raw.githubusercontent.com/chinageology/GeoPython/master/img/NewTAS.png"&gt;&lt;/p&gt;
+&lt;p&gt;全新的 锆石 Ce 比例计算氧逸度功能使用的数据文件模板为： &lt;a href="https://github.com/chinageology/GeoPython/blob/master/NewGUI/ZirconCe.xlsx"&gt;ZirconCexlsx&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/chinageology/GeoPython/master/img/NewZirconCe.png"&gt;&lt;/p&gt;
+&lt;p&gt;稀土和微量元素数据文件模板：
+&lt;a href="https://github.com/chinageology/GeoPython/blob/master/NewGUI/Trace27.xlsx"&gt;Trace27.xlsx&lt;/a&gt;
+&lt;a href="https://github.com/chinageology/GeoPython/blob/master/NewGUI/Trace37.xlsx"&gt;Trace37.xlsx&lt;/a&gt;
+&lt;a href="https://github.com/chinageology/GeoPython/blob/master/NewGUI/REE.xlsx"&gt;REE.xlsx&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/chinageology/GeoPython/master/img/NewTrace.png"&gt;&lt;/p&gt;
+&lt;p&gt;全新实现的极射赤平投影和玫瑰花图功能所用的数据文件模板： &lt;a href="https://github.com/chinageology/GeoPython/blob/master/NewGUI/Structure.xlsx"&gt;Structure.xlsx&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/chinageology/GeoPython/master/img/Rose.png"&gt;&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="Geology"></category></entry><entry><title>去中心化的安全通信软件 GNU Ring</title><link href="/qu-zhong-xin-hua-de-an-quan-tong-xin-ruan-jian-gnu-ring.html" rel="alternate"></link><published>2017-07-29T16:20:00+08:00</published><updated>2017-07-29T16:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-07-29:/qu-zhong-xin-hua-de-an-quan-tong-xin-ruan-jian-gnu-ring.html</id><content type="html">&lt;p&gt;&lt;a href="https://ring.cx/en"&gt;去年底进入 GNU 项目的即时通讯软件，GNU Ring 今天刚刚更新了 1.0 版本&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;GNU Ring 的特点是去中心化和强加密，能用于文字传输、语音和视频聊天，可以粗略看作是体验更加完美的 BitMessenger。&lt;/p&gt;
+&lt;p&gt;对于新注册的账户来说，最重要的就是一定要牢记账号密码，开发者目前说忘记后无法找回。目前该软件支持 Mac、Linux、Windows、Android 这几个主流操作系统，推荐大家尝试一下。&lt;/p&gt;
+&lt;p&gt;为什么推荐新发明出来的轮子呢？因为安全，加密，无广告，不被打扰。&lt;/p&gt;
+&lt;p&gt;下载地址参考：&lt;a href="https://ring.cx/en/download"&gt;Install Ring&lt;/a&gt;&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="Chat"></category></entry><entry><title>GeoPython,a project of using Python for geology related daily work</title><link href="/geopythona-project-of-using-python-for-geology-related-daily-work.html" rel="alternate"></link><published>2016-12-18T16:20:00+08:00</published><updated>2016-12-18T16:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2016-12-18:/geopythona-project-of-using-python-for-geology-related-daily-work.html</id><summary type="html">&lt;h1&gt;&lt;a href="https://github.com/cycleuser/GeoPython"&gt;GeoPython, a project of using Python for geology related daily work&lt;/a&gt;&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;h1&gt;&lt;a href="https://github.com/cycleuser/GeoPython"&gt;GeoPython，一个将 Python 用于地质学的日常工作的计划&lt;/a&gt;&lt;/h1&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;https://github.com/cycleuser/GeoPython&lt;/p&gt;
+&lt;h5&gt;author: cycleuser&lt;/h5&gt;
+&lt;h5&gt;email: cycleuser@cycleuser.org&lt;/h5&gt;
+&lt;h5&gt;Copyright 2016 cycleuser&lt;/h5&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;MileStone&lt;/th&gt;
+&lt;th&gt;Date&lt;/th&gt;
+&lt;th&gt;Function&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Beginning Date&lt;/td&gt;
+&lt;td&gt;2016-07-07 6:20&lt;/td&gt;
+&lt;td&gt;TAS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Adding QAPF&lt;/td&gt;
+&lt;td&gt;2016-07-09 08:32&lt;/td&gt;
+&lt;td&gt;QAPF&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Adding Wulff&lt;/td&gt;
+&lt;td&gt;2016-12-18 08:32&lt;/td&gt;
+&lt;td&gt;Wulf …&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</summary><content type="html">&lt;h1&gt;&lt;a href="https://github.com/cycleuser/GeoPython"&gt;GeoPython, a project of using Python for geology related daily work&lt;/a&gt;&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;h1&gt;&lt;a href="https://github.com/cycleuser/GeoPython"&gt;GeoPython，一个将 Python 用于地质学的日常工作的计划&lt;/a&gt;&lt;/h1&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;https://github.com/cycleuser/GeoPython&lt;/p&gt;
+&lt;h5&gt;author: cycleuser&lt;/h5&gt;
+&lt;h5&gt;email: cycleuser@cycleuser.org&lt;/h5&gt;
+&lt;h5&gt;Copyright 2016 cycleuser&lt;/h5&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;MileStone&lt;/th&gt;
+&lt;th&gt;Date&lt;/th&gt;
+&lt;th&gt;Function&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Beginning Date&lt;/td&gt;
+&lt;td&gt;2016-07-07 6:20&lt;/td&gt;
+&lt;td&gt;TAS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Adding QAPF&lt;/td&gt;
+&lt;td&gt;2016-07-09 08:32&lt;/td&gt;
+&lt;td&gt;QAPF&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Adding Wulff&lt;/td&gt;
+&lt;td&gt;2016-12-18 08:32&lt;/td&gt;
+&lt;td&gt;Wulf&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;GeoPython is a project of using Python for geology related daily work. It is a set of free softwares: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;GeoPython 是一个将 Python 用于地质学的日常工作的计划。这是一套自由软件：你可以重新分发或者做出修改，但必须基于由自由软件基金会发布的GNU通用公共许可证第三版的许可,或其后的版本。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;TAS.py and QAPF.py are all Python modules of plotting data of volcanic rocks.
+All data used in this module are from the book：
+"Igneous Rocks_ a Classification and Glossary of Terms"
+ by  R.W. Le Maitre &amp;amp; International Union of Geological Sciences 2002&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;TAS.py 和 QAPF.py 都是用于火山岩数据投图的 Python 模块。
+其中所有用到的数据引用自下面这本书：
+《火成岩—分类和术语表》
+R.W. Le Maitre &amp;amp; International Union of Geological Sciences 2002&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Texts below is cited from this book as an introduction:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;下面这部分文本引用自该书原文，用作简要说明：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;The&lt;/span&gt; &lt;span class="nv"&gt;TAS&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Total&lt;/span&gt; &lt;span class="nv"&gt;Alkali&lt;/span&gt; – &lt;span class="nv"&gt;Silica&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;classification&lt;/span&gt; &lt;span class="nv"&gt;should&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;used&lt;/span&gt; &lt;span class="nv"&gt;only&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;:
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;TAS&lt;/span&gt;（ 全碱&lt;span class="o"&gt;-&lt;/span&gt;硅）分类法只适用于以下条件：
+
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;rock&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;considered&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;volcanic&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;必须得是火山岩；
+
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;mineral&lt;/span&gt; &lt;span class="nv"&gt;mode&lt;/span&gt; &lt;span class="nv"&gt;cannot&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;determined&lt;/span&gt;, &lt;span class="nv"&gt;owing&lt;/span&gt; &lt;span class="nv"&gt;either&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;presence&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;glass&lt;/span&gt; &lt;span class="nv"&gt;or&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;fine&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;grained&lt;/span&gt; &lt;span class="nv"&gt;nature&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;rock&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;由于存在玻璃质，或者矿物晶体粒度太小，导致矿物模式不好确定；
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;chemical&lt;/span&gt; &lt;span class="nv"&gt;analysis&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;rock&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;available&lt;/span&gt;.
+
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;有全岩化学成分数据。
+
+&lt;span class="nv"&gt;QAPF&lt;/span&gt; &lt;span class="nv"&gt;modal&lt;/span&gt; &lt;span class="nv"&gt;classification&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;volcanic&lt;/span&gt; &lt;span class="nv"&gt;rocks&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;based&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt; &lt;span class="nv"&gt;Streckeisen&lt;/span&gt;, &lt;span class="mi"&gt;1978&lt;/span&gt;, &lt;span class="nv"&gt;Fig&lt;/span&gt;. &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;.
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;QAPF&lt;/span&gt; 火山岩模式分类基于 &lt;span class="nv"&gt;Streckeisen&lt;/span&gt;，&lt;span class="mi"&gt;1978&lt;/span&gt;年的文献。
+
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;The&lt;/span&gt; &lt;span class="nv"&gt;corners&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;double&lt;/span&gt; &lt;span class="nv"&gt;triangle&lt;/span&gt; &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;Q&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;quartz&lt;/span&gt;, &lt;span class="nv"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;alkali&lt;/span&gt; &lt;span class="nv"&gt;feldspar&lt;/span&gt;, &lt;span class="nv"&gt;P&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;plagioclase&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;F&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;feldspathoid&lt;/span&gt;.
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;双三角图解中的 &lt;span class="nv"&gt;Q&lt;/span&gt; 代表石英，&lt;span class="nv"&gt;A&lt;/span&gt; 代表碱性长石，&lt;span class="nv"&gt;P&lt;/span&gt; 代表斜长石，&lt;span class="nv"&gt;F&lt;/span&gt; 代表似长石。
+
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;This&lt;/span&gt; &lt;span class="nv"&gt;diagram&lt;/span&gt; &lt;span class="nv"&gt;must&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;used&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;rocks&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;which&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;mafic&lt;/span&gt; &lt;span class="nv"&gt;mineral&lt;/span&gt; &lt;span class="nv"&gt;content&lt;/span&gt;, &lt;span class="nv"&gt;M&lt;/span&gt;, &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;greater&lt;/span&gt; &lt;span class="nv"&gt;than&lt;/span&gt; &lt;span class="mi"&gt;90&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;.
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;切忌将该图解用到镁铁质矿物超过&lt;span class="mi"&gt;90&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;的情况，这种情况绝对不能用这个图！
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Dependence&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;依赖关系&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This module is written with Python3.4 and based on numpy, matplotlib and pandas. That means you need to install them.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本模块是在Python 3.4下写的，基于 numpy， matplotlib 以及 pandas。所以这几个包你都得安装。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You can install these packages with PIP:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;用PIP就可以安装了：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;
+&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;matplotlib&lt;/span&gt;
+&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;pandas&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Background Information&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;背景知识&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You can also set width, color and other features in the Xlsx files. And the introduction can be found &lt;a href="http://www.jianshu.com/p/67cbc84e57a6"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你可以在数据文件中对应的位置设置线宽、颜色等各种属性。对这些属性的说明可以参考&lt;a href="http://www.jianshu.com/p/67cbc84e57a6"&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Usage Under Windows&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;在Windows系统中用法&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Just put your data in the correspoinding Xlsx file and double click the correspoinding EXE file.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;把你的数据按照示范放到模板文件中，然后双击对应名字的exe程序就行了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Usage with Python&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;在Python下的用法&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In order to use these modules, you need to install geopython with pip:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;现在可以用pip来安装geopython了：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip install geopython
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then open you python , and enter to the location path of data files, which are the xlsx files that  you still need to download from &lt;a href="https://github.com/cycleuser/GeoPython/tree/master/Python"&gt;here&lt;/a&gt;. Then you can use geopython as the codes below:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;然后打开你的python，进入到数据目录，目前数据文件还要在&lt;a href="https://github.com/cycleuser/GeoPython/tree/master/Python"&gt;这里&lt;/a&gt;下载。下载好样本文件，把自己的数据填入，然后用下面的命令就可以运行了：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ipython
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;geopython&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;gp&lt;/span&gt;
+
+&lt;span class="n"&gt;gp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tas&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;tas.xlsx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;gp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;qfl&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;qfl.xlsx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;gp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;qmflt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;qfl.xlsx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;gp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ree&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ree.xlsx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;gp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;qapf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;qapf.xlsx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;gp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;wulf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;strike.xlsx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Remember that you need to import the module first and then you can use the functions in it.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一定记得，只有先导入了模块，才能使用里面的功能。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You need to put you data in a xlsx file in the same form as the example files.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;导入完毕后，根据我提供的样板文件，把你的数据输入进去。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If python told you that it cannot find a xlsx file, you must have entered to the wrong location, and you need to use the cd command to go to the path containing xlsx files that you downloaded and modiffed.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果python提醒你找不到excel的xlsx文件，很可能就是你进错目录了，那样你就需要找到你下载并修改的xlsx文件的位置，用cd命令进去，然后再进行上面的操作。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Then you only need to input the data from the file, and everything will be done.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;然后你就在程序中如下所示这样读取一下，然后用对应模块的函数帮你搞定一切了。（注意大小写！）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If the data file is in the right form and nothing goes wrong, you will have three files, which will be in the same location of these xlsx files:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你的数据文件没有什么问题，你就能得到图像了，这些图像会存放在excel表格文件所在的同一目录下：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;a svg(Scalable Vector Graphics) file which can be modified directly in Adobe Illustrator or Corel Draw,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;一个碉堡的 svg（一种矢量图）文件，直接就能用Adobe Illustrator 或者 Corel Draw来打开编辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;a png (Portable Network Graphics) .&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;然后就是一个png图像了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/GeoPython/blob/master/TAS-Plot.png?raw=true"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/cycleuser/GeoPython/master/QFL-Plot.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/cycleuser/GeoPython/master/REE-Plot.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/cycleuser/GeoPython/blob/master/Wulff.png?raw=true"&gt;&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="Geology"></category></entry><entry><title>MacOS PyCUDA Python Pyenv</title><link href="/macos-pycuda-python-pyenv.html" rel="alternate"></link><published>2016-10-21T11:20:00+08:00</published><updated>2016-10-21T11:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2016-10-21:/macos-pycuda-python-pyenv.html</id><summary type="html">&lt;h4&gt;Mac系统下使用Pyenv管理Python多版本，并且给各个版本安装PyCUDA&lt;/h4&gt;
+&lt;p&gt;本文是针对PyCUDA的新手用户。此处特点是使用了Pyenv构建了多个工作环境，并且指导如何在各个不同的Python环境中安装PyCUDA。&lt;/p&gt;
+&lt;h4&gt;安装Git和Pyenv&lt;/h4&gt;
+&lt;p&gt;下载PyCUDA代码需要用Git，管理多版本的Python需要Pyenv，而这两个的安装就都需要用&lt;a href="http://brew.sh/index_zh-cn.html"&gt;Brew&lt;/a&gt; 了。在终端输入下面的命令就可以安装Brew了:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;/usr/bin/ruby -e &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;然后再接着在终端陆续输入下面两个命令来安装Git和Pyenv：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;brew install git
+brew install pyenv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;最最重要的一步&lt;/h4&gt;
+&lt;p&gt;这一步是最重要的了，决定了你能否成功安装和运行CUDA以及PyCUDA。要运行Brew，你就被迫要安装最新版本的Xcode和配套的Command Line Tools，但是CUDA很可能和这个最新版本不兼容。所以如果你有旧版本的Xcode，一定要备份一下，改个名字别被替换了啥的。然后安装最新的Xcode和配套的Command Line Tools之后，赶紧用Brew安装好Git和Pyenv。安装好了这两个之后，就降级回到能兼容CUDA的旧版本Xcode …&lt;/p&gt;</summary><content type="html">&lt;h4&gt;Mac系统下使用Pyenv管理Python多版本，并且给各个版本安装PyCUDA&lt;/h4&gt;
+&lt;p&gt;本文是针对PyCUDA的新手用户。此处特点是使用了Pyenv构建了多个工作环境，并且指导如何在各个不同的Python环境中安装PyCUDA。&lt;/p&gt;
+&lt;h4&gt;安装Git和Pyenv&lt;/h4&gt;
+&lt;p&gt;下载PyCUDA代码需要用Git，管理多版本的Python需要Pyenv，而这两个的安装就都需要用&lt;a href="http://brew.sh/index_zh-cn.html"&gt;Brew&lt;/a&gt; 了。在终端输入下面的命令就可以安装Brew了:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;/usr/bin/ruby -e &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;然后再接着在终端陆续输入下面两个命令来安装Git和Pyenv：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;brew install git
+brew install pyenv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;最最重要的一步&lt;/h4&gt;
+&lt;p&gt;这一步是最重要的了，决定了你能否成功安装和运行CUDA以及PyCUDA。要运行Brew，你就被迫要安装最新版本的Xcode和配套的Command Line Tools，但是CUDA很可能和这个最新版本不兼容。所以如果你有旧版本的Xcode，一定要备份一下，改个名字别被替换了啥的。然后安装最新的Xcode和配套的Command Line Tools之后，赶紧用Brew安装好Git和Pyenv。安装好了这两个之后，就降级回到能兼容CUDA的旧版本Xcode，重新下载安装旧版本的Command Line Tools。并且绝对别在App Store里面把它升级到最新版。&lt;/p&gt;
+&lt;p&gt;只有安装好了Pyenv和能够支持运行CUDA的旧版本Xcode以及Command Line Tools ，我们才能完成CUDA的安装.&lt;/p&gt;
+&lt;h4&gt;安装Xcode, Command Line Tools以及CUDA&lt;/h4&gt;
+&lt;p&gt;我之前的&lt;a href="http://blog.cycleuser.org/use-cuda-80-with-macos-sierra-1012.html"&gt;文章&lt;/a&gt;中更详细地讲解了关于CUDA和Xcode的兼容情况以及解决方案，我正打字这回，情况依然还是跟这篇文章中一样。最先帮你把的CUDA依然不能使用Xcode8，需要安装Xcode7.3.1 和 Command Line Tools for XCode 7.3.1，可以在 &lt;a href="https://developer.apple.com/download"&gt;这里&lt;/a&gt; 找到官方提供的下载链接。&lt;/p&gt;
+&lt;p&gt;一定要确保你安装的Xcode是能够支持CUDA运行的。然后才能成功安装 &lt;a href="https://developer.nvidia.com/compute/cuda/8.0/Prod/local_installers/cuda_8.0.47_mac-dmg"&gt;CUDA&lt;/a&gt;，安装CUDA之后运行下面这个命令来检查一下环境变量是否设置正确:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;nvcc --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;没问题的话应该显示类似下面的结果：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ nvcc --version
+nvcc: NVIDIA &lt;span class="o"&gt;(&lt;/span&gt;R&lt;span class="o"&gt;)&lt;/span&gt; Cuda compiler driver
+Copyright &lt;span class="o"&gt;(&lt;/span&gt;c&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2005&lt;/span&gt;-2016 NVIDIA Corporation
+Built on Sun_Sep_18_22:16:08_CDT_2016
+Cuda compilation tools, release &lt;span class="m"&gt;8&lt;/span&gt;.0, V8.0.46
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;使用Pyenv安装一个Python副本&lt;/h4&gt;
+&lt;p&gt;在终端中输入下面的命令查看可以用Pyenv安装的全部Python版本：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pyenv install --list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;这里我用3.5.2做一个例子：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pyenv install &lt;span class="m"&gt;3&lt;/span&gt;.5.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;输入上述命令，等待完成之后，我们就有了一个全新的Python环境了，怎么折腾都可以，不会影响系统的Python配置。&lt;/p&gt;
+&lt;h4&gt;安装PyCUDA&lt;/h4&gt;
+&lt;p&gt;把下面的命令粘贴到终端中来下载PyCUDA的源代码：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git clone --recursive http://git.tiker.net/trees/pycuda.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;进入到pycuda的目录并且设置目录内的Python为刚刚咱们安装的3.5.2版本：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; pycuda
+pyenv &lt;span class="nb"&gt;local&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;.5.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;接下来用下列命令来配置、编译、安装：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python configure.py
+sudo make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;如果没有发现报错，就应该是成功了。把下面的代码保存到一个名为test.py的文件中，然后咱们来测试一下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Sample source code from the Tutorial Introduction in the documentation.&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycuda.gpuarray&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;gpuarray&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycuda.driver&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;cuda&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycuda.autoinit&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt;
+&lt;span class="n"&gt;a_gpu&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gpuarray&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_gpu&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;astype&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;a_doubled&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;a_gpu&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;original array:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_gpu&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;doubled with gpuarray:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_doubled&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;在终端中运行这个test.py，如果得到类似下面这样的结果，就是成功了：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ python test.py
+original array:
+&lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;.27740544 -1.44831014  &lt;span class="m"&gt;0&lt;/span&gt;.6379782   &lt;span class="m"&gt;0&lt;/span&gt;.15358959&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt;-0.21130283 -0.19202329 -2.23594046  &lt;span class="m"&gt;0&lt;/span&gt;.14036565&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt;-0.69078982 -0.44290611  &lt;span class="m"&gt;1&lt;/span&gt;.2644769   &lt;span class="m"&gt;1&lt;/span&gt;.55474603&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt;-1.08704031  &lt;span class="m"&gt;2&lt;/span&gt;.22870898  &lt;span class="m"&gt;0&lt;/span&gt;.85237521  &lt;span class="m"&gt;0&lt;/span&gt;.15609477&lt;span class="o"&gt;]]&lt;/span&gt;
+doubled with gpuarray:
+&lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;.55481088 -2.89662027  &lt;span class="m"&gt;1&lt;/span&gt;.27595639  &lt;span class="m"&gt;0&lt;/span&gt;.30717918&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt;-0.42260566 -0.38404658 -4.47188091  &lt;span class="m"&gt;0&lt;/span&gt;.28073129&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt;-1.38157964 -0.88581222  &lt;span class="m"&gt;2&lt;/span&gt;.52895379  &lt;span class="m"&gt;3&lt;/span&gt;.10949206&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt;-2.17408061  &lt;span class="m"&gt;4&lt;/span&gt;.45741796  &lt;span class="m"&gt;1&lt;/span&gt;.70475042  &lt;span class="m"&gt;0&lt;/span&gt;.31218955&lt;span class="o"&gt;]]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;更多版本&lt;/h4&gt;
+&lt;p&gt;如果你要安装PyCUDA到更多版本的Python中，只要用Pyenv来安装更多版本的Python，然后把pycuda所在目录设置为对应版本的Python，之后重复上面的配置、编译、安装的步骤就可以了。例如下面就用3.5.1做例子示范了一下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pyenv install &lt;span class="m"&gt;3&lt;/span&gt;.5.1
+&lt;span class="nb"&gt;cd&lt;/span&gt; ~/pycuda
+pyenv &lt;span class="nb"&gt;local&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;.5.1
+python configure.py
+sudo make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;就是这样了。&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="CUDA"></category><category term="Mac"></category><category term="Pyenv"></category></entry><entry><title>Install PyCUDA to Python managed by Pyenv under MacOS</title><link href="/install-pycuda-to-python-managed-by-pyenv-under-macos.html" rel="alternate"></link><published>2016-10-20T11:20:00+08:00</published><updated>2016-10-20T11:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2016-10-20:/install-pycuda-to-python-managed-by-pyenv-under-macos.html</id><summary type="html">&lt;h4&gt;Install PyCUDA to Python managed by Pyenv under MacOS&lt;/h4&gt;
+&lt;p&gt;This post is a guide for newbie users of PyCUDA. We use Pyenv here and that means we can build different versions of working environments.&lt;/p&gt;
+&lt;h4&gt;Install Git and Pyenv&lt;/h4&gt;
+&lt;p&gt;In order to download the PyCUDA code, we need to install Git …&lt;/p&gt;</summary><content type="html">&lt;h4&gt;Install PyCUDA to Python managed by Pyenv under MacOS&lt;/h4&gt;
+&lt;p&gt;This post is a guide for newbie users of PyCUDA. We use Pyenv here and that means we can build different versions of working environments.&lt;/p&gt;
+&lt;h4&gt;Install Git and Pyenv&lt;/h4&gt;
+&lt;p&gt;In order to download the PyCUDA code, we need to install Git. In order to control multiple versions of Python and creat isolated environment for different projects, we need to use Pyenv. To install Pyenv, we need to install &lt;a href="http://brew.sh/index_zh-cn.html"&gt;Brew&lt;/a&gt; first by running this in terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;/usr/bin/ruby -e &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then run the command below to install Pyenv.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;brew install git
+brew install pyenv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;The Most Important Trick&lt;/h4&gt;
+&lt;p&gt;But here are some tricks that you must do to succeed your installment: In order to run Brew, you are forced to update your Xcode and its Command Line Tools to the latest version, or the brew would fail to run. So you need to keep a back up of your older version of Xcode which works with CUDA, and install the latest version of Xcode and Command Line Tools to run Brew for the installment of Pyenv. After this installment of Pyenv, you need to download the older version Command Line Tools working with your older version Xcode and CUDA. And DO NOT update in the app store.&lt;/p&gt;
+&lt;p&gt;With Pyenv installed and the right version of Xcode and Command Line Tools working with CUDA, we can begin our journey of PyCUDA installments.&lt;/p&gt;
+&lt;h4&gt;Install Xcode, Command Line Tools and CUDA&lt;/h4&gt;
+&lt;p&gt;As I posted in &lt;a href="http://blog.cycleuser.org/use-cuda-80-with-macos-sierra-1012.html"&gt;the earlier article&lt;/a&gt;, the latest version of CUDA cannot work with the newest version of Xcode. At this moment I am typing, the latest CUDA is still version 8.04, which requires XCode 7.3.1 and Command Line Tools for XCode 7.3.1. And &lt;a href="https://developer.apple.com/download"&gt;HERE&lt;/a&gt; is the place you can download them.&lt;/p&gt;
+&lt;p&gt;Please make sure that your Xcode is the version that works with your CUDA. Then you need to install the &lt;a href="https://developer.nvidia.com/compute/cuda/8.0/Prod/local_installers/cuda_8.0.47_mac-dmg"&gt;CUDA&lt;/a&gt; and check the version of nvcc with following command int terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;nvcc --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;It will be OK if the output seems like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ nvcc --version
+nvcc: NVIDIA &lt;span class="o"&gt;(&lt;/span&gt;R&lt;span class="o"&gt;)&lt;/span&gt; Cuda compiler driver
+Copyright &lt;span class="o"&gt;(&lt;/span&gt;c&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2005&lt;/span&gt;-2016 NVIDIA Corporation
+Built on Sun_Sep_18_22:16:08_CDT_2016
+Cuda compilation tools, release &lt;span class="m"&gt;8&lt;/span&gt;.0, V8.0.46
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;Use Pyenv to install a version of Python&lt;/h4&gt;
+&lt;p&gt;Using the following command in terminal to see the available versions of Python:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pyenv install --list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Here we use 3.5.2:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pyenv install &lt;span class="m"&gt;3&lt;/span&gt;.5.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then we have a brand new Python, which we can do anything inside without worrying about messing up with the system.&lt;/p&gt;
+&lt;h4&gt;Install PyCUDA&lt;/h4&gt;
+&lt;p&gt;Paste following command in terminal to get the source code of PyCUDA:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git clone --recursive http://git.tiker.net/trees/pycuda.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Get into its folder and set the local Python to the one we installed using Pyenv:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; pycuda
+pyenv &lt;span class="nb"&gt;local&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;.5.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then we use these commands to proceed the installation:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python configure.py
+sudo make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If there is nothing wrong, we could use a piece of code from the examples of PyCUDA as a file named "test.py" :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Sample source code from the Tutorial Introduction in the documentation.&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycuda.gpuarray&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;gpuarray&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycuda.driver&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;cuda&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycuda.autoinit&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt;
+&lt;span class="n"&gt;a_gpu&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gpuarray&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_gpu&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;astype&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;a_doubled&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;a_gpu&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;original array:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_gpu&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;doubled with gpuarray:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_doubled&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If you get similar output like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ python test.py
+original array:
+&lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;.27740544 -1.44831014  &lt;span class="m"&gt;0&lt;/span&gt;.6379782   &lt;span class="m"&gt;0&lt;/span&gt;.15358959&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt;-0.21130283 -0.19202329 -2.23594046  &lt;span class="m"&gt;0&lt;/span&gt;.14036565&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt;-0.69078982 -0.44290611  &lt;span class="m"&gt;1&lt;/span&gt;.2644769   &lt;span class="m"&gt;1&lt;/span&gt;.55474603&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt;-1.08704031  &lt;span class="m"&gt;2&lt;/span&gt;.22870898  &lt;span class="m"&gt;0&lt;/span&gt;.85237521  &lt;span class="m"&gt;0&lt;/span&gt;.15609477&lt;span class="o"&gt;]]&lt;/span&gt;
+doubled with gpuarray:
+&lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;.55481088 -2.89662027  &lt;span class="m"&gt;1&lt;/span&gt;.27595639  &lt;span class="m"&gt;0&lt;/span&gt;.30717918&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt;-0.42260566 -0.38404658 -4.47188091  &lt;span class="m"&gt;0&lt;/span&gt;.28073129&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt;-1.38157964 -0.88581222  &lt;span class="m"&gt;2&lt;/span&gt;.52895379  &lt;span class="m"&gt;3&lt;/span&gt;.10949206&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt;-2.17408061  &lt;span class="m"&gt;4&lt;/span&gt;.45741796  &lt;span class="m"&gt;1&lt;/span&gt;.70475042  &lt;span class="m"&gt;0&lt;/span&gt;.31218955&lt;span class="o"&gt;]]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;Something More&lt;/h4&gt;
+&lt;p&gt;If you need to install PyCUDA to another version of Python, you just need to install another Python with Pyenv and change the local version of the path of pycuda. For example, we install a Python 3.5.1 and install the PyCUDA to it with commands below:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pyenv install &lt;span class="m"&gt;3&lt;/span&gt;.5.1
+&lt;span class="nb"&gt;cd&lt;/span&gt; ~/pycuda
+pyenv &lt;span class="nb"&gt;local&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;.5.1
+python configure.py
+sudo make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then everything will be OK.&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="CUDA"></category><category term="Mac"></category><category term="Pyenv"></category></entry><entry><title>PyCUDA Tutorial 中文版</title><link href="/pycuda-tutorial-zhong-wen-ban.html" rel="alternate"></link><published>2016-10-13T11:20:00+08:00</published><updated>2016-10-13T11:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2016-10-13:/pycuda-tutorial-zhong-wen-ban.html</id><summary type="html">&lt;p&gt;&lt;a href="https://documen.tician.de/pycuda/"&gt;PyCUDA  Tutorial 英文原文&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.cycleuser.org"&gt;CycleUser&lt;/a&gt; 翻译&lt;/p&gt;
+&lt;h2&gt;开始使用&lt;/h2&gt;
+&lt;p&gt;在你使用PyCuda之前，要先用import命令来导入并初始化一下。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycuda.driver&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;cuda&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycuda.autoinit&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pycuda.compiler&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;SourceModule&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;这里要注意，你并不是&lt;strong&gt;必须&lt;/strong&gt;使用pycuda.autoinit,初始化、内容的创建和清理也都可以手动实现。&lt;/p&gt;
+&lt;h2&gt;转移数据&lt;/h2&gt;
+&lt;p&gt;接下来就是要把数据转移到设备（device）上了。一般情况下，在使用PyCuda的时候，原始数据都是以NumPy数组的形式存储在宿主系统（host）中的。（不过实际上，只要符合Python缓冲区接口的数据类型就都可以使用的，甚至连字符串类型str都可以。）&lt;/p&gt;
+&lt;p&gt;（&lt;strong&gt;译者注：宿主系统host，就是处理器-内存-外存组成的常规Python运行环境;设备device，就是你要拿来做CUDA运算的显卡或者运算卡，可以是单卡也可以是阵列。&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;下面这行示例代码创建了一个随机数组成的4*4大小的数组a：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://documen.tician.de/pycuda/"&gt;PyCUDA  Tutorial 英文原文&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.cycleuser.org"&gt;CycleUser&lt;/a&gt; 翻译&lt;/p&gt;
+&lt;h2&gt;开始使用&lt;/h2&gt;
+&lt;p&gt;在你使用PyCuda之前，要先用import命令来导入并初始化一下。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycuda.driver&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;cuda&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycuda.autoinit&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pycuda.compiler&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;SourceModule&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;这里要注意，你并不是&lt;strong&gt;必须&lt;/strong&gt;使用pycuda.autoinit,初始化、内容的创建和清理也都可以手动实现。&lt;/p&gt;
+&lt;h2&gt;转移数据&lt;/h2&gt;
+&lt;p&gt;接下来就是要把数据转移到设备（device）上了。一般情况下，在使用PyCuda的时候，原始数据都是以NumPy数组的形式存储在宿主系统（host）中的。（不过实际上，只要符合Python缓冲区接口的数据类型就都可以使用的，甚至连字符串类型str都可以。）&lt;/p&gt;
+&lt;p&gt;（&lt;strong&gt;译者注：宿主系统host，就是处理器-内存-外存组成的常规Python运行环境;设备device，就是你要拿来做CUDA运算的显卡或者运算卡，可以是单卡也可以是阵列。&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;下面这行示例代码创建了一个随机数组成的4*4大小的数组a：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;不过要先暂停一下—咱们刚刚创建的这个数组a包含的是双精度浮点数，但大多数常用的NVIDIA显卡只支持单精度浮点数，所以需要转换一下类型：&lt;/p&gt;
+&lt;p&gt;（&lt;strong&gt;译者注：原作者的这篇简介主要针对使用常规普通显卡的用户，比如GeForce系列的各种大家平时用到的都是这个范围的，相比专门的计算卡，在双精度浮点数等方面进行了阉割，所以作者才建议转换类型到单精度浮点数。如果你使用的是专门的计算卡，就不用这样了。&lt;/strong&gt;）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;astype&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;接下来，要把已有的数据转移过去，还要设定一个目的地，所以我们要在显卡中分配一段显存：&lt;/p&gt;
+&lt;p&gt;（&lt;strong&gt;译者注：原文说的是设备，这里就直接说成显卡了，毕竟大家用显卡的比较多。另外下面这个代码中的a.nbytes是刚刚生成的数组a的大小，这里作者是按照数组大小来分配的显存，新入门的用户要注意这里，后续的使用中，显存的高效利用是很重要的。&lt;/strong&gt;）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a_gpu&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mem_alloc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nbytes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;最后，咱们把刚刚生成的数组a转移到GPU里面吧：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;memcpy_htod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_gpu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;运行一个内核函数（kernel）&lt;/h2&gt;
+&lt;p&gt;咱们这篇简介争取说的都是最简单的内容：咱们写一个代码来把a_gpu这段显存中存储的数组的每一个值都乘以2. 为了实现这个效果，我们就要写一段CUDA C代码，然后把这段代码提交给一个构造函数，这里用到了pycuda.compiler.SourceModule:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;mod&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SourceModule&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt; __global__ void doublify(float *a)&lt;/span&gt;
+&lt;span class="s2"&gt; {&lt;/span&gt;
+&lt;span class="s2"&gt; int idx = threadIdx.x + threadIdx.y*4;&lt;/span&gt;
+&lt;span class="s2"&gt; a[idx] *= 2;&lt;/span&gt;
+&lt;span class="s2"&gt; }&lt;/span&gt;
+&lt;span class="s2"&gt; &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;（&lt;strong&gt;译者注：上面这段代码需要对C有一定了解。这里的threadIDx是CUDA C语言的内置变量，这里借此确定了a数组所在的位置，然后通过指针对数组中每一个元素进行了自乘2的操作。&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;这一步如果没有出错，就说明这段代码已经编译成功，并且加载到显卡中了。然后咱们可以使用一个到咱们这个pycuda.driver.Function的引用，然后调用此引用，把显存中的数组a_gpu作为参数传过去，同时设定块大小为4x4：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;func&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mod&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;doublify&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_gpu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;block&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;最后，咱们就把经过运算处理过的数据从GPU取回，并且将它和原始数组a一同显示出来对比一下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a_doubled&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;empty_like&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;memcpy_dtoh&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_doubled&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a_gpu&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_doubled&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;（&lt;strong&gt;译者注：原作者在原文中使用的是Python2，我这里用的是带括号的print，这样同时能在python2和python3上运行。&lt;/strong&gt;）&lt;/p&gt;
+&lt;p&gt;输出的效果大概就是如下所示：&lt;/p&gt;
+&lt;p&gt;（&lt;strong&gt;译者注：上面这个是从显存中取回的翻倍过的数组，下面的是原始数组。&lt;/strong&gt;）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;.51360393  &lt;span class="m"&gt;1&lt;/span&gt;.40589952  &lt;span class="m"&gt;2&lt;/span&gt;.25009012  &lt;span class="m"&gt;3&lt;/span&gt;.02563429&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt;-0.75841576 -1.18757617  &lt;span class="m"&gt;2&lt;/span&gt;.72269917  &lt;span class="m"&gt;3&lt;/span&gt;.12156057&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;.28826082 -2.92448163  &lt;span class="m"&gt;1&lt;/span&gt;.21624792  &lt;span class="m"&gt;2&lt;/span&gt;.86353827&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;.57651746  &lt;span class="m"&gt;0&lt;/span&gt;.63500965  &lt;span class="m"&gt;2&lt;/span&gt;.21570683 -0.44537592&lt;span class="o"&gt;]]&lt;/span&gt;
+&lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;.25680196  &lt;span class="m"&gt;0&lt;/span&gt;.70294976  &lt;span class="m"&gt;1&lt;/span&gt;.12504506  &lt;span class="m"&gt;1&lt;/span&gt;.51281714&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt;-0.37920788 -0.59378809  &lt;span class="m"&gt;1&lt;/span&gt;.36134958  &lt;span class="m"&gt;1&lt;/span&gt;.56078029&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;.14413041 -1.46224082  &lt;span class="m"&gt;0&lt;/span&gt;.60812396  &lt;span class="m"&gt;1&lt;/span&gt;.43176913&lt;span class="o"&gt;]&lt;/span&gt;
+ &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;.78825873  &lt;span class="m"&gt;0&lt;/span&gt;.31750482  &lt;span class="m"&gt;1&lt;/span&gt;.10785341 -0.22268796&lt;span class="o"&gt;]]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;出现上面这样输出就说明成功了！整个攻略就完成了。另外很值得庆幸的是，运行输出之后PyCuda就会把所有清理和内存回收工作做好了，咱们的简介也就完毕了。不过你可以再看一下接下来的内容，里面有一些有意思的东西。&lt;/p&gt;
+&lt;p&gt;(本文的代码在PyCuda源代码目录下的examples/demo.py文件中。)&lt;/p&gt;
+&lt;h3&gt;简化内存拷贝&lt;/h3&gt;
+&lt;p&gt;PyCuda提供了pycuda.driver.In, pycuda.driver.Out, 以及pycuda.driver.InOut 这三个参数处理器（argument handlers），能用来简化内存和显存之间的数据拷贝。例如，咱们可以不去创建一个a_gpu，而是直接把a移动过去，下面的代码就可以实现：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;InOut&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;block&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;有准备地调用函数&lt;/h3&gt;
+&lt;p&gt;使用内置的 pycuda.driver.Function.&lt;strong&gt;call&lt;/strong&gt;() 方法来进行的函数调用，会增加类型识别的资源开销（参考显卡接口）。 要实现跟上面代码同样的效果，又不造成这种开销，这个函数就需要设定好参数类型（如Python的标准库中的结构体模块struct所示），然后再去调用该函数。这样也就不用需要再使用numpy.number类去制定参数的规模了：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;grid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;block&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prepare&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;P&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;prepared_call&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;block&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a_gpu&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;抽象以降低复杂度&lt;/h2&gt;
+&lt;p&gt;使用 pycuda.gpuarray.GPUArray，同样效果的代码实现起来就更加精简了：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycuda.gpuarray&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;gpuarray&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycuda.driver&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;cuda&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pycuda.autoinit&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt;
+
+&lt;span class="n"&gt;a_gpu&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gpuarray&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_gpu&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;randn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;astype&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;a_doubled&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;a_gpu&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a_doubled&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a_gpu&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;进阶内容&lt;/h2&gt;
+&lt;h3&gt;结构体&lt;/h3&gt;
+&lt;p&gt;（由Nicholas Tung提供，代码在examples/demo_struct.py文件中)&lt;/p&gt;
+&lt;p&gt;假如我们用如下的构造函数，对长度可变的数组的每一个元素的值进行翻倍：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;mod&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SourceModule&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt; struct DoubleOperation {&lt;/span&gt;
+&lt;span class="s2"&gt; int datalen, __padding; // so 64-bit ptrs can be aligned&lt;/span&gt;
+&lt;span class="s2"&gt; float *ptr;&lt;/span&gt;
+&lt;span class="s2"&gt; };&lt;/span&gt;
+
+&lt;span class="s2"&gt; __global__ void double_array(DoubleOperation *a) {&lt;/span&gt;
+&lt;span class="s2"&gt; a = &amp;amp;a[blockIdx.x];&lt;/span&gt;
+&lt;span class="s2"&gt; for (int idx = threadIdx.x; idx datalen; idx += blockDim.x) {&lt;/span&gt;
+&lt;span class="s2"&gt; a-&amp;gt;ptr[idx] *= 2;&lt;/span&gt;
+&lt;span class="s2"&gt; }&lt;/span&gt;
+&lt;span class="s2"&gt; }&lt;/span&gt;
+&lt;span class="s2"&gt; &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;网格grid中的每一个块block（这些概念参考CUDA的官方文档）都将对各个数组进行加倍。for循环允许比当前线程更多的数据成员被翻倍，当然，如果能够保证有足够多的线程的话，这样做的效率就低了。接下来，基于这个结构体进行封装出来的一个类就产生了，并且有两个数组被创建出来：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;DoubleOpStruct&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;mem_size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;intp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nbytes&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;struct_arr_ptr&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_device&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dtype&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dtype&lt;/span&gt;
+        &lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;memcpy_htod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;struct_arr_ptr&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getbuffer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;int32&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+        &lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;memcpy_htod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;struct_arr_ptr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getbuffer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;intp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;))))&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__str__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;from_device&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="n"&gt;struct_arr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mem_alloc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;DoubleOpStruct&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mem_size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;do2_ptr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;struct_arr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;DoubleOpStruct&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mem_size&lt;/span&gt;
+
+&lt;span class="n"&gt;array1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;DoubleOpStruct&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;struct_arr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;array2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;DoubleOpStruct&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;do2_ptr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;original arrays&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;array1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;array2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;上面这段代码使用了pycuda.driver.to_device() 和 pycuda.driver.from_device() 这两个函数来分配内存和复制数值，并且演示了在显存中如何利用从已分配块位置进行的偏移。最后咱们执行一下这段代码；下面的代码中演示了两种情况：对两个数组都进行加倍，以及只加倍第二个数组：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;func&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mod&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;double_array&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;struct_arr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;block&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;doubled arrays&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;array1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;array2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;numpy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;intp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;do2_ptr&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;block&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;doubled second only&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;array1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;array2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;接下来的征程&lt;/h2&gt;
+&lt;p&gt;当你对这些基础内容感到足够熟悉了，就可以去深入探索一下显卡接口。更多的例子可以再PyCuda的源码目录下的examples子目录。这个文件夹里面也包含了一些测试程序，可以用来比对GPU和CPU计算的差别。另外PyCuda源代码目录下的test子目录里面由一些关于功能如何实现的参考。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/inducer/pycuda"&gt;Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/pycuda"&gt;Download Releases&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;©2008, Andreas Kloeckner.
+©2016, translated to Chinese by &lt;a href="http://blog.cycleuser.org"&gt;CycleUser&lt;/a&gt;
+Powered by &lt;a href="http://sphinx-doc.org/"&gt;Sphinx 1.4.8&lt;/a&gt; &amp;amp; &lt;a href="https://github.com/bitprophet/alabaster"&gt;Alabaster 0.7.9&lt;/a&gt; | &lt;a href="https://documen.tician.de/pycuda/_sources/tutorial.txt#getting-started"&gt;Page source&lt;/a&gt;&lt;/p&gt;</content><category term="Python"></category><category term="Python"></category><category term="CUDA"></category></entry><entry><title>ThinkPython 双语学编程</title><link href="/thinkpython-shuang-yu-xue-bian-cheng.html" rel="alternate"></link><published>2016-02-25T00:00:00+08:00</published><updated>2016-02-25T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2016-02-25:/thinkpython-shuang-yu-xue-bian-cheng.html</id><summary type="html">&lt;p&gt;Finally I finished the translation of ThinkPython. All the files can be found &lt;a href="https://github.com/cycleuser/ThinkPython-en-cn"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我总算是翻译完了这本 ThinkPython。所有文件都可以在&lt;a href="https://github.com/cycleuser/ThinkPython-en-cn"&gt;这里&lt;/a&gt;下载。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;There are there different formats of the translated book, which contains an epub, a doc and some md files.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我提供了好几个格式的文件，包括一个 epub，一份 Word 文档，以及很多 md 文件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The epub file …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Finally I finished the translation of ThinkPython. All the files can be found &lt;a href="https://github.com/cycleuser/ThinkPython-en-cn"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我总算是翻译完了这本 ThinkPython。所有文件都可以在&lt;a href="https://github.com/cycleuser/ThinkPython-en-cn"&gt;这里&lt;/a&gt;下载。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;There are there different formats of the translated book, which contains an epub, a doc and some md files.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我提供了好几个格式的文件，包括一个 epub，一份 Word 文档，以及很多 md 文件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The epub file is good for users of mobile devices and e-ink readers such as Kindle. The doc is designed for those who would like to offer help on revising it. The md files are very easy to read and edit that they are just plain text files and can be accessed by any text editors or browsers.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;epub 文件最适合用移动设备或者诸如 Kindle 之类的电纸书来阅读的用户。Word 文档的doc 格式文件希望提供给愿意帮忙修改改进的朋友。md 格式的文件最方便编辑和阅读了，因为这些文件就是单纯的文本文档而已，可以用任意的编辑器或者浏览器来读取。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It takes me some time to make it. I hope it would be helpful for some newbies like me.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我花了不少时间来翻译这本书。只希望能帮到跟我一样的初学者。&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="Python"></category><category term="Python"></category><category term="Book"></category><category term="Download"></category></entry></feed>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CycleUser - Hackintosh</title><link href="/" rel="alternate"></link><link href="/feeds/hackintosh.atom.xml" rel="self"></link><id>/</id><updated>2017-09-26T00:00:00+08:00</updated><entry><title>Installation of Mac OS X High Sierra(10.13) on a Hackintosh</title><link href="/installation-of-mac-os-x-high-sierra1013-on-a-hackintosh.html" rel="alternate"></link><published>2017-09-26T00:00:00+08:00</published><updated>2017-09-26T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-09-26:/installation-of-mac-os-x-high-sierra1013-on-a-hackintosh.html</id><summary type="html">&lt;p&gt;本文适用于已有 Mac OS Sierra（10.12）用户自行升级安装到最新版本的 Mac OS High Sierra（10.13）。NVIDIA 显卡用户需要注意，WebDriver 目前似乎还没有支持最新版操作系统，建议等  NVIDIA 释放了新驱动之后再更新到 10.13。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="img/HighSierra.png"&gt;&lt;/p&gt;
+&lt;p&gt;总的来说，有两种思路。&lt;/p&gt;
+&lt;h2&gt;直接升级安装&lt;/h2&gt;
+&lt;p&gt;App Store 下载 macOS High Sierra 安装包直接在已有系统内升级安装。这样更省心一些，只要更新一下已有系统的 Clover、FakeSMC 到最新版本，并且在 EFI 分区中添加上 APFS 的驱动，然后登录 App Store，下载 macOS High Sierra 一步步安装就可以了 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;本文适用于已有 Mac OS Sierra（10.12）用户自行升级安装到最新版本的 Mac OS High Sierra（10.13）。NVIDIA 显卡用户需要注意，WebDriver 目前似乎还没有支持最新版操作系统，建议等  NVIDIA 释放了新驱动之后再更新到 10.13。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="img/HighSierra.png"&gt;&lt;/p&gt;
+&lt;p&gt;总的来说，有两种思路。&lt;/p&gt;
+&lt;h2&gt;直接升级安装&lt;/h2&gt;
+&lt;p&gt;App Store 下载 macOS High Sierra 安装包直接在已有系统内升级安装。这样更省心一些，只要更新一下已有系统的 Clover、FakeSMC 到最新版本，并且在 EFI 分区中添加上 APFS 的驱动，然后登录 App Store，下载 macOS High Sierra 一步步安装就可以了。&lt;/p&gt;
+&lt;p&gt;用到的工具如下所示：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://pan.baidu.com/s/1c2kzXfi"&gt;Clover r4220&lt;/a&gt;：下载之后双击安装到原来的 EFI 所在磁盘分区即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://pan.baidu.com/s/1o7U6Cau"&gt;FakeSMC-v6.21&lt;/a&gt;：下载之后解压缩，将解压缩出来的文件替换原来 EFI 分区中的 FakeSMC.kext 文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://pan.baidu.com/s/1nuEt9St"&gt;APFS.efi 驱动&lt;/a&gt;：下载之后放进  /EFI/CLOVER/drivers64UEFI/。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;制作 USB 安装盘&lt;/h2&gt;
+&lt;p&gt;制作 USB 安装盘，然后从 USB 安装盘启动来全新安装。
+这个方法也还是需要上面的几个文件，不同的是要安装到用来引导 USB 安装盘的 EFI 分区当中，基本操作大同小异，此处不再赘述了。&lt;/p&gt;
+&lt;p&gt;制作安装盘这一步骤可以参考&lt;a href="https://www.tonymacx86.com/threads/how-to-create-a-macos-high-sierra-public-beta-installation-usb.225520/"&gt;tonymacx86 上的指南帖子&lt;/a&gt;。
+当然也可以使用&lt;a href="https://pan.baidu.com/s/1clPZlW"&gt;DiskMaker X 7 for High Sierra&lt;/a&gt; 来制作 USB 安装盘。&lt;/p&gt;</content><category term="Hackintosh"></category><category term="Mac"></category><category term="Hackintosh"></category></entry><entry><title>MacOS Sierra Skylake Intel HD 530 Graphics Glitch Fix</title><link href="/macos-sierra-skylake-intel-hd-530-graphics-glitch-fix.html" rel="alternate"></link><published>2016-11-08T11:20:00+08:00</published><updated>2016-11-08T11:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2016-11-08:/macos-sierra-skylake-intel-hd-530-graphics-glitch-fix.html</id><summary type="html">&lt;h4&gt;解决MacOS Sierra系统下使用Skylake系列Intel CPU的核心显卡时左上角的闪烁黑块问题&lt;/h4&gt;
+&lt;p&gt;Since macOS Sierra 10.12 update, Skylake's Intel HD 530 integrated graphics got certain graphical artifacts or 'glitches' in the upper left corner of the menu bar and elsewhere,which did not occur under OS X El Capitan and earlier versions.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;自从升级了MacOS Sierra 10.12之后，Skylake，也就是Intel的六代平台的HD530集显就不能正常工作了 …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;h4&gt;解决MacOS Sierra系统下使用Skylake系列Intel CPU的核心显卡时左上角的闪烁黑块问题&lt;/h4&gt;
+&lt;p&gt;Since macOS Sierra 10.12 update, Skylake's Intel HD 530 integrated graphics got certain graphical artifacts or 'glitches' in the upper left corner of the menu bar and elsewhere,which did not occur under OS X El Capitan and earlier versions.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;自从升级了MacOS Sierra 10.12之后，Skylake，也就是Intel的六代平台的HD530集显就不能正常工作了，左上角总有一个区域时不时的出现小黑块，而之前的系统版本里都不会这样。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Add code to clover config.plist&lt;/h4&gt;
+&lt;p&gt;Add a piece of code to clover config.plist file:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;把下面这段代码粘贴到clover配置文件config.plist的对应位置中：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;key&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Devices&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;key&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;key&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;AddProperties&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;key&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;array&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;key&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Device&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;key&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;IntelGFX&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;key&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Key&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;key&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;AAPL,GfxYTile&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;key&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Value&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;key&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;data&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+            AQAAAA==
+            &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;data&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;array&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Paste these code above into your clover config file, and then we take the next move.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;把上面的代码粘贴到你的clover配置文件之后，就进行下一步了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Use MultiBeast 9 to install HD 530&lt;/h4&gt;
+&lt;p&gt;After adding the above code into your Clover config.plist, use MultiBeast's Graphics &amp;gt; HD 530 setting (This includes ig-platform-id of 0x19120000) , Reboot and glitches will be gone.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在你的clover配置文件中添加完上面的代码之后，下载运行Multibeast，然后找到其中的HD530驱动，安装一下，这个步骤也将会添加集显的 ig-platform-id :0x19120000，然后重启，显示就应该完美了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This method is form &lt;a href="https://www.tonymacx86.com/threads/skylake-intel-hd-530-graphics-glitch-fix.206410/"&gt;TonyMacX86&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文的思路来自&lt;a href="https://www.tonymacx86.com/threads/skylake-intel-hd-530-graphics-glitch-fix.206410/"&gt;TonyMacX86&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You can also use my config.plist file and other tools form this &lt;a href="https://pan.baidu.com/s/1miAq0IG"&gt;Link&lt;/a&gt;.
+Code: uu53&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你也可以试试我分享的这个config.plist文件，然后这里还有一些要用到的其他工具。&lt;a href="https://pan.baidu.com/s/1miAq0IG"&gt;链接&lt;/a&gt;
+密码: uu53&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="Hackintosh"></category><category term="Mac"></category><category term="Hackintosh"></category></entry></feed>

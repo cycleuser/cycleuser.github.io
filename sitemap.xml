@@ -5,30 +5,37 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>blog.cycleuser.org/</loc>
-<lastmod>2024-05-07T19:19:29-00:00</lastmod>
+<lastmod>2024-05-07T20:07:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>blog.cycleuser.org/archives.html</loc>
-<lastmod>2024-05-07T19:19:29-00:00</lastmod>
+<lastmod>2024-05-07T20:07:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>blog.cycleuser.org/tags.html</loc>
-<lastmod>2024-05-07T19:19:29-00:00</lastmod>
+<lastmod>2024-05-07T20:07:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>blog.cycleuser.org/categories.html</loc>
-<lastmod>2024-05-07T19:19:29-00:00</lastmod>
+<lastmod>2024-05-07T20:07:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
+</url>
+
+<url>
+<loc>blog.cycleuser.org/guan-yu-she-ying-he-er-shou-xiang-ji-zhi-lei-de-hu-yan-luan-yu.html</loc>
+<lastmod>2024-05-07T20:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -656,7 +663,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>blog.cycleuser.org/category/camera.html</loc>
-<lastmod>2021-02-18T23:59:00+08:06</lastmod>
+<lastmod>2024-05-07T20:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -781,6 +788,27 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>blog.cycleuser.org/tag/camera.html</loc>
+<lastmod>2024-05-07T20:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>blog.cycleuser.org/tag/lens.html</loc>
+<lastmod>2024-05-07T20:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>blog.cycleuser.org/tag/photo.html</loc>
+<lastmod>2024-05-07T20:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
 <loc>blog.cycleuser.org/tag/university.html</loc>
 <lastmod>2024-05-07T19:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -865,20 +893,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>blog.cycleuser.org/tag/lens.html</loc>
-<lastmod>2021-02-18T23:59:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>blog.cycleuser.org/tag/camera.html</loc>
-<lastmod>2021-02-18T23:59:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
 <loc>blog.cycleuser.org/tag/fckzhihu.html</loc>
 <lastmod>2021-02-18T23:59:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -944,13 +958,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>blog.cycleuser.org/tag/hardware.html</loc>
 <lastmod>2020-08-18T00:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>blog.cycleuser.org/tag/photo.html</loc>
-<lastmod>2020-01-22T23:59:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -1300,7 +1307,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>blog.cycleuser.org/author/cycleusyer.html</loc>
-<lastmod>2024-05-07T19:00:00+08:06</lastmod>
+<lastmod>2024-05-07T20:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>

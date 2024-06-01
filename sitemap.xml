@@ -5,34 +5,41 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>blog.cycleuser.org/</loc>
-<lastmod>2024-05-07T20:07:06-00:00</lastmod>
+<lastmod>2024-06-01T20:14:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>blog.cycleuser.org/archives.html</loc>
-<lastmod>2024-05-07T20:07:06-00:00</lastmod>
+<lastmod>2024-06-01T20:14:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>blog.cycleuser.org/tags.html</loc>
-<lastmod>2024-05-07T20:07:06-00:00</lastmod>
+<lastmod>2024-06-01T20:14:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>blog.cycleuser.org/categories.html</loc>
-<lastmod>2024-05-07T20:07:06-00:00</lastmod>
+<lastmod>2024-06-01T20:14:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>blog.cycleuser.org/guan-yu-she-ying-he-er-shou-xiang-ji-zhi-lei-de-hu-yan-luan-yu.html</loc>
+<lastmod>2024-06-01T20:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+
+<url>
+<loc>blog.cycleuser.org/guan-yu-er-shou-xiang-ji.html</loc>
 <lastmod>2024-05-07T20:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
@@ -781,8 +788,29 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>blog.cycleuser.org/category/virtualization.html</loc>
+<lastmod>2024-06-01T20:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
 <loc>blog.cycleuser.org/category/work.html</loc>
 <lastmod>2017-10-01T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>blog.cycleuser.org/tag/qemu.html</loc>
+<lastmod>2024-06-01T20:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>blog.cycleuser.org/tag/virtualization.html</loc>
+<lastmod>2024-06-01T20:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -1307,7 +1335,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>blog.cycleuser.org/author/cycleusyer.html</loc>
-<lastmod>2024-05-07T20:00:00+08:06</lastmod>
+<lastmod>2024-06-01T20:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>

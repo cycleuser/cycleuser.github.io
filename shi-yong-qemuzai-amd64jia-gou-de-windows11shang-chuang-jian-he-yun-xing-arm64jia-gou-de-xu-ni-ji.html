@@ -40,139 +40,93 @@ var _hmt = _hmt || [];
     <section id="wrapper" class="clearfix">
         <section id="content" class="grid col-620" >
                 <section class="breadcrumb-list">
-<a href=".">Blog</a> ›<a href="category/chromebook.html">ChromeBook</a> ›ChromeBook Install GalliumOS：Preparing
+<a href=".">Blog</a> ›<a href="category/virtualization.html">Virtualization</a> ›使用QEMU在AMD64架构的Windows11上创建和运行ARM64架构的虚拟机
                 </section>
 
 
 <section id="post" class="post hentry">
     <header>
-    <h2 class="post-title" >ChromeBook Install GalliumOS：Preparing</h2>
+    <h2 class="post-title" >使用QEMU在AMD64架构的Windows11上创建和运行ARM64架构的虚拟机</h2>
     
     <div class="post-meta">
         <span class="meta-prep">Post in</span>
-        <abbr class="date" title="2017-02-08T00:00:00+08:00"> 
-            <a href="./archive/2017/2月/index.html">周三 08 二月 2017 </a>
+        <abbr class="date" title="2024-06-01T20:00:00+08:00"> 
+            <a href="./archive/2024/6月/index.html">周六 01 六月 2024 </a>
         </abbr>
         <span class="meta-prep"> |Tags</span>
-                <a href="./tag/chromebook.html">ChromeBook</a>
-                <a href="./tag/hack.html">Hack</a>
+                <a href="./tag/qemu.html">QEMU</a>
+                <a href="./tag/virtualization.html">Virtualization</a>
         <!-- TOBE COMMENTS -->
     </div>
     </header>
     <div class="post-entry">
-        <h1>ChromeBook安装GalliumOS：准备部分</h1>
-<p><a href="https://wiki.galliumos.org/Installing/Preparing">英文原文地址</a>
-<a href="http://blog.cycleuser.org">CycleUser</a>翻译</p>
-<p>在ChromeBook或者ChromeBox这类ChromeOS设备上安装其他操作系统，都必须首先开启开发者模式。<strong>很多</strong>机型还需要更新固件，当然这也看安装类型。</p>
-<p>不同设备的安装前准备步骤是不一样的，所以要先确认自己ChromeOS设备的硬件ID。在ChromeOS内，导航到<code>chrome://system</code>，找到<code>hardware_class</code>这一项，就是硬件ID了。</p>
-<p>Next, check our <a href="https://wiki.galliumos.org/Hardware_Compatibility" title="Hardware Compatibility">Hardware Compatibility</a> page to determine your device's CPU family. For example, the Acer C720's Hardware ID is <code>PEPPY</code>, and the CPU Family is <code>Haswell</code>.</p>
-<p>接下来，要安装GalliumOS，还要去 <a href="https://wiki.galliumos.org/Hardware_Compatibility" title="Hardware Compatibility">硬件兼容性列表页面</a> 去检查一下你设备的处理器是否被支持。比如，Acer的C720的硬件ID是<code>PEPPY</code>，CPU代号是<code>Haswell</code>，这就可以支持了。</p>
-<p>搞定了上面这些，确认好自己的设备被GalliumOS支持，就可以继续了。</p>
-<h2>1：开启开发者模式</h2>
-<p><strong>警告</strong>：开启开发者模式会把当前设备中已有的用户信息全部抹掉。如果你有存储在本地数据收，一定要先备份。在线的那些数据就没影响了，不会被抹掉的。</p>
-<ol>
-<li>
-<p>把设备关机，然后按Esc+F3(refresh刷新)+Power（电源键），启动进入到Recovery恢复模式；</p>
-</li>
-<li>
-<p>这时候你就会看到Recovery界面，上面可能会提示你"ChromeOS is damaged or missing" ，意思是说ChromeOS操作系统损坏或者丢失了，实际上并没有啦；</p>
-</li>
-<li>
-<p>接下来按[Ctrl+D]来开启开发者模式，然后接下来就是各种确认的步骤，一般就一直按回车键确认就行了；</p>
-</li>
-<li>
-<p>机器就会重启到白屏幕了，上面会写着"OS verification is OFF"，意思是操作系统校验已关闭。这就说明进入了开发者模式了。</p>
-</li>
-<li>
-<p>接下来要启动传统引导模式（如果你更新过BIOS固件就可以跳过这一步了，因为新固件应该会自动完成这一步，不用人去手动设置）：</p>
-<ol>
-<li>
-<p>按[Ctrl+D]启动到<strong>开发者模式</strong></p>
-</li>
-<li>
-<p>必要的话要配置一些WiFi，然后登录到Chrome（用Guest访客账户就行）</p>
-</li>
-<li>
-<p>按[Ctrl+Alt+T]来打开一个ChromeOS的终端窗口(这个终端也叫"crosh")</p>
-</li>
-<li>
-<p>在终端里面的提示符后面输入 <code>shell</code></p>
-</li>
-<li>
-<p>到了 <code>chronos@localhost / $</code> 这里了, 输入下面的命令并回车运行:</p>
-</li>
-</ol>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>crossystem<span class="w"> </span><span class="nv">dev_boot_legacy</span><span class="o">=</span><span class="m">1</span><span class="w">    </span>
+        <h2>1 基础背景</h2>
+<p>QEMU（Quick Emulator）是一种特殊的虚拟化类型，可以在一台物理机器上创建多个虚拟机，但这些虚拟机可以与宿主机同架构，也可以不同架构。当架构相同的时候，可以将QEMU看作是虚拟机；当架构不同的时候，可以兼顾QEMU看作是模拟器。比如宿主机是amd64（x86_64），那么虚拟机也可以是amd64（x86_64，64位），也可以是x86（32位），还可以模拟出aarch64（arm64）、arm（32位）、mips等等架构。</p>
+<p>在没有硬件辅助的情况下，QEMU可以进行全虚拟化（Full Virtualization），通过二进制翻译来模拟整个硬件环境，使得在一个物理机器上可以运行多个不同的操作系统。</p>
+<p>QEMU原生只有字符界面，但本文所用的命令和文件都是现成的 ，而且大家可以使用AI联网来检索具体配置参数的意义和效果等等，所以完全不用怕。</p>
+<h2>2 下载安装</h2>
+<p>下载安装QEMU需要访问<a href="https://www.qemu.org/download/">官方网站</a>。</p>
+<p>本文也提供了一份适用于Windows系统的绿色版本QEMU9.0，<a href="https://pan.baidu.com/s/1SAOppNwQMnM8Pg1Ybi-p6w?pwd=wy0d">下载链接</a> , 提取码：<code>wy0d</code> 。</p>
+<p>不过下载安装之后倒未必能够直接使用，因为现在的操作系统往往需要efi分区等等要素。</p>
+<p>那本文这里也提供了一份能够很好地支持上述版本QEMU的<code>efi.img</code>文件，<a href="https://pan.baidu.com/s/1HlYjcwpowzVNmzpjMXZ6BA?pwd=olfy">下载链接</a> , 提取码：<code>olfy</code> 。</p>
+<p>这个<code>efi.img</code>文件可以用于启动QEMU，也可以用于启动QEMU创建的虚拟机。</p>
+<h2>3 创建虚拟机</h2>
+<p>有了QEMU软件，也有了<code>efi.img</code>文件，就可以创建虚拟机了。</p>
+<p>首先使用QEMU自带的使用<code>qemu-img</code>命令来创建新的空白镜像：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 创建压缩的qcow格式</span>
+qemu-img<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>qcow2<span class="w"> </span>ubuntu-arm64.qcow2<span class="w"> </span>120G
+<span class="c1"># 创建通用的img格式</span>
+qemu-img<span class="w"> </span>create<span class="w"> </span>ubuntu-arm64.img<span class="w"> </span>120G
 </code></pre></div>
 
-<h2>2：刷新固件（必要情况下再这样折腾）</h2>
-<p>刚刚不是确定了硬件ID和CPU代号了么？这一步就用上了：</p>
-<ul>
-<li><strong>Sandy Bridge</strong> 机型 <strong>必须要</strong>刷修改过的固件(Google Chromebook Pixel 2013   LINK除外哈)；</li>
-<li><strong>Bay Trail</strong> 和 <strong>Braswell</strong> 机型<strong>必须要</strong>修改过的固件</li>
-<li><strong>Haswell</strong>, <strong>Broadwell</strong>, 以及 <strong>Skylake</strong> 机型，用修改估计<strong>更方便</strong>，某些型号根据安装类型不同而可能出现必须要刷固件的情况。具体情况参考<a href="https://wiki.galliumos.org/Hardware_Compatibility" title="Hardware Compatibility">硬件兼容性列表页面</a>。</li>
-</ul>
-<p>很多机型都有定制固件，这些估计种类繁多，来源各异。参考<a href="https://wiki.galliumos.org/Firmware" title="Firmware">固件信息页面</a>来查找适合你设备的固件。</p>
-<h3>2.1：关闭写保护（必要情况下再这样折腾）</h3>
-<p>某些特定类型的固件(比如<code>BOOT_STUB</code>和<code>Full ROM</code>) 都需要关闭设备的写保护。所以一定先去<a href="https://wiki.galliumos.org/Firmware" title="Firmware">固件信息页面</a>好好阅读，弄清楚自己设备的情况！ChromeOS设备上的写保护一般是由一颗螺丝控制的，不过有的机器是一块导电贴纸，更老一点的机器会有跳线。这些写保护螺丝、贴纸、跳线的位置随着机型不同而变化，不过总的来说，你都得拆机。</p>
-<p>所以可能有时候就得搜索你对应型号的"Chromebook 关闭写保护"这样的关键词，往往能获得详细的指导，有图文之类的。如果找不到，可以去<a href="https://reddit.com/r/GalliumOS">GalliumOS论坛</a>或者<a href="https://galliumos.org/irc">#galliumos通信群</a>求助。</p>
-<div class="highlight"><pre><span></span><code>译者注：还是建议搜索英文关键词chromebook disable write-protect；
-毕竟英语世界玩这个的可能比中文世界要多一些吧。
+<p>上述命令会创建一个120GB的空白镜像文件，可以在这个镜像上安装操作系统。
+如果有vhd或者img之类的其他格式的虚拟硬盘，QEMU可以直接使用，也可以转换成为qcow2。
+可以使用<code>qemu-img</code>命令来进行转换：</p>
+<div class="highlight"><pre><span></span><code>qemu-img<span class="w"> </span>convert<span class="w"> </span>-f<span class="w"> </span>vhd<span class="w"> </span>-O<span class="w"> </span>qcow2<span class="w"> </span>/path/to/your/vhd/file<span class="w"> </span>/path/to/your/qcow2/file
+qemu-img<span class="w"> </span>convert<span class="w"> </span>-O<span class="w"> </span>qcow2<span class="w"> </span>-c<span class="w"> </span>ubuntu-arm64.img<span class="w"> </span>ubuntu-arm64-compressed.qcow2
 </code></pre></div>
 
-<h3>2.2: 安装/升级固件</h3>
-<p>在ChromeOS的终端里面就可以安装/升级固件了，或者也可以从运行中的Linux系统下进行这个操作。在ChromeOS下用终端来更新的大概过程如下所示：</p>
-<ol>
-<li>
-<p>按[Ctrl+D]启动到<strong>开发者模式</strong></p>
-</li>
-<li>
-<p>必要的话要配置一些WiFi，然后登录到Chrome（用Guest访客账户就行）</p>
-</li>
-<li>
-<p>按[Ctrl+Alt+T]来打开一个ChromeOS的终端窗口(这个终端也叫"crosh")</p>
-</li>
-<li>
-<p>在终端里面的提示符后面输入 <code>shell</code></p>
-</li>
-<li>
-<p>选好要安装的固件。还是参考<a href="https://wiki.galliumos.org/Firmware" title="Firmware">固件信息页面</a>。</p>
-</li>
-<li>
-<p>出现<code>chronos@localhost / $</code>了，在提示符后面输入命令来更新固件。更新固件的命令得去<a href="https://mrchromebox.tech/#fwscript">固件开发者的站点</a>去看看，可能有变化什么的。</p>
-</li>
-<li>
-<p>运行MrChromebox's固件工具脚本 (<a href="https://mrchromebox.tech/#fwscript">固件开发者的站点</a>)
-    <code>Bash
-cd; curl -LO https://mrchromebox.tech/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></p>
-</li>
-<li>
-<p>接下来就是根据屏幕上出现的指引来选择一种固件类型来安装了。</p>
-</li>
-</ol>
-<h2>3：开发者模式界面下其他选项</h2>
-<p>The Developer Mode boot screen offers a few additional options. The most important one is Ctrl+L for Legacy Mode booting, which you will use to boot GalliumOS after installing (depending on your firmware choice). Here is the full list:</p>
-<p>开发者启动界面有几种不同的选项。最重要的是[Ctrl+L]来进入传统引导模式，咱们更新固件之后安装GalliumOS就是要用这个模式。
-下面是对不同选项的介绍：</p>
-<ul>
-<li>[Ctrl+D] 这就是启动ChromeOS设备进入到开发者模式</li>
-<li>[Ctrl+L] 这个是用来启用传统引导模式，一般安装Linux之后就得用这个了</li>
-<li>[Ctrl+U] 这个是从USB上的镜像来引导ChromeOS或者ChromiumOS，平时大家肯定用不上这个选项</li>
-<li>[TAB] 这个是启动配置信息什么的。</li>
-</ul>
+<p>QEMU自带了包括<code>qemu-system-x86_64</code>、<code>qemu-system-arm</code>（32位）和<code>qemu-system-aarch64</code>（64位）等很多个命令，都是对应各自的虚拟架构的。在使用这些命令创建和运行虚拟机的时候，还需要添加适当的CPU和机器模型参数，以及网卡显卡设置等等信息。</p>
+<p>例如下面的例子中，已经有从<a href="https://ubuntu.com/download/server/arm">Ubuntu官网</a>下载好的<code>ubuntu-24.04-live-server-arm64.iso</code>这个操作系统安装镜像，还有一个本项目提供好的<code>efi.img</code>以及上面创建好的<code>ubuntu-arm64.img</code>文件。</p>
+<p>下面的命令就是将操作系统安装到对应的虚拟磁盘：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 运行系统盘来安装</span>
+<span class="c1"># Ubuntu Arm 64</span>
+qemu-system-aarch64<span class="w"> </span>-M<span class="w"> </span>virt,virtualization<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-m<span class="w"> </span>8G<span class="w"> </span>-cpu<span class="w"> </span>max,pauth-impdef<span class="o">=</span>on<span class="w"> </span>-smp<span class="w"> </span><span class="m">8</span><span class="w"> </span>-drive<span class="w"> </span><span class="k">if</span><span class="o">=</span>pflash,format<span class="o">=</span>raw,file<span class="o">=</span>efi.img,readonly<span class="o">=</span>on<span class="w">  </span>--accel<span class="w"> </span>tcg,thread<span class="o">=</span>multi<span class="w"> </span>-device<span class="w"> </span>ramfb<span class="w"> </span>-device<span class="w"> </span>qemu-xhci<span class="w"> </span>-device<span class="w"> </span>usb-kbd<span class="w"> </span>-device<span class="w"> </span>usb-tablet<span class="w"> </span>-nic<span class="w"> </span>user,model<span class="o">=</span>virtio-net-pci<span class="w"> </span>-device<span class="w"> </span>usb-storage,drive<span class="o">=</span>install<span class="w"> </span>-drive<span class="w"> </span><span class="k">if</span><span class="o">=</span>none,id<span class="o">=</span>install,format<span class="o">=</span>raw,media<span class="o">=</span>cdrom,file<span class="o">=</span>./ubuntu-24.04-live-server-arm64.iso<span class="w"> </span>-drive<span class="w"> </span><span class="k">if</span><span class="o">=</span>virtio,id<span class="o">=</span>system,format<span class="o">=</span>raw,file<span class="o">=</span>./ubuntu-arm64.img
+</code></pre></div>
+
+<p>安装完成之后，去掉对应ISO的<code>-drive</code>参数，就可以启动系统了：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 运行已经安装好的</span>
+<span class="c1"># Ubuntu Arm 64， 使用img</span>
+qemu-system-aarch64<span class="w"> </span>-M<span class="w"> </span>virt,virtualization<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-m<span class="w"> </span>8G<span class="w"> </span>-cpu<span class="w"> </span>max,pauth-impdef<span class="o">=</span>on<span class="w"> </span>-smp<span class="w"> </span><span class="m">8</span><span class="w"> </span>-drive<span class="w"> </span><span class="k">if</span><span class="o">=</span>pflash,format<span class="o">=</span>raw,file<span class="o">=</span>efi.img,readonly<span class="o">=</span>on<span class="w">  </span>--accel<span class="w"> </span>tcg,thread<span class="o">=</span>multi<span class="w"> </span>-device<span class="w"> </span>ramfb<span class="w"> </span>-device<span class="w"> </span>qemu-xhci<span class="w"> </span>-device<span class="w"> </span>usb-kbd<span class="w"> </span>-device<span class="w"> </span>usb-tablet<span class="w"> </span>-nic<span class="w"> </span>user,model<span class="o">=</span>virtio-net-pci<span class="w"> </span>-drive<span class="w"> </span><span class="k">if</span><span class="o">=</span>virtio,id<span class="o">=</span>system,format<span class="o">=</span>raw,file<span class="o">=</span>./ubuntu-arm64.img
+</code></pre></div>
+
+<p>如果你用的不是img文件，而是qcow2文件，把命令改成这样就可以了：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ubuntu Arm 64，使用qcow2</span>
+qemu-system-aarch64<span class="w"> </span>-M<span class="w"> </span>virt,virtualization<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-m<span class="w"> </span>8G<span class="w"> </span>-cpu<span class="w"> </span>max,pauth-impdef<span class="o">=</span>on<span class="w"> </span>-smp<span class="w"> </span><span class="m">8</span><span class="w"> </span>-drive<span class="w"> </span><span class="k">if</span><span class="o">=</span>pflash,format<span class="o">=</span>raw,file<span class="o">=</span>efi.img,readonly<span class="o">=</span>on<span class="w">  </span>--accel<span class="w"> </span>tcg,thread<span class="o">=</span>multi<span class="w"> </span>-device<span class="w"> </span>ramfb<span class="w"> </span>-device<span class="w"> </span>qemu-xhci<span class="w"> </span>-device<span class="w"> </span>usb-kbd<span class="w"> </span>-device<span class="w"> </span>usb-tablet<span class="w"> </span>-nic<span class="w"> </span>user,model<span class="o">=</span>virtio-net-pci<span class="w"> </span>-drive<span class="w"> </span><span class="k">if</span><span class="o">=</span>virtio,id<span class="o">=</span>system,format<span class="o">=</span>qcow2,file<span class="o">=</span>ubuntu-arm64.qcow2
+</code></pre></div>
+
+<p>如果要运行和宿主机同架构的虚拟机，那就可以借助硬件辅助虚拟化（如Intel的VT-x或AMD的AMD-V）。使得QEMU可以利用这些特性来提高虚拟化的性能，这种情况下，QEMU的行为更接近于混合虚拟化（Hybrid-Para Virtualization）。</p>
+<div class="highlight"><pre><span></span><code>qemu-system-x86_64<span class="w"> </span>-hda<span class="w"> </span>/path/to/your/image/file
+</code></pre></div>
+
+<h2>4 使用现成的</h2>
+<p>本文提供了一个集成了Ubuntu Server 24.04的ARM64镜像文件，可以直接使用。
+下载链接在：<a href="https://pan.baidu.com/s/1L5frJxOW5k_Sy1PNBV_e7w?pwd=09e5">https://pan.baidu.com/s/1L5frJxOW5k_Sy1PNBV_e7w?pwd=09e5</a> 
+提取码：09e5 
+默认用户名和密码都是hadoop，解压缩后文件夹应该如下图所示：
+<img alt="" src="img/qemu_folder.png"></p>
+<p>双击<code>run_ubuntu_arm64_tiny.bat</code>运行命令行版本，双击<code>run_ubuntu_arm64.bat</code>运行图形界面版本。</p>
     </div><!-- /.entry-content -->
     <footer class="post-meta">
         <span class="meta-prep">Category:</span>
         <abbr class="category">
-            <a href="./category/chromebook.html">ChromeBook</a>
+            <a href="./category/virtualization.html">Virtualization</a>
         </abbr>
        </footer>
     <section id="respond">
         <div id="disqus_thread">
         <script type="text/javascript">
-        var disqus_identifier = "chromebook-install-galliumospreparing.html";
+        var disqus_identifier = "shi-yong-qemuzai-amd64jia-gou-de-windows11shang-chuang-jian-he-yun-xing-arm64jia-gou-de-xu-ni-ji.html";
         (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = 'http://cycleuser.disqus.com/embed.js';

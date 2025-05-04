@@ -151,9 +151,9 @@ var _hmt = _hmt || [];
 <ol>
 <li>在第一个代码块（cell）中输入下面的代码，然后点击 <em>Run</em> 按钮来运行。<strong>如果什么都没有发狠过就证明你这几个依赖包的安装都成功了，没有任何问题。</strong>如果你遇到了导入错误 <em>ImportError</em>，就说明对应的包安装不成功，你得按照上面的教程重新安装一下。如果持续出现错误，就可能需要参考下一章的内容来使用命令行界面解决问题了。</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">geopandas</span>
-<span class="kn">import</span> <span class="nn">geopy</span>
-<span class="kn">import</span> <span class="nn">rasterio</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/GeoPython/conda11.png"></p>
@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
 <ol>
 <li><code>geopandas</code> 的安装还挺麻烦的，有时候可能不一定成功。所以安装完成后你可以用下面的命令来导入测试一下，看看有没有出错信息。<code>python</code> 命令后加一个 <code>-c</code>选项就是直接执行对应的语句，千万要注意这里要加英文双引号。输入命令后回车，没有任何错误信息输出就成功了。</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import geopandas&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">python</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="s2">&quot;import geopandas&quot;</span>
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/GeoPython/condacli7.png"></p>
@@ -235,9 +235,9 @@ var _hmt = _hmt || [];
 <ol>
 <li>在第一个代码块（cell）里面输入下面的命令，然后点击小三角的那个 <em>Run</em> 运行按钮。 <strong>如果什么输出都没有，就说明安装成功了。</strong>如果你遇到导入错误<em>ImportError</em>，就说明安装未成功，重新安装吧。</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">geopandas</span>
-<span class="kn">import</span> <span class="nn">geopy</span>
-<span class="kn">import</span> <span class="nn">rasterio</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/GeoPython/condacli13.png"></p>
@@ -676,11 +676,11 @@ coordinate = &#39;&#39;&#39;37° 46&#39; 26.2992&quot;&#39;&#39;&#39;
 <h1>Python 标准库（Standard Library）</h1>
 <p>Python 有内置的很多模块，提供了很多方便的功能，能解决各种常见变成问题。要使用这些模块，你必须用<code>import</code>来导入。导入到你的Python代码之后，就可以在你的代码中使用这个模块提供的函数了。</p>
 <p>接下来用内置的数学模块<code>math</code>来演示如何使用复杂数学函数。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 </code></pre></div>
 
 <p>你也可以只导入模块中的某个具体函数。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">pi</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
 </code></pre></div>
 
@@ -711,7 +711,7 @@ print(distance/1000, &#39;km&#39;)
 
 <h2>探索 Python 的彩蛋</h2>
 <p>程序员很喜欢在程序里面放一些菜单。Python就有一个彩蛋，就是导入模块<code>this</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">this</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">this</span>
 </code></pre></div>
 
 <p>Let’s try one more. Try importing the <code>antigravity</code> module.</p>
@@ -753,20 +753,20 @@ print(distance/1000, &#39;km&#39;)
 <li><code>distance.great_circle()</code>: 使用哈维辛方程（haversine formula）计算大圆距离</li>
 <li><code>distance.geodesic()</code>: 使用文森特方程（vincenty’s formula）计算所选的椭球提距离</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">geopy</span> <span class="kn">import</span> <span class="n">distance</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">geopy</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">distance</span>
 
-<span class="n">san_francisco</span> <span class="o">=</span> <span class="p">(</span><span class="mf">37.7749</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4194</span><span class="p">)</span>
-<span class="n">new_york</span> <span class="o">=</span> <span class="p">(</span><span class="mf">40.661</span><span class="p">,</span> <span class="o">-</span><span class="mf">73.944</span><span class="p">)</span>
+<span class="n">san_francisco</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">37.7749</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">122.4194</span><span class="p">)</span>
+<span class="n">new_york</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">40.661</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">73.944</span><span class="p">)</span>
 
-<span class="n">straight_line_distance</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">great_circle</span><span class="p">(</span><span class="n">san_francisco</span><span class="p">,</span> <span class="n">new_york</span><span class="p">)</span>
-<span class="n">ellipsoid_distance</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">geodesic</span><span class="p">(</span><span class="n">san_francisco</span><span class="p">,</span> <span class="n">new_york</span><span class="p">,</span> <span class="n">ellipsoid</span><span class="o">=</span><span class="s1">&#39;WGS-84&#39;</span><span class="p">)</span>
+<span class="n">straight_line_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">distance</span><span class="o">.</span><span class="n">great_circle</span><span class="p">(</span><span class="n">san_francisco</span><span class="p">,</span><span class="w"> </span><span class="n">new_york</span><span class="p">)</span>
+<span class="n">ellipsoid_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">distance</span><span class="o">.</span><span class="n">geodesic</span><span class="p">(</span><span class="n">san_francisco</span><span class="p">,</span><span class="w"> </span><span class="n">new_york</span><span class="p">,</span><span class="w"> </span><span class="n">ellipsoid</span><span class="o">=</span><span class="s1">&#39;WGS-84&#39;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">straight_line_distance</span><span class="p">,</span> <span class="n">ellipsoid_distance</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">straight_line_distance</span><span class="p">,</span><span class="w"> </span><span class="n">ellipsoid_distance</span><span class="p">)</span>
 </code></pre></div>
 
 <h2>练习</h2>
 <p>还是距离计算的练习，和之前不一样的是这次要用<code>geopy</code>库。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">geopy</span> <span class="kn">import</span> <span class="n">distance</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">geopy</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">distance</span>
 
 <span class="c1"># city1 = (lat1, lng1)</span>
 <span class="c1"># city2 = (lat2, lng2)</span>
@@ -808,9 +808,9 @@ print(distance/1000, &#39;km&#39;)
 </code></pre></div>
 
 <p>使用<code>json.loads()</code> 方法可以将JSON字符串转换成Python对象（这也就是解析JSON）。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">geojson_string</span><span class="p">)</span>
+<span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">geojson_string</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
@@ -829,9 +829,9 @@ print(city_name, city_coordinates)
 <h2><code>requests</code>模块</h2>
 <p>要向一个服务器查询（query），要发送一个<strong>GET</strong>请求，附加一些参数，然后服务器会发回一个响应（response）。<code>requests</code>允许用户这样发送HTTP请求以及使用Python将反馈信息解析出来。</p>
 <p>服务器返回的信息包含的数据有HTTP状态码（<em>status_code</em> ），这个状态码来告诉用户请求是否成功。比如HTTP状态码200就表示成功（<em>Sucess OK</em>）。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.spatialthoughts.com&#39;</span><span class="p">)</span>
+<span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.spatialthoughts.com&#39;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
 </code></pre></div>
@@ -845,25 +845,25 @@ print(city_name, city_coordinates)
 </code></pre></div>
 
 <p>接下来要使用 OpenRouteServices 提供的 <a href="https://openrouteservice.org/dev/#/api-docs/v2/directions/%7Bprofile%7D/get">导航服务 Directions Service</a>。这个服务反悔的是给定的起点和终点之间的驾驶、骑行或者步行的路径导航。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="n">san_francisco</span> <span class="o">=</span> <span class="p">(</span><span class="mf">37.7749</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4194</span><span class="p">)</span>
-<span class="n">new_york</span> <span class="o">=</span> <span class="p">(</span><span class="mf">40.661</span><span class="p">,</span> <span class="o">-</span><span class="mf">73.944</span><span class="p">)</span>
+<span class="n">san_francisco</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">37.7749</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">122.4194</span><span class="p">)</span>
+<span class="n">new_york</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">40.661</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">73.944</span><span class="p">)</span>
 
-<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;api_key&#39;</span><span class="p">:</span> <span class="n">ORS_API_KEY</span><span class="p">,</span>
-    <span class="s1">&#39;start&#39;</span> <span class="p">:</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">san_francisco</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">san_francisco</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-    <span class="s1">&#39;end&#39;</span> <span class="p">:</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">new_york</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">new_york</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">parameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s1">&#39;api_key&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">ORS_API_KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;start&#39;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">san_francisco</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">san_francisco</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+<span class="w">    </span><span class="s1">&#39;end&#39;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">new_york</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">new_york</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-    <span class="s1">&#39;https://api.openrouteservice.org/v2/directions/driving-car&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
+<span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+<span class="w">    </span><span class="s1">&#39;https://api.openrouteservice.org/v2/directions/driving-car&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Request successful.&#39;</span><span class="p">)</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="k">if</span><span class="w"> </span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">200</span><span class="p">:</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Request successful.&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Request failed.&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Request failed.&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 <p>可以调用<code>json()</code>方法来读取JSON格式文件中的<code>response</code>。</p>
@@ -887,45 +887,45 @@ print(distance/1000)
 <p>很多库可以帮助实现访问频率的限制。但这里我们用一个内置的<code>time</code>模块来实现一个非常简单的频率控制方法就可以了。</p>
 <h3><code>time</code>模块</h3>
 <p>Python标准库（Standard Library）内置了一个<code>time</code>模块，可以进行各种时间相关的运算。其中的一个方法<code>time.sleep()</code>可以在指定的时间内暂停程序执行。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">    </span><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
 <h2>练习</h2>
 <p>下面的代码块中包含了一个字典，其中有三个目标城市及其坐标。写一个<code>for</code>循环来针对目标城市<code>destination_cities</code>这个字典进行循环，然后调用<code>get_driving_distance()</code>这个函数来输出从旧金山（San Fransico）到每个目标城市的真实驾驶距离。在每次成功的函数调用之间利用<code>time.sleep(2)</code>添加两秒休眠来限制查询频率。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="n">ORS_API_KEY</span> <span class="o">=</span> <span class="s1">&#39;&lt;replace this with your key&gt;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="n">ORS_API_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;replace this with your key&gt;&#39;</span>
 
-<span class="k">def</span> <span class="nf">get_driving_distance</span><span class="p">(</span><span class="n">source_coordinates</span><span class="p">,</span> <span class="n">dest_coordinates</span><span class="p">):</span>
-    <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;api_key&#39;</span><span class="p">:</span> <span class="n">ORS_API_KEY</span><span class="p">,</span>
-    <span class="s1">&#39;start&#39;</span> <span class="p">:</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">source_coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">source_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-    <span class="s1">&#39;end&#39;</span> <span class="p">:</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dest_coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dest_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="p">}</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_driving_distance</span><span class="p">(</span><span class="n">source_coordinates</span><span class="p">,</span><span class="w"> </span><span class="n">dest_coordinates</span><span class="p">):</span>
+<span class="w">    </span><span class="n">parameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s1">&#39;api_key&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">ORS_API_KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;start&#39;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">source_coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">source_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+<span class="w">    </span><span class="s1">&#39;end&#39;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dest_coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">dest_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-        <span class="s1">&#39;https://api.openrouteservice.org/v2/directions/driving-car&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
+<span class="w">    </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+<span class="w">        </span><span class="s1">&#39;https://api.openrouteservice.org/v2/directions/driving-car&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-        <span class="n">summary</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;summary&#39;</span><span class="p">]</span>
-        <span class="n">distance</span> <span class="o">=</span> <span class="n">summary</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">distance</span><span class="o">/</span><span class="mi">1000</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Request failed.&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="o">-</span><span class="mi">9999</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">200</span><span class="p">:</span>
+<span class="w">        </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="w">        </span><span class="n">summary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;summary&#39;</span><span class="p">]</span>
+<span class="w">        </span><span class="n">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">]</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">distance</span><span class="o">/</span><span class="mi">1000</span>
+<span class="w">    </span><span class="k">else</span><span class="p">:</span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Request failed.&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">9999</span>
 
-<span class="n">san_francisco</span> <span class="o">=</span> <span class="p">(</span><span class="mf">37.7749</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4194</span><span class="p">)</span>
+<span class="n">san_francisco</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">37.7749</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">122.4194</span><span class="p">)</span>
 
-<span class="n">destination_cities</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Los Angeles&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">34.0522</span><span class="p">,</span> <span class="o">-</span><span class="mf">118.2437</span><span class="p">),</span>
-    <span class="s1">&#39;Boston&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">42.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">),</span>
-    <span class="s1">&#39;Atlanta&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">33.7490</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.3880</span><span class="p">)</span>
+<span class="n">destination_cities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s1">&#39;Los Angeles&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="mf">34.0522</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">118.2437</span><span class="p">),</span>
+<span class="w">    </span><span class="s1">&#39;Boston&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="mf">42.3601</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">71.0589</span><span class="p">),</span>
+<span class="w">    </span><span class="s1">&#39;Atlanta&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="mf">33.7490</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">84.3880</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -935,7 +935,7 @@ print(distance/1000)
 <h1>读取文件（Reading Files）</h1>
 <p>Python提供了内置函数进行文件读写。
 想要读取一个文件，就必须要知道它存储在磁盘的路径。Python内置一个 <code>os</code> 模块可以帮助解决操作系统方面的问题。使用 <code>os</code> 的一个好处就是你写的代码不用修改就可以在其支持的操作系统上运行。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 </code></pre></div>
 
 <p>打开文件必须知道路径。假设要打开并读取文件<code>worldcitites.csv</code>，其位置就在你的数据包里面。在数据包文件夹内部他的位置是在<code>data/</code>这个文件夹下。就可以使用相对路径来访问，这里要用到<code>os.path.join()</code>方法。</p>
@@ -971,10 +971,10 @@ f.close()
 <ul>
 <li>提示：使用 break 语句</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">data_pkg_path</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;worldcities.csv&#39;</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">data_pkg_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;data&#39;</span>
+<span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;worldcities.csv&#39;</span>
+<span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span>
 
 <span class="c1"># 在此处添加代码来读取文件的前五行</span>
 </code></pre></div>
@@ -986,14 +986,14 @@ f.close()
 <p>CSV 是 Comma-separated Value 的缩写，意思是逗号分隔符，是一种很常用的文本文件格式，可以用于存储地理空间信息。文件中每行中的各个列（<em>columns</em>）都通过一个英文字符逗号（comma）来分隔开。（译者注：新手常犯的错误就是混用中英文标点符号，一定要记得CSV当中用的是英文字符的逗号，不是中文输入法下的中文逗号。实际上，推荐大家尽量在写代码的过程中一律使用英文字符的标点符号，这样能减少很多麻烦。）</p>
 <p>一般来说，分隔的字符就叫做分隔符（delimiter）。除了逗号（comma）之外，还有其他分隔符：制表tab (\t)、冒号colon (:) 和 分号semi-colon (;) 。</p>
 <p>正确地读取CSV文件需要先知道使用的是哪种分隔符，另外引号字符还将有空格的字段值包含起来。由于读取分隔符文件是很常用的操作，要处理各种稀奇古怪的情况又很麻烦，Python就提供了内置库<code>csv</code>来读取和写入CSV文件。导入一下就可以使用了。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
 </code></pre></div>
 
 <p>这里推荐的一种读取CSV文件的方式是使用<code>DictReader()</code>方法。该方法直接读取每一行，从中创建一个字典，列名作为键名（<em>key</em>），列值作为键值（<em>value</em>）。接下来的代码是使用<code>csv.DictReader()</code>方法来读取一个文件。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">data_pkg_path</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;worldcities.csv&#39;</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">data_pkg_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;data&#39;</span>
+<span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;worldcities.csv&#39;</span>
+<span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>f = open(path, &#39;r&#39;)
@@ -1063,22 +1063,22 @@ print(home_city_coordinates)
 </code></pre></div>
 
 <p>接下来就循环遍历文件，找到选中国家或地区的城市，然后调用<code>geopy.distance.geodesic()</code>函数来计算距离。在下面的代码样例中，只计算前面五对。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">geopy</span> <span class="kn">import</span> <span class="n">distance</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">geopy</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">distance</span>
 
-<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span><span class="p">:</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">home_country</span> <span class="ow">and</span>
-            <span class="n">row</span><span class="p">[</span><span class="s1">&#39;city_ascii&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">home_city</span><span class="p">):</span>
-            <span class="n">city_coordinates</span> <span class="o">=</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;lng&#39;</span><span class="p">])</span>
-            <span class="n">city_distance</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">geodesic</span><span class="p">(</span>
-                <span class="n">city_coordinates</span><span class="p">,</span> <span class="n">home_city_coordinates</span><span class="p">)</span><span class="o">.</span><span class="n">km</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;city_ascii&#39;</span><span class="p">],</span> <span class="n">city_distance</span><span class="p">)</span>
-            <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">with</span><span class="w"> </span><span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">f</span><span class="p">:</span>
+<span class="w">    </span><span class="n">csv_reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">csv_reader</span><span class="p">:</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">home_country</span><span class="w"> </span><span class="ow">and</span>
+<span class="w">            </span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;city_ascii&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">home_city</span><span class="p">):</span>
+<span class="w">            </span><span class="n">city_coordinates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lng&#39;</span><span class="p">])</span>
+<span class="w">            </span><span class="n">city_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">distance</span><span class="o">.</span><span class="n">geodesic</span><span class="p">(</span>
+<span class="w">                </span><span class="n">city_coordinates</span><span class="p">,</span><span class="w"> </span><span class="n">home_city_coordinates</span><span class="p">)</span><span class="o">.</span><span class="n">km</span>
+<span class="w">            </span><span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;city_ascii&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">city_distance</span><span class="p">)</span>
+<span class="w">            </span><span class="n">counter</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
 
-        <span class="k">if</span> <span class="n">counter</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-            <span class="k">break</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">:</span>
+<span class="w">            </span><span class="k">break</span>
 </code></pre></div>
 
 <h2>写入文件</h2>
@@ -1114,47 +1114,47 @@ with open(output_path, mode=&#39;w&#39;, encoding=&#39;utf-8&#39;) as output_fil
 </code></pre></div>
 
 <p>下面的是读取、筛选、计算距离并写入结果到文件的完整代码。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">geopy</span> <span class="kn">import</span> <span class="n">distance</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geopy</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">distance</span>
 
-<span class="n">data_pkg_path</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>
-<span class="n">input_filename</span> <span class="o">=</span> <span class="s1">&#39;worldcities.csv&#39;</span>
-<span class="n">input_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span> <span class="n">input_filename</span><span class="p">)</span>
-<span class="n">output_filename</span> <span class="o">=</span> <span class="s1">&#39;cities_distance.csv&#39;</span>
-<span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;output&#39;</span>
-<span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">output_filename</span><span class="p">)</span>
+<span class="n">data_pkg_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;data&#39;</span>
+<span class="n">input_filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;worldcities.csv&#39;</span>
+<span class="n">input_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span><span class="w"> </span><span class="n">input_filename</span><span class="p">)</span>
+<span class="n">output_filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;cities_distance.csv&#39;</span>
+<span class="n">output_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;output&#39;</span>
+<span class="n">output_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span><span class="w"> </span><span class="n">output_filename</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_dir</span><span class="p">):</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+<span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_dir</span><span class="p">):</span>
+<span class="w">    </span><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
 
-<span class="n">home_city</span> <span class="o">=</span> <span class="s1">&#39;Bengaluru&#39;</span>
-<span class="n">home_country</span> <span class="o">=</span> <span class="s1">&#39;India&#39;</span>
+<span class="n">home_city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Bengaluru&#39;</span>
+<span class="n">home_country</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;India&#39;</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">input_file</span><span class="p">:</span>
-    <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;city_ascii&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">home_city</span><span class="p">:</span>
-            <span class="n">home_city_coordinates</span> <span class="o">=</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;lng&#39;</span><span class="p">])</span>
-            <span class="k">break</span>
+<span class="k">with</span><span class="w"> </span><span class="nb">open</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">input_file</span><span class="p">:</span>
+<span class="w">    </span><span class="n">csv_reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">csv_reader</span><span class="p">:</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;city_ascii&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">home_city</span><span class="p">:</span>
+<span class="w">            </span><span class="n">home_city_coordinates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lng&#39;</span><span class="p">])</span>
+<span class="w">            </span><span class="k">break</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_file</span><span class="p">:</span>
-    <span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;distance_from_home&#39;</span><span class="p">]</span>
-    <span class="n">csv_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">)</span>
-    <span class="n">csv_writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+<span class="k">with</span><span class="w"> </span><span class="nb">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">output_file</span><span class="p">:</span>
+<span class="w">    </span><span class="n">fieldnames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;distance_from_home&#39;</span><span class="p">]</span>
+<span class="w">    </span><span class="n">csv_writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span><span class="w"> </span><span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">)</span>
+<span class="w">    </span><span class="n">csv_writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
 
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">input_file</span><span class="p">:</span>
-        <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span><span class="p">:</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">home_country</span> <span class="ow">and</span>
-                <span class="n">row</span><span class="p">[</span><span class="s1">&#39;city_ascii&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">home_city</span><span class="p">):</span>
-                <span class="n">city_coordinates</span> <span class="o">=</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;lng&#39;</span><span class="p">])</span>
-                <span class="n">city_distance</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">geodesic</span><span class="p">(</span>
-                    <span class="n">city_coordinates</span><span class="p">,</span> <span class="n">home_city_coordinates</span><span class="p">)</span><span class="o">.</span><span class="n">km</span>
-                <span class="n">csv_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span>
-                    <span class="p">{</span><span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;city_ascii&#39;</span><span class="p">],</span>
-                     <span class="s1">&#39;distance_from_home&#39;</span><span class="p">:</span> <span class="n">city_distance</span><span class="p">}</span>
-                <span class="p">)</span>
+<span class="w">    </span><span class="k">with</span><span class="w"> </span><span class="nb">open</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">input_file</span><span class="p">:</span>
+<span class="w">        </span><span class="n">csv_reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">csv_reader</span><span class="p">:</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">home_country</span><span class="w"> </span><span class="ow">and</span>
+<span class="w">                </span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;city_ascii&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">home_city</span><span class="p">):</span>
+<span class="w">                </span><span class="n">city_coordinates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lng&#39;</span><span class="p">])</span>
+<span class="w">                </span><span class="n">city_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">distance</span><span class="o">.</span><span class="n">geodesic</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">city_coordinates</span><span class="p">,</span><span class="w"> </span><span class="n">home_city_coordinates</span><span class="p">)</span><span class="o">.</span><span class="n">km</span>
+<span class="w">                </span><span class="n">csv_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span>
+<span class="w">                    </span><span class="p">{</span><span class="s1">&#39;city&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;city_ascii&#39;</span><span class="p">],</span>
+<span class="w">                     </span><span class="s1">&#39;distance_from_home&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">city_distance</span><span class="p">}</span>
+<span class="w">                </span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Successfully written output file at </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">output_path</span><span class="p">))</span>
 </code></pre></div>
@@ -1170,14 +1170,14 @@ with open(output_path, mode=&#39;w&#39;, encoding=&#39;utf-8&#39;) as output_fil
 <p>Pandas 基于另一个库<code>numpy</code>，也广泛用于科学计算。Pandas扩展了<code>numpy</code>，提供了新的数据类型，比如<strong>Index</strong>、<strong>Series</strong> 和 <strong>DataFrames</strong>。</p>
 <p>Pandas的实现非常快速高效，和其他数据处理方法相比，使用<code>pandas</code>能够让代码更简单快速。接下来将上面的文件读取和距离计算的代码用Pandas重新实现一下。</p>
 <p>按照惯例，一般将<code>pandas</code>导入简化成<code>pd</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </code></pre></div>
 
 <h2>读取文件</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">data_pkg_path</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;worldcities.csv&#39;</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">data_pkg_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;data&#39;</span>
+<span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;worldcities.csv&#39;</span>
+<span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span>
 </code></pre></div>
 
 <p><strong>DataFrame</strong>是最常用的Pandas对象。可以将一个Pandas对象看作是一个数据表（Spreadsheet）或者GIS涂层上的一个属性表格（Attribute Table）。</p>
@@ -1219,13 +1219,13 @@ print(home_city_coordinates)
 <p>接下来试试在一个DataFrame上进行计算。我们可以对每一行进行迭代然后运行一些计算。实际上Pandas还提供了更简单的方法。可以使用<code>apply()</code> 方法来对每一行运行一个函数。这样速度更快，也是的在大数据集上进行复杂运算更加容易。</p>
 <p><code>apply()</code>函数接收两个参数。一个是要应用的函数，另一个是对应的轴方向。比如<code>axis=0</code>意思是对每一列运行，而<code>axis=1</code>则表示应用到各行。</p>
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/GeoPython/pandas_axis.png"></p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">geopy</span> <span class="kn">import</span> <span class="n">distance</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">geopy</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">distance</span>
 
-<span class="k">def</span> <span class="nf">calculate_distance</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
-    <span class="n">city_coordinates</span> <span class="o">=</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;lng&#39;</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">distance</span><span class="o">.</span><span class="n">geodesic</span><span class="p">(</span><span class="n">city_coordinates</span><span class="p">,</span> <span class="n">home_city_coordinates</span><span class="p">)</span><span class="o">.</span><span class="n">km</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_distance</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+<span class="w">    </span><span class="n">city_coordinates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lng&#39;</span><span class="p">])</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">distance</span><span class="o">.</span><span class="n">geodesic</span><span class="p">(</span><span class="n">city_coordinates</span><span class="p">,</span><span class="w"> </span><span class="n">home_city_coordinates</span><span class="p">)</span><span class="o">.</span><span class="n">km</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="n">country_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calculate_distance</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">country_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calculate_distance</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 
@@ -1269,14 +1269,14 @@ print(&#39;Successfully written output file at {}&#39;.format(output_path))
 <p>接下来会进行一个地理信息处理任务，利用GeoPandas这一库的各种功能，同时实现在Python中的地理信息数据处理过程。这个任务就是从 OpenStreetMap and中选择一个道路数据涂层，然后计算出一个州内每个区范围内的国家高速公路的总长度。这个问题的详细描述可以参考<a href="https://courses.spatialthoughts.com/advanced-qgis.html#exercise-find-the-length-of-national-highways-in-a-state">原作者的另一个课程 Advanced QGIS 中</a>，里面记录了使用QGIS进行这项工作的步骤。在这个例子中，我们用Python来实现。</p>
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/GeoPython/karnataka.png"></p>
 <p>根据惯例，<code>geopandas</code>一般被导入作为<code>gpd</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
 </code></pre></div>
 
 <h2>读取空间数据</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">data_pkg_path</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;karnataka.gpkg&#39;</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">data_pkg_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;data&#39;</span>
+<span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;karnataka.gpkg&#39;</span>
+<span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span>
 </code></pre></div>
 
 <p>GeoPandas有一个<code>read_file()</code>方法可以读取各种各样的矢量数据集，包括zip文件等等。这里我们打开一个GeoPackage文件<code>karnataka.gpkg</code>，然后读取其中一个叫作`karnataka_major_roads的涂层。读取方法所得到的结果就是一个<strong>GeoDataFrame</strong>对象。</p>
@@ -1358,9 +1358,9 @@ print(&#39;Successfully written output file at {}&#39;.format(output_path))
 <p>空间分析中一种常见的操作就是读取非空间数据，比如CSV文件，然后使用文件中的坐标信息创建一个空间数据集。GeoPandas提供了从分隔符文本文件创建几何体并将结果写入到空间数据集的便利方法。</p>
 <p>接下来读取一个制表符分隔的地名文本，然后筛选出特征累，创建一个GeoDataFrame，并导出成一个GeoPackage文件。</p>
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/GeoPython/geonames_mountains.png"></p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>data_pkg_path = &#39;data/geonames/&#39;
@@ -1413,16 +1413,16 @@ print(&#39;Successfully written output file at {}&#39;.format(output_path))
 <li>提示1: 使用<code>os.listdir()</code>方法来获得一个路径中的所有文件。</li>
 <li>提示2: 使用Pandas的方法<code>concat()</code>来合并多个DataFrame。</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
 
-<span class="n">data_pkg_path</span> <span class="o">=</span> <span class="s1">&#39;data/geonames/&#39;</span>
-<span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">)</span>
+<span class="n">data_pkg_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;data/geonames/&#39;</span>
+<span class="n">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">)</span>
 
-<span class="n">filepaths</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-    <span class="n">filepaths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
+<span class="n">filepaths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="k">for</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">files</span><span class="p">:</span>
+<span class="w">    </span><span class="n">filepaths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span><span class="w"> </span><span class="n">file</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">filepaths</span><span class="p">)</span>
 
 <span class="c1"># 迭代所有文件，使用Pandas读取然后创建DataFrame列表。</span>
@@ -1437,7 +1437,7 @@ print(&#39;Successfully written output file at {}&#39;.format(output_path))
 <p>NumPy (Numerical Python)是一个用于科学计算的重要的Python库。Pandas和GeoPandas这样的库都基于NumPy。</p>
 <p>NumPy提供了处理数组<em>Arrays</em>的快速高效方式。在空间数据分析领域中，NumPy在处理卫星图像、航拍照片、高程数据等栅格数据（Raster data）的时候发挥了重要作用。由于这些栅格数据是每个通道二维数组的结构，所以学习NumPy对于使用Python来处理栅格数据来说也是至关重要的。</p>
 <p>按照惯例，<code>numpy</code>一般被导入为<code>np</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </code></pre></div>
 
 <h2>数组（Arrays）</h2>
@@ -1490,9 +1490,9 @@ print(row_sum)
 
 <h2>练习</h2>
 <p>将数组<code>b</code>沿着1轴求和。你认为结果是什么？</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+<span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </code></pre></div>
 
@@ -1504,14 +1504,14 @@ print(row_sum)
 <p>RasterIO基于流行的<a href="https://gdal.org/">地理空间数据抽象库 GDAL (Geospatial Data Abstraction Library)</a>。GDAL是用C++写的，所以其提供的Python接口对Python用户来说挺难适应。RasterIO的目的是让Python用户以更符合直觉的方式来使用GDAL库。</p>
 <p>在这部分中，我们使用珠穆朗玛峰附近的四个SRTM地图切片，然后使用RasterIO将其合并在一个单独的GeoTiff文件。</p>
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/GeoPython/srtm.png"></p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">rasterio</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">data_pkg_path</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>
-<span class="n">srtm_dir</span> <span class="o">=</span> <span class="s1">&#39;srtm&#39;</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;N28E087.hgt&#39;</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span> <span class="n">srtm_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">data_pkg_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;data&#39;</span>
+<span class="n">srtm_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;srtm&#39;</span>
+<span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;N28E087.hgt&#39;</span>
+<span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span><span class="w"> </span><span class="n">srtm_dir</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span>
 </code></pre></div>
 
 <h2>读取栅格数据</h2>
@@ -1551,8 +1551,8 @@ print(dataset_list)
 </code></pre></div>
 
 <p>我们可以将地图切片数据集的列表传递给合并方法，然后得到合并后的数据和一个新的变换（<em>transform</em>），其中包含着合并后栅格数据的更新范围。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">rasterio</span> <span class="kn">import</span> <span class="n">merge</span>
-<span class="n">merged_result</span> <span class="o">=</span> <span class="n">merge</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataset_list</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">rasterio</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">merge</span>
+<span class="n">merged_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">merge</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dataset_list</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">merged_result</span><span class="p">)</span>
 </code></pre></div>
 
@@ -1590,13 +1590,13 @@ output_path = os.path.join(output_dir, output_filename)
 
 <h2>练习</h2>
 <p>合并的数组表示的是高程值。地图切片的范围覆盖了珠穆朗玛峰范围。读取得到的栅格数据，找到其中的最大高程。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">rasterio</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">output_filename</span> <span class="o">=</span> <span class="s1">&#39;merged.tif&#39;</span>
-<span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;output&#39;</span>
-<span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">output_filename</span><span class="p">)</span>
+<span class="n">output_filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;merged.tif&#39;</span>
+<span class="n">output_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;output&#39;</span>
+<span class="n">output_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span><span class="w"> </span><span class="n">output_filename</span><span class="p">)</span>
 
 <span class="c1"># 将输出文件读取为NumPy数组然后找到最大值</span>
 </code></pre></div>
@@ -1609,15 +1609,15 @@ output_path = os.path.join(output_dir, output_filename)
 <p>推荐给新手的文本编辑器是 <a href="https://vscodium.com/">VS Codium</a> 是一个自由的开源版本的VS Code，基本上和VS Code功能都差不多，体验也基本一样，能安装各种插件等等。</p>
 <h2>写一个脚本</h2>
 <p>将下面的代码复制粘贴到你的文本编辑器，保存到数据包文件夹，存储为<code>get_distance.py</code>。一定要注意扩展名，要保存成<code>.py</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">geopy</span> <span class="kn">import</span> <span class="n">distance</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">geopy</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">distance</span>
 
-<span class="n">san_francisco</span> <span class="o">=</span> <span class="p">(</span><span class="mf">37.7749</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4194</span><span class="p">)</span>
-<span class="n">new_york</span> <span class="o">=</span> <span class="p">(</span><span class="mf">40.661</span><span class="p">,</span> <span class="o">-</span><span class="mf">73.944</span><span class="p">)</span>
+<span class="n">san_francisco</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">37.7749</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">122.4194</span><span class="p">)</span>
+<span class="n">new_york</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">40.661</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">73.944</span><span class="p">)</span>
 
-<span class="n">ellipsoid_distance</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">geodesic</span><span class="p">(</span><span class="n">san_francisco</span><span class="p">,</span> <span class="n">new_york</span><span class="p">,</span> <span class="n">ellipsoid</span><span class="o">=</span><span class="s1">&#39;WGS-84&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">km</span>
+<span class="n">ellipsoid_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">distance</span><span class="o">.</span><span class="n">geodesic</span><span class="p">(</span><span class="n">san_francisco</span><span class="p">,</span><span class="w"> </span><span class="n">new_york</span><span class="p">,</span><span class="w"> </span><span class="n">ellipsoid</span><span class="o">=</span><span class="s1">&#39;WGS-84&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">km</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Source Coordinates: </span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">san_francisco</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">san_francisco</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Destination Coordinates: </span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">san_francisco</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">san_francisco</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Source Coordinates: </span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">san_francisco</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">san_francisco</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Destination Coordinates: </span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">san_francisco</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">san_francisco</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elliosoid Distance: </span><span class="si">{}</span><span class="s1"> km&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ellipsoid_distance</span><span class="p">))</span>
 </code></pre></div>
 
@@ -1702,20 +1702,20 @@ output_path = os.path.join(output_dir, output_filename)
 <h2>使用GeoPandas创建地图</h2>
 <p>GeoPandas有一些内置的函数可以对地理空间数据进行可视化以及建立地图。实际上使用的是强大的<code>matplotlib</code>库来进行投图的。如果你对matplotlib不太熟悉，可以参考<a href="https://www.data-blogger.com/2017/11/15/python-matplotlib-pyplot-a-perfect-combination/">相关导论</a>。</p>
 <p>这里使用来自<a href="https://courses.spatialthoughts.com/python-foundation.html#working-with-geopandas">GeoPandas练习</a>的数据进行可视化。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="n">data_pkg_path</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;karnataka.gpkg&#39;</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-<span class="n">districts</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;karnataka_districts&#39;</span><span class="p">)</span>
-<span class="n">roads</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;karnataka_major_roads&#39;</span><span class="p">)</span>
-<span class="n">national_highways</span> <span class="o">=</span> <span class="n">roads</span><span class="p">[</span><span class="n">roads</span><span class="p">[</span><span class="s1">&#39;ref&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^NH&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">data_pkg_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;data&#39;</span>
+<span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;karnataka.gpkg&#39;</span>
+<span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span>
+<span class="n">districts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">layer</span><span class="o">=</span><span class="s1">&#39;karnataka_districts&#39;</span><span class="p">)</span>
+<span class="n">roads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">layer</span><span class="o">=</span><span class="s1">&#39;karnataka_major_roads&#39;</span><span class="p">)</span>
+<span class="n">national_highways</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">roads</span><span class="p">[</span><span class="n">roads</span><span class="p">[</span><span class="s1">&#39;ref&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;^NH&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">True</span><span class="p">]</span>
 </code></pre></div>
 
 <h3>Matplotlib 基础</h3>
 <p>在 Jupyter Notebook 内使用<code>matplotlib</code> 之前，要先设置matplotlib的 backend为<code>inline</code>，也就是在代码块之间现实出图。对此，要使用<a href="https://ipython.readthedocs.io/en/stable/interactive/tutorial.html#magics-explained">magic function</a> <code>%matplotlib</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">matplotlib</span><span class="w"> </span><span class="n">inline</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </code></pre></div>
 
 <p>要理解下面的两个matplotlib对象：</p>
@@ -1825,15 +1825,15 @@ for idx, row in districts.iterrows():
 <p><a href="https://courses.spatialthoughts.com/python-foundation.html#working-with-rasterio">使用 RasterIO</a> 的练习展示了如何重现相关分析，也介绍了使用<code>matplotlib</code>的栅格数据可视化。</p>
 <h3>XArray 和 rioxarray 基础</h3>
 <p>开视线读取一个单独的SRTM tile切片文件，其中包含着高程数据。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">data_pkg_path</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>
-<span class="n">srtm_dir</span> <span class="o">=</span> <span class="s1">&#39;srtm&#39;</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;N28E087.hgt&#39;</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span> <span class="n">srtm_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">data_pkg_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;data&#39;</span>
+<span class="n">srtm_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;srtm&#39;</span>
+<span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;N28E087.hgt&#39;</span>
+<span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_pkg_path</span><span class="p">,</span><span class="w"> </span><span class="n">srtm_dir</span><span class="p">,</span><span class="w"> </span><span class="n">filename</span><span class="p">)</span>
 </code></pre></div>
 
 <p>按照惯例，<code>rioxarray</code>导入为<code>rxr</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">rioxarray</span> <span class="k">as</span> <span class="nn">rxr</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">rioxarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rxr</span>
 </code></pre></div>
 
 <p><code>open_rasterio()</code>方法可以用于读取任何<code>rasterio</code>库支持的数据格式。</p>
@@ -1896,8 +1896,8 @@ print(&#39;Height:&#39;, rds.rio.height)
 <blockquote>
 <p>记住一定要导入<code>rioxarray</code>，哪怕你只是用子模块。导入<code>rioxarray</code>可以激活<code>rio</code>访问器，这是所有运算都需要用到的。</p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">rioxarray</span> <span class="k">as</span> <span class="nn">rxr</span>
-<span class="kn">from</span> <span class="nn">rioxarray.merge</span> <span class="kn">import</span> <span class="n">merge_arrays</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">rioxarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rxr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rioxarray.merge</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="n">merge_arrays</span>
 </code></pre></div>
 
 <p>定义输入和输出路径。</p>
@@ -1925,8 +1925,8 @@ for file in all_files:
 
 <h3>使用Matplotlib进行栅格数据可视化</h3>
 <p><code>xarray</code>的投图函数其实也是基于流行的<code>matplotlib</code>库。</p>
-<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">matplotlib</span><span class="w"> </span><span class="n">inline</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </code></pre></div>
 
 <p>对任何<code>DataArray</code>对象都可以调用<code>plot()</code>方法。这里我们创建一个4个plots的行，渲染每个源SRTM栅格数据文件。可以使用<code>cmap</code>选项来指定一个彩色方案。这里使用内置的灰度<em>Greys</em>。将<strong>_r</strong>加上去可以逆转彩图方向，黑色表示低高程，浅色表示高的高程。</p>
@@ -2037,82 +2037,82 @@ plt.show()
                     Tagcloud
                 </div>
                 <div>
-                        <span><a href="./tag/telescope.html">Telescope</a></span>
-                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/translate.html">Translate</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
                         <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
-                        <span><a href="./tag/server.html">Server</a></span>
-                        <span><a href="./tag/geology.html">Geology</a></span>
-                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
-                        <span><a href="./tag/hack.html">Hack</a></span>
-                        <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
-                        <span><a href="./tag/python.html">Python</a></span>
-                        <span><a href="./tag/pyenv.html">Pyenv</a></span>
-                        <span><a href="./tag/macos.html">macOS</a></span>
-                        <span><a href="./tag/geopython.html">GeoPython</a></span>
-                        <span><a href="./tag/communicate.html">Communicate</a></span>
-                        <span><a href="./tag/ide.html">IDE</a></span>
-                        <span><a href="./tag/lesson.html">Lesson</a></span>
-                        <span><a href="./tag/story.html">Story</a></span>
-                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
-                        <span><a href="./tag/visualization.html">Visualization</a></span>
-                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
-                        <span><a href="./tag/gis.html">GIS</a></span>
-                        <span><a href="./tag/vtk.html">VTK</a></span>
-                        <span><a href="./tag/camera.html">Camera</a></span>
-                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
-                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
                         <span><a href="./tag/junck.html">Junck</a></span>
-                        <span><a href="./tag/disease.html">Disease</a></span>
-                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
-                        <span><a href="./tag/qemu.html">QEMU</a></span>
-                        <span><a href="./tag/science.html">Science</a></span>
-                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
-                        <span><a href="./tag/nas.html">NAS</a></span>
-                        <span><a href="./tag/kivy.html">Kivy</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
                         <span><a href="./tag/university.html">University</a></span>
-                        <span><a href="./tag/software.html">Software</a></span>
-                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
                         <span><a href="./tag/scholar.html">Scholar</a></span>
-                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/phd.html">PHD</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/diy.html">DIY</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
                         <span><a href="./tag/game.html">Game</a></span>
                         <span><a href="./tag/learning.html">Learning</a></span>
-                        <span><a href="./tag/xcode.html">Xcode</a></span>
-                        <span><a href="./tag/hadoop.html">Hadoop</a></span>
-                        <span><a href="./tag/diy.html">DIY</a></span>
-                        <span><a href="./tag/hardware.html">Hardware</a></span>
-                        <span><a href="./tag/video.html">Video</a></span>
-                        <span><a href="./tag/linux.html">Linux</a></span>
-                        <span><a href="./tag/book.html">Book</a></span>
-                        <span><a href="./tag/photo.html">Photo</a></span>
-                        <span><a href="./tag/shit.html">Shit</a></span>
-                        <span><a href="./tag/memory.html">Memory</a></span>
-                        <span><a href="./tag/microscope.html">Microscope</a></span>
-                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
-                        <span><a href="./tag/chat.html">Chat</a></span>
-                        <span><a href="./tag/programming.html">Programming</a></span>
-                        <span><a href="./tag/radio.html">Radio</a></span>
-                        <span><a href="./tag/virtualization.html">Virtualization</a></span>
-                        <span><a href="./tag/hate.html">Hate</a></span>
-                        <span><a href="./tag/photography.html">Photography</a></span>
-                        <span><a href="./tag/phd.html">PHD</a></span>
-                        <span><a href="./tag/mac.html">Mac</a></span>
-                        <span><a href="./tag/cuda.html">CUDA</a></span>
-                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
-                        <span><a href="./tag/translate.html">Translate</a></span>
-                        <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
-                        <span><a href="./tag/moon.html">Moon</a></span>
-                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/visualization.html">Visualization</a></span>
                         <span><a href="./tag/lens.html">Lens</a></span>
-                        <span><a href="./tag/discuss.html">Discuss</a></span>
-                        <span><a href="./tag/hbase.html">HBase</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
                         <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
-                        <span><a href="./tag/download.html">Download</a></span>
-                        <span><a href="./tag/library.html">Library</a></span>
-                        <span><a href="./tag/opencl.html">OpenCL</a></span>
                         <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/book.html">Book</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
                         <span><a href="./tag/conda.html">Conda</a></span>
-                        <span><a href="./tag/qt.html">QT</a></span>
-                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/virtualization.html">Virtualization</a></span>
+                        <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
+                        <span><a href="./tag/qemu.html">QEMU</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/pyenv.html">Pyenv</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/hadoop.html">Hadoop</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/hbase.html">HBase</a></span>
                 </div>
             </section>
 

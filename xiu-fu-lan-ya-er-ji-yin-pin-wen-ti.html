@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo">
+                <h1><img src="/theme/image/default-logo.png" width="300" height="100" alt="CycleUser" />
+                CycleUser</h1>
+        </div> <!-- /#logo-->
+        <nav id="menu" class="main-nav"><ul class="menu">
+            <li  class="active"><a href="https://blog.cycleuser.org">Homepage</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/categories.html">Categories</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/tags.html">Tags</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/archives.html">Archives</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/about.html">About</a></li>
+
+        </ul></nav><!-- /#menu -->
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-620" >
+                <section class="breadcrumb-list">
+<a href=".">Blog</a> ›<a href="category/windows.html">Windows</a> ›修复蓝牙耳机音频问题
+                </section>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >修复蓝牙耳机音频问题</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep">Post in</span>
+        <abbr class="date" title="2025-05-01T20:00:00+08:00"> 
+            <a href="./archive/2025/5月/index.html">周四 01 五月 2025 </a>
+        </abbr>
+        <span class="meta-prep"> |Tags</span>
+                <a href="./tag/windows11.html">Windows11</a>
+                <a href="./tag/lan-ya.html">蓝牙</a>
+                <a href="./tag/er-ji.html">耳机</a>
+                <a href="./tag/yin-pin.html">音频</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry">
+        <p>Windows 11更新后，蓝牙连接耳机无法播放声音而只能当话筒，想办法彻底解决这个问题，写了一个脚本出来</p>
+<div class="highlight"><pre><span></span><code><span class="c">#</span>
+<span class="c"># 脚本修复Windows 11蓝牙耳机只能作为话筒但不能播放声音的问题</span>
+<span class="c"># 以管理员权限运行此脚本</span>
+
+<span class="c"># 检查管理员权限</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">-NOT</span> <span class="p">(</span><span class="no">[Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]</span><span class="p">::</span><span class="n">GetCurrent</span><span class="p">()).</span><span class="n">IsInRole</span><span class="p">(</span><span class="no">[Security.Principal.WindowsBuiltInRole]</span><span class="p">::</span><span class="n">Administrator</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nb">Write-Warning</span> <span class="s2">&quot;请以管理员权限运行此脚本!&quot;</span>
+    <span class="k">break</span>
+<span class="p">}</span>
+
+<span class="nb">Write-Host</span> <span class="s2">&quot;正在修复蓝牙耳机音频问题...&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Cyan</span>
+
+<span class="c"># 1. 重启相关的音频服务</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;步骤1: 重启音频服务...&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Yellow</span>
+<span class="nv">$audioServices</span> <span class="p">=</span> <span class="p">@(</span><span class="s2">&quot;Audiosrv&quot;</span><span class="p">,</span> <span class="s2">&quot;AudioEndpointBuilder&quot;</span><span class="p">,</span> <span class="s2">&quot;BthAvctpSvc&quot;</span><span class="p">)</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$service</span> <span class="k">in</span> <span class="nv">$audioServices</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Stop-Service</span> <span class="n">-Name</span> <span class="nv">$service</span> <span class="n">-Force</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
+    <span class="nb">Start-Service</span> <span class="n">-Name</span> <span class="nv">$service</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
+    <span class="nv">$status</span> <span class="p">=</span> <span class="nb">Get-Service</span> <span class="n">-Name</span> <span class="nv">$service</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$status</span><span class="p">.</span><span class="n">Status</span> <span class="o">-eq</span> <span class="s2">&quot;Running&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">Write-Host</span> <span class="s2">&quot;  - 服务 $service 已重启&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Green</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nb">Write-Host</span> <span class="s2">&quot;  - 服务 $service 重启失败或不存在&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Red</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c"># 2. 重置蓝牙子系统</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;步骤2: 重置蓝牙子系统...&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Yellow</span>
+<span class="nb">Get-Service</span> <span class="n">bthserv</span> <span class="p">|</span> <span class="nb">Stop-Service</span> <span class="n">-Force</span>
+<span class="nb">Start-Sleep</span> <span class="n">-Seconds</span> <span class="n">2</span>
+<span class="nb">Get-Service</span> <span class="n">bthserv</span> <span class="p">|</span> <span class="nb">Start-Service</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;  - 蓝牙服务已重置&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Green</span>
+
+<span class="c"># 3. 清除并重新注册音频组件</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;步骤3: 重置音频组件...&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Yellow</span>
+<span class="n">cmd</span> <span class="p">/</span><span class="n">c</span> <span class="s2">&quot;regsvr32 /s wmnetmgr.dll&quot;</span>
+<span class="n">cmd</span> <span class="p">/</span><span class="n">c</span> <span class="s2">&quot;regsvr32 /s /u wmnetmgr.dll&quot;</span>
+<span class="n">cmd</span> <span class="p">/</span><span class="n">c</span> <span class="s2">&quot;regsvr32 /s wmnetmgr.dll&quot;</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;  - 音频组件已重置&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Green</span>
+
+<span class="c"># 4. 重置声音设置</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;步骤4: 重置Windows音频设置...&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Yellow</span>
+<span class="nb">Remove-Item</span> <span class="n">-Path</span> <span class="s2">&quot;HKCU:\SOFTWARE\Microsoft\Multimedia\Audio&quot;</span> <span class="n">-Recurse</span> <span class="n">-Force</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
+<span class="nb">Remove-Item</span> <span class="n">-Path</span> <span class="s2">&quot;HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\MMDevices\Audio&quot;</span> <span class="n">-Recurse</span> <span class="n">-Force</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;  - 音频设置已重置&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Green</span>
+
+<span class="c"># 5. 检查蓝牙驱动</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;步骤5: 检查蓝牙驱动更新...&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Yellow</span>
+<span class="nv">$bluetoothDevices</span> <span class="p">=</span> <span class="nb">Get-PnpDevice</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Class</span> <span class="o">-eq</span> <span class="s2">&quot;Bluetooth&quot;</span> <span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$bluetoothDevices</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$device</span> <span class="k">in</span> <span class="nv">$bluetoothDevices</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">Write-Host</span> <span class="s2">&quot;  - 找到蓝牙设备: </span><span class="p">$(</span><span class="nv">$device</span><span class="p">.</span><span class="n">FriendlyName</span><span class="p">)</span><span class="s2">&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Green</span>
+    <span class="p">}</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;  - 提示: 建议到设备管理器检查驱动是否为最新版本&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Yellow</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="s2">&quot;  - 未找到蓝牙设备&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Red</span>
+<span class="p">}</span>
+
+<span class="nb">Write-Host</span> <span class="s2">&quot;</span><span class="se">`n</span><span class="s2">修复完成！请按照以下步骤操作:&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">Cyan</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;1. 移除蓝牙耳机连接&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">White</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;2. 重启电脑&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">White</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;3. 重新连接蓝牙耳机&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">White</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;4. 右键点击系统托盘的声音图标，选择&#39;打开声音设置&#39;&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">White</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;5. 确保蓝牙耳机被设置为默认播放设备&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">White</span>
+<span class="nb">Write-Host</span> <span class="s2">&quot;6. 如果仍有问题，尝试进入蓝牙设备属性，检查&#39;服务&#39;选项卡中的&#39;音频&#39;选项是否启用&quot;</span> <span class="n">-ForegroundColor</span> <span class="n">White</span>
+
+<span class="nb">Read-Host</span> <span class="n">-Prompt</span> <span class="s2">&quot;按回车键退出&quot;</span>
+</code></pre></div>
+
+<h3>使用说明：</h3>
+<ol>
+<li>将此代码保存为<code>Fix-BluetoothAudio.ps1</code>文件</li>
+<li>以管理员身份运行PowerShell</li>
+<li>执行脚本：<code>.\Fix-BluetoothAudio.ps1</code></li>
+<li>按照脚本结束时的提示进行操作</li>
+</ol>
+<p>此脚本会重启音频服务、重置蓝牙堆栈、重新注册音频组件并清除相关注册表项，应该是能解决Windows 11更新后蓝牙耳机无法播放声音的问题。</p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep">Category:</span>
+        <abbr class="category">
+            <a href="./category/windows.html">Windows</a>
+        </abbr>
+       </footer>
+    <section id="respond">
+        <div id="disqus_thread">
+        <script type="text/javascript">
+        var disqus_identifier = "xiu-fu-lan-ya-er-ji-yin-pin-wen-ti.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://cycleuser.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        </script>
+        </div>
+
+            
+
+    </section>
+</section>
+
+
+        </section><!-- #content -->
+        <section id="widgets" class="grid col-300 fit" >
+            <!--
+            <section id="widget-search" class="widget-wrapper widget_search">
+
+                <form id="searchform" action="https://www.google.com/search" method="get">
+                    <input id="q" class="field" type="text" placeholder="Search Blog" name="q" ></input>
+                    <input id="ie" name="ie" type="hidden" value="utf-8" ></input>
+                    <input id="oe" name="oe" type="hidden" value="utf-8" ></input>
+                    <input id="channel" name="channel" type="hidden" value="suggest" ></input>
+                    <input id="searchsubmit" class="submit" type="submit" value="">
+                </form>
+            </section>
+            -->
+            <section id="widget-category" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Category
+                </div>
+                <ul>
+                        <li><a href="./category/camera.html" >Camera </a></li>
+                        <li><a href="./category/chromebook.html" >ChromeBook </a></li>
+                        <li><a href="./category/diy.html" >DIY </a></li>
+                        <li><a href="./category/duke.html" >Duke </a></li>
+                        <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
+                        <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/linux.html" >Linux </a></li>
+                        <li><a href="./category/mac.html" >Mac </a></li>
+                        <li><a href="./category/nas.html" >NAS </a></li>
+                        <li><a href="./category/photography.html" >Photography </a></li>
+                        <li><a href="./category/python.html" >Python </a></li>
+                        <li><a href="./category/qgis.html" >QGIS </a></li>
+                        <li><a href="./category/qt.html" >QT </a></li>
+                        <li><a href="./category/raspbian.html" >Raspbian </a></li>
+                        <li><a href="./category/sdr.html" >SDR </a></li>
+                        <li><a href="./category/software.html" >Software </a></li>
+                        <li><a href="./category/story.html" >Story </a></li>
+                        <li><a href="./category/virtualization.html" >Virtualization </a></li>
+                        <li><a href="./category/windows.html" >Windows </a></li>
+                        <li><a href="./category/work.html" >Work </a></li>
+                </ul>
+            </section>
+
+            <section id="widget-tagcloud" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Tagcloud
+                </div>
+                <div>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/pyenv.html">Pyenv</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/windows11.html">Windows11</a></span>
+                        <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/qemu.html">QEMU</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/book.html">Book</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/hadoop.html">Hadoop</a></span>
+                        <span><a href="./tag/translate.html">Translate</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/er-ji.html">耳机</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/lan-ya.html">蓝牙</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/yin-pin.html">音频</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
+                        <span><a href="./tag/hbase.html">HBase</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/virtualization.html">Virtualization</a></span>
+                        <span><a href="./tag/diy.html">DIY</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/phd.html">PHD</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/visualization.html">Visualization</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                </div>
+            </section>
+
+
+            <section id="widget-links" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Links
+                </div>
+                <ul>
+                        <li><a href="https://chinageology.com">ChinaGeology</a></li>
+                        <li><a href="http://doc.geopython.com/">GeoPython</a></li>
+                        <li><a href="https://fanzheng.org">Fan</a></li>
+                        <li><a href="http://o00o.site">FlagPlus</a></li>
+                        <li><a href="http://blog.cosli.top">CosLi</a></li>
+                        <li><a href="http://akagi201.org">Akagi201</a></li>
+                        <li><a href="http://xuanwo.org/">XuanWo</a></li>
+                        <li><a href="https://blog.daftme.com">4Orange</a></li>
+                        <li><a href="http://blog.riverrun.xyz/">River</a></li>
+                        <li><a href="https://www.logcg.com">LogCG Blog</a></li>
+                        <li><a href="http://guolao.me/">GuoLao</a></li>
+                </ul>
+            </section>
+            
+        </section><!-- widgets -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+/* GitHub Primer 语法高亮配色（Pygments token → GitHub 颜色）
+   容器兼容 .codehilite 与 .highlight；亮色默认，暗色跟随 data-theme。 */
+
+/* ===== 亮色（默认） ===== */
+.codehilite .c,  .highlight .c,  .codehilite .ch, .highlight .ch,
+.codehilite .cm, .highlight .cm, .codehilite .cp, .highlight .cp,
+.codehilite .cpf,.highlight .cpf,.codehilite .c1, .highlight .c1,
+.codehilite .cs, .highlight .cs { color: #6e7781; font-style: italic; }         /* 注释 */
+
+.codehilite .k,  .highlight .k,  .codehilite .kc, .highlight .kc,
+.codehilite .kd, .highlight .kd, .codehilite .kn, .highlight .kn,
+.codehilite .kp, .highlight .kp, .codehilite .kr, .highlight .kr,
+.codehilite .kt, .highlight .kt { color: #cf222e; }                             /* 关键字 */
+
+.codehilite .o,  .highlight .o,  .codehilite .ow, .highlight .ow { color: #0550ae; }   /* 运算符 */
+.codehilite .p,  .highlight .p  { color: #24292f; }                             /* 标点 */
+.codehilite .nb, .highlight .nb, .codehilite .bp, .highlight .bp { color: #0550ae; }   /* 内建 */
+.codehilite .nf, .highlight .nf, .codehilite .fm, .highlight .fm { color: #8250df; }   /* 函数 */
+.codehilite .nc, .highlight .nc, .codehilite .nn, .highlight .nn,
+.codehilite .ne, .highlight .ne { color: #953800; }                             /* 类/命名空间 */
+.codehilite .nd, .highlight .nd { color: #8250df; }                             /* 装饰器 */
+.codehilite .nt, .highlight .nt { color: #116329; }                             /* 标签 */
+.codehilite .na, .highlight .na { color: #0550ae; }                             /* 属性 */
+.codehilite .nv, .highlight .nv, .codehilite .vc, .highlight .vc,
+.codehilite .vg, .highlight .vg, .codehilite .vi, .highlight .vi { color: #0550ae; }   /* 变量 */
+.codehilite .no, .highlight .no { color: #0550ae; }                             /* 常量 */
+
+.codehilite .s,  .highlight .s,  .codehilite .sa, .highlight .sa,
+.codehilite .sb, .highlight .sb, .codehilite .sc, .highlight .sc,
+.codehilite .dl, .highlight .dl, .codehilite .sd, .highlight .sd,
+.codehilite .s2, .highlight .s2, .codehilite .se, .highlight .se,
+.codehilite .sh, .highlight .sh, .codehilite .si, .highlight .si,
+.codehilite .sx, .highlight .sx, .codehilite .sr, .highlight .sr,
+.codehilite .s1, .highlight .s1, .codehilite .ss, .highlight .ss { color: #0a3069; }   /* 字符串 */
+
+.codehilite .m,  .highlight .m,  .codehilite .mb, .highlight .mb,
+.codehilite .mf, .highlight .mf, .codehilite .mh, .highlight .mh,
+.codehilite .mi, .highlight .mi, .codehilite .mo, .highlight .mo,
+.codehilite .il, .highlight .il { color: #0550ae; }                             /* 数字 */
+
+.codehilite .n,  .highlight .n,  .codehilite .nl, .highlight .nl,
+.codehilite .py, .highlight .py, .codehilite .nx, .highlight .nx,
+.codehilite .w,  .highlight .w  { color: #24292f; }
+
+.codehilite .ge, .highlight .ge { font-style: italic; }
+.codehilite .gs, .highlight .gs { font-weight: 600; }
+.codehilite .gh, .highlight .gh { color: #0550ae; font-weight: 600; }
+.codehilite .gi, .highlight .gi { color: #116329; background-color: #dafbe1; }
+.codehilite .gd, .highlight .gd { color: #82071e; background-color: #ffebe9; }
+.codehilite .err,.highlight .err{ color: #82071e; background: transparent; }
+
+/* ===== 暗色 ===== */
+html[data-theme='dark'] .codehilite .c,   html[data-theme='dark'] .highlight .c,
+html[data-theme='dark'] .codehilite .ch,  html[data-theme='dark'] .highlight .ch,
+html[data-theme='dark'] .codehilite .cm,  html[data-theme='dark'] .highlight .cm,
+html[data-theme='dark'] .codehilite .cp,  html[data-theme='dark'] .highlight .cp,
+html[data-theme='dark'] .codehilite .cpf, html[data-theme='dark'] .highlight .cpf,
+html[data-theme='dark'] .codehilite .c1,  html[data-theme='dark'] .highlight .c1,
+html[data-theme='dark'] .codehilite .cs,  html[data-theme='dark'] .highlight .cs { color: #7d8799; }
+
+html[data-theme='dark'] .codehilite .k,   html[data-theme='dark'] .highlight .k,
+html[data-theme='dark'] .codehilite .kc,  html[data-theme='dark'] .highlight .kc,
+html[data-theme='dark'] .codehilite .kd,  html[data-theme='dark'] .highlight .kd,
+html[data-theme='dark'] .codehilite .kn,  html[data-theme='dark'] .highlight .kn,
+html[data-theme='dark'] .codehilite .kp,  html[data-theme='dark'] .highlight .kp,
+html[data-theme='dark'] .codehilite .kr,  html[data-theme='dark'] .highlight .kr,
+html[data-theme='dark'] .codehilite .kt,  html[data-theme='dark'] .highlight .kt { color: #c678dd; }
+
+html[data-theme='dark'] .codehilite .o,   html[data-theme='dark'] .highlight .o,
+html[data-theme='dark'] .codehilite .ow,  html[data-theme='dark'] .highlight .ow { color: #61afef; }
+html[data-theme='dark'] .codehilite .p,   html[data-theme='dark'] .highlight .p { color: #abb2bf; }
+html[data-theme='dark'] .codehilite .nb,  html[data-theme='dark'] .highlight .nb,
+html[data-theme='dark'] .codehilite .bp,  html[data-theme='dark'] .highlight .bp { color: #61afef; }
+html[data-theme='dark'] .codehilite .nf,  html[data-theme='dark'] .highlight .nf,
+html[data-theme='dark'] .codehilite .fm,  html[data-theme='dark'] .highlight .fm { color: #61afef; }
+html[data-theme='dark'] .codehilite .nc,  html[data-theme='dark'] .highlight .nc,
+html[data-theme='dark'] .codehilite .nn,  html[data-theme='dark'] .highlight .nn,
+html[data-theme='dark'] .codehilite .ne,  html[data-theme='dark'] .highlight .ne { color: #e5c07b; }
+html[data-theme='dark'] .codehilite .nd,  html[data-theme='dark'] .highlight .nd { color: #61afef; }
+html[data-theme='dark'] .codehilite .nt,  html[data-theme='dark'] .highlight .nt { color: #98c379; }
+html[data-theme='dark'] .codehilite .na,  html[data-theme='dark'] .highlight .na { color: #61afef; }
+html[data-theme='dark'] .codehilite .nv,  html[data-theme='dark'] .highlight .nv,
+html[data-theme='dark'] .codehilite .vc,  html[data-theme='dark'] .highlight .vc,
+html[data-theme='dark'] .codehilite .vg,  html[data-theme='dark'] .highlight .vg,
+html[data-theme='dark'] .codehilite .vi,  html[data-theme='dark'] .highlight .vi { color: #61afef; }
+html[data-theme='dark'] .codehilite .no,  html[data-theme='dark'] .highlight .no { color: #61afef; }
+
+html[data-theme='dark'] .codehilite .s,   html[data-theme='dark'] .highlight .s,
+html[data-theme='dark'] .codehilite .sa,  html[data-theme='dark'] .highlight .sa,
+html[data-theme='dark'] .codehilite .sb,  html[data-theme='dark'] .highlight .sb,
+html[data-theme='dark'] .codehilite .sc,  html[data-theme='dark'] .highlight .sc,
+html[data-theme='dark'] .codehilite .dl,  html[data-theme='dark'] .highlight .dl,
+html[data-theme='dark'] .codehilite .sd,  html[data-theme='dark'] .highlight .sd,
+html[data-theme='dark'] .codehilite .s2,  html[data-theme='dark'] .highlight .s2,
+html[data-theme='dark'] .codehilite .se,  html[data-theme='dark'] .highlight .se,
+html[data-theme='dark'] .codehilite .sh,  html[data-theme='dark'] .highlight .sh,
+html[data-theme='dark'] .codehilite .si,  html[data-theme='dark'] .highlight .si,
+html[data-theme='dark'] .codehilite .sx,  html[data-theme='dark'] .highlight .sx,
+html[data-theme='dark'] .codehilite .sr,  html[data-theme='dark'] .highlight .sr,
+html[data-theme='dark'] .codehilite .s1,  html[data-theme='dark'] .highlight .s1,
+html[data-theme='dark'] .codehilite .ss,  html[data-theme='dark'] .highlight .ss { color: #98c379; }
+
+html[data-theme='dark'] .codehilite .m,   html[data-theme='dark'] .highlight .m,
+html[data-theme='dark'] .codehilite .mb,  html[data-theme='dark'] .highlight .mb,
+html[data-theme='dark'] .codehilite .mf,  html[data-theme='dark'] .highlight .mf,
+html[data-theme='dark'] .codehilite .mh,  html[data-theme='dark'] .highlight .mh,
+html[data-theme='dark'] .codehilite .mi,  html[data-theme='dark'] .highlight .mi,
+html[data-theme='dark'] .codehilite .mo,  html[data-theme='dark'] .highlight .mo,
+html[data-theme='dark'] .codehilite .il,  html[data-theme='dark'] .highlight .il { color: #61afef; }
+
+html[data-theme='dark'] .codehilite .n,   html[data-theme='dark'] .highlight .n,
+html[data-theme='dark'] .codehilite .nl,  html[data-theme='dark'] .highlight .nl,
+html[data-theme='dark'] .codehilite .py,  html[data-theme='dark'] .highlight .py,
+html[data-theme='dark'] .codehilite .nx,  html[data-theme='dark'] .highlight .nx,
+html[data-theme='dark'] .codehilite .w,   html[data-theme='dark'] .highlight .w { color: #abb2bf; }
+
+html[data-theme='dark'] .codehilite .gh,  html[data-theme='dark'] .highlight .gh { color: #61afef; }
+html[data-theme='dark'] .codehilite .gi,  html[data-theme='dark'] .highlight .gi { color: #98c379; background-color: #2d3a2e; }
+html[data-theme='dark'] .codehilite .gd,  html[data-theme='dark'] .highlight .gd { color: #e06c75; background-color: #3a2d2e; }
+html[data-theme='dark'] .codehilite .err, html[data-theme='dark'] .highlight .err { color: #e06c75; background: transparent; }

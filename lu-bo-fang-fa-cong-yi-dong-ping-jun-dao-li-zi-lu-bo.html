@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894037367471530"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9894037367471530">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=19' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="./index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li class="active"><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li class="active"><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li class="active"><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li><li class="active"><a href="./2048游戏.html" data-i18n="2048">2048</a></li><li class="active"><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li><li class="active"><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li class="has-sub"><a href="./categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="./category/academic.html">Academic (3)</a></li><li><a href="./category/ai.html">AI (6)</a></li><li><a href="./category/c.html">C (16)</a></li><li><a href="./category/camera.html">Camera (15)</a></li><li><a href="./category/chromebook.html">ChromeBook (2)</a></li><li><a href="./category/cuda.html">CUDA (1)</a></li><li><a href="./category/design.html">Design (1)</a></li><li><a href="./category/diy.html">DIY (1)</a></li><li><a href="./category/duke.html">Duke (1)</a></li><li><a href="./category/education.html">Education (21)</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./category/hackintosh.html">Hackintosh (7)</a></li><li><a href="./category/java.html">Java (1)</a></li><li><a href="./category/linux.html">Linux (4)</a></li><li><a href="./category/llm.html">LLM (55)</a></li><li><a href="./category/ltfs.html">LTFS (1)</a></li><li><a href="./category/mac.html">Mac (3)</a></li><li><a href="./category/math.html">Math (30)</a></li><li><a href="./category/ml.html">ML (4)</a></li><li><a href="./category/modeling.html">Modeling (9)</a></li><li><a href="./category/nas.html">NAS (1)</a></li><li><a href="./category/nix.html">Nix (1)</a></li><li><a href="./category/photography.html">Photography (1)</a></li><li><a href="./category/programming.html">Programming (12)</a></li><li><a href="./category/pve.html">PVE (1)</a></li><li><a href="./category/python.html">Python (26)</a></li><li><a href="./category/qgis.html">QGIS (3)</a></li><li><a href="./category/qt.html">QT (1)</a></li><li><a href="./category/raspbian.html">Raspbian (1)</a></li><li><a href="./category/science.html">Science (2)</a></li><li><a href="./category/sdr.html">SDR (2)</a></li><li><a href="./category/software.html">Software (3)</a></li><li><a href="./category/story.html">Story (68)</a></li><li><a href="./category/sui-bi.html">随笔 (2)</a></li><li><a href="./category/tool.html">Tool (49)</a></li><li><a href="./category/tools.html">Tools (2)</a></li><li><a href="./category/virtualization.html">Virtualization (1)</a></li><li><a href="./category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./category/windows.html">Windows (1)</a></li><li><a href="./category/work.html">Work (24)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="./tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="./tag/7900xtx.html">7900XTX (3)</a></li><li><a href="./tag/9bmo-xing.html">9B模型 (1)</a></li><li><a href="./tag/abbreviations.html">abbreviations (1)</a></li><li><a href="./tag/academic.html">academic (1)</a></li><li><a href="./tag/adamw.html">AdamW (1)</a></li><li><a href="./tag/advice.html">advice (1)</a></li><li><a href="./tag/aerodynamics.html">aerodynamics (3)</a></li><li><a href="./tag/agent.html">Agent (3)</a></li><li><a href="./tag/ai.html">AI (31)</a></li><li><a href="./tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="./tag/aigc.html">AIGC (1)</a></li><li><a href="./tag/ailun-li.html">AI伦理 (1)</a></li><li><a href="./tag/airfoil.html">airfoil (1)</a></li><li><a href="./tag/algorithm.html">Algorithm (12)</a></li><li><a href="./tag/amd.html">AMD (1)</a></li><li><a href="./tag/anime.html">anime (1)</a></li><li><a href="./tag/arc.html">ARC (1)</a></li><li><a href="./tag/architecture.html">Architecture (3)</a></li><li><a href="./tag/arithmetic.html">arithmetic (1)</a></li><li><a href="./tag/attitude.html">Attitude (2)</a></li><li><a href="./tag/bayesian.html">Bayesian (2)</a></li><li><a href="./tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="./tag/beginner.html">Beginner (3)</a></li><li><a href="./tag/ben-di-bu-shu.html">本地部署 (5)</a></li><li><a href="./tag/ben-di-bu-shu-bing-yun-xing-omnicoder-9bde-su-du-zhi-mi-moxing-vs-ollama.html">本地部署并运行omnicoder-9b的速度之谜MoXing-vs-Ollama (1)</a></li><li><a href="./tag/ben-di-mo-xing.html">本地模型 (3)</a></li><li><a href="./tag/bfcl.html">BFCL (4)</a></li><li><a href="./tag/bi-ye-lun-wen.html">毕业论文 (1)</a></li><li><a href="./tag/bian-cheng.html">编程 (1)</a></li><li><a href="./tag/binary.html">binary (1)</a></li><li><a href="./tag/bing-fei-gu-yi-wei-shi-yao-wo-geng-duo-yong-ming-ling-xing-gong-ju-er-bu-shi-gui.html">并非故意-为什么我更多用命令行工具而不是GUI (1)</a></li><li><a href="./tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="./tag/book.html">Book (10)</a></li><li><a href="./tag/brent.html">Brent (1)</a></li><li><a href="./tag/bullshit.html">bullshit (1)</a></li><li><a href="./tag/c.html">C (10)</a></li><li><a href="./tag/camera.html">Camera (23)</a></li><li><a href="./tag/career.html">career (1)</a></li><li><a href="./tag/causation.html">Causation (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-da-mo-xing-omnicoder-9b-jian-ce-moxing-vs-ollama-dui-bi.html">超强的本地大模型-OmniCoder-9B-简测MoXing-vs-Ollama-对比 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-xiao-mo-xing-omnicoder-9bde-an-zhuang-yu-shi-yong-zhi-nan.html">超强的本地小模型OmniCoder-9B的安装与使用指南 (1)</a></li><li><a href="./tag/chao-xiao-mo-xing.html">超小模型 (1)</a></li><li><a href="./tag/chat.html">Chat (1)</a></li><li><a href="./tag/chatgpt.html">ChatGPT (1)</a></li><li><a href="./tag/cheng-chang.html">成长 (1)</a></li><li><a href="./tag/chouchou-pdflun-wen-zhong-ming-ming-gong-ju-sheng-ji-liao-zhe-ci-zhuan-men-you-hua-liao-zhong-wen-lun-wen-zhi-chi.html">Chou瞅-PDF论文重命名工具升级了这次专门优化了中文论文支持 (1)</a></li><li><a href="./tag/chouchou-yi-ge-pythonxiao-gong-ju-rang-ni-de-lun-wen-pdfwen-jian-ming-bu-zai-shi-luan-ma.html">Chou瞅一个Python小工具让你的论文PDF文件名不再是乱码 (1)</a></li><li><a href="./tag/chromebook.html">ChromeBook (2)</a></li><li><a href="./tag/cli.html">CLI (1)</a></li><li><a href="./tag/code.html">Code (2)</a></li><li><a href="./tag/code-generation.html">Code Generation (6)</a></li><li><a href="./tag/coding.html">Coding (1)</a></li><li><a href="./tag/cognition.html">Cognition (1)</a></li><li><a href="./tag/comics.html">comics (1)</a></li><li><a href="./tag/communicate.html">Communicate (6)</a></li><li><a href="./tag/communication.html">communication (3)</a></li><li><a href="./tag/comparison.html">comparison (1)</a></li><li><a href="./tag/computability.html">Computability (12)</a></li><li><a href="./tag/computer.html">computer (3)</a></li><li><a href="./tag/conda.html">Conda (2)</a></li><li><a href="./tag/conda-forge.html">conda-forge (1)</a></li><li><a href="./tag/configback-kua-ping-tai-kai-fa-pei-zhi-wen-jian-de-wu-tong-bei-fen-qian-yi-guan-li-gong-ju.html">ConfigBack-跨平台开发配置文件的无痛备份迁移管理工具 (1)</a></li><li><a href="./tag/cong-shu-zu-dao-fu-za-shu-ju-cyu-yan-shi-zen-yao-yi-bu-bu-bian-fu-za-de.html">从数组到复杂数据C语言是怎么一步步变复杂的 (1)</a></li><li><a href="./tag/copytalker-kua-yue-yu-yan-zhang-ai-de-jin-shi-shi-yu-yin-fan-yi.html">CopyTalker-跨越语言障碍的近实时语音翻译 (1)</a></li><li><a href="./tag/correlation.html">Correlation (1)</a></li><li><a href="./tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="./tag/cs.html">CS (1)</a></li><li><a href="./tag/cuda.html">CUDA (6)</a></li><li><a href="./tag/culture.html">culture (1)</a></li><li><a href="./tag/cursor.html">Cursor (1)</a></li><li><a href="./tag/cyu-yan-fu-xi-quan-gong-lue-yi-wen-chi-tou-suo-you-zhi-shi-dian.html">C语言复习全攻略-一文吃透所有知识点 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-numc-yi-ge-numpy-feng-ge-de-c-yu-yan-ku.html">C语言基础教程NumC-一个-NumPy-风格的-C-语言库 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shi-xian-lei-si-dong-tai-lei-xing-dui-yong-hu-shu-ru-jie-xi-bing-qie-xuan-ze-he-gua-de-shu-ju-lei-xing.html">C语言基础教程-实现类似动态类型对用户输入解析并且选择合适的数据类型 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shu-zu-xing-zhuang-50xing-200000lie-vs-200000xing-50lie-tong-yang-de-shu-ju-bu-tong-de-xing-neng.html">C语言基础教程数组形状-50行200000列-vs-200000行50列-同样的数据不同的性能 (1)</a></li><li><a href="./tag/da-gong.html">打工 (1)</a></li><li><a href="./tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="./tag/da-xue-sheng-huo.html">大学生活 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing.html">大语言模型 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing-li-mian-de-tokende-han-yi-he-yuan-liu.html">大语言模型里面的token的含义和源流 (1)</a></li><li><a href="./tag/dai-ma-neng-li.html">代码能力 (1)</a></li><li><a href="./tag/dan-jing-du-fu-dian-shu-de-fen-bian-lu-wei-shi-yao-zai-ji-suan-ji-li-1000-mo-he-1000-mo-jia-001-ke-neng-shi-yi-yang-de.html">单精度浮点数的分辨率为什么在计算机里-1000-万和-1000-万加-001-可能是一样的 (1)</a></li><li><a href="./tag/dan-yi-zhi-ze-yuan-ze-xie-hao-pythonhan-shu-de-di-yi-bu.html">单一职责原则写好Python函数的第一步 (1)</a></li><li><a href="./tag/data.html">Data (3)</a></li><li><a href="./tag/data-science.html">Data Science (2)</a></li><li><a href="./tag/database.html">Database (1)</a></li><li><a href="./tag/datewise-photo-organizer-ji-yu-ri-qi-shi-jian-jin-xing-tu-pian-zu-zhi-he-lu-jing-guan-li-de-she-ying-fu-zhu-gong-ju-ruan-jian.html">Datewise-Photo-Organizer-基于日期时间进行图片组织和路径管理的摄影辅助工具软件 (1)</a></li><li><a href="./tag/decision-making.html">decision-making (1)</a></li><li><a href="./tag/design.html">Design (1)</a></li><li><a href="./tag/dian-che-nan-ti-han-shang-de-zhi-jia-hui-zai-shi-gu-qian-tu-ran-tui-chu-yao.html">电车难题厂商的智驾会在事故前突然退出么 (1)</a></li><li><a href="./tag/dimension.html">dimension (1)</a></li><li><a href="./tag/discuss.html">Discuss (7)</a></li><li><a href="./tag/disease.html">Disease (1)</a></li><li><a href="./tag/diy.html">DIY (1)</a></li><li><a href="./tag/download.html">Download (1)</a></li><li><a href="./tag/earth-science.html">Earth Science (1)</a></li><li><a href="./tag/education.html">Education (15)</a></li><li><a href="./tag/efficiency.html">efficiency (1)</a></li><li><a href="./tag/ekf.html">EKF (1)</a></li><li><a href="./tag/emotion.html">emotion (1)</a></li><li><a href="./tag/engineering.html">Engineering (1)</a></li><li><a href="./tag/environment.html">Environment (1)</a></li><li><a href="./tag/er-ji.html">耳机 (1)</a></li><li><a href="./tag/er-jin-zhi.html">二进制 (1)</a></li><li><a href="./tag/ertinger-ting-yi-ge-jian-dan-de-yin-pin-jiang-zao-gong-ju.html">ErTing耳听一个简单的音频降噪工具 (1)</a></li><li><a href="./tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="./tag/fa-lan-ke-fu.html">法兰克福 (1)</a></li><li><a href="./tag/family.html">family (1)</a></li><li><a href="./tag/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">FanFu凡赴-把-Ollama-的-GGUF-模型转成-HuggingFace-格式纯好玩 (1)</a></li><li><a href="./tag/fang-fa-bi-gui-mo-geng-zhong-yao-agenticqwenyu-needlede-xiao-mo-xing-zhi-neng-ti-ying-yong-tan-suo.html">方法比规模更重要AgenticQwen与Needle的小模型智能体应用探索 (1)</a></li><li><a href="./tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="./tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="./tag/filtering.html">Filtering (6)</a></li><li><a href="./tag/folderlensyi-ge-pyside6shi-xian-de-jian-dan-wen-jian-guan-li-qi-kai-fa-shi-li.html">FolderLens一个PySide6实现的简单文件管理器开发实例 (1)</a></li><li><a href="./tag/fractal.html">fractal (1)</a></li><li><a href="./tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="./tag/freshman.html">freshman (5)</a></li><li><a href="./tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="./tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./tag/function-calling.html">function calling (1)</a></li><li><a href="./tag/game.html">Game (2)</a></li><li><a href="./tag/gametheory.html">GameTheory (1)</a></li><li><a href="./tag/gangdan-de-zhi-shi-ku-shi-zen-yao-lian-cheng-de.html">GangDan-的知识库是怎么炼成的 (1)</a></li><li><a href="./tag/gangdan-geng-xin-ke-yong-zai-xian-mo-xing-cong-xie-zong-shu-dao-xie-wan-zheng-wen-zhang.html">GangDan-更新可用在线模型从写综述到写完整文章 (1)</a></li><li><a href="./tag/gangdan-wu-yue-zhong-de-ji-zhong-geng-xin-jing-zhun-xuan-wen-zhi-shi-ku-fen-xi-xue-xi-mo-kuai-quan-mian-xiu-fu.html">GangDan-五月中的集中更新精准选文知识库分析学习模块全面修复 (1)</a></li><li><a href="./tag/gangdan-you-geng-xin-liao-yi-bo-cong-kai-fa-zhu-shou-zhuan-xing-wei-zhi-shi-guan-li-yu-jiao-xue-fu-zhu-gong-ju.html">GangDan-又更新了一波从开发助手转型为知识管理与教学辅助工具 (1)</a></li><li><a href="./tag/gangdangang-dan-sheng-ji-kai-yuan-ben-di-zhi-shi-ku-zhi-chi-ben-di-mo-xing-he-zai-xian-mo-xing-de-shen-du-yan-jiu-zhu-shou.html">GangDan纲担升级开源本地知识库-支持本地模型和在线模型的深度研究助手 (1)</a></li><li><a href="./tag/gangdangang-dan-zhong-gou-ji-hu-zhong-zuo-liao-yi-bian.html">GangDan纲担重构-几乎重做了一遍 (1)</a></li><li><a href="./tag/gangdanji-xu-geng-xin-xian-zai-neng-zhi-jie-shang-chuan-cajgou-jian-zhi-shi-ku-liao.html">GangDan继续更新现在能直接上传CAJ构建知识库了 (1)</a></li><li><a href="./tag/gangdanzhi-shi-ku-dao-chu-gai-jin-ke-yi-zhi-jie-dao-chu-xia-zai-hao-de-wen-zhang-yuan-wen-liao.html">GangDan知识库导出改进-可以直接导出下载好的文章原文了 (1)</a></li><li><a href="./tag/gao-xiao-jiao-shi-jian-yi-da-yi-kai-xue-yao-you-dian-nao-huan-yao-an-zhuang-opencodeshi-yong-zhi-neng-ti.html">高校教师建议大一开学要有电脑还要安装OpenCode使用智能体 (1)</a></li><li><a href="./tag/gei-xin-shou-shi-xian-yi-wei-shu-zu-de-liang-chong-si-lu-chuan-tong-cyu-yan-vs-numcku.html">给新手实现一维数组的两种思路传统C语言-vs-NumC库 (1)</a></li><li><a href="./tag/gemma4.html">Gemma4 (1)</a></li><li><a href="./tag/general-education.html">general-education (1)</a></li><li><a href="./tag/geojstool-di-qiu-hua-xue-fen-xi-gong-ju-wang-ye-ban-de-geopytool.html">GeoJsTool-地球化学分析工具-网页版的GeoPyTool (1)</a></li><li><a href="./tag/geology.html">Geology (4)</a></li><li><a href="./tag/geometry.html">geometry (1)</a></li><li><a href="./tag/geopython.html">GeoPython (1)</a></li><li><a href="./tag/gguf.html">GGUF (2)</a></li><li><a href="./tag/gis.html">GIS (3)</a></li><li><a href="./tag/glm.html">GLM (1)</a></li><li><a href="./tag/glumpy.html">GlumPy (2)</a></li><li><a href="./tag/golden-section.html">Golden Section (1)</a></li><li><a href="./tag/gong-ju-diao-yong.html">工具调用 (2)</a></li><li><a href="./tag/google-de-turboquant-suan-fa-ru-he-rang-aigeng-sheng-nei-cun-gao-ding-xiang-liang-liang-hua-nan-ti.html">Google-的-TurboQuant-算法如何让AI更省内存搞定向量量化难题 (1)</a></li><li><a href="./tag/gpt-35.html">GPT-3.5 (3)</a></li><li><a href="./tag/gpt-4o.html">GPT-4o (1)</a></li><li><a href="./tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="./tag/graduate-school.html">graduate-school (1)</a></li><li><a href="./tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="./tag/granite4.html">granite4 (1)</a></li><li><a href="./tag/gsm8k.html">GSM8K (2)</a></li><li><a href="./tag/gu-ge-turboquant-lun-wen-zhong-yi-ji-yu-jin-zui-you-niu-qu-lu-de-gao-su-zai-xian-xiang-liang-liang-hua-suan-fa.html">谷歌-TurboQuant-论文中译基于近最优扭曲率的高速在线向量量化算法 (1)</a></li><li><a href="./tag/guan-xi-xing-shu-ju-ku.html">关系型数据库 (1)</a></li><li><a href="./tag/guide.html">Guide (1)</a></li><li><a href="./tag/hack.html">Hack (2)</a></li><li><a href="./tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="./tag/hadoop.html">Hadoop (2)</a></li><li><a href="./tag/hardware.html">Hardware (2)</a></li><li><a href="./tag/hate.html">Hate (1)</a></li><li><a href="./tag/hbase.html">HBase (1)</a></li><li><a href="./tag/heibancong-markdownzhuan-chu-ppthuan-deng-pian.html">HeiBan从Markdown转出PPT幻灯片 (1)</a></li><li><a href="./tag/heibanhei-ban-jiang-markdownzhuan-huan-cheng-htmllai-dang-jiang-yi.html">HeiBan黑板-将Markdown转换成HTML来当讲义 (1)</a></li><li><a href="./tag/hellaswag.html">HellaSwag (2)</a></li><li><a href="./tag/hermes.html">Hermes (1)</a></li><li><a href="./tag/heroism.html">heroism (1)</a></li><li><a href="./tag/history.html">History (6)</a></li><li><a href="./tag/huan-jue.html">幻觉 (1)</a></li><li><a href="./tag/huan-wei-si-kao-he-ni-chou-sha.html">换位思考和你瞅啥 (1)</a></li><li><a href="./tag/huan-yi-ge-ba-wang-ye-zhuan-huan-cheng-markdownde-python-xiao-gong-ju.html">Huan-一个把网页转换成-Markdown的Python-小工具 (1)</a></li><li><a href="./tag/hui-yi.html">回忆 (1)</a></li><li><a href="./tag/humaneval.html">HumanEval (2)</a></li><li><a href="./tag/ide.html">IDE (2)</a></li><li><a href="./tag/imbalance.html">Imbalance (1)</a></li><li><a href="./tag/imu.html">IMU (1)</a></li><li><a href="./tag/jacobian.html">Jacobian (1)</a></li><li><a href="./tag/java-ji-chu-yu-fa-5fen-zhong-ru-men.html">Java-基础语法5分钟入门 (1)</a></li><li><a href="./tag/ji-chu-zhi-shi-chu-ji-tong-ji-gai-nian-de-jian-dan-jie-shao.html">基础知识初级统计概念的简单介绍 (1)</a></li><li><a href="./tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="./tag/ji-nian.html">纪念 (1)</a></li><li><a href="./tag/ji-suan-ji.html">计算机 (1)</a></li><li><a href="./tag/ji-suan-ji-zu-cheng.html">计算机组成 (1)</a></li><li><a href="./tag/ji-yu-ben-di-mo-xing-de-bian-cheng-xue-xi-fu-zhu-huan-jing-da-jian-wan-zheng-zhi-nan.html">基于本地模型的编程学习辅助环境搭建完整指南 (1)</a></li><li><a href="./tag/ji-yu-tunade-virtualbox-yu-ubuntu-xu-ni-ji-bu-shu-zhi-nan.html">基于TUNA的-VirtualBox-与-Ubuntu-虚拟机部署指南 (1)</a></li><li><a href="./tag/jian-dan-shuo-shuo-pythonli-mian-de-han-shu-shi-di-yi-gong-min-first-class-citizen.html">简单说说Python里面的函数是第一公民First-Class-Citizen (1)</a></li><li><a href="./tag/jie-zhu-pythonlai-li-jie-zi-gua-ying-xin-pu-sen-ji-fen-yuan-li-shi-xian-yu-dong-tai-ke-shi-hua.html">借助Python来理解自适应辛普森积分原理实现与动态可视化 (1)</a></li><li><a href="./tag/jing-xiang.html">镜像 (1)</a></li><li><a href="./tag/jiu-wen-gao-bie-guo-qu-gao-bie-ke-xue-wang.html">旧文告别过去告别科学网 (1)</a></li><li><a href="./tag/jixingji-xing-dang-agent-dui-hua-chao-chu-shang-xia-wen-xian-zhi-zuo-liao-yi-ge-lei-si-xu-ni-ji-re-qian-yi-cao-lu-fang-an.html">JiXing记行-当-Agent-对话超出上下文限制做了一个类似虚拟机热迁移草率方案 (1)</a></li><li><a href="./tag/job.html">Job (1)</a></li><li><a href="./tag/job-hunting.html">job-hunting (1)</a></li><li><a href="./tag/junck.html">Junck (3)</a></li><li><a href="./tag/kalman.html">Kalman (1)</a></li><li><a href="./tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="./tag/kao-yan-qu-mei-chu-shi-yu-fu-shi.html">考研祛魅初试与复试 (1)</a></li><li><a href="./tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="./tag/kivy.html">Kivy (3)</a></li><li><a href="./tag/kuan-biao.html">宽表 (1)</a></li><li><a href="./tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="./tag/language.html">Language (1)</a></li><li><a href="./tag/learn.html">Learn (4)</a></li><li><a href="./tag/learning.html">Learning (10)</a></li><li><a href="./tag/lens.html">Lens (19)</a></li><li><a href="./tag/lesson.html">Lesson (1)</a></li><li><a href="./tag/lfm.html">LFM (1)</a></li><li><a href="./tag/lfm25.html">lfm2.5 (1)</a></li><li><a href="./tag/li-yong-chao-qiang-de-xiao-mo-xing-omnicoder-9b-shi-shi-turboquant-liang-hua-kv-cache-2-bit-tiao-zhan-fp1.html">利用超强的小模型-OmniCoder-9B-试试-TurboQuant-量化-KV-Cache-2-bit-挑战-FP1 (1)</a></li><li><a href="./tag/li-yong-pythonshi-xian-de-yu-ben-di-da-mo-xing-jiao-hu-de-posix-jian-rong-ceng.html">利用Python实现的与本地大模型交互的POSIX-兼容层 (1)</a></li><li><a href="./tag/liang-hua.html">量化 (3)</a></li><li><a href="./tag/liaoliao-rang-ben-di-da-yu-yan-mo-xing-ai-bang-ni-liao-tian-de-kai-yuan-gong-ju.html">Liao聊-让本地大语言模型-AI-帮你聊天的开源工具 (1)</a></li><li><a href="./tag/library.html">Library (1)</a></li><li><a href="./tag/life.html">life (16)</a></li><li><a href="./tag/lift.html">lift (1)</a></li><li><a href="./tag/linux.html">Linux (9)</a></li><li><a href="./tag/liquid-ai.html">Liquid AI (1)</a></li><li><a href="./tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="./tag/llamacpp.html">llama.cpp (3)</a></li><li><a href="./tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="./tag/llm.html">LLM (7)</a></li><li><a href="./tag/ltfs.html">LTFS (1)</a></li><li><a href="./tag/lto.html">LTO (1)</a></li><li><a href="./tag/mac.html">Mac (11)</a></li><li><a href="./tag/macbook-air-m4.html">MacBook Air M4 (2)</a></li><li><a href="./tag/macos.html">macOS (1)</a></li><li><a href="./tag/markdown.html">Markdown (1)</a></li><li><a href="./tag/materials.html">Materials (1)</a></li><li><a href="./tag/math.html">Math (3)</a></li><li><a href="./tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="./tag/mathematics.html">mathematics (1)</a></li><li><a href="./tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="./tag/maturity.html">maturity (1)</a></li><li><a href="./tag/mayavi.html">MayaVi (1)</a></li><li><a href="./tag/mechanics.html">Mechanics (1)</a></li><li><a href="./tag/memory.html">Memory (4)</a></li><li><a href="./tag/methodology.html">Methodology (1)</a></li><li><a href="./tag/mian-dui-wu-mai-ni-shi-wu-neng-wei-li-huan-shi-xiu-shou-pang-guan.html">面对雾霾你是无能为力还是袖手旁观 (1)</a></li><li><a href="./tag/mian-xiang-dui-xiang-bian-cheng-ru-men-yong-wu-xia-jiao-se-li-jie-python-zhong-de-lei.html">面向对象编程入门用武侠角色理解-Python-中的类 (1)</a></li><li><a href="./tag/microscope.html">Microscope (2)</a></li><li><a href="./tag/mindset.html">mindset (2)</a></li><li><a href="./tag/miniconda3.html">Miniconda3 (1)</a></li><li><a href="./tag/ml.html">ML (4)</a></li><li><a href="./tag/mlx.html">mlx (1)</a></li><li><a href="./tag/mmlu.html">MMLU (2)</a></li><li><a href="./tag/mo-xing-ping-ce.html">模型评测 (1)</a></li><li><a href="./tag/mobile.html">Mobile (1)</a></li><li><a href="./tag/moe.html">MoE (1)</a></li><li><a href="./tag/moon.html">Moon (1)</a></li><li><a href="./tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="./tag/moving-average.html">Moving Average (1)</a></li><li><a href="./tag/moxing.html">moxing (1)</a></li><li><a href="./tag/moxing-he-ollama-dui-bi-cong-omnicoder-9bdao-geng-duo-mo-xing.html">MoXing-和-Ollama-对比从omnicoder-9b到更多模型 (1)</a></li><li><a href="./tag/moxing-su-du-zui-gao-da-dao-ollamade-201-tong-mo-xing-tong-ying-jian-de-shi-ce-dui-bi-omnicoder-2-9b-de-q4_k_m.html">MoXing-速度最高达到-Ollama的-201-同模型同硬件的实测对比OmniCoder-2-9B-的-Q4_K_M (1)</a></li><li><a href="./tag/moxing-wu-yue-geng-xin-suan-shi-lai-liao-ge-da-sao-chu.html">MoXing-五月更新算是来了个大扫除 (1)</a></li><li><a href="./tag/moxing-zhu-li-la-ji-lao-yong-bai-yuan-chao-lian-jie-xian-qia-ben-di-yun-xing-omnicoder-2-9bmo-xing-jie-guo-ye-zhi-you-shi-ji-ge-tokenss.html">MoXing-助力垃圾佬用百元超廉价显卡本地运行omnicoder-2-9b模型结果也只有十几个tokenss (1)</a></li><li><a href="./tag/moxingdi-yu-suan-chang-jing-yong-rx580xian-qia-qing-song-yun-xing-qwen35-9b-q4_k_mmo-xing.html">MoXing低预算场景用RX580显卡轻松运行Qwen35-9b-q4_k_m模型 (1)</a></li><li><a href="./tag/moxingsheng-ji-tong-shi-yun-xing-duo-ge-mo-xing-shi-li.html">MoXing升级同时运行多个模型实例 (1)</a></li><li><a href="./tag/moxingxin-sheng-ji-zhi-jie-duo-she-ollama-bu-fen-mo-xing-ti-su-50.html">MoXing新升级直接夺舍-Ollama-部分模型提速-50 (1)</a></li><li><a href="./tag/mtp.html">MTP (1)</a></li><li><a href="./tag/muon.html">Muon (1)</a></li><li><a href="./tag/n8n.html">n8n (1)</a></li><li><a href="./tag/nas.html">NAS (1)</a></li><li><a href="./tag/nemotron.html">Nemotron (1)</a></li><li><a href="./tag/network.html">Network (1)</a></li><li><a href="./tag/ni-de-dian-nao-mei-miao-neng-zuo-duo-shao-ci-fu-dian-yun-suan-flops-de-gu-shi.html">你的电脑每秒能做多少次浮点运算FLOPS-的故事 (1)</a></li><li><a href="./tag/niu-dun-fa-qiu-jie-guo-cheng-de-pythonshi-xian-ji-qi-xiang-jie.html">牛顿法求解过程的Python实现及其详解 (1)</a></li><li><a href="./tag/nixos.html">NixOS (1)</a></li><li><a href="./tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="./tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="./tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="./tag/nosql.html">NoSQL (1)</a></li><li><a href="./tag/numpy.html">NumPy (1)</a></li><li><a href="./tag/nuoyi-geng-xin-xin-zeng-zai-xian-zhuan-huan-yin-qing-mei-xian-qia-ye-bu-pa-chang-wen-dang-ye-bu-na-yao-tou-teng.html">NuoYi-更新新增在线转换引擎没显卡也不怕长文档也不那么头疼 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-geng-xin-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju-shao-wei-sheng-yi-dian-xian-cun-liao.html">NuoYi-挪移更新-离线的-PDFDOCX-转-Markdown-工具稍微省一点显存了 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-yi-ge-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju.html">NuoYi-挪移-一个离线的-PDFDOCX-转-Markdown-工具 (1)</a></li><li><a href="./tag/nvidia.html">Nvidia (1)</a></li><li><a href="./tag/ocr.html">OCR (1)</a></li><li><a href="./tag/ollama.html">Ollama (20)</a></li><li><a href="./tag/ollamaaidgei-ni-guan-li-ben-di-da-mo-xing-pei-ge-de-li-zhu-shou.html">OllamaAid给你管理本地大模型配个得力助手 (1)</a></li><li><a href="./tag/ollamageng-xin-suo-you-ben-di-mo-xing.html">Ollama更新所有本地模型 (1)</a></li><li><a href="./tag/ollamaqian-ru-mo-xing-xuan-xing-zhi-nan-zhu-liu-mo-xing-shen-du-dui-bi.html">Ollama嵌入模型选型指南-主流模型深度对比 (1)</a></li><li><a href="./tag/omlx.html">omlx (1)</a></li><li><a href="./tag/opc.html">OPC (1)</a></li><li><a href="./tag/opencl.html">OpenCL (1)</a></li><li><a href="./tag/opencode.html">opencode (11)</a></li><li><a href="./tag/opencode-jin-jie-zhi-ji-neng-chuang-zuo-chai-jie-miao-shu-dian-xing-ren-wu-hou-yan-zheng-shi-xian-zai-zuo-cheng-ke-fu-yong-de-ji-neng.html">OpenCode-进阶之技能创作拆解描述典型任务后验证实现再做成可复用的技能 (1)</a></li><li><a href="./tag/opencode-skillsfen-xiang-yi-tao-zi-ji-luan-xie-de-huan-suan-shi-yong-de-ai-bian-ma-ji-neng-ku.html">OpenCode-Skills分享一套自己乱写的还算实用的-AI-编码技能库 (1)</a></li><li><a href="./tag/openlaoke-geng-xin-ben-di-gguf-mo-xing-ling-api-fei-yong-pao-qi-lai.html">OpenLaoKe-更新本地-GGUF-模型零-API-费用跑起来 (1)</a></li><li><a href="./tag/openlaokelao-ke-yi-ge-ming-ling-xing-aizhu-shou.html">OpenLaoKe唠嗑一个命令行AI助手 (1)</a></li><li><a href="./tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="./tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="./tag/optimization.html">Optimization (2)</a></li><li><a href="./tag/os.html">os (1)</a></li><li><a href="./tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="./tag/parenting.html">Parenting (1)</a></li><li><a href="./tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="./tag/path.html">PATH (1)</a></li><li><a href="./tag/pdfjie-xi.html">PDF解析 (1)</a></li><li><a href="./tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="./tag/performance.html">Performance (1)</a></li><li><a href="./tag/phd.html">PHD (2)</a></li><li><a href="./tag/philosophy.html">philosophy (2)</a></li><li><a href="./tag/photo.html">Photo (23)</a></li><li><a href="./tag/photography.html">Photography (2)</a></li><li><a href="./tag/physics.html">Physics (3)</a></li><li><a href="./tag/ping-ce.html">评测 (1)</a></li><li><a href="./tag/poem.html">Poem (2)</a></li><li><a href="./tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="./tag/programming.html">Programming (11)</a></li><li><a href="./tag/prompt.html">Prompt (1)</a></li><li><a href="./tag/psychology.html">Psychology (1)</a></li><li><a href="./tag/pve.html">PVE (2)</a></li><li><a href="./tag/pyenv.html">Pyenv (2)</a></li><li><a href="./tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="./tag/python.html">Python (70)</a></li><li><a href="./tag/python-ji-chu-yu-fa-5fen-zhong-ru-men.html">Python-基础语法5分钟入门 (1)</a></li><li><a href="./tag/qemu.html">QEMU (1)</a></li><li><a href="./tag/qgis.html">QGIS (3)</a></li><li><a href="./tag/qt.html">QT (1)</a></li><li><a href="./tag/qu-shen-cha.html">去审查 (1)</a></li><li><a href="./tag/qwen3.html">Qwen3 (10)</a></li><li><a href="./tag/qwen35.html">qwen3.5 (1)</a></li><li><a href="./tag/qwen36.html">Qwen3.6 (3)</a></li><li><a href="./tag/qwen38.html">Qwen3.8 (4)</a></li><li><a href="./tag/radio.html">Radio (2)</a></li><li><a href="./tag/rag.html">RAG (1)</a></li><li><a href="./tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="./tag/raspbian.html">Raspbian (1)</a></li><li><a href="./tag/reading.html">reading (2)</a></li><li><a href="./tag/reflection.html">reflection (4)</a></li><li><a href="./tag/remote.html">Remote (1)</a></li><li><a href="./tag/research.html">Research (3)</a></li><li><a href="./tag/resume.html">resume (1)</a></li><li><a href="./tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="./tag/ri-chang-sheng-huo.html">日常生活 (1)</a></li><li><a href="./tag/rotation.html">Rotation (1)</a></li><li><a href="./tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="./tag/rtx-4070.html">RTX 4070 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-jia-gou-shi-zhuan-ye-ying-yu-gao-pin-ci-hui-biao.html">软考高级系统架构设计师知识精要-架构师专业英语高频词汇表 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-ce-shi-yu-yun-xing-wei-hu.html">软考高级系统架构设计师知识精要-软件测试与运行维护 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-gong-cheng-yu-kai-fa-fang-fa.html">软考高级系统架构设计师知识精要-软件工程与开发方法 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-jia-gou-she-ji-yu-ping-gu.html">软考高级系统架构设计师知识精要-软件架构设计与评估 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-an-quan-yu-qu-kuai-lian-ji-zhu.html">软考高级系统架构设计师知识精要-系统安全与区块链技术 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-jian-mo-yu-umlshe-ji.html">软考高级系统架构设计师知识精要-系统建模与UML设计 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xi-xi-tong-yu-qi-ye-xin-xi-hua.html">软考高级系统架构设计师知识精要-信息系统与企业信息化 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xing-ji-zhu-yu-ji-chu-she-shi.html">软考高级系统架构设计师知识精要-新兴技术与基础设施 (1)</a></li><li><a href="./tag/rust.html">Rust (1)</a></li><li><a href="./tag/rustyu-yan-cheng-xu-she-ji-ji-chu-di-san-zhang-fu-he-shu-ju-lei-xing-yu-xun-huan.html">Rust语言程序设计基础第三章复合数据类型与循环 (1)</a></li><li><a href="./tag/rx590.html">RX590 (1)</a></li><li><a href="./tag/sandbox.html">SandBox (1)</a></li><li><a href="./tag/scholar.html">Scholar (2)</a></li><li><a href="./tag/school.html">School (3)</a></li><li><a href="./tag/science.html">Science (3)</a></li><li><a href="./tag/search.html">Search (1)</a></li><li><a href="./tag/self-study.html">Self-Study (1)</a></li><li><a href="./tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="./tag/server.html">Server (1)</a></li><li><a href="./tag/shang-ye-xin-xi.html">商业信息 (1)</a></li><li><a href="./tag/sheng-cheng-su-du.html">生成速度 (1)</a></li><li><a href="./tag/shi-jie-yi-liu-da-xue-shuo-shuo-er-yi-huan-shi-zhen-de-qu-zuo.html">世界一流大学说说而已还是真的去做 (1)</a></li><li><a href="./tag/shi-yong-llama-factory-cong-modelscope-xia-zai-mo-xing-bing-wei-diao.html">使用-LLaMA-Factory-从-ModelScope-下载模型并微调 (1)</a></li><li><a href="./tag/shi-yong-ollamakuai-su-bu-shu-bing-yun-xing-zui-xin-de-qwen3-30b-a3b-2507mo-xing.html">使用ollama快速部署并运行最新的qwen3-30b-a3b-2507模型 (1)</a></li><li><a href="./tag/shit.html">Shit (1)</a></li><li><a href="./tag/shu-ju-an-quan.html">数据安全 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-0zhang-cyu-yan-pythonde-di-ceng-shi-jiao.html">数据结构与算法基础-第0章-C语言Python的底层视角 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-1zhang-suan-fa-ji-chu-yu-fu-za-du-fen-xi.html">数据结构与算法基础-第1章-算法基础与复杂度分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-2zhang-xian-xing-shu-ju-jie-gou.html">数据结构与算法基础-第2章-线性数据结构 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-4zhang-tu-lun-ji-chu.html">数据结构与算法基础-第4章-图论基础 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-5zhang-pai-xu-suan-fa.html">数据结构与算法基础-第5章-排序算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-6zhang-sou-suo-suan-fa.html">数据结构与算法基础-第6章-搜索算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-7zhang-dong-tai-gui-hua.html">数据结构与算法基础-第7章-动态规划 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-8zhang-gao-ji-suan-fa.html">数据结构与算法基础-第8章-高级算法 (1)</a></li><li><a href="./tag/shu-ju-ke-shi-hua.html">数据可视化 (1)</a></li><li><a href="./tag/shu-ju-ku.html">数据库 (1)</a></li><li><a href="./tag/shu-ju-lei-xing.html">数据类型 (1)</a></li><li><a href="./tag/shu-zhi-ji-fen-man-tan-ru-he-rang-yong-pythonqiu-ji-fen.html">数值积分漫谈如何让用Python求积分 (1)</a></li><li><a href="./tag/shui-ke-xing-cun-zhi-nan-ru-guo-ni-bei-po-yao-qu-ting-ni-bu-xi-huan-de-ke-cheng-gai-zen-yao-ban.html">水课幸存指南-如果你被迫要去听你不喜欢的课程该怎么办 (1)</a></li><li><a href="./tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="./tag/signal-processing.html">Signal Processing (3)</a></li><li><a href="./tag/skill.html">skill (3)</a></li><li><a href="./tag/smollm2.html">smollm2 (1)</a></li><li><a href="./tag/software.html">Software (1)</a></li><li><a href="./tag/sou-suo.html">搜索 (1)</a></li><li><a href="./tag/sports.html">sports (1)</a></li><li><a href="./tag/sql.html">SQL (1)</a></li><li><a href="./tag/state-space.html">State Space (1)</a></li><li><a href="./tag/statistics.html">Statistics (1)</a></li><li><a href="./tag/story.html">Story (50)</a></li><li><a href="./tag/sui-bi.html">随笔 (1)</a></li><li><a href="./tag/t-bench.html">τ-bench (1)</a></li><li><a href="./tag/tape.html">Tape (1)</a></li><li><a href="./tag/telescope.html">Telescope (1)</a></li><li><a href="./tag/terminal.html">Terminal (1)</a></li><li><a href="./tag/textbook.html">textbook (1)</a></li><li><a href="./tag/thinking.html">Thinking (7)</a></li><li><a href="./tag/ti-xing-fa-qiu-ji-fen-de-pythonshi-xian.html">梯形法求积分的Python实现 (1)</a></li><li><a href="./tag/tian-biao.html">填表 (1)</a></li><li><a href="./tag/time-series.html">Time Series (1)</a></li><li><a href="./tag/tokenzi-you-yong-moxingzai-7900xtx-24gxian-qia-shang-ben-di-yun-xing-qwen36-27bmo-xing-gei-opencodeyong-lai-wen-dang-bian.html">Token自由-用MoXing在7900xtx-24G显卡上本地运行Qwen36-27B模型给OpenCode用来文档编 (1)</a></li><li><a href="./tag/tong-ji-xue.html">统计学 (1)</a></li><li><a href="./tag/tong-men-xiang-can-bai-yuan-xian-qia-de-ben-di-mo-xing-da-zhan-rx580-16g-2048sp-vs-rx590-8g-2304sp.html">同门相残-百元显卡的本地模型大战RX580-16G-2048SP-VS-RX590-8G-2304SP (1)</a></li><li><a href="./tag/tong-nian.html">童年 (1)</a></li><li><a href="./tag/tong-xue.html">同学 (1)</a></li><li><a href="./tag/tool.html">Tool (8)</a></li><li><a href="./tag/tool-calling.html">tool calling (3)</a></li><li><a href="./tag/toolbench.html">ToolBench (1)</a></li><li><a href="./tag/tools.html">Tools (10)</a></li><li><a href="./tag/traffic.html">Traffic (1)</a></li><li><a href="./tag/translate.html">Translate (2)</a></li><li><a href="./tag/translation.html">Translation (1)</a></li><li><a href="./tag/transpaste-sheng-ji-yi-ge-jian-tie-ban-fan-yi-gong-ju-de-zi-wo-xiu-yang.html">TransPaste-升级一个剪贴板翻译工具的自我修养 (1)</a></li><li><a href="./tag/transpaste-yi-kuan-ji-yu-ben-di-da-yu-yan-mo-xing-de-qing-liang-ji-jian-tie-ban-fan-yi-gong-ju.html">TransPaste-一款基于本地大语言模型的轻量级剪贴板翻译工具 (1)</a></li><li><a href="./tag/transpasteben-di-ai-fan-yi-gong-ju-xin-ban-ben-sheng-ji-hou-zhi-chi-geng-duo-xi-li-du-de-fan-yi-kong-zhi.html">TransPaste本地-AI-翻译工具新版本升级后支持更多细粒度的翻译控制 (1)</a></li><li><a href="./tag/tui.html">TUI (1)</a></li><li><a href="./tag/tui-jian-yi-kuan-markdownde-kua-ping-tai-chi-xian-bian-ji-qi-zhi-chi-sui-shi-yu-lan.html">推荐一款MarkDown的跨平台离线编辑器支持随时预览 (1)</a></li><li><a href="./tag/tuna.html">TUNA (1)</a></li><li><a href="./tag/turing.html">Turing (12)</a></li><li><a href="./tag/tutorial.html">tutorial (2)</a></li><li><a href="./tag/uav.html">UAV (1)</a></li><li><a href="./tag/ubuntu.html">Ubuntu (4)</a></li><li><a href="./tag/ubuntu-shou-dong-an-zhuang-ollama-0171-lai-yun-xing-qwen3535b-a3b-de-xiang-xi-zhi-nan.html">Ubuntu-手动安装-Ollama-0171-来运行-qwen3535b-a3b-的详细指南 (1)</a></li><li><a href="./tag/ui.html">UI (1)</a></li><li><a href="./tag/ukf.html">UKF (1)</a></li><li><a href="./tag/university.html">university (14)</a></li><li><a href="./tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="./tag/ustc.html">USTC (1)</a></li><li><a href="./tag/ventoy.html">Ventoy (1)</a></li><li><a href="./tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="./tag/vibe-coding-fen-wei-bian-cheng-an-li-tong-guo-dui-hua-shi-xian-ke-yong-de-kuai-su-cha-biao-gong-ju.html">Vibe-Coding-氛围编程案例-通过对话实现可用的快速查表工具 (1)</a></li><li><a href="./tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="./tag/video.html">video (2)</a></li><li><a href="./tag/vidtogif-yi-ge-jian-dan-gao-xiao-de-shi-pin-zhuan-gif-gong-ju.html">VidToGif-一个简单高效的视频转-GIF-工具 (1)</a></li><li><a href="./tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="./tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="./tag/virtualization.html">Virtualization (1)</a></li><li><a href="./tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./tag/vispy.html">VisPy (1)</a></li><li><a href="./tag/visualization.html">Visualization (8)</a></li><li><a href="./tag/vm.html">VM (1)</a></li><li><a href="./tag/vmwarexu-ni-ji-yun-xing-macosunlcokrecoveryosoc4vm-shi-xian-ti-gong-bai-du-yun-pan-xia-zai.html">VMware虚拟机运行macOSunlcokrecoveryosOC4VM-实现提供百度云盘下载 (1)</a></li><li><a href="./tag/void-moxingdi-cheng-ben-fang-an-yong-rx580xian-qia-ben-di-yun-xing-qwen359bmo-xing-da-zao-lei-cursorti-yan.html">Void-MoXing低成本方案用RX580显卡本地运行qwen359B模型打造类Cursor体验 (1)</a></li><li><a href="./tag/vtk.html">VTK (1)</a></li><li><a href="./tag/web.html">Web (1)</a></li><li><a href="./tag/wen-ben-shou-ji.html">文本收集 (1)</a></li><li><a href="./tag/wen-dang-he-cha.html">文档核查 (1)</a></li><li><a href="./tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="./tag/windows.html">Windows (4)</a></li><li><a href="./tag/windows-xi-tong-xia-cong-qing-hua-da-xue-tuna-jing-xiang-an-zhuang-miniconda3-wan-zheng-zhi-nan.html">Windows-系统下从清华大学-TUNA-镜像安装-Miniconda3-完整指南 (1)</a></li><li><a href="./tag/windows11.html">Windows11 (1)</a></li><li><a href="./tag/wingetguigei-windows-bao-guan-li-qi-jia-ge-tu-xing-jie-mian.html">WinGetGUI给-Windows-包管理器加个图形界面 (1)</a></li><li><a href="./tag/winogrande.html">WinoGrande (1)</a></li><li><a href="./tag/workflow.html">workflow (1)</a></li><li><a href="./tag/xcode.html">Xcode (1)</a></li><li><a href="./tag/xia-zai.html">下载 (1)</a></li><li><a href="./tag/xian-jiao-hui-zai-rang-ta-zuo-da-mo-xing-ding-zhi-hua-li-cpthe-sftdao-di-zai-gan-shi-yao.html">先教会再让它做大模型定制化里CPT和SFT到底在干什么 (1)</a></li><li><a href="./tag/xiang-sheng.html">相声 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-er-hui-jiu-suan-shi-sun-wu-kong-shang-da-xue-ye-de-yong-gong.html">小猴子学编程第二回就算是孙悟空上大学也得用功 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-san-hui-shi-yi-zhi-pa-zai-na-zi-yuan-zi-ai-huan-shi-gan-jin-zhun-bei-qu-xin-fu-ben.html">小猴子学编程第三回是一直趴在那自怨自艾还是赶紧准备去新副本 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-si-hui-chong-zhi-bu-hui-rang-ni-bian-qiang-xue-xi-cai-hui.html">小猴子学编程第四回充值不会让你变强学习才会 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-yi-hui-na-pa-shi-sun-wu-kong-ye-xu-yao-xue-xi.html">小猴子学编程第一回哪怕是孙悟空也需要学习 (1)</a></li><li><a href="./tag/xiao-mo-xing.html">小模型 (1)</a></li><li><a href="./tag/xiao-mo-xing-ping-ce.html">小模型评测 (2)</a></li><li><a href="./tag/xiao-you.html">校友 (1)</a></li><li><a href="./tag/xiexie-ba-markdown-zhuan-cheng-wei-xin-gong-zhong-hao-ge-shi-wang-ye-de-xiao-gong-ju.html">Xie写把-Markdown-转成微信公众号格式网页的小工具 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-markdown-shu-xue-gong-shi-zhi-nan.html">新手向的-Markdown-数学公式指南 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-ruan-kao-gao-ji-jia-gou-shi-wan-quan-bei-kao-zhi-nan.html">新手向的软考高级架构师完全备考指南 (1)</a></li><li><a href="./tag/xing-neng-shi-ce.html">性能实测 (1)</a></li><li><a href="./tag/xiu-liao-transpastede-4ge-bug.html">修了TransPaste的4个bug (1)</a></li><li><a href="./tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="./tag/xue-xi-lu-de-qian-shi-jin-sheng-cong-quan-ju-dan-yi-dao-zhu-ceng-ding-zhi.html">学习率的前世今生从全局单一到逐层定制 (1)</a></li><li><a href="./tag/xue-zhu-lun-wen-zhong-chang-jian-yan-jiu-fang-fa-zong-shu-ji-jian-dan-ju-li.html">学术论文中常见研究方法综述及简单举例 (1)</a></li><li><a href="./tag/xue-zhu-yan-jiu-zhi-chi-gong-ju-fen-lei-yu-wen-xian-huo-qu-fang-fa.html">学术研究支持工具分类与文献获取方法 (1)</a></li><li><a href="./tag/yi-xue-chang-jing-yong-duo-mo-tai-da-mo-xing-you-ke-neng-wan-quan-bu-kao-pu-si-tan-fu-da-xue-li-fei-fei-tuan-dui-xin-yan-jiu-jie-kai-duo-mo-tai-aide-hai-shi-shen-lou-xiao-ying.html">医学场景用多模态大模型有可能完全不靠谱斯坦福大学李飞飞团队新研究揭开多模态AI的海市蜃楼效应 (1)</a></li><li><a href="./tag/yi-zhi-tiny-fastboot-scriptdao-macosban-ben-gei-motorola-g100guo-xing-ban-ben-xt2533-4shua-ru-g6.html">移植Tiny-Fastboot-Script到macOS版本给Motorola-G100国行版本XT2533-4刷入G6 (1)</a></li><li><a href="./tag/yin-pin.html">音频 (1)</a></li><li><a href="./tag/ying-pan.html">硬盘 (1)</a></li><li><a href="./tag/yong-wan-quan-kai-yuan-mian-fei-de-ben-di-mo-xing-lai-dui-shi-pin-zhong-de-yin-pin-jin-xing-jiang-zao.html">用完全开源免费的本地模型来对视频中的音频进行降噪 (1)</a></li><li><a href="./tag/you-xi-shi-zen-yao-yun-xing-de-ru-guo-zhi-zhi-dao-chong-zhi-shi-ji-shang-bing-bu-yi-ding-neng-bian-qiang.html">游戏是怎么运行的如果只知道充值实际上并不一定能变强 (1)</a></li><li><a href="./tag/zhe-ji-tian-wo-chuan-yue-liao-shi-jian.html">这几天我穿越了时间 (1)</a></li><li><a href="./tag/zhe-xue.html">哲学 (1)</a></li><li><a href="./tag/zhen-dui-da-mo-xing-he-zhi-neng-ti-xin-shou-kai-fa-zhe-de-linuxhuan-jing-pei-zhi-zhi-nan.html">针对大模型和智能体新手开发者的Linux环境配置指南 (1)</a></li><li><a href="./tag/zhi-ce-flops-huan-bu-gou-si-ge-jing-dian-cpu-ce-shi-ji-zhun.html">只测-FLOPS-还不够四个经典-CPU-测试基准 (1)</a></li><li><a href="./tag/zhi-neng-ti.html">智能体 (1)</a></li><li><a href="./tag/zhi-shi-wai-zhi.html">知识外置 (1)</a></li><li><a href="./tag/zhi-zhen-yue-jie-cyu-yan-gei-ni-de-zi-you-yi-ji-tou-tou-mai-de-lei.html">指针越界C语言给你的自由以及偷偷埋的雷 (1)</a></li><li><a href="./tag/zhong-xin-shen-shi-si-wei-lian-wei-bi-shi-zhen-si-wei-yi-pian-icml-2026-lun-wen-de-lun-zheng-yu-qi-shi.html">重新审视-思维链未必是真思维-一篇ICML-2026-论文的论证与启示 (1)</a></li><li><a href="./tag/zhuang-ji.html">装机 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skills-he-ji-geng-xin-cong-6-ge-ji-neng-dao-22-ge-yi-ji-bi-xu-cheng-ren-de-wen-ti.html">自用的-OpenCode-Skills-合集更新从-6-个技能到-22-个以及必须承认的问题 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skillzai-ci-geng-xin-22ge-skillszhong-xin-da-mo-liao-yi-bian-shun-lu-jie-jue-liao-opencodedao-zhi-zheng-ge-tu-xing-jie-mian-beng-kui.html">自用的OpenCode-Skill再次更新22个skills重新打磨了一遍顺路解决了OpenCode导致整个图形界面崩溃 (1)</a></li><li><a href="./tag/zluda-he-macos-shang-de-cuda-jian-rong-meng-xiang.html">ZLUDA-和-macOS-上的-CUDA-兼容梦想 (1)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="./index.html" data-i18n="blog">博客</a> › <a href="category/math.html">Math</a> › 滤波方法：从移动平均到粒子滤波
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >滤波方法：从移动平均到粒子滤波</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep" data-i18n="post_in">发布于</span>
+        <abbr class="date" title="2026-06-30T00:00:00+08:00"> 
+            <a href="./archive/2026/Jun/index.html">Tue 30 June 2026 </a>
+        </abbr>
+        <span class="meta-prep"> | <span data-i18n="tags_label">标签</span></span>
+                <a class="tag-badge" href="./tag/filtering.html">filtering</a>
+                <a class="tag-badge" href="./tag/signal-processing.html">signal-processing</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <h2>滤波，在最广泛的意义上，是从含噪声的观测序列中估计感兴趣信号的过程。这个概念横跨信号处理、控制理论、时间序列分析和统计学，但核心目标高度统一：从杂乱无章的测量值里还原出隐藏其后的真实状态或趋势。</h2>
+<p>在进入具体的滤波方法之前，需要先建立几个基本概念。</p>
+<h3>随机变量与期望</h3>
+<p>随机变量是取值不确定的量。它的期望值  刻画了"平均来说会取到什么值"。当样本量逐渐增大时，样本均值会收敛到期望值——这是大数定律告诉我们的。</p>
+<p><img alt="Image" src="../images/b04e68afd84f7022.gif"></p>
+<p><img alt="Image" src="../images/b04e68afd84f7022.gif"></p>
+<p>图 1. 随机变量与期望。从  中逐步采样，灰色点为样本值，红色线为累计均值，最终收敛到 。</p>
+<h3>方差与协方差</h3>
+<p>方差衡量单个随机变量的离散程度——偏离均值的幅度有多大。协方差更进一步，衡量两个随机变量之间是否同步变化。关键在于协方差要求两个变量是成对观测的：对同一个索引 ，我们同时记录了  和 。</p>
+<p>如果  大于均值时  也倾向于大于均值，乘积为正，协方差为正——正相关；若方向相反则为负相关；若无同步趋势，正负乘积互相抵消，协方差趋近于零。</p>
+<p><img alt="Image" src="../images/3f98b81bb40a41dc.gif"></p>
+<p>图 2. 协方差三维总览。X 轴为共享自变量，Y 轴为与 X 负相关的变量，Z 轴为与 X 正相关的变量。红色投影至 X-Y 平面，绿色投影至 X-Z 平面，橙色投影至 Y-Z 平面。</p>
+<p><img alt="Image" src="../images/f99ce628e6a5c9ee.gif"></p>
+<p>图 3. X-Y 平面：负协方差逐步构建。红点  为成对观测，黑色趋势线斜率为负—— 增大时  倾向于减小。</p>
+<p><img alt="Image" src="../images/de083fb7d4628bbd.gif"></p>
+<p>图 4. X-Z 平面：正协方差逐步构建。绿点  为成对观测，趋势线斜率为正—— 增大时  也倾向于增大。</p>
+<p><img alt="Image" src="../images/9bc77abdf09c7618.gif"></p>
+<p>图 5. Y-Z 平面：协方差接近零。尽管  与  负相关、 与  正相关，但  和  之间却没有直接的线性关系——趋势线几乎水平。这说明协方差只反映线性相关性，两个变量可以分别与第三个变量相关但彼此不相关。</p>
+<h3>协方差矩阵</h3>
+<p>对于  维随机向量，协方差矩阵  是一个  矩阵，第  元素为 。对角元素是各分量自身的方差，非对角元素是分量之间的协方差。协方差矩阵是对称半正定的，完整描述了随机向量的二阶统计特性。在卡尔曼滤波中，每一个状态估计  都伴随一个误差协方差矩阵 ——它量化了"我们对当前估计有多不确定"。</p>
+<p><img alt="Image" src="../images/1a7561a5d26cb454.gif"></p>
+<p>图 6. 协方差矩阵的几何意义。五种不同的协方差矩阵对应五种不同形状的二维高斯分布。对角矩阵产生圆形分布，非对角元素非零时椭圆倾斜，方差大的方向椭圆更长。红色椭圆为 2σ 置信区域。</p>
+<h3>高斯分布</h3>
+<p>高斯分布的概率密度函数为熟悉的钟形曲线：。多维形式记作 。</p>
+<p>高斯分布在卡尔曼滤波中的核心地位来自两条关键性质。第一，高斯分布经过线性变换后仍然是高斯分布——若 ，则 。第二，两个高斯分布的乘积归一化后仍是高斯分布。预测步对应线性变换（保持高斯性质），更新步对应先验与似然的乘积（保持高斯性质）。这两个性质加在一起，意味着卡尔曼滤波器永远不需要离开高斯分布的框架。</p>
+<p><img alt="Image" src="../images/1ed8e16f3f8f12f5.gif"></p>
+<p>图 7. 高斯分布的基本形状。 控制中心位置（左右平移）， 控制分布宽度（胖瘦），曲线下总面积始终为 1。</p>
+<p><img alt="Image" src="../images/e3eb1cb4a524fa37.gif"></p>
+<p>图 8. 线性变换保持高斯性质。左图为原始 ，右图是经过  变换后的分布。随着参数变化，钟形曲线变宽或变窄、左右移动，但始终保持高斯形状。</p>
+<p><img alt="Image" src="../images/e00e58859df9d62c.gif"></p>
+<p>图 9. 两个高斯分布的乘积。蓝色是先验 ，绿色是似然 ，红色是乘积（归一化后），黑色点线是高斯拟合。两者完美重合，证明乘积仍然是高斯分布。注意乘积的方差比两者都小——这意味着融合两个信息源之后，不确定性减小了。</p>
+<h3>傅里叶变换</h3>
+<p>傅里叶变换的核心思想可以用一句话概括：任何信号都可以拆成一系列正弦波的叠加。每个正弦波有固定的频率和振幅——傅里叶变换就是找出这些频率分量各有多强。</p>
+<p>离散傅里叶变换（DFT）的公式为 。直观来说，对每个频率 ，把信号和该频率的正弦波做内积，结果  就是该频率分量的强度。维纳滤波在频域中设计最优滤波器，需要用到傅里叶变换。</p>
+<p><img alt="Image" src="../images/0771a7bcaff146cc.gif"></p>
+<p>图 10. 两个独立的正弦波。蓝色为低频波（4 个周期，振幅 1.0），绿色为高频波（16 个周期，振幅 0.4）。</p>
+<p><img alt="Image" src="../images/52e948b20ef449c2.gif"></p>
+<p>图 11. 合成信号。将图 10 的两个正弦波逐点相加，得到一个看起来不太规则的信号（红色粗线）。两个频率分量在时域上混合在一起，肉眼很难分辨出各自的存在。</p>
+<p><img alt="Image" src="../images/c57444b4936e2086.gif"></p>
+<p>图 12. 傅里叶频谱。对图 11 的合成信号做傅里叶变换，频谱在频率 4 和 16 处出现两个尖锐的峰值。低频峰值对应振幅 1.0（高），高频峰值对应振幅 0.4（低）——精确匹配了图 10 中的两个原始频率分量。傅里叶变换把混合信号"拆"回了它本来的组成部分。</p>
+<h3>Python 工具</h3>
+<p>本系列涉及的主要 Python 库和运算：</p>
+<div class="highlight"><pre><span></span><code><span class="n">import</span><span class="w"> </span><span class="n">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">np</span>
+
+<span class="c1"># 矩阵运算</span>
+<span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">B</span><span class="p">;</span><span class="w">  </span><span class="n">At</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">;</span><span class="w">  </span><span class="n">Ainv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">vals</span><span class="p">,</span><span class="w"> </span><span class="n">vecs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">P</span><span class="p">)</span><span class="w">      </span><span class="c1"># 对称矩阵特征值分解</span>
+<span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">P</span><span class="p">)</span><span class="w">           </span><span class="c1"># Cholesky 分解</span>
+<span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span><span class="w"> </span><span class="n">cov</span><span class="p">)</span><span class="w">  </span><span class="c1"># 多元高斯采样</span>
+
+<span class="c1"># 信号处理</span>
+<span class="n">est</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">W</span><span class="p">)</span><span class="o">/</span><span class="n">W</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)</span><span class="w">  </span><span class="c1"># 卷积</span>
+<span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfft</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">=</span><span class="n">N</span><span class="p">)</span><span class="w">     </span><span class="c1"># 傅里叶正逆变换</span>
+</code></pre></div>
+
+<p><img alt="Image" src="../images/97897e50106d9dfe.gif"></p>
+<p>图 13. Python 工具综合演示。NumPy 生成模拟曲线数据，矩阵运算计算协方差，Matplotlib 绘制轨迹和散点，Ellipse 绘制不确定性椭圆。红色椭圆的大小、形状和旋转角度随位置和时间动态变化——这正是卡尔曼滤波器每个时刻输出的可视化：不仅有状态估计，还有估计的不确定性。</p>
+<hr>
+<h2>一、移动平均滤波</h2>
+<p>有了期望和方差的直观概念之后，最简单的滤波想法就是取平均——用多次观测的均值代替单次含噪声的读数，自然更接近真实值。</p>
+<p>移动平均的公式极其简洁：。唯一的参数是窗口宽度 。 选大了，输出平滑但滞后于真实变化； 选小了，反应快但残留噪声多。这种平滑度与响应速度之间的基本权衡，贯穿此后所有的滤波方法。</p>
+<p>从频域看，移动平均是一个有限脉冲响应（FIR）滤波器，频率响应 。 是 Dirichlet 核，在主瓣之外有衰减旁瓣——所以它抑制高频噪声的同时会引入振铃。</p>
+<p><img alt="Image" src="../images/1586a1f78bf1b90b.gif"></p>
+<p>图 14. 移动平均滤波。窗口宽度从 1 逐步增加到 30，滤波输出从小锯齿到大平滑的变化清晰可见。窗口越宽，曲线越平滑，但响应阶跃变化的速度也越慢。</p>
+<div class="highlight"><pre><span></span><code>import numpy as np
+
+def moving_average(obs, window):
+    return np.convolve(obs, np.ones(window) / window, mode=&#39;same&#39;)
+</code></pre></div>
+
+<p>移动平均的局限很明显。窗口内所有观测权重相等，没有理由认为一个月前的数据和昨天的数据同样重要；需要存储整个窗口的历史数据；对趋势信号的跟踪天然滞后。这三个局限中，前两个可以在不牺牲简洁性的前提下同时解决——这就是指数平滑。</p>
+<hr>
+<h2>二、指数平滑滤波</h2>
+<p>移动平均给窗口内每个观测相等的权重 ，窗口外的权重为零——这是一个矩形窗。指数平滑把这个矩形权重函数换成指数衰减的权重：越近的观测权重越大，越远的观测权重越小，衰减到无穷远。最关键的是，这个加权不需要存储整段历史。</p>
+<p>递推公式极其优雅：。将其展开可以清楚地看到指数衰减的权重结构：。参数  是平滑因子：接近 1 则紧密追踪新数据，接近 0 则强平滑旧趋势。</p>
+<p>指数平滑在频域上是一个单极点低通滤波器，幅度响应 。与移动平均的多旁瓣结构完全不同，指数平滑的幅频曲线是平滑衰减的单峰，没有振铃效应。它在时间序列预测中被广泛使用——Holt-Winters 方法就是它的多参数推广。</p>
+<p><img alt="Image" src="../images/db9ec977702a02e4.gif"></p>
+<p>图 15. 指数平滑滤波。 从 0.02 连续变化到 0.98——左端几乎是水平线（极度平滑），右端几乎贴着观测点走（紧密追踪）。寻找合适的  就是在平滑度和反应速度之间折中。</p>
+<div class="highlight"><pre><span></span><code><span class="n">import</span><span class="w"> </span><span class="n">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">np</span>
+
+<span class="n">def</span><span class="w"> </span><span class="n">exponential_smoothing</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">alpha</span><span class="p">)</span><span class="err">:</span>
+<span class="w">    </span><span class="n">est</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">obs</span><span class="p">);</span><span class="w">  </span><span class="n">est</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obs</span><span class="o">[</span><span class="n">0</span><span class="o">]</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">obs</span><span class="p">))</span><span class="err">:</span>
+<span class="w">        </span><span class="n">est</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">obs</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">alpha</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">est</span><span class="o">[</span><span class="n">k-1</span><span class="o">]</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">est</span>
+</code></pre></div>
+
+<p>与移动平均相比，指数平滑在权重分配和存储效率上有了实质性进步。但它和移动平均共享同一个根本缺陷：它们都是单变量滤波器，只能处理标量信号，无法处理具有内部动力学的多维系统。当我们不仅需要估计当前位置，还需要估计速度、加速度等多个互相耦合的状态分量时，需要一种全新的思路。这就是维纳滤波和卡尔曼滤波的出发点。</p>
+<hr>
+<h2>三、维纳滤波</h2>
+<p>移动平均和指数平滑的滤波器参数——窗口宽度  或平滑因子 ——是完全靠经验调的，没有任何"最优"的保证。维纳滤波是历史上第一个在统计意义上最优的线性滤波器。它的核心洞察是：如果知道了信号和噪声各自的功率谱密度，就可以精确地算出使均方误差最小的滤波器传递函数。</p>
+<p>在频域中，非因果维纳滤波器的传递函数有着极其简洁的形式：</p>
+<p>这个公式的直觉非常清晰。在信噪比高的频率分量上（），——让信号无损通过。在信噪比低的频率分量上（），——完全抑制。维纳滤波器在每一个频率上独立地做信噪比加权，把滤波问题变成了一个简单的逐频率除法。</p>
+<p><img alt="Image" src="../images/4d8d774af74f4b35.gif"></p>
+<p>图 16. 维纳滤波过程。上半部分在时域中展示去噪效果，下半部分在频域中展示功率谱和传递函数 。高频区域的噪声功率大于信号功率， 压低这些频率分量；低频区域信号占主导， 接近 1 将其保留。</p>
+<div class="highlight"><pre><span></span><code><span class="n">import</span><span class="w"> </span><span class="n">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">np</span>
+
+<span class="n">def</span><span class="w"> </span><span class="n">wiener_filter</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">signal_psd</span><span class="p">,</span><span class="w"> </span><span class="n">noise_psd</span><span class="p">):</span>
+<span class="w">    </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+<span class="w">    </span><span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">signal_psd</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">signal_psd</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">noise_psd</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1e-10</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfft</span><span class="p">(</span><span class="n">X</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">=</span><span class="n">len</span><span class="p">(</span><span class="n">obs</span><span class="p">))</span>
+</code></pre></div>
+
+<p>维纳滤波的三个致命缺陷也恰恰来自它的频域设计思路。它要求信号和噪声是平稳随机过程——统计特性不随时间改变，但现实中的信号往往包含趋势和突变。它要求批量处理整段数据，无法实时递推。它只能处理标量信号，无法描述多维状态之间的耦合关系。这三个局限引出了卡尔曼滤波的革命性突破——用状态空间模型彻底取代频域模型。</p>
+<hr>
+<h2>四、卡尔曼滤波</h2>
+<p>1960 年，鲁道夫·卡尔曼用一种完全不同的问题表述方式解决了维纳滤波的三个局限。他不把滤波看作频域中的最优传递函数设计，而是把它描述为时域中的状态递推估计。系统在每一个时刻有一个不可直接观测的状态 ，我们只能获得含噪声的观测 。已知状态如何随时间演化（状态方程），已知观测如何从状态产生（观测方程），任务是根据所有历史观测给出当前状态的最优估计。</p>
+<p>状态空间模型由两个方程组成：</p>
+<p>是状态转移矩阵，描述系统在没有噪声时如何从上一状态演化到当前状态。 是观测矩阵，描述状态如何映射到测量空间。过程噪声  和观测噪声  是独立的高斯白噪声。</p>
+<p>算法以两步递推方式运行。预测步按系统模型将上一时刻的后验估计向前推演，得到当前时刻的先验估计：</p>
+<p>更新步用当前观测修正先验估计，得到后验估计：</p>
+<p>是卡尔曼增益矩阵，是整个滤波器的核心。以标量情况为例，——当观测噪声  很大时 （不相信观测），当  很小时 （充分相信观测）。卡尔曼增益在每一步自动调节预测与观测之间的信任权重。</p>
+<p>从贝叶斯观点看，预测步给出了先验分布 ，更新步用贝叶斯公式将先验与似然  相乘得到后验分布 。在高斯假设下，后验仍然是高斯分布，其均值和协方差恰好由卡尔曼方程给出——这是线性高斯系统下的精确贝叶斯递推。</p>
+<p><img alt="Image" src="../images/cdb3eacc2e517f67.gif"></p>
+<p>图 17. 卡尔曼滤波追踪。黑色为真实轨迹，红色为滤波估计，红色椭圆为误差协方差矩阵的 2σ 置信区域。随着观测不断到达，估计轨迹逐步贴合真实轨迹，椭圆逐渐缩小。</p>
+<div class="highlight"><pre><span></span><code><span class="n">import</span><span class="w"> </span><span class="n">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">np</span>
+
+<span class="n">def</span><span class="w"> </span><span class="n">kalman_filter</span><span class="p">(</span><span class="n">z_obs</span><span class="p">,</span><span class="w"> </span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">P0</span><span class="p">)</span><span class="err">:</span>
+<span class="w">    </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">z_obs</span><span class="p">),</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">x_est</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">));</span><span class="w">  </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">P0</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="err">:</span>
+<span class="w">        </span><span class="n">xp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">  </span><span class="n">Pp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">F</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Q</span>
+<span class="w">        </span><span class="n">S</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">Pp</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">H</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R</span><span class="p">;</span><span class="w">  </span><span class="n">K</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pp</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">H</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">inv</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="p">(</span><span class="n">z_obs</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">xp</span><span class="p">)</span>
+<span class="w">        </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">H</span><span class="p">)</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">Pp</span>
+<span class="w">        </span><span class="n">x_est</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x_est</span>
+</code></pre></div>
+
+<p>卡尔曼滤波在线性高斯假设下是最优的——它给出了最小均方误差估计。但现实中的系统往往是非线性的：雷达测量的是距离和方位角（观测的非线性），飞行器的动力学涉及旋转（状态转移的非线性）。一旦离开线性的框架，矩阵乘法就不再适用。最直接的推广思路是在当前估计点把非线性函数做一阶泰勒展开——这就是扩展卡尔曼滤波。</p>
+<hr>
+<h2>五、扩展卡尔曼滤波（EKF）</h2>
+<p>标准卡尔曼滤波的预测步是 ，一个矩阵乘法。EKF 把这个线性变换替换为非线性函数的直接求值 。矩阵只在协方差传播中出现——用来近似描述不确定性如何通过非线性函数传播。</p>
+<p>设系统为 ，。EKF 在每一时刻计算两个雅可比矩阵： 是状态转移函数  对状态向量的偏导数矩阵， 是观测函数  对状态向量的偏导数矩阵。这两个矩阵是多元微积分中"导数"概念的推广——在展开点附近给出非线性函数的最佳线性近似。</p>
+<p>预测步变为 ，协方差仍用雅可比传播：。更新步中残差变为 ， 是观测函数的雅可比矩阵。</p>
+<p><img alt="Image" src="../images/63cd630fd8980f7a.gif"></p>
+<p>图 18. EKF 与线性 KF 的对比。目标做圆周运动（非线性）。线性 KF（蓝色虚线）使用匀速直线模型来近似，轨迹逐渐偏离圆弧。EKF（红色实线）在每个时刻用非线性转弯模型和雅可比矩阵来预测，轨迹紧密贴合真实圆周。</p>
+<div class="highlight"><pre><span></span><code><span class="n">import</span><span class="w"> </span><span class="n">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">np</span>
+
+<span class="n">def</span><span class="w"> </span><span class="n">ekf</span><span class="p">(</span><span class="n">z_obs</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">F_jac</span><span class="p">,</span><span class="w"> </span><span class="n">H_jac</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">P0</span><span class="p">)</span><span class="err">:</span>
+<span class="w">    </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">z_obs</span><span class="p">),</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">x_est</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">));</span><span class="w">  </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">P0</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="err">:</span>
+<span class="w">        </span><span class="n">F</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">F_jac</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w">  </span><span class="n">xp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w">  </span><span class="n">Pp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">F</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Q</span>
+<span class="w">        </span><span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H_jac</span><span class="p">(</span><span class="n">xp</span><span class="p">);</span><span class="w">  </span><span class="n">S</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">Pp</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">H</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">R</span>
+<span class="w">        </span><span class="n">K</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pp</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">H</span><span class="p">.</span><span class="n">T</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">inv</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="p">(</span><span class="n">z_obs</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">h</span><span class="p">(</span><span class="n">xp</span><span class="p">))</span>
+<span class="w">        </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">H</span><span class="p">)</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">Pp</span>
+<span class="w">        </span><span class="n">x_est</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x_est</span>
+</code></pre></div>
+
+<p>EKF 把卡尔曼滤波从线性成功推广到了非线性，至今仍是工程中最广泛使用的非线性滤波器。但它的核心手段——一阶泰勒展开——有两个根本缺陷：强非线性下截断误差大，且要求函数处处可微。如果不用导数来近似函数，而是用采样点来近似分布——这就是无迹卡尔曼滤波的思路。</p>
+<hr>
+<h2>六、无迹卡尔曼滤波（UKF）</h2>
+<p>EKF 近似的是函数——用切线代替曲线。UKF 近似的是分布——用一组精心选取的采样点（西格玛点）代替整个高斯分布，让这些点各自独立地通过真实的非线性函数，然后用变换后的点集重建新的均值和协方差。由于没有线性化步骤，就不需要计算雅可比矩阵；由于西格玛点保留了分布的三阶矩信息，UKF 在强非线性下的精度通常优于 EKF。</p>
+<p>对于  维状态，UKF 生成  个西格玛点：</p>
+<p>其中  是协方差矩阵  的 Cholesky 分解的第  列， 是控制采样点扩散范围的尺度参数。</p>
+<p>预测步：将西格玛点通过非线性函数 ，加权求和得到先验估计 ，先验协方差由各点偏离的加权外积加上  得到。</p>
+<p>更新步：将西格玛点通过非线性函数 ，计算预测观测 、观测协方差 、交叉协方差 ，然后  完成更新。</p>
+<p><img alt="Image" src="../images/154e08b6820d0571.gif"></p>
+<p>图 19. UKF 与 EKF 的对比。在相同的非线性转弯追踪场景中，UKF（红色）相比 EKF（蓝色虚线）更紧密地附着在真实轨迹（黑色）上。UKF 通过 9 个西格玛点传播分布，避免了 EKF 中雅可比矩阵线性化引入的截断误差。</p>
+<div class="highlight"><pre><span></span><code><span class="n">import</span><span class="w"> </span><span class="n">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">np</span>
+<span class="k">from</span><span class="w"> </span><span class="n">scipy</span><span class="p">.</span><span class="n">linalg</span><span class="w"> </span><span class="n">import</span><span class="w"> </span><span class="n">cholesky</span><span class="p">,</span><span class="w"> </span><span class="n">inv</span>
+
+<span class="n">def</span><span class="w"> </span><span class="n">ukf</span><span class="p">(</span><span class="n">z_obs</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">P0</span><span class="p">,</span><span class="w"> </span><span class="n">alpha</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span><span class="w"> </span><span class="n">kappa</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="err">:</span>
+<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">x0</span><span class="p">);</span><span class="w">  </span><span class="n">lam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alpha</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kappa</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">n</span>
+<span class="w">    </span><span class="n">wm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="k">full</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">lam</span><span class="p">)));</span><span class="w">  </span><span class="n">wm</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lam</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">lam</span><span class="p">)</span>
+<span class="w">    </span><span class="n">wc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wm</span><span class="p">.</span><span class="n">copy</span><span class="p">();</span><span class="w">  </span><span class="n">wc</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">alpha</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">z_obs</span><span class="p">);</span><span class="w">  </span><span class="n">x_est</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">));</span><span class="w">  </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">P0</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="err">:</span>
+<span class="w">        </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cholesky</span><span class="p">((</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lam</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1e-6</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="w"> </span><span class="nf">lower</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<span class="w">        </span><span class="n">sig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">));</span><span class="w">  </span><span class="n">sig</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="err">:</span>
+<span class="w">            </span><span class="n">sig</span><span class="o">[</span><span class="n">i+1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">L</span><span class="o">[</span><span class="n">:, i</span><span class="o">]</span><span class="p">;</span><span class="w">  </span><span class="n">sig</span><span class="o">[</span><span class="n">i+1+n</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">L</span><span class="o">[</span><span class="n">:, i</span><span class="o">]</span>
+<span class="w">        </span><span class="n">f_sig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="k">array</span><span class="p">(</span><span class="o">[</span><span class="n">f(s) for s in sig</span><span class="o">]</span><span class="p">)</span>
+<span class="w">        </span><span class="n">xp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">wm</span><span class="o">[</span><span class="n">:, None</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f_sig</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Pp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">wc</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="k">outer</span><span class="p">(</span><span class="n">f_sig</span><span class="o">[</span><span class="n">i</span><span class="o">]-</span><span class="n">xp</span><span class="p">,</span><span class="w"> </span><span class="n">f_sig</span><span class="o">[</span><span class="n">i</span><span class="o">]-</span><span class="n">xp</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="w">        </span><span class="n">h_sig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="k">array</span><span class="p">(</span><span class="o">[</span><span class="n">h(s) for s in sig</span><span class="o">]</span><span class="p">)</span>
+<span class="w">        </span><span class="n">zp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">wm</span><span class="o">[</span><span class="n">:, None</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">h_sig</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Pzz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">wc</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="k">outer</span><span class="p">(</span><span class="n">h_sig</span><span class="o">[</span><span class="n">i</span><span class="o">]-</span><span class="n">zp</span><span class="p">,</span><span class="w"> </span><span class="n">h_sig</span><span class="o">[</span><span class="n">i</span><span class="o">]-</span><span class="n">zp</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="w">        </span><span class="n">Pxz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">wc</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="k">outer</span><span class="p">(</span><span class="n">f_sig</span><span class="o">[</span><span class="n">i</span><span class="o">]-</span><span class="n">xp</span><span class="p">,</span><span class="w"> </span><span class="n">h_sig</span><span class="o">[</span><span class="n">i</span><span class="o">]-</span><span class="n">zp</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="w">        </span><span class="n">K</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pxz</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">inv</span><span class="p">(</span><span class="n">Pzz</span><span class="p">);</span><span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="p">(</span><span class="n">z_obs</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">zp</span><span class="p">)</span>
+<span class="w">        </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">Pzz</span><span class="w"> </span><span class="err">@</span><span class="w"> </span><span class="n">K</span><span class="p">.</span><span class="n">T</span><span class="p">;</span><span class="w">  </span><span class="n">x_est</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x_est</span>
+</code></pre></div>
+
+<p>UKF 比 EKF 精度更高、不需要雅可比矩阵、可处理不可微函数。但 EKF 和 UKF 共享一个根本局限：它们都假设后验分布可以用一个高斯分布来近似。一旦后验是多峰的、重尾的、或者高度非高斯的，这个假设就失效了。要彻底放弃高斯假设，需要一种完全不同的方法——用大量随机样本来表示任意分布。</p>
+<hr>
+<h2>七、粒子滤波</h2>
+<p>EKF 用雅可比矩阵近似函数，UKF 用西格玛点近似高斯分布的变换。两者都依赖同一个假设：后验是高斯分布。粒子滤波完全放弃了这个假设。它用  个带权重的随机样本——粒子——直接表示后验分布，不论这个分布是什么形状都无所谓。这是所有滤波方法中最通用的一种。</p>
+<p>粒子滤波的核心近似是 。当粒子数  时，这个近似在理论上收敛到真实的贝叶斯后验。</p>
+<p>每一步递推包含三个操作。重要性采样：从提议分布中抽取新的粒子——最简方案是直接按状态转移分布推进每一颗粒子并加过程噪声。权重更新：根据观测似然计算每颗粒子的权重——当前观测下粒子状态越合理权重越高。重采样：依权重随机复制高权重粒子、丢弃低权重粒子，防止大部分权重集中在少数粒子上（粒子退化）。</p>
+<p><img alt="Image" src="../images/0d27a44fc363f879.gif"></p>
+<p>图 20. 粒子滤波追踪。500 个粒子（蓝色散点）在仅有方位角观测的条件下追踪一个运动目标。粒子云从初始的广泛散布逐步收敛到真实轨迹附近，红色线为加权估计。</p>
+<div class="highlight"><pre><span></span><code><span class="n">import</span><span class="w"> </span><span class="n">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">np</span>
+
+<span class="n">def</span><span class="w"> </span><span class="n">particle_filter</span><span class="p">(</span><span class="n">z_obs</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="p">,</span><span class="w"> </span><span class="n">R_std</span><span class="p">,</span><span class="w"> </span><span class="n">n_particles</span><span class="p">,</span><span class="w"> </span><span class="n">state_dim</span><span class="p">)</span><span class="err">:</span>
+<span class="w">    </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">z_obs</span><span class="p">)</span>
+<span class="w">    </span><span class="n">particles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_particles</span><span class="p">,</span><span class="w"> </span><span class="n">state_dim</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">    </span><span class="n">weights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_particles</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">n_particles</span>
+<span class="w">    </span><span class="n">x_est</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">state_dim</span><span class="p">))</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="err">:</span>
+<span class="w">        </span><span class="n">particles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="k">array</span><span class="p">(</span><span class="o">[</span><span class="n">f(p) + np.random.multivariate_normal(np.zeros(state_dim), Q)</span>
+<span class="n">                              for p in particles</span><span class="o">]</span><span class="p">)</span>
+<span class="w">        </span><span class="n">z_pred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="k">array</span><span class="p">(</span><span class="o">[</span><span class="n">h(p) for p in particles</span><span class="o">]</span><span class="p">)</span>
+<span class="w">        </span><span class="n">innov</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z_obs</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">z_pred</span>
+<span class="w">        </span><span class="n">weights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="nf">sum</span><span class="p">((</span><span class="n">innov</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">R_std</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span>
+<span class="w">                        </span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="k">if</span><span class="w"> </span><span class="n">innov</span><span class="p">.</span><span class="n">ndim</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="n">else0</span><span class="p">))</span>
+<span class="w">        </span><span class="n">weights</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1e-300</span>
+<span class="w">        </span><span class="n">x_est</span><span class="o">[</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="nf">sum</span><span class="p">(</span><span class="n">weights</span><span class="o">[</span><span class="n">:, None</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">particles</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">cdf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">weights</span><span class="p">);</span><span class="w">  </span><span class="n">cdf</span><span class="o">[</span><span class="n">-1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="w">        </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="n">n_particles</span><span class="p">)</span>
+<span class="w">        </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">cdf</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_particles</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">n_particles</span><span class="p">)</span>
+<span class="w">        </span><span class="n">particles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">particles</span><span class="o">[</span><span class="n">idx</span><span class="o">]</span><span class="p">;</span><span class="w">  </span><span class="n">weights</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n_particles</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x_est</span>
+</code></pre></div>
+
+<p>粒子滤波的通用性是有代价的：计算量显著大于卡尔曼类方法，且在高维状态空间中粒子数需要呈指数增长才能维持表示精度——维数灾难。实际应用中，粒子滤波在 4 维以下的状态空间表现良好，但在 10 维以上通常极其昂贵。</p>
+<hr>
+<h2>七种方法综合对比</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>线性要求</th>
+<th>高斯要求</th>
+<th>递推</th>
+<th>最优性</th>
+<th>代价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>移动平均</td>
+<td>—</td>
+<td>—</td>
+<td>近似</td>
+<td>仅常数信号</td>
+<td>极低</td>
+</tr>
+<tr>
+<td>指数平滑</td>
+<td>—</td>
+<td>—</td>
+<td>是</td>
+<td>仅常数信号</td>
+<td>极低</td>
+</tr>
+<tr>
+<td>维纳滤波</td>
+<td>线性时不变</td>
+<td>平稳</td>
+<td>否</td>
+<td>平稳信号最优</td>
+<td>中</td>
+</tr>
+<tr>
+<td>卡尔曼滤波</td>
+<td>线性</td>
+<td>高斯</td>
+<td>是</td>
+<td>线性高斯最优</td>
+<td>低</td>
+</tr>
+<tr>
+<td>EKF</td>
+<td>局部可微</td>
+<td>近似高斯</td>
+<td>是</td>
+<td>一阶近似</td>
+<td>中</td>
+</tr>
+<tr>
+<td>UKF</td>
+<td>—</td>
+<td>近似高斯</td>
+<td>是</td>
+<td>三阶近似</td>
+<td>中</td>
+</tr>
+<tr>
+<td>粒子滤波</td>
+<td>—</td>
+<td>—</td>
+<td>是</td>
+<td>渐近最优</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+<p>从移动平均到粒子滤波，本质上是一条逐步放宽假设、提升精度的演化路径。移动平均不需要任何统计模型——给出一个窗口宽度就能跑。指数平滑用一个标量状态递推，存储和计算几乎免费。维纳滤波第一次引入统计最优性，但绑定在频域和平稳假设上。卡尔曼滤波用状态空间模型实现时域递推，在线性高斯框架下是最优的。EKF 和 UKF 把卡尔曼框架推广到非线性系统：一个近似函数，一个近似分布。粒子滤波在最极端的情况下也成立——没有任何线性或高斯的假设，代价是计算量。</p>
+<p>在实践中选择哪种方法，取决于问题的线性程度、噪声性质、实时性要求和可用计算资源。如果系统近似线性高斯，卡尔曼滤波几乎总是首选。有中等非线性时，EKF 足够且实现简单。强非线性且状态维度不高时，UKF 更精准。噪声严重非高斯或后验本身复杂时，粒子滤波是唯一可靠的选择——前提是算得起。</p>
+<p>预览时标签不可点</p>
+<p>Close</p>
+<p>更多</p>
+<p>Name cleared</p>
+<p><img alt="赞赏二维码" src=""><strong>微信扫一扫赞赏作者</strong></p>
+<p>Like the AuthorOther Amount</p>
+<p>赞赏后展示我的头像</p>
+<p>作品</p>
+<p>暂无作品</p>
+<p>Like the Author</p>
+<p>Other Amount</p>
+<p>¥</p>
+<p>最低赞赏 ¥0</p>
+<p>OK</p>
+<p>Back</p>
+<p><strong>Other Amount</strong></p>
+<p>更多</p>
+<p>赞赏金额</p>
+<p>¥</p>
+<p>最低赞赏 ¥0</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>0</p>
+<p>.</p>
+<p>基础知识 · 目录</p>
+<h1>基础知识</h1>
+<p>上一篇你的电脑每秒能做多少次浮点运算？—— FLOPS 的故事下一篇学习这件事，得先让孩子不恨它</p>
+<p>Close</p>
+<p>更多</p>
+<h1></h1>
+<p>搜索「」网络结果</p>
+<p>Close</p>
+<p><strong>调整当前正文文字大小</strong></p>
+<p>更多</p>
+<p>100%</p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep" data-i18n="category_label">分类</span>:
+        <abbr class="category">
+            <a href="./category/math.html">Math</a>
+        </abbr>
+       </footer>
+    
+</section>
+
+<section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
+    <script src="https://giscus.app/client.js"
+        data-repo="cycleuser/cycleuser.github.io"
+        data-repo-id="R_kgDOL4NKYA"
+        data-category="General"
+        data-category-id="DIC_kwDOL4NKYM4DBK3X"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    function update() {
+        var t = giscusTheme(getTheme());
+        var s = document.querySelector('script[src*="giscus"]');
+        if (s) s.setAttribute('data-theme', t);
+        sendTheme(t);
+    }
+    // 初始设置
+    var s = document.querySelector('script[src*="giscus"]');
+    if (s) s.setAttribute('data-theme', giscusTheme(getTheme()));
+    // 监听明暗切换
+    new MutationObserver(function() { update(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    // 重试几次确保 iframe 加载完成
+    var tries = 0;
+    var timer = setInterval(function() {
+        if (document.querySelector('iframe.giscus-frame')) { sendTheme(giscusTheme(getTheme())); clearInterval(timer); }
+        if (++tries > 20) clearInterval(timer);
+    }, 500);
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

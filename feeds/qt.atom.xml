@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CycleUser - QT</title><link href="/" rel="alternate"></link><link href="/feeds/qt.atom.xml" rel="self"></link><id>/</id><updated>2015-10-24T06:20:00+08:00</updated><entry><title>Using QT5.5 with both Xcode7 and Xcode6</title><link href="/using-qt55-with-both-xcode7-and-xcode6.html" rel="alternate"></link><published>2015-10-24T06:20:00+08:00</published><updated>2015-10-24T06:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2015-10-24:/using-qt55-with-both-xcode7-and-xcode6.html</id><summary type="html">&lt;p&gt;让QT5.5.1与Xcode6和Xcode7共存&lt;/p&gt;
+&lt;p&gt;I began to use QT for it supports both Android and iOS.
+Before I update the Xcode6.4 to Xcode7.0, everything works pretty fine.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我用QT就是因为能同时支持Android和iOS。在我从Xcode6.4升级到Xcode7.0之前，一切都很正常。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;But after the upgrade from 6.4 to 7, those projects I've been working just failed again …&lt;/p&gt;</summary><content type="html">&lt;p&gt;让QT5.5.1与Xcode6和Xcode7共存&lt;/p&gt;
+&lt;p&gt;I began to use QT for it supports both Android and iOS.
+Before I update the Xcode6.4 to Xcode7.0, everything works pretty fine.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我用QT就是因为能同时支持Android和iOS。在我从Xcode6.4升级到Xcode7.0之前，一切都很正常。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;But after the upgrade from 6.4 to 7, those projects I've been working just failed again and again with Xcode7.（I was using Xcode7.0 and QT5.4. I've already update them into Xcode7.1 and QT5.5.1, and the method I describe now still works. ）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;但后来我从Xcode6.4升级到了Xcode7，用QT写的项目就总不能编译成功了。（当时我用的还是Xcode7.0和QT5.4. 现在我已经升级到了Xcode7.1和QT5.5.1， 但本文的方法依然可用。）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Then I did some search on StackOverflow and github. It turns out that the problem is because the latest version QT is a little bit slow on supporting the latest Xcode. So I downgraded to Xcode6.4 and found everything OK again.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;然后我在StackOverflow和github上面搜了一下。大家都说这个问题是因为QT的最新版对最新的Xcode的支持稍微慢一点。所以我就降级回到了Xcode6.4，然后又都正常了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;But as a geek, I always want those kind of tools act as I wish.
+I do want QT and Xcode7 the same time. Then I find out a way to make it possible, which is what I am writing about now.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不过我一贯暴脾气，就像随心所欲用工具，岂能善罢甘休？我就想要QT和Xcode7能一起共存。然后我还真探索出了一个解决方案，就是现在我写的这个了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To use QT for iPhone, I see that Xcode6.4 is needed definitely. So I try to make a balance by keeping both Xcode6.4 and Xcode7.
+I install Xcode7 as /Application/Xcode and Xcode6 as /Application/Xcode.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;要用QT，我已经意识到了，Xcode6.4目前是必需的了。 那我就妥协一下，让Xcode6.4和Xcode7共存，分别在/Application目录下面命名成Xcode6.app和Xcode.app。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Then it is the time for some trick.I cloned those settings of Kits, Compiler, and Debugger in the QT with changing the link of Xcode.app to Xcode6.app mannully.It works!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;接下来到了见证奇迹的时刻。我在QT中把套件、编译器、Debugger都克隆一份，手动把链接中的Xcode.app 改成Xcode6.app。结果就可以了！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So I can be sure that the compatibility problem of QT and Xcode7 is caused by the versions, and we can solve it by rebuilding the toolchain linked to Xcode6.4.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;所以现在能确定了，QT和Xcode7因为版本而不兼容，我们把工具链都改到Xcode6.4上面，重建项目，就能解决了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The devices I use for tests include a macbook pro, a iphone 5c, and a redmi 2. The software I used is QT5.5.1 with Xcode6.4 and Xcode7.1.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我用来测试的设备包括一台渣果笔记本Pro，一个渣果5c，以及一个红米2。 软件环境我现在用的是QT5.5.1以及Xcode6.4和Xcode7.1。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The tricks is shown as the pictures below.If you still donot know how to do or it doesn't work, please leave a comment about the details here.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;修改工具链，克隆套件、编译器、Debugger的过程如下图所示。如果你还不确定怎么操作或者操作之后无效，请在本文底下留言告诉我。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img alt="Rename The Xcode6.4 to Xcode6 and Xcode7.1 as Xcode." src="http://7xnq2o.com1.z0.glb.clouddn.com/QTforiPhoneRename.png?imageView/2/w/619/q/90"&gt;
+Figure 1 Rename The Xcode6.4 to Xcode6 and Xcode7.1 as Xcode.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;把Xcode6.4命名为Xcode6.app，Xcode7.1留着作为Xcode.app。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img alt="Add the Kit in QT preference and change the link to Xcode6 as you already renamed under the /Application." src="http://7xnq2o.com1.z0.glb.clouddn.com/QTforiPhoneKitAdd.png?imageView/2/w/619/q/90"&gt;
+Figure 2 Add the Kit in QT preference and change the link to Xcode6 as you already renamed under the /Application.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;克隆构建套件，修改链接中的Xcode.app为Xcode6.app。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img alt="Add the Compiler with the link to Xcode6" src="http://7xnq2o.com1.z0.glb.clouddn.com/QTforiPhoneCompilerClone.png?imageView/2/w/619/q/90"&gt;
+Figure 3 Add the Compiler with the link to Xcode6&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;克隆编译器，修改链接中的Xcode.app为Xcode6.app。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img alt="Add the Debugger with the link to Xcode6" src="http://7xnq2o.com1.z0.glb.clouddn.com/QTforiPhoneDebuggerClone.png?imageView/2/w/619/q/90"&gt;&lt;/p&gt;
+&lt;p&gt;Figure 4 Add the Debugger with the link to Xcode6&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;克隆Debugger，修改链接中的Xcode.app为Xcode6.app。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img alt="Add the Kit in your project." src="http://7xnq2o.com1.z0.glb.clouddn.com/QTforiPhoneAddKit.png?imageView/2/w/619/q/90"&gt;
+Figure 5 Add the Kit in your project.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在已有项目中添加新链接的构建项目，修改链接中的Xcode.app为Xcode6.app。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img alt="It Works!" src="http://7xnq2o.com1.z0.glb.clouddn.com/QTforiPhoneItWorks.png?imageView/2/w/619/q/90"&gt;
+Figure 6 It Works!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;搞定了！可以用了。&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="QT"></category><category term="Mac"></category><category term="QT"></category><category term="Xcode"></category></entry></feed>

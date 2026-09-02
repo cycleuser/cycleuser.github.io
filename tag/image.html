@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='../theme/css/highlight.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='../theme/css/github-markdown.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='../theme/css/style.css?v=19' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="../index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="../index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="../archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="../zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="../软考学习中心.html" data-i18n="软考">软考</a></li><li class="active"><a href="../无人机学习中心.html" data-i18n="无人机">无人机</a></li><li class="active"><a href="../三国对战.html" data-i18n="三国对战">三国对战</a></li><li class="active"><a href="../雷电激战.html" data-i18n="雷电激战">雷电激战</a></li><li class="active"><a href="../产状测量.html" data-i18n="产状测量">产状测量</a></li><li class="active"><a href="../电机检测.html" data-i18n="电机检测">电机检测</a></li><li class="has-sub"><a href="../categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="../category/academic.html">Academic (5)</a></li><li><a href="../category/ai.html">AI (6)</a></li><li><a href="../category/c.html">C (8)</a></li><li><a href="../category/camera.html">Camera (15)</a></li><li><a href="../category/chromebook.html">ChromeBook (2)</a></li><li><a href="../category/cuda.html">CUDA (1)</a></li><li><a href="../category/design.html">Design (1)</a></li><li><a href="../category/diy.html">DIY (1)</a></li><li><a href="../category/duke.html">Duke (1)</a></li><li><a href="../category/education.html">Education (12)</a></li><li><a href="../category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="../category/hackintosh.html">Hackintosh (4)</a></li><li><a href="../category/linux.html">Linux (3)</a></li><li><a href="../category/llm.html">LLM (12)</a></li><li><a href="../category/ltfs.html">LTFS (1)</a></li><li><a href="../category/mac.html">Mac (3)</a></li><li><a href="../category/math.html">Math (23)</a></li><li><a href="../category/ml.html">ML (4)</a></li><li><a href="../category/modeling.html">Modeling (9)</a></li><li><a href="../category/nas.html">NAS (1)</a></li><li><a href="../category/nix.html">Nix (1)</a></li><li><a href="../category/photography.html">Photography (1)</a></li><li><a href="../category/pve.html">PVE (1)</a></li><li><a href="../category/python.html">Python (17)</a></li><li><a href="../category/qgis.html">QGIS (3)</a></li><li><a href="../category/qt.html">QT (1)</a></li><li><a href="../category/raspbian.html">Raspbian (1)</a></li><li><a href="../category/science.html">Science (3)</a></li><li><a href="../category/sdr.html">SDR (2)</a></li><li><a href="../category/software.html">Software (3)</a></li><li><a href="../category/story.html">Story (58)</a></li><li><a href="../category/tool.html">Tool (9)</a></li><li><a href="../category/tools.html">Tools (2)</a></li><li><a href="../category/virtualization.html">Virtualization (1)</a></li><li><a href="../category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="../category/windows.html">Windows (1)</a></li><li><a href="../category/work.html">Work (12)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="../tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="../tag/abbreviations.html">abbreviations (1)</a></li><li><a href="../tag/academic.html">academic (1)</a></li><li><a href="../tag/adamw.html">AdamW (1)</a></li><li><a href="../tag/advice.html">advice (1)</a></li><li><a href="../tag/aerodynamics.html">aerodynamics (5)</a></li><li><a href="../tag/agent.html">Agent (1)</a></li><li><a href="../tag/ai.html">AI (27)</a></li><li><a href="../tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="../tag/aigc.html">AIGC (1)</a></li><li><a href="../tag/airfoil.html">airfoil (1)</a></li><li><a href="../tag/algorithm.html">Algorithm (12)</a></li><li><a href="../tag/amd.html">AMD (1)</a></li><li><a href="../tag/anime.html">anime (1)</a></li><li><a href="../tag/architecture.html">Architecture (3)</a></li><li><a href="../tag/arithmetic.html">arithmetic (1)</a></li><li><a href="../tag/attitude.html">Attitude (2)</a></li><li><a href="../tag/aviation.html">Aviation (2)</a></li><li><a href="../tag/bayesian.html">Bayesian (2)</a></li><li><a href="../tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="../tag/beginner.html">beginner (2)</a></li><li><a href="../tag/binary.html">binary (1)</a></li><li><a href="../tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="../tag/book.html">Book (10)</a></li><li><a href="../tag/brent.html">Brent (1)</a></li><li><a href="../tag/c.html">C (8)</a></li><li><a href="../tag/camera.html">Camera (24)</a></li><li><a href="../tag/career.html">career (1)</a></li><li><a href="../tag/causation.html">Causation (1)</a></li><li><a href="../tag/cellular-automata.html">Cellular Automata (1)</a></li><li><a href="../tag/chat.html">Chat (1)</a></li><li><a href="../tag/chromebook.html">ChromeBook (2)</a></li><li><a href="../tag/cli.html">CLI (1)</a></li><li><a href="../tag/code.html">Code (2)</a></li><li><a href="../tag/code-generation.html">Code Generation (6)</a></li><li><a href="../tag/coding.html">Coding (1)</a></li><li><a href="../tag/cognition.html">Cognition (1)</a></li><li><a href="../tag/comics.html">comics (1)</a></li><li><a href="../tag/communicate.html">Communicate (6)</a></li><li><a href="../tag/communication.html">communication (3)</a></li><li><a href="../tag/comparison.html">comparison (1)</a></li><li><a href="../tag/complexity.html">Complexity (1)</a></li><li><a href="../tag/compression.html">compression (1)</a></li><li><a href="../tag/computability.html">Computability (12)</a></li><li><a href="../tag/computer.html">computer (3)</a></li><li><a href="../tag/conda.html">Conda (1)</a></li><li><a href="../tag/correlation.html">Correlation (1)</a></li><li><a href="../tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="../tag/cs.html">CS (1)</a></li><li><a href="../tag/cuda.html">CUDA (6)</a></li><li><a href="../tag/culture.html">culture (1)</a></li><li><a href="../tag/cursor.html">Cursor (1)</a></li><li><a href="../tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="../tag/data.html">Data (3)</a></li><li><a href="../tag/data-science.html">Data Science (2)</a></li><li><a href="../tag/decision-making.html">decision-making (1)</a></li><li><a href="../tag/design.html">Design (1)</a></li><li><a href="../tag/dimension.html">dimension (1)</a></li><li><a href="../tag/discuss.html">Discuss (7)</a></li><li><a href="../tag/disease.html">Disease (1)</a></li><li><a href="../tag/diy.html">DIY (1)</a></li><li><a href="../tag/download.html">Download (1)</a></li><li><a href="../tag/earth-science.html">Earth Science (1)</a></li><li><a href="../tag/education.html">education (14)</a></li><li><a href="../tag/efficiency.html">efficiency (1)</a></li><li><a href="../tag/ekf.html">EKF (1)</a></li><li><a href="../tag/emotion.html">emotion (1)</a></li><li><a href="../tag/engineering.html">engineering (2)</a></li><li><a href="../tag/er-ji.html">耳机 (1)</a></li><li><a href="../tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="../tag/family.html">family (1)</a></li><li><a href="../tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="../tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="../tag/filtering.html">Filtering (5)</a></li><li><a href="../tag/flight-control.html">Flight Control (1)</a></li><li><a href="../tag/fractal.html">fractal (1)</a></li><li><a href="../tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="../tag/freshman.html">freshman (5)</a></li><li><a href="../tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="../tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="../tag/game.html">Game (2)</a></li><li><a href="../tag/gametheory.html">GameTheory (1)</a></li><li><a href="../tag/general-education.html">general-education (1)</a></li><li><a href="../tag/geology.html">Geology (4)</a></li><li><a href="../tag/geometry.html">geometry (1)</a></li><li><a href="../tag/geopython.html">GeoPython (1)</a></li><li><a href="../tag/gis.html">GIS (3)</a></li><li><a href="../tag/glossary.html">Glossary (1)</a></li><li><a href="../tag/glumpy.html">GlumPy (2)</a></li><li><a href="../tag/golden-section.html">Golden Section (1)</a></li><li><a href="../tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="../tag/graduate-school.html">graduate-school (1)</a></li><li><a href="../tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="../tag/guide.html">Guide (1)</a></li><li><a href="../tag/hack.html">Hack (2)</a></li><li><a href="../tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="../tag/hadoop.html">Hadoop (2)</a></li><li><a href="../tag/hardware.html">Hardware (2)</a></li><li><a href="../tag/hate.html">Hate (1)</a></li><li><a href="../tag/hbase.html">HBase (1)</a></li><li><a href="../tag/heroism.html">heroism (1)</a></li><li><a href="../tag/history.html">History (5)</a></li><li><a href="../tag/ide.html">IDE (2)</a></li><li><a href="../tag/image.html">image (1)</a></li><li><a href="../tag/imbalance.html">Imbalance (1)</a></li><li><a href="../tag/imu.html">IMU (1)</a></li><li><a href="../tag/jacobian.html">Jacobian (1)</a></li><li><a href="../tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="../tag/job.html">Job (1)</a></li><li><a href="../tag/job-hunting.html">job-hunting (1)</a></li><li><a href="../tag/jpeg.html">jpeg (1)</a></li><li><a href="../tag/junck.html">Junck (3)</a></li><li><a href="../tag/kalman.html">Kalman (1)</a></li><li><a href="../tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="../tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="../tag/kivy.html">Kivy (3)</a></li><li><a href="../tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="../tag/learn.html">Learn (3)</a></li><li><a href="../tag/learning.html">learning (9)</a></li><li><a href="../tag/lens.html">Lens (20)</a></li><li><a href="../tag/lesson.html">Lesson (1)</a></li><li><a href="../tag/library.html">Library (1)</a></li><li><a href="../tag/life.html">life (16)</a></li><li><a href="../tag/lift.html">lift (1)</a></li><li><a href="../tag/linux.html">Linux (8)</a></li><li><a href="../tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="../tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="../tag/llm.html">LLM (5)</a></li><li><a href="../tag/ltfs.html">LTFS (1)</a></li><li><a href="../tag/lto.html">LTO (1)</a></li><li><a href="../tag/mac.html">Mac (11)</a></li><li><a href="../tag/macos.html">macOS (1)</a></li><li><a href="../tag/math.html">Math (4)</a></li><li><a href="../tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="../tag/mathematics.html">mathematics (1)</a></li><li><a href="../tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="../tag/maturity.html">maturity (1)</a></li><li><a href="../tag/mayavi.html">MayaVi (1)</a></li><li><a href="../tag/memory.html">Memory (4)</a></li><li><a href="../tag/methodology.html">Methodology (1)</a></li><li><a href="../tag/microscope.html">Microscope (2)</a></li><li><a href="../tag/mindset.html">mindset (2)</a></li><li><a href="../tag/ml.html">ML (4)</a></li><li><a href="../tag/mobile.html">Mobile (1)</a></li><li><a href="../tag/moon.html">Moon (1)</a></li><li><a href="../tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="../tag/moving-average.html">Moving Average (1)</a></li><li><a href="../tag/muon.html">Muon (1)</a></li><li><a href="../tag/n8n.html">n8n (1)</a></li><li><a href="../tag/nas.html">NAS (1)</a></li><li><a href="../tag/network.html">Network (1)</a></li><li><a href="../tag/nixos.html">NixOS (1)</a></li><li><a href="../tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="../tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="../tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="../tag/numpy.html">NumPy (1)</a></li><li><a href="../tag/nvidia.html">Nvidia (1)</a></li><li><a href="../tag/ocr.html">OCR (1)</a></li><li><a href="../tag/ollama.html">Ollama (15)</a></li><li><a href="../tag/opc.html">OPC (1)</a></li><li><a href="../tag/opencl.html">OpenCL (1)</a></li><li><a href="../tag/opencode.html">OpenCode (8)</a></li><li><a href="../tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="../tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="../tag/optimization.html">Optimization (2)</a></li><li><a href="../tag/os.html">os (1)</a></li><li><a href="../tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="../tag/parenting.html">Parenting (1)</a></li><li><a href="../tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="../tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="../tag/performance.html">Performance (1)</a></li><li><a href="../tag/phd.html">PHD (2)</a></li><li><a href="../tag/philosophy.html">philosophy (2)</a></li><li><a href="../tag/photo.html">Photo (24)</a></li><li><a href="../tag/photography.html">Photography (2)</a></li><li><a href="../tag/physics.html">physics (2)</a></li><li><a href="../tag/poem.html">Poem (2)</a></li><li><a href="../tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="../tag/programming.html">programming (9)</a></li><li><a href="../tag/prompt.html">Prompt (1)</a></li><li><a href="../tag/psychology.html">Psychology (1)</a></li><li><a href="../tag/pve.html">PVE (2)</a></li><li><a href="../tag/pyenv.html">Pyenv (2)</a></li><li><a href="../tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="../tag/python.html">python (65)</a></li><li><a href="../tag/qemu.html">QEMU (1)</a></li><li><a href="../tag/qgis.html">QGIS (3)</a></li><li><a href="../tag/qt.html">QT (1)</a></li><li><a href="../tag/qwen3.html">Qwen3 (10)</a></li><li><a href="../tag/radio.html">Radio (2)</a></li><li><a href="../tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="../tag/raspbian.html">Raspbian (1)</a></li><li><a href="../tag/reading.html">reading (2)</a></li><li><a href="../tag/reflection.html">reflection (4)</a></li><li><a href="../tag/remote.html">Remote (1)</a></li><li><a href="../tag/research.html">Research (3)</a></li><li><a href="../tag/resume.html">resume (1)</a></li><li><a href="../tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="../tag/rotation.html">Rotation (1)</a></li><li><a href="../tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="../tag/rx590.html">RX590 (1)</a></li><li><a href="../tag/sandbox.html">SandBox (1)</a></li><li><a href="../tag/scholar.html">Scholar (2)</a></li><li><a href="../tag/school.html">School (3)</a></li><li><a href="../tag/science.html">Science (3)</a></li><li><a href="../tag/search.html">Search (1)</a></li><li><a href="../tag/self-study.html">Self-Study (1)</a></li><li><a href="../tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="../tag/server.html">Server (1)</a></li><li><a href="../tag/shit.html">Shit (1)</a></li><li><a href="../tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="../tag/signal-processing.html">Signal Processing (2)</a></li><li><a href="../tag/simulation.html">Simulation (1)</a></li><li><a href="../tag/skill.html">skill (3)</a></li><li><a href="../tag/software.html">Software (1)</a></li><li><a href="../tag/sou-suo.html">搜索 (1)</a></li><li><a href="../tag/sports.html">sports (1)</a></li><li><a href="../tag/state-space.html">State Space (1)</a></li><li><a href="../tag/statistics.html">Statistics (1)</a></li><li><a href="../tag/story.html">Story (48)</a></li><li><a href="../tag/tape.html">Tape (1)</a></li><li><a href="../tag/telescope.html">Telescope (1)</a></li><li><a href="../tag/textbook.html">textbook (1)</a></li><li><a href="../tag/thinking.html">Thinking (6)</a></li><li><a href="../tag/tian-biao.html">填表 (1)</a></li><li><a href="../tag/time-series.html">Time Series (1)</a></li><li><a href="../tag/tong-ji-xue.html">统计学 (1)</a></li><li><a href="../tag/tool.html">Tool (8)</a></li><li><a href="../tag/tools.html">Tools (10)</a></li><li><a href="../tag/traffic.html">Traffic (1)</a></li><li><a href="../tag/translate.html">Translate (2)</a></li><li><a href="../tag/translation.html">Translation (2)</a></li><li><a href="../tag/tui.html">TUI (1)</a></li><li><a href="../tag/tuna.html">TUNA (1)</a></li><li><a href="../tag/turing.html">Turing (12)</a></li><li><a href="../tag/tutorial.html">tutorial (2)</a></li><li><a href="../tag/uav.html">UAV (1)</a></li><li><a href="../tag/ubuntu.html">Ubuntu (4)</a></li><li><a href="../tag/ui.html">UI (1)</a></li><li><a href="../tag/ukf.html">UKF (1)</a></li><li><a href="../tag/university.html">university (14)</a></li><li><a href="../tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="../tag/ventoy.html">Ventoy (1)</a></li><li><a href="../tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="../tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="../tag/video.html">video (3)</a></li><li><a href="../tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="../tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="../tag/virtualization.html">Virtualization (1)</a></li><li><a href="../tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="../tag/vispy.html">VisPy (1)</a></li><li><a href="../tag/visualization.html">Visualization (8)</a></li><li><a href="../tag/vm.html">VM (1)</a></li><li><a href="../tag/vtk.html">VTK (1)</a></li><li><a href="../tag/web.html">Web (1)</a></li><li><a href="../tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="../tag/windows.html">Windows (3)</a></li><li><a href="../tag/windows11.html">Windows11 (1)</a></li><li><a href="../tag/workflow.html">workflow (1)</a></li><li><a href="../tag/xcode.html">Xcode (1)</a></li><li><a href="../tag/xia-zai.html">下载 (1)</a></li><li><a href="../tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="../tag/yin-pin.html">音频 (1)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="../index.html" data-i18n="blog">博客</a> › <span data-i18n="tags_label">标签</span>: <a href="../tag/image.html">image</a>
+                    </section>
+                </div>
+
+
+
+<div id="feed-layout">
+    <nav id="timeline" aria-label="时间线">
+    <button id="timeline-toggle" data-i18n-title="timeline" title="收起 / 展开时间线" aria-label="收起时间线">
+      <span class="tl-toggle-icon">‹</span>
+    </button>
+    <span class="tl-vertical-label" data-i18n="timeline">时间线</span>
+    <div class="timeline-inner">
+      <div class="timeline-head">
+        <a href="#" id="tl-top" data-i18n="latest">最新 ↑</a>
+      </div>
+      <ul class="timeline-list">
+          <li class="tl-year-item">
+            <div class="tl-year-row">
+              <a class="tl-year" href="#y2026">2026</a>
+              <span class="tl-count">1</span>
+              <button class="tl-expand" data-year="2026" data-i18n-title="expand_month" aria-label="展开月份" title="展开月份">▸</button>
+            </div>
+            <ul class="tl-months" data-year="2026" hidden></ul>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <ul id="post-feed">
+    <li class="posts feed-item" data-ym="2026-07" data-year="2026">
+        <div class="ym-anchor" id="y2026"></div>
+        <div class="ym-anchor" id="ym2026-07"></div>
+        <div class="ym-label">2026-07</div>
+      <article class="post hentry">
+        <header>
+          <h2 class="post-title">
+            <a href="../image-video-compression-explained.html" rel="bookmark" title="一张照片到底有多大—— 1280×720 未压缩的 RGBA8 图片，需要 3.52MB，这就是为什么必须压缩">一张照片到底有多大—— 1280×720 未压缩的 RGBA8 图片，需要 3.52MB，这就是为什么必须压缩</a>
+          </h2>
+          <div class="post-info">
+            <abbr class="date" title="2026-07-29T20:00:00+08:00">Wed 29 July 2026</abbr>
+            <span class="post-lable">·</span>
+            <abbr class="category"><a href="../category/science.html">Science</a></abbr>
+          </div>
+        </header>
+        <div class="summary markdown-body"><p>你有没有想过一个问题：手机拍一张照片，为什么文件只有几百 KB，而不是几十 MB？一段 720p 的视频，为什么能在网上流畅播放 …</p></div>
+      </article>
+    </li>
+  </ul>
+</div>
+
+<script>
+(function () {
+  var feed = document.getElementById('post-feed');
+  var items = feed ? Array.prototype.slice.call(feed.querySelectorAll('.feed-item')) : [];
+  var BATCH = 12, shown = 0, io = null;
+
+  if (feed && items.length) {
+    items.forEach(function (el, i) { if (i >= BATCH) el.style.display = 'none'; });
+    shown = Math.min(BATCH, items.length);
+    var sentinel = document.createElement('div');
+    sentinel.id = 'feed-sentinel'; sentinel.style.height = '1px';
+    feed.appendChild(sentinel);
+    var revealMore = function () {
+      var end = Math.min(shown + BATCH, items.length);
+      for (var i = shown; i < end; i++) items[i].style.display = '';
+      shown = end;
+      if (shown >= items.length && io) io.disconnect();
+    };
+    window.__revealAll = function () { items.forEach(function (el) { el.style.display = ''; }); shown = items.length; if (io) io.disconnect(); };
+    if ('IntersectionObserver' in window) {
+      io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) revealMore(); }); }, { rootMargin: '400px' });
+      io.observe(sentinel);
+    } else {
+      window.addEventListener('scroll', function () {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) revealMore();
+      });
+    }
+  } else {
+    window.__revealAll = function () {};
+  }
+
+  // 依据文章流为每年生成「月份」子列表
+  var monthsByYear = {};
+  items.forEach(function (el) {
+    var y = el.getAttribute('data-year'), ym = el.getAttribute('data-ym');
+    if (!monthsByYear[y]) monthsByYear[y] = [];
+    if (monthsByYear[y].indexOf(ym) === -1) monthsByYear[y].push(ym);
+  });
+  function monthSuffix() {
+    var lang = window.__lang || 'zh';
+    return (window.__i18nTr && window.__i18nTr('month_suffix', lang)) || (lang === 'zh' ? ' 月' : '');
+  }
+  document.querySelectorAll('.tl-months').forEach(function (ul) {
+    var y = ul.getAttribute('data-year');
+    (monthsByYear[y] || []).forEach(function (ym) {
+      var mm = ym.split('-')[1];
+      var li = document.createElement('li');
+      li.className = 'tl-month';
+      li.innerHTML = '<a href="#ym' + ym + '" data-mm="' + mm + '">' + mm + monthSuffix() + '</a>';
+      ul.appendChild(li);
+    });
+  });
+  // 语言切换时更新月份后缀
+  document.addEventListener('langchange', function () {
+    document.querySelectorAll('.tl-month a').forEach(function (a) {
+      a.textContent = a.getAttribute('data-mm') + monthSuffix();
+    });
+  });
+
+  function jumpTo(id) {
+    window.__revealAll();
+    var t = document.getElementById(id);
+    if (t) { t.scrollIntoView({ behavior: 'smooth', block: 'start' }); history.replaceState(null, '', '#' + id); }
+  }
+  document.querySelectorAll('.tl-year').forEach(function (a) {
+    a.addEventListener('click', function (ev) { ev.preventDefault(); jumpTo(a.getAttribute('href').slice(1)); });
+  });
+  document.querySelectorAll('.tl-months').forEach(function (ul) {
+    ul.addEventListener('click', function (ev) {
+      var a = ev.target.closest('a'); if (!a) return;
+      ev.preventDefault(); jumpTo(a.getAttribute('href').slice(1));
+    });
+  });
+  document.querySelectorAll('.tl-expand').forEach(function (btn) {
+    btn.addEventListener('click', function (ev) {
+      ev.preventDefault(); ev.stopPropagation();
+      var y = btn.getAttribute('data-year');
+      var ul = document.querySelector('.tl-months[data-year="' + y + '"]');
+      if (!ul) return;
+      if (ul.hasAttribute('hidden')) { ul.removeAttribute('hidden'); btn.textContent = '▾'; btn.classList.add('open'); }
+      else { ul.setAttribute('hidden', ''); btn.textContent = '▸'; btn.classList.remove('open'); }
+    });
+  });
+  var top = document.getElementById('tl-top');
+  if (top) top.addEventListener('click', function (ev) {
+    ev.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); history.replaceState(null, '', location.pathname);
+  });
+
+  // 收起/展开
+  var tl = document.getElementById('timeline');
+  var tgl = document.getElementById('timeline-toggle');
+  var KEY = 'tl_collapsed';
+  function setCollapsed(c) {
+    tl.classList.toggle('collapsed', c);
+    var ic = tgl.querySelector('.tl-toggle-icon'); if (ic) ic.textContent = c ? '›' : '‹';
+    try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+  }
+  if (tgl && tl) {
+    tgl.addEventListener('click', function (ev) { ev.stopPropagation(); setCollapsed(!tl.classList.contains('collapsed')); });
+    tl.addEventListener('click', function (ev) {
+      if (tl.classList.contains('collapsed') && ev.target !== tgl && !tgl.contains(ev.target)) setCollapsed(false);
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  }
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

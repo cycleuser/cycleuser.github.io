@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/style.css' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='/theme/css/highlight.css' type="text/css" media="all" />
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo">
+                <h1><img src="/theme/image/default-logo.png" width="300" height="100" alt="CycleUser" />
+                CycleUser</h1>
+        </div> <!-- /#logo-->
+        <nav id="menu" class="main-nav"><ul class="menu">
+            <li  class="active"><a href="https://blog.cycleuser.org">Homepage</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/categories.html">Categories</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/tags.html">Tags</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/archives.html">Archives</a></li>
+            <li  class="active"><a href="https://blog.cycleuser.org/about.html">About</a></li>
+
+        </ul></nav><!-- /#menu -->
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-620" >
+                <section class="breadcrumb-list">
+<a href=".">Blog</a> ›<a href="category/llm.html">LLM</a> ›千元中低端安卓手机本地离线运行Qwen3-4B大模型-基于mnn chat的部署指南
+                </section>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >千元中低端安卓手机本地离线运行Qwen3-4B大模型-基于mnn chat的部署指南</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep">Post in</span>
+        <abbr class="date" title="2025-08-08T10:20:00+08:00"> 
+            <a href="./archive/2025/8月/index.html">周五 08 八月 2025 </a>
+        </abbr>
+        <span class="meta-prep"> |Tags</span>
+                <a href="./tag/qwen3.html">Qwen3</a>
+                <a href="./tag/ollama.html">Ollama</a>
+                <a href="./tag/ai.html">AI</a>
+                <a href="./tag/code-generation.html">Code Generation</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry">
+        <ul>
+<li>昨天千问发布了最新的<a href="https://mp.weixin.qq.com/s/cXAWq0Qkrdh2ag9BcnACPQ?scene=1">Qwen3-4b-Instruct-2507 和Qwen3-4b-Thinking-2507 模型</a>，有如下两个亮点：<blockquote>
+<ol>
+<li>Qwen3-4B-Instruct-2507 的通用能力超越了商业闭源的小尺寸模型 GPT-4.1-nano，与中等规模的 Qwen3-30B-A3B（non-thinking）性能接近。</li>
+<li>Qwen3-4B-Thinking-2507 的推理表现可媲美中等模型 Qwen3-30B-Thinking，在聚焦数学能力的 AIME25 测评中以4B参数获81.3分；且通用能力相关评测均超越了更大尺寸的Qwen3-30B-Thinking模型。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p>本指南介绍如何在Android设备上使用mnn chat本地部署和运行 Qwen3-4b-Instruct-2507 和Qwen3-4b-Thinking-2507 模型。</p>
+<h2>安装应用</h2>
+<p>最新版本请访问<a href="https://github.com/alibaba/MNN/blob/master/apps/Android/MnnLlmChat/README_CN.md#releases">阿里巴巴的MNN项目下的Android应用页面</a>获取安装包  </p>
+<p>也可以直接访问<a href="https://meta.alicdn.com/data/mnn/mnn_chat_0_6_8.apk">阿里巴巴官方CDN的下载链接 https://meta.alicdn.com/data/mnn/mnn_chat_0_6_8.apk</a>下载安装包。</p>
+<p>或者也可以尝试在应用市场中搜索，Play Store 里面是有的，其他的应用商店或许也有。</p>
+<h2>下载模型</h2>
+<p>打开 mnn chat，在顶部将下载源从huggingface切换成modelscope，然后，选择 Qwen3-4b-Instruct-2507 或者 Qwen3-4b-Thinking-2507 模型，就可以下载到本地了。</p>
+<p>看尺寸应该是q4量化的？</p>
+<p><img alt="" src="./img/mnn-chat/0-download.jpg"></p>
+<h2>测试性能</h2>
+<p>用了一个简单的问题“阶乘和圆周率有什么关系”测试了一下，所用设备为红米Note12T Pro （联发科天玑8200-Ultra + 12G RAM + 512G ROM）。</p>
+<p>Qwen3-4b-Thinking-2507 模型能达到约 3 tokens/s。
+<img alt="" src="./img/mnn-chat/1-4b-thingking-3tokens.jpg"></p>
+<p>Qwen3-4b-Instruct-2507 模型能达到约 5 tokens/s。
+<img alt="" src="./img/mnn-chat/2-4b-instruct-5tokens.jpg"></p>
+<p>阿里巴巴的 MNN 框架速度确实不错，感觉比 llama.cpp 要快不少好像。
+虽然 3-5 tokens/s 的速度绝对不算快，也足够日常的离线场景简单应急了。</p>
+<h2>相关链接</h2>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s/cXAWq0Qkrdh2ag9BcnACPQ?scene=1">Qwen3-4B超顶小模型更新登场！手机也能轻松跑！</a></li>
+<li><a href="https://github.com/alibaba/MNN/">阿里巴巴 MNN 框架</a></li>
+<li><a href="https://modelscope.cn/collections/Qwen3-9743180bdc6b48">Qwen 模型介绍</a></li>
+</ul>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep">Category:</span>
+        <abbr class="category">
+            <a href="./category/llm.html">LLM</a>
+        </abbr>
+       </footer>
+    <section id="respond">
+        <div id="disqus_thread">
+        <script type="text/javascript">
+        var disqus_identifier = "qian-yuan-zhong-di-duan-an-zhuo-shou-ji-ben-di-chi-xian-yun-xing-qwen3-4bda-mo-xing-ji-yu-mnn-chatde-bu-shu-zhi-nan.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://cycleuser.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+        </script>
+        </div>
+
+            
+
+    </section>
+</section>
+
+
+        </section><!-- #content -->
+        <section id="widgets" class="grid col-300 fit" >
+            <!--
+            <section id="widget-search" class="widget-wrapper widget_search">
+
+                <form id="searchform" action="https://www.google.com/search" method="get">
+                    <input id="q" class="field" type="text" placeholder="Search Blog" name="q" ></input>
+                    <input id="ie" name="ie" type="hidden" value="utf-8" ></input>
+                    <input id="oe" name="oe" type="hidden" value="utf-8" ></input>
+                    <input id="channel" name="channel" type="hidden" value="suggest" ></input>
+                    <input id="searchsubmit" class="submit" type="submit" value="">
+                </form>
+            </section>
+            -->
+            <section id="widget-category" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Category
+                </div>
+                <ul>
+                        <li><a href="./category/camera.html" >Camera </a></li>
+                        <li><a href="./category/chromebook.html" >ChromeBook </a></li>
+                        <li><a href="./category/diy.html" >DIY </a></li>
+                        <li><a href="./category/duke.html" >Duke </a></li>
+                        <li><a href="./category/fuckzhihu.html" >FuckZhihu </a></li>
+                        <li><a href="./category/hackintosh.html" >Hackintosh </a></li>
+                        <li><a href="./category/linux.html" >Linux </a></li>
+                        <li><a href="./category/llm.html" >LLM </a></li>
+                        <li><a href="./category/mac.html" >Mac </a></li>
+                        <li><a href="./category/nas.html" >NAS </a></li>
+                        <li><a href="./category/photography.html" >Photography </a></li>
+                        <li><a href="./category/python.html" >Python </a></li>
+                        <li><a href="./category/qgis.html" >QGIS </a></li>
+                        <li><a href="./category/qt.html" >QT </a></li>
+                        <li><a href="./category/raspbian.html" >Raspbian </a></li>
+                        <li><a href="./category/sdr.html" >SDR </a></li>
+                        <li><a href="./category/software.html" >Software </a></li>
+                        <li><a href="./category/story.html" >Story </a></li>
+                        <li><a href="./category/virtualization.html" >Virtualization </a></li>
+                        <li><a href="./category/windows.html" >Windows </a></li>
+                        <li><a href="./category/work.html" >Work </a></li>
+                </ul>
+            </section>
+
+            <section id="widget-tagcloud" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Tagcloud
+                </div>
+                <div>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/translate.html">Translate</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/qemu.html">QEMU</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/ai.html">AI</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/lan-ya.html">蓝牙</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/ollama.html">Ollama</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/hadoop.html">Hadoop</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/er-ji.html">耳机</a></span>
+                        <span><a href="./tag/diy.html">DIY</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/phd.html">PHD</a></span>
+                        <span><a href="./tag/code-generation.html">Code Generation</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/qwen3.html">Qwen3</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/pyenv.html">Pyenv</a></span>
+                        <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/windows11.html">Windows11</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/book.html">Book</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/visualization.html">Visualization</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/hbase.html">HBase</a></span>
+                        <span><a href="./tag/yin-pin.html">音频</a></span>
+                        <span><a href="./tag/cursor.html">Cursor</a></span>
+                        <span><a href="./tag/virtualization.html">Virtualization</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                </div>
+            </section>
+
+
+            <section id="widget-links" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Links
+                </div>
+                <ul>
+                        <li><a href="https://chinageology.com">ChinaGeology</a></li>
+                        <li><a href="http://doc.geopython.com/">GeoPython</a></li>
+                        <li><a href="https://fanzheng.org">Fan</a></li>
+                        <li><a href="http://o00o.site">FlagPlus</a></li>
+                        <li><a href="http://blog.cosli.top">CosLi</a></li>
+                        <li><a href="http://akagi201.org">Akagi201</a></li>
+                        <li><a href="http://xuanwo.org/">XuanWo</a></li>
+                        <li><a href="https://blog.daftme.com">4Orange</a></li>
+                        <li><a href="http://blog.riverrun.xyz/">River</a></li>
+                        <li><a href="https://www.logcg.com">LogCG Blog</a></li>
+                        <li><a href="http://guolao.me/">GuoLao</a></li>
+                </ul>
+            </section>
+            
+        </section><!-- widgets -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" style="border-width:0" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+</body>
+</html>

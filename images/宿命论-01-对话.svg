@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect x="0" y="0" width="600" height="400" fill="#ffffff"/>
+  <rect x="30" y="30" width="540" height="340" fill="none" stroke="#000000" stroke-width="3"/>
+  <rect x="36" y="36" width="528" height="328" fill="none" stroke="#000000" stroke-width="1"/>
+
+  <!-- 小孙悟空: 老师形象，坐在桌子后面 -->
+  <!-- 桌子 -->
+  <line x1="250" y1="300" x2="420" y2="300" stroke="#000000" stroke-width="3"/>
+  <line x1="260" y1="300" x2="260" y2="340" stroke="#000000" stroke-width="3"/>
+  <line x1="410" y1="300" x2="410" y2="340" stroke="#000000" stroke-width="3"/>
+  <!-- 电脑 -->
+  <rect x="300" y="255" width="70" height="45" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="305" y="260" width="60" height="35" fill="none" stroke="#000000" stroke-width="1"/>
+  <line x1="320" y1="300" x2="340" y2="300" stroke="#000000" stroke-width="2"/>
+  <line x1="325" y1="300" x2="325" y2="310" stroke="#000000" stroke-width="2"/>
+
+  <!-- 小孙悟空头 -->
+  <circle cx="335" cy="200" r="38" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 金箍 -->
+  <path d="M 298 182 Q 335 168 372 182" fill="none" stroke="#000000" stroke-width="3"/>
+  <!-- 眼睛 -->
+  <circle cx="324" cy="198" r="5" fill="#000000"/>
+  <circle cx="346" cy="198" r="5" fill="#000000"/>
+  <!-- 嘴巴 - 略带思考 -->
+  <path d="M 328 215 Q 335 218 342 215" fill="none" stroke="#000000" stroke-width="2"/>
+  <!-- 脸颊红晕用点 -->
+  <circle cx="316" cy="210" r="2" fill="#000000" opacity="0.3"/>
+  <circle cx="354" cy="210" r="2" fill="#000000" opacity="0.3"/>
+  <!-- 耳朵 -->
+  <path d="M 298 200 Q 292 205 296 215" fill="none" stroke="#000000" stroke-width="2"/>
+  <path d="M 372 200 Q 378 205 374 215" fill="none" stroke="#000000" stroke-width="2"/>
+
+  <!-- 身体 -->
+  <path d="M 310 235 Q 335 240 360 235 L 365 290 Q 335 295 305 290 Z" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 虎皮裙纹 -->
+  <line x1="320" y1="270" x2="330" y2="270" stroke="#000000" stroke-width="1.5"/>
+  <line x1="340" y1="270" x2="350" y2="270" stroke="#000000" stroke-width="1.5"/>
+  <line x1="315" y1="280" x2="325" y2="280" stroke="#000000" stroke-width="1.5"/>
+  <line x1="345" y1="280" x2="355" y2="280" stroke="#000000" stroke-width="1.5"/>
+
+  <!-- 对话气泡 -->
+  <path d="M 180 100 Q 180 80 200 80 L 270 80 Q 290 80 290 100 L 290 130 Q 290 150 270 150 L 250 150 L 240 165 L 235 150 L 200 150 Q 180 150 180 130 Z" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+  <text x="200" y="105" font-family="serif" font-size="14" fill="#000000">宿命论</text>
+  <text x="200" y="125" font-family="serif" font-size="14" fill="#000000">可信吗？</text>
+
+  <!-- 学生（小一点的小孙悟空） -->
+  <circle cx="100" cy="240" r="28" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <path d="M 74 226 Q 100 214 126 226" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <circle cx="92" cy="240" r="4" fill="#000000"/>
+  <circle cx="108" cy="240" r="4" fill="#000000"/>
+  <path d="M 94 253 Q 100 256 106 253" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <path d="M 80 265 Q 100 268 120 265 L 122 295 Q 100 298 78 295 Z" fill="none" stroke="#000000" stroke-width="2.5"/>
+
+  <!-- 问号符号飘在中间 -->
+  <text x="215" y="200" font-family="serif" font-size="36" fill="#000000" opacity="0.6">？</text>
+
+  <!-- 标题 -->
+  <text x="55" y="22" font-family="serif" font-size="13" fill="#000000">壹 · 对话</text>
+</svg>

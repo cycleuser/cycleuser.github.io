@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894037367471530"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9894037367471530">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=19' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="./index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li class="active"><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li class="active"><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li class="active"><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li><li class="active"><a href="./2048游戏.html" data-i18n="2048">2048</a></li><li class="active"><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li><li class="active"><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li class="has-sub"><a href="./categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="./category/academic.html">Academic (3)</a></li><li><a href="./category/ai.html">AI (6)</a></li><li><a href="./category/c.html">C (16)</a></li><li><a href="./category/camera.html">Camera (15)</a></li><li><a href="./category/chromebook.html">ChromeBook (2)</a></li><li><a href="./category/cuda.html">CUDA (1)</a></li><li><a href="./category/design.html">Design (1)</a></li><li><a href="./category/diy.html">DIY (1)</a></li><li><a href="./category/duke.html">Duke (1)</a></li><li><a href="./category/education.html">Education (21)</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./category/hackintosh.html">Hackintosh (7)</a></li><li><a href="./category/java.html">Java (1)</a></li><li><a href="./category/linux.html">Linux (4)</a></li><li><a href="./category/llm.html">LLM (55)</a></li><li><a href="./category/ltfs.html">LTFS (1)</a></li><li><a href="./category/mac.html">Mac (3)</a></li><li><a href="./category/math.html">Math (30)</a></li><li><a href="./category/ml.html">ML (4)</a></li><li><a href="./category/modeling.html">Modeling (9)</a></li><li><a href="./category/nas.html">NAS (1)</a></li><li><a href="./category/nix.html">Nix (1)</a></li><li><a href="./category/photography.html">Photography (1)</a></li><li><a href="./category/programming.html">Programming (12)</a></li><li><a href="./category/pve.html">PVE (1)</a></li><li><a href="./category/python.html">Python (26)</a></li><li><a href="./category/qgis.html">QGIS (3)</a></li><li><a href="./category/qt.html">QT (1)</a></li><li><a href="./category/raspbian.html">Raspbian (1)</a></li><li><a href="./category/science.html">Science (2)</a></li><li><a href="./category/sdr.html">SDR (2)</a></li><li><a href="./category/software.html">Software (3)</a></li><li><a href="./category/story.html">Story (68)</a></li><li><a href="./category/sui-bi.html">随笔 (2)</a></li><li><a href="./category/tool.html">Tool (49)</a></li><li><a href="./category/tools.html">Tools (2)</a></li><li><a href="./category/virtualization.html">Virtualization (1)</a></li><li><a href="./category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./category/windows.html">Windows (1)</a></li><li><a href="./category/work.html">Work (24)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="./tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="./tag/7900xtx.html">7900XTX (3)</a></li><li><a href="./tag/9bmo-xing.html">9B模型 (1)</a></li><li><a href="./tag/abbreviations.html">abbreviations (1)</a></li><li><a href="./tag/academic.html">academic (1)</a></li><li><a href="./tag/adamw.html">AdamW (1)</a></li><li><a href="./tag/advice.html">advice (1)</a></li><li><a href="./tag/aerodynamics.html">aerodynamics (3)</a></li><li><a href="./tag/agent.html">Agent (3)</a></li><li><a href="./tag/ai.html">AI (31)</a></li><li><a href="./tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="./tag/aigc.html">AIGC (1)</a></li><li><a href="./tag/ailun-li.html">AI伦理 (1)</a></li><li><a href="./tag/airfoil.html">airfoil (1)</a></li><li><a href="./tag/algorithm.html">Algorithm (12)</a></li><li><a href="./tag/amd.html">AMD (1)</a></li><li><a href="./tag/anime.html">anime (1)</a></li><li><a href="./tag/arc.html">ARC (1)</a></li><li><a href="./tag/architecture.html">Architecture (3)</a></li><li><a href="./tag/arithmetic.html">arithmetic (1)</a></li><li><a href="./tag/attitude.html">Attitude (2)</a></li><li><a href="./tag/bayesian.html">Bayesian (2)</a></li><li><a href="./tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="./tag/beginner.html">Beginner (3)</a></li><li><a href="./tag/ben-di-bu-shu.html">本地部署 (5)</a></li><li><a href="./tag/ben-di-bu-shu-bing-yun-xing-omnicoder-9bde-su-du-zhi-mi-moxing-vs-ollama.html">本地部署并运行omnicoder-9b的速度之谜MoXing-vs-Ollama (1)</a></li><li><a href="./tag/ben-di-mo-xing.html">本地模型 (3)</a></li><li><a href="./tag/bfcl.html">BFCL (4)</a></li><li><a href="./tag/bi-ye-lun-wen.html">毕业论文 (1)</a></li><li><a href="./tag/bian-cheng.html">编程 (1)</a></li><li><a href="./tag/binary.html">binary (1)</a></li><li><a href="./tag/bing-fei-gu-yi-wei-shi-yao-wo-geng-duo-yong-ming-ling-xing-gong-ju-er-bu-shi-gui.html">并非故意-为什么我更多用命令行工具而不是GUI (1)</a></li><li><a href="./tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="./tag/book.html">Book (10)</a></li><li><a href="./tag/brent.html">Brent (1)</a></li><li><a href="./tag/bullshit.html">bullshit (1)</a></li><li><a href="./tag/c.html">C (10)</a></li><li><a href="./tag/camera.html">Camera (23)</a></li><li><a href="./tag/career.html">career (1)</a></li><li><a href="./tag/causation.html">Causation (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-da-mo-xing-omnicoder-9b-jian-ce-moxing-vs-ollama-dui-bi.html">超强的本地大模型-OmniCoder-9B-简测MoXing-vs-Ollama-对比 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-xiao-mo-xing-omnicoder-9bde-an-zhuang-yu-shi-yong-zhi-nan.html">超强的本地小模型OmniCoder-9B的安装与使用指南 (1)</a></li><li><a href="./tag/chao-xiao-mo-xing.html">超小模型 (1)</a></li><li><a href="./tag/chat.html">Chat (1)</a></li><li><a href="./tag/chatgpt.html">ChatGPT (1)</a></li><li><a href="./tag/cheng-chang.html">成长 (1)</a></li><li><a href="./tag/chouchou-pdflun-wen-zhong-ming-ming-gong-ju-sheng-ji-liao-zhe-ci-zhuan-men-you-hua-liao-zhong-wen-lun-wen-zhi-chi.html">Chou瞅-PDF论文重命名工具升级了这次专门优化了中文论文支持 (1)</a></li><li><a href="./tag/chouchou-yi-ge-pythonxiao-gong-ju-rang-ni-de-lun-wen-pdfwen-jian-ming-bu-zai-shi-luan-ma.html">Chou瞅一个Python小工具让你的论文PDF文件名不再是乱码 (1)</a></li><li><a href="./tag/chromebook.html">ChromeBook (2)</a></li><li><a href="./tag/cli.html">CLI (1)</a></li><li><a href="./tag/code.html">Code (2)</a></li><li><a href="./tag/code-generation.html">Code Generation (6)</a></li><li><a href="./tag/coding.html">Coding (1)</a></li><li><a href="./tag/cognition.html">Cognition (1)</a></li><li><a href="./tag/comics.html">comics (1)</a></li><li><a href="./tag/communicate.html">Communicate (6)</a></li><li><a href="./tag/communication.html">communication (3)</a></li><li><a href="./tag/comparison.html">comparison (1)</a></li><li><a href="./tag/computability.html">Computability (12)</a></li><li><a href="./tag/computer.html">computer (3)</a></li><li><a href="./tag/conda.html">Conda (2)</a></li><li><a href="./tag/conda-forge.html">conda-forge (1)</a></li><li><a href="./tag/configback-kua-ping-tai-kai-fa-pei-zhi-wen-jian-de-wu-tong-bei-fen-qian-yi-guan-li-gong-ju.html">ConfigBack-跨平台开发配置文件的无痛备份迁移管理工具 (1)</a></li><li><a href="./tag/cong-shu-zu-dao-fu-za-shu-ju-cyu-yan-shi-zen-yao-yi-bu-bu-bian-fu-za-de.html">从数组到复杂数据C语言是怎么一步步变复杂的 (1)</a></li><li><a href="./tag/copytalker-kua-yue-yu-yan-zhang-ai-de-jin-shi-shi-yu-yin-fan-yi.html">CopyTalker-跨越语言障碍的近实时语音翻译 (1)</a></li><li><a href="./tag/correlation.html">Correlation (1)</a></li><li><a href="./tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="./tag/cs.html">CS (1)</a></li><li><a href="./tag/cuda.html">CUDA (6)</a></li><li><a href="./tag/culture.html">culture (1)</a></li><li><a href="./tag/cursor.html">Cursor (1)</a></li><li><a href="./tag/cyu-yan-fu-xi-quan-gong-lue-yi-wen-chi-tou-suo-you-zhi-shi-dian.html">C语言复习全攻略-一文吃透所有知识点 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-numc-yi-ge-numpy-feng-ge-de-c-yu-yan-ku.html">C语言基础教程NumC-一个-NumPy-风格的-C-语言库 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shi-xian-lei-si-dong-tai-lei-xing-dui-yong-hu-shu-ru-jie-xi-bing-qie-xuan-ze-he-gua-de-shu-ju-lei-xing.html">C语言基础教程-实现类似动态类型对用户输入解析并且选择合适的数据类型 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shu-zu-xing-zhuang-50xing-200000lie-vs-200000xing-50lie-tong-yang-de-shu-ju-bu-tong-de-xing-neng.html">C语言基础教程数组形状-50行200000列-vs-200000行50列-同样的数据不同的性能 (1)</a></li><li><a href="./tag/da-gong.html">打工 (1)</a></li><li><a href="./tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="./tag/da-xue-sheng-huo.html">大学生活 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing.html">大语言模型 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing-li-mian-de-tokende-han-yi-he-yuan-liu.html">大语言模型里面的token的含义和源流 (1)</a></li><li><a href="./tag/dai-ma-neng-li.html">代码能力 (1)</a></li><li><a href="./tag/dan-jing-du-fu-dian-shu-de-fen-bian-lu-wei-shi-yao-zai-ji-suan-ji-li-1000-mo-he-1000-mo-jia-001-ke-neng-shi-yi-yang-de.html">单精度浮点数的分辨率为什么在计算机里-1000-万和-1000-万加-001-可能是一样的 (1)</a></li><li><a href="./tag/dan-yi-zhi-ze-yuan-ze-xie-hao-pythonhan-shu-de-di-yi-bu.html">单一职责原则写好Python函数的第一步 (1)</a></li><li><a href="./tag/data.html">Data (3)</a></li><li><a href="./tag/data-science.html">Data Science (2)</a></li><li><a href="./tag/database.html">Database (1)</a></li><li><a href="./tag/datewise-photo-organizer-ji-yu-ri-qi-shi-jian-jin-xing-tu-pian-zu-zhi-he-lu-jing-guan-li-de-she-ying-fu-zhu-gong-ju-ruan-jian.html">Datewise-Photo-Organizer-基于日期时间进行图片组织和路径管理的摄影辅助工具软件 (1)</a></li><li><a href="./tag/decision-making.html">decision-making (1)</a></li><li><a href="./tag/design.html">Design (1)</a></li><li><a href="./tag/dian-che-nan-ti-han-shang-de-zhi-jia-hui-zai-shi-gu-qian-tu-ran-tui-chu-yao.html">电车难题厂商的智驾会在事故前突然退出么 (1)</a></li><li><a href="./tag/dimension.html">dimension (1)</a></li><li><a href="./tag/discuss.html">Discuss (7)</a></li><li><a href="./tag/disease.html">Disease (1)</a></li><li><a href="./tag/diy.html">DIY (1)</a></li><li><a href="./tag/download.html">Download (1)</a></li><li><a href="./tag/earth-science.html">Earth Science (1)</a></li><li><a href="./tag/education.html">Education (15)</a></li><li><a href="./tag/efficiency.html">efficiency (1)</a></li><li><a href="./tag/ekf.html">EKF (1)</a></li><li><a href="./tag/emotion.html">emotion (1)</a></li><li><a href="./tag/engineering.html">Engineering (1)</a></li><li><a href="./tag/environment.html">Environment (1)</a></li><li><a href="./tag/er-ji.html">耳机 (1)</a></li><li><a href="./tag/er-jin-zhi.html">二进制 (1)</a></li><li><a href="./tag/ertinger-ting-yi-ge-jian-dan-de-yin-pin-jiang-zao-gong-ju.html">ErTing耳听一个简单的音频降噪工具 (1)</a></li><li><a href="./tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="./tag/fa-lan-ke-fu.html">法兰克福 (1)</a></li><li><a href="./tag/family.html">family (1)</a></li><li><a href="./tag/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">FanFu凡赴-把-Ollama-的-GGUF-模型转成-HuggingFace-格式纯好玩 (1)</a></li><li><a href="./tag/fang-fa-bi-gui-mo-geng-zhong-yao-agenticqwenyu-needlede-xiao-mo-xing-zhi-neng-ti-ying-yong-tan-suo.html">方法比规模更重要AgenticQwen与Needle的小模型智能体应用探索 (1)</a></li><li><a href="./tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="./tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="./tag/filtering.html">Filtering (6)</a></li><li><a href="./tag/folderlensyi-ge-pyside6shi-xian-de-jian-dan-wen-jian-guan-li-qi-kai-fa-shi-li.html">FolderLens一个PySide6实现的简单文件管理器开发实例 (1)</a></li><li><a href="./tag/fractal.html">fractal (1)</a></li><li><a href="./tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="./tag/freshman.html">freshman (5)</a></li><li><a href="./tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="./tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./tag/function-calling.html">function calling (1)</a></li><li><a href="./tag/game.html">Game (2)</a></li><li><a href="./tag/gametheory.html">GameTheory (1)</a></li><li><a href="./tag/gangdan-de-zhi-shi-ku-shi-zen-yao-lian-cheng-de.html">GangDan-的知识库是怎么炼成的 (1)</a></li><li><a href="./tag/gangdan-geng-xin-ke-yong-zai-xian-mo-xing-cong-xie-zong-shu-dao-xie-wan-zheng-wen-zhang.html">GangDan-更新可用在线模型从写综述到写完整文章 (1)</a></li><li><a href="./tag/gangdan-wu-yue-zhong-de-ji-zhong-geng-xin-jing-zhun-xuan-wen-zhi-shi-ku-fen-xi-xue-xi-mo-kuai-quan-mian-xiu-fu.html">GangDan-五月中的集中更新精准选文知识库分析学习模块全面修复 (1)</a></li><li><a href="./tag/gangdan-you-geng-xin-liao-yi-bo-cong-kai-fa-zhu-shou-zhuan-xing-wei-zhi-shi-guan-li-yu-jiao-xue-fu-zhu-gong-ju.html">GangDan-又更新了一波从开发助手转型为知识管理与教学辅助工具 (1)</a></li><li><a href="./tag/gangdangang-dan-sheng-ji-kai-yuan-ben-di-zhi-shi-ku-zhi-chi-ben-di-mo-xing-he-zai-xian-mo-xing-de-shen-du-yan-jiu-zhu-shou.html">GangDan纲担升级开源本地知识库-支持本地模型和在线模型的深度研究助手 (1)</a></li><li><a href="./tag/gangdangang-dan-zhong-gou-ji-hu-zhong-zuo-liao-yi-bian.html">GangDan纲担重构-几乎重做了一遍 (1)</a></li><li><a href="./tag/gangdanji-xu-geng-xin-xian-zai-neng-zhi-jie-shang-chuan-cajgou-jian-zhi-shi-ku-liao.html">GangDan继续更新现在能直接上传CAJ构建知识库了 (1)</a></li><li><a href="./tag/gangdanzhi-shi-ku-dao-chu-gai-jin-ke-yi-zhi-jie-dao-chu-xia-zai-hao-de-wen-zhang-yuan-wen-liao.html">GangDan知识库导出改进-可以直接导出下载好的文章原文了 (1)</a></li><li><a href="./tag/gao-xiao-jiao-shi-jian-yi-da-yi-kai-xue-yao-you-dian-nao-huan-yao-an-zhuang-opencodeshi-yong-zhi-neng-ti.html">高校教师建议大一开学要有电脑还要安装OpenCode使用智能体 (1)</a></li><li><a href="./tag/gei-xin-shou-shi-xian-yi-wei-shu-zu-de-liang-chong-si-lu-chuan-tong-cyu-yan-vs-numcku.html">给新手实现一维数组的两种思路传统C语言-vs-NumC库 (1)</a></li><li><a href="./tag/gemma4.html">Gemma4 (1)</a></li><li><a href="./tag/general-education.html">general-education (1)</a></li><li><a href="./tag/geojstool-di-qiu-hua-xue-fen-xi-gong-ju-wang-ye-ban-de-geopytool.html">GeoJsTool-地球化学分析工具-网页版的GeoPyTool (1)</a></li><li><a href="./tag/geology.html">Geology (4)</a></li><li><a href="./tag/geometry.html">geometry (1)</a></li><li><a href="./tag/geopython.html">GeoPython (1)</a></li><li><a href="./tag/gguf.html">GGUF (2)</a></li><li><a href="./tag/gis.html">GIS (3)</a></li><li><a href="./tag/glm.html">GLM (1)</a></li><li><a href="./tag/glumpy.html">GlumPy (2)</a></li><li><a href="./tag/golden-section.html">Golden Section (1)</a></li><li><a href="./tag/gong-ju-diao-yong.html">工具调用 (2)</a></li><li><a href="./tag/google-de-turboquant-suan-fa-ru-he-rang-aigeng-sheng-nei-cun-gao-ding-xiang-liang-liang-hua-nan-ti.html">Google-的-TurboQuant-算法如何让AI更省内存搞定向量量化难题 (1)</a></li><li><a href="./tag/gpt-35.html">GPT-3.5 (3)</a></li><li><a href="./tag/gpt-4o.html">GPT-4o (1)</a></li><li><a href="./tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="./tag/graduate-school.html">graduate-school (1)</a></li><li><a href="./tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="./tag/granite4.html">granite4 (1)</a></li><li><a href="./tag/gsm8k.html">GSM8K (2)</a></li><li><a href="./tag/gu-ge-turboquant-lun-wen-zhong-yi-ji-yu-jin-zui-you-niu-qu-lu-de-gao-su-zai-xian-xiang-liang-liang-hua-suan-fa.html">谷歌-TurboQuant-论文中译基于近最优扭曲率的高速在线向量量化算法 (1)</a></li><li><a href="./tag/guan-xi-xing-shu-ju-ku.html">关系型数据库 (1)</a></li><li><a href="./tag/guide.html">Guide (1)</a></li><li><a href="./tag/hack.html">Hack (2)</a></li><li><a href="./tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="./tag/hadoop.html">Hadoop (2)</a></li><li><a href="./tag/hardware.html">Hardware (2)</a></li><li><a href="./tag/hate.html">Hate (1)</a></li><li><a href="./tag/hbase.html">HBase (1)</a></li><li><a href="./tag/heibancong-markdownzhuan-chu-ppthuan-deng-pian.html">HeiBan从Markdown转出PPT幻灯片 (1)</a></li><li><a href="./tag/heibanhei-ban-jiang-markdownzhuan-huan-cheng-htmllai-dang-jiang-yi.html">HeiBan黑板-将Markdown转换成HTML来当讲义 (1)</a></li><li><a href="./tag/hellaswag.html">HellaSwag (2)</a></li><li><a href="./tag/hermes.html">Hermes (1)</a></li><li><a href="./tag/heroism.html">heroism (1)</a></li><li><a href="./tag/history.html">History (6)</a></li><li><a href="./tag/huan-jue.html">幻觉 (1)</a></li><li><a href="./tag/huan-wei-si-kao-he-ni-chou-sha.html">换位思考和你瞅啥 (1)</a></li><li><a href="./tag/huan-yi-ge-ba-wang-ye-zhuan-huan-cheng-markdownde-python-xiao-gong-ju.html">Huan-一个把网页转换成-Markdown的Python-小工具 (1)</a></li><li><a href="./tag/hui-yi.html">回忆 (1)</a></li><li><a href="./tag/humaneval.html">HumanEval (2)</a></li><li><a href="./tag/ide.html">IDE (2)</a></li><li><a href="./tag/imbalance.html">Imbalance (1)</a></li><li><a href="./tag/imu.html">IMU (1)</a></li><li><a href="./tag/jacobian.html">Jacobian (1)</a></li><li><a href="./tag/java-ji-chu-yu-fa-5fen-zhong-ru-men.html">Java-基础语法5分钟入门 (1)</a></li><li><a href="./tag/ji-chu-zhi-shi-chu-ji-tong-ji-gai-nian-de-jian-dan-jie-shao.html">基础知识初级统计概念的简单介绍 (1)</a></li><li><a href="./tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="./tag/ji-nian.html">纪念 (1)</a></li><li><a href="./tag/ji-suan-ji.html">计算机 (1)</a></li><li><a href="./tag/ji-suan-ji-zu-cheng.html">计算机组成 (1)</a></li><li><a href="./tag/ji-yu-ben-di-mo-xing-de-bian-cheng-xue-xi-fu-zhu-huan-jing-da-jian-wan-zheng-zhi-nan.html">基于本地模型的编程学习辅助环境搭建完整指南 (1)</a></li><li><a href="./tag/ji-yu-tunade-virtualbox-yu-ubuntu-xu-ni-ji-bu-shu-zhi-nan.html">基于TUNA的-VirtualBox-与-Ubuntu-虚拟机部署指南 (1)</a></li><li><a href="./tag/jian-dan-shuo-shuo-pythonli-mian-de-han-shu-shi-di-yi-gong-min-first-class-citizen.html">简单说说Python里面的函数是第一公民First-Class-Citizen (1)</a></li><li><a href="./tag/jie-zhu-pythonlai-li-jie-zi-gua-ying-xin-pu-sen-ji-fen-yuan-li-shi-xian-yu-dong-tai-ke-shi-hua.html">借助Python来理解自适应辛普森积分原理实现与动态可视化 (1)</a></li><li><a href="./tag/jing-xiang.html">镜像 (1)</a></li><li><a href="./tag/jiu-wen-gao-bie-guo-qu-gao-bie-ke-xue-wang.html">旧文告别过去告别科学网 (1)</a></li><li><a href="./tag/jixingji-xing-dang-agent-dui-hua-chao-chu-shang-xia-wen-xian-zhi-zuo-liao-yi-ge-lei-si-xu-ni-ji-re-qian-yi-cao-lu-fang-an.html">JiXing记行-当-Agent-对话超出上下文限制做了一个类似虚拟机热迁移草率方案 (1)</a></li><li><a href="./tag/job.html">Job (1)</a></li><li><a href="./tag/job-hunting.html">job-hunting (1)</a></li><li><a href="./tag/junck.html">Junck (3)</a></li><li><a href="./tag/kalman.html">Kalman (1)</a></li><li><a href="./tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="./tag/kao-yan-qu-mei-chu-shi-yu-fu-shi.html">考研祛魅初试与复试 (1)</a></li><li><a href="./tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="./tag/kivy.html">Kivy (3)</a></li><li><a href="./tag/kuan-biao.html">宽表 (1)</a></li><li><a href="./tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="./tag/language.html">Language (1)</a></li><li><a href="./tag/learn.html">Learn (4)</a></li><li><a href="./tag/learning.html">Learning (10)</a></li><li><a href="./tag/lens.html">Lens (19)</a></li><li><a href="./tag/lesson.html">Lesson (1)</a></li><li><a href="./tag/lfm.html">LFM (1)</a></li><li><a href="./tag/lfm25.html">lfm2.5 (1)</a></li><li><a href="./tag/li-yong-chao-qiang-de-xiao-mo-xing-omnicoder-9b-shi-shi-turboquant-liang-hua-kv-cache-2-bit-tiao-zhan-fp1.html">利用超强的小模型-OmniCoder-9B-试试-TurboQuant-量化-KV-Cache-2-bit-挑战-FP1 (1)</a></li><li><a href="./tag/li-yong-pythonshi-xian-de-yu-ben-di-da-mo-xing-jiao-hu-de-posix-jian-rong-ceng.html">利用Python实现的与本地大模型交互的POSIX-兼容层 (1)</a></li><li><a href="./tag/liang-hua.html">量化 (3)</a></li><li><a href="./tag/liaoliao-rang-ben-di-da-yu-yan-mo-xing-ai-bang-ni-liao-tian-de-kai-yuan-gong-ju.html">Liao聊-让本地大语言模型-AI-帮你聊天的开源工具 (1)</a></li><li><a href="./tag/library.html">Library (1)</a></li><li><a href="./tag/life.html">life (16)</a></li><li><a href="./tag/lift.html">lift (1)</a></li><li><a href="./tag/linux.html">Linux (9)</a></li><li><a href="./tag/liquid-ai.html">Liquid AI (1)</a></li><li><a href="./tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="./tag/llamacpp.html">llama.cpp (3)</a></li><li><a href="./tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="./tag/llm.html">LLM (7)</a></li><li><a href="./tag/ltfs.html">LTFS (1)</a></li><li><a href="./tag/lto.html">LTO (1)</a></li><li><a href="./tag/mac.html">Mac (11)</a></li><li><a href="./tag/macbook-air-m4.html">MacBook Air M4 (2)</a></li><li><a href="./tag/macos.html">macOS (1)</a></li><li><a href="./tag/markdown.html">Markdown (1)</a></li><li><a href="./tag/materials.html">Materials (1)</a></li><li><a href="./tag/math.html">Math (3)</a></li><li><a href="./tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="./tag/mathematics.html">mathematics (1)</a></li><li><a href="./tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="./tag/maturity.html">maturity (1)</a></li><li><a href="./tag/mayavi.html">MayaVi (1)</a></li><li><a href="./tag/mechanics.html">Mechanics (1)</a></li><li><a href="./tag/memory.html">Memory (4)</a></li><li><a href="./tag/methodology.html">Methodology (1)</a></li><li><a href="./tag/mian-dui-wu-mai-ni-shi-wu-neng-wei-li-huan-shi-xiu-shou-pang-guan.html">面对雾霾你是无能为力还是袖手旁观 (1)</a></li><li><a href="./tag/mian-xiang-dui-xiang-bian-cheng-ru-men-yong-wu-xia-jiao-se-li-jie-python-zhong-de-lei.html">面向对象编程入门用武侠角色理解-Python-中的类 (1)</a></li><li><a href="./tag/microscope.html">Microscope (2)</a></li><li><a href="./tag/mindset.html">mindset (2)</a></li><li><a href="./tag/miniconda3.html">Miniconda3 (1)</a></li><li><a href="./tag/ml.html">ML (4)</a></li><li><a href="./tag/mlx.html">mlx (1)</a></li><li><a href="./tag/mmlu.html">MMLU (2)</a></li><li><a href="./tag/mo-xing-ping-ce.html">模型评测 (1)</a></li><li><a href="./tag/mobile.html">Mobile (1)</a></li><li><a href="./tag/moe.html">MoE (1)</a></li><li><a href="./tag/moon.html">Moon (1)</a></li><li><a href="./tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="./tag/moving-average.html">Moving Average (1)</a></li><li><a href="./tag/moxing.html">moxing (1)</a></li><li><a href="./tag/moxing-he-ollama-dui-bi-cong-omnicoder-9bdao-geng-duo-mo-xing.html">MoXing-和-Ollama-对比从omnicoder-9b到更多模型 (1)</a></li><li><a href="./tag/moxing-su-du-zui-gao-da-dao-ollamade-201-tong-mo-xing-tong-ying-jian-de-shi-ce-dui-bi-omnicoder-2-9b-de-q4_k_m.html">MoXing-速度最高达到-Ollama的-201-同模型同硬件的实测对比OmniCoder-2-9B-的-Q4_K_M (1)</a></li><li><a href="./tag/moxing-wu-yue-geng-xin-suan-shi-lai-liao-ge-da-sao-chu.html">MoXing-五月更新算是来了个大扫除 (1)</a></li><li><a href="./tag/moxing-zhu-li-la-ji-lao-yong-bai-yuan-chao-lian-jie-xian-qia-ben-di-yun-xing-omnicoder-2-9bmo-xing-jie-guo-ye-zhi-you-shi-ji-ge-tokenss.html">MoXing-助力垃圾佬用百元超廉价显卡本地运行omnicoder-2-9b模型结果也只有十几个tokenss (1)</a></li><li><a href="./tag/moxingdi-yu-suan-chang-jing-yong-rx580xian-qia-qing-song-yun-xing-qwen35-9b-q4_k_mmo-xing.html">MoXing低预算场景用RX580显卡轻松运行Qwen35-9b-q4_k_m模型 (1)</a></li><li><a href="./tag/moxingsheng-ji-tong-shi-yun-xing-duo-ge-mo-xing-shi-li.html">MoXing升级同时运行多个模型实例 (1)</a></li><li><a href="./tag/moxingxin-sheng-ji-zhi-jie-duo-she-ollama-bu-fen-mo-xing-ti-su-50.html">MoXing新升级直接夺舍-Ollama-部分模型提速-50 (1)</a></li><li><a href="./tag/mtp.html">MTP (1)</a></li><li><a href="./tag/muon.html">Muon (1)</a></li><li><a href="./tag/n8n.html">n8n (1)</a></li><li><a href="./tag/nas.html">NAS (1)</a></li><li><a href="./tag/nemotron.html">Nemotron (1)</a></li><li><a href="./tag/network.html">Network (1)</a></li><li><a href="./tag/ni-de-dian-nao-mei-miao-neng-zuo-duo-shao-ci-fu-dian-yun-suan-flops-de-gu-shi.html">你的电脑每秒能做多少次浮点运算FLOPS-的故事 (1)</a></li><li><a href="./tag/niu-dun-fa-qiu-jie-guo-cheng-de-pythonshi-xian-ji-qi-xiang-jie.html">牛顿法求解过程的Python实现及其详解 (1)</a></li><li><a href="./tag/nixos.html">NixOS (1)</a></li><li><a href="./tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="./tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="./tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="./tag/nosql.html">NoSQL (1)</a></li><li><a href="./tag/numpy.html">NumPy (1)</a></li><li><a href="./tag/nuoyi-geng-xin-xin-zeng-zai-xian-zhuan-huan-yin-qing-mei-xian-qia-ye-bu-pa-chang-wen-dang-ye-bu-na-yao-tou-teng.html">NuoYi-更新新增在线转换引擎没显卡也不怕长文档也不那么头疼 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-geng-xin-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju-shao-wei-sheng-yi-dian-xian-cun-liao.html">NuoYi-挪移更新-离线的-PDFDOCX-转-Markdown-工具稍微省一点显存了 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-yi-ge-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju.html">NuoYi-挪移-一个离线的-PDFDOCX-转-Markdown-工具 (1)</a></li><li><a href="./tag/nvidia.html">Nvidia (1)</a></li><li><a href="./tag/ocr.html">OCR (1)</a></li><li><a href="./tag/ollama.html">Ollama (20)</a></li><li><a href="./tag/ollamaaidgei-ni-guan-li-ben-di-da-mo-xing-pei-ge-de-li-zhu-shou.html">OllamaAid给你管理本地大模型配个得力助手 (1)</a></li><li><a href="./tag/ollamageng-xin-suo-you-ben-di-mo-xing.html">Ollama更新所有本地模型 (1)</a></li><li><a href="./tag/ollamaqian-ru-mo-xing-xuan-xing-zhi-nan-zhu-liu-mo-xing-shen-du-dui-bi.html">Ollama嵌入模型选型指南-主流模型深度对比 (1)</a></li><li><a href="./tag/omlx.html">omlx (1)</a></li><li><a href="./tag/opc.html">OPC (1)</a></li><li><a href="./tag/opencl.html">OpenCL (1)</a></li><li><a href="./tag/opencode.html">opencode (11)</a></li><li><a href="./tag/opencode-jin-jie-zhi-ji-neng-chuang-zuo-chai-jie-miao-shu-dian-xing-ren-wu-hou-yan-zheng-shi-xian-zai-zuo-cheng-ke-fu-yong-de-ji-neng.html">OpenCode-进阶之技能创作拆解描述典型任务后验证实现再做成可复用的技能 (1)</a></li><li><a href="./tag/opencode-skillsfen-xiang-yi-tao-zi-ji-luan-xie-de-huan-suan-shi-yong-de-ai-bian-ma-ji-neng-ku.html">OpenCode-Skills分享一套自己乱写的还算实用的-AI-编码技能库 (1)</a></li><li><a href="./tag/openlaoke-geng-xin-ben-di-gguf-mo-xing-ling-api-fei-yong-pao-qi-lai.html">OpenLaoKe-更新本地-GGUF-模型零-API-费用跑起来 (1)</a></li><li><a href="./tag/openlaokelao-ke-yi-ge-ming-ling-xing-aizhu-shou.html">OpenLaoKe唠嗑一个命令行AI助手 (1)</a></li><li><a href="./tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="./tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="./tag/optimization.html">Optimization (2)</a></li><li><a href="./tag/os.html">os (1)</a></li><li><a href="./tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="./tag/parenting.html">Parenting (1)</a></li><li><a href="./tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="./tag/path.html">PATH (1)</a></li><li><a href="./tag/pdfjie-xi.html">PDF解析 (1)</a></li><li><a href="./tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="./tag/performance.html">Performance (1)</a></li><li><a href="./tag/phd.html">PHD (2)</a></li><li><a href="./tag/philosophy.html">philosophy (2)</a></li><li><a href="./tag/photo.html">Photo (23)</a></li><li><a href="./tag/photography.html">Photography (2)</a></li><li><a href="./tag/physics.html">Physics (3)</a></li><li><a href="./tag/ping-ce.html">评测 (1)</a></li><li><a href="./tag/poem.html">Poem (2)</a></li><li><a href="./tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="./tag/programming.html">Programming (11)</a></li><li><a href="./tag/prompt.html">Prompt (1)</a></li><li><a href="./tag/psychology.html">Psychology (1)</a></li><li><a href="./tag/pve.html">PVE (2)</a></li><li><a href="./tag/pyenv.html">Pyenv (2)</a></li><li><a href="./tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="./tag/python.html">Python (70)</a></li><li><a href="./tag/python-ji-chu-yu-fa-5fen-zhong-ru-men.html">Python-基础语法5分钟入门 (1)</a></li><li><a href="./tag/qemu.html">QEMU (1)</a></li><li><a href="./tag/qgis.html">QGIS (3)</a></li><li><a href="./tag/qt.html">QT (1)</a></li><li><a href="./tag/qu-shen-cha.html">去审查 (1)</a></li><li><a href="./tag/qwen3.html">Qwen3 (10)</a></li><li><a href="./tag/qwen35.html">qwen3.5 (1)</a></li><li><a href="./tag/qwen36.html">Qwen3.6 (3)</a></li><li><a href="./tag/qwen38.html">Qwen3.8 (4)</a></li><li><a href="./tag/radio.html">Radio (2)</a></li><li><a href="./tag/rag.html">RAG (1)</a></li><li><a href="./tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="./tag/raspbian.html">Raspbian (1)</a></li><li><a href="./tag/reading.html">reading (2)</a></li><li><a href="./tag/reflection.html">reflection (4)</a></li><li><a href="./tag/remote.html">Remote (1)</a></li><li><a href="./tag/research.html">Research (3)</a></li><li><a href="./tag/resume.html">resume (1)</a></li><li><a href="./tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="./tag/ri-chang-sheng-huo.html">日常生活 (1)</a></li><li><a href="./tag/rotation.html">Rotation (1)</a></li><li><a href="./tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="./tag/rtx-4070.html">RTX 4070 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-jia-gou-shi-zhuan-ye-ying-yu-gao-pin-ci-hui-biao.html">软考高级系统架构设计师知识精要-架构师专业英语高频词汇表 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-ce-shi-yu-yun-xing-wei-hu.html">软考高级系统架构设计师知识精要-软件测试与运行维护 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-gong-cheng-yu-kai-fa-fang-fa.html">软考高级系统架构设计师知识精要-软件工程与开发方法 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-jia-gou-she-ji-yu-ping-gu.html">软考高级系统架构设计师知识精要-软件架构设计与评估 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-an-quan-yu-qu-kuai-lian-ji-zhu.html">软考高级系统架构设计师知识精要-系统安全与区块链技术 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-jian-mo-yu-umlshe-ji.html">软考高级系统架构设计师知识精要-系统建模与UML设计 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xi-xi-tong-yu-qi-ye-xin-xi-hua.html">软考高级系统架构设计师知识精要-信息系统与企业信息化 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xing-ji-zhu-yu-ji-chu-she-shi.html">软考高级系统架构设计师知识精要-新兴技术与基础设施 (1)</a></li><li><a href="./tag/rust.html">Rust (1)</a></li><li><a href="./tag/rustyu-yan-cheng-xu-she-ji-ji-chu-di-san-zhang-fu-he-shu-ju-lei-xing-yu-xun-huan.html">Rust语言程序设计基础第三章复合数据类型与循环 (1)</a></li><li><a href="./tag/rx590.html">RX590 (1)</a></li><li><a href="./tag/sandbox.html">SandBox (1)</a></li><li><a href="./tag/scholar.html">Scholar (2)</a></li><li><a href="./tag/school.html">School (3)</a></li><li><a href="./tag/science.html">Science (3)</a></li><li><a href="./tag/search.html">Search (1)</a></li><li><a href="./tag/self-study.html">Self-Study (1)</a></li><li><a href="./tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="./tag/server.html">Server (1)</a></li><li><a href="./tag/shang-ye-xin-xi.html">商业信息 (1)</a></li><li><a href="./tag/sheng-cheng-su-du.html">生成速度 (1)</a></li><li><a href="./tag/shi-jie-yi-liu-da-xue-shuo-shuo-er-yi-huan-shi-zhen-de-qu-zuo.html">世界一流大学说说而已还是真的去做 (1)</a></li><li><a href="./tag/shi-yong-llama-factory-cong-modelscope-xia-zai-mo-xing-bing-wei-diao.html">使用-LLaMA-Factory-从-ModelScope-下载模型并微调 (1)</a></li><li><a href="./tag/shi-yong-ollamakuai-su-bu-shu-bing-yun-xing-zui-xin-de-qwen3-30b-a3b-2507mo-xing.html">使用ollama快速部署并运行最新的qwen3-30b-a3b-2507模型 (1)</a></li><li><a href="./tag/shit.html">Shit (1)</a></li><li><a href="./tag/shu-ju-an-quan.html">数据安全 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-0zhang-cyu-yan-pythonde-di-ceng-shi-jiao.html">数据结构与算法基础-第0章-C语言Python的底层视角 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-1zhang-suan-fa-ji-chu-yu-fu-za-du-fen-xi.html">数据结构与算法基础-第1章-算法基础与复杂度分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-2zhang-xian-xing-shu-ju-jie-gou.html">数据结构与算法基础-第2章-线性数据结构 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-4zhang-tu-lun-ji-chu.html">数据结构与算法基础-第4章-图论基础 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-5zhang-pai-xu-suan-fa.html">数据结构与算法基础-第5章-排序算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-6zhang-sou-suo-suan-fa.html">数据结构与算法基础-第6章-搜索算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-7zhang-dong-tai-gui-hua.html">数据结构与算法基础-第7章-动态规划 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-8zhang-gao-ji-suan-fa.html">数据结构与算法基础-第8章-高级算法 (1)</a></li><li><a href="./tag/shu-ju-ke-shi-hua.html">数据可视化 (1)</a></li><li><a href="./tag/shu-ju-ku.html">数据库 (1)</a></li><li><a href="./tag/shu-ju-lei-xing.html">数据类型 (1)</a></li><li><a href="./tag/shu-zhi-ji-fen-man-tan-ru-he-rang-yong-pythonqiu-ji-fen.html">数值积分漫谈如何让用Python求积分 (1)</a></li><li><a href="./tag/shui-ke-xing-cun-zhi-nan-ru-guo-ni-bei-po-yao-qu-ting-ni-bu-xi-huan-de-ke-cheng-gai-zen-yao-ban.html">水课幸存指南-如果你被迫要去听你不喜欢的课程该怎么办 (1)</a></li><li><a href="./tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="./tag/signal-processing.html">Signal Processing (3)</a></li><li><a href="./tag/skill.html">skill (3)</a></li><li><a href="./tag/smollm2.html">smollm2 (1)</a></li><li><a href="./tag/software.html">Software (1)</a></li><li><a href="./tag/sou-suo.html">搜索 (1)</a></li><li><a href="./tag/sports.html">sports (1)</a></li><li><a href="./tag/sql.html">SQL (1)</a></li><li><a href="./tag/state-space.html">State Space (1)</a></li><li><a href="./tag/statistics.html">Statistics (1)</a></li><li><a href="./tag/story.html">Story (50)</a></li><li><a href="./tag/sui-bi.html">随笔 (1)</a></li><li><a href="./tag/t-bench.html">τ-bench (1)</a></li><li><a href="./tag/tape.html">Tape (1)</a></li><li><a href="./tag/telescope.html">Telescope (1)</a></li><li><a href="./tag/terminal.html">Terminal (1)</a></li><li><a href="./tag/textbook.html">textbook (1)</a></li><li><a href="./tag/thinking.html">Thinking (7)</a></li><li><a href="./tag/ti-xing-fa-qiu-ji-fen-de-pythonshi-xian.html">梯形法求积分的Python实现 (1)</a></li><li><a href="./tag/tian-biao.html">填表 (1)</a></li><li><a href="./tag/time-series.html">Time Series (1)</a></li><li><a href="./tag/tokenzi-you-yong-moxingzai-7900xtx-24gxian-qia-shang-ben-di-yun-xing-qwen36-27bmo-xing-gei-opencodeyong-lai-wen-dang-bian.html">Token自由-用MoXing在7900xtx-24G显卡上本地运行Qwen36-27B模型给OpenCode用来文档编 (1)</a></li><li><a href="./tag/tong-ji-xue.html">统计学 (1)</a></li><li><a href="./tag/tong-men-xiang-can-bai-yuan-xian-qia-de-ben-di-mo-xing-da-zhan-rx580-16g-2048sp-vs-rx590-8g-2304sp.html">同门相残-百元显卡的本地模型大战RX580-16G-2048SP-VS-RX590-8G-2304SP (1)</a></li><li><a href="./tag/tong-nian.html">童年 (1)</a></li><li><a href="./tag/tong-xue.html">同学 (1)</a></li><li><a href="./tag/tool.html">Tool (8)</a></li><li><a href="./tag/tool-calling.html">tool calling (3)</a></li><li><a href="./tag/toolbench.html">ToolBench (1)</a></li><li><a href="./tag/tools.html">Tools (10)</a></li><li><a href="./tag/traffic.html">Traffic (1)</a></li><li><a href="./tag/translate.html">Translate (2)</a></li><li><a href="./tag/translation.html">Translation (1)</a></li><li><a href="./tag/transpaste-sheng-ji-yi-ge-jian-tie-ban-fan-yi-gong-ju-de-zi-wo-xiu-yang.html">TransPaste-升级一个剪贴板翻译工具的自我修养 (1)</a></li><li><a href="./tag/transpaste-yi-kuan-ji-yu-ben-di-da-yu-yan-mo-xing-de-qing-liang-ji-jian-tie-ban-fan-yi-gong-ju.html">TransPaste-一款基于本地大语言模型的轻量级剪贴板翻译工具 (1)</a></li><li><a href="./tag/transpasteben-di-ai-fan-yi-gong-ju-xin-ban-ben-sheng-ji-hou-zhi-chi-geng-duo-xi-li-du-de-fan-yi-kong-zhi.html">TransPaste本地-AI-翻译工具新版本升级后支持更多细粒度的翻译控制 (1)</a></li><li><a href="./tag/tui.html">TUI (1)</a></li><li><a href="./tag/tui-jian-yi-kuan-markdownde-kua-ping-tai-chi-xian-bian-ji-qi-zhi-chi-sui-shi-yu-lan.html">推荐一款MarkDown的跨平台离线编辑器支持随时预览 (1)</a></li><li><a href="./tag/tuna.html">TUNA (1)</a></li><li><a href="./tag/turing.html">Turing (12)</a></li><li><a href="./tag/tutorial.html">tutorial (2)</a></li><li><a href="./tag/uav.html">UAV (1)</a></li><li><a href="./tag/ubuntu.html">Ubuntu (4)</a></li><li><a href="./tag/ubuntu-shou-dong-an-zhuang-ollama-0171-lai-yun-xing-qwen3535b-a3b-de-xiang-xi-zhi-nan.html">Ubuntu-手动安装-Ollama-0171-来运行-qwen3535b-a3b-的详细指南 (1)</a></li><li><a href="./tag/ui.html">UI (1)</a></li><li><a href="./tag/ukf.html">UKF (1)</a></li><li><a href="./tag/university.html">university (14)</a></li><li><a href="./tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="./tag/ustc.html">USTC (1)</a></li><li><a href="./tag/ventoy.html">Ventoy (1)</a></li><li><a href="./tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="./tag/vibe-coding-fen-wei-bian-cheng-an-li-tong-guo-dui-hua-shi-xian-ke-yong-de-kuai-su-cha-biao-gong-ju.html">Vibe-Coding-氛围编程案例-通过对话实现可用的快速查表工具 (1)</a></li><li><a href="./tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="./tag/video.html">video (2)</a></li><li><a href="./tag/vidtogif-yi-ge-jian-dan-gao-xiao-de-shi-pin-zhuan-gif-gong-ju.html">VidToGif-一个简单高效的视频转-GIF-工具 (1)</a></li><li><a href="./tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="./tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="./tag/virtualization.html">Virtualization (1)</a></li><li><a href="./tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./tag/vispy.html">VisPy (1)</a></li><li><a href="./tag/visualization.html">Visualization (8)</a></li><li><a href="./tag/vm.html">VM (1)</a></li><li><a href="./tag/vmwarexu-ni-ji-yun-xing-macosunlcokrecoveryosoc4vm-shi-xian-ti-gong-bai-du-yun-pan-xia-zai.html">VMware虚拟机运行macOSunlcokrecoveryosOC4VM-实现提供百度云盘下载 (1)</a></li><li><a href="./tag/void-moxingdi-cheng-ben-fang-an-yong-rx580xian-qia-ben-di-yun-xing-qwen359bmo-xing-da-zao-lei-cursorti-yan.html">Void-MoXing低成本方案用RX580显卡本地运行qwen359B模型打造类Cursor体验 (1)</a></li><li><a href="./tag/vtk.html">VTK (1)</a></li><li><a href="./tag/web.html">Web (1)</a></li><li><a href="./tag/wen-ben-shou-ji.html">文本收集 (1)</a></li><li><a href="./tag/wen-dang-he-cha.html">文档核查 (1)</a></li><li><a href="./tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="./tag/windows.html">Windows (4)</a></li><li><a href="./tag/windows-xi-tong-xia-cong-qing-hua-da-xue-tuna-jing-xiang-an-zhuang-miniconda3-wan-zheng-zhi-nan.html">Windows-系统下从清华大学-TUNA-镜像安装-Miniconda3-完整指南 (1)</a></li><li><a href="./tag/windows11.html">Windows11 (1)</a></li><li><a href="./tag/wingetguigei-windows-bao-guan-li-qi-jia-ge-tu-xing-jie-mian.html">WinGetGUI给-Windows-包管理器加个图形界面 (1)</a></li><li><a href="./tag/winogrande.html">WinoGrande (1)</a></li><li><a href="./tag/workflow.html">workflow (1)</a></li><li><a href="./tag/xcode.html">Xcode (1)</a></li><li><a href="./tag/xia-zai.html">下载 (1)</a></li><li><a href="./tag/xian-jiao-hui-zai-rang-ta-zuo-da-mo-xing-ding-zhi-hua-li-cpthe-sftdao-di-zai-gan-shi-yao.html">先教会再让它做大模型定制化里CPT和SFT到底在干什么 (1)</a></li><li><a href="./tag/xiang-sheng.html">相声 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-er-hui-jiu-suan-shi-sun-wu-kong-shang-da-xue-ye-de-yong-gong.html">小猴子学编程第二回就算是孙悟空上大学也得用功 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-san-hui-shi-yi-zhi-pa-zai-na-zi-yuan-zi-ai-huan-shi-gan-jin-zhun-bei-qu-xin-fu-ben.html">小猴子学编程第三回是一直趴在那自怨自艾还是赶紧准备去新副本 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-si-hui-chong-zhi-bu-hui-rang-ni-bian-qiang-xue-xi-cai-hui.html">小猴子学编程第四回充值不会让你变强学习才会 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-yi-hui-na-pa-shi-sun-wu-kong-ye-xu-yao-xue-xi.html">小猴子学编程第一回哪怕是孙悟空也需要学习 (1)</a></li><li><a href="./tag/xiao-mo-xing.html">小模型 (1)</a></li><li><a href="./tag/xiao-mo-xing-ping-ce.html">小模型评测 (2)</a></li><li><a href="./tag/xiao-you.html">校友 (1)</a></li><li><a href="./tag/xiexie-ba-markdown-zhuan-cheng-wei-xin-gong-zhong-hao-ge-shi-wang-ye-de-xiao-gong-ju.html">Xie写把-Markdown-转成微信公众号格式网页的小工具 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-markdown-shu-xue-gong-shi-zhi-nan.html">新手向的-Markdown-数学公式指南 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-ruan-kao-gao-ji-jia-gou-shi-wan-quan-bei-kao-zhi-nan.html">新手向的软考高级架构师完全备考指南 (1)</a></li><li><a href="./tag/xing-neng-shi-ce.html">性能实测 (1)</a></li><li><a href="./tag/xiu-liao-transpastede-4ge-bug.html">修了TransPaste的4个bug (1)</a></li><li><a href="./tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="./tag/xue-xi-lu-de-qian-shi-jin-sheng-cong-quan-ju-dan-yi-dao-zhu-ceng-ding-zhi.html">学习率的前世今生从全局单一到逐层定制 (1)</a></li><li><a href="./tag/xue-zhu-lun-wen-zhong-chang-jian-yan-jiu-fang-fa-zong-shu-ji-jian-dan-ju-li.html">学术论文中常见研究方法综述及简单举例 (1)</a></li><li><a href="./tag/xue-zhu-yan-jiu-zhi-chi-gong-ju-fen-lei-yu-wen-xian-huo-qu-fang-fa.html">学术研究支持工具分类与文献获取方法 (1)</a></li><li><a href="./tag/yi-xue-chang-jing-yong-duo-mo-tai-da-mo-xing-you-ke-neng-wan-quan-bu-kao-pu-si-tan-fu-da-xue-li-fei-fei-tuan-dui-xin-yan-jiu-jie-kai-duo-mo-tai-aide-hai-shi-shen-lou-xiao-ying.html">医学场景用多模态大模型有可能完全不靠谱斯坦福大学李飞飞团队新研究揭开多模态AI的海市蜃楼效应 (1)</a></li><li><a href="./tag/yi-zhi-tiny-fastboot-scriptdao-macosban-ben-gei-motorola-g100guo-xing-ban-ben-xt2533-4shua-ru-g6.html">移植Tiny-Fastboot-Script到macOS版本给Motorola-G100国行版本XT2533-4刷入G6 (1)</a></li><li><a href="./tag/yin-pin.html">音频 (1)</a></li><li><a href="./tag/ying-pan.html">硬盘 (1)</a></li><li><a href="./tag/yong-wan-quan-kai-yuan-mian-fei-de-ben-di-mo-xing-lai-dui-shi-pin-zhong-de-yin-pin-jin-xing-jiang-zao.html">用完全开源免费的本地模型来对视频中的音频进行降噪 (1)</a></li><li><a href="./tag/you-xi-shi-zen-yao-yun-xing-de-ru-guo-zhi-zhi-dao-chong-zhi-shi-ji-shang-bing-bu-yi-ding-neng-bian-qiang.html">游戏是怎么运行的如果只知道充值实际上并不一定能变强 (1)</a></li><li><a href="./tag/zhe-ji-tian-wo-chuan-yue-liao-shi-jian.html">这几天我穿越了时间 (1)</a></li><li><a href="./tag/zhe-xue.html">哲学 (1)</a></li><li><a href="./tag/zhen-dui-da-mo-xing-he-zhi-neng-ti-xin-shou-kai-fa-zhe-de-linuxhuan-jing-pei-zhi-zhi-nan.html">针对大模型和智能体新手开发者的Linux环境配置指南 (1)</a></li><li><a href="./tag/zhi-ce-flops-huan-bu-gou-si-ge-jing-dian-cpu-ce-shi-ji-zhun.html">只测-FLOPS-还不够四个经典-CPU-测试基准 (1)</a></li><li><a href="./tag/zhi-neng-ti.html">智能体 (1)</a></li><li><a href="./tag/zhi-shi-wai-zhi.html">知识外置 (1)</a></li><li><a href="./tag/zhi-zhen-yue-jie-cyu-yan-gei-ni-de-zi-you-yi-ji-tou-tou-mai-de-lei.html">指针越界C语言给你的自由以及偷偷埋的雷 (1)</a></li><li><a href="./tag/zhong-xin-shen-shi-si-wei-lian-wei-bi-shi-zhen-si-wei-yi-pian-icml-2026-lun-wen-de-lun-zheng-yu-qi-shi.html">重新审视-思维链未必是真思维-一篇ICML-2026-论文的论证与启示 (1)</a></li><li><a href="./tag/zhuang-ji.html">装机 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skills-he-ji-geng-xin-cong-6-ge-ji-neng-dao-22-ge-yi-ji-bi-xu-cheng-ren-de-wen-ti.html">自用的-OpenCode-Skills-合集更新从-6-个技能到-22-个以及必须承认的问题 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skillzai-ci-geng-xin-22ge-skillszhong-xin-da-mo-liao-yi-bian-shun-lu-jie-jue-liao-opencodedao-zhi-zheng-ge-tu-xing-jie-mian-beng-kui.html">自用的OpenCode-Skill再次更新22个skills重新打磨了一遍顺路解决了OpenCode导致整个图形界面崩溃 (1)</a></li><li><a href="./tag/zluda-he-macos-shang-de-cuda-jian-rong-meng-xiang.html">ZLUDA-和-macOS-上的-CUDA-兼容梦想 (1)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="./index.html" data-i18n="blog">博客</a> › <a href="category/qgis.html">QGIS</a> › QGIS 进阶
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >QGIS 进阶</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep" data-i18n="post_in">发布于</span>
+        <abbr class="date" title="2022-01-12T23:59:00+08:00"> 
+            <a href="./archive/2022/Jan/index.html">Wed 12 January 2022 </a>
+        </abbr>
+        <span class="meta-prep"> | <span data-i18n="tags_label">标签</span></span>
+                <a class="tag-badge" href="./tag/gis.html">GIS</a>
+                <a class="tag-badge" href="./tag/qgis.html">QGIS</a>
+                <a class="tag-badge" href="./tag/python.html">Python</a>
+                <a class="tag-badge" href="./tag/learning.html">Learning</a>
+                <a class="tag-badge" href="./tag/book.html">Book</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <p><a href="https://courses.spatialthoughts.com/advanced-qgis.html">本文英文原版地址</a></p>
+<h3>地理信息系统流程自动化和高级可视化技术</h3>
+<h4>英文原作者：Ujaval Gandhi</h4>
+<h4>中文翻译：CycleUser</h4>
+<h1>导论</h1>
+<p>本课程关注于地理信息系统工作留的自动化。本章你将学到更有生产力的技术，来创建美观的可视化，并解决复杂的空间分析问题。本课程尤其适合已经使用QGIS的人来提升进阶技能。</p>
+<p>本文涉及的内容如下：</p>
+<ul>
+<li>处理框架-算法、批处理和建模器</li>
+<li>动画演示时间序列数据</li>
+<li>从航拍图像创建立体透视图</li>
+<li>高级表达式，实现快速数据编辑、模糊匹配等功能</li>
+</ul>
+<p>进行练习之前，可以先了解一下关于QGIS的基础知识。</p>
+<p><a href="https://pan.baidu.com/s/1AXe1IrbJHADJnMfrikw7RA">查看幻灯片提取码: 6npb</a></p>
+<h1>软件</h1>
+<p>本课程使用的软件是QGIS长期支持版本（LTR）3.16。</p>
+<p>可以参考<a href="https://courses.spatialthoughts.com/install-qgis-ltr.html">QGIS-LTR 安装指南</a>。</p>
+<h1>获取数据包</h1>
+<p>本课程的样例要用到多种数据集。所有需要的图层、项目文件等等，都在下面的<code>advanced_qgis.zip</code>文件中。建议解压缩后将其放在<code>Downloads</code>文件夹下。</p>
+<p><a href="https://pan.baidu.com/s/1FZa2J06f70zKsDR_T9N0cw">下载数据包 提取码: 5r2l </a></p>
+<h1>处理框架（Processing Framework）</h1>
+<p>QGIS 2.0 开始引入了一个新概念，叫做处理框架（Processing Framework）。处理框架提供了在QGIS那运行原生或者第三方算法来处理数据的环境。这也是现在用于在QGSI那进行任何类型数据处理和分析的推荐方法，可以进行特征选择、属性修改和图层保存等等，当然这些也可以通过其他渠道来实现。不过使用处理框架会让这些工作更加有效率、更快速，还不容易出错。</p>
+<p>处理框架包含下面这些不同的元素，一起配合工作。</p>
+<ul>
+<li><strong>处理工具箱 Processing Toolbox</strong>: 包含各种独立工具和算法，通过供应者和功能进行分类</li>
+<li><strong>批处理界面 Batch Processing Interface</strong>: 允许任何处理工具可以同时对多个图层执行</li>
+<li><strong>图形化建模器 Graphical Modeler</strong>: 允许用户定义工作流然后将多个处理步骤链接起来，使用拖拽机制（drag-and-drop mechanism）</li>
+<li><strong>历史管理器 History Manager</strong>: 记录存储算法进行的所有操作，允许用户重现过去的分析步骤</li>
+<li><strong>结果查看器 Results Viewer</strong>: 查看数据表和图表等算法产生的非空间输出结果</li>
+</ul>
+<p><a href="https://pan.baidu.com/s/1zkdlVaheZ3pf6GN4q8dMKQ">查看幻灯片 提取码: nvbs</a></p>
+<p>接下来就分章节来练习一下这些模块。
+（译者注：由于QGIS默认界面是英文的，后文中这几个模块的英文在文中就不再翻译了，直接用原文。）</p>
+<h2>处理工具箱（Processing Toolbox）</h2>
+<p>Processing Toolbox 可以在最顶层菜单<strong>Processing → Toolbox</strong>中找到。其中有几百个现成的算法。通过提供者<em>Providers</em>进行分类。由QGIS开发者创建的工具就在原生QGIS提供者（<strong>Native</strong> QGIS provider）分组中。处理框架（Processing Framework）提供了一种简单方式来集成其他软件和库，比如GDAL、GRASS和SAGA等等。QGIS的插件也可以通过在工具箱里面的处理算法增加新功能。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/toolbox_algorithms.png"></p>
+<h3>为何要使用处理算法（Processing Algorithms）</h3>
+<ul>
+<li>经过妥善测试和严格实现</li>
+<li>主要用C++编写，运行速度比其他替代品更快</li>
+<li>可以在后台运行长处理，不影响QGIS的前台使用</li>
+<li>多线程算法可以充分利用多核心处理器，提高性能表现</li>
+<li>健壮地处理无效几何体</li>
+<li>可以查看运算过程并取消</li>
+<li>可以在所有特征或所选特征上运行</li>
+</ul>
+<h3>查看默认设置</h3>
+<p>在设置中可以控制所见的处理工具提供者。处理选项菜单（Processing Options menu）也提供了框架设置的精细调整方式。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/processing_settings1.png"></p>
+<p>强烈推荐修改一下默认设置，启用选项<em>Prefer output filename for layer names</em>。这确保当你使用批处理的时候，得到的各个图层是唯一的。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/processing_settings2.png"></p>
+<h3>练习: 找到州内的国家高速公路长度</h3>
+<p>该练习展示如何使用纯处理工作流解决多步骤的空间数据分析问题，以及QGIS中算法的丰富性，可以进行之前需要插件或者更复杂步骤的复杂操作。</p>
+<p>接下来从OpenStreetMap地图提取印度卡纳塔克（Karnataka）的道路信息。州的行政边界信息可以从DataMeet获得。</p>
+<ol>
+<li>浏览文件夹定位到<code>karnataka.gpkg</code>，拖拽<code>karnataka</code>、<code>karnataka_districts</code>和<code>karnataka_major_roads</code>到QGIS地图画布中。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka1.png"></p>
+<ol>
+<li>图层<code>karnataka_major_roads</code>包含了所有的主要道路，其中有国家高速公路、省级高速公路、主干道路等等。选择该图层，然后使用快捷键<strong>F6</strong>打开属性表格（attribute table）。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka2.png"></p>
+<ol>
+<li>你会注意到<code>ref</code>这一列由关于道路的相关信息。由于本次练习中只需要国家高速公路，可以使用这列信息来只提取相关的道路段。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka3.png"></p>
+<ol>
+<li>你可以使用通过表达式选择（<em>Select by expression</em>）工具，导出所选特征作为新图层，然后继续处理。但处理工具箱（Processing Toolbox）提供了一个更简单的无缝工作流，可以搜索算法<strong>Extract by expression</strong>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka4.png"></p>
+<ol>
+<li>输入下面的表达式来提取特征，其中<code>ref</code>的开头字母为<code>NH</code>。</li>
+</ol>
+<blockquote>
+<p>这里使用的其实就是正则表达式（<em>Regular Expression，缩写为RegEx</em>）来进行特定模式的匹配。正则表达式非常强大，可以用于很多复杂的数据筛选操作。 <a href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285">基础细节可以参考这个链接</a>。 </p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="n">regexp_match</span><span class="p">(</span><span class="s">&quot;ref&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">&#39;</span><span class="o">^</span><span class="n">NH</span><span class="p">&#39;)</span>
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka5.png"></p>
+<ol>
+<li>你会在图层面板（Layers Panel）得到一个名为<code>Matching Features</code>的新图层。接下来想要计算其中每个道路段的长度。可以使用内置算法<strong>Add geometry attributes</strong>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka6.png"></p>
+<ol>
+<li>源图层的地理坐标参考系（Geographic CRS）是EPSG:4326。但对此分析来说，要使用米或者千米来作为单位。算法提供了方便的选项来使用椭球体<strong>Elliposidal</strong>数学来计算距离，这对于地理坐标参考系的图层很适合。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka7.png"></p>
+<ol>
+<li>添加了<code>length</code>值域的新图层就会被添加在图层面板中来。这个域的值的单位是米。然后转换成千米。这可以使用QGIS的域计算器<strong>Field Calculator</strong> 来增加一个新域（field）。这个方法绝对颗星，但还有一个更推荐的处理框架方法。搜索并打开<strong>Field Calculator</strong> 处理算法，然后输入下面的表达式。</li>
+</ol>
+<div class="highlight"><pre><span></span><code>&quot;length&quot;/1000
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka8.png"></p>
+<ol>
+<li>图层面板添加了带有域<code>length_km</code>的新图层。然后就是要解决问题了。只需要将新增图层中<code>length_km</code>的所有值加起来就可以了。使用<strong>Basic Statistics for Fields</strong>算法即可。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka9.png"></p>
+<ol>
+<li>在<em>Basic Statistics for Fields</em>对话框中，选择<code>Calculated</code>作为输入层<em>Input layer</em>，选择<code>length_km</code>作为<em>Field to calculate statistics on</em>。点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka10.png"></p>
+<ol>
+<li>得到的结果是对列进行不同统计的数据表。由于结果不是图层，就要在<em>Results Viewer</em>中查看。图层面板中会包含一个HTML文件，包含的是统计值。<strong>Sum</strong>包含的就是该州内的所有国家高速路的长度。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka11.png"></p>
+<blockquote>
+<p>你觉得结构怎么样？可能并不是很理想，因为OpenStreetMap数据库可能会有丢失的路径或者可能有分类错误。但应该和<a href="https://morth.nic.in/sites/default/files/PragatiKiNayiGati/pdf/karnataka.pdf">官方统计</a>还是很接近的。</p>
+</blockquote>
+<ol>
+<li><code>Calculated</code>就是最终图层，也是一个临时的记忆层。将其保存到磁盘，以备后续使用。这个图层中有很多数据都是我们用不上的，所以可以删除掉一些列，然后字啊保存。经典方法是打开编辑模式然后在属性表格里面使用<em>Delete Column</em>按钮。如果你要重命名或者重新编码某个域，就需要一个插件。不过现在，我们已经可以使用<strong>Refactor Fields</strong>这样的处理算法来一次行进行加减、重命名和重新编码特定域。删除掉不需要的域，然后将结果存储为图层<code>national_highways</code>，保存在<code>karnataka.gpkg</code>中。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka12.png"></p>
+<ol>
+<li>图层面板中新增了<code>national_highways</code>图层。这样就达到了本练习的目的，但还可以继续探索一点，如果可以将结果拆解成一个更小的行政单元。然后再计算一下每个小的行政单元内的国家高速公路长度。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka13.png"></p>
+<ol>
+<li>在<code>karnataka_districts</code>图层中有行政区划信息，但在<code>national_highways</code>中并没有。要在道路图层中添加行政区划名称信息，需要运行空间连接（spatial-join）。这要使用<strong>Join attributes by Location</strong>算法来实现。选择<code>national_highways</code>作为输入层，然后和<code>karnataka_districts</code>图层进行一对一连接。只选择<strong>DISTRICT</strong>域添加到输出上。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka14.png"></p>
+<ol>
+<li>新的<code>Joined layer</code>图层就有了交叉的行政区划名存储在<strong>DISTRICT</strong>域中了。如果你用过之前版本的QGIS，你可能还记得当时需要调用插件Group Stats来实现这个功能。但现在可以通过内置的<strong>Statistic by Categories</strong>算法来实现了。选择<code>Joined layer</code>作为输入向量图层<em>Input vector layer</em>，选择<strong>length_km</strong>作为<em>Field to calculate statistics on</em>。选择<strong>DISTRICT</strong>作为<em>Field(s) with Categories</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka15.png"></p>
+<ol>
+<li>这个算法的输出结果是一个数据表，其中包含了对每个行政区在<code>length_km</code>列上的各种统计值。其中<strong>Sum</strong> 列的值就是各区的国家高速路总长度了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka16.png"></p>
+<p>注意，这里我们所做的数据处理、空间分析和统计分析，都只是使用了处理算法，是一个快速、可重现、符合直觉的工作流。</p>
+<h3>了解更多</h3>
+<p>想要对处理工具箱（Processing Toolbox）中其他上千种工具有进一步了解，可以参考下面的视频。</p>
+<p><a href="https://www.youtube.com/watch?v=Tkqj3VCxrqI"><img alt="Video" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/processing_tour_qgisna.jpg"></a></p>
+<h3>The Locator Bar</h3>
+<p>To take your processing experience to the next-level, you can use the built-in <strong>Locator Bar</strong>. At the bottom-left of QGIS main window, there is a universal search bar that can do keyword-search across layers, settings, processing algorithms and more. You can open the locator bar using the keyboard shortcut <strong>Ctrl+K</strong>.</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/locator1.png"></p>
+<p>I find that rather than clicking-around the processing toolbox, you can just use the locator bar to search and open the algorithms. Type <strong>Ctrl+K</strong>, followed by <strong>a</strong> (to restrict search to algorithms), followed by a <strong>space</strong> and <strong>a few characters</strong>. Use the arrow keys to select and press <strong>Enter</strong> to open the algorithm.</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/locator.png"></p>
+<p><a href="https://courses.spatialthoughts.com/images/advanced_qgis/locator.gif">View Animated GIF ↗</a></p>
+<h3>In-place Editing</h3>
+<p>Processing algorithms are designed to take inputs and produce outputs. The default behavior is to create a new layer after each operation. This is useful for many workflows, especially in an enterprise setting, where you may not have the ability to edit the source data. If your algorithms are altering the source data, that also means that the workflows cannot be reproduced easily. So you would want a setup where the algorithms read from source data and create modified outputs.</p>
+<p>An exception to this workflow is when you are doing data editing. When your workflow involves creating new features or editing them - creating a new layer for every edit is undesirable. A recent <a href="https://north-road.com/edit-features-in-place-using-qgis-spatial-operations-campaign/">QGIS crowd-funding campaign</a> added the ability for processing algorithms to modify the features in-place and this functionality is available out-of-the-box in QGIS now.</p>
+<ol>
+<li>Load the <strong>basic_network_analysis</strong> project from the data package. This project contains a street network for Washington DC from DCGISopendata where the arrows display the digitizing direction of the line segments. You can click the <strong>Edit Features In-Place</strong> button in the processing toolbox to use algorithms that support this functionality. Once this mode is activated, processing algorithms will modify the selected features in the chosen layer instead of creating a new layer.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/inplace1.png"></p>
+<ol>
+<li>Select a line segment and run the <strong>Reverse line direction</strong> algorithm. The algorithm will enable editing on the layer, perform the operation and overwrite the existing feature with a segment in the reverse direction. You will see that the arrow rendering is now in the opposite direction.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/inplace2.png"></p>
+<p><a href="https://courses.spatialthoughts.com/images/advanced_qgis/inplace2.gif">View Animated GIF ↗</a></p>
+<h2>Batch Processing</h2>
+<p>So far we have run the algorithm on 1 layer at a time. But each processing algorithm can also be run in a <strong>Batch</strong> mode on multiple inputs. This provides an easy way to process large amounts of data and automate repetitive tasks.</p>
+<p>The batch processing interface can be invoked by right-clicking any processing algorithm and choosing <strong>Execute as Batch Process</strong>.</p>
+<h3>练习: Clip multiple layers to a polygon</h3>
+<p>We will take multiple country-level data layers and use the batch processing operation to clip them to a state polygon in a single operation.</p>
+<ol>
+<li>Open the <strong>batch_processing</strong> project.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/batch01.png"></p>
+<ol>
+<li>Next, right-click on the <code>state boundary</code> layer, and click <strong>Zoom to Layer</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/batch02.png"></p>
+<ol>
+<li>Now that we have centered on our area of interest, under the <strong>Processing</strong> menu and select <strong>toolbox</strong>. Now in <em>Processing Toolbox</em>, search for <strong>clip</strong>, under <strong>Vector overlay → Clip</strong> right-click and select <strong>Execute as Batch Process..</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/batch03.png"></p>
+<ol>
+<li>In the <em>Batch processing - Clip</em> dialog box, click the <em>Autofill…</em> under the <em>Input layer</em> column and choose <em>Select from Open Layers..</em>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/batch04.png"></p>
+<ol>
+<li>Select all data layers except <code>state_boundary</code> and click <strong>OK</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/batch05.png"></p>
+<ol>
+<li>Under <em>Overlay Layer</em> select the <strong>state_boundary</strong> layer. Then click the drop-down button near <em>Autofill…</em> and choose to <strong>Fill Down</strong>. This will auto-populate all the <em>Overlay Layer</em> with the <code>state_boundary</code> layer.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/batch06.png"></p>
+<ol>
+<li>Under <em>Clipped</em>, select <em>…</em> button to add the output filenames.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/batch07.png"></p>
+<ol>
+<li>In the <em>Save File</em> dialog box, enter the <em>File name</em> as <code>clipped_</code>. This is just the prefix of the name that you will auto-complete in the next step. Select <strong>GPKG files (.gpkg)</strong> in <em>Save as type</em>. Click <strong>Save</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/batch08.png"></p>
+<ol>
+<li>Next, you will be prompted to choose the <em>Autofill settings</em>. Select to <strong>Fill with parameter values</strong> as the <em>Autofill mode</em>, and <strong>Input layer</strong> as the <em>Parameter to use</em>. Click <strong>OK</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/batch09.png"></p>
+<ol>
+<li>Note that each row has a different file name now. The output file name is the result of the chosen prefix and the autofill settings. Make sure the <em>Load layers on completion</em> box is checked and click <em>Run</em>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/batch10.png"></p>
+<ol>
+<li>The resulting clipped layers will be added to the <em>Layers panel</em>. Turn off all previous layers in the Layers panel to see the results clearly. We can now combine all the clipped layers into a single <em>geopackage</em> file for ease of sharing. Now in the <em>Processing Toolbox</em>, search and select the <strong>Package Layers</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/batch11.png"></p>
+<ol>
+<li>In the <em>Package Layers</em> dialog box, in <em>Input layers</em> choose all the clipped layers and in <em>Destination GeoPackage</em> click <em>…</em> and select <strong>Save to File…</strong>. Then save the file as <code>clipped.gpkg</code>. Click <strong>Run</strong></li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/batch12.png"></p>
+<ol>
+<li>Now a new <code>clipped.gpkg</code> geopackage layer will be created with all the clipped layers in it.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/batch13.png"></p>
+<h2>Graphical Modeler</h2>
+<p>GIS Workflows typically involve many steps - with each step generating intermediate output that is used by the next step. If you change the input data or want to tweak a parameter, you will need to run through the entire process again manually. Fortunately, Processing Framework provides a graphical modeler that can help you define your workflow and run it with a single invocation. You can also run these workflows as a batch over a large number of inputs.</p>
+<h3>练习: Find the hotspots of piracy incidents</h3>
+<p>National Geospatial-Intelligence Agency’s Maritime Safety Information portal provides a shapefile of all incidents of maritime piracy in the form of Anti-shipping Activity Messages. We can create a density map by aggregating the incident points over a global hexagonal grid.</p>
+<p>The steps needed to create a hex-bin layer suitable for visualization is as follows:</p>
+<ul>
+<li>Reproject the input to an equal-area projection</li>
+<li>Create a global hexagonal grid layer</li>
+<li>Select all grids that intersect with at least 1 point</li>
+<li>Count points within each grid</li>
+</ul>
+<p>We will now learn how to build a model that runs the above processing steps in a single workflow.</p>
+<ol>
+<li>Open the <strong>maritime_piracy</strong> project.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler1.png"></p>
+<ol>
+<li>Launch the modeler from <strong>Processing → Graphical Modeler</strong></li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler2.png"></p>
+<ol>
+<li>In the Processing Modeler dialog, locate the <em>Model Properties</em> panel. Enter <code>piracy_hexbin</code> as the Name of the model and <code>projects</code> as the Groups. Note that there is a History panel in the bottom left, which keeps track of all the work done in Model Builder. Click the Save button.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler3.png"></p>
+<ol>
+<li>Save the model as <code>piracy_hexbin.model3</code>. Also, check the folder in which it is being saved. <em>Processing → models</em>, from this location QGIS will read the model by default.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler4.png"></p>
+<ol>
+<li>Now, we can start building a graphical model of our processing pipeline. The Processing modeler dialog contains a left-hand panel and the main canvas. On the left-hand panel, locate the Inputs panel listing various types of input data types. Scroll down and select the <strong>+ Vector Layer</strong> input. Drag it to the canvas.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler5.png"></p>
+<ol>
+<li>Enter <strong>Input Points</strong> as the <em>Description</em> and <strong>Point</strong> as the <em>Geometry type</em>. This input represents the piracy incidents point layer.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler6.png"></p>
+<ol>
+<li>Next, drag another <strong>+ Vector Layer</strong> input to the canvas. Enter <strong>Base Layer</strong> as the <em>Description</em> and <strong>Polygon</strong> as the <em>Geometry type</em>. This input represents the natural earth global land layer in which we will use as the extent of the grid layer.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler7.png"></p>
+<ol>
+<li>As we are generating a global hexagonal grid, we can ask the user to supply us with the grid size as an input instead of hard-coding it as part of our model. This way, the user can quickly experiment with different grid sizes without changing the model at all. Select a <strong>+ Number</strong> input and drag it to the canvas. Enter <strong>Grid Size</strong> as the Parameter name, <strong>Integer</strong> as the Number Type, <strong>200000</strong> as Default Value, and click OK.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler8.png"></p>
+<ol>
+<li>Now that we have our user inputs defined, we are ready to add processing steps. All of the processing algorithms are available to you under the <em>Algorithms</em> tab. The first step in our pipeline will be to reproject the base layer to the Project CRS. Search for the <strong>Reproject layer</strong> algorithm and drag it to the canvas.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler9.png"></p>
+<ol>
+<li>In the <em>Reproject layer</em> dialog, select <strong>Base Layer</strong>, by clicking the button under the <em>Input Layer</em> and select <strong>Model Input</strong> as the <em>Input layer</em>. Check the Use <strong>project CRS</strong> as the <em>Target CRS</em>. Click OK.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler10.png"></p>
+<ol>
+<li>In the Processing Modeler canvas, you will notice a connection appear between the <code>+ Base Layer</code> input and the <code>Reproject layer</code> algorithm. This connection indicates the flow of our processing pipeline. The next step is to create a hexagonal grid. Now search for the <strong>Create grid</strong> algorithm and drag it to the canvas.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler11.png"></p>
+<ol>
+<li>In the Create grid dialog, choose <strong>Hexagon (polygon)</strong> as the <em>Grid type</em>. Select <strong>Algorithm Output</strong> by clicking the button under <em>Grid extent</em> and choose <strong>‘Reprojected’ from the algorithm ‘Reproject Layer’</strong> as the Grid extent.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler12.png"></p>
+<ol>
+<li>Select <strong>Model input</strong> by clicking the button under <em>Horizontal Spacing</em> and choose <strong>Grid Size</strong> as the <em>Horizontal Spacing</em>. Click OK.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler13.png"></p>
+<ol>
+<li>Select <strong>Model input</strong> by clicking the button under <em>Vertical Spacing</em> and choose <strong>Grid Size</strong> as the <em>Vertical Spacing</em>. Click OK.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler14.png"></p>
+<ol>
+<li>At this point, we have a global hexagonal grid. The grid spans the full extent of the base layer, including land areas and places where there are no points. Let us filter out those grid polygons where there are no input points. Search for <strong>Extract by location</strong> algorithm and drag it to the canvas.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler15.png"></p>
+<ol>
+<li>Select <strong>Algorithm Output</strong> from the icon below <em>Extract features from</em>. Now choose <strong>‘Grid’ from the algorithm ‘Generate Grid’</strong>. Click <strong>…</strong> at the right end.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler16.png"></p>
+<ol>
+<li>Select <strong>Intersect</strong> by clicking the button, as Where the features(geometric predicate). And click the triangle button to go back to the previous window. Now click OK.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler17.png"></p>
+<ol>
+<li>Select <strong>Model input</strong> by clicking the button under <em>By comparing to the features from</em> and choose <strong>Input Points</strong> as <em>By comparing to the features from</em>. Click OK.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler18.png"></p>
+<ol>
+<li>Now, we have only those grid polygons that contain some input points. To aggregate these points, we will use <strong>Count points in polygon</strong> algorithm. Search and drag it to the canvas.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler19.png"></p>
+<ol>
+<li>Select <strong>Algorithm Output</strong> by clicking the button under <em>Polygons</em> and choose <strong>‘Extracted (location)’ from algorithm ‘Extract by location’</strong> for <em>Polygons</em>. Now, Select <strong>Model Input</strong> by clicking the button under <em>Points</em> and choose <strong>Input Points</strong> for <em>Points</em>. Type <strong>NUMPOINTS</strong> in <strong>Count field name</strong>. At the bottom, name the Count output layer as <strong>Aggregated</strong>. Click OK.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler20.png"></p>
+<ol>
+<li>The model is now complete. Click the <em>Save</em> button. If the model is saved, then a green notification will pop on the screen.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler21.png"></p>
+<ol>
+<li>Switch to the main QGIS window. You can find your newly created model in the <em>Processing Toolbox</em> under <strong>Models → projects → piracy_hexbin</strong>. Double-click to run the model.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler22.png"></p>
+<ol>
+<li>Our <em>Base Layer</em> is the <code>ne_10m_land</code> and the <em>Input Points</em> layer is <code>ASAM_events</code>. The Grid Size needs to be specified in the units of the selected CRS. Enter <code>100000</code> as the Grid Size. Grid size is in the unit of the current CRS, which is meters. Click Run to start the processing pipeline. Once the process finishes, click Close.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler23.png"></p>
+<ol>
+<li>You will see a new layer <code>Aggregated</code> loaded as the result of the model. As you explore, you will notice the layer contains an attribute called <em>NUMPOINTS</em> containing the number of piracy incidents points contained within that grid feature. Let’s style this layer to display this information better. Click the <em>Open Layer Styling Panel</em> button from the <em>Layers panel.</em> Select <strong>Graduated</strong> symbology and <strong>NUMPOINTS</strong> as the Column. Click the dropdown next to the Color ramp and select the <strong>Viridis</strong> ramp. Click the dropdown again and select <strong>Invert Color Ramp</strong> to reverse the order of color. The Graduated symbology will divide the values in the selected column into distinct classes and assign a different color to each of the classes. Select <strong>Natural Breaks (Jenks)</strong> as the Mode and click <strong>Classify</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler24.png"></p>
+<ol>
+<li>We will use a clever trick to make the visualization better. We can use QGIS variables to set the edges of the hexagon with a slightly darker shade of the fill color. Click on the <strong>Symbol</strong>. Click <strong>Simple Fill</strong>. Click the <strong>Data defined override</strong> button next to <strong>Stroke color</strong> and select <strong>Edit</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler25.png"></p>
+<ol>
+<li>Enter the following expression to set the stroke color to 30% darker than the fill color and click OK. The map rendering will change to a much smoother visualization.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">darker</span><span class="p">(</span><span class="w"> </span><span class="nv">@symbol_color</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">130</span><span class="p">)</span>
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/modeler26.png"></p>
+<h3>Challenge: Improve the model</h3>
+<p>Can you change the model so that instead of entering the grid size in meters, the user can enter the size in kilometers?</p>
+<blockquote>
+<p>Hint: The <strong>Create Grid</strong> algorithm expects the size in meters, so you will have to convert the input to meters.</p>
+</blockquote>
+<h3>Spatial Indexing</h3>
+<p>When you ran your model, you may have noticed a warning message <strong>No spatial index exists for the input layer, performance will be severely degraded</strong>. This is because certain spatial queries make use of a spatial index and QGIS warns you when having a spatial index can speed up your operations. PostGIS documentation has a good <a href="https://postgis.net/workshops/postgis-intro/indexing.html">overview of spatial indexes</a> and why they are important.</p>
+<p>You can compare a <em>spatial index</em> to a book <em>index</em>. When you want to search for a particular term, rather than scanning each page sequentially, you can speed up your search by looking up the index and directly going to the pages where the word appears. Spatial indexes work in similarly. You spent the effort once to create the index and all subsequent operations can make use of it. When you create a spatial index, each feature’s bounding box is used to establish its relationship with other features. This is stored alongside the dataset and can be used by algorithms. When trying to determine spatial relationships, the algorithms speed-up the look-up using the following <em>two-pass</em> method:</p>
+<ul>
+<li>Step 1: Use the spatial index to determine which target features’ bounding boxes intersect with the source feature’s bounding box. Since the spatial index already has computed this - this is very fast. The result is a list of candidate features.</li>
+<li>Step 2: Now that there is a small subset of candidate features, iterate over them and use their full geometry to evaluate exact intersections.</li>
+</ul>
+<p>For large datasets, this approach helps reduce the processing time significantly.</p>
+<p><a href="https://docs.google.com/presentation/d/1K1lR1JfonxGbmj8rCIVln_WkbWv6-tOYTYHAEJKAiw4/edit?usp=sharing"><img alt="View Presentation" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/spatial_indexing.png"></a></p>
+<p><a href="https://docs.google.com/presentation/d/1K1lR1JfonxGbmj8rCIVln_WkbWv6-tOYTYHAEJKAiw4/edit?usp=sharing">查看幻灯片</a></p>
+<p>QGIS has built-in tools to create and use spatial indexes. Let’s see how we can create a spatial index for a layer and use it in our model.</p>
+<ol>
+<li>Double click on the <code>piracy_hexbin</code> model from <em>Processing Toolbox</em>, select <strong>ne_10m_land</strong> as <em>Base Layer</em>, <strong>200000</strong> as <em>Grid size</em> and <strong>ASAM_events</strong> as <em>Inputs Points</em>. Click Run.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index01.png"></p>
+<ol>
+<li>Switch to <em>Log</em>, and note down the execution time of the model. In this instance we got <em>34.80 seconds</em> (The exact time will vary depending on your computer configuration). Also note that it prompts a warning <em>No spatial index exists for input layer, performance will be severely degraded</em>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index02.png"></p>
+<ol>
+<li>To create spatial index right-click the <strong>Aggregated</strong> layer and select <em>Properties</em>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index03.png"></p>
+<ol>
+<li>In the <em>Layer Properties</em> dialog, switch to the <em>Source</em> tab. You will see the <em>Create Spatial Index</em> button. This button indicates that this layer does not currently have a spatial index. Click that button to create a spatial index. But we will use a better and more scalable way. Click <strong>OK</strong> and close the <em>Layer Properties</em> dialog.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index04.png"></p>
+<ol>
+<li>Go to <strong>Processing → Toolbox</strong>. Search for the algorithm <strong>Vector general → Create spatial index</strong> and double-click to launch it.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index05.png"></p>
+<ol>
+<li>Select <strong>Aggregated</strong> layer as the <em>Input layer</em> and click <em>Run</em>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index06.png"></p>
+<ol>
+<li>Creating a spatial index is usually a fast operation. Once the algorithm finishes, right-click on the <strong>Aggregated</strong> layer and select <em>Properties</em>. Switch to the <em>Source</em> tab and you will see that the button has now changed to <em>Spatial Index Exists</em> - indicating that the layer now has a spatial index.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index07.png"></p>
+<ol>
+<li>While creating a spatial index on a layer like this is useful, it is even more powerful to have the spatial index created during the execution of our model. We will see how to add the spatial index creation step in our model. Right-click the <code>piracy_hexbin</code> model and select <em>Edit Model…</em>. Search <strong>Create spatial index</strong> in <em>Algorithms</em> tab and drag it to the model canvas.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index08.png"></p>
+<ol>
+<li>Choose <strong>Algorithm output</strong> from the button below <em>Input Layer</em>, and select <strong>“Grid” from algorithm “Create Grid”.</strong> Click OK.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index09.png"></p>
+<ol>
+<li>You will see that the newly added <code>Create spatial index</code> algorithm is connected to the <code>Create grid</code> algorithm. But the workflow should be, <strong>Create grid → Create spatial index → Extract from location</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index10.png"></p>
+<ol>
+<li>Right-click the <code>Extract by location</code> layer and select <em>Edit</em>. In <em>Extract features from</em> select <strong>“Indexed Layer” from algorithm “Create spatial index”</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index11.png"></p>
+<ol>
+<li>Now you will see the model diagram updated and the connection changed between the <code>Create Grid</code> and <code>Extract by location</code> layer. Click <em>Save model</em>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index12.png"></p>
+<ol>
+<li>Now return to the main canvas and select <code>piracy_hexbin</code> model.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index13.png"></p>
+<ol>
+<li>Select <strong>ne_10m_land</strong> as <em>Base Layer</em>, <strong>200000</strong> as <em>Grid size</em> and <strong>ASAM_events</strong> as <em>Inputs Points</em>. Click Run.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index14.png"></p>
+<ol>
+<li>In this instance we got <em>3.39 seconds</em> (The exact time will vary depending on your computer configuration). Also, note that it has executed 5 algorithms which is including creating the spatial index.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/index15.png"></p>
+<h3>Conditional Branching</h3>
+<p>A key feature introduced in QGIS 3.14 was the ability for models to have a conditional branch. This allows models to check for a condition and execute a different part of the model based on the output of the condition. This is equivalent to <em>If/Else statements</em> in a programming language.</p>
+<p>Let us develop a <em>Conditional branch</em> in the <code>piracy_hexbin</code> model. We will add a new check-box input <em>Use Spatial Index</em> - that allows the user to specify whether to use a spatial index in the model. We will add a conditional branch that takes the following actions:</p>
+<ul>
+<li>If the <em>Use Spatial Index</em> option is selected, the model will create a spatial index for the grid layer and use it in the subsequent steps.</li>
+<li>
+<p>If the option is not selected, the model will proceed without generating a spatial index.</p>
+</li>
+<li>
+<p>Right-click the <code>piracy_hexbin</code> model and select <strong>Edit Model…</strong>.</p>
+</li>
+</ul>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch01.png"></p>
+<ol>
+<li>Search for <strong>+Boolean</strong> in <em>Inputs</em> tab and drag to canvas.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch02.png"></p>
+<ol>
+<li>Give <em>Description</em> as <strong>Use Spatial Index</strong>, leave <strong>Checked</strong> unticked. Click <strong>OK</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch03.png"></p>
+<ol>
+<li>Now, search for <strong>Conditional branch</strong> in <em>Algorithms</em> tabs and drag to canvas.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch04.png"></p>
+<ol>
+<li>Click the Add button and select the Expression Dialog button.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch05.png"> 6. All the model output and intermediate layers will be displayed in Bold characters, double click in <strong>usespatialindex</strong>. It will add the variable <code>@usespatialindex</code> as the expression. Click <em>OK</em>.</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch06.png"></p>
+<ol>
+<li>Now, in <em>Branch Name</em> type <strong>Use Spatial Index</strong>. We will add another branch now. Click the <em>Add</em> button and enter the <em>Branch Name</em> as <strong>Don’t Use Spatial Index</strong>. Since this is the opposite condition, we can use the expression <code>NOT @usespatialindex</code> Click <em>OK</em>.</li>
+</ol>
+<blockquote>
+<p>Make sure to hit the <em>Enter</em> key after typing the <em>Branch Name</em>. The input may not be saved if you forget to do so.</p>
+</blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch07.png"></p>
+<ol>
+<li>We have 2 branches in the model. Let’s connect them to appropriate algorithms. Double click on <code>Create spatial index</code> algorithm in model canvas and click <em>…</em> next to <em>Dependencies.</em></li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch08.png"></p>
+<ol>
+<li>Choose <strong>Condition “Use Spatial Index” from algorithm “Conditional branch”</strong> and click <strong>OK</strong>. The <em>Use Spatial Index</em> branch is now ready. Let’s build the other branch.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch09.png"></p>
+<ol>
+<li>Search for <strong>Extract by location</strong> in <em>Algorithms</em> tab and drag to canvas.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch10.png"></p>
+<ol>
+<li>In the <em>Description</em> type <strong>Extract by location (No Spatial Index)</strong>. Choose <em>Algorithm Output</em> in <em>Extract features from</em> and select <strong>“Grid” from algorithm “Create grid”</strong>. Click <em>…</em> next to <em>Dependencies</em>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch11.png"></p>
+<ol>
+<li>Choose <strong>Condition “Dont use Spatial Index” from algorithm “Conditional branch”</strong>. Click <strong>OK</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch12.png"></p>
+<ol>
+<li>Similarly in <em>Extract by location</em> using <em>Spatial Index</em> change the description to <strong>Extract by location (Spatial Index)</strong>. Both the branches will be executed according to the user selection whether to use the spatial index or not. The next step is to update the the <em>Count points in polygon</em> algorithm to use the appropriate output. Double-click on the algorithm box.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch13.png"></p>
+<ol>
+<li>Under <em>Polygons</em> change <em>Algorithm output</em> to <em>Pre-calculated Value</em>, then press the <em>Expression</em> button.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch14.png"></p>
+<ol>
+<li>In the <em>Expression Dialog</em>, we need to select output from any one of the <em>Extract by location</em> algorithms based on the user condition of <code>@usespatialindex</code>. We can use the <code>if</code> condition to return a layer based on user input. Use the expression below. Remember to pick the variables from the list and double-click them to enter them in your expression. If you had named the algorithms or input differently, the variable names will be different for you. Click <strong>OK</strong>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="nv">@usespatialindex</span><span class="w"> </span><span class="p">,</span><span class="w">  </span>
+<span class="w">    </span><span class="nv">@Extract_by_location__Spatial_Index__OUTPUT</span><span class="w"> </span><span class="p">,</span>
+<span class="w">    </span><span class="nv">@Extract_by_location__No_Spatial_Index__OUTPUT</span><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch15.png"></p>
+<ol>
+<li>Now click … in <em>Dependencies</em>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch16.png"></p>
+<ol>
+<li>Check <code>Extract by location (Spatial Index)</code> and <code>Extract by location (No Spatial Index)</code> and click <strong>OK</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch17.png"></p>
+<ol>
+<li>Now that the model is completed, click <strong>Zoom full</strong> button to view the model. Let us save the model click <strong>Save model</strong> button.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch18.png"></p>
+<ol>
+<li>Now in the <em>Processing toolbox</em>, under that <strong>Models → projects → piracy_hexbin</strong> model will be available. Double click to execute it.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch19.png"></p>
+<ol>
+<li>In the <em>Base Layer</em> select <strong>ne_10m_land</strong>, <em>Grid size</em> as <strong>100000</strong>, and <em>Input points</em> as <strong>ASAM_events</strong>, check <em>Use Spatial Index</em> and click <strong>Run</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch20.png"></p>
+<ol>
+<li>Switch to <em>Log</em>, we can notice the <em>Create spatial index</em> algorithm is activated, and the total time of execution is 7.41 seconds.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch21.png"></p>
+<ol>
+<li>Now switch to <em>Parameters</em>, un-check the <em>Use Spatial Index</em> and click <strong>Run</strong>. tab.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch22.png"></p>
+<ol>
+<li>Switch to the <em>Log</em>, we can notice the <em>No spatial index exists for input layer, performance will be severely degraded</em> warning get displayed, and the execution took 78.897 seconds.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/conditionalBranch23.png"></p>
+<h3>Enabling Reproducible Workflows</h3>
+<ol>
+<li>To ensure that you are always able to reproduce your results, it is recommended to bundle the model in your project. The modeler interface has a button <strong>Save model in project</strong> that will embed the model in your QGIS project file.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/reproducibleWorkflows01.png"></p>
+<ol>
+<li>Once the model is embedded, Whenever you open the project, the model will be available to the user under the <strong>Project models</strong> in the Processing Toolbox.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/reproducibleWorkflows02.png"></p>
+<ol>
+<li>Now, lets save this project in <code>martime_piracy.gpkg</code> geopackage. Click <strong>Project → Save To → GeoPackage…</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/reproducibleWorkflows03.png"></p>
+<ol>
+<li>In the <em>Save project to GeoPackage</em> dialog box, click … to browse to martime_piracy geopackage.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/reproducibleWorkflows04.png"></p>
+<ol>
+<li>Enter project name as <code>martime_piracy</code> and click <strong>OK</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/reproducibleWorkflows05.png"></p>
+<ol>
+<li>Now in <em>Browser</em>, under <code>martime_piracy.gpkg</code> the project is saved. You now have just 1 GeoPackage file that contains all your input layers, styles, project and models. Sharing this 1 file will enable anyone to reproduce your output using the embedded model and layers.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/reproducibleWorkflows06.png"></p>
+<h1>2D Animations</h1>
+<p>Time is an important component of many spatial datasets. Along with location information, time providers another dimension for analysis and visualization of data. If you are working with a dataset that contains timestamps or have observations recorded at multiple time-steps, you can easily visualize it using the <strong>Temporal Controller</strong> in QGIS 3.14 or above.</p>
+<h2>练习: Create a GIF showing changes in piracy hotspots over time</h2>
+<p>We will continue to work with the maritime piracy dataset. First, we will create a heatmap visualization and then animate the heatmap to show how the piracy hot-spots have changed over the past 2 decades.</p>
+<ol>
+<li>Open the <strong>maritime_piracy</strong> project from the data package. There are thousands of incidents and it is difficult to determine with more piracy. Rather than individual points, a better way to visualize this data is through a heatmap. Select the <code>ASAM_events</code> layers and click the <strong>Open the layer Styling Panel</strong> button in the Layers panel. Click the <strong>Single symbol</strong> drop-down.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d01.png"></p>
+<ol>
+<li>In the renderer selection drop-down, select <strong>Heatmap</strong> renderer. Next, select the <strong>Viridis</strong> color ramp from the Color ramp selector. Adjust the Radius value to <strong>5.0.</strong> At the bottom, expand the <em>Layer Rendering</em> section and adjust the opacity to <strong>75.0%</strong>. This gives a nice visual effect of the hotspots with the land layer below.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d02.png"></p>
+<ol>
+<li>Now let’s animate this data to show the yearly map of piracy incidents. Right click on <code>ASAM_event</code> layer, and choose <em>Properties.</em></li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d03.png"></p>
+<ol>
+<li>In the layer properties dialog box, select the <em>Temporal</em> tab and enable it by clicking the checkbox.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d04.png"></p>
+<ol>
+<li>The source data contains an attribute <code>dateofocc</code> - representing the date on which the incident took place. This is the field that will be used to determine the points that are rendered for each time period. Select <strong>Single Field with Data/Time</strong> in <em>Configuration</em> Drop down menu, <strong>dateofocc</strong> as Field. Click <em>OK</em>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d05.png"></p>
+<ol>
+<li>Now a <em>Clock symbol</em> will appear next to the layer name. Click on the <strong>Temporal Control Panel</strong> (Clock icon) from Map Navigation Toolbar.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d06.png"></p>
+<ol>
+<li>Click on the <em>Animated Temporal Navigation</em> (play icon).</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d07.png"></p>
+<ol>
+<li>By default, the date range is set to the current date. Click <em>Set to Full Range</em> button to set the date range from the dataset.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d08.png"></p>
+<ol>
+<li>Now the data will be set to <code>2000-01-02</code> to <code>2018-01-01</code>. We want to create an animation showing yearly changes to the hotspot. Set the <em>Step</em> to <strong>years</strong>. Click <em>play</em> button to start rendering.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d09.png"></p>
+<ol>
+<li>It will be useful to add a label to the animation showing the date of the animation frame being displayed. We can use the <em>Title Decoration</em> to place that label. Go to <strong>View → Decorations → Title Label Decorations.</strong> Click the checkbox to enable it and then the <strong>Insert an Expression</strong> button.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d10.png"></p>
+<ol>
+<li>Enter the following expression to display the year and click <em>OK</em>.</li>
+</ol>
+<p><code>format_date(@map_start_time, 'yyyy-MM-dd')</code></p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d11.png"></p>
+<ol>
+<li>Select font size as <strong>25</strong>, set background color as <strong>white.</strong> In placement choose <strong>Bottom Right.</strong> Now click OK.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d12.png"></p>
+<p><a href="https://courses.spatialthoughts.com/images/advanced_qgis/2d12.gif">View Animated GIF ↗</a></p>
+<ol>
+<li>Once the parameters are set accordingly, the date will displayed on the map. To export these as images and convert them as GIF select the <strong>Export Animation</strong> (save icon) in the Temporal controller window.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d13.png"></p>
+<ol>
+<li>Choose the directory to save the images and select the <code>ne_10_land</code> for map extent.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d14.png"></p>
+<ol>
+<li>Once the export finishes, you will see PNG images for each year in the output directory. Now let’s create an animated GIF from these images. There are many options for creating animations from individual image frames. We like [<a href="https://ezgif.com/maker">ezgif.com</a>] for an easy and online tool. Visit the site and click Choose Files and select all the .png files. You may want to sort the images by Type to allow easy bulk selection of only .png files. Once selected, click the Upload and make a GIF! button.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d15.png"></p>
+<h2>Challenge: Improve the animation</h2>
+<p>You will notice that for each frame of the animation, the year is displayed at the top-center. But instead of the full date and time, let’s change it to display the year that the map represents. Also, place the copyright info at the bottom right. The output should look something like below.</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/2d16.png"></p>
+<p><a href="https://courses.spatialthoughts.com/images/advanced_qgis/2d16.gif">View Animated GIF ↗</a></p>
+<h1>3D Animations</h1>
+<p>Recent versions of QGIS include native support for 3D data. Using this feature, you can easily view, explore and animate 3D elevation data. Note that your computer must have a supported graphics card for this feature to work.</p>
+<h2>练习: Create a 3D Flythrough</h2>
+<p>We will work with a 5m Digital Elevation Model (DEM) of Denali peak in Alaska and create an animation showing a 3D visualization of the dataset.</p>
+<ol>
+<li>Open the <strong>denali</strong> project from the data package. The data contains the raw DEM layer and a hillshade layer created from the DEM.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/3d01.png"></p>
+<ol>
+<li>Let’s create a colorized hillshade. It is possible to drape an image or colorized DEM to a hillshade layer using QGIS’s <strong>Layer Blending Modes</strong>. Click on the <strong>Open the Layer Styling Panel</strong> icon. In the <em>Layer styling</em> panel, choose <code>denali_hillshade</code> and under <em>Layer Rendering</em> choose <strong>Multiply</strong> as <em>Blending mode</em>. The selected layer will be blended with the bottom layer. This is a great way to visualize your elevation dataset.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/3d02.png"></p>
+<ol>
+<li>Let’s view this data in 3D. Go to <strong>View → New 3D Map View</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/3d03.png"></p>
+<ol>
+<li>A new map window will open containing the rendered map layers from the main canvas. Click the <strong>Configure</strong> button.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/3d04.png"></p>
+<ol>
+<li>In the <em>Terrain</em> section, select <strong>DEM (Raster Layer)</strong> as the <em>Type</em>. Select <code>denali_dem</code> layer as the <em>Elevation</em>. Click OK.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/3d05.png"></p>
+<ol>
+<li>In the 3D view, you can hold the <em>Shift</em> key and drag your mouse to tilt the top-down view. You will see the map in 3D. You can also use the controls on the right-hand panel to tilt, zoom and pan the view.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/3d06.png"></p>
+<ol>
+<li>Now we will create an animation. Click the <em>Animations</em> button in the toolbar. To animate the view, we must define certain <em>keyframes</em>. Once you define a specific view for keyframes at different times, the system will try to smoothly animate the views between them. You can use the slider to go to a specific time, use the controls to set a specific view and click the <em>+</em> button to add a keyframe. Click the <em>Play</em> button to see the animation in action.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/3d07.png"></p>
+<ol>
+<li>Once you are satisfied, click the <em>Export Animation Frames</em> button. Choose an output directory on your computer and click OK. Individual frames will be rendered and saved as separate files.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/3d08.png"></p>
+<ol>
+<li>As we did in the previous section, you can use a service such as <em><a href="https://ezgif.com/maker">ezgif.com</a></em> to create a GIF/Video from these frames.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/3d09.png"></p>
+<p><a href="https://courses.spatialthoughts.com/images/advanced_qgis/3d.gif">View Animated GIF ↗</a></p>
+<h1>Summary Aggregate Expressions</h1>
+<p>QGIS expression engine has a powerful function called ‘summary aggregates’ that allows evaluating a feature’s geometry and attributes with those of another layer. Expressions can be used for static calculations as well as on-the-fly computations, such as labels, virtual fields, symbology etc. This enables some powerful use cases.</p>
+<p>The summary aggregate function operates on all the values from a different layer, returning a single summary value. The syntax of the aggregate function is as follows</p>
+<div class="highlight"><pre><span></span><code><span class="nx">aggregate</span><span class="p">(</span>
+<span class="w">  </span><span class="nx">layer</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">layer</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="nx">id</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">aggregate</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">aggegate</span><span class="w"> </span><span class="k">type</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">expression</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">expression</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">aggregate</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">filter</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">optional</span><span class="w"> </span><span class="nx">filter</span><span class="w"> </span><span class="nx">expression</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">concatenator</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">optional</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">join</span><span class="w"> </span><span class="nx">values</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">order_by</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">optional</span><span class="w"> </span><span class="nx">expression</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">order</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">features</span><span class="err">&#39;</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+
+<p><a href="https://docs.google.com/presentation/d/1F-gH729oWv4zcCecXd9BYoNdqHr7KaahgMPm_4XCgBY/edit?usp=sharing">查看幻灯片</a></p>
+<h2>练习: Count features from another layer</h2>
+<p>We will work with a land parcels data layer provided by the City of San Francisco. The goal of this 练习 is to demonstrate the use of aggregate expression for on-the-fly computation when digitizing new features.</p>
+<ol>
+<li>Open the <strong>parcels</strong> project from the data package. Select the <code>boundary</code> layer and click the <strong>Open Field Calculator</strong> button.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/aggregate1.png"></p>
+<ol>
+<li>Add a new field named <code>count</code> with the following expression. The expression is reading the features from the <code>parcels</code> layer and giving an aggregate count of the features. You will notice that the the result will be displayed at the bottom of the window.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">aggregate</span><span class="p">(</span>
+<span class="w"> </span><span class="n">layer</span><span class="o">:=</span><span class="w"> </span><span class="p">&#39;</span><span class="n">parcels</span><span class="p">&#39;</span><span class="o">,</span>
+<span class="w"> </span><span class="n">aggregate</span><span class="o">:=</span><span class="p">&#39;</span><span class="n">count</span><span class="p">&#39;</span><span class="o">,</span>
+<span class="w"> </span><span class="n">expression</span><span class="o">:=</span><span class="n">fid</span>
+<span class="w"> </span><span class="p">)</span>
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/aggregate2.png"></p>
+<ol>
+<li>Now we can apply the same concept in a dynamic calculation. Back in the main QGIS window, select the <code>polygons</code> layer and right-click it. Select <strong>Properties</strong>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/aggregate3.png"></p>
+<ol>
+<li>Switch to the <strong>Attributes Form</strong> tab. Select the field <code>count</code> and choose <strong>Text Edit</strong> as the <em>Widget Type</em>. At the <strong>Default Value</strong> field at the bottom, enter the following expression. Note that additional filter value. Here the <code>$geometry</code> refers to the geometry of the <code>parcels</code> layer and <code>geometry(@parent)</code> refers to the geometry of feature from the <code>polygons</code> layer. Click OK.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">aggregate</span><span class="p">(</span>
+<span class="w"> </span><span class="n">layer</span><span class="o">:=</span><span class="w"> </span><span class="p">&#39;</span><span class="n">parcels</span><span class="p">&#39;</span><span class="o">,</span>
+<span class="w"> </span><span class="n">aggregate</span><span class="o">:=</span><span class="p">&#39;</span><span class="n">count</span><span class="p">&#39;</span><span class="o">,</span>
+<span class="w"> </span><span class="n">expression</span><span class="o">:=</span><span class="n">fid</span><span class="o">,</span>
+<span class="w"> </span><span class="n">filter</span><span class="o">:=</span><span class="n">intersects</span><span class="p">($</span><span class="n">geometry</span><span class="o">,</span><span class="w"> </span><span class="n">geometry</span><span class="p">(@</span><span class="n">parent</span><span class="p">))</span>
+<span class="w"> </span><span class="p">)</span>
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/aggregate4.png"></p>
+<ol>
+<li>Back in QGIS, click the <strong>Toggle Editing</strong> button and draw a polygon using the <strong>Add Polygon Feature</strong> button. Right-click to finish the drawing. As soon as you finish, the count of intersecting features will be calculated by the aggregate expression and displayed in the <code>count</code> field.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/aggregate5.png"></p>
+<p><a href="https://courses.spatialthoughts.com/images/advanced_qgis/aggregate5.gif">View Animated GIF ↗</a></p>
+<ol>
+<li>There are many different types of aggregates available. We can use an aggregate called <strong>concatenate</strong> to compute a comma-separated text of all feature ids. Go to the <strong>Attribute Form</strong> properties again and select the <code>parcels</code> field. Enter the following expression as the <strong>Default Value</strong>.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">aggregate</span><span class="p">(</span>
+<span class="w"> </span><span class="n">layer</span><span class="o">:=</span><span class="w"> </span><span class="p">&#39;</span><span class="n">parcels</span><span class="p">&#39;</span><span class="o">,</span>
+<span class="w"> </span><span class="n">aggregate</span><span class="o">:=</span><span class="p">&#39;</span><span class="n">concatenate</span><span class="p">&#39;</span><span class="o">,</span>
+<span class="w"> </span><span class="n">concatenator</span><span class="o">:=</span><span class="p">&#39;</span><span class="o">,</span><span class="p">&#39;</span><span class="o">,</span>
+<span class="w"> </span><span class="n">expression</span><span class="o">:=</span><span class="n">to_string</span><span class="p">(</span><span class="n">fid</span><span class="p">)</span><span class="o">,</span>
+<span class="w"> </span><span class="n">filter</span><span class="o">:=</span><span class="n">intersects</span><span class="p">($</span><span class="n">geometry</span><span class="o">,</span><span class="w"> </span><span class="n">geometry</span><span class="p">(@</span><span class="n">parent</span><span class="p">))</span>
+<span class="w"> </span><span class="p">)</span>
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/aggregate6.png"></p>
+<ol>
+<li>Now when to add a new feature, all the intersecting feature ids will be displayed along with the count.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/aggregate7.png"></p>
+<p><a href="https://courses.spatialthoughts.com/images/advanced_qgis/aggregate7.gif">View Animated GIF ↗</a></p>
+<h2>Learn more</h2>
+<p>Apart from <code>aggregate()</code>, there are other advanced functions such as <code>array_foreach()</code> and <code>eval()</code> that are very powerful. Learn about them in the following video where I explain some use cases.</p>
+<p><a href="https://www.youtube.com/watch?v=IXPCec8vgLA"><img alt="Video" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/advanced_expressions_qgisna.jpg"></a></p>
+<h1>Data Credits</h1>
+<ul>
+<li>OpenStreetMap (osm) data layers: Data/Maps Copyright 2019 Geofabrik GmbH and OpenStreetMap Contributors. <a href="https://download.geofabrik.de/asia/india.html">OSM India free extract</a> downloaded from Geofabrik.</li>
+<li>India State boundary: Downloaded from <a href="https://github.com/datameet/maps/tree/master/States">Datameet Spatial Data repository</a>.</li>
+<li>Anti-shipping Activity Messages: <a href="https://msi.nga.mil/NGAPortal/MSI.porta">Maritime Safety Information portal</a> , National Geospatial-Intelligence Agency</li>
+<li>Land boundaries: Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.</li>
+<li>Road Network: District of Columbia <a href="https://opendata.dc.gov/">Open Data Catalog</a>.</li>
+<li><a href="https://www.usgs.gov/centers/eros/science/usgs-eros-archive-digital-elevation-interferometric-synthetic-aperture-radar">Alaska IFSAR DTM</a> distributed by USGS Earth Resources Observation and Science (EROS), Downloaded from USGS Earth Explorer</li>
+<li>Parcels and Neighborhood boundaries downloaded from <a href="https://datasf.org/opendata/">DataSF Open Data Portal</a></li>
+</ul>
+<h1>授权协议</h1>
+<p>本课程材料采用<a href="https://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性4.0国际许可协议</a>授权。你可以为任何非商业目的自由使用该材料。请适当注明原作者的名字。</p>
+<p>本中文翻译版本禁止商用。</p>
+<p>如果你想利用英文原版内容作为商业产品的一部分，需要 <a href="https://spatialthoughts.com/contact/">联系英文原作者</a> 询问价格和使用条款，获得<em>培训授权</em>，付对应费用。</p>
+<p>© 2021 Spatial Thoughts <a href="https://spatialthoughts.com">www.spatialthoughts.com</a></p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep" data-i18n="category_label">分类</span>:
+        <abbr class="category">
+            <a href="./category/qgis.html">QGIS</a>
+        </abbr>
+       </footer>
+    
+</section>
+
+<section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
+    <script src="https://giscus.app/client.js"
+        data-repo="cycleuser/cycleuser.github.io"
+        data-repo-id="R_kgDOL4NKYA"
+        data-category="General"
+        data-category-id="DIC_kwDOL4NKYM4DBK3X"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    function update() {
+        var t = giscusTheme(getTheme());
+        var s = document.querySelector('script[src*="giscus"]');
+        if (s) s.setAttribute('data-theme', t);
+        sendTheme(t);
+    }
+    // 初始设置
+    var s = document.querySelector('script[src*="giscus"]');
+    if (s) s.setAttribute('data-theme', giscusTheme(getTheme()));
+    // 监听明暗切换
+    new MutationObserver(function() { update(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    // 重试几次确保 iframe 加载完成
+    var tries = 0;
+    var timer = setInterval(function() {
+        if (document.querySelector('iframe.giscus-frame')) { sendTheme(giscusTheme(getTheme())); clearInterval(timer); }
+        if (++tries > 20) clearInterval(timer);
+    }, 500);
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

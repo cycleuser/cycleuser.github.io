@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='../theme/css/highlight.css?v=1' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='../theme/css/github-markdown.css?v=1' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='../theme/css/style.css?v=1' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+                <h1><img src="../theme/image/default-logo.png" width="300" height="100" alt="CycleUser" />
+                CycleUser</h1>
+        </div> <!-- /#logo-->
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="https://blog.cycleuser.org">Homepage</a></li><li class="active"><a href="https://blog.cycleuser.org/categories.html">Categories</a></li><li class="active"><a href="https://blog.cycleuser.org/tags.html">Tags</a></li><li class="active"><a href="https://blog.cycleuser.org/archives.html">Archives</a></li><li class="active"><a href="https://blog.cycleuser.org/about.html">About</a></li></ul>
+        </nav><!-- /#menu -->
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-620" >
+                <div class="markdown-body">
+<h4 class="content-archive">Articles tagged with <span class="accent-text">Probability</span>: </h4>
+                    <section class="breadcrumb-list">
+<a href="..">Blog</a> ››Tag: <a href="../tag/probability.html">Probability</a>
+                    </section>
+                </div>
+
+
+<ul>
+<li class="posts"><article class="post hentry">
+	<header>
+		<h2 class="post-title" >
+			<a href="../lu-bo-fang-fa-cong-yi-dong-ping-jun-dao-li-zi-lu-bo.html" rel="bookmark" title="Permalink to 滤波方法：从移动平均到粒子滤波">滤波方法：从移动平均到粒子滤波</a>
+		</h2>
+		<div class="post-info">
+			<span class="post-lable">Post in</span>
+			<abbr class="date" title="2026-06-30T10:00:00+08:00"> 
+				<a href="../archive/2026/Jun/index.html">Tue 30 June 2026 </a>
+			</abbr>
+			<!-- COMMENTS -->
+		</div>
+	</header>
+    <div class="summary markdown-body"><h2>数学基础</h2>
+<p>滤波，在最广泛的意义上，是从含噪声的观测序列中估计感兴趣信号的过程。这个概念横跨信号处理、控制理论、时 …</p></div>
+	<footer>
+		<span class="post-lable">Category:</span>
+		<abbr class="category">
+			<a href="../category/math.html">Math</a>
+		</abbr>
+	</footer>
+	<hr />
+</article></li>
+</ul>
+<p class="paginator">
+    Page 1 / 1
+</p>
+        </section><!-- #content -->
+        <section id="widgets" class="grid col-300 fit" >
+            <!--
+            <section id="widget-search" class="widget-wrapper widget_search">
+
+                <form id="searchform" action="https://www.google.com/search" method="get">
+                    <input id="q" class="field" type="text" placeholder="Search Blog" name="q" ></input>
+                    <input id="ie" name="ie" type="hidden" value="utf-8" ></input>
+                    <input id="oe" name="oe" type="hidden" value="utf-8" ></input>
+                    <input id="channel" name="channel" type="hidden" value="suggest" ></input>
+                    <input id="searchsubmit" class="submit" type="submit" value="">
+                </form>
+            </section>
+            -->
+            <section id="widget-category" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Category
+                </div>
+                <ul><li><a href="../category/ai.html">AI</a></li><li><a href="../category/c.html">C</a></li><li><a href="../category/camera.html">Camera</a></li><li><a href="../category/chromebook.html">ChromeBook</a></li><li><a href="../category/cuda.html">CUDA</a></li><li><a href="../category/diy.html">DIY</a></li><li><a href="../category/duke.html">Duke</a></li><li><a href="../category/fuckzhihu.html">FuckZhihu</a></li><li><a href="../category/hackintosh.html">Hackintosh</a></li><li><a href="../category/linux.html">Linux</a></li><li><a href="../category/llm.html">LLM</a></li><li><a href="../category/ltfs.html">LTFS</a></li><li><a href="../category/mac.html">Mac</a></li><li><a href="../category/math.html">Math</a></li><li><a href="../category/ml.html">ML</a></li><li><a href="../category/modeling.html">Modeling</a></li><li><a href="../category/nas.html">NAS</a></li><li><a href="../category/nix.html">Nix</a></li><li><a href="../category/photography.html">Photography</a></li><li><a href="../category/pve.html">PVE</a></li><li><a href="../category/python.html">Python</a></li><li><a href="../category/qgis.html">QGIS</a></li><li><a href="../category/qt.html">QT</a></li><li><a href="../category/raspbian.html">Raspbian</a></li><li><a href="../category/sdr.html">SDR</a></li><li><a href="../category/software.html">Software</a></li><li><a href="../category/story.html">Story</a></li><li><a href="../category/tool.html">Tool</a></li><li><a href="../category/tools.html">Tools</a></li><li><a href="../category/virtualization.html">Virtualization</a></li><li><a href="../category/virtualmachine.html">VirtualMachine</a></li><li><a href="../category/windows.html">Windows</a></li><li><a href="../category/work.html">Work</a></li></ul>
+            </section>
+
+            <section id="widget-tagcloud" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Tagcloud
+                </div>
+                <div>
+                        <span><a href="../tag/junck.html">Junck</a></span>
+                        <span><a href="../tag/kalman.html">Kalman</a></span>
+                        <span><a href="../tag/tool.html">Tool</a></span>
+                        <span><a href="../tag/science.html">Science</a></span>
+                        <span><a href="../tag/moving-average.html">Moving Average</a></span>
+                        <span><a href="../tag/exponential-smoothing.html">Exponential Smoothing</a></span>
+                        <span><a href="../tag/ukf.html">UKF</a></span>
+                        <span><a href="../tag/nonlinear-filtering.html">Nonlinear Filtering</a></span>
+                        <span><a href="../tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="../tag/wiener-filter.html">Wiener Filter</a></span>
+                        <span><a href="../tag/code.html">Code</a></span>
+                        <span><a href="../tag/gis.html">GIS</a></span>
+                        <span><a href="../tag/probability.html">Probability</a></span>
+                        <span><a href="../tag/code-generation.html">Code Generation</a></span>
+                        <span><a href="../tag/bayesian.html">Bayesian</a></span>
+                        <span><a href="../tag/story.html">Story</a></span>
+                        <span><a href="../tag/architecture.html">Architecture</a></span>
+                        <span><a href="../tag/non-gaussian.html">Non-Gaussian</a></span>
+                        <span><a href="../tag/nonlinear.html">Nonlinear</a></span>
+                        <span><a href="../tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="../tag/hadoop.html">Hadoop</a></span>
+                        <span><a href="../tag/matplotlib.html">Matplotlib</a></span>
+                        <span><a href="../tag/osx-kvm.html">OSX-KVM</a></span>
+                        <span><a href="../tag/optimal-estimation.html">Optimal Estimation</a></span>
+                        <span><a href="../tag/history.html">History</a></span>
+                        <span><a href="../tag/lens.html">Lens</a></span>
+                        <span><a href="../tag/cellular-automata.html">Cellular Automata</a></span>
+                        <span><a href="../tag/translate.html">Translate</a></span>
+                        <span><a href="../tag/unscented-transform.html">Unscented Transform</a></span>
+                        <span><a href="../tag/discuss.html">Discuss</a></span>
+                        <span><a href="../tag/sequential-monte-carlo.html">Sequential Monte Carlo</a></span>
+                        <span><a href="../tag/bayesian-estimation.html">Bayesian Estimation</a></span>
+                        <span><a href="../tag/photo.html">Photo</a></span>
+                        <span><a href="../tag/openwebui.html">OpenWebUI</a></span>
+                        <span><a href="../tag/time-series.html">Time Series</a></span>
+                        <span><a href="../tag/windows.html">Windows</a></span>
+                        <span><a href="../tag/ai.html">AI</a></span>
+                        <span><a href="../tag/pve.html">PVE</a></span>
+                        <span><a href="../tag/computability.html">Computability</a></span>
+                        <span><a href="../tag/state-space.html">State Space</a></span>
+                        <span><a href="../tag/algorithm.html">Algorithm</a></span>
+                        <span><a href="../tag/qgis.html">QGIS</a></span>
+                        <span><a href="../tag/kalman-filter.html">Kalman Filter</a></span>
+                        <span><a href="../tag/photography.html">Photography</a></span>
+                        <span><a href="../tag/cuda.html">CUDA</a></span>
+                        <span><a href="../tag/signal-processing.html">Signal Processing</a></span>
+                        <span><a href="../tag/pyenv.html">Pyenv</a></span>
+                        <span><a href="../tag/rx590.html">RX590</a></span>
+                        <span><a href="../tag/phd.html">PHD</a></span>
+                        <span><a href="../tag/c.html">C</a></span>
+                        <span><a href="../tag/radio.html">Radio</a></span>
+                        <span><a href="../tag/communicate.html">Communicate</a></span>
+                        <span><a href="../tag/prerequisites.html">Prerequisites</a></span>
+                        <span><a href="../tag/ubuntu.html">Ubuntu</a></span>
+                        <span><a href="../tag/sigma-point.html">Sigma Point</a></span>
+                        <span><a href="../tag/simulation.html">Simulation</a></span>
+                        <span><a href="../tag/llm.html">LLM</a></span>
+                        <span><a href="../tag/tools.html">Tools</a></span>
+                        <span><a href="../tag/geology.html">Geology</a></span>
+                        <span><a href="../tag/ollama.html">Ollama</a></span>
+                        <span><a href="../tag/visualization.html">Visualization</a></span>
+                        <span><a href="../tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="../tag/programming.html">Programming</a></span>
+                        <span><a href="../tag/university.html">University</a></span>
+                        <span><a href="../tag/scholar.html">Scholar</a></span>
+                        <span><a href="../tag/particle-filter.html">Particle Filter</a></span>
+                        <span><a href="../tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="../tag/hack.html">Hack</a></span>
+                        <span><a href="../tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="../tag/kivy.html">Kivy</a></span>
+                        <span><a href="../tag/guide.html">Guide</a></span>
+                        <span><a href="../tag/qwen3.html">Qwen3</a></span>
+                        <span><a href="../tag/camera.html">Camera</a></span>
+                        <span><a href="../tag/math.html">Math</a></span>
+                        <span><a href="../tag/ekf.html">EKF</a></span>
+                        <span><a href="../tag/turing.html">Turing</a></span>
+                        <span><a href="../tag/llamafactory.html">LlamaFactory</a></span>
+                        <span><a href="../tag/amd.html">AMD</a></span>
+                        <span><a href="../tag/jacobian.html">Jacobian</a></span>
+                        <span><a href="../tag/book.html">Book</a></span>
+                        <span><a href="../tag/data.html">Data</a></span>
+                        <span><a href="../tag/game.html">Game</a></span>
+                        <span><a href="../tag/ventoy.html">Ventoy</a></span>
+                        <span><a href="../tag/hardware.html">Hardware</a></span>
+                        <span><a href="../tag/virtualmachine.html">VirtualMachine</a></span>
+                        <span><a href="../tag/mac.html">Mac</a></span>
+                        <span><a href="../tag/frequency-domain.html">Frequency Domain</a></span>
+                        <span><a href="../tag/memory.html">Memory</a></span>
+                        <span><a href="../tag/computer.html">Computer</a></span>
+                        <span><a href="../tag/gpt-oss.html">GPT-OSS</a></span>
+                        <span><a href="../tag/learning.html">Learning</a></span>
+                        <span><a href="../tag/linux.html">Linux</a></span>
+                        <span><a href="../tag/filtering.html">Filtering</a></span>
+                        <span><a href="../tag/ml.html">ML</a></span>
+                        <span><a href="../tag/python.html">Python</a></span>
+                        <span><a href="../tag/life.html">Life</a></span>
+                        <span><a href="../tag/numpy.html">NumPy</a></span>
+                        <span><a href="../tag/mathematical-modeling.html">Mathematical Modeling</a></span>
+                        <span><a href="../tag/poem.html">Poem</a></span>
+                        <span><a href="../tag/microscope.html">Microscope</a></span>
+                </div>
+            </section>
+
+
+            <section id="widget-links" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Links
+                </div>
+                <ul><li><a href="https://chinageology.com">ChinaGeology</a></li><li><a href="http://doc.geopython.com/">GeoPython</a></li><li><a href="https://fanzheng.org">Fan</a></li><li><a href="http://o00o.site">FlagPlus</a></li><li><a href="http://blog.cosli.top">CosLi</a></li><li><a href="http://akagi201.org">Akagi201</a></li><li><a href="http://xuanwo.org/">XuanWo</a></li><li><a href="https://blog.daftme.com">4Orange</a></li><li><a href="http://blog.riverrun.xyz/">River</a></li><li><a href="https://www.logcg.com">LogCG Blog</a></li><li><a href="http://guolao.me/">GuoLao</a></li></ul>
+            </section>
+            
+        </section><!-- widgets -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+</body>
+</html>

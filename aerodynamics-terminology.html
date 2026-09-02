@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=19' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="./index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li class="active"><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li class="active"><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li class="active"><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li><li class="active"><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li><li class="active"><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li class="has-sub"><a href="./categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="./category/academic.html">Academic (5)</a></li><li><a href="./category/ai.html">AI (6)</a></li><li><a href="./category/c.html">C (8)</a></li><li><a href="./category/camera.html">Camera (15)</a></li><li><a href="./category/chromebook.html">ChromeBook (2)</a></li><li><a href="./category/cuda.html">CUDA (1)</a></li><li><a href="./category/design.html">Design (1)</a></li><li><a href="./category/diy.html">DIY (1)</a></li><li><a href="./category/duke.html">Duke (1)</a></li><li><a href="./category/education.html">Education (12)</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./category/hackintosh.html">Hackintosh (4)</a></li><li><a href="./category/linux.html">Linux (3)</a></li><li><a href="./category/llm.html">LLM (12)</a></li><li><a href="./category/ltfs.html">LTFS (1)</a></li><li><a href="./category/mac.html">Mac (3)</a></li><li><a href="./category/math.html">Math (23)</a></li><li><a href="./category/ml.html">ML (4)</a></li><li><a href="./category/modeling.html">Modeling (9)</a></li><li><a href="./category/nas.html">NAS (1)</a></li><li><a href="./category/nix.html">Nix (1)</a></li><li><a href="./category/photography.html">Photography (1)</a></li><li><a href="./category/pve.html">PVE (1)</a></li><li><a href="./category/python.html">Python (17)</a></li><li><a href="./category/qgis.html">QGIS (3)</a></li><li><a href="./category/qt.html">QT (1)</a></li><li><a href="./category/raspbian.html">Raspbian (1)</a></li><li><a href="./category/science.html">Science (3)</a></li><li><a href="./category/sdr.html">SDR (2)</a></li><li><a href="./category/software.html">Software (3)</a></li><li><a href="./category/story.html">Story (58)</a></li><li><a href="./category/tool.html">Tool (9)</a></li><li><a href="./category/tools.html">Tools (2)</a></li><li><a href="./category/virtualization.html">Virtualization (1)</a></li><li><a href="./category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./category/windows.html">Windows (1)</a></li><li><a href="./category/work.html">Work (12)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="./tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="./tag/abbreviations.html">abbreviations (1)</a></li><li><a href="./tag/academic.html">academic (1)</a></li><li><a href="./tag/adamw.html">AdamW (1)</a></li><li><a href="./tag/advice.html">advice (1)</a></li><li><a href="./tag/aerodynamics.html">aerodynamics (5)</a></li><li><a href="./tag/agent.html">Agent (1)</a></li><li><a href="./tag/ai.html">AI (27)</a></li><li><a href="./tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="./tag/aigc.html">AIGC (1)</a></li><li><a href="./tag/airfoil.html">airfoil (1)</a></li><li><a href="./tag/algorithm.html">Algorithm (12)</a></li><li><a href="./tag/amd.html">AMD (1)</a></li><li><a href="./tag/anime.html">anime (1)</a></li><li><a href="./tag/architecture.html">Architecture (3)</a></li><li><a href="./tag/arithmetic.html">arithmetic (1)</a></li><li><a href="./tag/attitude.html">Attitude (2)</a></li><li><a href="./tag/aviation.html">Aviation (2)</a></li><li><a href="./tag/bayesian.html">Bayesian (2)</a></li><li><a href="./tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="./tag/beginner.html">beginner (2)</a></li><li><a href="./tag/binary.html">binary (1)</a></li><li><a href="./tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="./tag/book.html">Book (10)</a></li><li><a href="./tag/brent.html">Brent (1)</a></li><li><a href="./tag/c.html">C (8)</a></li><li><a href="./tag/camera.html">Camera (24)</a></li><li><a href="./tag/career.html">career (1)</a></li><li><a href="./tag/causation.html">Causation (1)</a></li><li><a href="./tag/cellular-automata.html">Cellular Automata (1)</a></li><li><a href="./tag/chat.html">Chat (1)</a></li><li><a href="./tag/chromebook.html">ChromeBook (2)</a></li><li><a href="./tag/cli.html">CLI (1)</a></li><li><a href="./tag/code.html">Code (2)</a></li><li><a href="./tag/code-generation.html">Code Generation (6)</a></li><li><a href="./tag/coding.html">Coding (1)</a></li><li><a href="./tag/cognition.html">Cognition (1)</a></li><li><a href="./tag/comics.html">comics (1)</a></li><li><a href="./tag/communicate.html">Communicate (6)</a></li><li><a href="./tag/communication.html">communication (3)</a></li><li><a href="./tag/comparison.html">comparison (1)</a></li><li><a href="./tag/complexity.html">Complexity (1)</a></li><li><a href="./tag/compression.html">compression (1)</a></li><li><a href="./tag/computability.html">Computability (12)</a></li><li><a href="./tag/computer.html">computer (3)</a></li><li><a href="./tag/conda.html">Conda (1)</a></li><li><a href="./tag/correlation.html">Correlation (1)</a></li><li><a href="./tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="./tag/cs.html">CS (1)</a></li><li><a href="./tag/cuda.html">CUDA (6)</a></li><li><a href="./tag/culture.html">culture (1)</a></li><li><a href="./tag/cursor.html">Cursor (1)</a></li><li><a href="./tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="./tag/data.html">Data (3)</a></li><li><a href="./tag/data-science.html">Data Science (2)</a></li><li><a href="./tag/decision-making.html">decision-making (1)</a></li><li><a href="./tag/design.html">Design (1)</a></li><li><a href="./tag/dimension.html">dimension (1)</a></li><li><a href="./tag/discuss.html">Discuss (7)</a></li><li><a href="./tag/disease.html">Disease (1)</a></li><li><a href="./tag/diy.html">DIY (1)</a></li><li><a href="./tag/download.html">Download (1)</a></li><li><a href="./tag/earth-science.html">Earth Science (1)</a></li><li><a href="./tag/education.html">education (14)</a></li><li><a href="./tag/efficiency.html">efficiency (1)</a></li><li><a href="./tag/ekf.html">EKF (1)</a></li><li><a href="./tag/emotion.html">emotion (1)</a></li><li><a href="./tag/engineering.html">engineering (2)</a></li><li><a href="./tag/er-ji.html">耳机 (1)</a></li><li><a href="./tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="./tag/family.html">family (1)</a></li><li><a href="./tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="./tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="./tag/filtering.html">Filtering (5)</a></li><li><a href="./tag/flight-control.html">Flight Control (1)</a></li><li><a href="./tag/fractal.html">fractal (1)</a></li><li><a href="./tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="./tag/freshman.html">freshman (5)</a></li><li><a href="./tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="./tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./tag/game.html">Game (2)</a></li><li><a href="./tag/gametheory.html">GameTheory (1)</a></li><li><a href="./tag/general-education.html">general-education (1)</a></li><li><a href="./tag/geology.html">Geology (4)</a></li><li><a href="./tag/geometry.html">geometry (1)</a></li><li><a href="./tag/geopython.html">GeoPython (1)</a></li><li><a href="./tag/gis.html">GIS (3)</a></li><li><a href="./tag/glossary.html">Glossary (1)</a></li><li><a href="./tag/glumpy.html">GlumPy (2)</a></li><li><a href="./tag/golden-section.html">Golden Section (1)</a></li><li><a href="./tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="./tag/graduate-school.html">graduate-school (1)</a></li><li><a href="./tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="./tag/guide.html">Guide (1)</a></li><li><a href="./tag/hack.html">Hack (2)</a></li><li><a href="./tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="./tag/hadoop.html">Hadoop (2)</a></li><li><a href="./tag/hardware.html">Hardware (2)</a></li><li><a href="./tag/hate.html">Hate (1)</a></li><li><a href="./tag/hbase.html">HBase (1)</a></li><li><a href="./tag/heroism.html">heroism (1)</a></li><li><a href="./tag/history.html">History (5)</a></li><li><a href="./tag/ide.html">IDE (2)</a></li><li><a href="./tag/image.html">image (1)</a></li><li><a href="./tag/imbalance.html">Imbalance (1)</a></li><li><a href="./tag/imu.html">IMU (1)</a></li><li><a href="./tag/jacobian.html">Jacobian (1)</a></li><li><a href="./tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="./tag/job.html">Job (1)</a></li><li><a href="./tag/job-hunting.html">job-hunting (1)</a></li><li><a href="./tag/jpeg.html">jpeg (1)</a></li><li><a href="./tag/junck.html">Junck (3)</a></li><li><a href="./tag/kalman.html">Kalman (1)</a></li><li><a href="./tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="./tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="./tag/kivy.html">Kivy (3)</a></li><li><a href="./tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="./tag/learn.html">Learn (3)</a></li><li><a href="./tag/learning.html">learning (9)</a></li><li><a href="./tag/lens.html">Lens (20)</a></li><li><a href="./tag/lesson.html">Lesson (1)</a></li><li><a href="./tag/library.html">Library (1)</a></li><li><a href="./tag/life.html">life (16)</a></li><li><a href="./tag/lift.html">lift (1)</a></li><li><a href="./tag/linux.html">Linux (8)</a></li><li><a href="./tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="./tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="./tag/llm.html">LLM (5)</a></li><li><a href="./tag/ltfs.html">LTFS (1)</a></li><li><a href="./tag/lto.html">LTO (1)</a></li><li><a href="./tag/mac.html">Mac (11)</a></li><li><a href="./tag/macos.html">macOS (1)</a></li><li><a href="./tag/math.html">Math (4)</a></li><li><a href="./tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="./tag/mathematics.html">mathematics (1)</a></li><li><a href="./tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="./tag/maturity.html">maturity (1)</a></li><li><a href="./tag/mayavi.html">MayaVi (1)</a></li><li><a href="./tag/memory.html">Memory (4)</a></li><li><a href="./tag/methodology.html">Methodology (1)</a></li><li><a href="./tag/microscope.html">Microscope (2)</a></li><li><a href="./tag/mindset.html">mindset (2)</a></li><li><a href="./tag/ml.html">ML (4)</a></li><li><a href="./tag/mobile.html">Mobile (1)</a></li><li><a href="./tag/moon.html">Moon (1)</a></li><li><a href="./tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="./tag/moving-average.html">Moving Average (1)</a></li><li><a href="./tag/muon.html">Muon (1)</a></li><li><a href="./tag/n8n.html">n8n (1)</a></li><li><a href="./tag/nas.html">NAS (1)</a></li><li><a href="./tag/network.html">Network (1)</a></li><li><a href="./tag/nixos.html">NixOS (1)</a></li><li><a href="./tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="./tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="./tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="./tag/numpy.html">NumPy (1)</a></li><li><a href="./tag/nvidia.html">Nvidia (1)</a></li><li><a href="./tag/ocr.html">OCR (1)</a></li><li><a href="./tag/ollama.html">Ollama (15)</a></li><li><a href="./tag/opc.html">OPC (1)</a></li><li><a href="./tag/opencl.html">OpenCL (1)</a></li><li><a href="./tag/opencode.html">OpenCode (8)</a></li><li><a href="./tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="./tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="./tag/optimization.html">Optimization (2)</a></li><li><a href="./tag/os.html">os (1)</a></li><li><a href="./tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="./tag/parenting.html">Parenting (1)</a></li><li><a href="./tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="./tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="./tag/performance.html">Performance (1)</a></li><li><a href="./tag/phd.html">PHD (2)</a></li><li><a href="./tag/philosophy.html">philosophy (2)</a></li><li><a href="./tag/photo.html">Photo (24)</a></li><li><a href="./tag/photography.html">Photography (2)</a></li><li><a href="./tag/physics.html">physics (2)</a></li><li><a href="./tag/poem.html">Poem (2)</a></li><li><a href="./tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="./tag/programming.html">programming (9)</a></li><li><a href="./tag/prompt.html">Prompt (1)</a></li><li><a href="./tag/psychology.html">Psychology (1)</a></li><li><a href="./tag/pve.html">PVE (2)</a></li><li><a href="./tag/pyenv.html">Pyenv (2)</a></li><li><a href="./tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="./tag/python.html">python (65)</a></li><li><a href="./tag/qemu.html">QEMU (1)</a></li><li><a href="./tag/qgis.html">QGIS (3)</a></li><li><a href="./tag/qt.html">QT (1)</a></li><li><a href="./tag/qwen3.html">Qwen3 (10)</a></li><li><a href="./tag/radio.html">Radio (2)</a></li><li><a href="./tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="./tag/raspbian.html">Raspbian (1)</a></li><li><a href="./tag/reading.html">reading (2)</a></li><li><a href="./tag/reflection.html">reflection (4)</a></li><li><a href="./tag/remote.html">Remote (1)</a></li><li><a href="./tag/research.html">Research (3)</a></li><li><a href="./tag/resume.html">resume (1)</a></li><li><a href="./tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="./tag/rotation.html">Rotation (1)</a></li><li><a href="./tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="./tag/rx590.html">RX590 (1)</a></li><li><a href="./tag/sandbox.html">SandBox (1)</a></li><li><a href="./tag/scholar.html">Scholar (2)</a></li><li><a href="./tag/school.html">School (3)</a></li><li><a href="./tag/science.html">Science (3)</a></li><li><a href="./tag/search.html">Search (1)</a></li><li><a href="./tag/self-study.html">Self-Study (1)</a></li><li><a href="./tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="./tag/server.html">Server (1)</a></li><li><a href="./tag/shit.html">Shit (1)</a></li><li><a href="./tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="./tag/signal-processing.html">Signal Processing (2)</a></li><li><a href="./tag/simulation.html">Simulation (1)</a></li><li><a href="./tag/skill.html">skill (3)</a></li><li><a href="./tag/software.html">Software (1)</a></li><li><a href="./tag/sou-suo.html">搜索 (1)</a></li><li><a href="./tag/sports.html">sports (1)</a></li><li><a href="./tag/state-space.html">State Space (1)</a></li><li><a href="./tag/statistics.html">Statistics (1)</a></li><li><a href="./tag/story.html">Story (48)</a></li><li><a href="./tag/tape.html">Tape (1)</a></li><li><a href="./tag/telescope.html">Telescope (1)</a></li><li><a href="./tag/textbook.html">textbook (1)</a></li><li><a href="./tag/thinking.html">Thinking (6)</a></li><li><a href="./tag/tian-biao.html">填表 (1)</a></li><li><a href="./tag/time-series.html">Time Series (1)</a></li><li><a href="./tag/tong-ji-xue.html">统计学 (1)</a></li><li><a href="./tag/tool.html">Tool (8)</a></li><li><a href="./tag/tools.html">Tools (10)</a></li><li><a href="./tag/traffic.html">Traffic (1)</a></li><li><a href="./tag/translate.html">Translate (2)</a></li><li><a href="./tag/translation.html">Translation (2)</a></li><li><a href="./tag/tui.html">TUI (1)</a></li><li><a href="./tag/tuna.html">TUNA (1)</a></li><li><a href="./tag/turing.html">Turing (12)</a></li><li><a href="./tag/tutorial.html">tutorial (2)</a></li><li><a href="./tag/uav.html">UAV (1)</a></li><li><a href="./tag/ubuntu.html">Ubuntu (4)</a></li><li><a href="./tag/ui.html">UI (1)</a></li><li><a href="./tag/ukf.html">UKF (1)</a></li><li><a href="./tag/university.html">university (14)</a></li><li><a href="./tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="./tag/ventoy.html">Ventoy (1)</a></li><li><a href="./tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="./tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="./tag/video.html">video (3)</a></li><li><a href="./tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="./tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="./tag/virtualization.html">Virtualization (1)</a></li><li><a href="./tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./tag/vispy.html">VisPy (1)</a></li><li><a href="./tag/visualization.html">Visualization (8)</a></li><li><a href="./tag/vm.html">VM (1)</a></li><li><a href="./tag/vtk.html">VTK (1)</a></li><li><a href="./tag/web.html">Web (1)</a></li><li><a href="./tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="./tag/windows.html">Windows (3)</a></li><li><a href="./tag/windows11.html">Windows11 (1)</a></li><li><a href="./tag/workflow.html">workflow (1)</a></li><li><a href="./tag/xcode.html">Xcode (1)</a></li><li><a href="./tag/xia-zai.html">下载 (1)</a></li><li><a href="./tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="./tag/yin-pin.html">音频 (1)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="./index.html" data-i18n="blog">博客</a> › <a href="category/academic.html">Academic</a> › 空气动力学术语解析
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >空气动力学术语解析</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep" data-i18n="post_in">发布于</span>
+        <abbr class="date" title="2026-07-14T00:00:00+08:00"> 
+            <a href="./archive/2026/Jul/index.html">Tue 14 July 2026 </a>
+        </abbr>
+        <span class="meta-prep"> | <span data-i18n="tags_label">标签</span></span>
+                <a class="tag-badge" href="./tag/aerodynamics.html">Aerodynamics</a>
+                <a class="tag-badge" href="./tag/aviation.html">Aviation</a>
+                <a class="tag-badge" href="./tag/glossary.html">Glossary</a>
+                <a class="tag-badge" href="./tag/translation.html">Translation</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <h2>1. Airfoil 翼型</h2>
+<p><strong>Airfoil（翼型）</strong> is the cross-sectional shape of a wing as viewed from the side. In aerodynamic analysis, an airfoil is understood as a <strong>two-dimensional (2D) wing section</strong> — an infinite-span idealization that allows us to study pressure distributions, lift, drag, and moment characteristics without three-dimensional effects.</p>
+<p>翼型是机翼沿展向的剖面形状，在空气动力学分析中被视作二维机翼。它前端圆滑（前缘 leading edge, LE），后端尖锐（后缘 trailing edge, TE）。翼型的气动特性是研究一切三维机翼问题的基础。</p>
+<p><img alt="" src="./images/aero/aero_img_01.png">
+<em>图1：典型翼型几何示意图——前缘、后缘与弦线的定义 (Figure 1: Typical airfoil geometry showing leading edge, trailing edge, and chord line.)</em></p>
+<h3>1.1 Chord 翼弦</h3>
+<p>翼型上距后缘最远的点称为<strong>前缘</strong>（leading edge / LE）；连接前缘与后缘的直线段称为<strong>翼弦</strong>（chord），其长度称为<strong>弦长</strong>（chord length, 记作 <span class="arithmatex">\(c\)</span>）。</p>
+<p>The chord line is the straight reference line connecting the LE and TE. The chord length <span class="arithmatex">\(c\)</span> is the fundamental reference dimension used to normalize all airfoil coordinates and aerodynamic coefficients.</p>
+<p>对于后掠翼（swept wing），弦的定义需要说明：后掠翼的弦线通常垂直于机翼前缘，或者按平均气动弦（Mean Aerodynamic Chord, MAC）来定义。</p>
+<p><img alt="" src="./images/aero/aero_img_04.png">
+<em>图2：不同翼型的几何形状对比 (Figure 2: Comparison of different airfoil geometries.)</em></p>
+<p><img alt="后掠翼飞机的chord定义" src="./images/aero/aero_img_05.png">
+<em>图3：后掠翼飞机的弦线定义——通常与前缘垂直 (Figure 3: Chord definition for swept-wing aircraft — typically perpendicular to the leading edge.)</em></p>
+<h3>1.2 Mean Line / Camber Line 中弧线</h3>
+<p>In airfoil theory, the <strong>mean line</strong> (also called the <strong>center line</strong> or <strong>camber line</strong>) is the locus of points halfway between the upper and lower surfaces. It is constructed by inscribing a series of circles tangent to both the upper and lower surfaces and joining their centers.</p>
+<p><img alt="" src="./images/aero/aero_img_02.png">
+<em>图4：在翼型内部作一系列与上下翼面相切的内切圆，诸圆心的连线即为中弧线 (Figure 4: A series of inscribed circles tangent to both upper and lower surfaces — the locus of their centers defines the mean line.)</em></p>
+<p><img alt="" src="./images/aero/aero_img_03.png">
+<em>图5：中弧线（camber line）与翼弦的对比——两者之差即为弯度函数 (Figure 5: The mean line (camber line) compared with the chord line — the difference defines the camber function.)</em></p>
+<h3>1.3 Thickness &amp; Camber 厚度与弯度</h3>
+<p><strong>翼型厚度</strong>（thickness）：翼型内部最大内切圆的直径。相对厚度定义为厚度对弦长之比，即 <span class="arithmatex">\(t/c\)</span>。典型低速翼型的相对厚度约为 10%–18%，跨声速翼型约为 8%–12%，超声速翼型则更薄。</p>
+<p><strong>弯度</strong>（camber）：中弧线到翼弦的最大垂直距离。相对弯度为弯度对弦长之比，即 <span class="arithmatex">\(h/c\)</span>。弯度是翼型产生零攻角升力的根本原因。</p>
+<p>The <strong>camber</strong> of the airfoil is the maximum distance between the chord line and the mean line and is usually a few percent of the chord length. A positive camber (concave downward) produces positive lift at zero angle of attack.</p>
+<p><strong>前缘半径</strong>（LE radius）：前缘的曲率半径，影响翼型前缘的压力分布和失速特性。前缘半径越大，翼型在较大攻角范围内的流动附着能力越强，失速越缓和。超声速翼型则常采用尖前缘以减小波阻。</p>
+<p><strong>翼型的相对厚度</strong> <span class="arithmatex">\(\frac{t}{c}\)</span> 和<strong>相对弯度</strong> <span class="arithmatex">\(\frac{h}{c}\)</span> 是描述翼型的两个核心无量纲参数。</p>
+<h3>1.4 Symmetrical vs Cambered Airfoil 对称翼型与有弯度翼型</h3>
+<p><strong>Symmetrical airfoil</strong>（对称翼型）：弯度为零的翼型，中弧线与翼弦重合。在零攻角时不产生升力，当攻角为正时上下翼面才形成压差产生升力。对称翼型常用于水平尾翼、垂直尾翼以及需要双向飞行（如特技飞机）的情况。</p>
+<p><strong>Cambered airfoil</strong>（有弯度翼型）：弯度不为零。在零攻角时即可产生正升力，其零升力攻角（zero-lift angle of attack, <span class="arithmatex">\(\alpha_{L=0}\)</span>）为负值。有弯度翼型的气动效率通常优于对称翼型。</p>
+<p><img alt="" src="./images/aero/aero_img_06.png">
+<em>图6：对称翼型——中弧线与翼弦重合，零攻角时不产生升力 (Figure 6: Symmetrical airfoil — the mean line coincides with the chord line; no lift at zero angle of attack.)</em></p>
+<p><img alt="" src="./images/aero/aero_img_07.png">
+<em>图7：有弯度翼型——中弧线与翼弦分离，零攻角时即可产生正升力 (Figure 7: Cambered airfoil — the mean line deviates from the chord line; positive lift at zero angle of attack.)</em></p>
+<h2>2. Angle of Attack (AOA) 攻角</h2>
+<p><strong>Angle of attack</strong>（攻角/迎角，记作 <span class="arithmatex">\(\alpha\)</span> 或 AOA）定义为来流方向（free-stream velocity <span class="arithmatex">\(V_\infty\)</span> 的方向）与翼型弦线（chord line）之间的夹角。攻角是决定翼型升力系数 <span class="arithmatex">\(C_L\)</span> 的最关键参数。</p>
+<p>The angle of attack is the angle between the chord line of the airfoil and the direction of the oncoming flow (free-stream velocity vector <span class="arithmatex">\(V_\infty\)</span>). It is denoted by the Greek letter <span class="arithmatex">\(\alpha\)</span> (alpha).</p>
+<p>攻角必须严格区别于<strong>俯仰角</strong>（pitch angle）和<strong>飞行路径角</strong>（flight path angle）。俯仰角为机翼弦线与水平面之间的夹角，飞行路径角为速度矢量与水平面的夹角。三者之间的关系为：</p>
+<div class="arithmatex">\[\alpha = \theta - \gamma\]</div>
+<p>其中 <span class="arithmatex">\(\theta\)</span> 为俯仰角（pitch angle），<span class="arithmatex">\(\gamma\)</span> 为航迹角（flight path angle）。</p>
+<p><img alt="" src="./images/aero/aero_img_08.png">
+<em>图8：攻角定义——来流方向（<span class="arithmatex">\(V_\infty\)</span>）与翼弦线之间的夹角 (Figure 8: Angle of attack — the angle between the free-stream velocity vector <span class="arithmatex">\(V_\infty\)</span> and the chord line.)</em></p>
+<h3>2.1 升力系数与攻角的关系</h3>
+<p>在中小攻角范围内（线性段），升力系数与攻角近似为线性关系：</p>
+<div class="arithmatex">\[C_L \approx a(\alpha - \alpha_{L=0})\]</div>
+<p>其中 <span class="arithmatex">\(a = \frac{d C_L}{d \alpha}\)</span> 称为<strong>升力线斜率</strong>（lift curve slope）。对于薄翼型，根据薄翼理论（thin airfoil theory），<span class="arithmatex">\(a = 2\pi\)</span> rad⁻¹ ≈ 0.11 deg⁻¹。实际翼型由于粘性效应略低于此值。</p>
+<h3>2.2 临界攻角（Critical Angle of Attack）</h3>
+<p>当攻角超过某一临界值时，升力系数达到最大值 <span class="arithmatex">\(C_{L_{max}}\)</span>，随后急剧下降——翼型进入<strong>失速</strong>（stall）状态。该临界攻角称为<strong>失速攻角</strong>（stall angle of attack），典型翼型的失速攻角约为 15°–20°。</p>
+<h2>3. Stall 失速</h2>
+<p><strong>Stall</strong>（失速）是指当攻角超过临界攻角后，气流在翼型上表面发生大规模分离（flow separation），导致升力急剧下降、阻力大幅增加的现象。</p>
+<p>Stall is not the failure of the engine or a complete loss of lift, but rather the condition that occurs when the critical angle of attack is exceeded, causing a significant disruption of airflow over the upper surface of the wing and a consequent loss of lift.</p>
+<p><img alt="" src="./images/aero/aero_img_09.png">
+<em>图9：失速时翼型上表面的流动分离——边界层无法克服逆压梯度而脱离翼面 (Figure 9: Flow separation on the upper surface at stall — the boundary layer can no longer overcome the adverse pressure gradient and separates from the surface.)</em></p>
+<h3>3.1 失速的物理机制</h3>
+<p>在攻角逐渐增大的过程中，上翼面吸力峰前移并增强，导致下游出现更大的<strong>逆压梯度</strong>（adverse pressure gradient, <span class="arithmatex">\(\frac{dp}{dx} &gt; 0\)</span>）。当逆压梯度大到足以使边界层内的流体微团动能耗尽并发生倒流时，流动便从翼面分离。</p>
+<p>边界层的状态——层流（laminar）或湍流（turbulent）——直接影响失速特性：
+- <strong>层流边界层</strong>：较早分离，导致突然失速（leading-edge stall / thin-airfoil stall）
+- <strong>湍流边界层</strong>：较晚分离（因湍流将高动量流体从外层带入近壁区），失速较为缓和（trailing-edge stall）</p>
+<h3>3.2 失速速度（Stall Speed）</h3>
+<p>失速速度由最大升力系数 <span class="arithmatex">\(C_{L_{max}}\)</span> 决定。飞机在平飞时，升力等于重量 <span class="arithmatex">\(L = W\)</span>：</p>
+<div class="arithmatex">\[L = \frac{1}{2} \rho V^2 S C_L = W \quad \Rightarrow \quad V_s = \sqrt{\frac{2W}{\rho S C_{L_{max}}}}\]</div>
+<p>其中：
+- <span class="arithmatex">\(V_s\)</span> — 失速速度（stall speed）
+- <span class="arithmatex">\(W\)</span> — 飞机重量（weight）
+- <span class="arithmatex">\(\rho\)</span> — 空气密度（air density）
+- <span class="arithmatex">\(S\)</span> — 机翼面积（wing area）
+- <span class="arithmatex">\(C_{L_{max}}\)</span> — 最大升力系数（maximum lift coefficient）</p>
+<p>失速速度随载荷因子 <span class="arithmatex">\(n\)</span> 增大而增大：在坡度为 <span class="arithmatex">\(\phi\)</span> 的稳定转弯中，载荷因子 <span class="arithmatex">\(n = 1 / \cos\phi\)</span>，此时失速速度变为 <span class="arithmatex">\(V_{s,n} = V_s \sqrt{n}\)</span>。</p>
+<h2>4. Pressure &amp; Shear Stress 压力和剪力</h2>
+<p>当气流流经翼型表面时，翼型受到两类表面力的作用：<strong>压力</strong>（pressure, <span class="arithmatex">\(p\)</span>）和<strong>剪应力</strong>（shear stress, <span class="arithmatex">\(\tau\)</span>）。</p>
+<p><img alt="" src="./images/aero/aero_img_10.png">
+<em>图10：翼型表面上的压力分布（法向力）与剪应力分布（切向力）——两者的积分分别构成气动力在法向和切向的分量 (Figure 10: Pressure distribution (normal force) and shear stress distribution (tangential force) on an airfoil surface — the integration of both yields the normal and tangential aerodynamic force components.)</em></p>
+<h3>4.1 边界层概念（Boundary Layer）</h3>
+<p>1904年，Prandtl 提出了<strong>边界层</strong>（boundary layer）理论：对于高雷诺数流动，粘性效应主要集中在紧贴物面的一个薄层内，称为边界层。边界层外可视为无粘流动。</p>
+<p>The <strong>boundary layer</strong> is the thin layer of fluid adjacent to the surface of a body where viscous effects are significant. Outside this layer, the flow can be treated as inviscid.</p>
+<p>边界层厚度 <span class="arithmatex">\(\delta\)</span> 定义为从壁面到速度达到自由流速度的 99% 处（<span class="arithmatex">\(u = 0.99 V_\infty\)</span>）的垂直距离。对于层流边界层（Blasius解）：</p>
+<div class="arithmatex">\[\frac{\delta}{x} \approx \frac{5.0}{\sqrt{Re_x}}\]</div>
+<p>对于湍流边界层：</p>
+<div class="arithmatex">\[\frac{\delta}{x} \approx \frac{0.37}{Re_x^{1/5}}\]</div>
+<h3>4.2 剪应力与粘性</h3>
+<p>牛顿流体（Newtonian fluid）中，剪应力 <span class="arithmatex">\(\tau\)</span> 与速度梯度成正比：</p>
+<div class="arithmatex">\[\tau = \mu \frac{du}{dy}\]</div>
+<p>式中：
+- <span class="arithmatex">\(\tau\)</span> — 剪应力（shear stress），单位 Pa（N/m²）
+- <span class="arithmatex">\(\mu\)</span> — 动力粘度（dynamic viscosity coefficient），单位 Pa·s 或 kg/(m·s)
+- <span class="arithmatex">\(\frac{du}{dy}\)</span> — 垂直于壁面方向的速度梯度（velocity gradient）</p>
+<p><img alt="" src="./images/aero/aero_img_11.png">
+<em>图11：牛顿流体的剪应力关系——<span class="arithmatex">\(\tau = \mu \frac{du}{dy}\)</span>；剪应力与垂直于壁面的速度梯度成正比 (Figure 11: Newtonian fluid shear stress — <span class="arithmatex">\(\tau = \mu \frac{du}{dy}\)</span>; the shear stress is proportional to the velocity gradient normal to the wall.)</em></p>
+<h3>4.3 表面摩擦阻力</h3>
+<p>表面摩擦阻力（skin friction drag）源于边界层内的剪应力在物面切向上的积分。<strong>摩阻系数</strong>（skin friction coefficient）定义为：</p>
+<div class="arithmatex">\[c_f \equiv \frac{\tau_w}{\frac{1}{2} \rho V_\infty^2}\]</div>
+<p>其中<strong>动压</strong>（dynamic pressure）<span class="arithmatex">\(q_\infty = \frac{1}{2} \rho V_\infty^2\)</span>。</p>
+<p>对于层流平板（Blasius）：<span class="arithmatex">\(C_f = \frac{1.328}{\sqrt{Re_L}}\)</span></p>
+<p>对于湍流平板（1/7次方律，<span class="arithmatex">\(Re \approx 10^7\)</span>）：<span class="arithmatex">\(C_f = \frac{0.027}{Re_L^{1/7}}\)</span></p>
+<p>其中 <span class="arithmatex">\(Re_L\)</span> 为基于平板长度的<strong>雷诺数</strong>（Reynolds number）：</p>
+<div class="arithmatex">\[Re = \frac{\rho V L}{\mu} = \frac{V L}{\nu}\]</div>
+<p><span class="arithmatex">\(\nu\)</span>（运动粘度, kinematic viscosity）<span class="arithmatex">\(= \mu / \rho\)</span>，标准海平面条件下 <span class="arithmatex">\(\nu \approx 1.46 \times 10^{-5}\)</span> m²/s。</p>
+<p>Reynolds number represents the ratio of inertial forces to viscous forces in a fluid flow, and is the fundamental dimensionless parameter governing boundary layer transition and flow similarity.
+雷诺数是表征流体惯性力与粘性力之比的无量纲参数，是决定边界层转捩和流动相似性的根本准则。</p>
+<h2>5. Drag 阻力</h2>
+<p>阻力（drag）是气流作用于机翼（或整个飞行器）的合力在来流方向上的分力。升力（lift）则为垂直于来流方向的分力。气动力对参考点（如前缘或1/4弦长点）的力矩称为<strong>俯仰力矩</strong>（pitch moment）。</p>
+<p>当翼型（airfoil）相对于空气运动时，翼型表面受到气流作用力，其合力在翼型运动方向或来流方向上的分力为<strong>阻力</strong>（drag），垂直于该方向的分力为<strong>升力</strong>（lift）。这些作用力对翼型前缘（LE）或距前缘 1/4 弦长点的力矩称为<strong>俯仰力矩</strong>（pitch moment）。</p>
+<p>阻力方程（drag equation）为：</p>
+<div class="arithmatex">\[D = \frac{1}{2} \rho V^2 S C_D\]</div>
+<p>其中 <span class="arithmatex">\(C_D\)</span> 为阻力系数（drag coefficient），<span class="arithmatex">\(S\)</span> 为参考面积（通常为机翼平面面积）。</p>
+<p>升力方程（lift equation）为：</p>
+<div class="arithmatex">\[L = \frac{1}{2} \rho V^2 S C_L\]</div>
+<p>其中 <span class="arithmatex">\(C_L\)</span> 为升力系数（lift coefficient）。</p>
+<p>动态压力（dynamic pressure）<span class="arithmatex">\(q = \frac{1}{2} \rho V^2\)</span>，所有气动力系数都以 <span class="arithmatex">\(qS\)</span> 作归一化基准。</p>
+<h3>5.1 阻力的分类（Classification of Drag）</h3>
+<p>总阻力由两大类构成：</p>
+<p><strong>1. Parasitic drag（寄生阻力 / 废阻力）</strong> —— 不与升力直接相关的阻力，即便是零升力时也存在。</p>
+<p>寄生阻力又可细分为：</p>
+<ul>
+<li>
+<p><strong>Shape drag / Form drag（形状阻力）</strong>：因物面压强分布不对称，在尾部形成低压区而产生的压差阻力。钝体绕流中，流动在尾部发生分离，形成宽阔的低压尾迹区（wake），造成较大的形状阻力。流线型设计（streamlining）可以推迟分离，减小形状阻力。</p>
+</li>
+<li>
+<p><strong>Skin friction drag（表面摩擦阻力 / 摩阻）</strong>：边界层内粘性剪应力在物面切向积分的结果。</p>
+</li>
+<li>
+<p><strong>Interference drag（干扰阻力）</strong>：由机身、机翼、尾翼等部件之间的气流相互干扰产生的附加阻力。例如机翼-机身连接处的角区流动干扰。</p>
+</li>
+</ul>
+<p>形状阻力与表面摩擦阻力之和称为<strong>型阻</strong>（profile drag）。</p>
+<p><strong>2. Induced drag（诱导阻力 / 升致阻力）</strong> —— 因产生升力而伴生的阻力，又称 drag due to lift。</p>
+<p><img alt="" src="./images/aero/aero_img_13.png">
+<em>图12：干扰阻力示意图——机翼-机身连接处的角区流动干扰产生附加阻力 (Figure 12: Interference drag — additional drag generated by flow interaction at the wing-fuselage junction.)</em></p>
+<h3>5.2 Induced Drag 诱导阻力</h3>
+<p><strong>Induced drag</strong>（诱导阻力），又称 <strong>drag due to lift</strong>（升致阻力），是三维有限翼展机翼因产生升力而必然伴随的阻力分量。其物理来源为：</p>
+<p>有限展弦比机翼的下翼面（高压）气体在翼尖处向上翼面（低压）卷起，形成<strong>翼尖涡</strong>（wingtip vortex）。翼尖涡诱导出一个向下的速度分量，称为<strong>下洗</strong>（downwash, <span class="arithmatex">\(w\)</span>），其效果是将来流方向向下"洗"了一个角度——即<strong>诱导攻角</strong>（induced angle of attack, <span class="arithmatex">\(\alpha_i\)</span>）。</p>
+<p>因此，实际作用在翼型上的有效来流方向相对于自由来流向下偏转了 <span class="arithmatex">\(\alpha_i\)</span>。升力矢量随之向后倾斜，其在自由来流方向上的分量即为诱导阻力 <span class="arithmatex">\(D_i\)</span>。</p>
+<div class="arithmatex">\[D_i = L \sin \alpha_i \approx L \cdot \alpha_i\]</div>
+<p><img alt="" src="./images/aero/aero_img_12.png">
+<em>图13：诱导阻力的形成——下洗使升力矢量向后倾斜，产生沿阻力方向的分量 (Figure 13: Origin of induced drag — downwash tilts the lift vector backward, creating a component in the drag direction.)</em></p>
+<p>为产生升力，机翼必须向下排开大量空气，这部分空气的动能耗费即为诱导阻力的能量来源。从涡理论看，诱导阻力可表示为机翼后方尾流涡系所携带的能量。</p>
+<h3>5.3 Drag Polar 极曲线</h3>
+<p>阻力极线（drag polar）是升力系数 <span class="arithmatex">\(C_L\)</span> 与阻力系数 <span class="arithmatex">\(C_D\)</span> 之间的关系曲线，是评估翼型或机翼气动效率的核心工具。典型极线方程为：</p>
+<div class="arithmatex">\[C_D = C_{D_0} + \frac{C_L^2}{\pi e AR}\]</div>
+<p>或等价写为：</p>
+<div class="arithmatex">\[C_D = C_{D_0} + k \cdot C_L^2 \quad \text{其中} \quad k = \frac{1}{\pi e AR}\]</div>
+<p>式中：
+- <span class="arithmatex">\(C_{D_0}\)</span> — 零升阻力系数（zero-lift drag coefficient），即寄生阻力部分
+- <span class="arithmatex">\(e\)</span> — 奥斯瓦尔德效率因子（Oswald efficiency factor），典型值 0.7–0.95
+- <span class="arithmatex">\(AR\)</span> — 展弦比（aspect ratio）
+- <span class="arithmatex">\(k\)</span> — 升致阻力因子（lift-dependent drag factor）</p>
+<p>The drag polar is a plot of <span class="arithmatex">\(C_L\)</span> versus <span class="arithmatex">\(C_D\)</span>, and its shape directly reveals the aerodynamic efficiency of a wing. A larger aspect ratio <span class="arithmatex">\(AR\)</span> and higher Oswald factor <span class="arithmatex">\(e\)</span> reduce the induced drag for a given <span class="arithmatex">\(C_L\)</span>.</p>
+<p><img alt="" src="./images/aero/aero_img_14.png">
+<em>图14：阻力与攻角的关系——失速前阻力系数以抛物线形式随 <span class="arithmatex">\(C_L\)</span> 增大 (Figure 14: Drag versus angle of attack — drag coefficient increases parabolically with <span class="arithmatex">\(C_L\)</span> before stall.)</em></p>
+<p><img alt="" src="./images/aero/aero_img_15.png">
+<em>图15：阻力与速度的关系曲线——总阻力 = 寄生阻力（随 <span class="arithmatex">\(V^2\)</span> 增大）+ 诱导阻力（随 <span class="arithmatex">\(1/V^2\)</span> 减小），在某个速度下总阻力取最小值 (Figure 15: Curve of drag versus airspeed — total drag = parasitic drag (increases with <span class="arithmatex">\(V^2\)</span>) + induced drag (decreases with <span class="arithmatex">\(1/V^2\)</span>), reaching a minimum at a certain speed.)</em></p>
+<h2>6. Lift-to-Drag Ratio 升阻比</h2>
+<p><strong>升阻比</strong>（lift-to-drag ratio, <span class="arithmatex">\(L/D\)</span>）是飞机气动效率的最重要量度，定义为：</p>
+<div class="arithmatex">\[\frac{L}{D} = \frac{C_L}{C_D}\]</div>
+<p>对于某一固定翼型或机翼构型，在给定飞行条件下，<span class="arithmatex">\(L/D\)</span> 随攻角先增大后减小，在某一特定攻角处达到最大值 <span class="arithmatex">\((L/D)_{max}\)</span>。</p>
+<p><img alt="" src="./images/aero/aero_img_16.png">
+<em>图16：升阻比 L/D 随攻角的变化曲线——先上升到最大升阻比 <span class="arithmatex">\((L/D)_{max}\)</span>，然后下降 (Figure 16: Lift-to-drag ratio <span class="arithmatex">\(L/D\)</span> versus AOA — rises to a maximum <span class="arithmatex">\((L/D)_{max}\)</span> and then declines.)</em></p>
+<h3>6.1 <span class="arithmatex">\((L/D)_{max}\)</span> 的气动意义</h3>
+<p>The maximum lift-to-drag ratio <span class="arithmatex">\((L/D)_{max}\)</span> represents the point of maximum aerodynamic efficiency. At this point, the aircraft achieves:
+- <strong>Maximum range</strong>（最大航程）for a jet-powered aircraft
+- <strong>Maximum endurance</strong>（最大续航时间）for a propeller-driven aircraft flying at minimum power required
+- <strong>Best glide ratio</strong>（最佳滑翔比）for an unpowered glide</p>
+<p>在极线图上，<span class="arithmatex">\((L/D)_{max}\)</span> 对应于从原点向极线所作切线的切点。数学上：</p>
+<div class="arithmatex">\[\left.\frac{d}{dC_L}\left(\frac{C_L}{C_D}\right)\right|_{C_L^*} = 0\]</div>
+<p>对于抛物线极线 <span class="arithmatex">\(C_D = C_{D_0} + k C_L^2\)</span>，可解析求得：</p>
+<div class="arithmatex">\[C_{L,(L/D)_{max}} = \sqrt{\frac{C_{D_0}}{k}} \quad ; \quad C_{D,(L/D)_{max}} = 2 C_{D_0}\]</div>
+<div class="arithmatex">\[(L/D)_{max} = \frac{1}{2\sqrt{k C_{D_0}}}\]</div>
+<h3>6.2 滑翔比（Glide Ratio）</h3>
+<p>The glide ratio is the ratio of horizontal distance traveled to altitude lost in an unpowered glide. By simple geometry, the glide ratio equals <span class="arithmatex">\(L/D\)</span>：</p>
+<div class="arithmatex">\[\frac{L}{D} = \frac{d}{h}\]</div>
+<p>其中 <span class="arithmatex">\(d\)</span> 为滑翔水平距离，<span class="arithmatex">\(h\)</span> 为损失的高度。因此，<span class="arithmatex">\((L/D)_{max}\)</span> 即最佳滑翔比。</p>
+<p>滑翔机（sailplane/glider）的 <span class="arithmatex">\(L/D\)</span> 可达 40–60，意味着每下降1米高度可滑翔 40–60 米的水平距离。商用客机的 <span class="arithmatex">\(L/D\)</span> 约为 15–20。</p>
+<p><img alt="" src="./images/aero/aero_img_17.png">
+<em>图17：<span class="arithmatex">\(L/D\)</span> 极线图——从原点到极线的切线对应最佳升阻比 <span class="arithmatex">\((L/D)_{max}\)</span> (Figure 17: <span class="arithmatex">\(L/D\)</span> polar — the tangent from the origin to the drag polar corresponds to <span class="arithmatex">\((L/D)_{max}\)</span>.)</em></p>
+<h2>7. Aspect Ratio 展弦比</h2>
+<p><strong>展弦比</strong>（Aspect Ratio, AR）是表征机翼几何形状的关键无量纲参数，定义为机翼展长（span, <span class="arithmatex">\(b\)</span>）的平方与机翼平面面积（wing area, <span class="arithmatex">\(S\)</span>）之比：</p>
+<div class="arithmatex">\[AR = \frac{b^2}{S}\]</div>
+<p>For a rectangular wing（矩形机翼），弦长为常数 <span class="arithmatex">\(c\)</span>，面积 <span class="arithmatex">\(S = b \cdot c\)</span>，于是：</p>
+<div class="arithmatex">\[AR = \frac{b}{c}\]</div>
+<p>对于梯形翼（tapered wing）等非等弦长机翼，常用平均气动弦 <span class="arithmatex">\(\bar{c}\)</span> 来表示：</p>
+<div class="arithmatex">\[AR = \frac{b}{\bar{c}} \quad \text{其中} \quad \bar{c} = \frac{S}{b}\]</div>
+<p><img alt="AR = Span/Chord = Span²/Area" src="./images/aero/aero_img_18.png">
+<em>图18：展弦比公式——<span class="arithmatex">\(AR = b/c = b^2/S\)</span>；展弦比越大，机翼越细长 (Figure 18: Aspect ratio formula — <span class="arithmatex">\(AR = b/c = b^2/S\)</span>; the larger the AR, the more slender the wing.)</em></p>
+<h3>7.1 展弦比对诱导阻力的影响</h3>
+<p>展弦比是决定诱导阻力的核心几何参数。诱导阻力系数为：</p>
+<div class="arithmatex">\[C_{D_i} = \frac{C_L^2}{\pi e AR}\]</div>
+<p><strong>高展弦比</strong>（High AR）—— 诱导阻力小，气动效率高。典型代表：
+- 滑翔机（glider/sailplane）：<span class="arithmatex">\(AR\)</span> 可达 30–50
+- 高空长航时无人机（HALE UAV）：<span class="arithmatex">\(AR\)</span> 典型值 20–35
+- U-2 侦察机：<span class="arithmatex">\(AR \approx 10\)</span></p>
+<p><img alt="滑翔机 gliders/sailplanes 具有极大的展弦比" src="./images/aero/aero_img_19.png">
+<em>图19：滑翔机（gliders/sailplanes）具有极大的展弦比——通过细长机翼将诱导阻力降至最低 (Figure 19: Gliders/sailplanes have extremely high aspect ratios — minimizing induced drag through long slender wings.)</em></p>
+<p><strong>低展弦比</strong>（Low AR）—— 结构紧凑、机动性好，但诱导阻力大：
+- 战斗机（fighter aircraft）：<span class="arithmatex">\(AR\)</span> 典型值 2–5
+- 超声速飞机机翼常采用低展弦比以减小波阻</p>
+<h3>7.2 展弦比的综合权衡</h3>
+<p>展弦比的选择是气动效率与结构重量、机动性、高速性能之间的综合权衡。增大 AR 虽能降低诱导阻力，但也会增大机翼的弯矩（bending moment），需要更粗重的翼梁（spar），从而增加结构重量。</p>
+<h2>8. Vortex 涡旋</h2>
+<p><strong>涡旋</strong>（vortex）是流体动力学中具有集中涡量（vorticity）的流动结构。<strong>涡量</strong>（vorticity, <span class="arithmatex">\(\boldsymbol{\omega}\)</span>）定义为速度场的旋度（curl）：</p>
+<div class="arithmatex">\[\boldsymbol{\omega} = \nabla \times \mathbf{V}\]</div>
+<p>对于二维流动，涡量只有垂直于流动平面的分量：</p>
+<div class="arithmatex">\[\omega_z = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\]</div>
+<p><strong>环量</strong>（circulation, <span class="arithmatex">\(\Gamma\)</span>）定义为速度沿闭合曲线的线积分：</p>
+<div class="arithmatex">\[\Gamma = \oint_C \mathbf{V} \cdot d\mathbf{s} = \iint_S \boldsymbol{\omega} \cdot d\mathbf{S}\]</div>
+<p>根据 Stokes 定理，环量等于封闭曲线所围面积内涡量的通量。环量是理解升力产生的核心概念 —— 根据<strong>库塔-儒科夫斯基定理</strong>（Kutta-Joukowski theorem），翼型所受升力为：</p>
+<div class="arithmatex">\[L' = \rho_\infty V_\infty \Gamma\]</div>
+<p>其中 <span class="arithmatex">\(L'\)</span> 为单位展长升力。</p>
+<h3>8.1 Wingtip Vortex 翼尖涡旋</h3>
+<p><strong>翼尖涡</strong>（wingtip vortex / tip vortex）是三维有限翼展机翼产生升力时不可避免的流动现象。其形成原理为：</p>
+<p>机翼下翼面压力高于上翼面，气流在翼尖处从高压区（下翼面）绕过翼尖流向低压区（上翼面），形成绕翼尖的横向流动。该横向流动与来流叠加，在机翼后方卷成两个方向相反的集中涡旋——从后方看，右翼翼尖涡为逆时针旋转，左翼翼尖涡为顺时针旋转。</p>
+<p><img alt="wingtip vortex" src="./images/aero/aero_img_20.png">
+<em>图20：翼尖涡旋示意图——下翼面高压气体绕过翼尖向上翼面低压区流动，卷起涡旋 (Figure 20: Wingtip vortex — high-pressure air from the lower surface curls around the wingtip to the low-pressure upper surface, rolling up into a vortex.)</em></p>
+<p><img alt="" src="./images/aero/aero_img_21.png">
+<em>图21：翼尖涡的形成原理——上下翼面压差驱动的翼尖横向流动 (Figure 21: Formation mechanism of wingtip vortex — spanwise flow driven by the pressure difference between upper and lower surfaces.)</em></p>
+<p>翼尖涡诱导的下洗速度（downwash）改变了机翼各截面处的有效攻角，是诱导阻力的直接来源。</p>
+<p><img alt="Cessna Citation 翼尖涡——飞机飞越云层后，下洗和翼尖涡在云层上留下的清晰痕迹" src="./images/aero/aero_img_22.png">
+<em>图22：Cessna Citation 飞越云层后的翼尖涡——下洗在云层中留下槽形痕迹，翼尖涡的旋转流动清晰可见 (Figure 22: A Cessna Citation has just flown above a cloud deck. The downwash from the wing has pushed a trough into the cloud deck. The swirling flow from the tip vortices is also clearly evident.)</em></p>
+<h3>8.2 Shed Vortex 脱体涡</h3>
+<p><strong>脱体涡</strong>（shed vortex / trailing vortex）分布在机翼后缘到尾流中，代表机翼各展向位置处环量的变化。根据 Helmholtz 涡定理，当沿展向的环量分布变化时（<span class="arithmatex">\(\frac{d\Gamma}{dy} \neq 0\)</span>），必须有自由涡从后缘脱落进入尾流。</p>
+<p>脱体涡是涡旋的一种，是由于机翼上下翼面的压差导致流体的横向流动，与流体相对机翼的纵向移动在脱离机翼后所合成的螺旋状流动。</p>
+<p>脱体涡面（trailing vortex sheet）与附着涡（见下文）共同构成机翼的<strong>涡系模型</strong>。</p>
+<p><img alt="" src="./images/aero/aero_img_23.png">
+<em>图23：脱体涡（shed vortex）——从机翼后缘脱落的涡面，与附着涡构成完整涡系 (Figure 23: Shed vortex — vortex sheet shed from the wing trailing edge, forming a complete vortex system with the bound vortex.)</em></p>
+<p><img alt="" src="./images/aero/aero_img_24.png">
+<em>图24：脱体涡的三维结构——涡面在机翼后方逐渐卷起集中 (Figure 24: 3D structure of shed vortices — the vortex sheet gradually rolls up and concentrates behind the wing.)</em></p>
+<h3>8.3 Bound Vortex 附着涡</h3>
+<p><strong>附着涡</strong>（bound vortex）是机翼涡系模型中的核心概念，用于替代三维机翼产生升力的效应。在 Prandtl 的<strong>升力线理论</strong>（Lifting Line Theory）中，有限翼展机翼被建模为一条沿展向分布的附着涡线，其环量 <span class="arithmatex">\(\Gamma(y)\)</span> 沿展向变化。</p>
+<p><img alt="" src="./images/aero/aero_img_25.png">
+<em>图25：附着涡（bound vortex）——Prandtl升力线理论将机翼等效为沿展向分布的附着涡线 (Figure 25: Bound vortex — in Prandtl's lifting line theory, the wing is modeled as a bound vortex line distributed along the span.)</em></p>
+<p>附着涡上的环量分布 <span class="arithmatex">\(\Gamma(y)\)</span> 直接决定了展向升力分布：</p>
+<div class="arithmatex">\[L'(y) = \rho_\infty V_\infty \Gamma(y)\]</div>
+<h3>8.4 Free Vortex 自由涡</h3>
+<p><strong>自由涡</strong>（free vortex），也被称作<strong>势涡</strong>（potential vortex），是一种理想化的涡旋模型。自由涡中，流体微团的切向速度 <span class="arithmatex">\(V_\theta\)</span> 与距涡心的半径 <span class="arithmatex">\(r\)</span> 成反比：</p>
+<div class="arithmatex">\[V_\theta = \frac{\Gamma}{2\pi r}\]</div>
+<p>自由涡的特征是：流体质点本身并不旋转（涡量 <span class="arithmatex">\(\boldsymbol{\omega} = 0\)</span>），属于无旋流动。</p>
+<p>这种涡旋一经某种扰动成涡后，理论上无须再加入能量，在有势质量力作用下流体继续作回转运动。水泵及蜗室内的流动基本上属于此类。</p>
+<p><img alt="" src="./images/aero/aero_img_26.png">
+<em>图26：自由涡（free vortex / potential vortex）——切向速度与半径成反比，流体质点本身不旋转 (Figure 26: Free vortex (potential vortex) — tangential velocity is inversely proportional to radius; fluid particles themselves do not rotate.)</em></p>
+<h3>8.5 Horseshoe Vortex 马蹄涡</h3>
+<p><strong>马蹄涡</strong>（horseshoe vortex）是一种具有马蹄铁形状的大尺度涡结构。其形成机制为：当流体中浸入障碍物（如机翼、桥墩、涡轮叶片根部），物面前方逆压梯度导致边界层发生三维分离，来流在障碍物根部附近形成环绕障碍物的涡结构。</p>
+<p>In a boundary layer, when the flow encounters an obstacle, it decelerates due to the adverse pressure gradient. When the gradient is sufficiently strong, the flow reverses direction near the surface and rolls up into a vortex that wraps around the base of the obstacle, forming a horseshoe shape.</p>
+<p>在飞机空气动力学中，<strong>简化机翼涡系模型</strong>即由一个附着涡（bound vortex）加上两个翼尖涡构成马蹄涡形状。Prandtl 的经典马蹄涡模型是最简单的三维机翼气动模型。</p>
+<p><img alt="" src="./images/aero/aero_img_27.png">
+<em>图27：马蹄涡（horseshoe vortex）——附着涡加两个翼尖涡构成经典马蹄涡模型 (Figure 27: Horseshoe vortex — the bound vortex plus two tip vortices forms the classic horseshoe vortex model of a lifting wing.)</em></p>
+<p><img alt="" src="./images/aero/aero_img_28.png">
+<em>图28：马蹄涡示意图——主涡环绕障碍物根部，呈现马蹄铁形状 (Figure 28: Horseshoe vortex schematic — the main vortex wraps around the base of the obstacle in a horseshoe shape.)</em></p>
+<h3>8.6 Conical Vortex 锥形涡</h3>
+<p><strong>锥形涡</strong>（conical vortex）常见于<strong>三角翼</strong>（delta wing）或大后掠角尖前缘机翼的上翼面。当攻角足够大时，气流在前缘发生分离，分离流在上翼面卷起形成一对螺旋形、锥形发展的集中涡。</p>
+<p>锥形涡的特征是涡核直径沿流向线性增长，涡的结构在沿前缘发出的射线方向上自相似（conically self-similar）。</p>
+<p><img alt="" src="./images/aero/aero_img_29.png">
+<em>图29：锥形涡（conical vortex）——三角翼上翼面由前缘分离卷起的锥形涡结构 (Figure 29: Conical vortex — conical-shaped vortex structure rolled up from leading-edge separation over a delta wing upper surface.)</em></p>
+<h3>8.7 Wake Vortex 尾流涡</h3>
+<p><strong>尾流涡</strong>（wake vortex / wake turbulence）是飞机在飞行中整个机翼后方尾流区域中所有涡旋结构的统称。主要包括：
+- 翼尖涡（tip vortices）
+- 脱体涡面（trailing vortex sheet）
+- 襟翼涡（flap vortices）
+- 机身涡（fuselage vortices）</p>
+<p>尾流涡是飞机尾流湍流（wake turbulence）的主要来源，对后方跟随飞机的安全构成严重威胁——尤其是在起飞和着陆阶段，重型飞机的尾流涡可能在小飞机接近时引起严重的、不可控的滚转运动。国际民航组织（ICAO）据此制定了飞机尾流间隔标准（wake turbulence separation minima）。</p>
+<p>在飞机起飞和着陆过程中，尾流涡可能持续60–90秒，相对空气下沉速度约 300–500 ft/min，并在地面效应触发下横向漂移。航空管制（ATC）基于飞机最大起飞重量（MTOW）分配飞行器至不同尾流类别（Light, Medium, Heavy, Super）并在各分类间执行不同的间隔标准。</p>
+<p><img alt="" src="./images/aero/aero_img_30.png">
+<em>图30：尾流涡（wake vortex）——飞机后方尾流中所有涡旋结构的统称 (Figure 30: Wake vortex — the collective term for all vortex structures in the wake behind an aircraft.)</em></p>
+<p><img alt="" src="./images/aero/aero_img_31.png">
+<em>图31：尾流涡的三维可视化——涡管在机翼后方逐渐演化并相互诱导 (Figure 31: 3D visualization of wake vortices — the vortex tubes evolve behind the wing and mutually induce each other.)</em></p>
+<p><img alt="" src="./images/aero/aero_img_32.png">
+<em>图32：尾流涡的横截面——后方飞机遭遇尾流时的危险滚转 (Figure 32: Cross-section of wake vortex — the hazardous rolling moment experienced by a following aircraft encountering wake turbulence.)</em></p>
+<h3>8.8 Starting Vortex 启动涡</h3>
+<p><strong>启动涡</strong>（starting vortex）是理解翼型升力从无到有的关键概念，是翼型从静止开始运动时脱落的第一个涡旋。它直接与<strong>库塔条件</strong>（Kutta condition）的建立相关。</p>
+<p>在飞机从静止状态进入刚刚加速起跑时，机翼上下部的气流速度相同。由于上翼面路径较长，后驻点位于翼型上方某处——此时下方气流会绕过后缘向上流动与上方气流汇合。</p>
+<p><img alt="" src="./images/aero/aero_img_33.png">
+<em>图33：启动涡的形成——起动瞬间，后驻点位于翼型上表面，下表面气流绕过后缘向上流动 (Figure 33: Formation of starting vortex — at the instant of starting, the rear stagnation point is on the upper surface; the lower surface flow curls around the trailing edge.)</em></p>
+<p>下方气流绕过后缘时会在后缘附近形成一个低压涡旋，导致后缘存在很大的逆压梯度。随即这个涡旋就被来流冲跑脱落到下游——这个涡就叫做<strong>起动涡</strong>（starting vortex）。</p>
+<p><img alt="" src="./images/aero/aero_img_34.png">
+<em>图34：启动涡脱落到下游——此时后缘处的流动方向仍不满足平滑条件 (Figure 34: Starting vortex shed downstream — at this stage, the flow direction at the trailing edge still does not satisfy the smooth-flow condition.)</em></p>
+<p>根据开尔文环量守恒定理（Kelvin's circulation theorem），总环量在无粘不可压流动中守恒。启动涡脱落后，在翼型周围必然产生一个大小相等、方向相反的环量——即<strong>附着涡</strong>（bound vortex）环量 <span class="arithmatex">\(\Gamma\)</span>，这正是升力的来源。这个过程建立了翼型绕流的<strong>库塔条件</strong>：后缘处上下翼面的流动必须平滑汇合，即上、下表面在后缘处的速度大小和方向一致。</p>
+<p>机体继续向前运动，启动涡停留在原地（被来流冲走后留在起点），启动涡所产生的能量对机翼上部的气流造成影响，产生一个向后拉上部气流的效果——即诱导下洗的早期表现。机体继续向前，启动涡和机体脱离。</p>
+<p><img alt="" src="./images/aero/aero_img_35.png">
+<em>图35：翼型继续运动，库塔条件逐步建立——翼型上环绕的附着涡环量 <span class="arithmatex">\(\Gamma\)</span> 逐渐形成 (Figure 35: As the airfoil continues its motion, the Kutta condition is progressively established — the circulation <span class="arithmatex">\(\Gamma\)</span> around the airfoil gradually forms.)</em></p>
+<p><img alt="" src="./images/aero/aero_img_36.png">
+<em>图36：库塔条件完全建立后的稳态绕流——后缘处上下翼面流动平滑汇合，翼型环量稳定 (Figure 36: Steady-state flow after the Kutta condition is fully established — the upper and lower surface flows merge smoothly at the trailing edge; the circulation around the airfoil is stable.)</em></p>
+<p>库塔条件是整个无粘升力理论的核心假设：它决定了环量 <span class="arithmatex">\(\Gamma\)</span> 的唯一解。没有启动涡的脱落，就没有附着涡环量的建立——也就没有升力的产生。这一系列物理过程揭示了升力从零到形成的完整动力学链条。</p>
+<h2>9. Vortex Lift 涡升力</h2>
+<p><strong>涡升力</strong>（vortex lift）是一种特殊的升力产生机制，主要适用于<strong>大后掠角尖前缘三角翼</strong>（highly-swept sharp-leading-edge delta wing）在亚声速/跨声速大攻角飞行状态下的气动行为。</p>
+<p>In the case of wings having sharp, highly swept leading edges like delta wings, the leading-edge separation vortex phenomenon occurs at subsonic speeds. However, unlike low-sweep wings where separation destroys lift, for a highly swept delta wing, the separation forms two stable vortices which are nearly parallel to the wing edges. As the airspeed in the vortex core is high, the pressure is low. This low pressure on the upper surface produces additional lift — known as vortex lift.</p>
+<p><img alt="" src="./images/aero/aero_img_37.png">
+<em>图37：涡升力（vortex lift）——三角翼上翼面由前缘分离涡产生的低压区 (Figure 37: Vortex lift — the low-pressure region on the upper surface of a delta wing created by the leading-edge separation vortices.)</em></p>
+<h3>9.1 涡升力的物理机制</h3>
+<p>当大后掠尖前缘三角翼在亚声速中等攻角下飞行时，气流在前缘立即发生<strong>分离</strong>。但与低后掠角机翼不同的是，这种分离并不会导致整个上翼面的流动崩溃；相反，分离流在上翼面卷起形成一对<strong>稳定、组织良好的前缘涡</strong>（leading-edge vortices），涡管近似平行于前缘。</p>
+<p>涡核内的高速旋转使涡心区域的静压远低于自由流静压。这一上翼面低压区对翼面产生向上的吸力，构成升力的重要组成部分——这就是<strong>涡升力</strong>。</p>
+<p>涡升力的一个至关重要的优点是它在<strong>高攻角下依然有效</strong>，而普通机翼在此攻角早已失速。这一特性使三角翼飞机可以在远高于常规机翼失速攻角的条件下继续飞行并保持控制。</p>
+<h3>9.2 协和号与涡升力</h3>
+<p>A major advantage of vortex lift generation is that it is effective at high angles of attack, beyond which conventional wings would normally stall. The Concorde, with its slender delta wing (ogee delta planform), relied extensively on vortex lift during takeoff and landing.</p>
+<p><strong>协和号</strong>（Concorde）超音速客机采用细长的 S 形前缘三角翼（ogee delta wing），在起降阶段大量依赖涡升力来提供足够升力。这也是为何协和号在着陆时需要维持极高的攻角（约 18°–20°）以及必须采用可下垂的机头（droop nose）——以便飞行员在如此大攻角下仍能获得前方跑道视野。</p>
+<p>涡升力虽能提供高攻角升力，但其代价是增大的诱导阻力和前缘涡在极高攻角下可能发生的<strong>涡破裂</strong>（vortex breakdown），导致升力突然损失。</p>
+<h3>9.3 涡升力在现代航空中的应用</h3>
+<p>现代战斗机（如 F-16、F-18、苏-27 系列）广泛利用边条翼（strake / LERX — Leading-Edge Root Extension）和鸭翼（canard）来产生和控制前缘涡，通过涡升力显著提高大攻角机动能力。</p>
+<p>涡升力技术使"眼镜蛇机动"（Cobra maneuver）等过失速机动（post-stall maneuver）成为可能：飞机会在远超传统失速攻角的条件下（如 60°–90° AOA）依靠涡升力和推力矢量控制（thrust vectoring）继续维持受控状态。</p>
+<h2>10. Summary 总结</h2>
+<p>本文系统梳理了空气动力学中最核心的术语体系，涵盖：</p>
+<table>
+<thead>
+<tr>
+<th>章节</th>
+<th>核心内容</th>
+<th>关键公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Airfoil 翼型</td>
+<td>几何特征：弦、弯度、厚度、前缘半径</td>
+<td>相对厚度 <span class="arithmatex">\(t/c\)</span>，相对弯度 <span class="arithmatex">\(h/c\)</span></td>
+</tr>
+<tr>
+<td>AOA 攻角</td>
+<td>攻角定义，与升力的关系</td>
+<td><span class="arithmatex">\(C_L \approx a(\alpha - \alpha_{L=0})\)</span></td>
+</tr>
+<tr>
+<td>Stall 失速</td>
+<td>边界层分离，临界攻角</td>
+<td><span class="arithmatex">\(V_s = \sqrt{2W / (\rho S C_{L_{max}})}\)</span></td>
+</tr>
+<tr>
+<td>Pressure &amp; Shear</td>
+<td>压力分布、剪应力、边界层、雷诺数</td>
+<td><span class="arithmatex">\(\tau = \mu \, du/dy\)</span>；<span class="arithmatex">\(Re = \rho V L / \mu\)</span></td>
+</tr>
+<tr>
+<td>Drag 阻力</td>
+<td>寄生阻力 vs 诱导阻力，极曲线</td>
+<td><span class="arithmatex">\(D = \frac{1}{2}\rho V^2 S C_D\)</span>；<span class="arithmatex">\(C_D = C_{D_0} + C_L^2/(\pi e AR)\)</span></td>
+</tr>
+<tr>
+<td>L/D 升阻比</td>
+<td>最大升阻比，滑翔比</td>
+<td><span class="arithmatex">\((L/D)_{max} = 1/(2\sqrt{k C_{D_0}})\)</span></td>
+</tr>
+<tr>
+<td>Aspect Ratio 展弦比</td>
+<td>AR 对诱导阻力的影响</td>
+<td><span class="arithmatex">\(AR = b^2/S\)</span>；<span class="arithmatex">\(C_{D_i} = C_L^2/(\pi e AR)\)</span></td>
+</tr>
+<tr>
+<td>Vortex 涡旋</td>
+<td>8 种涡旋类型及其物理机制</td>
+<td><span class="arithmatex">\(L' = \rho_\infty V_\infty \Gamma\)</span>（Kutta-Joukowski）</td>
+</tr>
+<tr>
+<td>Vortex Lift 涡升力</td>
+<td>三角翼前缘涡升力，协和号应用</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>参考文献 / References:</strong></p>
+<ol>
+<li>Anderson, J. D. (2016). <em>Fundamentals of Aerodynamics</em> (6th ed.). McGraw-Hill.</li>
+<li>Federal Aviation Administration. (2016). <em>Pilot's Handbook of Aeronautical Knowledge</em> (FAA-H-8083-25B).</li>
+<li>Prandtl, L., &amp; Tietjens, O. G. (1934). <em>Applied Hydro- and Aeromechanics</em>. McGraw-Hill.</li>
+<li>McLean, D. (2012). <em>Understanding Aerodynamics: Arguing from the Real Physics</em>. Wiley.</li>
+<li>Katz, J., &amp; Plotkin, A. (2001). <em>Low-Speed Aerodynamics</em> (2nd ed.). Cambridge University Press.</li>
+<li>Bertin, J. J., &amp; Cummings, R. M. (2013). <em>Aerodynamics for Engineers</em> (6th ed.). Pearson.</li>
+</ol>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep" data-i18n="category_label">分类</span>:
+        <abbr class="category">
+            <a href="./category/academic.html">Academic</a>
+        </abbr>
+       </footer>
+    
+</section>
+
+<section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
+    <script src="https://giscus.app/client.js"
+        data-repo="cycleuser/cycleuser.github.io"
+        data-repo-id="R_kgDOL4NKYA"
+        data-category="General"
+        data-category-id="DIC_kwDOL4NKYM4DBK3X"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    function update() {
+        var t = giscusTheme(getTheme());
+        var s = document.querySelector('script[src*="giscus"]');
+        if (s) s.setAttribute('data-theme', t);
+        sendTheme(t);
+    }
+    // 初始设置
+    var s = document.querySelector('script[src*="giscus"]');
+    if (s) s.setAttribute('data-theme', giscusTheme(getTheme()));
+    // 监听明暗切换
+    new MutationObserver(function() { update(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    // 重试几次确保 iframe 加载完成
+    var tries = 0;
+    var timer = setInterval(function() {
+        if (document.querySelector('iframe.giscus-frame')) { sendTheme(giscusTheme(getTheme())); clearInterval(timer); }
+        if (++tries > 20) clearInterval(timer);
+    }, 500);
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

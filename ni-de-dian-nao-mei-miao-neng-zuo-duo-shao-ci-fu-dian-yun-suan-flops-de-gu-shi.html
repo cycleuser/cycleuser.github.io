@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894037367471530"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9894037367471530">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=19' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="./index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li class="active"><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li class="active"><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li class="active"><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li><li class="active"><a href="./2048游戏.html" data-i18n="2048">2048</a></li><li class="active"><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li><li class="active"><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li class="has-sub"><a href="./categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="./category/academic.html">Academic (3)</a></li><li><a href="./category/ai.html">AI (6)</a></li><li><a href="./category/c.html">C (16)</a></li><li><a href="./category/camera.html">Camera (15)</a></li><li><a href="./category/chromebook.html">ChromeBook (2)</a></li><li><a href="./category/cuda.html">CUDA (1)</a></li><li><a href="./category/design.html">Design (1)</a></li><li><a href="./category/diy.html">DIY (1)</a></li><li><a href="./category/duke.html">Duke (1)</a></li><li><a href="./category/education.html">Education (21)</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./category/hackintosh.html">Hackintosh (7)</a></li><li><a href="./category/java.html">Java (1)</a></li><li><a href="./category/linux.html">Linux (4)</a></li><li><a href="./category/llm.html">LLM (55)</a></li><li><a href="./category/ltfs.html">LTFS (1)</a></li><li><a href="./category/mac.html">Mac (3)</a></li><li><a href="./category/math.html">Math (30)</a></li><li><a href="./category/ml.html">ML (4)</a></li><li><a href="./category/modeling.html">Modeling (9)</a></li><li><a href="./category/nas.html">NAS (1)</a></li><li><a href="./category/nix.html">Nix (1)</a></li><li><a href="./category/photography.html">Photography (1)</a></li><li><a href="./category/programming.html">Programming (12)</a></li><li><a href="./category/pve.html">PVE (1)</a></li><li><a href="./category/python.html">Python (26)</a></li><li><a href="./category/qgis.html">QGIS (3)</a></li><li><a href="./category/qt.html">QT (1)</a></li><li><a href="./category/raspbian.html">Raspbian (1)</a></li><li><a href="./category/science.html">Science (2)</a></li><li><a href="./category/sdr.html">SDR (2)</a></li><li><a href="./category/software.html">Software (3)</a></li><li><a href="./category/story.html">Story (68)</a></li><li><a href="./category/sui-bi.html">随笔 (2)</a></li><li><a href="./category/tool.html">Tool (49)</a></li><li><a href="./category/tools.html">Tools (2)</a></li><li><a href="./category/virtualization.html">Virtualization (1)</a></li><li><a href="./category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./category/windows.html">Windows (1)</a></li><li><a href="./category/work.html">Work (24)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="./tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="./tag/7900xtx.html">7900XTX (3)</a></li><li><a href="./tag/9bmo-xing.html">9B模型 (1)</a></li><li><a href="./tag/abbreviations.html">abbreviations (1)</a></li><li><a href="./tag/academic.html">academic (1)</a></li><li><a href="./tag/adamw.html">AdamW (1)</a></li><li><a href="./tag/advice.html">advice (1)</a></li><li><a href="./tag/aerodynamics.html">aerodynamics (3)</a></li><li><a href="./tag/agent.html">Agent (3)</a></li><li><a href="./tag/ai.html">AI (31)</a></li><li><a href="./tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="./tag/aigc.html">AIGC (1)</a></li><li><a href="./tag/ailun-li.html">AI伦理 (1)</a></li><li><a href="./tag/airfoil.html">airfoil (1)</a></li><li><a href="./tag/algorithm.html">Algorithm (12)</a></li><li><a href="./tag/amd.html">AMD (1)</a></li><li><a href="./tag/anime.html">anime (1)</a></li><li><a href="./tag/arc.html">ARC (1)</a></li><li><a href="./tag/architecture.html">Architecture (3)</a></li><li><a href="./tag/arithmetic.html">arithmetic (1)</a></li><li><a href="./tag/attitude.html">Attitude (2)</a></li><li><a href="./tag/bayesian.html">Bayesian (2)</a></li><li><a href="./tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="./tag/beginner.html">Beginner (3)</a></li><li><a href="./tag/ben-di-bu-shu.html">本地部署 (5)</a></li><li><a href="./tag/ben-di-bu-shu-bing-yun-xing-omnicoder-9bde-su-du-zhi-mi-moxing-vs-ollama.html">本地部署并运行omnicoder-9b的速度之谜MoXing-vs-Ollama (1)</a></li><li><a href="./tag/ben-di-mo-xing.html">本地模型 (3)</a></li><li><a href="./tag/bfcl.html">BFCL (4)</a></li><li><a href="./tag/bi-ye-lun-wen.html">毕业论文 (1)</a></li><li><a href="./tag/bian-cheng.html">编程 (1)</a></li><li><a href="./tag/binary.html">binary (1)</a></li><li><a href="./tag/bing-fei-gu-yi-wei-shi-yao-wo-geng-duo-yong-ming-ling-xing-gong-ju-er-bu-shi-gui.html">并非故意-为什么我更多用命令行工具而不是GUI (1)</a></li><li><a href="./tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="./tag/book.html">Book (10)</a></li><li><a href="./tag/brent.html">Brent (1)</a></li><li><a href="./tag/bullshit.html">bullshit (1)</a></li><li><a href="./tag/c.html">C (10)</a></li><li><a href="./tag/camera.html">Camera (23)</a></li><li><a href="./tag/career.html">career (1)</a></li><li><a href="./tag/causation.html">Causation (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-da-mo-xing-omnicoder-9b-jian-ce-moxing-vs-ollama-dui-bi.html">超强的本地大模型-OmniCoder-9B-简测MoXing-vs-Ollama-对比 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-xiao-mo-xing-omnicoder-9bde-an-zhuang-yu-shi-yong-zhi-nan.html">超强的本地小模型OmniCoder-9B的安装与使用指南 (1)</a></li><li><a href="./tag/chao-xiao-mo-xing.html">超小模型 (1)</a></li><li><a href="./tag/chat.html">Chat (1)</a></li><li><a href="./tag/chatgpt.html">ChatGPT (1)</a></li><li><a href="./tag/cheng-chang.html">成长 (1)</a></li><li><a href="./tag/chouchou-pdflun-wen-zhong-ming-ming-gong-ju-sheng-ji-liao-zhe-ci-zhuan-men-you-hua-liao-zhong-wen-lun-wen-zhi-chi.html">Chou瞅-PDF论文重命名工具升级了这次专门优化了中文论文支持 (1)</a></li><li><a href="./tag/chouchou-yi-ge-pythonxiao-gong-ju-rang-ni-de-lun-wen-pdfwen-jian-ming-bu-zai-shi-luan-ma.html">Chou瞅一个Python小工具让你的论文PDF文件名不再是乱码 (1)</a></li><li><a href="./tag/chromebook.html">ChromeBook (2)</a></li><li><a href="./tag/cli.html">CLI (1)</a></li><li><a href="./tag/code.html">Code (2)</a></li><li><a href="./tag/code-generation.html">Code Generation (6)</a></li><li><a href="./tag/coding.html">Coding (1)</a></li><li><a href="./tag/cognition.html">Cognition (1)</a></li><li><a href="./tag/comics.html">comics (1)</a></li><li><a href="./tag/communicate.html">Communicate (6)</a></li><li><a href="./tag/communication.html">communication (3)</a></li><li><a href="./tag/comparison.html">comparison (1)</a></li><li><a href="./tag/computability.html">Computability (12)</a></li><li><a href="./tag/computer.html">computer (3)</a></li><li><a href="./tag/conda.html">Conda (2)</a></li><li><a href="./tag/conda-forge.html">conda-forge (1)</a></li><li><a href="./tag/configback-kua-ping-tai-kai-fa-pei-zhi-wen-jian-de-wu-tong-bei-fen-qian-yi-guan-li-gong-ju.html">ConfigBack-跨平台开发配置文件的无痛备份迁移管理工具 (1)</a></li><li><a href="./tag/cong-shu-zu-dao-fu-za-shu-ju-cyu-yan-shi-zen-yao-yi-bu-bu-bian-fu-za-de.html">从数组到复杂数据C语言是怎么一步步变复杂的 (1)</a></li><li><a href="./tag/copytalker-kua-yue-yu-yan-zhang-ai-de-jin-shi-shi-yu-yin-fan-yi.html">CopyTalker-跨越语言障碍的近实时语音翻译 (1)</a></li><li><a href="./tag/correlation.html">Correlation (1)</a></li><li><a href="./tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="./tag/cs.html">CS (1)</a></li><li><a href="./tag/cuda.html">CUDA (6)</a></li><li><a href="./tag/culture.html">culture (1)</a></li><li><a href="./tag/cursor.html">Cursor (1)</a></li><li><a href="./tag/cyu-yan-fu-xi-quan-gong-lue-yi-wen-chi-tou-suo-you-zhi-shi-dian.html">C语言复习全攻略-一文吃透所有知识点 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-numc-yi-ge-numpy-feng-ge-de-c-yu-yan-ku.html">C语言基础教程NumC-一个-NumPy-风格的-C-语言库 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shi-xian-lei-si-dong-tai-lei-xing-dui-yong-hu-shu-ru-jie-xi-bing-qie-xuan-ze-he-gua-de-shu-ju-lei-xing.html">C语言基础教程-实现类似动态类型对用户输入解析并且选择合适的数据类型 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shu-zu-xing-zhuang-50xing-200000lie-vs-200000xing-50lie-tong-yang-de-shu-ju-bu-tong-de-xing-neng.html">C语言基础教程数组形状-50行200000列-vs-200000行50列-同样的数据不同的性能 (1)</a></li><li><a href="./tag/da-gong.html">打工 (1)</a></li><li><a href="./tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="./tag/da-xue-sheng-huo.html">大学生活 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing.html">大语言模型 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing-li-mian-de-tokende-han-yi-he-yuan-liu.html">大语言模型里面的token的含义和源流 (1)</a></li><li><a href="./tag/dai-ma-neng-li.html">代码能力 (1)</a></li><li><a href="./tag/dan-jing-du-fu-dian-shu-de-fen-bian-lu-wei-shi-yao-zai-ji-suan-ji-li-1000-mo-he-1000-mo-jia-001-ke-neng-shi-yi-yang-de.html">单精度浮点数的分辨率为什么在计算机里-1000-万和-1000-万加-001-可能是一样的 (1)</a></li><li><a href="./tag/dan-yi-zhi-ze-yuan-ze-xie-hao-pythonhan-shu-de-di-yi-bu.html">单一职责原则写好Python函数的第一步 (1)</a></li><li><a href="./tag/data.html">Data (3)</a></li><li><a href="./tag/data-science.html">Data Science (2)</a></li><li><a href="./tag/database.html">Database (1)</a></li><li><a href="./tag/datewise-photo-organizer-ji-yu-ri-qi-shi-jian-jin-xing-tu-pian-zu-zhi-he-lu-jing-guan-li-de-she-ying-fu-zhu-gong-ju-ruan-jian.html">Datewise-Photo-Organizer-基于日期时间进行图片组织和路径管理的摄影辅助工具软件 (1)</a></li><li><a href="./tag/decision-making.html">decision-making (1)</a></li><li><a href="./tag/design.html">Design (1)</a></li><li><a href="./tag/dian-che-nan-ti-han-shang-de-zhi-jia-hui-zai-shi-gu-qian-tu-ran-tui-chu-yao.html">电车难题厂商的智驾会在事故前突然退出么 (1)</a></li><li><a href="./tag/dimension.html">dimension (1)</a></li><li><a href="./tag/discuss.html">Discuss (7)</a></li><li><a href="./tag/disease.html">Disease (1)</a></li><li><a href="./tag/diy.html">DIY (1)</a></li><li><a href="./tag/download.html">Download (1)</a></li><li><a href="./tag/earth-science.html">Earth Science (1)</a></li><li><a href="./tag/education.html">Education (15)</a></li><li><a href="./tag/efficiency.html">efficiency (1)</a></li><li><a href="./tag/ekf.html">EKF (1)</a></li><li><a href="./tag/emotion.html">emotion (1)</a></li><li><a href="./tag/engineering.html">Engineering (1)</a></li><li><a href="./tag/environment.html">Environment (1)</a></li><li><a href="./tag/er-ji.html">耳机 (1)</a></li><li><a href="./tag/er-jin-zhi.html">二进制 (1)</a></li><li><a href="./tag/ertinger-ting-yi-ge-jian-dan-de-yin-pin-jiang-zao-gong-ju.html">ErTing耳听一个简单的音频降噪工具 (1)</a></li><li><a href="./tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="./tag/fa-lan-ke-fu.html">法兰克福 (1)</a></li><li><a href="./tag/family.html">family (1)</a></li><li><a href="./tag/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">FanFu凡赴-把-Ollama-的-GGUF-模型转成-HuggingFace-格式纯好玩 (1)</a></li><li><a href="./tag/fang-fa-bi-gui-mo-geng-zhong-yao-agenticqwenyu-needlede-xiao-mo-xing-zhi-neng-ti-ying-yong-tan-suo.html">方法比规模更重要AgenticQwen与Needle的小模型智能体应用探索 (1)</a></li><li><a href="./tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="./tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="./tag/filtering.html">Filtering (6)</a></li><li><a href="./tag/folderlensyi-ge-pyside6shi-xian-de-jian-dan-wen-jian-guan-li-qi-kai-fa-shi-li.html">FolderLens一个PySide6实现的简单文件管理器开发实例 (1)</a></li><li><a href="./tag/fractal.html">fractal (1)</a></li><li><a href="./tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="./tag/freshman.html">freshman (5)</a></li><li><a href="./tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="./tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./tag/function-calling.html">function calling (1)</a></li><li><a href="./tag/game.html">Game (2)</a></li><li><a href="./tag/gametheory.html">GameTheory (1)</a></li><li><a href="./tag/gangdan-de-zhi-shi-ku-shi-zen-yao-lian-cheng-de.html">GangDan-的知识库是怎么炼成的 (1)</a></li><li><a href="./tag/gangdan-geng-xin-ke-yong-zai-xian-mo-xing-cong-xie-zong-shu-dao-xie-wan-zheng-wen-zhang.html">GangDan-更新可用在线模型从写综述到写完整文章 (1)</a></li><li><a href="./tag/gangdan-wu-yue-zhong-de-ji-zhong-geng-xin-jing-zhun-xuan-wen-zhi-shi-ku-fen-xi-xue-xi-mo-kuai-quan-mian-xiu-fu.html">GangDan-五月中的集中更新精准选文知识库分析学习模块全面修复 (1)</a></li><li><a href="./tag/gangdan-you-geng-xin-liao-yi-bo-cong-kai-fa-zhu-shou-zhuan-xing-wei-zhi-shi-guan-li-yu-jiao-xue-fu-zhu-gong-ju.html">GangDan-又更新了一波从开发助手转型为知识管理与教学辅助工具 (1)</a></li><li><a href="./tag/gangdangang-dan-sheng-ji-kai-yuan-ben-di-zhi-shi-ku-zhi-chi-ben-di-mo-xing-he-zai-xian-mo-xing-de-shen-du-yan-jiu-zhu-shou.html">GangDan纲担升级开源本地知识库-支持本地模型和在线模型的深度研究助手 (1)</a></li><li><a href="./tag/gangdangang-dan-zhong-gou-ji-hu-zhong-zuo-liao-yi-bian.html">GangDan纲担重构-几乎重做了一遍 (1)</a></li><li><a href="./tag/gangdanji-xu-geng-xin-xian-zai-neng-zhi-jie-shang-chuan-cajgou-jian-zhi-shi-ku-liao.html">GangDan继续更新现在能直接上传CAJ构建知识库了 (1)</a></li><li><a href="./tag/gangdanzhi-shi-ku-dao-chu-gai-jin-ke-yi-zhi-jie-dao-chu-xia-zai-hao-de-wen-zhang-yuan-wen-liao.html">GangDan知识库导出改进-可以直接导出下载好的文章原文了 (1)</a></li><li><a href="./tag/gao-xiao-jiao-shi-jian-yi-da-yi-kai-xue-yao-you-dian-nao-huan-yao-an-zhuang-opencodeshi-yong-zhi-neng-ti.html">高校教师建议大一开学要有电脑还要安装OpenCode使用智能体 (1)</a></li><li><a href="./tag/gei-xin-shou-shi-xian-yi-wei-shu-zu-de-liang-chong-si-lu-chuan-tong-cyu-yan-vs-numcku.html">给新手实现一维数组的两种思路传统C语言-vs-NumC库 (1)</a></li><li><a href="./tag/gemma4.html">Gemma4 (1)</a></li><li><a href="./tag/general-education.html">general-education (1)</a></li><li><a href="./tag/geojstool-di-qiu-hua-xue-fen-xi-gong-ju-wang-ye-ban-de-geopytool.html">GeoJsTool-地球化学分析工具-网页版的GeoPyTool (1)</a></li><li><a href="./tag/geology.html">Geology (4)</a></li><li><a href="./tag/geometry.html">geometry (1)</a></li><li><a href="./tag/geopython.html">GeoPython (1)</a></li><li><a href="./tag/gguf.html">GGUF (2)</a></li><li><a href="./tag/gis.html">GIS (3)</a></li><li><a href="./tag/glm.html">GLM (1)</a></li><li><a href="./tag/glumpy.html">GlumPy (2)</a></li><li><a href="./tag/golden-section.html">Golden Section (1)</a></li><li><a href="./tag/gong-ju-diao-yong.html">工具调用 (2)</a></li><li><a href="./tag/google-de-turboquant-suan-fa-ru-he-rang-aigeng-sheng-nei-cun-gao-ding-xiang-liang-liang-hua-nan-ti.html">Google-的-TurboQuant-算法如何让AI更省内存搞定向量量化难题 (1)</a></li><li><a href="./tag/gpt-35.html">GPT-3.5 (3)</a></li><li><a href="./tag/gpt-4o.html">GPT-4o (1)</a></li><li><a href="./tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="./tag/graduate-school.html">graduate-school (1)</a></li><li><a href="./tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="./tag/granite4.html">granite4 (1)</a></li><li><a href="./tag/gsm8k.html">GSM8K (2)</a></li><li><a href="./tag/gu-ge-turboquant-lun-wen-zhong-yi-ji-yu-jin-zui-you-niu-qu-lu-de-gao-su-zai-xian-xiang-liang-liang-hua-suan-fa.html">谷歌-TurboQuant-论文中译基于近最优扭曲率的高速在线向量量化算法 (1)</a></li><li><a href="./tag/guan-xi-xing-shu-ju-ku.html">关系型数据库 (1)</a></li><li><a href="./tag/guide.html">Guide (1)</a></li><li><a href="./tag/hack.html">Hack (2)</a></li><li><a href="./tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="./tag/hadoop.html">Hadoop (2)</a></li><li><a href="./tag/hardware.html">Hardware (2)</a></li><li><a href="./tag/hate.html">Hate (1)</a></li><li><a href="./tag/hbase.html">HBase (1)</a></li><li><a href="./tag/heibancong-markdownzhuan-chu-ppthuan-deng-pian.html">HeiBan从Markdown转出PPT幻灯片 (1)</a></li><li><a href="./tag/heibanhei-ban-jiang-markdownzhuan-huan-cheng-htmllai-dang-jiang-yi.html">HeiBan黑板-将Markdown转换成HTML来当讲义 (1)</a></li><li><a href="./tag/hellaswag.html">HellaSwag (2)</a></li><li><a href="./tag/hermes.html">Hermes (1)</a></li><li><a href="./tag/heroism.html">heroism (1)</a></li><li><a href="./tag/history.html">History (6)</a></li><li><a href="./tag/huan-jue.html">幻觉 (1)</a></li><li><a href="./tag/huan-wei-si-kao-he-ni-chou-sha.html">换位思考和你瞅啥 (1)</a></li><li><a href="./tag/huan-yi-ge-ba-wang-ye-zhuan-huan-cheng-markdownde-python-xiao-gong-ju.html">Huan-一个把网页转换成-Markdown的Python-小工具 (1)</a></li><li><a href="./tag/hui-yi.html">回忆 (1)</a></li><li><a href="./tag/humaneval.html">HumanEval (2)</a></li><li><a href="./tag/ide.html">IDE (2)</a></li><li><a href="./tag/imbalance.html">Imbalance (1)</a></li><li><a href="./tag/imu.html">IMU (1)</a></li><li><a href="./tag/jacobian.html">Jacobian (1)</a></li><li><a href="./tag/java-ji-chu-yu-fa-5fen-zhong-ru-men.html">Java-基础语法5分钟入门 (1)</a></li><li><a href="./tag/ji-chu-zhi-shi-chu-ji-tong-ji-gai-nian-de-jian-dan-jie-shao.html">基础知识初级统计概念的简单介绍 (1)</a></li><li><a href="./tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="./tag/ji-nian.html">纪念 (1)</a></li><li><a href="./tag/ji-suan-ji.html">计算机 (1)</a></li><li><a href="./tag/ji-suan-ji-zu-cheng.html">计算机组成 (1)</a></li><li><a href="./tag/ji-yu-ben-di-mo-xing-de-bian-cheng-xue-xi-fu-zhu-huan-jing-da-jian-wan-zheng-zhi-nan.html">基于本地模型的编程学习辅助环境搭建完整指南 (1)</a></li><li><a href="./tag/ji-yu-tunade-virtualbox-yu-ubuntu-xu-ni-ji-bu-shu-zhi-nan.html">基于TUNA的-VirtualBox-与-Ubuntu-虚拟机部署指南 (1)</a></li><li><a href="./tag/jian-dan-shuo-shuo-pythonli-mian-de-han-shu-shi-di-yi-gong-min-first-class-citizen.html">简单说说Python里面的函数是第一公民First-Class-Citizen (1)</a></li><li><a href="./tag/jie-zhu-pythonlai-li-jie-zi-gua-ying-xin-pu-sen-ji-fen-yuan-li-shi-xian-yu-dong-tai-ke-shi-hua.html">借助Python来理解自适应辛普森积分原理实现与动态可视化 (1)</a></li><li><a href="./tag/jing-xiang.html">镜像 (1)</a></li><li><a href="./tag/jiu-wen-gao-bie-guo-qu-gao-bie-ke-xue-wang.html">旧文告别过去告别科学网 (1)</a></li><li><a href="./tag/jixingji-xing-dang-agent-dui-hua-chao-chu-shang-xia-wen-xian-zhi-zuo-liao-yi-ge-lei-si-xu-ni-ji-re-qian-yi-cao-lu-fang-an.html">JiXing记行-当-Agent-对话超出上下文限制做了一个类似虚拟机热迁移草率方案 (1)</a></li><li><a href="./tag/job.html">Job (1)</a></li><li><a href="./tag/job-hunting.html">job-hunting (1)</a></li><li><a href="./tag/junck.html">Junck (3)</a></li><li><a href="./tag/kalman.html">Kalman (1)</a></li><li><a href="./tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="./tag/kao-yan-qu-mei-chu-shi-yu-fu-shi.html">考研祛魅初试与复试 (1)</a></li><li><a href="./tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="./tag/kivy.html">Kivy (3)</a></li><li><a href="./tag/kuan-biao.html">宽表 (1)</a></li><li><a href="./tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="./tag/language.html">Language (1)</a></li><li><a href="./tag/learn.html">Learn (4)</a></li><li><a href="./tag/learning.html">Learning (10)</a></li><li><a href="./tag/lens.html">Lens (19)</a></li><li><a href="./tag/lesson.html">Lesson (1)</a></li><li><a href="./tag/lfm.html">LFM (1)</a></li><li><a href="./tag/lfm25.html">lfm2.5 (1)</a></li><li><a href="./tag/li-yong-chao-qiang-de-xiao-mo-xing-omnicoder-9b-shi-shi-turboquant-liang-hua-kv-cache-2-bit-tiao-zhan-fp1.html">利用超强的小模型-OmniCoder-9B-试试-TurboQuant-量化-KV-Cache-2-bit-挑战-FP1 (1)</a></li><li><a href="./tag/li-yong-pythonshi-xian-de-yu-ben-di-da-mo-xing-jiao-hu-de-posix-jian-rong-ceng.html">利用Python实现的与本地大模型交互的POSIX-兼容层 (1)</a></li><li><a href="./tag/liang-hua.html">量化 (3)</a></li><li><a href="./tag/liaoliao-rang-ben-di-da-yu-yan-mo-xing-ai-bang-ni-liao-tian-de-kai-yuan-gong-ju.html">Liao聊-让本地大语言模型-AI-帮你聊天的开源工具 (1)</a></li><li><a href="./tag/library.html">Library (1)</a></li><li><a href="./tag/life.html">life (16)</a></li><li><a href="./tag/lift.html">lift (1)</a></li><li><a href="./tag/linux.html">Linux (9)</a></li><li><a href="./tag/liquid-ai.html">Liquid AI (1)</a></li><li><a href="./tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="./tag/llamacpp.html">llama.cpp (3)</a></li><li><a href="./tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="./tag/llm.html">LLM (7)</a></li><li><a href="./tag/ltfs.html">LTFS (1)</a></li><li><a href="./tag/lto.html">LTO (1)</a></li><li><a href="./tag/mac.html">Mac (11)</a></li><li><a href="./tag/macbook-air-m4.html">MacBook Air M4 (2)</a></li><li><a href="./tag/macos.html">macOS (1)</a></li><li><a href="./tag/markdown.html">Markdown (1)</a></li><li><a href="./tag/materials.html">Materials (1)</a></li><li><a href="./tag/math.html">Math (3)</a></li><li><a href="./tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="./tag/mathematics.html">mathematics (1)</a></li><li><a href="./tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="./tag/maturity.html">maturity (1)</a></li><li><a href="./tag/mayavi.html">MayaVi (1)</a></li><li><a href="./tag/mechanics.html">Mechanics (1)</a></li><li><a href="./tag/memory.html">Memory (4)</a></li><li><a href="./tag/methodology.html">Methodology (1)</a></li><li><a href="./tag/mian-dui-wu-mai-ni-shi-wu-neng-wei-li-huan-shi-xiu-shou-pang-guan.html">面对雾霾你是无能为力还是袖手旁观 (1)</a></li><li><a href="./tag/mian-xiang-dui-xiang-bian-cheng-ru-men-yong-wu-xia-jiao-se-li-jie-python-zhong-de-lei.html">面向对象编程入门用武侠角色理解-Python-中的类 (1)</a></li><li><a href="./tag/microscope.html">Microscope (2)</a></li><li><a href="./tag/mindset.html">mindset (2)</a></li><li><a href="./tag/miniconda3.html">Miniconda3 (1)</a></li><li><a href="./tag/ml.html">ML (4)</a></li><li><a href="./tag/mlx.html">mlx (1)</a></li><li><a href="./tag/mmlu.html">MMLU (2)</a></li><li><a href="./tag/mo-xing-ping-ce.html">模型评测 (1)</a></li><li><a href="./tag/mobile.html">Mobile (1)</a></li><li><a href="./tag/moe.html">MoE (1)</a></li><li><a href="./tag/moon.html">Moon (1)</a></li><li><a href="./tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="./tag/moving-average.html">Moving Average (1)</a></li><li><a href="./tag/moxing.html">moxing (1)</a></li><li><a href="./tag/moxing-he-ollama-dui-bi-cong-omnicoder-9bdao-geng-duo-mo-xing.html">MoXing-和-Ollama-对比从omnicoder-9b到更多模型 (1)</a></li><li><a href="./tag/moxing-su-du-zui-gao-da-dao-ollamade-201-tong-mo-xing-tong-ying-jian-de-shi-ce-dui-bi-omnicoder-2-9b-de-q4_k_m.html">MoXing-速度最高达到-Ollama的-201-同模型同硬件的实测对比OmniCoder-2-9B-的-Q4_K_M (1)</a></li><li><a href="./tag/moxing-wu-yue-geng-xin-suan-shi-lai-liao-ge-da-sao-chu.html">MoXing-五月更新算是来了个大扫除 (1)</a></li><li><a href="./tag/moxing-zhu-li-la-ji-lao-yong-bai-yuan-chao-lian-jie-xian-qia-ben-di-yun-xing-omnicoder-2-9bmo-xing-jie-guo-ye-zhi-you-shi-ji-ge-tokenss.html">MoXing-助力垃圾佬用百元超廉价显卡本地运行omnicoder-2-9b模型结果也只有十几个tokenss (1)</a></li><li><a href="./tag/moxingdi-yu-suan-chang-jing-yong-rx580xian-qia-qing-song-yun-xing-qwen35-9b-q4_k_mmo-xing.html">MoXing低预算场景用RX580显卡轻松运行Qwen35-9b-q4_k_m模型 (1)</a></li><li><a href="./tag/moxingsheng-ji-tong-shi-yun-xing-duo-ge-mo-xing-shi-li.html">MoXing升级同时运行多个模型实例 (1)</a></li><li><a href="./tag/moxingxin-sheng-ji-zhi-jie-duo-she-ollama-bu-fen-mo-xing-ti-su-50.html">MoXing新升级直接夺舍-Ollama-部分模型提速-50 (1)</a></li><li><a href="./tag/mtp.html">MTP (1)</a></li><li><a href="./tag/muon.html">Muon (1)</a></li><li><a href="./tag/n8n.html">n8n (1)</a></li><li><a href="./tag/nas.html">NAS (1)</a></li><li><a href="./tag/nemotron.html">Nemotron (1)</a></li><li><a href="./tag/network.html">Network (1)</a></li><li><a href="./tag/ni-de-dian-nao-mei-miao-neng-zuo-duo-shao-ci-fu-dian-yun-suan-flops-de-gu-shi.html">你的电脑每秒能做多少次浮点运算FLOPS-的故事 (1)</a></li><li><a href="./tag/niu-dun-fa-qiu-jie-guo-cheng-de-pythonshi-xian-ji-qi-xiang-jie.html">牛顿法求解过程的Python实现及其详解 (1)</a></li><li><a href="./tag/nixos.html">NixOS (1)</a></li><li><a href="./tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="./tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="./tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="./tag/nosql.html">NoSQL (1)</a></li><li><a href="./tag/numpy.html">NumPy (1)</a></li><li><a href="./tag/nuoyi-geng-xin-xin-zeng-zai-xian-zhuan-huan-yin-qing-mei-xian-qia-ye-bu-pa-chang-wen-dang-ye-bu-na-yao-tou-teng.html">NuoYi-更新新增在线转换引擎没显卡也不怕长文档也不那么头疼 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-geng-xin-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju-shao-wei-sheng-yi-dian-xian-cun-liao.html">NuoYi-挪移更新-离线的-PDFDOCX-转-Markdown-工具稍微省一点显存了 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-yi-ge-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju.html">NuoYi-挪移-一个离线的-PDFDOCX-转-Markdown-工具 (1)</a></li><li><a href="./tag/nvidia.html">Nvidia (1)</a></li><li><a href="./tag/ocr.html">OCR (1)</a></li><li><a href="./tag/ollama.html">Ollama (20)</a></li><li><a href="./tag/ollamaaidgei-ni-guan-li-ben-di-da-mo-xing-pei-ge-de-li-zhu-shou.html">OllamaAid给你管理本地大模型配个得力助手 (1)</a></li><li><a href="./tag/ollamageng-xin-suo-you-ben-di-mo-xing.html">Ollama更新所有本地模型 (1)</a></li><li><a href="./tag/ollamaqian-ru-mo-xing-xuan-xing-zhi-nan-zhu-liu-mo-xing-shen-du-dui-bi.html">Ollama嵌入模型选型指南-主流模型深度对比 (1)</a></li><li><a href="./tag/omlx.html">omlx (1)</a></li><li><a href="./tag/opc.html">OPC (1)</a></li><li><a href="./tag/opencl.html">OpenCL (1)</a></li><li><a href="./tag/opencode.html">opencode (11)</a></li><li><a href="./tag/opencode-jin-jie-zhi-ji-neng-chuang-zuo-chai-jie-miao-shu-dian-xing-ren-wu-hou-yan-zheng-shi-xian-zai-zuo-cheng-ke-fu-yong-de-ji-neng.html">OpenCode-进阶之技能创作拆解描述典型任务后验证实现再做成可复用的技能 (1)</a></li><li><a href="./tag/opencode-skillsfen-xiang-yi-tao-zi-ji-luan-xie-de-huan-suan-shi-yong-de-ai-bian-ma-ji-neng-ku.html">OpenCode-Skills分享一套自己乱写的还算实用的-AI-编码技能库 (1)</a></li><li><a href="./tag/openlaoke-geng-xin-ben-di-gguf-mo-xing-ling-api-fei-yong-pao-qi-lai.html">OpenLaoKe-更新本地-GGUF-模型零-API-费用跑起来 (1)</a></li><li><a href="./tag/openlaokelao-ke-yi-ge-ming-ling-xing-aizhu-shou.html">OpenLaoKe唠嗑一个命令行AI助手 (1)</a></li><li><a href="./tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="./tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="./tag/optimization.html">Optimization (2)</a></li><li><a href="./tag/os.html">os (1)</a></li><li><a href="./tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="./tag/parenting.html">Parenting (1)</a></li><li><a href="./tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="./tag/path.html">PATH (1)</a></li><li><a href="./tag/pdfjie-xi.html">PDF解析 (1)</a></li><li><a href="./tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="./tag/performance.html">Performance (1)</a></li><li><a href="./tag/phd.html">PHD (2)</a></li><li><a href="./tag/philosophy.html">philosophy (2)</a></li><li><a href="./tag/photo.html">Photo (23)</a></li><li><a href="./tag/photography.html">Photography (2)</a></li><li><a href="./tag/physics.html">Physics (3)</a></li><li><a href="./tag/ping-ce.html">评测 (1)</a></li><li><a href="./tag/poem.html">Poem (2)</a></li><li><a href="./tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="./tag/programming.html">Programming (11)</a></li><li><a href="./tag/prompt.html">Prompt (1)</a></li><li><a href="./tag/psychology.html">Psychology (1)</a></li><li><a href="./tag/pve.html">PVE (2)</a></li><li><a href="./tag/pyenv.html">Pyenv (2)</a></li><li><a href="./tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="./tag/python.html">Python (70)</a></li><li><a href="./tag/python-ji-chu-yu-fa-5fen-zhong-ru-men.html">Python-基础语法5分钟入门 (1)</a></li><li><a href="./tag/qemu.html">QEMU (1)</a></li><li><a href="./tag/qgis.html">QGIS (3)</a></li><li><a href="./tag/qt.html">QT (1)</a></li><li><a href="./tag/qu-shen-cha.html">去审查 (1)</a></li><li><a href="./tag/qwen3.html">Qwen3 (10)</a></li><li><a href="./tag/qwen35.html">qwen3.5 (1)</a></li><li><a href="./tag/qwen36.html">Qwen3.6 (3)</a></li><li><a href="./tag/qwen38.html">Qwen3.8 (4)</a></li><li><a href="./tag/radio.html">Radio (2)</a></li><li><a href="./tag/rag.html">RAG (1)</a></li><li><a href="./tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="./tag/raspbian.html">Raspbian (1)</a></li><li><a href="./tag/reading.html">reading (2)</a></li><li><a href="./tag/reflection.html">reflection (4)</a></li><li><a href="./tag/remote.html">Remote (1)</a></li><li><a href="./tag/research.html">Research (3)</a></li><li><a href="./tag/resume.html">resume (1)</a></li><li><a href="./tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="./tag/ri-chang-sheng-huo.html">日常生活 (1)</a></li><li><a href="./tag/rotation.html">Rotation (1)</a></li><li><a href="./tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="./tag/rtx-4070.html">RTX 4070 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-jia-gou-shi-zhuan-ye-ying-yu-gao-pin-ci-hui-biao.html">软考高级系统架构设计师知识精要-架构师专业英语高频词汇表 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-ce-shi-yu-yun-xing-wei-hu.html">软考高级系统架构设计师知识精要-软件测试与运行维护 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-gong-cheng-yu-kai-fa-fang-fa.html">软考高级系统架构设计师知识精要-软件工程与开发方法 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-jia-gou-she-ji-yu-ping-gu.html">软考高级系统架构设计师知识精要-软件架构设计与评估 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-an-quan-yu-qu-kuai-lian-ji-zhu.html">软考高级系统架构设计师知识精要-系统安全与区块链技术 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-jian-mo-yu-umlshe-ji.html">软考高级系统架构设计师知识精要-系统建模与UML设计 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xi-xi-tong-yu-qi-ye-xin-xi-hua.html">软考高级系统架构设计师知识精要-信息系统与企业信息化 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xing-ji-zhu-yu-ji-chu-she-shi.html">软考高级系统架构设计师知识精要-新兴技术与基础设施 (1)</a></li><li><a href="./tag/rust.html">Rust (1)</a></li><li><a href="./tag/rustyu-yan-cheng-xu-she-ji-ji-chu-di-san-zhang-fu-he-shu-ju-lei-xing-yu-xun-huan.html">Rust语言程序设计基础第三章复合数据类型与循环 (1)</a></li><li><a href="./tag/rx590.html">RX590 (1)</a></li><li><a href="./tag/sandbox.html">SandBox (1)</a></li><li><a href="./tag/scholar.html">Scholar (2)</a></li><li><a href="./tag/school.html">School (3)</a></li><li><a href="./tag/science.html">Science (3)</a></li><li><a href="./tag/search.html">Search (1)</a></li><li><a href="./tag/self-study.html">Self-Study (1)</a></li><li><a href="./tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="./tag/server.html">Server (1)</a></li><li><a href="./tag/shang-ye-xin-xi.html">商业信息 (1)</a></li><li><a href="./tag/sheng-cheng-su-du.html">生成速度 (1)</a></li><li><a href="./tag/shi-jie-yi-liu-da-xue-shuo-shuo-er-yi-huan-shi-zhen-de-qu-zuo.html">世界一流大学说说而已还是真的去做 (1)</a></li><li><a href="./tag/shi-yong-llama-factory-cong-modelscope-xia-zai-mo-xing-bing-wei-diao.html">使用-LLaMA-Factory-从-ModelScope-下载模型并微调 (1)</a></li><li><a href="./tag/shi-yong-ollamakuai-su-bu-shu-bing-yun-xing-zui-xin-de-qwen3-30b-a3b-2507mo-xing.html">使用ollama快速部署并运行最新的qwen3-30b-a3b-2507模型 (1)</a></li><li><a href="./tag/shit.html">Shit (1)</a></li><li><a href="./tag/shu-ju-an-quan.html">数据安全 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-0zhang-cyu-yan-pythonde-di-ceng-shi-jiao.html">数据结构与算法基础-第0章-C语言Python的底层视角 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-1zhang-suan-fa-ji-chu-yu-fu-za-du-fen-xi.html">数据结构与算法基础-第1章-算法基础与复杂度分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-2zhang-xian-xing-shu-ju-jie-gou.html">数据结构与算法基础-第2章-线性数据结构 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-4zhang-tu-lun-ji-chu.html">数据结构与算法基础-第4章-图论基础 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-5zhang-pai-xu-suan-fa.html">数据结构与算法基础-第5章-排序算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-6zhang-sou-suo-suan-fa.html">数据结构与算法基础-第6章-搜索算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-7zhang-dong-tai-gui-hua.html">数据结构与算法基础-第7章-动态规划 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-8zhang-gao-ji-suan-fa.html">数据结构与算法基础-第8章-高级算法 (1)</a></li><li><a href="./tag/shu-ju-ke-shi-hua.html">数据可视化 (1)</a></li><li><a href="./tag/shu-ju-ku.html">数据库 (1)</a></li><li><a href="./tag/shu-ju-lei-xing.html">数据类型 (1)</a></li><li><a href="./tag/shu-zhi-ji-fen-man-tan-ru-he-rang-yong-pythonqiu-ji-fen.html">数值积分漫谈如何让用Python求积分 (1)</a></li><li><a href="./tag/shui-ke-xing-cun-zhi-nan-ru-guo-ni-bei-po-yao-qu-ting-ni-bu-xi-huan-de-ke-cheng-gai-zen-yao-ban.html">水课幸存指南-如果你被迫要去听你不喜欢的课程该怎么办 (1)</a></li><li><a href="./tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="./tag/signal-processing.html">Signal Processing (3)</a></li><li><a href="./tag/skill.html">skill (3)</a></li><li><a href="./tag/smollm2.html">smollm2 (1)</a></li><li><a href="./tag/software.html">Software (1)</a></li><li><a href="./tag/sou-suo.html">搜索 (1)</a></li><li><a href="./tag/sports.html">sports (1)</a></li><li><a href="./tag/sql.html">SQL (1)</a></li><li><a href="./tag/state-space.html">State Space (1)</a></li><li><a href="./tag/statistics.html">Statistics (1)</a></li><li><a href="./tag/story.html">Story (50)</a></li><li><a href="./tag/sui-bi.html">随笔 (1)</a></li><li><a href="./tag/t-bench.html">τ-bench (1)</a></li><li><a href="./tag/tape.html">Tape (1)</a></li><li><a href="./tag/telescope.html">Telescope (1)</a></li><li><a href="./tag/terminal.html">Terminal (1)</a></li><li><a href="./tag/textbook.html">textbook (1)</a></li><li><a href="./tag/thinking.html">Thinking (7)</a></li><li><a href="./tag/ti-xing-fa-qiu-ji-fen-de-pythonshi-xian.html">梯形法求积分的Python实现 (1)</a></li><li><a href="./tag/tian-biao.html">填表 (1)</a></li><li><a href="./tag/time-series.html">Time Series (1)</a></li><li><a href="./tag/tokenzi-you-yong-moxingzai-7900xtx-24gxian-qia-shang-ben-di-yun-xing-qwen36-27bmo-xing-gei-opencodeyong-lai-wen-dang-bian.html">Token自由-用MoXing在7900xtx-24G显卡上本地运行Qwen36-27B模型给OpenCode用来文档编 (1)</a></li><li><a href="./tag/tong-ji-xue.html">统计学 (1)</a></li><li><a href="./tag/tong-men-xiang-can-bai-yuan-xian-qia-de-ben-di-mo-xing-da-zhan-rx580-16g-2048sp-vs-rx590-8g-2304sp.html">同门相残-百元显卡的本地模型大战RX580-16G-2048SP-VS-RX590-8G-2304SP (1)</a></li><li><a href="./tag/tong-nian.html">童年 (1)</a></li><li><a href="./tag/tong-xue.html">同学 (1)</a></li><li><a href="./tag/tool.html">Tool (8)</a></li><li><a href="./tag/tool-calling.html">tool calling (3)</a></li><li><a href="./tag/toolbench.html">ToolBench (1)</a></li><li><a href="./tag/tools.html">Tools (10)</a></li><li><a href="./tag/traffic.html">Traffic (1)</a></li><li><a href="./tag/translate.html">Translate (2)</a></li><li><a href="./tag/translation.html">Translation (1)</a></li><li><a href="./tag/transpaste-sheng-ji-yi-ge-jian-tie-ban-fan-yi-gong-ju-de-zi-wo-xiu-yang.html">TransPaste-升级一个剪贴板翻译工具的自我修养 (1)</a></li><li><a href="./tag/transpaste-yi-kuan-ji-yu-ben-di-da-yu-yan-mo-xing-de-qing-liang-ji-jian-tie-ban-fan-yi-gong-ju.html">TransPaste-一款基于本地大语言模型的轻量级剪贴板翻译工具 (1)</a></li><li><a href="./tag/transpasteben-di-ai-fan-yi-gong-ju-xin-ban-ben-sheng-ji-hou-zhi-chi-geng-duo-xi-li-du-de-fan-yi-kong-zhi.html">TransPaste本地-AI-翻译工具新版本升级后支持更多细粒度的翻译控制 (1)</a></li><li><a href="./tag/tui.html">TUI (1)</a></li><li><a href="./tag/tui-jian-yi-kuan-markdownde-kua-ping-tai-chi-xian-bian-ji-qi-zhi-chi-sui-shi-yu-lan.html">推荐一款MarkDown的跨平台离线编辑器支持随时预览 (1)</a></li><li><a href="./tag/tuna.html">TUNA (1)</a></li><li><a href="./tag/turing.html">Turing (12)</a></li><li><a href="./tag/tutorial.html">tutorial (2)</a></li><li><a href="./tag/uav.html">UAV (1)</a></li><li><a href="./tag/ubuntu.html">Ubuntu (4)</a></li><li><a href="./tag/ubuntu-shou-dong-an-zhuang-ollama-0171-lai-yun-xing-qwen3535b-a3b-de-xiang-xi-zhi-nan.html">Ubuntu-手动安装-Ollama-0171-来运行-qwen3535b-a3b-的详细指南 (1)</a></li><li><a href="./tag/ui.html">UI (1)</a></li><li><a href="./tag/ukf.html">UKF (1)</a></li><li><a href="./tag/university.html">university (14)</a></li><li><a href="./tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="./tag/ustc.html">USTC (1)</a></li><li><a href="./tag/ventoy.html">Ventoy (1)</a></li><li><a href="./tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="./tag/vibe-coding-fen-wei-bian-cheng-an-li-tong-guo-dui-hua-shi-xian-ke-yong-de-kuai-su-cha-biao-gong-ju.html">Vibe-Coding-氛围编程案例-通过对话实现可用的快速查表工具 (1)</a></li><li><a href="./tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="./tag/video.html">video (2)</a></li><li><a href="./tag/vidtogif-yi-ge-jian-dan-gao-xiao-de-shi-pin-zhuan-gif-gong-ju.html">VidToGif-一个简单高效的视频转-GIF-工具 (1)</a></li><li><a href="./tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="./tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="./tag/virtualization.html">Virtualization (1)</a></li><li><a href="./tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./tag/vispy.html">VisPy (1)</a></li><li><a href="./tag/visualization.html">Visualization (8)</a></li><li><a href="./tag/vm.html">VM (1)</a></li><li><a href="./tag/vmwarexu-ni-ji-yun-xing-macosunlcokrecoveryosoc4vm-shi-xian-ti-gong-bai-du-yun-pan-xia-zai.html">VMware虚拟机运行macOSunlcokrecoveryosOC4VM-实现提供百度云盘下载 (1)</a></li><li><a href="./tag/void-moxingdi-cheng-ben-fang-an-yong-rx580xian-qia-ben-di-yun-xing-qwen359bmo-xing-da-zao-lei-cursorti-yan.html">Void-MoXing低成本方案用RX580显卡本地运行qwen359B模型打造类Cursor体验 (1)</a></li><li><a href="./tag/vtk.html">VTK (1)</a></li><li><a href="./tag/web.html">Web (1)</a></li><li><a href="./tag/wen-ben-shou-ji.html">文本收集 (1)</a></li><li><a href="./tag/wen-dang-he-cha.html">文档核查 (1)</a></li><li><a href="./tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="./tag/windows.html">Windows (4)</a></li><li><a href="./tag/windows-xi-tong-xia-cong-qing-hua-da-xue-tuna-jing-xiang-an-zhuang-miniconda3-wan-zheng-zhi-nan.html">Windows-系统下从清华大学-TUNA-镜像安装-Miniconda3-完整指南 (1)</a></li><li><a href="./tag/windows11.html">Windows11 (1)</a></li><li><a href="./tag/wingetguigei-windows-bao-guan-li-qi-jia-ge-tu-xing-jie-mian.html">WinGetGUI给-Windows-包管理器加个图形界面 (1)</a></li><li><a href="./tag/winogrande.html">WinoGrande (1)</a></li><li><a href="./tag/workflow.html">workflow (1)</a></li><li><a href="./tag/xcode.html">Xcode (1)</a></li><li><a href="./tag/xia-zai.html">下载 (1)</a></li><li><a href="./tag/xian-jiao-hui-zai-rang-ta-zuo-da-mo-xing-ding-zhi-hua-li-cpthe-sftdao-di-zai-gan-shi-yao.html">先教会再让它做大模型定制化里CPT和SFT到底在干什么 (1)</a></li><li><a href="./tag/xiang-sheng.html">相声 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-er-hui-jiu-suan-shi-sun-wu-kong-shang-da-xue-ye-de-yong-gong.html">小猴子学编程第二回就算是孙悟空上大学也得用功 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-san-hui-shi-yi-zhi-pa-zai-na-zi-yuan-zi-ai-huan-shi-gan-jin-zhun-bei-qu-xin-fu-ben.html">小猴子学编程第三回是一直趴在那自怨自艾还是赶紧准备去新副本 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-si-hui-chong-zhi-bu-hui-rang-ni-bian-qiang-xue-xi-cai-hui.html">小猴子学编程第四回充值不会让你变强学习才会 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-yi-hui-na-pa-shi-sun-wu-kong-ye-xu-yao-xue-xi.html">小猴子学编程第一回哪怕是孙悟空也需要学习 (1)</a></li><li><a href="./tag/xiao-mo-xing.html">小模型 (1)</a></li><li><a href="./tag/xiao-mo-xing-ping-ce.html">小模型评测 (2)</a></li><li><a href="./tag/xiao-you.html">校友 (1)</a></li><li><a href="./tag/xiexie-ba-markdown-zhuan-cheng-wei-xin-gong-zhong-hao-ge-shi-wang-ye-de-xiao-gong-ju.html">Xie写把-Markdown-转成微信公众号格式网页的小工具 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-markdown-shu-xue-gong-shi-zhi-nan.html">新手向的-Markdown-数学公式指南 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-ruan-kao-gao-ji-jia-gou-shi-wan-quan-bei-kao-zhi-nan.html">新手向的软考高级架构师完全备考指南 (1)</a></li><li><a href="./tag/xing-neng-shi-ce.html">性能实测 (1)</a></li><li><a href="./tag/xiu-liao-transpastede-4ge-bug.html">修了TransPaste的4个bug (1)</a></li><li><a href="./tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="./tag/xue-xi-lu-de-qian-shi-jin-sheng-cong-quan-ju-dan-yi-dao-zhu-ceng-ding-zhi.html">学习率的前世今生从全局单一到逐层定制 (1)</a></li><li><a href="./tag/xue-zhu-lun-wen-zhong-chang-jian-yan-jiu-fang-fa-zong-shu-ji-jian-dan-ju-li.html">学术论文中常见研究方法综述及简单举例 (1)</a></li><li><a href="./tag/xue-zhu-yan-jiu-zhi-chi-gong-ju-fen-lei-yu-wen-xian-huo-qu-fang-fa.html">学术研究支持工具分类与文献获取方法 (1)</a></li><li><a href="./tag/yi-xue-chang-jing-yong-duo-mo-tai-da-mo-xing-you-ke-neng-wan-quan-bu-kao-pu-si-tan-fu-da-xue-li-fei-fei-tuan-dui-xin-yan-jiu-jie-kai-duo-mo-tai-aide-hai-shi-shen-lou-xiao-ying.html">医学场景用多模态大模型有可能完全不靠谱斯坦福大学李飞飞团队新研究揭开多模态AI的海市蜃楼效应 (1)</a></li><li><a href="./tag/yi-zhi-tiny-fastboot-scriptdao-macosban-ben-gei-motorola-g100guo-xing-ban-ben-xt2533-4shua-ru-g6.html">移植Tiny-Fastboot-Script到macOS版本给Motorola-G100国行版本XT2533-4刷入G6 (1)</a></li><li><a href="./tag/yin-pin.html">音频 (1)</a></li><li><a href="./tag/ying-pan.html">硬盘 (1)</a></li><li><a href="./tag/yong-wan-quan-kai-yuan-mian-fei-de-ben-di-mo-xing-lai-dui-shi-pin-zhong-de-yin-pin-jin-xing-jiang-zao.html">用完全开源免费的本地模型来对视频中的音频进行降噪 (1)</a></li><li><a href="./tag/you-xi-shi-zen-yao-yun-xing-de-ru-guo-zhi-zhi-dao-chong-zhi-shi-ji-shang-bing-bu-yi-ding-neng-bian-qiang.html">游戏是怎么运行的如果只知道充值实际上并不一定能变强 (1)</a></li><li><a href="./tag/zhe-ji-tian-wo-chuan-yue-liao-shi-jian.html">这几天我穿越了时间 (1)</a></li><li><a href="./tag/zhe-xue.html">哲学 (1)</a></li><li><a href="./tag/zhen-dui-da-mo-xing-he-zhi-neng-ti-xin-shou-kai-fa-zhe-de-linuxhuan-jing-pei-zhi-zhi-nan.html">针对大模型和智能体新手开发者的Linux环境配置指南 (1)</a></li><li><a href="./tag/zhi-ce-flops-huan-bu-gou-si-ge-jing-dian-cpu-ce-shi-ji-zhun.html">只测-FLOPS-还不够四个经典-CPU-测试基准 (1)</a></li><li><a href="./tag/zhi-neng-ti.html">智能体 (1)</a></li><li><a href="./tag/zhi-shi-wai-zhi.html">知识外置 (1)</a></li><li><a href="./tag/zhi-zhen-yue-jie-cyu-yan-gei-ni-de-zi-you-yi-ji-tou-tou-mai-de-lei.html">指针越界C语言给你的自由以及偷偷埋的雷 (1)</a></li><li><a href="./tag/zhong-xin-shen-shi-si-wei-lian-wei-bi-shi-zhen-si-wei-yi-pian-icml-2026-lun-wen-de-lun-zheng-yu-qi-shi.html">重新审视-思维链未必是真思维-一篇ICML-2026-论文的论证与启示 (1)</a></li><li><a href="./tag/zhuang-ji.html">装机 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skills-he-ji-geng-xin-cong-6-ge-ji-neng-dao-22-ge-yi-ji-bi-xu-cheng-ren-de-wen-ti.html">自用的-OpenCode-Skills-合集更新从-6-个技能到-22-个以及必须承认的问题 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skillzai-ci-geng-xin-22ge-skillszhong-xin-da-mo-liao-yi-bian-shun-lu-jie-jue-liao-opencodedao-zhi-zheng-ge-tu-xing-jie-mian-beng-kui.html">自用的OpenCode-Skill再次更新22个skills重新打磨了一遍顺路解决了OpenCode导致整个图形界面崩溃 (1)</a></li><li><a href="./tag/zluda-he-macos-shang-de-cuda-jian-rong-meng-xiang.html">ZLUDA-和-macOS-上的-CUDA-兼容梦想 (1)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="./index.html" data-i18n="blog">博客</a> › <a href="category/math.html">Math</a> › 你的电脑每秒能做多少次浮点运算？——FLOPS 的故事
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >你的电脑每秒能做多少次浮点运算？——FLOPS 的故事</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep" data-i18n="post_in">发布于</span>
+        <abbr class="date" title="2026-06-08T00:00:00+08:00"> 
+            <a href="./archive/2026/Jun/index.html">Mon 08 June 2026 </a>
+        </abbr>
+        <span class="meta-prep"> | <span data-i18n="tags_label">标签</span></span>
+                <a class="tag-badge" href="./tag/ni-de-dian-nao-mei-miao-neng-zuo-duo-shao-ci-fu-dian-yun-suan-flops-de-gu-shi.html">你的电脑每秒能做多少次浮点运算FLOPS-的故事</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <h1>一个 1992 年的 C 程序，穿越三十余年，可能会在你的处理器上测出了新答案。</h1>
+<hr>
+<h2>1. FLOPS 是什么？</h2>
+<p><strong>FLOPS</strong> = <strong>FL</strong>oating-point <strong>O</strong>perations <strong>P</strong>er <strong>S</strong>econd（每秒浮点运算次数）。</p>
+<p>通俗地讲：<strong>你的处理器一秒钟能做多少次浮点数运算。</strong></p>
+<p>为什么强调"小数点"？因为整数运算（1+1=2）和浮点运算（3.14159 × 2.71828 = ?）在硬件上走的是两条完全不同的路。浮点运算要处理指数、尾数、规格化、舍入——每一步都得靠专门的电路来完成。所以 FLOPS 衡量的是处理器最"重"的计算能力。</p>
+<p>我们经常看到的 <strong>MFLOPS</strong>（Mega-FLOPS）是百万次/秒，<strong>GFLOPS</strong>（Giga-FLOPS）是十亿次/秒，<strong>TFLOPS</strong>（Tera-FLOPS）是万亿次/秒。</p>
+<hr>
+<h2>2. 理论 FLOPS 怎么算？</h2>
+<p>一个处理器的理论峰值 FLOPS 可以精确算出来：</p>
+<div class="highlight"><pre><span></span><code>理论 FLOPS = 核心数 × 每核心每周期浮点指令数 × 主频
+</code></pre></div>
+
+<p>以一颗 16 核处理器为例，每核每周期可执行 16 次单精度浮点运算（2 条 256-bit FMA），最大加速频率 5.4 GHz：</p>
+<div class="highlight"><pre><span></span><code><span class="mf">16</span><span class="w"> </span><span class="n">核</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="mf">16</span><span class="w"> </span><span class="n">FLOP</span><span class="o">/</span><span class="n">cycle</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="mf">5.4</span><span class="w"> </span><span class="n">GHz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1382.4</span><span class="w"> </span><span class="n">GFLOPS</span><span class="w"> </span><span class="err">≈</span><span class="w"> </span><span class="mf">1.38</span><span class="w"> </span><span class="n">TFLOPS</span>
+</code></pre></div>
+
+<p>双精度减半（256-bit 寄存器只能装 4 个 double），所以双精度理论峰值大约 <strong>691 GFLOPS</strong>。</p>
+<p>你会在 CPU 规格里看到"1 TFLOPS"这种数字，甚至不需要跑任何程序，拿纸笔就能算出来。</p>
+<p>那问题来了：理论值和实际一致吗？</p>
+<p><strong>其实差得远。</strong></p>
+<hr>
+<h2>3. 理论很美，现实很骨感</h2>
+<p>理论峰值 FLOPS 的假设是：</p>
+<ol>
+<li>所有核心都在跑浮点运算，没有停顿</li>
+<li>数据永远在寄存器里等着，不需要访存</li>
+<li>每条 FMA 指令都完美流过流水线，没有任何气泡</li>
+<li>分支预测 100% 正确，缓存全部命中</li>
+</ol>
+<p>这些假设同时成立的唯一场景是：<strong>不存在。</strong></p>
+<p>真实程序里会怎样？</p>
+<ul>
+<li><strong>内存墙</strong>：数据要从内存加载过来，延迟是寄存器访问的 100–200 倍 <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li><strong>分支误判</strong>：if/else 预测错了，流水线得清空重来</li>
+<li><strong>指令混合</strong>：不可能 100% 都是 FMA，还得做加减乘除、搬运数据</li>
+<li><strong>依赖链</strong>：后一条指令要等前一条的结果，流水线只能干等着</li>
+<li><strong>散热降频</strong>：全核满载 → 发热 → 撞功耗墙 → 自动降频。笔记本散热约束下，全核满载时撑不到标称最大频率</li>
+</ul>
+<p>所以需要<strong>实测 FLOPS</strong>，用一个程序真正跑一遍，算出来到底是多少。</p>
+<hr>
+<h2>4. 如何实测 FLOPS？—— 从 Linpack 到 flops.c</h2>
+<p>业界最有名的浮点性能测试是 <strong>LINPACK</strong> —— 解一个巨大的稠密线性方程组，是 TOP500 超算排名的官方基准。但 LINPACK 测的不光是浮点算力，也在测内存带宽。</p>
+<p>还有一个更纯粹的方案：<strong>flops.c [ https://github.com/Kivy-CN/flops ]</strong></p>
+<p>这个程序最初由 <strong>Al Aburto</strong> 在 1992 年于美国海军海洋系统中心（NOSC，位于加利福尼亚州圣地亚哥）编写 <sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>，总共约 1500 行 C 代码。思路极其朴素：</p>
+<blockquote>
+<p>选 8 个不同的定积分计算题，每道题里的四则运算次数都是预先数好的。掐表跑一遍，用"总浮点操作数 ÷ 耗时"算出实测 MFLOPS。</p>
+</blockquote>
+<hr>
+<h2>5. flops.c 的巧妙设计</h2>
+<h3>5.1 八个计算模块</h3>
+<p>程序设计了 8 个独立模块，每个模块算一个定积分——比如 ∫sin(x)dx、∫cos(x)dx、∫tan(x)dx、用泰勒级数求 π 等等。</p>
+<p>每个模块里每次循环迭代的浮点运算次数是<strong>一个个数过的</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>FADD(加)</th>
+<th>FSUB(减)</th>
+<th>FMUL(乘)</th>
+<th>FDIV(除)</th>
+<th>总计</th>
+<th>除法占比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>7</td>
+<td>0</td>
+<td>6</td>
+<td>1</td>
+<td>14</td>
+<td>7.1%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>7</td>
+<td>14.3%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>6</td>
+<td>2</td>
+<td>9</td>
+<td>0</td>
+<td>17</td>
+<td>0.0%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>7</td>
+<td>0</td>
+<td>8</td>
+<td>0</td>
+<td>15</td>
+<td>0.0%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>13</td>
+<td>0</td>
+<td>15</td>
+<td>1</td>
+<td>29</td>
+<td>3.4%</td>
+</tr>
+<tr>
+<td>6</td>
+<td>13</td>
+<td>0</td>
+<td>16</td>
+<td>0</td>
+<td>29</td>
+<td>0.0%</td>
+</tr>
+<tr>
+<td>7</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>12</td>
+<td>25.0%</td>
+</tr>
+<tr>
+<td>8</td>
+<td>13</td>
+<td>0</td>
+<td>17</td>
+<td>0</td>
+<td>30</td>
+<td>0.0%</td>
+</tr>
+</tbody>
+</table>
+<p>除法在这里很关键——FDIV 比乘法慢得多（现代 CPU 上可能仍然慢 3–10 倍 <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>），所以混合不同除法占比的模块可从不同角度观察性能。模块 7 有 25% 的除法，算是"除法密集型"；模块 3、4、6、8 完全不含除法，测纯算术吞吐。</p>
+<h3>5.2 自适应校准：机器快慢都公平</h3>
+<p>程序启动时不知道你这台电脑有多快。如果是 1992 年的 486，循环 15625 次可能就要几秒；如果是 2025 年的 16 核处理器，15625 次连眨眼都来不及。</p>
+<p>所以 flops.c 有一个<strong>自适应校准循环</strong>：先跑一次，如果时间太短就把循环次数翻倍，一直翻到至少跑满 15 秒为止。最终循环数可能是 512,000,000（5.12 亿次），这样测量结果才有统计意义。</p>
+<h3>5.3 四个综合指标</h3>
+<p>跑完 8 个模块后，程序输出四个加权 MFLOPS 值：</p>
+<ul>
+<li>MFLOPS(1)：模块 2+3 的加权组合，9.6% FDIV，和老版本兼容</li>
+<li>MFLOPS(2)：模块 1+3+4+5+6+7 的加权组合，9.2% FDIV，不含难以向量化的模块 2</li>
+<li>MFLOPS(3)：同样的组合但把 FDIV 降到 3.4%</li>
+<li><strong>MFLOPS(4)</strong>：模块 3+4+6+8，<strong>0% FDIV</strong>，纯加减乘</li>
+</ul>
+<p>这四条线让你看到处理器在不同指令混合下的表现——有点像测汽车油耗：市区、高速、综合、满载爬坡，四个工况各跑一遍。</p>
+<hr>
+<h2>6. 从 C 到全世界——这段代码的漂流记</h2>
+<p>flops.c 在 1992 年诞生后，很长一段时间就静静躺在 Al Aburto 的 FTP 目录里。直到有一天——</p>
+<h3>Brian Olson 和 flops 的故事</h3>
+<p><strong>Brian Olson</strong> 的父亲在洛斯阿拉莫斯国家实验室（Los Alamos National Laboratory）工作。1992 年，他父亲拿到了这份 flops.c 的代码——当超算中心的工程师们拿到一台新机器时，就花一分钟跑一下这个小程序，看一眼它到底有多快。Brian 从他父亲那里得到了这份代码，2014 年把它放到了 GitHub 上（github.com/brianolson/flops）。</p>
+<p>在项目的 README 里，Brian 这样写道（以下是原文和忠实的中文翻译）：</p>
+<blockquote>
+<p>One day my dad worked on supercomputers at Los Alamos National Laboratory and sometimes he would spend a minute running a little test to see about how fast a new supercomputer was. That test is here as flops.c very much as I received it in 1992. Your phone is probably much faster than the fastest supercomputer of 1992.</p>
+<p>很久以前，我的父亲在洛斯阿拉莫斯国家实验室从事超算工作。有时候他要花上一分钟来跑一个小小的测试程序，估一下一台新超算大概有多快。这个测试程序就在这里——flops.c，几乎和我 1992 年拿到它时一模一样。如今你口袋里的那台手机，大概比 1992 年全世界最快的超级计算机还要快。</p>
+<p>This isn't a very good benchmark, but it's simple and easy. It runs a few basic numeric algorithms with a known number of adds, subtracts, multiplies, and divides, and figures out how many floating point operations per second your CPU can do. It doesn't take advantage of multi-core or SIMD instructions. It doesn't exercise the memory system and probably all fits in L1 cache. It just tests how fast your CPU can do math (and that your compiler isn't terrible at making that happen).</p>
+<p>这并不是一个很好的基准测试，但它足够简单。它跑几个基础的数值算法，每一次加法、减法、乘法、除法的次数都精确可知，然后算出你的 CPU 每秒能做多少次浮点运算。它不用多核，不用 SIMD 指令，也不考验内存系统。所有的计算大概全都在 L1 缓存里完成。它只做一件事——测你的 CPU 算数学有多快（以及你的编译器有没有拖后腿）。</p>
+<p>Over the years I transliterated flops.c into other languages to test them and their compilers and interpreters. Python has a pretty slow interpreter, around 1–5% of the speed of C. Javascript got amazingly good and can run 80–90% of the speed of C. Java got to that speed around 2007 or 2008. The Go compiler is surprisingly good for a newer language. Julia is a newer language that should have the potential for running full speed but apparently still needs some tweaking (as of 2018-05).</p>
+<p>这些年来我把 flops.c 一一转译成了其他语言，用来测试它们的编译器和解释器。Python 的解释器相当慢，大约只有 C 速度的 1%–5%。JavaScript 进步惊人，能跑到 C 的 80%–90%。Java 大概在 2007 到 2008 年间达到了这个水平。Go 的编译器对于一个新兴语言来说质量出奇地好。Julia 理论上具备跑满全速的潜力，不过显然还需要一些打磨（以上评价截至 2018 年 5 月）。</p>
+</blockquote>
+<p>Brian 转译的版本包括：</p>
+<ul>
+<li><code>flops.c</code> —— 原始的 C 版本</li>
+<li><code>flops.java</code> —— Java</li>
+<li><code>flops.js</code> / <code>flops.html</code> —— JavaScript（在浏览器里就能跑）</li>
+<li><code>flops.go</code> —— Go</li>
+<li><code>flops.jl</code> —— Julia</li>
+<li><code>flops.py</code> —— Python</li>
+</ul>
+<p>这些代码能够用来对比不同语言和运行时的底层效率：</p>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>相对速度（vs C）</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C (gcc -O2)</td>
+<td>100%</td>
+<td>基准</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>80–90%</td>
+<td>JIT 编译，热点优化接近原生</td>
+</tr>
+<tr>
+<td>JavaScript (V8)</td>
+<td>80–90%</td>
+<td>同样靠 JIT，V8 引擎非常成熟</td>
+</tr>
+<tr>
+<td>Go</td>
+<td>60–80%</td>
+<td>编译型语言，但 GC 和逃逸分析有开销</td>
+</tr>
+<tr>
+<td>Julia</td>
+<td>变化大</td>
+<td>依赖类型推断和预热，第一次跑和后续差距大</td>
+</tr>
+<tr>
+<td>Pure Python</td>
+<td><strong>1–5%</strong></td>
+<td>解释执行，每次循环都在逐条"解释"字节码</td>
+</tr>
+</tbody>
+</table>
+<p>Python 的数字特别扎眼——同样的算法，解释型 Python 只有 C 的 1%–5% 速度。Python 选择了灵活性和动态性，而不是极致速度。需要速度的时候，Python 生态里有 NumPy、Cython、Numba 这些加速方案。</p>
+<hr>
+<h2>7. 2025 年的升级</h2>
+<p>2021 年前后，我把 Brian 仓库里的 Python 2 版本适配到了 Python 3，建了一个衍生仓库（github.com/Kivy-CN/flops），同时在 README 里加了 Brian 原始故事的中文说明。当时这个版本还比较简单，只做了最基本的 Python 3 兼容。</p>
+<p>到了 2026 年，发现这个项目还有很大的升级空间。</p>
+<p>原版 flops.c 发布于 1992 年，那时候：</p>
+<ul>
+<li>CPU 是单核心的（Intel 80486 时代）</li>
+<li>没有 pthreads，多线程还是个新鲜概念</li>
+<li>计时用的是 <code>getrusage()</code> 系统调用，精度到毫秒</li>
+<li>输出格式固定，没有 JSON，没有 CLI 参数</li>
+</ul>
+<p>三十多年后的今天，彻底翻新了一遍，覆盖 C、Go、Python、Rust 四种语言：</p>
+<h3>C 版本 (flops.c V3.0)</h3>
+<ul>
+<li><strong>C11 标准</strong>，清理了所有 K&amp;R 遗留语法，用上了现代类型系统</li>
+<li><strong>POSIX pthreads 多线程并行</strong>——8 个模块中 7 个可并行，自动按线程数分割迭代区间；模块 2 因循环依赖保持串行</li>
+<li><code>clock_gettime(CLOCK_THREAD_CPUTIME_ID)</code>：纳秒级精度，而且测的是每线程的 CPU 时间而非墙钟时间，多核场景下计时更准</li>
+<li><strong>命令行参数</strong>：<code>-j N</code>（线程数）、<code>-t SEC</code>（运行时长）、<code>--json</code>、<code>--all-modes</code></li>
+<li><strong><code>--all-modes</code></strong> 自动对比单线程 vs 多线程，输出加速比表格</li>
+<li><strong>JSON 输出</strong>：方便脚本和 CI/CD 解析</li>
+</ul>
+<h3>Go 版本 (flops.go V3.0)</h3>
+<ul>
+<li>全新重写，基于 goroutine + <code>sync.WaitGroup</code> 并行</li>
+<li><code>flag</code> 标准库 CLI，和 C 版参数对齐</li>
+<li>同样提供 <code>--json</code>、<code>--all-modes</code></li>
+<li>单文件 <code>go build</code> 就行，零外部依赖</li>
+</ul>
+<h3>Python 版本 (flops.py V3.0)</h3>
+<ul>
+<li>
+<p><strong>三种并行模式</strong>：</p>
+</li>
+<li>
+<p><code>--mode mp</code>（默认）：<code>ProcessPoolExecutor</code>，真正的多核并行——绕过全局解释器锁（GIL）</p>
+</li>
+<li><code>--mode thread</code>：<code>ThreadPoolExecutor</code>，有意展示 GIL 的瓶颈效应</li>
+<li>
+<p><code>--mode numpy</code>：NumPy 向量化，把一个块的循环完全交给底层 C 来跑</p>
+</li>
+<li>
+<p><strong>argparse CLI</strong>：<code>-j</code>、<code>-t</code>、<code>--mode</code>、<code>--all-modes</code>、<code>--json</code>、<code>--repeat N</code></p>
+</li>
+<li><strong><code>--repeat N</code></strong> 统计模式：多次运行后输出 mean/min/max/stddev</li>
+<li><strong>对比模式</strong>：一条命令同时跑 serial / mp / thread / numpy 四种策略</li>
+</ul>
+<div class="highlight"><pre><span></span><code>Mode          Workers    MFLOPS(1)    MFLOPS(2)    MFLOPS(3)    MFLOPS(4)  Wall(s)
+serial              1        40.33        38.68        34.91        33.13    21.20
+mp                  4        43.22       104.80        96.72        93.75    12.10
+thread              4        41.34        42.83        38.93        38.23    20.27
+-----------------------------------------------------------------------------------
+Speedup vs serial    serial: 1.00x    mp: 2.83x    thread: 1.15x
+</code></pre></div>
+
+<p>一目了然：</p>
+<ul>
+<li><strong>多进程</strong>（mp）4 核加速 2.83 倍 → GIL 不是问题</li>
+<li><strong>多线程</strong>（thread）几乎零加速 → GIL 把性能掐死了</li>
+<li><strong>NumPy</strong> 块内向量化 + 多进程分摊，理论上可以更猛</li>
+</ul>
+<h3>Rust 版本 (flops_rs V3.0)</h3>
+<ul>
+<li>基于 <strong>rayon</strong> 并行迭代器 + <strong>clap</strong> derive CLI + <strong>serde</strong> JSON</li>
+<li><code>cargo build --release</code> 编译，运行时性能接近 C</li>
+<li>完整支持 8 模块、<code>--all-modes</code> 对比模式</li>
+</ul>
+<h3>测试套件 (test_flops.py)</h3>
+<p>40+ 测试覆盖：</p>
+<ul>
+<li>C：单核、2/4/all 核、<code>--all-modes</code>、<code>--json</code>、加速比分析</li>
+<li>Go：单核、2/4 核、<code>--all-modes</code>、<code>--json</code></li>
+<li>Python：serial / mp(2,4) / thread(4) / numpy</li>
+<li>Rust：有 cargo 时自动编译测试</li>
+<li><strong>交叉验证</strong>：C vs Python vs Go 全部 8 模块数值一致性（全通过）</li>
+<li>加速比效率分析：单核 vs 多核，算并行效率百分比</li>
+</ul>
+<hr>
+<h2>8. 在你的电脑上跑一次</h2>
+<div class="highlight"><pre><span></span><code><span class="n">git</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">Kivy</span><span class="o">-</span><span class="n">CN</span><span class="o">/</span><span class="n">flops</span><span class="p">.</span><span class="n">git</span>
+<span class="n">cd</span><span class="w"> </span><span class="n">flops</span>
+<span class="n">make</span><span class="w">          </span><span class="err">#</span><span class="w"> </span><span class="n">编译</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">Go</span><span class="err">，</span><span class="n">运行完整测试</span>
+<span class="n">make</span><span class="w"> </span><span class="n">compare</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">单核</span><span class="w"> </span><span class="n">vs</span><span class="w"> </span><span class="n">多核对比</span>
+<span class="n">make</span><span class="w"> </span><span class="n">test</span><span class="w">     </span><span class="err">#</span><span class="w"> </span><span class="mi">40</span><span class="o">+</span><span class="w"> </span><span class="n">测试的完整套件</span>
+</code></pre></div>
+
+<p>或者手动编译各语言版本：</p>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">编译</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">版本</span>
+<span class="n">gcc</span><span class="w"> </span><span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">c11</span><span class="w"> </span><span class="o">-</span><span class="n">O2</span><span class="w"> </span><span class="o">-</span><span class="n">pthread</span><span class="w"> </span><span class="o">-</span><span class="n">lm</span><span class="w"> </span><span class="n">flops</span><span class="p">.</span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">flops</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">单线程基准</span>
+<span class="p">.</span><span class="o">/</span><span class="n">flops</span><span class="w"> </span><span class="o">-</span><span class="n">j</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">全核并行</span>
+<span class="p">.</span><span class="o">/</span><span class="n">flops</span><span class="w"> </span><span class="o">-</span><span class="n">j</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="n">nproc</span><span class="p">)</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">对比模式</span><span class="w"> </span><span class="err">—</span><span class="w"> </span><span class="n">看加速比</span>
+<span class="p">.</span><span class="o">/</span><span class="n">flops</span><span class="w"> </span><span class="c1">--all-modes -j $(nproc)</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">JSON</span><span class="w"> </span><span class="n">输出</span><span class="err">（</span><span class="n">方便脚本解析</span><span class="err">）</span>
+<span class="p">.</span><span class="o">/</span><span class="n">flops</span><span class="w"> </span><span class="c1">--json -j 4</span>
+
+<span class="err">#</span><span class="w"> </span><span class="k">Go</span><span class="w"> </span><span class="n">版本</span>
+<span class="k">go</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">flops_go</span><span class="w"> </span><span class="n">flops</span><span class="p">.</span><span class="k">go</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">flops_go</span><span class="w"> </span><span class="o">-</span><span class="n">j</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="n">nproc</span><span class="p">)</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="n">对比所有模式</span>
+<span class="n">python3</span><span class="w"> </span><span class="n">flops</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="c1">--all-modes -j 4</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">Rust</span><span class="w"> </span><span class="n">版本</span>
+<span class="n">cd</span><span class="w"> </span><span class="n">flops_rs</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">cargo</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="c1">--release &amp;&amp; ./target/release/flops -j $(nproc)</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">一键构建</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">测试</span>
+<span class="n">make</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">test</span>
+</code></pre></div>
+
+<hr>
+<h2>9. 一些有趣的观察</h2>
+<h3>"1992 年的超算不如你的手机"</h3>
+<p>1992 年世界最快的超级计算机是 Cray Y-MP C90，标称峰值大约 16 GFLOPS <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。上面那颗 16 核笔记本处理器的理论峰值约 1,382 GFLOPS——是它的 <strong>86 倍</strong>。有的手机的CPU的FLOPS峰值可能也超过了 1 TFLOPS。</p>
+<h3>多线程 scaling 不是线性的</h3>
+<p>10 核加速 7.19 倍——为什么不是 10 倍？因为：</p>
+<ol>
+<li>模块 2 有循环依赖（<code>s = -s; sa = sa + s</code>），只能串行——这就是阿姆达尔定律</li>
+<li>线程创建/销毁、上下文切换有开销</li>
+<li>所有核心共享同一块 L3 缓存和内存带宽</li>
+<li>散热和功耗管理可能导致部分核心降频（特别是移动平台）</li>
+</ol>
+<h3>除法算得慢</h3>
+<p>模块 7（25% FDIV）在所有模块里 MFLOPS 最低——因为一次浮点除法比乘法多花好几倍时间。这也是为什么编译器优化里有一条铁律：<strong>能改写成乘以倒数，就绝不做除法</strong>。</p>
+<hr>
+<h2>10. 局限性</h2>
+<p>flops.c 是一个<strong>微观基准</strong>（micro-benchmark），它有意识地排除了：</p>
+<ul>
+<li><strong>内存带宽</strong>：所有数据都在寄存器里，完全适配 L1 缓存</li>
+<li><strong>SIMD 指令</strong>：没有用 SSE/AVX/NEON，纯标量运算</li>
+<li><strong>真实世界的复杂性</strong>：没有 IO、网络、系统调用、多进程通信</li>
+</ul>
+<p>所以它的 MFLOPS 数字会比真实应用程序高不少。但它仍然有价值：</p>
+<ul>
+<li>测量 CPU 的<strong>纯算术上限</strong>——其他任何程序都不会超过这个数字</li>
+<li>快速评判编译器质量——不同优化选项（-O0/-O2/-O3/-march=native）的性能差异一目了然</li>
+<li>对比语言运行时效率——同样的算法，Python 为什么这么慢，Go 和 Rust 又各有啥特点</li>
+<li>教学价值——展示浮点运算、流水线、指令混合、并行效率这些概念</li>
+</ul>
+<p>如果想测更真实的性能，应该搭配 <strong>LINPACK</strong>（内存+计算混合）、<strong>STREAM</strong>（纯内存带宽）和 <strong>SPEC CPU</strong>（完整应用场景）一起用。</p>
+<hr>
+<h2>附：一点混乱的编年史</h2>
+<table>
+<thead>
+<tr>
+<th>年代</th>
+<th>里程碑</th>
+<th>FLOPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1945</td>
+<td>ENIAC（电子管）</td>
+<td>~500 FLOPS <sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></td>
+</tr>
+<tr>
+<td>1976</td>
+<td>Cray-1（向量超算）</td>
+<td>~160 MFLOPS <sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></td>
+</tr>
+<tr>
+<td>1992</td>
+<td>Al Aburto 发布 flops.c V2.0；Cray Y-MP C90 服役</td>
+<td>~16 GFLOPS <sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
+</tr>
+<tr>
+<td>1997</td>
+<td>Intel Pentium II</td>
+<td>~300 MFLOPS</td>
+</tr>
+<tr>
+<td>2008</td>
+<td>IBM Roadrunner 超算</td>
+<td>突破 1 PFLOPS（10¹⁵）<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup></td>
+</tr>
+<tr>
+<td>2014</td>
+<td>Brian Olson 将 flops 项目上传至 GitHub</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>CycleUser 完成 flops 的 Python 3 适配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>AMD 发布 Zen 4；Frontier 超算突破 1 EFLOPS（10¹⁸）<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup></td>
+<td>—</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>AMD Zen 4 Dragon Range 移动处理器，16 核，支持 AVX-512</td>
+<td>~1.38 TFLOPS</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>flops.c V3.0——C/Go/Python/Rust 四语言现代化，多线程/多进程/向量化</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>从 500 FLOPS 到 1,000,000,000,000,000,000 FLOPS，用了 80 年。<strong>你口袋里手机的计算能力，可能都远远超过了 1992 年整个星球上最快的超级计算机。</strong></p>
+<p>而 flops.c，这个跨越了 33 年的小程序，至今仍然能编译、运行，准确告诉你——这台机器算数学到底有多快。项目地址：github.com/Kivy-CN/flops</p>
+<hr>
+<h2>参考出处</h2>
+<p>预览时标签不可点</p>
+<p>Close</p>
+<p>更多</p>
+<p>Name cleared</p>
+<p><strong>微信扫一扫赞赏作者</strong></p>
+<p>Like the AuthorOther Amount</p>
+<p>赞赏后展示我的头像</p>
+<p>作品</p>
+<p>暂无作品</p>
+<p>Like the Author</p>
+<p>Other Amount</p>
+<p>¥</p>
+<p>最低赞赏 ¥0</p>
+<p>OK</p>
+<p>Back</p>
+<p><strong>Other Amount</strong></p>
+<p>更多</p>
+<p>赞赏金额</p>
+<p>¥</p>
+<p>最低赞赏 ¥0</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+<p>7</p>
+<p>8</p>
+<p>9</p>
+<p>0</p>
+<p>.</p>
+<p>基础知识 · 目录</p>
+<h1>基础知识</h1>
+<p>上一篇基础知识：初级统计概念的简单介绍下一篇滤波方法：从移动平均到粒子滤波</p>
+<p>Close</p>
+<p>更多</p>
+<h1></h1>
+<p>搜索「」网络结果</p>
+<p>Close</p>
+<p><strong>调整当前正文文字大小</strong></p>
+<p>更多</p>
+<p>100%</p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Cray Y-MP C90 峰值约 16 GFLOPS —— C916 配置（16 处理器），来源：Fred Gannett's Cray FAQ Part 5；Wikipedia "Cray C90"。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>现代处理器上浮点除法比乘法慢约 3–10 倍 —— 参考 Agner Fog, "Instruction tables: Lists of instruction latencies, throughputs and micro-operation breakdowns for x86 and ARM microprocessors," https://agner.org/optimize/。例如 Zen 4 架构中 FMUL 延迟约 4–5 周期，FDIV 延迟约 11–20 周期（单精度到双精度）。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>内存访问延迟约 100–200 倍于寄存器 —— 参考 Hennessy &amp; Patterson, "Computer Architecture: A Quantitative Approach," 6th ed., 2017, Table 2.3：L1 寄存器 ~0.25ns，DRAM ~50–100ns。&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Al Aburto, flops.c V2.0, 1992. 原始代码头注释标注作者邮箱 aburto@nosc.mil（NOSC = Naval Ocean Systems Center）。Brian Olson 的 GitHub 仓库保留了原始代码：https://github.com/brianolson/flops 。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>ENIAC 约 500 FLOPS —— Wikipedia "ENIAC"："ENIAC was able to process about 500 FLOPS." 来源引用自 Wikipedia ENIAC 词条注 36。&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>Cray-1 峰值 160 MFLOPS —— Wikipedia "Cray-1" infobox；Russell, R.M. (1978). "The CRAY-1 Computer System." <em>Commun. ACM</em> 21(1): 63–72. doi:10.1145/359327.359336。&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p>IBM Roadrunner 于 2008 年 5 月 25 日突破 1 PFLOPS —— Wikipedia "Roadrunner (supercomputer)"；Barker et al. (2008), "Entering the petaflop era: The architecture and performance of Roadrunner," SC08。&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:8">
+<p>Frontier 超算于 2022 年 5 月突破 1 EFLOPS —— Wikipedia "Frontier (supercomputer)"；ORNL 新闻稿 "Frontier supercomputer debuts as world's fastest, breaking exascale barrier," May 30, 2022。&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep" data-i18n="category_label">分类</span>:
+        <abbr class="category">
+            <a href="./category/math.html">Math</a>
+        </abbr>
+       </footer>
+    
+</section>
+
+<section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
+    <script src="https://giscus.app/client.js"
+        data-repo="cycleuser/cycleuser.github.io"
+        data-repo-id="R_kgDOL4NKYA"
+        data-category="General"
+        data-category-id="DIC_kwDOL4NKYM4DBK3X"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    function update() {
+        var t = giscusTheme(getTheme());
+        var s = document.querySelector('script[src*="giscus"]');
+        if (s) s.setAttribute('data-theme', t);
+        sendTheme(t);
+    }
+    // 初始设置
+    var s = document.querySelector('script[src*="giscus"]');
+    if (s) s.setAttribute('data-theme', giscusTheme(getTheme()));
+    // 监听明暗切换
+    new MutationObserver(function() { update(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    // 重试几次确保 iframe 加载完成
+    var tries = 0;
+    var timer = setInterval(function() {
+        if (document.querySelector('iframe.giscus-frame')) { sendTheme(giscusTheme(getTheme())); clearInterval(timer); }
+        if (++tries > 20) clearInterval(timer);
+    }, 500);
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

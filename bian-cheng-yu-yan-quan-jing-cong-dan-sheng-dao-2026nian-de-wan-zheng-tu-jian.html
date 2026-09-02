@@ -1,0 +1,3285 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894037367471530"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9894037367471530">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=19' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="./index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li class="active"><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li class="active"><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li class="active"><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li><li class="active"><a href="./2048游戏.html" data-i18n="2048">2048</a></li><li class="active"><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li><li class="active"><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li class="has-sub"><a href="./categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="./category/academic.html">Academic (3)</a></li><li><a href="./category/ai.html">AI (6)</a></li><li><a href="./category/c.html">C (16)</a></li><li><a href="./category/camera.html">Camera (15)</a></li><li><a href="./category/chromebook.html">ChromeBook (2)</a></li><li><a href="./category/cuda.html">CUDA (1)</a></li><li><a href="./category/design.html">Design (1)</a></li><li><a href="./category/diy.html">DIY (1)</a></li><li><a href="./category/duke.html">Duke (1)</a></li><li><a href="./category/education.html">Education (21)</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./category/hackintosh.html">Hackintosh (7)</a></li><li><a href="./category/java.html">Java (1)</a></li><li><a href="./category/linux.html">Linux (4)</a></li><li><a href="./category/llm.html">LLM (55)</a></li><li><a href="./category/ltfs.html">LTFS (1)</a></li><li><a href="./category/mac.html">Mac (3)</a></li><li><a href="./category/math.html">Math (30)</a></li><li><a href="./category/ml.html">ML (4)</a></li><li><a href="./category/modeling.html">Modeling (9)</a></li><li><a href="./category/nas.html">NAS (1)</a></li><li><a href="./category/nix.html">Nix (1)</a></li><li><a href="./category/photography.html">Photography (1)</a></li><li><a href="./category/programming.html">Programming (12)</a></li><li><a href="./category/pve.html">PVE (1)</a></li><li><a href="./category/python.html">Python (26)</a></li><li><a href="./category/qgis.html">QGIS (3)</a></li><li><a href="./category/qt.html">QT (1)</a></li><li><a href="./category/raspbian.html">Raspbian (1)</a></li><li><a href="./category/science.html">Science (2)</a></li><li><a href="./category/sdr.html">SDR (2)</a></li><li><a href="./category/software.html">Software (3)</a></li><li><a href="./category/story.html">Story (68)</a></li><li><a href="./category/sui-bi.html">随笔 (2)</a></li><li><a href="./category/tool.html">Tool (49)</a></li><li><a href="./category/tools.html">Tools (2)</a></li><li><a href="./category/virtualization.html">Virtualization (1)</a></li><li><a href="./category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./category/windows.html">Windows (1)</a></li><li><a href="./category/work.html">Work (24)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="./tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="./tag/7900xtx.html">7900XTX (3)</a></li><li><a href="./tag/9bmo-xing.html">9B模型 (1)</a></li><li><a href="./tag/abbreviations.html">abbreviations (1)</a></li><li><a href="./tag/academic.html">academic (1)</a></li><li><a href="./tag/adamw.html">AdamW (1)</a></li><li><a href="./tag/advice.html">advice (1)</a></li><li><a href="./tag/aerodynamics.html">aerodynamics (3)</a></li><li><a href="./tag/agent.html">Agent (3)</a></li><li><a href="./tag/ai.html">AI (31)</a></li><li><a href="./tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="./tag/aigc.html">AIGC (1)</a></li><li><a href="./tag/ailun-li.html">AI伦理 (1)</a></li><li><a href="./tag/airfoil.html">airfoil (1)</a></li><li><a href="./tag/algorithm.html">Algorithm (12)</a></li><li><a href="./tag/amd.html">AMD (1)</a></li><li><a href="./tag/anime.html">anime (1)</a></li><li><a href="./tag/arc.html">ARC (1)</a></li><li><a href="./tag/architecture.html">Architecture (3)</a></li><li><a href="./tag/arithmetic.html">arithmetic (1)</a></li><li><a href="./tag/attitude.html">Attitude (2)</a></li><li><a href="./tag/bayesian.html">Bayesian (2)</a></li><li><a href="./tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="./tag/beginner.html">Beginner (3)</a></li><li><a href="./tag/ben-di-bu-shu.html">本地部署 (5)</a></li><li><a href="./tag/ben-di-bu-shu-bing-yun-xing-omnicoder-9bde-su-du-zhi-mi-moxing-vs-ollama.html">本地部署并运行omnicoder-9b的速度之谜MoXing-vs-Ollama (1)</a></li><li><a href="./tag/ben-di-mo-xing.html">本地模型 (3)</a></li><li><a href="./tag/bfcl.html">BFCL (4)</a></li><li><a href="./tag/bi-ye-lun-wen.html">毕业论文 (1)</a></li><li><a href="./tag/bian-cheng.html">编程 (1)</a></li><li><a href="./tag/binary.html">binary (1)</a></li><li><a href="./tag/bing-fei-gu-yi-wei-shi-yao-wo-geng-duo-yong-ming-ling-xing-gong-ju-er-bu-shi-gui.html">并非故意-为什么我更多用命令行工具而不是GUI (1)</a></li><li><a href="./tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="./tag/book.html">Book (10)</a></li><li><a href="./tag/brent.html">Brent (1)</a></li><li><a href="./tag/bullshit.html">bullshit (1)</a></li><li><a href="./tag/c.html">C (10)</a></li><li><a href="./tag/camera.html">Camera (23)</a></li><li><a href="./tag/career.html">career (1)</a></li><li><a href="./tag/causation.html">Causation (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-da-mo-xing-omnicoder-9b-jian-ce-moxing-vs-ollama-dui-bi.html">超强的本地大模型-OmniCoder-9B-简测MoXing-vs-Ollama-对比 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-xiao-mo-xing-omnicoder-9bde-an-zhuang-yu-shi-yong-zhi-nan.html">超强的本地小模型OmniCoder-9B的安装与使用指南 (1)</a></li><li><a href="./tag/chao-xiao-mo-xing.html">超小模型 (1)</a></li><li><a href="./tag/chat.html">Chat (1)</a></li><li><a href="./tag/chatgpt.html">ChatGPT (1)</a></li><li><a href="./tag/cheng-chang.html">成长 (1)</a></li><li><a href="./tag/chouchou-pdflun-wen-zhong-ming-ming-gong-ju-sheng-ji-liao-zhe-ci-zhuan-men-you-hua-liao-zhong-wen-lun-wen-zhi-chi.html">Chou瞅-PDF论文重命名工具升级了这次专门优化了中文论文支持 (1)</a></li><li><a href="./tag/chouchou-yi-ge-pythonxiao-gong-ju-rang-ni-de-lun-wen-pdfwen-jian-ming-bu-zai-shi-luan-ma.html">Chou瞅一个Python小工具让你的论文PDF文件名不再是乱码 (1)</a></li><li><a href="./tag/chromebook.html">ChromeBook (2)</a></li><li><a href="./tag/cli.html">CLI (1)</a></li><li><a href="./tag/code.html">Code (2)</a></li><li><a href="./tag/code-generation.html">Code Generation (6)</a></li><li><a href="./tag/coding.html">Coding (1)</a></li><li><a href="./tag/cognition.html">Cognition (1)</a></li><li><a href="./tag/comics.html">comics (1)</a></li><li><a href="./tag/communicate.html">Communicate (6)</a></li><li><a href="./tag/communication.html">communication (3)</a></li><li><a href="./tag/comparison.html">comparison (1)</a></li><li><a href="./tag/computability.html">Computability (12)</a></li><li><a href="./tag/computer.html">computer (3)</a></li><li><a href="./tag/conda.html">Conda (2)</a></li><li><a href="./tag/conda-forge.html">conda-forge (1)</a></li><li><a href="./tag/configback-kua-ping-tai-kai-fa-pei-zhi-wen-jian-de-wu-tong-bei-fen-qian-yi-guan-li-gong-ju.html">ConfigBack-跨平台开发配置文件的无痛备份迁移管理工具 (1)</a></li><li><a href="./tag/cong-shu-zu-dao-fu-za-shu-ju-cyu-yan-shi-zen-yao-yi-bu-bu-bian-fu-za-de.html">从数组到复杂数据C语言是怎么一步步变复杂的 (1)</a></li><li><a href="./tag/copytalker-kua-yue-yu-yan-zhang-ai-de-jin-shi-shi-yu-yin-fan-yi.html">CopyTalker-跨越语言障碍的近实时语音翻译 (1)</a></li><li><a href="./tag/correlation.html">Correlation (1)</a></li><li><a href="./tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="./tag/cs.html">CS (1)</a></li><li><a href="./tag/cuda.html">CUDA (6)</a></li><li><a href="./tag/culture.html">culture (1)</a></li><li><a href="./tag/cursor.html">Cursor (1)</a></li><li><a href="./tag/cyu-yan-fu-xi-quan-gong-lue-yi-wen-chi-tou-suo-you-zhi-shi-dian.html">C语言复习全攻略-一文吃透所有知识点 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-numc-yi-ge-numpy-feng-ge-de-c-yu-yan-ku.html">C语言基础教程NumC-一个-NumPy-风格的-C-语言库 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shi-xian-lei-si-dong-tai-lei-xing-dui-yong-hu-shu-ru-jie-xi-bing-qie-xuan-ze-he-gua-de-shu-ju-lei-xing.html">C语言基础教程-实现类似动态类型对用户输入解析并且选择合适的数据类型 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shu-zu-xing-zhuang-50xing-200000lie-vs-200000xing-50lie-tong-yang-de-shu-ju-bu-tong-de-xing-neng.html">C语言基础教程数组形状-50行200000列-vs-200000行50列-同样的数据不同的性能 (1)</a></li><li><a href="./tag/da-gong.html">打工 (1)</a></li><li><a href="./tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="./tag/da-xue-sheng-huo.html">大学生活 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing.html">大语言模型 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing-li-mian-de-tokende-han-yi-he-yuan-liu.html">大语言模型里面的token的含义和源流 (1)</a></li><li><a href="./tag/dai-ma-neng-li.html">代码能力 (1)</a></li><li><a href="./tag/dan-jing-du-fu-dian-shu-de-fen-bian-lu-wei-shi-yao-zai-ji-suan-ji-li-1000-mo-he-1000-mo-jia-001-ke-neng-shi-yi-yang-de.html">单精度浮点数的分辨率为什么在计算机里-1000-万和-1000-万加-001-可能是一样的 (1)</a></li><li><a href="./tag/dan-yi-zhi-ze-yuan-ze-xie-hao-pythonhan-shu-de-di-yi-bu.html">单一职责原则写好Python函数的第一步 (1)</a></li><li><a href="./tag/data.html">Data (3)</a></li><li><a href="./tag/data-science.html">Data Science (2)</a></li><li><a href="./tag/database.html">Database (1)</a></li><li><a href="./tag/datewise-photo-organizer-ji-yu-ri-qi-shi-jian-jin-xing-tu-pian-zu-zhi-he-lu-jing-guan-li-de-she-ying-fu-zhu-gong-ju-ruan-jian.html">Datewise-Photo-Organizer-基于日期时间进行图片组织和路径管理的摄影辅助工具软件 (1)</a></li><li><a href="./tag/decision-making.html">decision-making (1)</a></li><li><a href="./tag/design.html">Design (1)</a></li><li><a href="./tag/dian-che-nan-ti-han-shang-de-zhi-jia-hui-zai-shi-gu-qian-tu-ran-tui-chu-yao.html">电车难题厂商的智驾会在事故前突然退出么 (1)</a></li><li><a href="./tag/dimension.html">dimension (1)</a></li><li><a href="./tag/discuss.html">Discuss (7)</a></li><li><a href="./tag/disease.html">Disease (1)</a></li><li><a href="./tag/diy.html">DIY (1)</a></li><li><a href="./tag/download.html">Download (1)</a></li><li><a href="./tag/earth-science.html">Earth Science (1)</a></li><li><a href="./tag/education.html">Education (15)</a></li><li><a href="./tag/efficiency.html">efficiency (1)</a></li><li><a href="./tag/ekf.html">EKF (1)</a></li><li><a href="./tag/emotion.html">emotion (1)</a></li><li><a href="./tag/engineering.html">Engineering (1)</a></li><li><a href="./tag/environment.html">Environment (1)</a></li><li><a href="./tag/er-ji.html">耳机 (1)</a></li><li><a href="./tag/er-jin-zhi.html">二进制 (1)</a></li><li><a href="./tag/ertinger-ting-yi-ge-jian-dan-de-yin-pin-jiang-zao-gong-ju.html">ErTing耳听一个简单的音频降噪工具 (1)</a></li><li><a href="./tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="./tag/fa-lan-ke-fu.html">法兰克福 (1)</a></li><li><a href="./tag/family.html">family (1)</a></li><li><a href="./tag/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">FanFu凡赴-把-Ollama-的-GGUF-模型转成-HuggingFace-格式纯好玩 (1)</a></li><li><a href="./tag/fang-fa-bi-gui-mo-geng-zhong-yao-agenticqwenyu-needlede-xiao-mo-xing-zhi-neng-ti-ying-yong-tan-suo.html">方法比规模更重要AgenticQwen与Needle的小模型智能体应用探索 (1)</a></li><li><a href="./tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="./tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="./tag/filtering.html">Filtering (6)</a></li><li><a href="./tag/folderlensyi-ge-pyside6shi-xian-de-jian-dan-wen-jian-guan-li-qi-kai-fa-shi-li.html">FolderLens一个PySide6实现的简单文件管理器开发实例 (1)</a></li><li><a href="./tag/fractal.html">fractal (1)</a></li><li><a href="./tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="./tag/freshman.html">freshman (5)</a></li><li><a href="./tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="./tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./tag/function-calling.html">function calling (1)</a></li><li><a href="./tag/game.html">Game (2)</a></li><li><a href="./tag/gametheory.html">GameTheory (1)</a></li><li><a href="./tag/gangdan-de-zhi-shi-ku-shi-zen-yao-lian-cheng-de.html">GangDan-的知识库是怎么炼成的 (1)</a></li><li><a href="./tag/gangdan-geng-xin-ke-yong-zai-xian-mo-xing-cong-xie-zong-shu-dao-xie-wan-zheng-wen-zhang.html">GangDan-更新可用在线模型从写综述到写完整文章 (1)</a></li><li><a href="./tag/gangdan-wu-yue-zhong-de-ji-zhong-geng-xin-jing-zhun-xuan-wen-zhi-shi-ku-fen-xi-xue-xi-mo-kuai-quan-mian-xiu-fu.html">GangDan-五月中的集中更新精准选文知识库分析学习模块全面修复 (1)</a></li><li><a href="./tag/gangdan-you-geng-xin-liao-yi-bo-cong-kai-fa-zhu-shou-zhuan-xing-wei-zhi-shi-guan-li-yu-jiao-xue-fu-zhu-gong-ju.html">GangDan-又更新了一波从开发助手转型为知识管理与教学辅助工具 (1)</a></li><li><a href="./tag/gangdangang-dan-sheng-ji-kai-yuan-ben-di-zhi-shi-ku-zhi-chi-ben-di-mo-xing-he-zai-xian-mo-xing-de-shen-du-yan-jiu-zhu-shou.html">GangDan纲担升级开源本地知识库-支持本地模型和在线模型的深度研究助手 (1)</a></li><li><a href="./tag/gangdangang-dan-zhong-gou-ji-hu-zhong-zuo-liao-yi-bian.html">GangDan纲担重构-几乎重做了一遍 (1)</a></li><li><a href="./tag/gangdanji-xu-geng-xin-xian-zai-neng-zhi-jie-shang-chuan-cajgou-jian-zhi-shi-ku-liao.html">GangDan继续更新现在能直接上传CAJ构建知识库了 (1)</a></li><li><a href="./tag/gangdanzhi-shi-ku-dao-chu-gai-jin-ke-yi-zhi-jie-dao-chu-xia-zai-hao-de-wen-zhang-yuan-wen-liao.html">GangDan知识库导出改进-可以直接导出下载好的文章原文了 (1)</a></li><li><a href="./tag/gao-xiao-jiao-shi-jian-yi-da-yi-kai-xue-yao-you-dian-nao-huan-yao-an-zhuang-opencodeshi-yong-zhi-neng-ti.html">高校教师建议大一开学要有电脑还要安装OpenCode使用智能体 (1)</a></li><li><a href="./tag/gei-xin-shou-shi-xian-yi-wei-shu-zu-de-liang-chong-si-lu-chuan-tong-cyu-yan-vs-numcku.html">给新手实现一维数组的两种思路传统C语言-vs-NumC库 (1)</a></li><li><a href="./tag/gemma4.html">Gemma4 (1)</a></li><li><a href="./tag/general-education.html">general-education (1)</a></li><li><a href="./tag/geojstool-di-qiu-hua-xue-fen-xi-gong-ju-wang-ye-ban-de-geopytool.html">GeoJsTool-地球化学分析工具-网页版的GeoPyTool (1)</a></li><li><a href="./tag/geology.html">Geology (4)</a></li><li><a href="./tag/geometry.html">geometry (1)</a></li><li><a href="./tag/geopython.html">GeoPython (1)</a></li><li><a href="./tag/gguf.html">GGUF (2)</a></li><li><a href="./tag/gis.html">GIS (3)</a></li><li><a href="./tag/glm.html">GLM (1)</a></li><li><a href="./tag/glumpy.html">GlumPy (2)</a></li><li><a href="./tag/golden-section.html">Golden Section (1)</a></li><li><a href="./tag/gong-ju-diao-yong.html">工具调用 (2)</a></li><li><a href="./tag/google-de-turboquant-suan-fa-ru-he-rang-aigeng-sheng-nei-cun-gao-ding-xiang-liang-liang-hua-nan-ti.html">Google-的-TurboQuant-算法如何让AI更省内存搞定向量量化难题 (1)</a></li><li><a href="./tag/gpt-35.html">GPT-3.5 (3)</a></li><li><a href="./tag/gpt-4o.html">GPT-4o (1)</a></li><li><a href="./tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="./tag/graduate-school.html">graduate-school (1)</a></li><li><a href="./tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="./tag/granite4.html">granite4 (1)</a></li><li><a href="./tag/gsm8k.html">GSM8K (2)</a></li><li><a href="./tag/gu-ge-turboquant-lun-wen-zhong-yi-ji-yu-jin-zui-you-niu-qu-lu-de-gao-su-zai-xian-xiang-liang-liang-hua-suan-fa.html">谷歌-TurboQuant-论文中译基于近最优扭曲率的高速在线向量量化算法 (1)</a></li><li><a href="./tag/guan-xi-xing-shu-ju-ku.html">关系型数据库 (1)</a></li><li><a href="./tag/guide.html">Guide (1)</a></li><li><a href="./tag/hack.html">Hack (2)</a></li><li><a href="./tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="./tag/hadoop.html">Hadoop (2)</a></li><li><a href="./tag/hardware.html">Hardware (2)</a></li><li><a href="./tag/hate.html">Hate (1)</a></li><li><a href="./tag/hbase.html">HBase (1)</a></li><li><a href="./tag/heibancong-markdownzhuan-chu-ppthuan-deng-pian.html">HeiBan从Markdown转出PPT幻灯片 (1)</a></li><li><a href="./tag/heibanhei-ban-jiang-markdownzhuan-huan-cheng-htmllai-dang-jiang-yi.html">HeiBan黑板-将Markdown转换成HTML来当讲义 (1)</a></li><li><a href="./tag/hellaswag.html">HellaSwag (2)</a></li><li><a href="./tag/hermes.html">Hermes (1)</a></li><li><a href="./tag/heroism.html">heroism (1)</a></li><li><a href="./tag/history.html">History (6)</a></li><li><a href="./tag/huan-jue.html">幻觉 (1)</a></li><li><a href="./tag/huan-wei-si-kao-he-ni-chou-sha.html">换位思考和你瞅啥 (1)</a></li><li><a href="./tag/huan-yi-ge-ba-wang-ye-zhuan-huan-cheng-markdownde-python-xiao-gong-ju.html">Huan-一个把网页转换成-Markdown的Python-小工具 (1)</a></li><li><a href="./tag/hui-yi.html">回忆 (1)</a></li><li><a href="./tag/humaneval.html">HumanEval (2)</a></li><li><a href="./tag/ide.html">IDE (2)</a></li><li><a href="./tag/imbalance.html">Imbalance (1)</a></li><li><a href="./tag/imu.html">IMU (1)</a></li><li><a href="./tag/jacobian.html">Jacobian (1)</a></li><li><a href="./tag/java-ji-chu-yu-fa-5fen-zhong-ru-men.html">Java-基础语法5分钟入门 (1)</a></li><li><a href="./tag/ji-chu-zhi-shi-chu-ji-tong-ji-gai-nian-de-jian-dan-jie-shao.html">基础知识初级统计概念的简单介绍 (1)</a></li><li><a href="./tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="./tag/ji-nian.html">纪念 (1)</a></li><li><a href="./tag/ji-suan-ji.html">计算机 (1)</a></li><li><a href="./tag/ji-suan-ji-zu-cheng.html">计算机组成 (1)</a></li><li><a href="./tag/ji-yu-ben-di-mo-xing-de-bian-cheng-xue-xi-fu-zhu-huan-jing-da-jian-wan-zheng-zhi-nan.html">基于本地模型的编程学习辅助环境搭建完整指南 (1)</a></li><li><a href="./tag/ji-yu-tunade-virtualbox-yu-ubuntu-xu-ni-ji-bu-shu-zhi-nan.html">基于TUNA的-VirtualBox-与-Ubuntu-虚拟机部署指南 (1)</a></li><li><a href="./tag/jian-dan-shuo-shuo-pythonli-mian-de-han-shu-shi-di-yi-gong-min-first-class-citizen.html">简单说说Python里面的函数是第一公民First-Class-Citizen (1)</a></li><li><a href="./tag/jie-zhu-pythonlai-li-jie-zi-gua-ying-xin-pu-sen-ji-fen-yuan-li-shi-xian-yu-dong-tai-ke-shi-hua.html">借助Python来理解自适应辛普森积分原理实现与动态可视化 (1)</a></li><li><a href="./tag/jing-xiang.html">镜像 (1)</a></li><li><a href="./tag/jiu-wen-gao-bie-guo-qu-gao-bie-ke-xue-wang.html">旧文告别过去告别科学网 (1)</a></li><li><a href="./tag/jixingji-xing-dang-agent-dui-hua-chao-chu-shang-xia-wen-xian-zhi-zuo-liao-yi-ge-lei-si-xu-ni-ji-re-qian-yi-cao-lu-fang-an.html">JiXing记行-当-Agent-对话超出上下文限制做了一个类似虚拟机热迁移草率方案 (1)</a></li><li><a href="./tag/job.html">Job (1)</a></li><li><a href="./tag/job-hunting.html">job-hunting (1)</a></li><li><a href="./tag/junck.html">Junck (3)</a></li><li><a href="./tag/kalman.html">Kalman (1)</a></li><li><a href="./tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="./tag/kao-yan-qu-mei-chu-shi-yu-fu-shi.html">考研祛魅初试与复试 (1)</a></li><li><a href="./tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="./tag/kivy.html">Kivy (3)</a></li><li><a href="./tag/kuan-biao.html">宽表 (1)</a></li><li><a href="./tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="./tag/language.html">Language (1)</a></li><li><a href="./tag/learn.html">Learn (4)</a></li><li><a href="./tag/learning.html">Learning (10)</a></li><li><a href="./tag/lens.html">Lens (19)</a></li><li><a href="./tag/lesson.html">Lesson (1)</a></li><li><a href="./tag/lfm.html">LFM (1)</a></li><li><a href="./tag/lfm25.html">lfm2.5 (1)</a></li><li><a href="./tag/li-yong-chao-qiang-de-xiao-mo-xing-omnicoder-9b-shi-shi-turboquant-liang-hua-kv-cache-2-bit-tiao-zhan-fp1.html">利用超强的小模型-OmniCoder-9B-试试-TurboQuant-量化-KV-Cache-2-bit-挑战-FP1 (1)</a></li><li><a href="./tag/li-yong-pythonshi-xian-de-yu-ben-di-da-mo-xing-jiao-hu-de-posix-jian-rong-ceng.html">利用Python实现的与本地大模型交互的POSIX-兼容层 (1)</a></li><li><a href="./tag/liang-hua.html">量化 (3)</a></li><li><a href="./tag/liaoliao-rang-ben-di-da-yu-yan-mo-xing-ai-bang-ni-liao-tian-de-kai-yuan-gong-ju.html">Liao聊-让本地大语言模型-AI-帮你聊天的开源工具 (1)</a></li><li><a href="./tag/library.html">Library (1)</a></li><li><a href="./tag/life.html">life (16)</a></li><li><a href="./tag/lift.html">lift (1)</a></li><li><a href="./tag/linux.html">Linux (9)</a></li><li><a href="./tag/liquid-ai.html">Liquid AI (1)</a></li><li><a href="./tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="./tag/llamacpp.html">llama.cpp (3)</a></li><li><a href="./tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="./tag/llm.html">LLM (7)</a></li><li><a href="./tag/ltfs.html">LTFS (1)</a></li><li><a href="./tag/lto.html">LTO (1)</a></li><li><a href="./tag/mac.html">Mac (11)</a></li><li><a href="./tag/macbook-air-m4.html">MacBook Air M4 (2)</a></li><li><a href="./tag/macos.html">macOS (1)</a></li><li><a href="./tag/markdown.html">Markdown (1)</a></li><li><a href="./tag/materials.html">Materials (1)</a></li><li><a href="./tag/math.html">Math (3)</a></li><li><a href="./tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="./tag/mathematics.html">mathematics (1)</a></li><li><a href="./tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="./tag/maturity.html">maturity (1)</a></li><li><a href="./tag/mayavi.html">MayaVi (1)</a></li><li><a href="./tag/mechanics.html">Mechanics (1)</a></li><li><a href="./tag/memory.html">Memory (4)</a></li><li><a href="./tag/methodology.html">Methodology (1)</a></li><li><a href="./tag/mian-dui-wu-mai-ni-shi-wu-neng-wei-li-huan-shi-xiu-shou-pang-guan.html">面对雾霾你是无能为力还是袖手旁观 (1)</a></li><li><a href="./tag/mian-xiang-dui-xiang-bian-cheng-ru-men-yong-wu-xia-jiao-se-li-jie-python-zhong-de-lei.html">面向对象编程入门用武侠角色理解-Python-中的类 (1)</a></li><li><a href="./tag/microscope.html">Microscope (2)</a></li><li><a href="./tag/mindset.html">mindset (2)</a></li><li><a href="./tag/miniconda3.html">Miniconda3 (1)</a></li><li><a href="./tag/ml.html">ML (4)</a></li><li><a href="./tag/mlx.html">mlx (1)</a></li><li><a href="./tag/mmlu.html">MMLU (2)</a></li><li><a href="./tag/mo-xing-ping-ce.html">模型评测 (1)</a></li><li><a href="./tag/mobile.html">Mobile (1)</a></li><li><a href="./tag/moe.html">MoE (1)</a></li><li><a href="./tag/moon.html">Moon (1)</a></li><li><a href="./tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="./tag/moving-average.html">Moving Average (1)</a></li><li><a href="./tag/moxing.html">moxing (1)</a></li><li><a href="./tag/moxing-he-ollama-dui-bi-cong-omnicoder-9bdao-geng-duo-mo-xing.html">MoXing-和-Ollama-对比从omnicoder-9b到更多模型 (1)</a></li><li><a href="./tag/moxing-su-du-zui-gao-da-dao-ollamade-201-tong-mo-xing-tong-ying-jian-de-shi-ce-dui-bi-omnicoder-2-9b-de-q4_k_m.html">MoXing-速度最高达到-Ollama的-201-同模型同硬件的实测对比OmniCoder-2-9B-的-Q4_K_M (1)</a></li><li><a href="./tag/moxing-wu-yue-geng-xin-suan-shi-lai-liao-ge-da-sao-chu.html">MoXing-五月更新算是来了个大扫除 (1)</a></li><li><a href="./tag/moxing-zhu-li-la-ji-lao-yong-bai-yuan-chao-lian-jie-xian-qia-ben-di-yun-xing-omnicoder-2-9bmo-xing-jie-guo-ye-zhi-you-shi-ji-ge-tokenss.html">MoXing-助力垃圾佬用百元超廉价显卡本地运行omnicoder-2-9b模型结果也只有十几个tokenss (1)</a></li><li><a href="./tag/moxingdi-yu-suan-chang-jing-yong-rx580xian-qia-qing-song-yun-xing-qwen35-9b-q4_k_mmo-xing.html">MoXing低预算场景用RX580显卡轻松运行Qwen35-9b-q4_k_m模型 (1)</a></li><li><a href="./tag/moxingsheng-ji-tong-shi-yun-xing-duo-ge-mo-xing-shi-li.html">MoXing升级同时运行多个模型实例 (1)</a></li><li><a href="./tag/moxingxin-sheng-ji-zhi-jie-duo-she-ollama-bu-fen-mo-xing-ti-su-50.html">MoXing新升级直接夺舍-Ollama-部分模型提速-50 (1)</a></li><li><a href="./tag/mtp.html">MTP (1)</a></li><li><a href="./tag/muon.html">Muon (1)</a></li><li><a href="./tag/n8n.html">n8n (1)</a></li><li><a href="./tag/nas.html">NAS (1)</a></li><li><a href="./tag/nemotron.html">Nemotron (1)</a></li><li><a href="./tag/network.html">Network (1)</a></li><li><a href="./tag/ni-de-dian-nao-mei-miao-neng-zuo-duo-shao-ci-fu-dian-yun-suan-flops-de-gu-shi.html">你的电脑每秒能做多少次浮点运算FLOPS-的故事 (1)</a></li><li><a href="./tag/niu-dun-fa-qiu-jie-guo-cheng-de-pythonshi-xian-ji-qi-xiang-jie.html">牛顿法求解过程的Python实现及其详解 (1)</a></li><li><a href="./tag/nixos.html">NixOS (1)</a></li><li><a href="./tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="./tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="./tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="./tag/nosql.html">NoSQL (1)</a></li><li><a href="./tag/numpy.html">NumPy (1)</a></li><li><a href="./tag/nuoyi-geng-xin-xin-zeng-zai-xian-zhuan-huan-yin-qing-mei-xian-qia-ye-bu-pa-chang-wen-dang-ye-bu-na-yao-tou-teng.html">NuoYi-更新新增在线转换引擎没显卡也不怕长文档也不那么头疼 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-geng-xin-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju-shao-wei-sheng-yi-dian-xian-cun-liao.html">NuoYi-挪移更新-离线的-PDFDOCX-转-Markdown-工具稍微省一点显存了 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-yi-ge-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju.html">NuoYi-挪移-一个离线的-PDFDOCX-转-Markdown-工具 (1)</a></li><li><a href="./tag/nvidia.html">Nvidia (1)</a></li><li><a href="./tag/ocr.html">OCR (1)</a></li><li><a href="./tag/ollama.html">Ollama (20)</a></li><li><a href="./tag/ollamaaidgei-ni-guan-li-ben-di-da-mo-xing-pei-ge-de-li-zhu-shou.html">OllamaAid给你管理本地大模型配个得力助手 (1)</a></li><li><a href="./tag/ollamageng-xin-suo-you-ben-di-mo-xing.html">Ollama更新所有本地模型 (1)</a></li><li><a href="./tag/ollamaqian-ru-mo-xing-xuan-xing-zhi-nan-zhu-liu-mo-xing-shen-du-dui-bi.html">Ollama嵌入模型选型指南-主流模型深度对比 (1)</a></li><li><a href="./tag/omlx.html">omlx (1)</a></li><li><a href="./tag/opc.html">OPC (1)</a></li><li><a href="./tag/opencl.html">OpenCL (1)</a></li><li><a href="./tag/opencode.html">opencode (11)</a></li><li><a href="./tag/opencode-jin-jie-zhi-ji-neng-chuang-zuo-chai-jie-miao-shu-dian-xing-ren-wu-hou-yan-zheng-shi-xian-zai-zuo-cheng-ke-fu-yong-de-ji-neng.html">OpenCode-进阶之技能创作拆解描述典型任务后验证实现再做成可复用的技能 (1)</a></li><li><a href="./tag/opencode-skillsfen-xiang-yi-tao-zi-ji-luan-xie-de-huan-suan-shi-yong-de-ai-bian-ma-ji-neng-ku.html">OpenCode-Skills分享一套自己乱写的还算实用的-AI-编码技能库 (1)</a></li><li><a href="./tag/openlaoke-geng-xin-ben-di-gguf-mo-xing-ling-api-fei-yong-pao-qi-lai.html">OpenLaoKe-更新本地-GGUF-模型零-API-费用跑起来 (1)</a></li><li><a href="./tag/openlaokelao-ke-yi-ge-ming-ling-xing-aizhu-shou.html">OpenLaoKe唠嗑一个命令行AI助手 (1)</a></li><li><a href="./tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="./tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="./tag/optimization.html">Optimization (2)</a></li><li><a href="./tag/os.html">os (1)</a></li><li><a href="./tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="./tag/parenting.html">Parenting (1)</a></li><li><a href="./tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="./tag/path.html">PATH (1)</a></li><li><a href="./tag/pdfjie-xi.html">PDF解析 (1)</a></li><li><a href="./tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="./tag/performance.html">Performance (1)</a></li><li><a href="./tag/phd.html">PHD (2)</a></li><li><a href="./tag/philosophy.html">philosophy (2)</a></li><li><a href="./tag/photo.html">Photo (23)</a></li><li><a href="./tag/photography.html">Photography (2)</a></li><li><a href="./tag/physics.html">Physics (3)</a></li><li><a href="./tag/ping-ce.html">评测 (1)</a></li><li><a href="./tag/poem.html">Poem (2)</a></li><li><a href="./tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="./tag/programming.html">Programming (11)</a></li><li><a href="./tag/prompt.html">Prompt (1)</a></li><li><a href="./tag/psychology.html">Psychology (1)</a></li><li><a href="./tag/pve.html">PVE (2)</a></li><li><a href="./tag/pyenv.html">Pyenv (2)</a></li><li><a href="./tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="./tag/python.html">Python (70)</a></li><li><a href="./tag/python-ji-chu-yu-fa-5fen-zhong-ru-men.html">Python-基础语法5分钟入门 (1)</a></li><li><a href="./tag/qemu.html">QEMU (1)</a></li><li><a href="./tag/qgis.html">QGIS (3)</a></li><li><a href="./tag/qt.html">QT (1)</a></li><li><a href="./tag/qu-shen-cha.html">去审查 (1)</a></li><li><a href="./tag/qwen3.html">Qwen3 (10)</a></li><li><a href="./tag/qwen35.html">qwen3.5 (1)</a></li><li><a href="./tag/qwen36.html">Qwen3.6 (3)</a></li><li><a href="./tag/qwen38.html">Qwen3.8 (4)</a></li><li><a href="./tag/radio.html">Radio (2)</a></li><li><a href="./tag/rag.html">RAG (1)</a></li><li><a href="./tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="./tag/raspbian.html">Raspbian (1)</a></li><li><a href="./tag/reading.html">reading (2)</a></li><li><a href="./tag/reflection.html">reflection (4)</a></li><li><a href="./tag/remote.html">Remote (1)</a></li><li><a href="./tag/research.html">Research (3)</a></li><li><a href="./tag/resume.html">resume (1)</a></li><li><a href="./tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="./tag/ri-chang-sheng-huo.html">日常生活 (1)</a></li><li><a href="./tag/rotation.html">Rotation (1)</a></li><li><a href="./tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="./tag/rtx-4070.html">RTX 4070 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-jia-gou-shi-zhuan-ye-ying-yu-gao-pin-ci-hui-biao.html">软考高级系统架构设计师知识精要-架构师专业英语高频词汇表 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-ce-shi-yu-yun-xing-wei-hu.html">软考高级系统架构设计师知识精要-软件测试与运行维护 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-gong-cheng-yu-kai-fa-fang-fa.html">软考高级系统架构设计师知识精要-软件工程与开发方法 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-jia-gou-she-ji-yu-ping-gu.html">软考高级系统架构设计师知识精要-软件架构设计与评估 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-an-quan-yu-qu-kuai-lian-ji-zhu.html">软考高级系统架构设计师知识精要-系统安全与区块链技术 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-jian-mo-yu-umlshe-ji.html">软考高级系统架构设计师知识精要-系统建模与UML设计 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xi-xi-tong-yu-qi-ye-xin-xi-hua.html">软考高级系统架构设计师知识精要-信息系统与企业信息化 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xing-ji-zhu-yu-ji-chu-she-shi.html">软考高级系统架构设计师知识精要-新兴技术与基础设施 (1)</a></li><li><a href="./tag/rust.html">Rust (1)</a></li><li><a href="./tag/rustyu-yan-cheng-xu-she-ji-ji-chu-di-san-zhang-fu-he-shu-ju-lei-xing-yu-xun-huan.html">Rust语言程序设计基础第三章复合数据类型与循环 (1)</a></li><li><a href="./tag/rx590.html">RX590 (1)</a></li><li><a href="./tag/sandbox.html">SandBox (1)</a></li><li><a href="./tag/scholar.html">Scholar (2)</a></li><li><a href="./tag/school.html">School (3)</a></li><li><a href="./tag/science.html">Science (3)</a></li><li><a href="./tag/search.html">Search (1)</a></li><li><a href="./tag/self-study.html">Self-Study (1)</a></li><li><a href="./tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="./tag/server.html">Server (1)</a></li><li><a href="./tag/shang-ye-xin-xi.html">商业信息 (1)</a></li><li><a href="./tag/sheng-cheng-su-du.html">生成速度 (1)</a></li><li><a href="./tag/shi-jie-yi-liu-da-xue-shuo-shuo-er-yi-huan-shi-zhen-de-qu-zuo.html">世界一流大学说说而已还是真的去做 (1)</a></li><li><a href="./tag/shi-yong-llama-factory-cong-modelscope-xia-zai-mo-xing-bing-wei-diao.html">使用-LLaMA-Factory-从-ModelScope-下载模型并微调 (1)</a></li><li><a href="./tag/shi-yong-ollamakuai-su-bu-shu-bing-yun-xing-zui-xin-de-qwen3-30b-a3b-2507mo-xing.html">使用ollama快速部署并运行最新的qwen3-30b-a3b-2507模型 (1)</a></li><li><a href="./tag/shit.html">Shit (1)</a></li><li><a href="./tag/shu-ju-an-quan.html">数据安全 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-0zhang-cyu-yan-pythonde-di-ceng-shi-jiao.html">数据结构与算法基础-第0章-C语言Python的底层视角 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-1zhang-suan-fa-ji-chu-yu-fu-za-du-fen-xi.html">数据结构与算法基础-第1章-算法基础与复杂度分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-2zhang-xian-xing-shu-ju-jie-gou.html">数据结构与算法基础-第2章-线性数据结构 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-4zhang-tu-lun-ji-chu.html">数据结构与算法基础-第4章-图论基础 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-5zhang-pai-xu-suan-fa.html">数据结构与算法基础-第5章-排序算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-6zhang-sou-suo-suan-fa.html">数据结构与算法基础-第6章-搜索算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-7zhang-dong-tai-gui-hua.html">数据结构与算法基础-第7章-动态规划 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-8zhang-gao-ji-suan-fa.html">数据结构与算法基础-第8章-高级算法 (1)</a></li><li><a href="./tag/shu-ju-ke-shi-hua.html">数据可视化 (1)</a></li><li><a href="./tag/shu-ju-ku.html">数据库 (1)</a></li><li><a href="./tag/shu-ju-lei-xing.html">数据类型 (1)</a></li><li><a href="./tag/shu-zhi-ji-fen-man-tan-ru-he-rang-yong-pythonqiu-ji-fen.html">数值积分漫谈如何让用Python求积分 (1)</a></li><li><a href="./tag/shui-ke-xing-cun-zhi-nan-ru-guo-ni-bei-po-yao-qu-ting-ni-bu-xi-huan-de-ke-cheng-gai-zen-yao-ban.html">水课幸存指南-如果你被迫要去听你不喜欢的课程该怎么办 (1)</a></li><li><a href="./tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="./tag/signal-processing.html">Signal Processing (3)</a></li><li><a href="./tag/skill.html">skill (3)</a></li><li><a href="./tag/smollm2.html">smollm2 (1)</a></li><li><a href="./tag/software.html">Software (1)</a></li><li><a href="./tag/sou-suo.html">搜索 (1)</a></li><li><a href="./tag/sports.html">sports (1)</a></li><li><a href="./tag/sql.html">SQL (1)</a></li><li><a href="./tag/state-space.html">State Space (1)</a></li><li><a href="./tag/statistics.html">Statistics (1)</a></li><li><a href="./tag/story.html">Story (50)</a></li><li><a href="./tag/sui-bi.html">随笔 (1)</a></li><li><a href="./tag/t-bench.html">τ-bench (1)</a></li><li><a href="./tag/tape.html">Tape (1)</a></li><li><a href="./tag/telescope.html">Telescope (1)</a></li><li><a href="./tag/terminal.html">Terminal (1)</a></li><li><a href="./tag/textbook.html">textbook (1)</a></li><li><a href="./tag/thinking.html">Thinking (7)</a></li><li><a href="./tag/ti-xing-fa-qiu-ji-fen-de-pythonshi-xian.html">梯形法求积分的Python实现 (1)</a></li><li><a href="./tag/tian-biao.html">填表 (1)</a></li><li><a href="./tag/time-series.html">Time Series (1)</a></li><li><a href="./tag/tokenzi-you-yong-moxingzai-7900xtx-24gxian-qia-shang-ben-di-yun-xing-qwen36-27bmo-xing-gei-opencodeyong-lai-wen-dang-bian.html">Token自由-用MoXing在7900xtx-24G显卡上本地运行Qwen36-27B模型给OpenCode用来文档编 (1)</a></li><li><a href="./tag/tong-ji-xue.html">统计学 (1)</a></li><li><a href="./tag/tong-men-xiang-can-bai-yuan-xian-qia-de-ben-di-mo-xing-da-zhan-rx580-16g-2048sp-vs-rx590-8g-2304sp.html">同门相残-百元显卡的本地模型大战RX580-16G-2048SP-VS-RX590-8G-2304SP (1)</a></li><li><a href="./tag/tong-nian.html">童年 (1)</a></li><li><a href="./tag/tong-xue.html">同学 (1)</a></li><li><a href="./tag/tool.html">Tool (8)</a></li><li><a href="./tag/tool-calling.html">tool calling (3)</a></li><li><a href="./tag/toolbench.html">ToolBench (1)</a></li><li><a href="./tag/tools.html">Tools (10)</a></li><li><a href="./tag/traffic.html">Traffic (1)</a></li><li><a href="./tag/translate.html">Translate (2)</a></li><li><a href="./tag/translation.html">Translation (1)</a></li><li><a href="./tag/transpaste-sheng-ji-yi-ge-jian-tie-ban-fan-yi-gong-ju-de-zi-wo-xiu-yang.html">TransPaste-升级一个剪贴板翻译工具的自我修养 (1)</a></li><li><a href="./tag/transpaste-yi-kuan-ji-yu-ben-di-da-yu-yan-mo-xing-de-qing-liang-ji-jian-tie-ban-fan-yi-gong-ju.html">TransPaste-一款基于本地大语言模型的轻量级剪贴板翻译工具 (1)</a></li><li><a href="./tag/transpasteben-di-ai-fan-yi-gong-ju-xin-ban-ben-sheng-ji-hou-zhi-chi-geng-duo-xi-li-du-de-fan-yi-kong-zhi.html">TransPaste本地-AI-翻译工具新版本升级后支持更多细粒度的翻译控制 (1)</a></li><li><a href="./tag/tui.html">TUI (1)</a></li><li><a href="./tag/tui-jian-yi-kuan-markdownde-kua-ping-tai-chi-xian-bian-ji-qi-zhi-chi-sui-shi-yu-lan.html">推荐一款MarkDown的跨平台离线编辑器支持随时预览 (1)</a></li><li><a href="./tag/tuna.html">TUNA (1)</a></li><li><a href="./tag/turing.html">Turing (12)</a></li><li><a href="./tag/tutorial.html">tutorial (2)</a></li><li><a href="./tag/uav.html">UAV (1)</a></li><li><a href="./tag/ubuntu.html">Ubuntu (4)</a></li><li><a href="./tag/ubuntu-shou-dong-an-zhuang-ollama-0171-lai-yun-xing-qwen3535b-a3b-de-xiang-xi-zhi-nan.html">Ubuntu-手动安装-Ollama-0171-来运行-qwen3535b-a3b-的详细指南 (1)</a></li><li><a href="./tag/ui.html">UI (1)</a></li><li><a href="./tag/ukf.html">UKF (1)</a></li><li><a href="./tag/university.html">university (14)</a></li><li><a href="./tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="./tag/ustc.html">USTC (1)</a></li><li><a href="./tag/ventoy.html">Ventoy (1)</a></li><li><a href="./tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="./tag/vibe-coding-fen-wei-bian-cheng-an-li-tong-guo-dui-hua-shi-xian-ke-yong-de-kuai-su-cha-biao-gong-ju.html">Vibe-Coding-氛围编程案例-通过对话实现可用的快速查表工具 (1)</a></li><li><a href="./tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="./tag/video.html">video (2)</a></li><li><a href="./tag/vidtogif-yi-ge-jian-dan-gao-xiao-de-shi-pin-zhuan-gif-gong-ju.html">VidToGif-一个简单高效的视频转-GIF-工具 (1)</a></li><li><a href="./tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="./tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="./tag/virtualization.html">Virtualization (1)</a></li><li><a href="./tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./tag/vispy.html">VisPy (1)</a></li><li><a href="./tag/visualization.html">Visualization (8)</a></li><li><a href="./tag/vm.html">VM (1)</a></li><li><a href="./tag/vmwarexu-ni-ji-yun-xing-macosunlcokrecoveryosoc4vm-shi-xian-ti-gong-bai-du-yun-pan-xia-zai.html">VMware虚拟机运行macOSunlcokrecoveryosOC4VM-实现提供百度云盘下载 (1)</a></li><li><a href="./tag/void-moxingdi-cheng-ben-fang-an-yong-rx580xian-qia-ben-di-yun-xing-qwen359bmo-xing-da-zao-lei-cursorti-yan.html">Void-MoXing低成本方案用RX580显卡本地运行qwen359B模型打造类Cursor体验 (1)</a></li><li><a href="./tag/vtk.html">VTK (1)</a></li><li><a href="./tag/web.html">Web (1)</a></li><li><a href="./tag/wen-ben-shou-ji.html">文本收集 (1)</a></li><li><a href="./tag/wen-dang-he-cha.html">文档核查 (1)</a></li><li><a href="./tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="./tag/windows.html">Windows (4)</a></li><li><a href="./tag/windows-xi-tong-xia-cong-qing-hua-da-xue-tuna-jing-xiang-an-zhuang-miniconda3-wan-zheng-zhi-nan.html">Windows-系统下从清华大学-TUNA-镜像安装-Miniconda3-完整指南 (1)</a></li><li><a href="./tag/windows11.html">Windows11 (1)</a></li><li><a href="./tag/wingetguigei-windows-bao-guan-li-qi-jia-ge-tu-xing-jie-mian.html">WinGetGUI给-Windows-包管理器加个图形界面 (1)</a></li><li><a href="./tag/winogrande.html">WinoGrande (1)</a></li><li><a href="./tag/workflow.html">workflow (1)</a></li><li><a href="./tag/xcode.html">Xcode (1)</a></li><li><a href="./tag/xia-zai.html">下载 (1)</a></li><li><a href="./tag/xian-jiao-hui-zai-rang-ta-zuo-da-mo-xing-ding-zhi-hua-li-cpthe-sftdao-di-zai-gan-shi-yao.html">先教会再让它做大模型定制化里CPT和SFT到底在干什么 (1)</a></li><li><a href="./tag/xiang-sheng.html">相声 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-er-hui-jiu-suan-shi-sun-wu-kong-shang-da-xue-ye-de-yong-gong.html">小猴子学编程第二回就算是孙悟空上大学也得用功 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-san-hui-shi-yi-zhi-pa-zai-na-zi-yuan-zi-ai-huan-shi-gan-jin-zhun-bei-qu-xin-fu-ben.html">小猴子学编程第三回是一直趴在那自怨自艾还是赶紧准备去新副本 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-si-hui-chong-zhi-bu-hui-rang-ni-bian-qiang-xue-xi-cai-hui.html">小猴子学编程第四回充值不会让你变强学习才会 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-yi-hui-na-pa-shi-sun-wu-kong-ye-xu-yao-xue-xi.html">小猴子学编程第一回哪怕是孙悟空也需要学习 (1)</a></li><li><a href="./tag/xiao-mo-xing.html">小模型 (1)</a></li><li><a href="./tag/xiao-mo-xing-ping-ce.html">小模型评测 (2)</a></li><li><a href="./tag/xiao-you.html">校友 (1)</a></li><li><a href="./tag/xiexie-ba-markdown-zhuan-cheng-wei-xin-gong-zhong-hao-ge-shi-wang-ye-de-xiao-gong-ju.html">Xie写把-Markdown-转成微信公众号格式网页的小工具 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-markdown-shu-xue-gong-shi-zhi-nan.html">新手向的-Markdown-数学公式指南 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-ruan-kao-gao-ji-jia-gou-shi-wan-quan-bei-kao-zhi-nan.html">新手向的软考高级架构师完全备考指南 (1)</a></li><li><a href="./tag/xing-neng-shi-ce.html">性能实测 (1)</a></li><li><a href="./tag/xiu-liao-transpastede-4ge-bug.html">修了TransPaste的4个bug (1)</a></li><li><a href="./tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="./tag/xue-xi-lu-de-qian-shi-jin-sheng-cong-quan-ju-dan-yi-dao-zhu-ceng-ding-zhi.html">学习率的前世今生从全局单一到逐层定制 (1)</a></li><li><a href="./tag/xue-zhu-lun-wen-zhong-chang-jian-yan-jiu-fang-fa-zong-shu-ji-jian-dan-ju-li.html">学术论文中常见研究方法综述及简单举例 (1)</a></li><li><a href="./tag/xue-zhu-yan-jiu-zhi-chi-gong-ju-fen-lei-yu-wen-xian-huo-qu-fang-fa.html">学术研究支持工具分类与文献获取方法 (1)</a></li><li><a href="./tag/yi-xue-chang-jing-yong-duo-mo-tai-da-mo-xing-you-ke-neng-wan-quan-bu-kao-pu-si-tan-fu-da-xue-li-fei-fei-tuan-dui-xin-yan-jiu-jie-kai-duo-mo-tai-aide-hai-shi-shen-lou-xiao-ying.html">医学场景用多模态大模型有可能完全不靠谱斯坦福大学李飞飞团队新研究揭开多模态AI的海市蜃楼效应 (1)</a></li><li><a href="./tag/yi-zhi-tiny-fastboot-scriptdao-macosban-ben-gei-motorola-g100guo-xing-ban-ben-xt2533-4shua-ru-g6.html">移植Tiny-Fastboot-Script到macOS版本给Motorola-G100国行版本XT2533-4刷入G6 (1)</a></li><li><a href="./tag/yin-pin.html">音频 (1)</a></li><li><a href="./tag/ying-pan.html">硬盘 (1)</a></li><li><a href="./tag/yong-wan-quan-kai-yuan-mian-fei-de-ben-di-mo-xing-lai-dui-shi-pin-zhong-de-yin-pin-jin-xing-jiang-zao.html">用完全开源免费的本地模型来对视频中的音频进行降噪 (1)</a></li><li><a href="./tag/you-xi-shi-zen-yao-yun-xing-de-ru-guo-zhi-zhi-dao-chong-zhi-shi-ji-shang-bing-bu-yi-ding-neng-bian-qiang.html">游戏是怎么运行的如果只知道充值实际上并不一定能变强 (1)</a></li><li><a href="./tag/zhe-ji-tian-wo-chuan-yue-liao-shi-jian.html">这几天我穿越了时间 (1)</a></li><li><a href="./tag/zhe-xue.html">哲学 (1)</a></li><li><a href="./tag/zhen-dui-da-mo-xing-he-zhi-neng-ti-xin-shou-kai-fa-zhe-de-linuxhuan-jing-pei-zhi-zhi-nan.html">针对大模型和智能体新手开发者的Linux环境配置指南 (1)</a></li><li><a href="./tag/zhi-ce-flops-huan-bu-gou-si-ge-jing-dian-cpu-ce-shi-ji-zhun.html">只测-FLOPS-还不够四个经典-CPU-测试基准 (1)</a></li><li><a href="./tag/zhi-neng-ti.html">智能体 (1)</a></li><li><a href="./tag/zhi-shi-wai-zhi.html">知识外置 (1)</a></li><li><a href="./tag/zhi-zhen-yue-jie-cyu-yan-gei-ni-de-zi-you-yi-ji-tou-tou-mai-de-lei.html">指针越界C语言给你的自由以及偷偷埋的雷 (1)</a></li><li><a href="./tag/zhong-xin-shen-shi-si-wei-lian-wei-bi-shi-zhen-si-wei-yi-pian-icml-2026-lun-wen-de-lun-zheng-yu-qi-shi.html">重新审视-思维链未必是真思维-一篇ICML-2026-论文的论证与启示 (1)</a></li><li><a href="./tag/zhuang-ji.html">装机 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skills-he-ji-geng-xin-cong-6-ge-ji-neng-dao-22-ge-yi-ji-bi-xu-cheng-ren-de-wen-ti.html">自用的-OpenCode-Skills-合集更新从-6-个技能到-22-个以及必须承认的问题 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skillzai-ci-geng-xin-22ge-skillszhong-xin-da-mo-liao-yi-bian-shun-lu-jie-jue-liao-opencodedao-zhi-zheng-ge-tu-xing-jie-mian-beng-kui.html">自用的OpenCode-Skill再次更新22个skills重新打磨了一遍顺路解决了OpenCode导致整个图形界面崩溃 (1)</a></li><li><a href="./tag/zluda-he-macos-shang-de-cuda-jian-rong-meng-xiang.html">ZLUDA-和-macOS-上的-CUDA-兼容梦想 (1)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="./index.html" data-i18n="blog">博客</a> › <a href="category/programming.html">Programming</a> › 编程语言全景：从诞生到2026年的完整图鉴
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >编程语言全景：从诞生到2026年的完整图鉴</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep" data-i18n="post_in">发布于</span>
+        <abbr class="date" title="2026-08-08T20:00:00+08:00"> 
+            <a href="./archive/2026/Aug/index.html">Sat 08 August 2026 </a>
+        </abbr>
+        <span class="meta-prep"> | <span data-i18n="tags_label">标签</span></span>
+                <a class="tag-badge" href="./tag/programming.html">Programming</a>
+                <a class="tag-badge" href="./tag/language.html">Language</a>
+                <a class="tag-badge" href="./tag/python.html">Python</a>
+                <a class="tag-badge" href="./tag/c.html">C</a>
+                <a class="tag-badge" href="./tag/rust.html">Rust</a>
+                <a class="tag-badge" href="./tag/history.html">History</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <p>编程语言对于不太熟悉的朋友来说可能觉得挺玄乎，其实说白了，就是人和机器之间说话的规矩。计算机用电路，底层来看，只认得0和1，人要是直接跟它唠0和1，实在是太麻烦，于是陆续有了汇编语言乃至C语言等等高级语言。于是后来场景变得复杂，这几十年里，一堆先驱者前赴后继，发明了各种语言，让"写程序"这件事，从最初的纸带打孔慢慢变成了打字，现在有了氛围编程，更是成了聊天对话。</p>
+<p>这次把2026年这个时间点的主要编程语言，粗略整理一下来给大家看。数据按2026年8月算，榜单用的是TIOBE 2026年7月的，版本标到了各自最新的。</p>
+<p>排行榜这种东西也就是参考就行，别太当真。</p>
+<table>
+<thead>
+<tr>
+<th>排名</th>
+<th>语言</th>
+<th>占比</th>
+<th>同比变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Python</td>
+<td>18.94%</td>
+<td>-6.91%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>C</td>
+<td>10.86%</td>
+<td>+1.30%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>C++</td>
+<td>9.12%</td>
+<td>-2.65%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Java</td>
+<td>8.03%</td>
+<td>-0.94%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>C#</td>
+<td>4.49%</td>
+<td>+0.17%</td>
+</tr>
+<tr>
+<td>6</td>
+<td>JavaScript</td>
+<td>2.72%</td>
+<td>-0.17%</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Visual Basic</td>
+<td>2.48%</td>
+<td>+0.59%</td>
+</tr>
+<tr>
+<td>8</td>
+<td>SQL</td>
+<td>1.71%</td>
+<td>+0.23%</td>
+</tr>
+<tr>
+<td>9</td>
+<td>R</td>
+<td>1.69%</td>
+<td>+0.30%</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Rust</td>
+<td>1.34%</td>
+<td>+0.30%</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Delphi/Object Pascal</td>
+<td>1.29%</td>
+<td>-0.60%</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Scratch</td>
+<td>1.27%</td>
+<td>+0.27%</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Go</td>
+<td>1.17%</td>
+<td>-1.08%</td>
+</tr>
+<tr>
+<td>14</td>
+<td>PHP</td>
+<td>1.16%</td>
+<td>-0.08%</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Swift</td>
+<td>0.99%</td>
+<td>+0.27%</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Ada</td>
+<td>0.91%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Assembly language</td>
+<td>0.81%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>18</td>
+<td>MATLAB</td>
+<td>0.74%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Fortran</td>
+<td>0.74%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Ruby</td>
+<td>0.73%</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2>第一梯队：统治级语言</h2>
+<h3>Python</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Guido van Rossum</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>1991年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>3.14.6（2026年6月10日）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>面向对象、函数式、过程式</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>动态类型、强类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐（极易入门）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#1（18.94%）</td>
+</tr>
+</tbody>
+</table>
+<p>Python现在是大模型的代名词，其实它1991年甚至更早点就出生了，是个叫Guido van Rossum的荷兰人搞的，这个语言的名字取自他喜欢的英剧《Monty Python》。最大的特点就是写起来像人话，强制缩进逼着你把代码排整齐，简单好上手是它常年霸榜新手第一语言的原因。AI、数据科学这块它基本是独一份，PyTorch、pandas这些全让他如虎添翼。</p>
+<p>缺点是跑得慢，还有个GIL锁卡着多线程，真想并行挺费劲。好在3.14开始搞了free-threaded模式，等于把这顶帽子摘下来一半。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>里程碑事件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.9</td>
+<td>1991</td>
+<td>首次发布，受ABC语言启发</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>1994</td>
+<td>函数式工具（lambda/map/filter）</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>2000</td>
+<td>列表推导式、垃圾回收</td>
+</tr>
+<tr>
+<td>2.7</td>
+<td>2010</td>
+<td>2.x最终版本，长期维护至2020年</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>2008</td>
+<td>不向后兼容的大重构（print函数化、Unicode字符串）</td>
+</tr>
+<tr>
+<td>3.6</td>
+<td>2016</td>
+<td>f-strings、类型注解</td>
+</tr>
+<tr>
+<td>3.10</td>
+<td>2021</td>
+<td>结构化模式匹配（match-case）</td>
+</tr>
+<tr>
+<td>3.11</td>
+<td>2022</td>
+<td>性能提升10-60%（ specializing adaptive interpreter）</td>
+</tr>
+<tr>
+<td>3.12</td>
+<td>2023</td>
+<td>类型参数语法（PEP 695）、f-strings改进</td>
+</tr>
+<tr>
+<td>3.13</td>
+<td>2024</td>
+<td>实验性free-threaded模式、JIT编译器</td>
+</tr>
+<tr>
+<td>3.14</td>
+<td>2025</td>
+<td>PEP 779正式支持free-threaded、PEP 649延迟注解求值、PEP 784 compression.zstd模块、t-strings（PEP 750）</td>
+</tr>
+</tbody>
+</table>
+<h3>C</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Dennis Ritchie</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>1972年（贝尔实验室）</td>
+</tr>
+<tr>
+<td>当前标准</td>
+<td>C23（2024年正式发布）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>过程式、结构化</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型、弱类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐（中等偏高）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#2（10.86%）</td>
+</tr>
+</tbody>
+</table>
+<p>C被叫做"一切之母"，不是没道理的。操作系统、编译器、数据库，往下挖到底基本都是C。手机Android系统所用的Linux内核、跑Python的那个解释器CPython，全是C写的。它简洁得吓人，关键字就那么几十个，从C89的32个到C23也就44个，但组合起来啥都能干。</p>
+<p>代价是指针这玩意儿能把人折腾得厉害，一个不小心就内存泄漏、缓冲区溢出。系统级、嵌入式的活儿躲不开它，新手上来就学它确实苦，所以后来也有人在驱动开发等场景开始使用Rust了。</p>
+<table>
+<thead>
+<tr>
+<th>标准</th>
+<th>年份</th>
+<th>核心特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K&amp;R C</td>
+<td>1978</td>
+<td>Brian Kernighan与Dennis Ritchie合著的《The C Programming Language》定义的非正式标准</td>
+</tr>
+<tr>
+<td>C89/C90</td>
+<td>1989/1990</td>
+<td>ANSI/ISO正式标准化，引入函数原型、void类型、const/volatile限定符、标准库</td>
+</tr>
+<tr>
+<td>C95</td>
+<td>1995</td>
+<td>宽字符支持、国际化改进</td>
+</tr>
+<tr>
+<td>C99</td>
+<td>1999</td>
+<td>//单行注释、inline函数、变长数组(VLA)、long long、stdint.h、指定初始化器</td>
+</tr>
+<tr>
+<td>C11</td>
+<td>2011</td>
+<td>多线程支持(threads.h)、原子操作(stdatomic.h)、_Generic类型泛型、Unicode支持、匿名结构体/联合体</td>
+</tr>
+<tr>
+<td>C17/C18</td>
+<td>2018</td>
+<td>C11的缺陷修复版，无新特性</td>
+</tr>
+<tr>
+<td>C23</td>
+<td>2024</td>
+<td>bool/true/false成为关键字、#embed指令、auto类型推断、十进制浮点类型、移除K&amp;R函数声明语法</td>
+</tr>
+</tbody>
+</table>
+<h3>C++</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Bjarne Stroustrup</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>1985年（"C with Classes"始于1979年）</td>
+</tr>
+<tr>
+<td>当前标准</td>
+<td>C++23（已发布），C++26（2026年3月功能冻结）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>多范式（面向对象、泛型、函数式、过程式）</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型、强类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐⭐⭐（极高）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#3（9.12%）</td>
+</tr>
+</tbody>
+</table>
+<p>C++简单来看就是在C上面叠了一大堆东西：类、模板、异常、lambda……口号是"零开销抽象"，其实他的范式和C是几乎完全不同的，只是做到了对C的兼容，基本能手写达到C的一个性能。游戏引擎、高性能计算、量化交易这些死磕性能的地方，往往是它的地盘。</p>
+<p>代价是这玩意儿复杂到没边，C++26的标准文档据说两千多页，学起来没个三五年都未必掌握了所有特性。学习难度拉满的榜上它常年前三，入坑前先做好心理准备，但是学好了确实很强大。</p>
+<table>
+<thead>
+<tr>
+<th>标准</th>
+<th>年份</th>
+<th>核心特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C++98</td>
+<td>1998</td>
+<td>首个ISO标准，模板、异常处理、STL、命名空间</td>
+</tr>
+<tr>
+<td>C++03</td>
+<td>2003</td>
+<td>技术修正版（TC1），修复缺陷</td>
+</tr>
+<tr>
+<td>C++11</td>
+<td>2011</td>
+<td>auto、lambda、移动语义、右值引用、智能指针、constexpr、范围for、nullptr——"现代C++"的起点</td>
+</tr>
+<tr>
+<td>C++14</td>
+<td>2014</td>
+<td>函数返回类型推断、泛型lambda、二进制字面量</td>
+</tr>
+<tr>
+<td>C++17</td>
+<td>2017</td>
+<td>结构化绑定、optional/variant/any、文件系统库、并行算法</td>
+</tr>
+<tr>
+<td>C++20</td>
+<td>2020</td>
+<td>概念(Concepts)、协程、模块、范围(Ranges)、三路比较运算符(&lt;=&gt;)——史上最大更新</td>
+</tr>
+<tr>
+<td>C++23</td>
+<td>2023</td>
+<td>std::expected、std::print、std::span、多维下标运算符、flat_map</td>
+</tr>
+<tr>
+<td>C++26</td>
+<td>2026（功能冻结）</td>
+<td>反射(Reflection)、契约(Contracts: pre/post/contract_assert)、std::execution senders/receivers——近年来最大的语言级新增</td>
+</tr>
+</tbody>
+</table>
+<h3>Java</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>James Gosling（Sun Microsystems）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>1995年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>JDK 26（2026年3月，非LTS），JDK 25（2025年9月，当前LTS）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>面向对象、函数式（Java 8起）</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型、强类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐（中等）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#4（8.03%）</td>
+</tr>
+</tbody>
+</table>
+<p>Java 1995年出生，靠着一句"一次编写，到处运行"打天下，底气是JVM这层虚拟机，把原来的代码翻译成字节码，然后四处用自己的JVM虚拟机运行，比解释器的Python快，但比编译型的往往要慢一些。它最大的功劳是把自动垃圾回收带进了主流，让程序员告别了手动管内存的苦日子。银行、电商、企业后端，遍地都是它的存量，培训班井喷的时代带来了大量的人力资源积累，成本卷到很低了，加上业务存留，估计一时半会儿倒不了。</p>
+<p>相对慢、吃内存，这些年靠虚拟线程、值类型这些项目憋着劲儿但恐怕也难翻盘。排名虽然跌到历史最低，但企业里那堆老系统还得靠它撑着。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>里程碑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JDK 1.0</td>
+<td>1996</td>
+<td>首次发布</td>
+</tr>
+<tr>
+<td>JDK 1.1</td>
+<td>1997</td>
+<td>内部类、JDBC、JavaBeans</td>
+</tr>
+<tr>
+<td>J2SE 1.2</td>
+<td>1998</td>
+<td>Swing、集合框架、JIT编译器</td>
+</tr>
+<tr>
+<td>J2SE 1.4</td>
+<td>2002</td>
+<td>断言、NIO、正则表达式</td>
+</tr>
+<tr>
+<td>Java 5</td>
+<td>2004</td>
+<td>泛型、注解、枚举、增强for循环、自动装箱</td>
+</tr>
+<tr>
+<td>Java 8</td>
+<td>2014</td>
+<td>Lambda表达式、Stream API、Optional、新的日期时间API——史上最重要更新</td>
+</tr>
+<tr>
+<td>Java 9</td>
+<td>2017</td>
+<td>模块化系统(JPMS)、REPL(jshell)</td>
+</tr>
+<tr>
+<td>Java 11</td>
+<td>2018</td>
+<td>LTS，var局部变量推断、HTTP Client</td>
+</tr>
+<tr>
+<td>Java 17</td>
+<td>2021</td>
+<td>LTS，密封类、记录类(Records)、模式匹配预览</td>
+</tr>
+<tr>
+<td>Java 21</td>
+<td>2023</td>
+<td>LTS，虚拟线程正式发布、模式匹配开关、记录模式</td>
+</tr>
+<tr>
+<td>Java 25</td>
+<td>2025</td>
+<td>当前LTS，性能增强、模式匹配改进、虚拟线程改进</td>
+</tr>
+<tr>
+<td>Java 26</td>
+<td>2026</td>
+<td>非LTS，HTTP/3支持(JEP 517)、AOT对象缓存(JEP 516)、结构化并发第6次预览</td>
+</tr>
+</tbody>
+</table>
+<h3>C</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Anders Hejlsberg（Microsoft）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>2000年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>C# 14（.NET 10）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>多范式（面向对象、函数式、声明式）</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型、强类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐（中等）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#5（4.49%）</td>
+</tr>
+</tbody>
+</table>
+<p>C#是微软出的，不要读作C井，是C-sharp。当年就是个"改良版Java"，在.NET平台上跑。后来一路演化，现在语法上比Java时髦多了，LINQ、async/await、记录类型、模式匹配这些全都有，算是最现代化的主流静态语言之一。.NET Core之后也彻底跨了平台，不再被Windows绑死。</p>
+<p>Unity游戏开发、Windows桌面、ASP.NET后端，都是它的地盘。你要是喜欢一套语法干多个方向，它挺合适。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C# 1.0</td>
+<td>2002</td>
+<td>基础面向对象，与.NET Framework 1.0同步</td>
+</tr>
+<tr>
+<td>C# 2.0</td>
+<td>2005</td>
+<td>泛型、迭代器、可空类型、匿名方法</td>
+</tr>
+<tr>
+<td>C# 3.0</td>
+<td>2007</td>
+<td>LINQ、Lambda、扩展方法、匿名类型——革命性更新</td>
+</tr>
+<tr>
+<td>C# 4.0</td>
+<td>2010</td>
+<td>动态类型(dynamic)、命名参数、协变/逆变</td>
+</tr>
+<tr>
+<td>C# 5.0</td>
+<td>2012</td>
+<td>async/await异步编程——改变异步编程范式</td>
+</tr>
+<tr>
+<td>C# 6.0</td>
+<td>2015</td>
+<td>字符串插值、空条件运算符、表达式体成员</td>
+</tr>
+<tr>
+<td>C# 7.0-7.3</td>
+<td>2017-2018</td>
+<td>模式匹配、元组、局部函数、Span<T></td>
+</tr>
+<tr>
+<td>C# 8.0</td>
+<td>2019</td>
+<td>可空引用类型、异步流、范围和索引</td>
+</tr>
+<tr>
+<td>C# 9.0</td>
+<td>2020</td>
+<td>记录类型、顶级语句、init访问器</td>
+</tr>
+<tr>
+<td>C# 10.0</td>
+<td>2021</td>
+<td>全局using、文件范围命名空间、record struct</td>
+</tr>
+<tr>
+<td>C# 11.0</td>
+<td>2022</td>
+<td>原始字符串、列表模式、required成员</td>
+</tr>
+<tr>
+<td>C# 12.0</td>
+<td>2023</td>
+<td>主构造函数、集合表达式、内联数组</td>
+</tr>
+<tr>
+<td>C# 13.0</td>
+<td>2024</td>
+<td>params集合、扩展类型成员、ref struct改进</td>
+</tr>
+<tr>
+<td>C# 14.0</td>
+<td>2025</td>
+<td>扩展属性、 nameof增强、未初始化结构体警告改进</td>
+</tr>
+</tbody>
+</table>
+<h3>JavaScript</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Brendan Eich（Netscape）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>1995年（10天内完成原型）</td>
+</tr>
+<tr>
+<td>当前标准</td>
+<td>ECMAScript 2025（ES2025）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>多范式（面向对象原型链、函数式、事件驱动）</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>动态类型、弱类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐（入门容易，精通难）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#6（2.72%）</td>
+</tr>
+</tbody>
+</table>
+<p>JavaScript是1995年那阵子赶出来的，当时似乎就是给网页加加点小花活。没想到后来成了全世界浏览器的唯一亲儿子，你打开的每个网页里都有它。ES6之后它现代了不少，Node.js又把它带到了服务器端，现在前后端、桌面、移动哪哪都是它。</p>
+<p>JS的问题是入门容易，写好难，动态类型加原型链，水是真的深，安全性动不动被人埋雷，而且写不好也会特别慢。好在后面那个TypeScript出来给提升了性能。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ES1</td>
+<td>1997</td>
+<td>首个ECMA标准</td>
+</tr>
+<tr>
+<td>ES3</td>
+<td>1999</td>
+<td>正则表达式、try/catch</td>
+</tr>
+<tr>
+<td>ES5</td>
+<td>2009</td>
+<td>严格模式、JSON、数组方法forEach/map/filter</td>
+</tr>
+<tr>
+<td>ES6/ES2015</td>
+<td>2015</td>
+<td>let/const、箭头函数、Promise、class、模块(import/export)、解构、模板字符串、Map/Set——现代JS的起点</td>
+</tr>
+<tr>
+<td>ES2016-2019</td>
+<td>2016-2019</td>
+<td>Array.includes、async/await、Object.entries、可选catch绑定</td>
+</tr>
+<tr>
+<td>ES2020</td>
+<td>2020</td>
+<td>可选链(?.)、空合并(??)、BigInt、动态import()</td>
+</tr>
+<tr>
+<td>ES2021</td>
+<td>2021</td>
+<td>逻辑赋值、String.replaceAll、Promise.any</td>
+</tr>
+<tr>
+<td>ES2022</td>
+<td>2022</td>
+<td>Top-level await、类字段、at()方法</td>
+</tr>
+<tr>
+<td>ES2023</td>
+<td>2023</td>
+<td>数组从后查找(findLast)、Hashbang语法</td>
+</tr>
+<tr>
+<td>ES2024</td>
+<td>2024</td>
+<td>Promise.withResolvers、Object.groupBy</td>
+</tr>
+<tr>
+<td>ES2025</td>
+<td>2025</td>
+<td>Set方法（union/intersection/difference）、Iterator Helpers、Promise.try</td>
+</tr>
+</tbody>
+</table>
+<h2>第二梯队：系统与安全语言</h2>
+<p>看完几位一线明星，再往下数，是一帮系统和安全方向的狠角色。</p>
+<h3>Go（Golang）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Robert Griesemer、Rob Pike、Ken Thompson（Google）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>2009年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>1.27（2026年6月）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>过程式、并发</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型、强类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐（低，语法极简）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#13（1.17%）</td>
+</tr>
+</tbody>
+</table>
+<p>Go是Google出的，三个带佬一起设计，其中一个还是Unix之父Ken Thompson。它的哲学就俩字：简单。25个关键字，语法一天就能上手，goroutine并发用起来是真爽，编译出来一个静态二进制文件，扔到服务器就能跑。</p>
+<p>Docker、Kubernetes、etcd、Prometheus这些云原生基石全是Go写的，想往运维和云原生方向走，或者注重高并发性能的后端开发，可以重点关注golang。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2012</td>
+<td>首个正式版</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>2015</td>
+<td>自举（编译器用Go重写）、GC暂停降至10ms</td>
+</tr>
+<tr>
+<td>1.7-1.9</td>
+<td>2016-2017</td>
+<td>子测试/benchmark、HTTP/2、类型别名</td>
+</tr>
+<tr>
+<td>1.11</td>
+<td>2018</td>
+<td>Go Modules（依赖管理）</td>
+</tr>
+<tr>
+<td>1.13</td>
+<td>2019</td>
+<td>error wrapping（errors.Is/As）</td>
+</tr>
+<tr>
+<td>1.16</td>
+<td>2021</td>
+<td>embed包（内嵌静态文件）、io/fs</td>
+</tr>
+<tr>
+<td>1.18</td>
+<td>2022</td>
+<td>泛型（类型参数）——历史性更新</td>
+</tr>
+<tr>
+<td>1.21</td>
+<td>2023</td>
+<td>内置min/max/clear、WASI支持</td>
+</tr>
+<tr>
+<td>1.22</td>
+<td>2024</td>
+<td>range over int、for循环变量作用域修复</td>
+</tr>
+<tr>
+<td>1.23-1.25</td>
+<td>2024-2026</td>
+<td>range over func（迭代器函数）、工具链改进、context行为变更</td>
+</tr>
+<tr>
+<td>1.27</td>
+<td>2026</td>
+<td>最新稳定版</td>
+</tr>
+</tbody>
+</table>
+<h3>Rust</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Graydon Hoare（Mozilla）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>2010年（1.0于2015年发布）</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>1.96（2026年5月）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>多范式（面向对象、函数式、过程式）</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型、强类型、所有权(Ownership)系统</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐⭐⭐（极高，所有权和生命周期概念陡峭）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#10（1.34%，历史最高）</td>
+</tr>
+</tbody>
+</table>
+<p>Rust这些年是被捧上神坛的语言。看家本领是"所有权"系统，在编译期就保证内存安全，不靠垃圾回收，性能跟C持平。很多地方都推荐关键系统往它上面迁，Linux内核也开始引入Rust驱动的支持。</p>
+<p>代价是学习曲线陡得离谱，借用检查器能把新手折磨到怀疑人生。熬过去之后，写出来的代码是真的让人放心，那种安全感是别的语言给不了的。最近有很多热门的AI智能体项目都从最初的JS或者Python迁移到了Rust，极大地降低了体积还提高了性能。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1-0.x</td>
+<td>2012-2015</td>
+<td>预发布阶段，语法频繁变化</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>2015</td>
+<td>首个稳定版，承诺向后兼容</td>
+</tr>
+<tr>
+<td>1.26</td>
+<td>2018</td>
+<td>Edition 2018，impl Trait、非词法生命周期(NLL)</td>
+</tr>
+<tr>
+<td>1.31</td>
+<td>2018</td>
+<td>Edition切换机制</td>
+</tr>
+<tr>
+<td>1.58</td>
+<td>2022</td>
+<td>Edition 2021，闭包捕获改进、IntoIterator for arrays</td>
+</tr>
+<tr>
+<td>1.75</td>
+<td>2023</td>
+<td>async fn in traits（稳定化）</td>
+</tr>
+<tr>
+<td>1.79</td>
+<td>2024</td>
+<td>inline模块、关联类型边界</td>
+</tr>
+<tr>
+<td>1.85</td>
+<td>2025</td>
+<td>Edition 2024，async closures稳定化、unsafe属性</td>
+</tr>
+<tr>
+<td>1.96</td>
+<td>2026</td>
+<td>最新稳定版</td>
+</tr>
+</tbody>
+</table>
+<h3>Swift</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Chris Lattner（Apple）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>2014年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>6.1（2025年）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>多范式（面向对象、函数式、协议导向）</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型、强类型、可选类型(Optional)</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐（中等）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#15（0.99%）</td>
+</tr>
+</tbody>
+</table>
+<p>Swift是苹果2014年推出来接班Objective-C的，iOS开发现在基本全是它。设计上把现代语言的优点吸收了个遍：类型推断、可选类型、泛型、协议导向编程，还坚持值类型优先于引用类型。</p>
+<p>想开发苹果生态的应用，绕不开它。Swift 6开始搞严格并发安全，写多线程的代码能省不少心。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2014</td>
+<td>首次发布</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>2015</td>
+<td>协议扩展、错误处理(throw/try/catch)、开源</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>2016</td>
+<td>API设计指南重命名（大范围迁移）</td>
+</tr>
+<tr>
+<td>4.0</td>
+<td>2017</td>
+<td>Codable协议、String重设计</td>
+</tr>
+<tr>
+<td>5.0</td>
+<td>2019</td>
+<td>ABI稳定性——里程碑</td>
+</tr>
+<tr>
+<td>5.1</td>
+<td>2019</td>
+<td>模块稳定性、属性包装器(Property Wrappers)</td>
+</tr>
+<tr>
+<td>5.5</td>
+<td>2021</td>
+<td>async/await、Actor、结构化并发</td>
+</tr>
+<tr>
+<td>5.9</td>
+<td>2023</td>
+<td>宏系统(Macro)、非copyable类型、if/switch表达式</td>
+</tr>
+<tr>
+<td>6.0</td>
+<td>2024</td>
+<td>严格并发安全、数据竞争安全保证</td>
+</tr>
+<tr>
+<td>6.1</td>
+<td>2025</td>
+<td>最新版</td>
+</tr>
+</tbody>
+</table>
+<h3>Kotlin</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>JetBrains</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>2011年（1.0于2016年）</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>2.4.0（2026年6月）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>多范式（面向对象、函数式）</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型、强类型、空安全(Null Safety)</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐（中等，Java开发者更易上手）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>未进入Top 20但Android首选</td>
+</tr>
+</tbody>
+</table>
+<p>Kotlin是JetBrains出的，定位就是"更好的Java"。跟Java百分之百互通，但把Java那些烦人的地方收拾得干干净净：空指针没了，样板代码少了，还自带协程。Google在2017年宣布它是Android首选语言，安卓开发现在基本都转过去了。</p>
+<p>Kotlin 2.0上了K2编译器，编译速度快了一大截。写Android目前就它了，别犹豫。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>2011</td>
+<td>首次预览</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>2016</td>
+<td>首个稳定版</td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>2017</td>
+<td>跨平台支持(Kotlin Multiplatform)</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>2018</td>
+<td>协程(Coroutines)稳定化</td>
+</tr>
+<tr>
+<td>1.4</td>
+<td>2020</td>
+<td>KMP改进、SAM转换</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>2021</td>
+<td>记录类、密封接口、内联属性</td>
+</tr>
+<tr>
+<td>1.6</td>
+<td>2021</td>
+<td>上下文接收器预览</td>
+</tr>
+<tr>
+<td>1.7-1.9</td>
+<td>2022-2023</td>
+<td>K2编译器预览、智能 cast改进</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>2024</td>
+<td>K2编译器正式发布——里程碑</td>
+</tr>
+<tr>
+<td>2.4</td>
+<td>2026</td>
+<td>最新稳定版</td>
+</tr>
+</tbody>
+</table>
+<h2>第三梯队：Web与脚本语言</h2>
+<h3>TypeScript</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Anders Hejlsberg（Microsoft）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>2012年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>6.0.3（2026年）；TypeScript 7.0原生编译器预览中</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>多范式（面向对象、函数式）</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型、结构化类型系统</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐（中等，需理解类型系统）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>未列入但有版本追踪</td>
+</tr>
+</tbody>
+</table>
+<p>TypeScript是微软那位搞C#的大佬Anders Hejlsberg做的，本质是JavaScript的超集，加了一套可选静态类型，编译完还是纯JS。说白了就是给自由奔放的JS套上缰绳，让类型系统在编译期拦下大批低级错误，IDE的补全和重构也顺了。</p>
+<p>大型前端项目现在没它真不行，基本是事实标准。用Go重写编译器后据说编译速度能快上10倍，值得期待。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.8</td>
+<td>2012</td>
+<td>首次发布</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>2014</td>
+<td>首个正式版</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>2016</td>
+<td>可空类型、strict模式</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>2018</td>
+<td>unknown类型、Tuple改进</td>
+</tr>
+<tr>
+<td>4.0</td>
+<td>2020</td>
+<td>可变元组类型、自定义类型推导</td>
+</tr>
+<tr>
+<td>4.9</td>
+<td>2022</td>
+<td>satisfies操作符</td>
+</tr>
+<tr>
+<td>5.0</td>
+<td>2023</td>
+<td>装饰器标准化、模块解析</td>
+</tr>
+<tr>
+<td>5.6</td>
+<td>2024</td>
+<td>装饰器扩展、配置简化</td>
+</tr>
+<tr>
+<td>6.0</td>
+<td>2025</td>
+<td>最新稳定版</td>
+</tr>
+<tr>
+<td>7.0</td>
+<td>2026（预览）</td>
+<td>原生编译器（Go重写），10x编译速度</td>
+</tr>
+</tbody>
+</table>
+<h3>PHP</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Rasmus Lerdorf</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>1995年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>8.5.7（2026年6月）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>多范式（面向对象、过程式）</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>动态类型（PHP 7.4+逐步引入类型声明）</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐（低门槛）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#14（1.16%）</td>
+</tr>
+</tbody>
+</table>
+<p>PHP是1995年那个网站还很少的年代出生的，专为Web而生，直接嵌在HTML里跑。全球七成多网站的后端是它，光WordPress就占了四成多，你逛的很多网站底下都是它。</p>
+<p>早年名声不太行，但PHP 7性能比5.6快了2-3倍，8.0又上了JIT编译器，才算把"PHP不够严肃"的印象扭转过来。想快速搞个网站，门槛很低，而且很适合用AI帮忙来氛围编程。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PHP/FI</td>
+<td>1995</td>
+<td>首版，Personal Home Page Tools</td>
+</tr>
+<tr>
+<td>PHP 3</td>
+<td>1998</td>
+<td>重写，正式命名PHP: Hypertext Preprocessor</td>
+</tr>
+<tr>
+<td>PHP 4</td>
+<td>2000</td>
+<td>Zend引擎、面向对象初步支持</td>
+</tr>
+<tr>
+<td>PHP 5</td>
+<td>2004</td>
+<td>Zend Engine 2，完整OOP（类/接口/异常）</td>
+</tr>
+<tr>
+<td>PHP 5.6</td>
+<td>2014</td>
+<td>变长参数、常量表达式</td>
+</tr>
+<tr>
+<td>PHP 7.0</td>
+<td>2015</td>
+<td>性能飞跃（Zend Engine 3）、标量类型声明、返回类型声明</td>
+</tr>
+<tr>
+<td>PHP 7.4</td>
+<td>2019</td>
+<td>类型化属性、箭头函数、FFI</td>
+</tr>
+<tr>
+<td>PHP 8.0</td>
+<td>2020</td>
+<td>JIT编译器、联合类型、match、命名参数、属性(Attributes)</td>
+</tr>
+<tr>
+<td>PHP 8.1</td>
+<td>2021</td>
+<td>枚举、纤程(Fibers)、只读属性、交叉类型</td>
+</tr>
+<tr>
+<td>PHP 8.2</td>
+<td>2022</td>
+<td>只读类、DNF类型、枚举回退</td>
+</tr>
+<tr>
+<td>PHP 8.3</td>
+<td>2023</td>
+<td>类型化常量、json_validate()、动态类常量</td>
+</tr>
+<tr>
+<td>PHP 8.4</td>
+<td>2024</td>
+<td>属性钩子(Property Hooks)、不对称可见性、新数组函数</td>
+</tr>
+<tr>
+<td>PHP 8.5</td>
+<td>2026</td>
+<td>最新稳定版</td>
+</tr>
+</tbody>
+</table>
+<h3>Ruby</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Yukihiro Matsumoto（松本行弘，"Matz"）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>1995年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>3.4（2024年）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>面向对象（一切皆对象）、函数式</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>动态类型、强类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐（低，语法优雅）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#20（0.73%）</td>
+</tr>
+</tbody>
+</table>
+<p>Ruby是日本人松本行弘搞的，设计目标就一句话：让程序员快乐。一切皆对象，连整数都能调方法，语法优雅得不行。真正让它出名的是一句Ruby on Rails，2004年开创了"约定优于配置"，GitHub、Airbnb都是这套框架的受益者。</p>
+<p>缺点大概是性能了，另外这些年好像没发现除了RoR之外的其他类似量级的明星项目了。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.95</td>
+<td>1995</td>
+<td>首次发布</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>1996</td>
+<td>首个正式版</td>
+</tr>
+<tr>
+<td>1.8</td>
+<td>2003</td>
+<td>广泛采用，Rails 1.0诞生（2005）</td>
+</tr>
+<tr>
+<td>1.9</td>
+<td>2007</td>
+<td>YARV虚拟机，性能提升</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>2013</td>
+<td>关键字参数、Module#prepend</td>
+</tr>
+<tr>
+<td>2.6</td>
+<td>2018</td>
+<td>JIT编译器（实验性）</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>2020</td>
+<td>Ractor(并行)、Fiber调度、RBS类型签名、性能3x目标</td>
+</tr>
+<tr>
+<td>3.1</td>
+<td>2021</td>
+<td>YJIT（用Rust重写的JIT）</td>
+</tr>
+<tr>
+<td>3.2</td>
+<td>2022</td>
+<td>WASM支持、语法改进</td>
+</tr>
+<tr>
+<td>3.3</td>
+<td>2023</td>
+<td>YJIT生产可用、Prism解析器</td>
+</tr>
+<tr>
+<td>3.4</td>
+<td>2024</td>
+<td>最新稳定版</td>
+</tr>
+</tbody>
+</table>
+<h3>Lua</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Roberto Ierusalimschy、Luiz Henrique de Figueiredo、Waldemar Celes</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>1993年（巴西）</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>5.4（2020年），LuaJIT 2.1（持续维护）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>过程式、函数式、面向对象（通过table实现）</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>动态类型、弱类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐（低）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>未进入Top 20</td>
+</tr>
+</tbody>
+</table>
+<p>Lua是OpenWrt上面会常用到的，整体非常轻量级，小得离谱，整个解释器也就200KB左右，专为嵌进别人的程序里当脚本语言。数据结构就一个table，数组、哈希、对象、模块全靠它一个顶四个。</p>
+<p>除了路由系统OpenWrt之外，游戏脚本、Nginx、Redis、Neovim配置，也是它的地盘。你玩过的魔兽世界、Roblox，底层脚本也可能是它。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>1993</td>
+<td>首版，用于Petroleo Brasileiro数据描述</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>1997</td>
+<td>协程机制引入</td>
+</tr>
+<tr>
+<td>5.0</td>
+<td>2003</td>
+<td>标准API统一、meta-mechanism</td>
+</tr>
+<tr>
+<td>5.1</td>
+<td>2006</td>
+<td>模块系统——LuaJIT基准版本</td>
+</tr>
+<tr>
+<td>5.2</td>
+<td>2011</td>
+<td>yield from any scope、位运算</td>
+</tr>
+<tr>
+<td>5.3</td>
+<td>2015</td>
+<td>整数类型、UTF-8支持</td>
+</tr>
+<tr>
+<td>5.4</td>
+<td>2020</td>
+<td>生成器语义改进、const/local变量</td>
+</tr>
+</tbody>
+</table>
+<h3>Perl</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Larry Wall</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>1987年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>5.40（2024年），Raku（原Perl 6，已独立）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>过程式、面向对象、函数式</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>动态类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐⭐（高，"正则表达式的噩梦"）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#18（0.92%）</td>
+</tr>
+</tbody>
+</table>
+<p>Perl是1987年出的，江湖人称"完成工作的瑞士军刀"，文本处理的祖师爷。设计哲学是"条条大路通罗马"，自由度极大，但后果就是代码风格五花八门，一个人写的Perl别人基本看不懂。</p>
+<p>它的正则表达式是所有现代语言正则的爹，PCRE就是从它这儿来的。现在主要活在系统管理和遗留系统里。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>1987</td>
+<td>首版</td>
+</tr>
+<tr>
+<td>4.0</td>
+<td>1991</td>
+<td>《Programming Perl》出版</td>
+</tr>
+<tr>
+<td>5.0</td>
+<td>1994</td>
+<td>完整OOP、模块系统、引用——现代化</td>
+</tr>
+<tr>
+<td>5.6</td>
+<td>2000</td>
+<td>Unicode支持、线程（实验性）</td>
+</tr>
+<tr>
+<td>5.10</td>
+<td>2007</td>
+<td>say、given/when、智能匹配</td>
+</tr>
+<tr>
+<td>5.14-5.16</td>
+<td>2011-2012</td>
+<td>正则改进、Unicode全面支持</td>
+</tr>
+<tr>
+<td>5.20</td>
+<td>2014</td>
+<td>后缀解引用、子程序签名</td>
+</tr>
+<tr>
+<td>5.36</td>
+<td>2022</td>
+<td>签名正式稳定、indented heredoc</td>
+</tr>
+<tr>
+<td>5.40</td>
+<td>2024</td>
+<td>最新版</td>
+</tr>
+</tbody>
+</table>
+<h2>第四梯队：函数式与学术语言</h2>
+<h3>Haskell</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Haskell委员会（学术社区）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>1990年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>GHC 9.12（2025年）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>纯函数式</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型、强类型、Hindley-Milner类型推断、高阶类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐⭐⭐（极高，需转变思维范式）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>未进入Top 20</td>
+</tr>
+</tbody>
+</table>
+<p>Haskell是纯函数式语言的旗舰，学术味浓得呛人。没有副作用、没有可变状态、惰性求值、单子……光这些概念就能劝退一大半人。它的类型系统强得离谱，写出来的代码正确性在编译期就有极高保证。</p>
+<p>金融量化、编译器、区块链（Cardano）用它。说实话，一般来说，大家学这个大概不是为上班用吧。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Haskell 1.0</td>
+<td>1990</td>
+<td>首个标准</td>
+</tr>
+<tr>
+<td>Haskell 98</td>
+<td>1999</td>
+<td>修订标准</td>
+</tr>
+<tr>
+<td>Haskell 2010</td>
+<td>2010</td>
+<td>标准库扩展、FFI</td>
+</tr>
+<tr>
+<td>GHC 7-8</td>
+<td>2012-2015</td>
+<td>类型级自然数、类型族(Type Families)</td>
+</tr>
+<tr>
+<td>GHC 8.0</td>
+<td>2016</td>
+<td>Backpack模块系统</td>
+</tr>
+<tr>
+<td>GHC 9.0</td>
+<td>2021</td>
+<td>Linear types、 QualifiedDo</td>
+</tr>
+<tr>
+<td>GHC 9.6</td>
+<td>2023</td>
+<td>AST改进、GHC提案系统</td>
+</tr>
+<tr>
+<td>GHC 9.12</td>
+<td>2025</td>
+<td>最新版</td>
+</tr>
+</tbody>
+</table>
+<h3>Scala</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Martin Odersky</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>2004年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>3.x（2025年）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>面向对象+函数式融合</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型、强类型、高阶类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐⭐⭐（极高，概念密集）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>未进入Top 20</td>
+</tr>
+</tbody>
+</table>
+<p>Scala是Martin Odersky搞的，跑在JVM上，面向对象和函数式一把抓，类型系统极其强大。Scala 3来了一次大重构，换成缩进式语法，简单了不少。</p>
+<p>它最大的地盘是大数据，Apache Spark就是Scala写的，Apache Flink也曾经是Scala写的，但是后续应该是转回Java了。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2004</td>
+<td>首版</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>2006</td>
+<td>大幅重写</td>
+</tr>
+<tr>
+<td>2.8</td>
+<td>2010</td>
+<td>集合库重设计</td>
+</tr>
+<tr>
+<td>2.10</td>
+<td>2012</td>
+<td>宏、字符串插值</td>
+</tr>
+<tr>
+<td>2.12</td>
+<td>2016</td>
+<td>Java 8互操作、SAM转换</td>
+</tr>
+<tr>
+<td>2.13</td>
+<td>2019</td>
+<td>集合库再次重设计</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>2021</td>
+<td>Scala 3（Dotty），全新语法、union/intersection类型——里程碑</td>
+</tr>
+<tr>
+<td>3.3</td>
+<td>2023</td>
+<td>LTS版本</td>
+</tr>
+<tr>
+<td>3.5+</td>
+<td>2024-2025</td>
+<td>持续改进</td>
+</tr>
+</tbody>
+</table>
+<h2>第五梯队：科学与专用语言</h2>
+<h3>R</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Ross Ihaka、Robert Gentleman（奥克兰大学）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>1993年（S语言基础上发展）</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>4.5（2025年）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>函数式、数组式</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>动态类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐（中高，统计学背景有帮助）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#9（1.69%）</td>
+</tr>
+</tbody>
+</table>
+<p>R是统计计算的老大，1993年出生在奥克兰大学，数据可视化（ggplot2）、统计建模、生物信息学领域地位稳固。CRAN上有近两万个统计相关的包，想搞统计分析它最全。</p>
+<p>语法受S语言和Scheme影响，向量化操作是核心，有统计学背景的人大概会用的多一些。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2000</td>
+<td>首个正式版</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>2004</td>
+<td>内存管理改进</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>2013</td>
+<td>长向量支持</td>
+</tr>
+<tr>
+<td>3.6</td>
+<td>2019</td>
+<td>RNG默认变更</td>
+</tr>
+<tr>
+<td>4.0</td>
+<td>2020</td>
+<td>字符串因子默认变更、Markdown文档</td>
+</tr>
+<tr>
+<td>4.1</td>
+<td>2021</td>
+<td>Lambda语法((x) x^2)、原生管道|&gt;</td>
+</tr>
+<tr>
+<td>4.2</td>
+<td>2022</td>
+<td>|&gt;_正式稳定</td>
+</tr>
+<tr>
+<td>4.4</td>
+<td>2024</td>
+<td>性能改进</td>
+</tr>
+<tr>
+<td>4.5</td>
+<td>2025</td>
+<td>最新版</td>
+</tr>
+</tbody>
+</table>
+<h3>MATLAB</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Cleve Moler（MathWorks）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>1984年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>R2025b（2025年）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>过程式、面向对象（有限支持）</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>动态类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐（中等，矩阵思维）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#18（0.74%）</td>
+</tr>
+</tbody>
+</table>
+<p>MATLAB是矩阵计算的天花板，一切皆矩阵是它的核心理念。工程仿真、信号处理、控制系统、图像处理，到处是它，Simulink做可视化建模更是独门绝技。</p>
+<p>缺点就一个字：贵。商业授权费高昂，所以不少人转身投靠Python的NumPy/SciPy，或者开源的GNU Octave、SCI Lab等等。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>早期</td>
+<td>1984</td>
+<td>首次商业发布</td>
+</tr>
+<tr>
+<td>5.0</td>
+<td>1997</td>
+<td>面向对象编程、结构体</td>
+</tr>
+<tr>
+<td>7.0</td>
+<td>2004</td>
+<td>性能优化、JIT</td>
+</tr>
+<tr>
+<td>R2008a</td>
+<td>2008</td>
+<td>命名改为R+年份格式</td>
+</tr>
+<tr>
+<td>R2016b</td>
+<td>2016</td>
+<td>tall arrays、字符串类型</td>
+</tr>
+<tr>
+<td>R2020b</td>
+<td>2020</td>
+<td>Live Editor改进、新图形引擎</td>
+</tr>
+<tr>
+<td>R2023b</td>
+<td>2023</td>
+<td>Python互操作改进</td>
+</tr>
+<tr>
+<td>R2025b</td>
+<td>2025</td>
+<td>最新版</td>
+</tr>
+</tbody>
+</table>
+<h3>Julia</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Jeff Bezanson、Stefan Karpinski、Viral Shah、Alan Edelman（MIT）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>2012年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>1.11（2024年）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>多范式（函数式、过程式、面向对象多重派发）</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>动态类型、JIT编译</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐（中等，Python+数学背景可快速上手）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>未进入Top 20</td>
+</tr>
+</tbody>
+</table>
+<p>Julia的口号是解决"双语言问题"——一边想要Python的舒服，一边想要C的速度。它用LLVM做JIT，性能接近编译语言，跟Python/C/Fortran还能无缝互调，复用现成的库。</p>
+<p>多重派发是它的核心特色，函数行为根据所有参数类型决定。科学计算、数值模拟这块可以用到，但是目前生态还是远没办法跟Python相比。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>2012</td>
+<td>首次发布</td>
+</tr>
+<tr>
+<td>0.6</td>
+<td>2017</td>
+<td>最后的0.x版本</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>2018</td>
+<td>首个稳定版——里程碑</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>2020</td>
+<td>Cray支持、线程改进</td>
+</tr>
+<tr>
+<td>1.6</td>
+<td>2021</td>
+<td>LTS版本、编译器性能大幅提升</td>
+</tr>
+<tr>
+<td>1.8</td>
+<td>2022</td>
+<td>并行计算改进、内存layout</td>
+</tr>
+<tr>
+<td>1.9</td>
+<td>2023</td>
+<td>编译缓存改进</td>
+</tr>
+<tr>
+<td>1.10</td>
+<td>2023</td>
+<td>LTS版本</td>
+</tr>
+<tr>
+<td>1.11</td>
+<td>2024</td>
+<td>公共API正式化、包管理改进</td>
+</tr>
+</tbody>
+</table>
+<h3>Dart</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Lars Bak、Kasper Lund（Google）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>2011年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>3.12（2026年5月）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>面向对象、函数式</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型、强类型、空安全(Sound Null Safety)</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐（低，Java/JS开发者快速上手）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>未进入Top 20但Flutter生态活跃</td>
+</tr>
+</tbody>
+</table>
+<p>Dart是Google出的，主要就是给Flutter框架配的。Flutter做跨平台应用，一套代码跑iOS、Android、Web、桌面，开发时热重载体验也好。Dart 3把空安全彻底做扎实了，还加了记录和模式匹配。</p>
+<p>想搞移动跨平台，Flutter是绕不开的主流选择，Dart自然是跟着它。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2013</td>
+<td>首版</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>2018</td>
+<td>类型系统强化、Flutter成熟</td>
+</tr>
+<tr>
+<td>2.12</td>
+<td>2021</td>
+<td>空安全(Null Safety)——里程碑</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>2023</td>
+<td>100%健全空安全、记录(Records)、模式匹配——大版本</td>
+</tr>
+<tr>
+<td>3.2</td>
+<td>2023</td>
+<td>WebAssembly(GC)支持</td>
+</tr>
+<tr>
+<td>3.4</td>
+<td>2024</td>
+<td>性能改进</td>
+</tr>
+<tr>
+<td>3.12</td>
+<td>2026</td>
+<td>最新版</td>
+</tr>
+</tbody>
+</table>
+<h3>SQL</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Donald Chamberlin、Raymond Boyce（IBM）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>1974年（SEQUEL），1986年ANSI标准化</td>
+</tr>
+<tr>
+<td>当前标准</td>
+<td>SQL:2023（ISO/IEC 9075）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>声明式</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型（基于模式Schema）</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐（基础易，高级优化难）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#8（1.71%）</td>
+</tr>
+</tbody>
+</table>
+<p>SQL不算通用编程语言，但搞数据的人没人躲得开它。它的思路是声明式的：你告诉它要啥，它自己琢磨咋取，查询优化器决定执行计划。基础语法学起来半天就会，但优化起来水深得很。</p>
+<p>现在的SQL已经能玩窗口函数、CTE、JSON操作、递归查询这些高级活了，2023版连属性图查询都进了标准。</p>
+<table>
+<thead>
+<tr>
+<th>标准</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL-86</td>
+<td>1986</td>
+<td>首个ANSI标准</td>
+</tr>
+<tr>
+<td>SQL-89</td>
+<td>1989</td>
+<td>参照完整性</td>
+</tr>
+<tr>
+<td>SQL-92</td>
+<td>1992</td>
+<td>JOIN语法、CASE、外连接</td>
+</tr>
+<tr>
+<td>SQL:1999</td>
+<td>1999</td>
+<td>触发器、递归、正则匹配</td>
+</tr>
+<tr>
+<td>SQL:2003</td>
+<td>2003</td>
+<td>窗口函数、XML支持</td>
+</tr>
+<tr>
+<td>SQL:2008</td>
+<td>2008</td>
+<td>INSTEAD OF触发器、TRUNCATE</td>
+</tr>
+<tr>
+<td>SQL:2011</td>
+<td>2011</td>
+<td>时态数据(Temporal Tables)</td>
+</tr>
+<tr>
+<td>SQL:2016</td>
+<td>2016</td>
+<td>JSON支持、行模式</td>
+</tr>
+<tr>
+<td>SQL:2019</td>
+<td>2019</td>
+<td>属性图查询</td>
+</tr>
+<tr>
+<td>SQL:2023</td>
+<td>2023</td>
+<td>SQL/PGQ属性图查询、JSON数据类型正式化</td>
+</tr>
+</tbody>
+</table>
+<h3>Scratch</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>MIT Media Lab（Mitchel Resnick团队）</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>2007年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>3.0（2019年）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>事件驱动、积木式可视化编程</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>无传统类型系统</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐（极易，面向8-16岁青少年）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>#12（1.27%）</td>
+</tr>
+</tbody>
+</table>
+<p>Scratch是MIT搞的积木式编程，不用敲代码，把积木块拖来拖去就行，面向小朋友。设计目的是让儿童在编程里学会创造性思维和系统推理，现在学校的信息技术课到处都是它。</p>
+<p>TIOBE排名能排到12，说明少儿编程是真火了一下，但是为什么不直接学Python呢。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创作者</td>
+<td>MIT Media Lab</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>2007年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>3.0（2019年）</td>
+</tr>
+<tr>
+<td>定位</td>
+<td>少儿编程教育</td>
+</tr>
+</tbody>
+</table>
+<h2>第六梯队：新兴与前沿语言</h2>
+<h3>Zig</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Andrew Kelley</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>2016年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>0.16.0（2026年4月）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>过程式、编译期元编程</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型、强类型</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐（中等，C开发者友好）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>未进入Top 20但持续上升</td>
+</tr>
+</tbody>
+</table>
+<p>Zig是新锐里的当红炸子鸡，理念是"无隐藏魔法"——没有隐式控制流、没有隐式内存分配、没有预处理器、没有宏，所有行为都得在代码里明着写。最牛的是comptime编译期执行，能在编译期调用任意函数、操作类型，实现零运行时开销的元编程。</p>
+<p>它还能当零依赖的C/C++交叉编译器用，TigerBeetle这种追求极致的数据库就选它。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>2016</td>
+<td>首版</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>2019</td>
+<td>comptime系统成熟</td>
+</tr>
+<tr>
+<td>0.10</td>
+<td>2022</td>
+<td>自举编译器(self-hosted)</td>
+</tr>
+<tr>
+<td>0.11</td>
+<td>2023</td>
+<td>包管理器(zig fetch)</td>
+</tr>
+<tr>
+<td>0.13</td>
+<td>2024</td>
+<td>稳定性提升</td>
+</tr>
+<tr>
+<td>0.16</td>
+<td>2026</td>
+<td>错误处理改进、编译期反射增强、标准库新模块(std.crypto/std.net.Server)</td>
+</tr>
+</tbody>
+</table>
+<h3>Nim</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>信息</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建者</td>
+<td>Andreas Rumpf</td>
+</tr>
+<tr>
+<td>诞生年份</td>
+<td>2008年</td>
+</tr>
+<tr>
+<td>当前版本</td>
+<td>2.2.10（2026年4月）</td>
+</tr>
+<tr>
+<td>范式</td>
+<td>多范式（过程式、函数式、面向对象、元编程）</td>
+</tr>
+<tr>
+<td>类型系统</td>
+<td>静态类型、强类型、类型推断</td>
+</tr>
+<tr>
+<td>学习难度</td>
+<td>⭐⭐⭐（中等，Python语法+C性能）</td>
+</tr>
+<tr>
+<td>TIOBE排名</td>
+<td>未进入Top 20</td>
+</tr>
+</tbody>
+</table>
+<p>Nim想同时拥有Python的语法和C的性能，先编译到C/C++/JavaScript，再由GCC/Clang变成原生代码。内存管理用ORC那套，确定性地析构，没有GC暂停。宏系统直接操作AST，表达力极强。</p>
+<p>以太坊有个客户端Nimbus就是它写的，也是它拿得出手的代表作。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>年份</th>
+<th>关键特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.x</td>
+<td>2008-2014</td>
+<td>预发布（原名Nimrod）</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>2019</td>
+<td>首个稳定版</td>
+</tr>
+<tr>
+<td>1.6</td>
+<td>2021</td>
+<td>LTS版本</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>2023</td>
+<td>ARC/ORC默认——里程碑</td>
+</tr>
+<tr>
+<td>2.2</td>
+<td>2024</td>
+<td>编译器内部重构、ORC改进</td>
+</tr>
+<tr>
+<td>2.2.10</td>
+<td>2026</td>
+<td>最新版（76 commits、34 bugfixes）</td>
+</tr>
+</tbody>
+</table>
+<h2>横向对比</h2>
+<h3>按学习难度排序</h3>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th>语言</th>
+<th>适合人群</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⭐ 极易</td>
+<td>Python、Scratch</td>
+<td>零基础入门、青少年教育</td>
+</tr>
+<tr>
+<td>⭐⭐ 低</td>
+<td>Go、PHP、Ruby、Lua、Dart</td>
+<td>有编程基础者快速上手</td>
+</tr>
+<tr>
+<td>⭐⭐⭐ 中</td>
+<td>Java、C#、JavaScript、Nim、Julia</td>
+<td>有一定基础，可深入掌握</td>
+</tr>
+<tr>
+<td>⭐⭐⭐⭐ 中高</td>
+<td>C、Swift、Kotlin、TypeScript、R、MATLAB</td>
+<td>需要理解类型系统或特定范式</td>
+</tr>
+<tr>
+<td>⭐⭐⭐⭐⭐ 极高</td>
+<td>C++、Rust、Perl、Scala、Haskell</td>
+<td>需要深厚的计算机科学基础</td>
+</tr>
+</tbody>
+</table>
+<h3>按应用领域速查</h3>
+<table>
+<thead>
+<tr>
+<th>领域</th>
+<th>首选语言</th>
+<th>备选</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI/机器学习</td>
+<td>Python</td>
+<td>Julia、R</td>
+</tr>
+<tr>
+<td>Web前端</td>
+<td>JavaScript/TypeScript</td>
+<td>Dart(Flutter)</td>
+</tr>
+<tr>
+<td>Web后端</td>
+<td>Python/Java/Go/Node.js</td>
+<td>PHP、Ruby、C#</td>
+</tr>
+<tr>
+<td>移动开发</td>
+<td>Kotlin(Android)、Swift(iOS)</td>
+<td>Dart(Flutter跨平台)、React Native(JS)</td>
+</tr>
+<tr>
+<td>系统编程</td>
+<td>C/C++/Rust</td>
+<td>Zig、Go、Nim</td>
+</tr>
+<tr>
+<td>游戏开发</td>
+<td>C++</td>
+<td>C#(Unity)、Lua(脚本)</td>
+</tr>
+<tr>
+<td>大数据</td>
+<td>Scala(Spark)</td>
+<td>Python、Java</td>
+</tr>
+<tr>
+<td>数据科学</td>
+<td>Python/R</td>
+<td>Julia、SQL</td>
+</tr>
+<tr>
+<td>嵌入式</td>
+<td>C</td>
+<td>C++、Rust、Zig</td>
+</tr>
+<tr>
+<td>云原生/DevOps</td>
+<td>Go</td>
+<td>Python、Shell</td>
+</tr>
+<tr>
+<td>科学计算</td>
+<td>Julia/Python</td>
+<td>MATLAB、R</td>
+</tr>
+</tbody>
+</table>
+<h3>按当前版本一览</h3>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>当前版本</th>
+<th>发布日期</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td>3.14.6</td>
+<td>2026-06</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>C</td>
+<td>C23</td>
+<td>2024-10</td>
+<td>标准</td>
+</tr>
+<tr>
+<td>C++</td>
+<td>C++23/C++26(冻结)</td>
+<td>2023/2026-03</td>
+<td>标准</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>JDK 26</td>
+<td>2026-03</td>
+<td>非LTS(当前LTS: JDK 25)</td>
+</tr>
+<tr>
+<td>C#</td>
+<td>14(.NET 10)</td>
+<td>2025</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>ES2025</td>
+<td>2025</td>
+<td>标准</td>
+</tr>
+<tr>
+<td>Go</td>
+<td>1.27</td>
+<td>2026-06</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>Rust</td>
+<td>1.96</td>
+<td>2026-05</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>Swift</td>
+<td>6.1</td>
+<td>2025</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>Kotlin</td>
+<td>2.4.0</td>
+<td>2026-06</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>TypeScript</td>
+<td>6.0.3</td>
+<td>2025</td>
+<td>稳定版(7.0原生编译器预览)</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>8.5.7</td>
+<td>2026-06</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td>3.4</td>
+<td>2024</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>Lua</td>
+<td>5.4</td>
+<td>2020</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>Dart</td>
+<td>3.12</td>
+<td>2026-05</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>R</td>
+<td>4.5</td>
+<td>2025</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>Julia</td>
+<td>1.11</td>
+<td>2024</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>Scala</td>
+<td>3.x</td>
+<td>2025</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>Haskell</td>
+<td>GHC 9.12</td>
+<td>2025</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>Nim</td>
+<td>2.2.10</td>
+<td>2026-04</td>
+<td>稳定版</td>
+</tr>
+<tr>
+<td>Zig</td>
+<td>0.16.0</td>
+<td>2026-04</td>
+<td>预发布</td>
+</tr>
+</tbody>
+</table>
+<h2>编程语言发展时间线</h2>
+<table>
+<thead>
+<tr>
+<th>年代</th>
+<th>出现的语言（年份）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1950年代</td>
+<td>Fortran(1957)、LISP(1958)、ALGOL(1958)、COBOL(1959)</td>
+</tr>
+<tr>
+<td>1960年代</td>
+<td>BASIC(1964)、PL/I(1964)、Simula(1965)、BCPL(1967)、Pascal(1970)</td>
+</tr>
+<tr>
+<td>1970年代</td>
+<td>C(1972)、Smalltalk(1972)、Prolog(1972)、Scheme(1975)、Ada(1983)</td>
+</tr>
+<tr>
+<td>1980年代</td>
+<td>Objective-C(1984)、C++(1985)、Eiffel(1986)、Perl(1987)、Tcl(1988)</td>
+</tr>
+<tr>
+<td>1990年代</td>
+<td>Haskell(1990)、Python(1991)、Lua(1993)、Ruby(1995)、Java(1995)、JavaScript(1995)、PHP(1995)、Delphi(1995)</td>
+</tr>
+<tr>
+<td>2000年代</td>
+<td>C#(2000)、Scala(2004)</td>
+</tr>
+<tr>
+<td>2010年代</td>
+<td>Rust(2010)、Dart(2011)、Kotlin(2011)、Julia(2012)、TypeScript(2012)、Swift(2014)、Zig(2016)</td>
+</tr>
+<tr>
+<td>2020年代</td>
+<td>持续涌现的新语言</td>
+</tr>
+</tbody>
+</table>
+<h2>咋选语言</h2>
+<p>说实话，选语言这事儿，比很多人想的简单。别被"XX已死""XX将取代XX"这种标题党带偏，关键看你到底想干啥。</p>
+<h3>按目标选</h3>
+<table>
+<thead>
+<tr>
+<th>你的目标</th>
+<th>推荐路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>零基础入门</td>
+<td>Python → 理解编程基础后选择方向</td>
+</tr>
+<tr>
+<td>Web前端开发</td>
+<td>HTML/CSS → JavaScript → TypeScript → React/Vue</td>
+</tr>
+<tr>
+<td>Web后端开发</td>
+<td>Python(Django/FastAPI) 或 Go 或 Node.js</td>
+</tr>
+<tr>
+<td>Android开发</td>
+<td>Kotlin → Jetpack Compose</td>
+</tr>
+<tr>
+<td>iOS开发</td>
+<td>Swift → SwiftUI</td>
+</tr>
+<tr>
+<td>跨平台移动</td>
+<td>Dart(Flutter)</td>
+</tr>
+<tr>
+<td>数据科学/AI</td>
+<td>Python(NumPy/pandas/PyTorch) → R(统计) → Julia(高性能)</td>
+</tr>
+<tr>
+<td>游戏开发</td>
+<td>C++(Unreal Engine) 或 C#(Unity)</td>
+</tr>
+<tr>
+<td>系统编程</td>
+<td>C → Rust 或 Zig</td>
+</tr>
+<tr>
+<td>大数据</td>
+<td>Scala(Spark) 或 Python</td>
+</tr>
+<tr>
+<td>嵌入式</td>
+<td>C → Rust</td>
+</tr>
+<tr>
+<td>云原生/后端</td>
+<td>Go → Kubernetes生态</td>
+</tr>
+<tr>
+<td>高并发实时系统</td>
+<td>Go</td>
+</tr>
+<tr>
+<td>金融量化</td>
+<td>Python → C++ → Haskell</td>
+</tr>
+<tr>
+<td>编程教育(儿童)</td>
+<td>Scratch → Python</td>
+</tr>
+</tbody>
+</table>
+<h3>按已有基础选</h3>
+<table>
+<thead>
+<tr>
+<th>你的背景</th>
+<th>下一步推荐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>会Java</td>
+<td>Kotlin(Android) 或 Go(云原生) 或 TypeScript(全栈)</td>
+</tr>
+<tr>
+<td>会C</td>
+<td>C++(游戏/高性能) 或 Rust(安全系统) 或 Zig(C替代)</td>
+</tr>
+<tr>
+<td>会Python</td>
+<td>Go(高性能后端) 或 Rust(系统) 或 TypeScript(前端)</td>
+</tr>
+<tr>
+<td>会JavaScript</td>
+<td>TypeScript → Node.js后端 或 Dart(Flutter移动)</td>
+</tr>
+</tbody>
+</table>
+<p>这一整篇下来，你会发现编程语言这东西没那么玄乎。本质就是一代代人为了解决当时的具体问题攒出来的工具，各有各的用武之地。数据截至2026年8月，版本和排名都在变，但语言背后那套思想，始终是人和机器的交互。</p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep" data-i18n="category_label">分类</span>:
+        <abbr class="category">
+            <a href="./category/programming.html">Programming</a>
+        </abbr>
+       </footer>
+    
+</section>
+
+<section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
+    <script src="https://giscus.app/client.js"
+        data-repo="cycleuser/cycleuser.github.io"
+        data-repo-id="R_kgDOL4NKYA"
+        data-category="General"
+        data-category-id="DIC_kwDOL4NKYM4DBK3X"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    function update() {
+        var t = giscusTheme(getTheme());
+        var s = document.querySelector('script[src*="giscus"]');
+        if (s) s.setAttribute('data-theme', t);
+        sendTheme(t);
+    }
+    // 初始设置
+    var s = document.querySelector('script[src*="giscus"]');
+    if (s) s.setAttribute('data-theme', giscusTheme(getTheme()));
+    // 监听明暗切换
+    new MutationObserver(function() { update(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    // 重试几次确保 iframe 加载完成
+    var tries = 0;
+    var timer = setInterval(function() {
+        if (document.querySelector('iframe.giscus-frame')) { sendTheme(giscusTheme(getTheme())); clearInterval(timer); }
+        if (++tries > 20) clearInterval(timer);
+    }, 500);
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

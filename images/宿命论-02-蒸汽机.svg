@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect x="0" y="0" width="600" height="400" fill="#ffffff"/>
+  <rect x="30" y="30" width="540" height="340" fill="none" stroke="#000000" stroke-width="3"/>
+  <rect x="36" y="36" width="528" height="328" fill="none" stroke="#000000" stroke-width="1"/>
+
+  <!-- 蒸汽机左侧 -->
+  <!-- 锅炉 -->
+  <rect x="70" y="220" width="80" height="60" rx="8" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 烟囱 -->
+  <rect x="100" y="170" width="20" height="55" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 烟 -->
+  <circle cx="110" cy="155" r="12" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <circle cx="125" cy="135" r="16" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <circle cx="105" cy="115" r="20" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <!-- 管道 -->
+  <line x1="150" y1="240" x2="180" y2="240" stroke="#000000" stroke-width="3"/>
+  <!-- 飞轮 -->
+  <circle cx="210" cy="240" r="30" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <line x1="210" y1="210" x2="210" y2="270" stroke="#000000" stroke-width="2"/>
+  <line x1="180" y1="240" x2="240" y2="240" stroke="#000000" stroke-width="2"/>
+  <line x1="189" y1="219" x2="231" y2="261" stroke="#000000" stroke-width="2"/>
+  <line x1="231" y1="219" x2="189" y2="261" stroke="#000000" stroke-width="2"/>
+  <circle cx="210" cy="240" r="4" fill="#000000"/>
+  <!-- 活塞臂 -->
+  <line x1="180" y1="240" x2="180" y2="220" stroke="#000000" stroke-width="2"/>
+  <rect x="172" y="205" width="16" height="15" fill="none" stroke="#000000" stroke-width="2"/>
+
+  <!-- 小孙悟空站在蒸汽机旁，得意 -->
+  <circle cx="130" cy="310" r="30" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <path d="M 102 296 Q 130 284 158 296" fill="none" stroke="#000000" stroke-width="3"/>
+  <circle cx="120" cy="310" r="4" fill="#000000"/>
+  <circle cx="140" cy="310" r="4" fill="#000000"/>
+  <path d="M 122 326 Q 130 332 138 326" fill="none" stroke="#000000" stroke-width="2"/>
+  <!-- 身体 -->
+  <path d="M 108 338 Q 130 342 152 338 L 155 370 Q 130 372 105 370 Z" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 手臂指向蒸汽机，骄傲 -->
+  <line x1="108" y1="345" x2="90" y2="320" stroke="#000000" stroke-width="2.5"/>
+  <line x1="152" y1="345" x2="170" y2="335" stroke="#000000" stroke-width="2.5"/>
+
+  <!-- 中间箭头 -->
+  <path d="M 270 200 L 330 200" stroke="#000000" stroke-width="3"/>
+  <path d="M 320 192 L 330 200 L 320 208" fill="none" stroke="#000000" stroke-width="3"/>
+  <!-- 箭头上的文字 -->
+  <text x="282" y="190" font-family="serif" font-size="12" fill="#000000">范式跃迁</text>
+
+  <!-- 右侧：现代能源 -->
+  <!-- 核反应堆冷却塔 -->
+  <path d="M 410 280 L 415 190 L 435 190 L 440 280 Z" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <path d="M 415 190 Q 425 178 435 190" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 第二个冷却塔 -->
+  <path d="M 460 280 L 465 200 L 480 200 L 485 280 Z" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <path d="M 465 200 Q 472.5 190 480 200" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 地面 -->
+  <line x1="390" y1="280" x2="510" y2="280" stroke="#000000" stroke-width="3"/>
+  <!-- 原子符号 -->
+  <circle cx="450" cy="130" r="14" fill="none" stroke="#000000" stroke-width="2"/>
+  <ellipse cx="450" cy="130" rx="30" ry="10" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <ellipse cx="450" cy="130" rx="30" ry="10" fill="none" stroke="#000000" stroke-width="1.5" transform="rotate(60 450 130)"/>
+  <ellipse cx="450" cy="130" rx="30" ry="10" fill="none" stroke="#000000" stroke-width="1.5" transform="rotate(120 450 130)"/>
+  <circle cx="450" cy="130" r="3" fill="#000000"/>
+  <!-- 闪电符号表示能量 -->
+  <path d="M 400 120 L 415 130 L 405 135 L 420 150" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <path d="M 490 120 L 475 130 L 485 135 L 470 150" fill="none" stroke="#000000" stroke-width="2.5"/>
+
+  <!-- 小孙悟空在右侧，惊讶 -->
+  <circle cx="520" cy="310" r="26" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <path d="M 496 298 Q 520 288 544 298" fill="none" stroke="#000000" stroke-width="3"/>
+  <circle cx="512" cy="308" r="5" fill="none" stroke="#000000" stroke-width="2"/>
+  <circle cx="528" cy="308" r="5" fill="none" stroke="#000000" stroke-width="2"/>
+  <circle cx="512" cy="308" r="2.5" fill="#000000"/>
+  <circle cx="528" cy="308" r="2.5" fill="#000000"/>
+  <circle cx="512" cy="308" r="2" fill="none" stroke="#000000" stroke-width="0.5"/>
+  <!-- O型嘴 -->
+  <circle cx="520" cy="325" r="4" fill="none" stroke="#000000" stroke-width="2"/>
+  <path d="M 500 335 Q 520 338 540 335 L 540 365 Q 520 367 500 365 Z" fill="none" stroke="#000000" stroke-width="2.5"/>
+
+  <!-- 标题 -->
+  <text x="55" y="22" font-family="serif" font-size="13" fill="#000000">贰 · 蒸汽机师傅的终极奥义</text>
+</svg>

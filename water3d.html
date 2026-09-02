@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Water Physics Simulation - 水物理模拟</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: #0a0a14;
+            color: #ccddff;
+            overflow: hidden;
+        }
+        
+        #container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .tabs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            background: #1a1a2e;
+            border-bottom: 1px solid #334455;
+            z-index: 100;
+        }
+        
+        .tab {
+            padding: 12px 25px;
+            cursor: pointer;
+            color: #88aacc;
+            border: none;
+            background: transparent;
+            font-size: 13px;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab:hover {
+            background: #2a2a4e;
+            color: #aaccff;
+        }
+        
+        .tab.active {
+            background: #2a3a5a;
+            color: #aaccff;
+            border-bottom-color: #4488cc;
+        }
+        
+        .panel {
+            position: absolute;
+            top: 50px;
+            left: 15px;
+            background: rgba(20, 25, 40, 0.92);
+            border: 1px solid #334455;
+            border-radius: 8px;
+            padding: 15px;
+            z-index: 100;
+            max-width: 320px;
+        }
+        
+        .panel h3 {
+            color: #88ccff;
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #334455;
+            padding-bottom: 8px;
+        }
+        
+        .panel p {
+            color: #88ccff;
+            font-family: 'Consolas', monospace;
+            font-size: 11px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            white-space: pre-line;
+        }
+        
+        .controls {
+            position: absolute;
+            top: 50px;
+            right: 15px;
+            background: rgba(20, 25, 40, 0.92);
+            border: 1px solid #334455;
+            border-radius: 8px;
+            padding: 15px;
+            z-index: 100;
+            min-width: 200px;
+        }
+        
+        .control-group {
+            margin-bottom: 12px;
+        }
+        
+        .control-group label {
+            display: block;
+            color: #88aacc;
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+        
+        .control-group input[type="range"] {
+            width: 100%;
+            accent-color: #4488cc;
+        }
+        
+        .control-group select, .control-group input[type="number"] {
+            background: #1a2a3a;
+            color: #aaccff;
+            border: 1px solid #334455;
+            padding: 6px 10px;
+            border-radius: 4px;
+            width: 100%;
+            font-size: 12px;
+        }
+        
+        button {
+            background: linear-gradient(180deg, #3a4a6a 0%, #2a3a5a 100%);
+            color: #aaccff;
+            border: 1px solid #4466aa;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            width: 100%;
+            margin-top: 5px;
+            transition: all 0.2s;
+        }
+        
+        button:hover {
+            background: linear-gradient(180deg, #4a5a7a 0%, #3a4a6a 100%);
+        }
+        
+        .stats {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(20, 25, 40, 0.85);
+            border: 1px solid #334455;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-family: 'Consolas', monospace;
+            font-size: 12px;
+            z-index: 100;
+        }
+        
+        .stats span {
+            color: #4488cc;
+            font-weight: bold;
+        }
+        
+        .value-display {
+            color: #66aaff;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        
+        #canvas3d {
+            position: absolute;
+            top: 45px;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 45px);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('capillary', this)">Capillary Effect (毛细现象)</button>
+            <button class="tab" onclick="switchTab('vessels', this)">Communicating Vessels (连通器)</button>
+            <button class="tab" onclick="switchTab('sedimentation', this)">Sedimentation (悬浊液沉淀)</button>
+            <button class="tab" onclick="switchTab('precipitation', this)">Alcohol Precipitation (醇沉法)</button>
+        </div>
+        
+        <div id="canvas3d"></div>
+        
+        <!-- Capillary Panel -->
+        <div class="panel" id="panel-capillary">
+            <h3>Capillary Effect - Jurin's Law</h3>
+            <p>h = 2γcos(θ) / (ρgr)
+γ = surface tension
+θ = contact angle
+ρ = liquid density
+r = tube radius
+Smaller radius → Higher rise</p>
+        </div>
+        
+        <!-- Vessels Panel -->
+        <div class="panel" id="panel-vessels" style="display:none;">
+            <h3>Communicating Vessels - Pascal's Principle</h3>
+            <p>Connected vessels reach same level.
+P = ρgh (hydrostatic pressure)
+At equilibrium: h₁ = h₂ = h₃ = h₄
+Regardless of vessel shape!</p>
+        </div>
+        
+        <!-- Sedimentation Panel -->
+        <div class="panel" id="panel-sedimentation" style="display:none;">
+            <h3>Sedimentation - Stokes' Law</h3>
+            <p>Terminal velocity:
+v = 2r²(ρp - ρf)g / (9η)
+r = particle radius
+ρp = particle density
+ρf = fluid density
+η = viscosity
+Larger particles settle faster!</p>
+        </div>
+        
+        <!-- Alcohol Precipitation Panel -->
+        <div class="panel" id="panel-precipitation" style="display:none;">
+            <h3>Alcohol Precipitation - 醇沉法</h3>
+            <p>Adding ethanol reduces solubility:
+• Polysaccharides: ~25% (yellow-brown)
+• Proteins: ~40% (cream white)
+• Tannins: ~55% (dark brown)
+• Glycosides: ~70% (green)
+Higher MW precipitates first!</p>
+        </div>
+        
+        <!-- Capillary Controls -->
+        <div class="controls" id="controls-capillary">
+            <div class="control-group">
+                <label>Surface Tension (mN/m)</label>
+                <input type="range" id="surfaceTension" min="20" max="200" value="72.8" oninput="updateCapillary()">
+                <span class="value-display" id="tensionValue">72.8</span>
+            </div>
+            <div class="control-group">
+                <label>Contact Angle (°)</label>
+                <input type="range" id="contactAngle" min="0" max="180" value="0" oninput="updateCapillary()">
+                <span class="value-display" id="angleValue">0</span>
+            </div>
+            <div class="control-group">
+                <label>Liquid Type</label>
+                <select id="liquidType" onchange="changeLiquid()">
+                    <option value="water">Water</option>
+                    <option value="ethanol">Ethanol</option>
+                    <option value="mercury">Mercury</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Vessels Controls -->
+        <div class="controls" id="controls-vessels" style="display:none;">
+            <div class="control-group">
+                <label>Flow Rate</label>
+                <input type="range" id="flowRate" min="5" max="100" value="20">
+            </div>
+            <button onclick="addWaterToVessel(0)">Add to V1</button>
+            <button onclick="addWaterToVessel(1)">Add to V2</button>
+            <button onclick="addWaterToVessel(2)">Add to V3</button>
+            <button onclick="addWaterToVessel(3)">Add to V4</button>
+            <button onclick="resetVessels()">Reset Random</button>
+        </div>
+        
+        <!-- Sedimentation Controls -->
+        <div class="controls" id="controls-sedimentation" style="display:none;">
+            <div class="control-group">
+                <label>Particle Density (kg/m³)</label>
+                <input type="number" id="particleDensity" min="1100" max="5000" value="2500" onchange="updateSedimentVelocities()">
+            </div>
+            <div class="control-group">
+                <label>Fluid Viscosity (mPa·s)</label>
+                <input type="number" id="fluidViscosity" min="0.5" max="100" value="1" step="0.1" onchange="updateSedimentVelocities()">
+            </div>
+            <div class="control-group">
+                <label>Particle Count</label>
+                <input type="number" id="particleCount" min="50" max="400" value="200">
+            </div>
+            <button onclick="shakeParticles()">Shake / Reset</button>
+        </div>
+        
+        <!-- Alcohol Precipitation Controls -->
+        <div class="controls" id="controls-precipitation" style="display:none;">
+            <div class="control-group">
+                <label>Alcohol Concentration (%)</label>
+                <input type="range" id="alcoholConcentration" min="0" max="80" value="0" oninput="updateAlcohol()">
+                <span class="value-display" id="alcoholValue" style="font-size:16px; color:#ffcc44;">0%</span>
+            </div>
+            <div class="control-group">
+                <label>Quick Set:</label>
+                <div style="display:flex; gap:5px;">
+                    <button onclick="setAlcohol(25)" style="flex:1; padding:5px;">25%</button>
+                    <button onclick="setAlcohol(40)" style="flex:1; padding:5px;">40%</button>
+                    <button onclick="setAlcohol(55)" style="flex:1; padding:5px;">55%</button>
+                    <button onclick="setAlcohol(70)" style="flex:1; padding:5px;">70%</button>
+                </div>
+            </div>
+            <button onclick="resetPrecipitation()">Reset</button>
+        </div>
+        
+        <div class="stats" id="statsPanel"></div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    
+    <script>
+        // ==================== GLOBALS ====================
+        let scene, camera, renderer, controls;
+        let currentMode = 'capillary';
+        let clock = new THREE.Clock();
+        
+        // Physical constants
+        const GRAVITY = 9.81;
+        const WATER_DENSITY = 1000;
+        
+        // ==================== CAPILLARY ====================
+        const tubeRadii = [0.5, 0.3, 0.2, 0.1, 0.05]; // mm
+        let capillaryHeights = [0, 0, 0, 0, 0];
+        let targetHeights = [0, 0, 0, 0, 0];
+        let waterColumns = [];
+        let capillaryObjects = [];
+        
+        function calculateCapillaryHeights() {
+            const gamma = parseFloat(document.getElementById('surfaceTension').value) / 1000;
+            const theta = parseFloat(document.getElementById('contactAngle').value) * Math.PI / 180;
+            
+            document.getElementById('tensionValue').textContent = (gamma * 1000).toFixed(1);
+            document.getElementById('angleValue').textContent = Math.round(theta * 180 / Math.PI);
+            
+            for (let i = 0; i < tubeRadii.length; i++) {
+                const r = tubeRadii[i] / 1000;
+                const h = (2 * gamma * Math.cos(theta)) / (WATER_DENSITY * GRAVITY * r);
+                targetHeights[i] = h * 1000; // mm
+            }
+        }
+        
+        function updateCapillary() {
+            calculateCapillaryHeights();
+        }
+        
+        function changeLiquid() {
+            const liquid = document.getElementById('liquidType').value;
+            const tensionSlider = document.getElementById('surfaceTension');
+            const angleSlider = document.getElementById('contactAngle');
+            
+            if (liquid === 'water') {
+                tensionSlider.value = 72.8;
+                angleSlider.value = 0;
+            } else if (liquid === 'ethanol') {
+                tensionSlider.value = 22;
+                angleSlider.value = 0;
+            } else if (liquid === 'mercury') {
+                tensionSlider.value = 200;
+                angleSlider.value = 140;
+            }
+            updateCapillary();
+        }
+        
+        function createCapillaryScene() {
+            // Clear previous
+            capillaryObjects.forEach(obj => scene.remove(obj));
+            capillaryObjects = [];
+            waterColumns = [];
+            
+            // Water reservoir
+            const reservoirGeo = new THREE.BoxGeometry(7, 1, 3);
+            const reservoirMat = new THREE.MeshPhongMaterial({
+                color: 0x1a5090,
+                transparent: true,
+                opacity: 0.7
+            });
+            const reservoir = new THREE.Mesh(reservoirGeo, reservoirMat);
+            reservoir.position.set(0, -0.5, 0);
+            scene.add(reservoir);
+            capillaryObjects.push(reservoir);
+            
+            // Tubes - progressively taller for thinner tubes (higher water rise)
+            const tubeSpacing = 1.4;
+            const tubeVisualRadii = [0.25, 0.20, 0.15, 0.10, 0.06];
+            const tubeHeights = [2.0, 2.5, 3.5, 5.0, 8.0];  // Taller for smaller radius
+            
+            for (let i = 0; i < tubeRadii.length; i++) {
+                const x = (i - 2) * tubeSpacing;
+                const radius = tubeVisualRadii[i];
+                const height = tubeHeights[i];
+                
+                // Glass tube - height varies by radius
+                const tubeGeo = new THREE.CylinderGeometry(radius, radius, height, 16, 1, true);
+                const tubeMat = new THREE.MeshPhongMaterial({
+                    color: 0x88aacc,
+                    transparent: true,
+                    opacity: 0.3,
+                    side: THREE.DoubleSide
+                });
+                const tube = new THREE.Mesh(tubeGeo, tubeMat);
+                tube.position.set(x, height / 2 + 0.05, 0);
+                scene.add(tube);
+                capillaryObjects.push(tube);
+                
+                // Water column
+                const waterGeo = new THREE.CylinderGeometry(radius * 0.85, radius * 0.85, 0.1, 16);
+                const waterMat = new THREE.MeshPhongMaterial({
+                    color: 0x3388dd,
+                    transparent: true,
+                    opacity: 0.85
+                });
+                const water = new THREE.Mesh(waterGeo, waterMat);
+                water.position.set(x, 0.1, 0);
+                scene.add(water);
+                capillaryObjects.push(water);
+                waterColumns.push({ mesh: water, radius: radius * 0.85, x: x });
+            }
+            
+            calculateCapillaryHeights();
+        }
+        
+        function animateCapillary() {
+            // Animate toward target
+            for (let i = 0; i < tubeRadii.length; i++) {
+                capillaryHeights[i] += (targetHeights[i] - capillaryHeights[i]) * 0.06;
+            }
+            
+            // Update water columns
+            let statsText = '';
+            for (let i = 0; i < waterColumns.length; i++) {
+                const wc = waterColumns[i];
+                const h = capillaryHeights[i];
+                const visHeight = Math.max(0.05, Math.abs(h) * 0.02);
+                
+                wc.mesh.geometry.dispose();
+                wc.mesh.geometry = new THREE.CylinderGeometry(wc.radius, wc.radius, visHeight, 16);
+                
+                if (h >= 0) {
+                    wc.mesh.position.y = visHeight / 2 + 0.05;
+                    wc.mesh.material.color.setHex(0x3388dd);
+                } else {
+                    wc.mesh.position.y = -visHeight / 2 + 0.05;
+                    wc.mesh.material.color.setHex(0xaaaabc);
+                }
+                
+                statsText += `r=${tubeRadii[i]}mm: h=${h.toFixed(1)}mm  |  `;
+            }
+            document.getElementById('statsPanel').innerHTML = statsText;
+        }
+        
+        // ==================== VESSELS ====================
+        let vessels = [
+            { level: 0.7, width: 0.6, depth: 0.6 },
+            { level: 0.3, width: 0.4, depth: 0.8 },
+            { level: 0.85, width: 0.8, depth: 0.5 },
+            { level: 0.2, width: 0.5, depth: 0.5 }
+        ];
+        let vesselTargetLevel = 0;
+        let vesselObjects = [];
+        let vesselWaterMeshes = [];
+        
+        function calculateVesselTarget() {
+            let totalVol = 0, totalArea = 0;
+            vessels.forEach(v => {
+                totalVol += v.level * v.width * v.depth;
+                totalArea += v.width * v.depth;
+            });
+            vesselTargetLevel = totalVol / totalArea;
+        }
+        
+        function addWaterToVessel(idx) {
+            vessels[idx].level = Math.min(0.95, vessels[idx].level + 0.15);
+            calculateVesselTarget();
+        }
+        
+        function resetVessels() {
+            vessels.forEach(v => {
+                v.level = 0.2 + Math.random() * 0.7;
+            });
+            calculateVesselTarget();
+        }
+        
+        function createVesselsScene() {
+            vesselObjects.forEach(obj => scene.remove(obj));
+            vesselObjects = [];
+            vesselWaterMeshes = [];
+            
+            const spacing = 2.2;
+            const maxHeight = 2.5;
+            
+            for (let i = 0; i < vessels.length; i++) {
+                const v = vessels[i];
+                const x = (i - 1.5) * spacing;
+                
+                // Vessel frame
+                const frameGeo = new THREE.BoxGeometry(v.width, maxHeight, v.depth);
+                const edges = new THREE.EdgesGeometry(frameGeo);
+                const frameMat = new THREE.LineBasicMaterial({ color: 0x5588aa, transparent: true, opacity: 0.7 });
+                const frame = new THREE.LineSegments(edges, frameMat);
+                frame.position.set(x, maxHeight / 2, 0);
+                scene.add(frame);
+                vesselObjects.push(frame);
+                
+                // Water
+                const waterGeo = new THREE.BoxGeometry(v.width - 0.08, v.level * maxHeight, v.depth - 0.08);
+                const waterMat = new THREE.MeshPhongMaterial({
+                    color: 0x2266aa,
+                    transparent: true,
+                    opacity: 0.7
+                });
+                const water = new THREE.Mesh(waterGeo, waterMat);
+                water.position.set(x, (v.level * maxHeight) / 2 + 0.02, 0);
+                scene.add(water);
+                vesselObjects.push(water);
+                vesselWaterMeshes.push({ mesh: water, vessel: v, x: x, maxHeight: maxHeight });
+            }
+            
+            // Connecting pipe
+            const pipeGeo = new THREE.BoxGeometry(7, 0.15, 0.15);
+            const pipeMat = new THREE.MeshPhongMaterial({ color: 0x446688, transparent: true, opacity: 0.6 });
+            const pipe = new THREE.Mesh(pipeGeo, pipeMat);
+            pipe.position.set(0, 0.12, 0);
+            scene.add(pipe);
+            vesselObjects.push(pipe);
+            
+            calculateVesselTarget();
+        }
+        
+        function animateVessels() {
+            const flowRate = parseFloat(document.getElementById('flowRate').value) / 1000;
+            
+            vessels.forEach(v => {
+                const diff = vesselTargetLevel - v.level;
+                v.level += diff * flowRate;
+                v.level = Math.max(0.05, Math.min(0.95, v.level));
+            });
+            
+            let statsText = '';
+            vesselWaterMeshes.forEach((wm, i) => {
+                const h = vessels[i].level * wm.maxHeight;
+                wm.mesh.geometry.dispose();
+                wm.mesh.geometry = new THREE.BoxGeometry(vessels[i].width - 0.08, h, vessels[i].depth - 0.08);
+                wm.mesh.position.y = h / 2 + 0.02;
+                statsText += `V${i + 1}: ${vessels[i].level.toFixed(2)}  |  `;
+            });
+            statsText += `Target: ${vesselTargetLevel.toFixed(2)}`;
+            document.getElementById('statsPanel').innerHTML = statsText;
+        }
+        
+        // ==================== SEDIMENTATION ====================
+        let particles = [];
+        let sedimentObjects = [];
+        let particleSystem = null;
+        
+        function createParticle() {
+            const radius = 5 + Math.random() * 45; // μm
+            return {
+                pos: new THREE.Vector3(
+                    (Math.random() - 0.5) * 1.6,
+                    0.5 + Math.random() * 2.0,   // Y is height (Three.js Y-up)
+                    (Math.random() - 0.5) * 1.6
+                ),
+                radius: radius,
+                velocity: 0,
+                settled: false
+            };
+        }
+        
+        function updateSedimentVelocities() {
+            const rhoP = parseFloat(document.getElementById('particleDensity').value);
+            const eta = parseFloat(document.getElementById('fluidViscosity').value) / 1000;
+            
+            particles.forEach(p => {
+                const r = p.radius * 1e-6;
+                const v = (2 * r * r * (rhoP - WATER_DENSITY) * GRAVITY) / (9 * eta);
+                p.velocity = v * 1000;
+            });
+        }
+        
+        function shakeParticles() {
+            const count = parseInt(document.getElementById('particleCount').value);
+            particles = [];
+            for (let i = 0; i < count; i++) {
+                particles.push(createParticle());
+            }
+            updateSedimentVelocities();
+            updateParticleSystem();
+        }
+        
+        function createSedimentationScene() {
+            sedimentObjects.forEach(obj => scene.remove(obj));
+            sedimentObjects = [];
+            if (particleSystem) scene.remove(particleSystem);
+            
+            // Container frame (Y is vertical in Three.js)
+            const containerGeo = new THREE.BoxGeometry(2, 2.8, 2);
+            const edges = new THREE.EdgesGeometry(containerGeo);
+            const containerMat = new THREE.LineBasicMaterial({ color: 0x5588aa, transparent: true, opacity: 0.5 });
+            const container = new THREE.LineSegments(edges, containerMat);
+            container.position.set(0, 1.4, 0);
+            scene.add(container);
+            sedimentObjects.push(container);
+            
+            // Water fill
+            const waterGeo = new THREE.BoxGeometry(1.9, 2.7, 1.9);
+            const waterMat = new THREE.MeshPhongMaterial({
+                color: 0x1a4070,
+                transparent: true,
+                opacity: 0.35
+            });
+            const water = new THREE.Mesh(waterGeo, waterMat);
+            water.position.set(0, 1.4, 0);
+            scene.add(water);
+            sedimentObjects.push(water);
+            
+            // Create particles
+            shakeParticles();
+        }
+        
+        function updateParticleSystem() {
+            if (particleSystem) scene.remove(particleSystem);
+            
+            const positions = [];
+            const colors = [];
+            const sizes = [];
+            
+            particles.forEach(p => {
+                positions.push(p.pos.x, p.pos.y, p.pos.z);
+                
+                const sizeFactor = (p.radius - 5) / 45;
+                const r = 0.55 + sizeFactor * 0.25;
+                const g = 0.35 + sizeFactor * 0.15;
+                const b = 0.15 + sizeFactor * 0.1;
+                
+                if (p.settled) {
+                    colors.push(r * 0.7, g * 0.7, b * 0.7);
+                } else {
+                    colors.push(r, g, b);
+                }
+                
+                sizes.push(3 + p.radius * 0.1);
+            });
+            
+            const geometry = new THREE.BufferGeometry();
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+            
+            const material = new THREE.PointsMaterial({
+                size: 0.08,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.9,
+                sizeAttenuation: true
+            });
+            
+            particleSystem = new THREE.Points(geometry, material);
+            scene.add(particleSystem);
+        }
+        
+        function animateSedimentation() {
+            const dt = 0.025;
+            const bottom = 0.05;
+            let settled = 0;
+            
+            particles.forEach(p => {
+                if (!p.settled) {
+                    // Gravity in -Y direction (Three.js Y-up)
+                    p.pos.y -= p.velocity * dt * 0.008;
+                    
+                    // Horizontal drift (X and Z)
+                    p.pos.x += (Math.random() - 0.5) * 0.003;
+                    p.pos.z += (Math.random() - 0.5) * 0.003;
+                    
+                    // Bounds
+                    p.pos.x = Math.max(-0.9, Math.min(0.9, p.pos.x));
+                    p.pos.z = Math.max(-0.9, Math.min(0.9, p.pos.z));
+                    
+                    // Settle
+                    const settleY = bottom + p.radius * 0.0003;
+                    if (p.pos.y <= settleY) {
+                        p.pos.y = settleY;
+                        p.settled = true;
+                    }
+                }
+                if (p.settled) settled++;
+            });
+            
+            updateParticleSystem();
+            
+            const pct = (100 * settled / Math.max(1, particles.length)).toFixed(1);
+            document.getElementById('statsPanel').innerHTML = 
+                `Total: <span>${particles.length}</span> | Settled: <span>${settled}</span> (${pct}%) | Suspended: <span>${particles.length - settled}</span>`;
+        }
+        
+        // ==================== ALCOHOL PRECIPITATION ====================
+        const compoundTypes = [
+            { name: "Polysaccharide", color: [0.8, 0.6, 0.2], threshold: 25, sizeRange: [8, 15] },
+            { name: "Protein", color: [0.9, 0.9, 0.7], threshold: 40, sizeRange: [5, 10] },
+            { name: "Tannin", color: [0.6, 0.3, 0.1], threshold: 55, sizeRange: [3, 7] },
+            { name: "Glycoside", color: [0.4, 0.7, 0.4], threshold: 70, sizeRange: [2, 5] }
+        ];
+        
+        let precipitationParticles = [];
+        let alcoholConcentration = 0;
+        let precipitationObjects = [];
+        let precipitationSystem = null;
+        let solutionMesh = null;
+        
+        function createPrecipitationParticle(compound) {
+            const size = compound.sizeRange[0] + Math.random() * (compound.sizeRange[1] - compound.sizeRange[0]);
+            return {
+                pos: new THREE.Vector3(
+                    (Math.random() - 0.5) * 1.6,
+                    0.3 + Math.random() * 2.2,   // Y is height (Three.js Y-up)
+                    (Math.random() - 0.5) * 1.6
+                ),
+                type: compound.name,
+                color: compound.color,
+                threshold: compound.threshold + (Math.random() - 0.5) * 10,
+                size: size,
+                dissolved: true,
+                precipitating: false,
+                settled: false,
+                velocity: size * 0.008
+            };
+        }
+        
+        function resetPrecipitation() {
+            precipitationParticles = [];
+            alcoholConcentration = 0;
+            document.getElementById('alcoholConcentration').value = 0;
+            document.getElementById('alcoholValue').textContent = '0%';
+            
+            compoundTypes.forEach(compound => {
+                const count = 30 + Math.floor(Math.random() * 20);
+                for (let i = 0; i < count; i++) {
+                    precipitationParticles.push(createPrecipitationParticle(compound));
+                }
+            });
+            
+            updatePrecipitationSystem();
+        }
+        
+        function updateAlcohol() {
+            const value = parseInt(document.getElementById('alcoholConcentration').value);
+            alcoholConcentration = value;
+            document.getElementById('alcoholValue').textContent = value + '%';
+            
+            // Trigger precipitation for particles above threshold
+            precipitationParticles.forEach(p => {
+                if (p.dissolved && value >= p.threshold) {
+                    p.dissolved = false;
+                    p.precipitating = true;
+                }
+            });
+            
+            // Update solution color
+            if (solutionMesh) {
+                const alpha = 0.4 - value * 0.003;
+                solutionMesh.material.opacity = Math.max(0.15, alpha);
+                solutionMesh.material.color.setRGB(
+                    0.15 + value * 0.002,
+                    0.25 + value * 0.001,
+                    0.45 - value * 0.002
+                );
+            }
+        }
+        
+        function setAlcohol(value) {
+            document.getElementById('alcoholConcentration').value = value;
+            updateAlcohol();
+        }
+        
+        function createPrecipitationScene() {
+            precipitationObjects.forEach(obj => scene.remove(obj));
+            precipitationObjects = [];
+            if (precipitationSystem) scene.remove(precipitationSystem);
+            if (solutionMesh) scene.remove(solutionMesh);
+            
+            // Container frame (Y is vertical in Three.js)
+            const containerGeo = new THREE.BoxGeometry(2, 2.8, 2);
+            const edges = new THREE.EdgesGeometry(containerGeo);
+            const containerMat = new THREE.LineBasicMaterial({ color: 0x5588aa, transparent: true, opacity: 0.5 });
+            const container = new THREE.LineSegments(edges, containerMat);
+            container.position.set(0, 1.4, 0);
+            scene.add(container);
+            precipitationObjects.push(container);
+            
+            // Solution
+            const solutionGeo = new THREE.BoxGeometry(1.9, 2.7, 1.9);
+            const solutionMat = new THREE.MeshPhongMaterial({
+                color: 0x1a4070,
+                transparent: true,
+                opacity: 0.4
+            });
+            solutionMesh = new THREE.Mesh(solutionGeo, solutionMat);
+            solutionMesh.position.set(0, 1.4, 0);
+            scene.add(solutionMesh);
+            precipitationObjects.push(solutionMesh);
+            
+            resetPrecipitation();
+        }
+        
+        function updatePrecipitationSystem() {
+            if (precipitationSystem) scene.remove(precipitationSystem);
+            
+            // Only show precipitating/settled particles
+            const visible = precipitationParticles.filter(p => !p.dissolved);
+            
+            if (visible.length === 0) {
+                precipitationSystem = null;
+                return;
+            }
+            
+            const positions = [];
+            const colors = [];
+            
+            visible.forEach(p => {
+                positions.push(p.pos.x, p.pos.y, p.pos.z);
+                colors.push(p.color[0], p.color[1], p.color[2]);
+            });
+            
+            const geometry = new THREE.BufferGeometry();
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+            
+            const material = new THREE.PointsMaterial({
+                size: 0.1,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.9,
+                sizeAttenuation: true
+            });
+            
+            precipitationSystem = new THREE.Points(geometry, material);
+            scene.add(precipitationSystem);
+        }
+        
+        function animatePrecipitation() {
+            precipitationParticles.forEach(p => {
+                if (p.precipitating && !p.settled) {
+                    // Fall in -Y direction (Three.js Y-up)
+                    p.pos.y -= p.velocity * 0.015;
+                    
+                    // Drift (X and Z)
+                    p.pos.x += (Math.random() - 0.5) * 0.004;
+                    p.pos.z += (Math.random() - 0.5) * 0.004;
+                    
+                    // Bounds
+                    p.pos.x = Math.max(-0.85, Math.min(0.85, p.pos.x));
+                    p.pos.z = Math.max(-0.85, Math.min(0.85, p.pos.z));
+                    
+                    // Settle
+                    const settleY = 0.1 + p.size * 0.005;
+                    if (p.pos.y <= settleY) {
+                        p.pos.y = settleY;
+                        p.settled = true;
+                    }
+                }
+            });
+            
+            updatePrecipitationSystem();
+            
+            // Stats
+            let statsText = `Alcohol: <span>${alcoholConcentration}%</span> | `;
+            compoundTypes.forEach(compound => {
+                const total = precipitationParticles.filter(p => p.type === compound.name).length;
+                const precip = precipitationParticles.filter(p => p.type === compound.name && !p.dissolved).length;
+                statsText += `${compound.name}: <span>${precip}/${total}</span> | `;
+            });
+            document.getElementById('statsPanel').innerHTML = statsText;
+        }
+        
+        // ==================== THREE.JS SETUP ====================
+        function init() {
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x0a0a14);
+            
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / (window.innerHeight - 45), 0.1, 100);
+            camera.position.set(6, 5, 8);
+            
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight - 45);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            document.getElementById('canvas3d').appendChild(renderer.domElement);
+            
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.target.set(0, 2.5, 0);
+            
+            // Lights
+            const ambient = new THREE.AmbientLight(0x404060, 0.6);
+            scene.add(ambient);
+            
+            const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            dirLight.position.set(5, 10, 5);
+            scene.add(dirLight);
+            
+            // Grid
+            const grid = new THREE.GridHelper(8, 20, 0x224466, 0x112233);
+            scene.add(grid);
+            
+            // Initial scene
+            createCapillaryScene();
+            
+            window.addEventListener('resize', onResize);
+            animate();
+        }
+        
+        function onResize() {
+            camera.aspect = window.innerWidth / (window.innerHeight - 45);
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight - 45);
+        }
+        
+        function switchTab(mode, btn) {
+            currentMode = mode;
+            
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.panel').forEach(p => p.style.display = 'none');
+            document.querySelectorAll('.controls').forEach(c => c.style.display = 'none');
+            
+            btn.classList.add('active');
+            document.getElementById('panel-' + mode).style.display = 'block';
+            document.getElementById('controls-' + mode).style.display = 'block';
+            
+            // Clear scene objects
+            capillaryObjects.forEach(obj => scene.remove(obj));
+            vesselObjects.forEach(obj => scene.remove(obj));
+            sedimentObjects.forEach(obj => scene.remove(obj));
+            precipitationObjects.forEach(obj => scene.remove(obj));
+            if (particleSystem) scene.remove(particleSystem);
+            if (precipitationSystem) scene.remove(precipitationSystem);
+            if (solutionMesh) scene.remove(solutionMesh);
+            
+            capillaryObjects = [];
+            vesselObjects = [];
+            sedimentObjects = [];
+            precipitationObjects = [];
+            waterColumns = [];
+            vesselWaterMeshes = [];
+            
+            if (mode === 'capillary') {
+                createCapillaryScene();
+                camera.position.set(6, 5, 8);
+                controls.target.set(0, 2.5, 0);
+            } else if (mode === 'vessels') {
+                createVesselsScene();
+                camera.position.set(5, 3, 5);
+                controls.target.set(0, 1, 0);
+            } else if (mode === 'sedimentation') {
+                createSedimentationScene();
+                camera.position.set(4, 3, 4);
+                controls.target.set(0, 1.4, 0);
+            } else if (mode === 'precipitation') {
+                createPrecipitationScene();
+                camera.position.set(4, 3, 4);
+                controls.target.set(0, 1.4, 0);
+            }
+        }
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            if (currentMode === 'capillary') {
+                animateCapillary();
+            } else if (currentMode === 'vessels') {
+                animateVessels();
+            } else if (currentMode === 'sedimentation') {
+                animateSedimentation();
+            } else if (currentMode === 'precipitation') {
+                animatePrecipitation();
+            }
+            
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        
+        init();
+    </script>
+</body>
+</html>

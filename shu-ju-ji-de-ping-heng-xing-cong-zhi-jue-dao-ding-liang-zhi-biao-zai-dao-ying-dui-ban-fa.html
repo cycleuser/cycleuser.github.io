@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894037367471530"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9894037367471530">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=19' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="./index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li class="active"><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li class="active"><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li class="active"><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li><li class="active"><a href="./2048游戏.html" data-i18n="2048">2048</a></li><li class="active"><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li><li class="active"><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li class="has-sub"><a href="./categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="./category/academic.html">Academic (3)</a></li><li><a href="./category/ai.html">AI (6)</a></li><li><a href="./category/c.html">C (16)</a></li><li><a href="./category/camera.html">Camera (15)</a></li><li><a href="./category/chromebook.html">ChromeBook (2)</a></li><li><a href="./category/cuda.html">CUDA (1)</a></li><li><a href="./category/design.html">Design (1)</a></li><li><a href="./category/diy.html">DIY (1)</a></li><li><a href="./category/duke.html">Duke (1)</a></li><li><a href="./category/education.html">Education (21)</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./category/hackintosh.html">Hackintosh (7)</a></li><li><a href="./category/java.html">Java (1)</a></li><li><a href="./category/linux.html">Linux (4)</a></li><li><a href="./category/llm.html">LLM (55)</a></li><li><a href="./category/ltfs.html">LTFS (1)</a></li><li><a href="./category/mac.html">Mac (3)</a></li><li><a href="./category/math.html">Math (30)</a></li><li><a href="./category/ml.html">ML (4)</a></li><li><a href="./category/modeling.html">Modeling (9)</a></li><li><a href="./category/nas.html">NAS (1)</a></li><li><a href="./category/nix.html">Nix (1)</a></li><li><a href="./category/photography.html">Photography (1)</a></li><li><a href="./category/programming.html">Programming (12)</a></li><li><a href="./category/pve.html">PVE (1)</a></li><li><a href="./category/python.html">Python (26)</a></li><li><a href="./category/qgis.html">QGIS (3)</a></li><li><a href="./category/qt.html">QT (1)</a></li><li><a href="./category/raspbian.html">Raspbian (1)</a></li><li><a href="./category/science.html">Science (2)</a></li><li><a href="./category/sdr.html">SDR (2)</a></li><li><a href="./category/software.html">Software (3)</a></li><li><a href="./category/story.html">Story (68)</a></li><li><a href="./category/sui-bi.html">随笔 (2)</a></li><li><a href="./category/tool.html">Tool (49)</a></li><li><a href="./category/tools.html">Tools (2)</a></li><li><a href="./category/virtualization.html">Virtualization (1)</a></li><li><a href="./category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./category/windows.html">Windows (1)</a></li><li><a href="./category/work.html">Work (24)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="./tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="./tag/7900xtx.html">7900XTX (3)</a></li><li><a href="./tag/9bmo-xing.html">9B模型 (1)</a></li><li><a href="./tag/abbreviations.html">abbreviations (1)</a></li><li><a href="./tag/academic.html">academic (1)</a></li><li><a href="./tag/adamw.html">AdamW (1)</a></li><li><a href="./tag/advice.html">advice (1)</a></li><li><a href="./tag/aerodynamics.html">aerodynamics (3)</a></li><li><a href="./tag/agent.html">Agent (3)</a></li><li><a href="./tag/ai.html">AI (31)</a></li><li><a href="./tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="./tag/aigc.html">AIGC (1)</a></li><li><a href="./tag/ailun-li.html">AI伦理 (1)</a></li><li><a href="./tag/airfoil.html">airfoil (1)</a></li><li><a href="./tag/algorithm.html">Algorithm (12)</a></li><li><a href="./tag/amd.html">AMD (1)</a></li><li><a href="./tag/anime.html">anime (1)</a></li><li><a href="./tag/arc.html">ARC (1)</a></li><li><a href="./tag/architecture.html">Architecture (3)</a></li><li><a href="./tag/arithmetic.html">arithmetic (1)</a></li><li><a href="./tag/attitude.html">Attitude (2)</a></li><li><a href="./tag/bayesian.html">Bayesian (2)</a></li><li><a href="./tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="./tag/beginner.html">Beginner (3)</a></li><li><a href="./tag/ben-di-bu-shu.html">本地部署 (5)</a></li><li><a href="./tag/ben-di-bu-shu-bing-yun-xing-omnicoder-9bde-su-du-zhi-mi-moxing-vs-ollama.html">本地部署并运行omnicoder-9b的速度之谜MoXing-vs-Ollama (1)</a></li><li><a href="./tag/ben-di-mo-xing.html">本地模型 (3)</a></li><li><a href="./tag/bfcl.html">BFCL (4)</a></li><li><a href="./tag/bi-ye-lun-wen.html">毕业论文 (1)</a></li><li><a href="./tag/bian-cheng.html">编程 (1)</a></li><li><a href="./tag/binary.html">binary (1)</a></li><li><a href="./tag/bing-fei-gu-yi-wei-shi-yao-wo-geng-duo-yong-ming-ling-xing-gong-ju-er-bu-shi-gui.html">并非故意-为什么我更多用命令行工具而不是GUI (1)</a></li><li><a href="./tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="./tag/book.html">Book (10)</a></li><li><a href="./tag/brent.html">Brent (1)</a></li><li><a href="./tag/bullshit.html">bullshit (1)</a></li><li><a href="./tag/c.html">C (10)</a></li><li><a href="./tag/camera.html">Camera (23)</a></li><li><a href="./tag/career.html">career (1)</a></li><li><a href="./tag/causation.html">Causation (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-da-mo-xing-omnicoder-9b-jian-ce-moxing-vs-ollama-dui-bi.html">超强的本地大模型-OmniCoder-9B-简测MoXing-vs-Ollama-对比 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-xiao-mo-xing-omnicoder-9bde-an-zhuang-yu-shi-yong-zhi-nan.html">超强的本地小模型OmniCoder-9B的安装与使用指南 (1)</a></li><li><a href="./tag/chao-xiao-mo-xing.html">超小模型 (1)</a></li><li><a href="./tag/chat.html">Chat (1)</a></li><li><a href="./tag/chatgpt.html">ChatGPT (1)</a></li><li><a href="./tag/cheng-chang.html">成长 (1)</a></li><li><a href="./tag/chouchou-pdflun-wen-zhong-ming-ming-gong-ju-sheng-ji-liao-zhe-ci-zhuan-men-you-hua-liao-zhong-wen-lun-wen-zhi-chi.html">Chou瞅-PDF论文重命名工具升级了这次专门优化了中文论文支持 (1)</a></li><li><a href="./tag/chouchou-yi-ge-pythonxiao-gong-ju-rang-ni-de-lun-wen-pdfwen-jian-ming-bu-zai-shi-luan-ma.html">Chou瞅一个Python小工具让你的论文PDF文件名不再是乱码 (1)</a></li><li><a href="./tag/chromebook.html">ChromeBook (2)</a></li><li><a href="./tag/cli.html">CLI (1)</a></li><li><a href="./tag/code.html">Code (2)</a></li><li><a href="./tag/code-generation.html">Code Generation (6)</a></li><li><a href="./tag/coding.html">Coding (1)</a></li><li><a href="./tag/cognition.html">Cognition (1)</a></li><li><a href="./tag/comics.html">comics (1)</a></li><li><a href="./tag/communicate.html">Communicate (6)</a></li><li><a href="./tag/communication.html">communication (3)</a></li><li><a href="./tag/comparison.html">comparison (1)</a></li><li><a href="./tag/computability.html">Computability (12)</a></li><li><a href="./tag/computer.html">computer (3)</a></li><li><a href="./tag/conda.html">Conda (2)</a></li><li><a href="./tag/conda-forge.html">conda-forge (1)</a></li><li><a href="./tag/configback-kua-ping-tai-kai-fa-pei-zhi-wen-jian-de-wu-tong-bei-fen-qian-yi-guan-li-gong-ju.html">ConfigBack-跨平台开发配置文件的无痛备份迁移管理工具 (1)</a></li><li><a href="./tag/cong-shu-zu-dao-fu-za-shu-ju-cyu-yan-shi-zen-yao-yi-bu-bu-bian-fu-za-de.html">从数组到复杂数据C语言是怎么一步步变复杂的 (1)</a></li><li><a href="./tag/copytalker-kua-yue-yu-yan-zhang-ai-de-jin-shi-shi-yu-yin-fan-yi.html">CopyTalker-跨越语言障碍的近实时语音翻译 (1)</a></li><li><a href="./tag/correlation.html">Correlation (1)</a></li><li><a href="./tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="./tag/cs.html">CS (1)</a></li><li><a href="./tag/cuda.html">CUDA (6)</a></li><li><a href="./tag/culture.html">culture (1)</a></li><li><a href="./tag/cursor.html">Cursor (1)</a></li><li><a href="./tag/cyu-yan-fu-xi-quan-gong-lue-yi-wen-chi-tou-suo-you-zhi-shi-dian.html">C语言复习全攻略-一文吃透所有知识点 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-numc-yi-ge-numpy-feng-ge-de-c-yu-yan-ku.html">C语言基础教程NumC-一个-NumPy-风格的-C-语言库 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shi-xian-lei-si-dong-tai-lei-xing-dui-yong-hu-shu-ru-jie-xi-bing-qie-xuan-ze-he-gua-de-shu-ju-lei-xing.html">C语言基础教程-实现类似动态类型对用户输入解析并且选择合适的数据类型 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shu-zu-xing-zhuang-50xing-200000lie-vs-200000xing-50lie-tong-yang-de-shu-ju-bu-tong-de-xing-neng.html">C语言基础教程数组形状-50行200000列-vs-200000行50列-同样的数据不同的性能 (1)</a></li><li><a href="./tag/da-gong.html">打工 (1)</a></li><li><a href="./tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="./tag/da-xue-sheng-huo.html">大学生活 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing.html">大语言模型 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing-li-mian-de-tokende-han-yi-he-yuan-liu.html">大语言模型里面的token的含义和源流 (1)</a></li><li><a href="./tag/dai-ma-neng-li.html">代码能力 (1)</a></li><li><a href="./tag/dan-jing-du-fu-dian-shu-de-fen-bian-lu-wei-shi-yao-zai-ji-suan-ji-li-1000-mo-he-1000-mo-jia-001-ke-neng-shi-yi-yang-de.html">单精度浮点数的分辨率为什么在计算机里-1000-万和-1000-万加-001-可能是一样的 (1)</a></li><li><a href="./tag/dan-yi-zhi-ze-yuan-ze-xie-hao-pythonhan-shu-de-di-yi-bu.html">单一职责原则写好Python函数的第一步 (1)</a></li><li><a href="./tag/data.html">Data (3)</a></li><li><a href="./tag/data-science.html">Data Science (2)</a></li><li><a href="./tag/database.html">Database (1)</a></li><li><a href="./tag/datewise-photo-organizer-ji-yu-ri-qi-shi-jian-jin-xing-tu-pian-zu-zhi-he-lu-jing-guan-li-de-she-ying-fu-zhu-gong-ju-ruan-jian.html">Datewise-Photo-Organizer-基于日期时间进行图片组织和路径管理的摄影辅助工具软件 (1)</a></li><li><a href="./tag/decision-making.html">decision-making (1)</a></li><li><a href="./tag/design.html">Design (1)</a></li><li><a href="./tag/dian-che-nan-ti-han-shang-de-zhi-jia-hui-zai-shi-gu-qian-tu-ran-tui-chu-yao.html">电车难题厂商的智驾会在事故前突然退出么 (1)</a></li><li><a href="./tag/dimension.html">dimension (1)</a></li><li><a href="./tag/discuss.html">Discuss (7)</a></li><li><a href="./tag/disease.html">Disease (1)</a></li><li><a href="./tag/diy.html">DIY (1)</a></li><li><a href="./tag/download.html">Download (1)</a></li><li><a href="./tag/earth-science.html">Earth Science (1)</a></li><li><a href="./tag/education.html">Education (15)</a></li><li><a href="./tag/efficiency.html">efficiency (1)</a></li><li><a href="./tag/ekf.html">EKF (1)</a></li><li><a href="./tag/emotion.html">emotion (1)</a></li><li><a href="./tag/engineering.html">Engineering (1)</a></li><li><a href="./tag/environment.html">Environment (1)</a></li><li><a href="./tag/er-ji.html">耳机 (1)</a></li><li><a href="./tag/er-jin-zhi.html">二进制 (1)</a></li><li><a href="./tag/ertinger-ting-yi-ge-jian-dan-de-yin-pin-jiang-zao-gong-ju.html">ErTing耳听一个简单的音频降噪工具 (1)</a></li><li><a href="./tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="./tag/fa-lan-ke-fu.html">法兰克福 (1)</a></li><li><a href="./tag/family.html">family (1)</a></li><li><a href="./tag/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">FanFu凡赴-把-Ollama-的-GGUF-模型转成-HuggingFace-格式纯好玩 (1)</a></li><li><a href="./tag/fang-fa-bi-gui-mo-geng-zhong-yao-agenticqwenyu-needlede-xiao-mo-xing-zhi-neng-ti-ying-yong-tan-suo.html">方法比规模更重要AgenticQwen与Needle的小模型智能体应用探索 (1)</a></li><li><a href="./tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="./tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="./tag/filtering.html">Filtering (6)</a></li><li><a href="./tag/folderlensyi-ge-pyside6shi-xian-de-jian-dan-wen-jian-guan-li-qi-kai-fa-shi-li.html">FolderLens一个PySide6实现的简单文件管理器开发实例 (1)</a></li><li><a href="./tag/fractal.html">fractal (1)</a></li><li><a href="./tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="./tag/freshman.html">freshman (5)</a></li><li><a href="./tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="./tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./tag/function-calling.html">function calling (1)</a></li><li><a href="./tag/game.html">Game (2)</a></li><li><a href="./tag/gametheory.html">GameTheory (1)</a></li><li><a href="./tag/gangdan-de-zhi-shi-ku-shi-zen-yao-lian-cheng-de.html">GangDan-的知识库是怎么炼成的 (1)</a></li><li><a href="./tag/gangdan-geng-xin-ke-yong-zai-xian-mo-xing-cong-xie-zong-shu-dao-xie-wan-zheng-wen-zhang.html">GangDan-更新可用在线模型从写综述到写完整文章 (1)</a></li><li><a href="./tag/gangdan-wu-yue-zhong-de-ji-zhong-geng-xin-jing-zhun-xuan-wen-zhi-shi-ku-fen-xi-xue-xi-mo-kuai-quan-mian-xiu-fu.html">GangDan-五月中的集中更新精准选文知识库分析学习模块全面修复 (1)</a></li><li><a href="./tag/gangdan-you-geng-xin-liao-yi-bo-cong-kai-fa-zhu-shou-zhuan-xing-wei-zhi-shi-guan-li-yu-jiao-xue-fu-zhu-gong-ju.html">GangDan-又更新了一波从开发助手转型为知识管理与教学辅助工具 (1)</a></li><li><a href="./tag/gangdangang-dan-sheng-ji-kai-yuan-ben-di-zhi-shi-ku-zhi-chi-ben-di-mo-xing-he-zai-xian-mo-xing-de-shen-du-yan-jiu-zhu-shou.html">GangDan纲担升级开源本地知识库-支持本地模型和在线模型的深度研究助手 (1)</a></li><li><a href="./tag/gangdangang-dan-zhong-gou-ji-hu-zhong-zuo-liao-yi-bian.html">GangDan纲担重构-几乎重做了一遍 (1)</a></li><li><a href="./tag/gangdanji-xu-geng-xin-xian-zai-neng-zhi-jie-shang-chuan-cajgou-jian-zhi-shi-ku-liao.html">GangDan继续更新现在能直接上传CAJ构建知识库了 (1)</a></li><li><a href="./tag/gangdanzhi-shi-ku-dao-chu-gai-jin-ke-yi-zhi-jie-dao-chu-xia-zai-hao-de-wen-zhang-yuan-wen-liao.html">GangDan知识库导出改进-可以直接导出下载好的文章原文了 (1)</a></li><li><a href="./tag/gao-xiao-jiao-shi-jian-yi-da-yi-kai-xue-yao-you-dian-nao-huan-yao-an-zhuang-opencodeshi-yong-zhi-neng-ti.html">高校教师建议大一开学要有电脑还要安装OpenCode使用智能体 (1)</a></li><li><a href="./tag/gei-xin-shou-shi-xian-yi-wei-shu-zu-de-liang-chong-si-lu-chuan-tong-cyu-yan-vs-numcku.html">给新手实现一维数组的两种思路传统C语言-vs-NumC库 (1)</a></li><li><a href="./tag/gemma4.html">Gemma4 (1)</a></li><li><a href="./tag/general-education.html">general-education (1)</a></li><li><a href="./tag/geojstool-di-qiu-hua-xue-fen-xi-gong-ju-wang-ye-ban-de-geopytool.html">GeoJsTool-地球化学分析工具-网页版的GeoPyTool (1)</a></li><li><a href="./tag/geology.html">Geology (4)</a></li><li><a href="./tag/geometry.html">geometry (1)</a></li><li><a href="./tag/geopython.html">GeoPython (1)</a></li><li><a href="./tag/gguf.html">GGUF (2)</a></li><li><a href="./tag/gis.html">GIS (3)</a></li><li><a href="./tag/glm.html">GLM (1)</a></li><li><a href="./tag/glumpy.html">GlumPy (2)</a></li><li><a href="./tag/golden-section.html">Golden Section (1)</a></li><li><a href="./tag/gong-ju-diao-yong.html">工具调用 (2)</a></li><li><a href="./tag/google-de-turboquant-suan-fa-ru-he-rang-aigeng-sheng-nei-cun-gao-ding-xiang-liang-liang-hua-nan-ti.html">Google-的-TurboQuant-算法如何让AI更省内存搞定向量量化难题 (1)</a></li><li><a href="./tag/gpt-35.html">GPT-3.5 (3)</a></li><li><a href="./tag/gpt-4o.html">GPT-4o (1)</a></li><li><a href="./tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="./tag/graduate-school.html">graduate-school (1)</a></li><li><a href="./tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="./tag/granite4.html">granite4 (1)</a></li><li><a href="./tag/gsm8k.html">GSM8K (2)</a></li><li><a href="./tag/gu-ge-turboquant-lun-wen-zhong-yi-ji-yu-jin-zui-you-niu-qu-lu-de-gao-su-zai-xian-xiang-liang-liang-hua-suan-fa.html">谷歌-TurboQuant-论文中译基于近最优扭曲率的高速在线向量量化算法 (1)</a></li><li><a href="./tag/guan-xi-xing-shu-ju-ku.html">关系型数据库 (1)</a></li><li><a href="./tag/guide.html">Guide (1)</a></li><li><a href="./tag/hack.html">Hack (2)</a></li><li><a href="./tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="./tag/hadoop.html">Hadoop (2)</a></li><li><a href="./tag/hardware.html">Hardware (2)</a></li><li><a href="./tag/hate.html">Hate (1)</a></li><li><a href="./tag/hbase.html">HBase (1)</a></li><li><a href="./tag/heibancong-markdownzhuan-chu-ppthuan-deng-pian.html">HeiBan从Markdown转出PPT幻灯片 (1)</a></li><li><a href="./tag/heibanhei-ban-jiang-markdownzhuan-huan-cheng-htmllai-dang-jiang-yi.html">HeiBan黑板-将Markdown转换成HTML来当讲义 (1)</a></li><li><a href="./tag/hellaswag.html">HellaSwag (2)</a></li><li><a href="./tag/hermes.html">Hermes (1)</a></li><li><a href="./tag/heroism.html">heroism (1)</a></li><li><a href="./tag/history.html">History (6)</a></li><li><a href="./tag/huan-jue.html">幻觉 (1)</a></li><li><a href="./tag/huan-wei-si-kao-he-ni-chou-sha.html">换位思考和你瞅啥 (1)</a></li><li><a href="./tag/huan-yi-ge-ba-wang-ye-zhuan-huan-cheng-markdownde-python-xiao-gong-ju.html">Huan-一个把网页转换成-Markdown的Python-小工具 (1)</a></li><li><a href="./tag/hui-yi.html">回忆 (1)</a></li><li><a href="./tag/humaneval.html">HumanEval (2)</a></li><li><a href="./tag/ide.html">IDE (2)</a></li><li><a href="./tag/imbalance.html">Imbalance (1)</a></li><li><a href="./tag/imu.html">IMU (1)</a></li><li><a href="./tag/jacobian.html">Jacobian (1)</a></li><li><a href="./tag/java-ji-chu-yu-fa-5fen-zhong-ru-men.html">Java-基础语法5分钟入门 (1)</a></li><li><a href="./tag/ji-chu-zhi-shi-chu-ji-tong-ji-gai-nian-de-jian-dan-jie-shao.html">基础知识初级统计概念的简单介绍 (1)</a></li><li><a href="./tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="./tag/ji-nian.html">纪念 (1)</a></li><li><a href="./tag/ji-suan-ji.html">计算机 (1)</a></li><li><a href="./tag/ji-suan-ji-zu-cheng.html">计算机组成 (1)</a></li><li><a href="./tag/ji-yu-ben-di-mo-xing-de-bian-cheng-xue-xi-fu-zhu-huan-jing-da-jian-wan-zheng-zhi-nan.html">基于本地模型的编程学习辅助环境搭建完整指南 (1)</a></li><li><a href="./tag/ji-yu-tunade-virtualbox-yu-ubuntu-xu-ni-ji-bu-shu-zhi-nan.html">基于TUNA的-VirtualBox-与-Ubuntu-虚拟机部署指南 (1)</a></li><li><a href="./tag/jian-dan-shuo-shuo-pythonli-mian-de-han-shu-shi-di-yi-gong-min-first-class-citizen.html">简单说说Python里面的函数是第一公民First-Class-Citizen (1)</a></li><li><a href="./tag/jie-zhu-pythonlai-li-jie-zi-gua-ying-xin-pu-sen-ji-fen-yuan-li-shi-xian-yu-dong-tai-ke-shi-hua.html">借助Python来理解自适应辛普森积分原理实现与动态可视化 (1)</a></li><li><a href="./tag/jing-xiang.html">镜像 (1)</a></li><li><a href="./tag/jiu-wen-gao-bie-guo-qu-gao-bie-ke-xue-wang.html">旧文告别过去告别科学网 (1)</a></li><li><a href="./tag/jixingji-xing-dang-agent-dui-hua-chao-chu-shang-xia-wen-xian-zhi-zuo-liao-yi-ge-lei-si-xu-ni-ji-re-qian-yi-cao-lu-fang-an.html">JiXing记行-当-Agent-对话超出上下文限制做了一个类似虚拟机热迁移草率方案 (1)</a></li><li><a href="./tag/job.html">Job (1)</a></li><li><a href="./tag/job-hunting.html">job-hunting (1)</a></li><li><a href="./tag/junck.html">Junck (3)</a></li><li><a href="./tag/kalman.html">Kalman (1)</a></li><li><a href="./tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="./tag/kao-yan-qu-mei-chu-shi-yu-fu-shi.html">考研祛魅初试与复试 (1)</a></li><li><a href="./tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="./tag/kivy.html">Kivy (3)</a></li><li><a href="./tag/kuan-biao.html">宽表 (1)</a></li><li><a href="./tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="./tag/language.html">Language (1)</a></li><li><a href="./tag/learn.html">Learn (4)</a></li><li><a href="./tag/learning.html">Learning (10)</a></li><li><a href="./tag/lens.html">Lens (19)</a></li><li><a href="./tag/lesson.html">Lesson (1)</a></li><li><a href="./tag/lfm.html">LFM (1)</a></li><li><a href="./tag/lfm25.html">lfm2.5 (1)</a></li><li><a href="./tag/li-yong-chao-qiang-de-xiao-mo-xing-omnicoder-9b-shi-shi-turboquant-liang-hua-kv-cache-2-bit-tiao-zhan-fp1.html">利用超强的小模型-OmniCoder-9B-试试-TurboQuant-量化-KV-Cache-2-bit-挑战-FP1 (1)</a></li><li><a href="./tag/li-yong-pythonshi-xian-de-yu-ben-di-da-mo-xing-jiao-hu-de-posix-jian-rong-ceng.html">利用Python实现的与本地大模型交互的POSIX-兼容层 (1)</a></li><li><a href="./tag/liang-hua.html">量化 (3)</a></li><li><a href="./tag/liaoliao-rang-ben-di-da-yu-yan-mo-xing-ai-bang-ni-liao-tian-de-kai-yuan-gong-ju.html">Liao聊-让本地大语言模型-AI-帮你聊天的开源工具 (1)</a></li><li><a href="./tag/library.html">Library (1)</a></li><li><a href="./tag/life.html">life (16)</a></li><li><a href="./tag/lift.html">lift (1)</a></li><li><a href="./tag/linux.html">Linux (9)</a></li><li><a href="./tag/liquid-ai.html">Liquid AI (1)</a></li><li><a href="./tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="./tag/llamacpp.html">llama.cpp (3)</a></li><li><a href="./tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="./tag/llm.html">LLM (7)</a></li><li><a href="./tag/ltfs.html">LTFS (1)</a></li><li><a href="./tag/lto.html">LTO (1)</a></li><li><a href="./tag/mac.html">Mac (11)</a></li><li><a href="./tag/macbook-air-m4.html">MacBook Air M4 (2)</a></li><li><a href="./tag/macos.html">macOS (1)</a></li><li><a href="./tag/markdown.html">Markdown (1)</a></li><li><a href="./tag/materials.html">Materials (1)</a></li><li><a href="./tag/math.html">Math (3)</a></li><li><a href="./tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="./tag/mathematics.html">mathematics (1)</a></li><li><a href="./tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="./tag/maturity.html">maturity (1)</a></li><li><a href="./tag/mayavi.html">MayaVi (1)</a></li><li><a href="./tag/mechanics.html">Mechanics (1)</a></li><li><a href="./tag/memory.html">Memory (4)</a></li><li><a href="./tag/methodology.html">Methodology (1)</a></li><li><a href="./tag/mian-dui-wu-mai-ni-shi-wu-neng-wei-li-huan-shi-xiu-shou-pang-guan.html">面对雾霾你是无能为力还是袖手旁观 (1)</a></li><li><a href="./tag/mian-xiang-dui-xiang-bian-cheng-ru-men-yong-wu-xia-jiao-se-li-jie-python-zhong-de-lei.html">面向对象编程入门用武侠角色理解-Python-中的类 (1)</a></li><li><a href="./tag/microscope.html">Microscope (2)</a></li><li><a href="./tag/mindset.html">mindset (2)</a></li><li><a href="./tag/miniconda3.html">Miniconda3 (1)</a></li><li><a href="./tag/ml.html">ML (4)</a></li><li><a href="./tag/mlx.html">mlx (1)</a></li><li><a href="./tag/mmlu.html">MMLU (2)</a></li><li><a href="./tag/mo-xing-ping-ce.html">模型评测 (1)</a></li><li><a href="./tag/mobile.html">Mobile (1)</a></li><li><a href="./tag/moe.html">MoE (1)</a></li><li><a href="./tag/moon.html">Moon (1)</a></li><li><a href="./tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="./tag/moving-average.html">Moving Average (1)</a></li><li><a href="./tag/moxing.html">moxing (1)</a></li><li><a href="./tag/moxing-he-ollama-dui-bi-cong-omnicoder-9bdao-geng-duo-mo-xing.html">MoXing-和-Ollama-对比从omnicoder-9b到更多模型 (1)</a></li><li><a href="./tag/moxing-su-du-zui-gao-da-dao-ollamade-201-tong-mo-xing-tong-ying-jian-de-shi-ce-dui-bi-omnicoder-2-9b-de-q4_k_m.html">MoXing-速度最高达到-Ollama的-201-同模型同硬件的实测对比OmniCoder-2-9B-的-Q4_K_M (1)</a></li><li><a href="./tag/moxing-wu-yue-geng-xin-suan-shi-lai-liao-ge-da-sao-chu.html">MoXing-五月更新算是来了个大扫除 (1)</a></li><li><a href="./tag/moxing-zhu-li-la-ji-lao-yong-bai-yuan-chao-lian-jie-xian-qia-ben-di-yun-xing-omnicoder-2-9bmo-xing-jie-guo-ye-zhi-you-shi-ji-ge-tokenss.html">MoXing-助力垃圾佬用百元超廉价显卡本地运行omnicoder-2-9b模型结果也只有十几个tokenss (1)</a></li><li><a href="./tag/moxingdi-yu-suan-chang-jing-yong-rx580xian-qia-qing-song-yun-xing-qwen35-9b-q4_k_mmo-xing.html">MoXing低预算场景用RX580显卡轻松运行Qwen35-9b-q4_k_m模型 (1)</a></li><li><a href="./tag/moxingsheng-ji-tong-shi-yun-xing-duo-ge-mo-xing-shi-li.html">MoXing升级同时运行多个模型实例 (1)</a></li><li><a href="./tag/moxingxin-sheng-ji-zhi-jie-duo-she-ollama-bu-fen-mo-xing-ti-su-50.html">MoXing新升级直接夺舍-Ollama-部分模型提速-50 (1)</a></li><li><a href="./tag/mtp.html">MTP (1)</a></li><li><a href="./tag/muon.html">Muon (1)</a></li><li><a href="./tag/n8n.html">n8n (1)</a></li><li><a href="./tag/nas.html">NAS (1)</a></li><li><a href="./tag/nemotron.html">Nemotron (1)</a></li><li><a href="./tag/network.html">Network (1)</a></li><li><a href="./tag/ni-de-dian-nao-mei-miao-neng-zuo-duo-shao-ci-fu-dian-yun-suan-flops-de-gu-shi.html">你的电脑每秒能做多少次浮点运算FLOPS-的故事 (1)</a></li><li><a href="./tag/niu-dun-fa-qiu-jie-guo-cheng-de-pythonshi-xian-ji-qi-xiang-jie.html">牛顿法求解过程的Python实现及其详解 (1)</a></li><li><a href="./tag/nixos.html">NixOS (1)</a></li><li><a href="./tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="./tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="./tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="./tag/nosql.html">NoSQL (1)</a></li><li><a href="./tag/numpy.html">NumPy (1)</a></li><li><a href="./tag/nuoyi-geng-xin-xin-zeng-zai-xian-zhuan-huan-yin-qing-mei-xian-qia-ye-bu-pa-chang-wen-dang-ye-bu-na-yao-tou-teng.html">NuoYi-更新新增在线转换引擎没显卡也不怕长文档也不那么头疼 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-geng-xin-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju-shao-wei-sheng-yi-dian-xian-cun-liao.html">NuoYi-挪移更新-离线的-PDFDOCX-转-Markdown-工具稍微省一点显存了 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-yi-ge-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju.html">NuoYi-挪移-一个离线的-PDFDOCX-转-Markdown-工具 (1)</a></li><li><a href="./tag/nvidia.html">Nvidia (1)</a></li><li><a href="./tag/ocr.html">OCR (1)</a></li><li><a href="./tag/ollama.html">Ollama (20)</a></li><li><a href="./tag/ollamaaidgei-ni-guan-li-ben-di-da-mo-xing-pei-ge-de-li-zhu-shou.html">OllamaAid给你管理本地大模型配个得力助手 (1)</a></li><li><a href="./tag/ollamageng-xin-suo-you-ben-di-mo-xing.html">Ollama更新所有本地模型 (1)</a></li><li><a href="./tag/ollamaqian-ru-mo-xing-xuan-xing-zhi-nan-zhu-liu-mo-xing-shen-du-dui-bi.html">Ollama嵌入模型选型指南-主流模型深度对比 (1)</a></li><li><a href="./tag/omlx.html">omlx (1)</a></li><li><a href="./tag/opc.html">OPC (1)</a></li><li><a href="./tag/opencl.html">OpenCL (1)</a></li><li><a href="./tag/opencode.html">opencode (11)</a></li><li><a href="./tag/opencode-jin-jie-zhi-ji-neng-chuang-zuo-chai-jie-miao-shu-dian-xing-ren-wu-hou-yan-zheng-shi-xian-zai-zuo-cheng-ke-fu-yong-de-ji-neng.html">OpenCode-进阶之技能创作拆解描述典型任务后验证实现再做成可复用的技能 (1)</a></li><li><a href="./tag/opencode-skillsfen-xiang-yi-tao-zi-ji-luan-xie-de-huan-suan-shi-yong-de-ai-bian-ma-ji-neng-ku.html">OpenCode-Skills分享一套自己乱写的还算实用的-AI-编码技能库 (1)</a></li><li><a href="./tag/openlaoke-geng-xin-ben-di-gguf-mo-xing-ling-api-fei-yong-pao-qi-lai.html">OpenLaoKe-更新本地-GGUF-模型零-API-费用跑起来 (1)</a></li><li><a href="./tag/openlaokelao-ke-yi-ge-ming-ling-xing-aizhu-shou.html">OpenLaoKe唠嗑一个命令行AI助手 (1)</a></li><li><a href="./tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="./tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="./tag/optimization.html">Optimization (2)</a></li><li><a href="./tag/os.html">os (1)</a></li><li><a href="./tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="./tag/parenting.html">Parenting (1)</a></li><li><a href="./tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="./tag/path.html">PATH (1)</a></li><li><a href="./tag/pdfjie-xi.html">PDF解析 (1)</a></li><li><a href="./tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="./tag/performance.html">Performance (1)</a></li><li><a href="./tag/phd.html">PHD (2)</a></li><li><a href="./tag/philosophy.html">philosophy (2)</a></li><li><a href="./tag/photo.html">Photo (23)</a></li><li><a href="./tag/photography.html">Photography (2)</a></li><li><a href="./tag/physics.html">Physics (3)</a></li><li><a href="./tag/ping-ce.html">评测 (1)</a></li><li><a href="./tag/poem.html">Poem (2)</a></li><li><a href="./tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="./tag/programming.html">Programming (11)</a></li><li><a href="./tag/prompt.html">Prompt (1)</a></li><li><a href="./tag/psychology.html">Psychology (1)</a></li><li><a href="./tag/pve.html">PVE (2)</a></li><li><a href="./tag/pyenv.html">Pyenv (2)</a></li><li><a href="./tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="./tag/python.html">Python (70)</a></li><li><a href="./tag/python-ji-chu-yu-fa-5fen-zhong-ru-men.html">Python-基础语法5分钟入门 (1)</a></li><li><a href="./tag/qemu.html">QEMU (1)</a></li><li><a href="./tag/qgis.html">QGIS (3)</a></li><li><a href="./tag/qt.html">QT (1)</a></li><li><a href="./tag/qu-shen-cha.html">去审查 (1)</a></li><li><a href="./tag/qwen3.html">Qwen3 (10)</a></li><li><a href="./tag/qwen35.html">qwen3.5 (1)</a></li><li><a href="./tag/qwen36.html">Qwen3.6 (3)</a></li><li><a href="./tag/qwen38.html">Qwen3.8 (4)</a></li><li><a href="./tag/radio.html">Radio (2)</a></li><li><a href="./tag/rag.html">RAG (1)</a></li><li><a href="./tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="./tag/raspbian.html">Raspbian (1)</a></li><li><a href="./tag/reading.html">reading (2)</a></li><li><a href="./tag/reflection.html">reflection (4)</a></li><li><a href="./tag/remote.html">Remote (1)</a></li><li><a href="./tag/research.html">Research (3)</a></li><li><a href="./tag/resume.html">resume (1)</a></li><li><a href="./tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="./tag/ri-chang-sheng-huo.html">日常生活 (1)</a></li><li><a href="./tag/rotation.html">Rotation (1)</a></li><li><a href="./tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="./tag/rtx-4070.html">RTX 4070 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-jia-gou-shi-zhuan-ye-ying-yu-gao-pin-ci-hui-biao.html">软考高级系统架构设计师知识精要-架构师专业英语高频词汇表 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-ce-shi-yu-yun-xing-wei-hu.html">软考高级系统架构设计师知识精要-软件测试与运行维护 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-gong-cheng-yu-kai-fa-fang-fa.html">软考高级系统架构设计师知识精要-软件工程与开发方法 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-jia-gou-she-ji-yu-ping-gu.html">软考高级系统架构设计师知识精要-软件架构设计与评估 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-an-quan-yu-qu-kuai-lian-ji-zhu.html">软考高级系统架构设计师知识精要-系统安全与区块链技术 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-jian-mo-yu-umlshe-ji.html">软考高级系统架构设计师知识精要-系统建模与UML设计 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xi-xi-tong-yu-qi-ye-xin-xi-hua.html">软考高级系统架构设计师知识精要-信息系统与企业信息化 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xing-ji-zhu-yu-ji-chu-she-shi.html">软考高级系统架构设计师知识精要-新兴技术与基础设施 (1)</a></li><li><a href="./tag/rust.html">Rust (1)</a></li><li><a href="./tag/rustyu-yan-cheng-xu-she-ji-ji-chu-di-san-zhang-fu-he-shu-ju-lei-xing-yu-xun-huan.html">Rust语言程序设计基础第三章复合数据类型与循环 (1)</a></li><li><a href="./tag/rx590.html">RX590 (1)</a></li><li><a href="./tag/sandbox.html">SandBox (1)</a></li><li><a href="./tag/scholar.html">Scholar (2)</a></li><li><a href="./tag/school.html">School (3)</a></li><li><a href="./tag/science.html">Science (3)</a></li><li><a href="./tag/search.html">Search (1)</a></li><li><a href="./tag/self-study.html">Self-Study (1)</a></li><li><a href="./tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="./tag/server.html">Server (1)</a></li><li><a href="./tag/shang-ye-xin-xi.html">商业信息 (1)</a></li><li><a href="./tag/sheng-cheng-su-du.html">生成速度 (1)</a></li><li><a href="./tag/shi-jie-yi-liu-da-xue-shuo-shuo-er-yi-huan-shi-zhen-de-qu-zuo.html">世界一流大学说说而已还是真的去做 (1)</a></li><li><a href="./tag/shi-yong-llama-factory-cong-modelscope-xia-zai-mo-xing-bing-wei-diao.html">使用-LLaMA-Factory-从-ModelScope-下载模型并微调 (1)</a></li><li><a href="./tag/shi-yong-ollamakuai-su-bu-shu-bing-yun-xing-zui-xin-de-qwen3-30b-a3b-2507mo-xing.html">使用ollama快速部署并运行最新的qwen3-30b-a3b-2507模型 (1)</a></li><li><a href="./tag/shit.html">Shit (1)</a></li><li><a href="./tag/shu-ju-an-quan.html">数据安全 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-0zhang-cyu-yan-pythonde-di-ceng-shi-jiao.html">数据结构与算法基础-第0章-C语言Python的底层视角 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-1zhang-suan-fa-ji-chu-yu-fu-za-du-fen-xi.html">数据结构与算法基础-第1章-算法基础与复杂度分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-2zhang-xian-xing-shu-ju-jie-gou.html">数据结构与算法基础-第2章-线性数据结构 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-4zhang-tu-lun-ji-chu.html">数据结构与算法基础-第4章-图论基础 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-5zhang-pai-xu-suan-fa.html">数据结构与算法基础-第5章-排序算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-6zhang-sou-suo-suan-fa.html">数据结构与算法基础-第6章-搜索算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-7zhang-dong-tai-gui-hua.html">数据结构与算法基础-第7章-动态规划 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-8zhang-gao-ji-suan-fa.html">数据结构与算法基础-第8章-高级算法 (1)</a></li><li><a href="./tag/shu-ju-ke-shi-hua.html">数据可视化 (1)</a></li><li><a href="./tag/shu-ju-ku.html">数据库 (1)</a></li><li><a href="./tag/shu-ju-lei-xing.html">数据类型 (1)</a></li><li><a href="./tag/shu-zhi-ji-fen-man-tan-ru-he-rang-yong-pythonqiu-ji-fen.html">数值积分漫谈如何让用Python求积分 (1)</a></li><li><a href="./tag/shui-ke-xing-cun-zhi-nan-ru-guo-ni-bei-po-yao-qu-ting-ni-bu-xi-huan-de-ke-cheng-gai-zen-yao-ban.html">水课幸存指南-如果你被迫要去听你不喜欢的课程该怎么办 (1)</a></li><li><a href="./tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="./tag/signal-processing.html">Signal Processing (3)</a></li><li><a href="./tag/skill.html">skill (3)</a></li><li><a href="./tag/smollm2.html">smollm2 (1)</a></li><li><a href="./tag/software.html">Software (1)</a></li><li><a href="./tag/sou-suo.html">搜索 (1)</a></li><li><a href="./tag/sports.html">sports (1)</a></li><li><a href="./tag/sql.html">SQL (1)</a></li><li><a href="./tag/state-space.html">State Space (1)</a></li><li><a href="./tag/statistics.html">Statistics (1)</a></li><li><a href="./tag/story.html">Story (50)</a></li><li><a href="./tag/sui-bi.html">随笔 (1)</a></li><li><a href="./tag/t-bench.html">τ-bench (1)</a></li><li><a href="./tag/tape.html">Tape (1)</a></li><li><a href="./tag/telescope.html">Telescope (1)</a></li><li><a href="./tag/terminal.html">Terminal (1)</a></li><li><a href="./tag/textbook.html">textbook (1)</a></li><li><a href="./tag/thinking.html">Thinking (7)</a></li><li><a href="./tag/ti-xing-fa-qiu-ji-fen-de-pythonshi-xian.html">梯形法求积分的Python实现 (1)</a></li><li><a href="./tag/tian-biao.html">填表 (1)</a></li><li><a href="./tag/time-series.html">Time Series (1)</a></li><li><a href="./tag/tokenzi-you-yong-moxingzai-7900xtx-24gxian-qia-shang-ben-di-yun-xing-qwen36-27bmo-xing-gei-opencodeyong-lai-wen-dang-bian.html">Token自由-用MoXing在7900xtx-24G显卡上本地运行Qwen36-27B模型给OpenCode用来文档编 (1)</a></li><li><a href="./tag/tong-ji-xue.html">统计学 (1)</a></li><li><a href="./tag/tong-men-xiang-can-bai-yuan-xian-qia-de-ben-di-mo-xing-da-zhan-rx580-16g-2048sp-vs-rx590-8g-2304sp.html">同门相残-百元显卡的本地模型大战RX580-16G-2048SP-VS-RX590-8G-2304SP (1)</a></li><li><a href="./tag/tong-nian.html">童年 (1)</a></li><li><a href="./tag/tong-xue.html">同学 (1)</a></li><li><a href="./tag/tool.html">Tool (8)</a></li><li><a href="./tag/tool-calling.html">tool calling (3)</a></li><li><a href="./tag/toolbench.html">ToolBench (1)</a></li><li><a href="./tag/tools.html">Tools (10)</a></li><li><a href="./tag/traffic.html">Traffic (1)</a></li><li><a href="./tag/translate.html">Translate (2)</a></li><li><a href="./tag/translation.html">Translation (1)</a></li><li><a href="./tag/transpaste-sheng-ji-yi-ge-jian-tie-ban-fan-yi-gong-ju-de-zi-wo-xiu-yang.html">TransPaste-升级一个剪贴板翻译工具的自我修养 (1)</a></li><li><a href="./tag/transpaste-yi-kuan-ji-yu-ben-di-da-yu-yan-mo-xing-de-qing-liang-ji-jian-tie-ban-fan-yi-gong-ju.html">TransPaste-一款基于本地大语言模型的轻量级剪贴板翻译工具 (1)</a></li><li><a href="./tag/transpasteben-di-ai-fan-yi-gong-ju-xin-ban-ben-sheng-ji-hou-zhi-chi-geng-duo-xi-li-du-de-fan-yi-kong-zhi.html">TransPaste本地-AI-翻译工具新版本升级后支持更多细粒度的翻译控制 (1)</a></li><li><a href="./tag/tui.html">TUI (1)</a></li><li><a href="./tag/tui-jian-yi-kuan-markdownde-kua-ping-tai-chi-xian-bian-ji-qi-zhi-chi-sui-shi-yu-lan.html">推荐一款MarkDown的跨平台离线编辑器支持随时预览 (1)</a></li><li><a href="./tag/tuna.html">TUNA (1)</a></li><li><a href="./tag/turing.html">Turing (12)</a></li><li><a href="./tag/tutorial.html">tutorial (2)</a></li><li><a href="./tag/uav.html">UAV (1)</a></li><li><a href="./tag/ubuntu.html">Ubuntu (4)</a></li><li><a href="./tag/ubuntu-shou-dong-an-zhuang-ollama-0171-lai-yun-xing-qwen3535b-a3b-de-xiang-xi-zhi-nan.html">Ubuntu-手动安装-Ollama-0171-来运行-qwen3535b-a3b-的详细指南 (1)</a></li><li><a href="./tag/ui.html">UI (1)</a></li><li><a href="./tag/ukf.html">UKF (1)</a></li><li><a href="./tag/university.html">university (14)</a></li><li><a href="./tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="./tag/ustc.html">USTC (1)</a></li><li><a href="./tag/ventoy.html">Ventoy (1)</a></li><li><a href="./tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="./tag/vibe-coding-fen-wei-bian-cheng-an-li-tong-guo-dui-hua-shi-xian-ke-yong-de-kuai-su-cha-biao-gong-ju.html">Vibe-Coding-氛围编程案例-通过对话实现可用的快速查表工具 (1)</a></li><li><a href="./tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="./tag/video.html">video (2)</a></li><li><a href="./tag/vidtogif-yi-ge-jian-dan-gao-xiao-de-shi-pin-zhuan-gif-gong-ju.html">VidToGif-一个简单高效的视频转-GIF-工具 (1)</a></li><li><a href="./tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="./tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="./tag/virtualization.html">Virtualization (1)</a></li><li><a href="./tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./tag/vispy.html">VisPy (1)</a></li><li><a href="./tag/visualization.html">Visualization (8)</a></li><li><a href="./tag/vm.html">VM (1)</a></li><li><a href="./tag/vmwarexu-ni-ji-yun-xing-macosunlcokrecoveryosoc4vm-shi-xian-ti-gong-bai-du-yun-pan-xia-zai.html">VMware虚拟机运行macOSunlcokrecoveryosOC4VM-实现提供百度云盘下载 (1)</a></li><li><a href="./tag/void-moxingdi-cheng-ben-fang-an-yong-rx580xian-qia-ben-di-yun-xing-qwen359bmo-xing-da-zao-lei-cursorti-yan.html">Void-MoXing低成本方案用RX580显卡本地运行qwen359B模型打造类Cursor体验 (1)</a></li><li><a href="./tag/vtk.html">VTK (1)</a></li><li><a href="./tag/web.html">Web (1)</a></li><li><a href="./tag/wen-ben-shou-ji.html">文本收集 (1)</a></li><li><a href="./tag/wen-dang-he-cha.html">文档核查 (1)</a></li><li><a href="./tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="./tag/windows.html">Windows (4)</a></li><li><a href="./tag/windows-xi-tong-xia-cong-qing-hua-da-xue-tuna-jing-xiang-an-zhuang-miniconda3-wan-zheng-zhi-nan.html">Windows-系统下从清华大学-TUNA-镜像安装-Miniconda3-完整指南 (1)</a></li><li><a href="./tag/windows11.html">Windows11 (1)</a></li><li><a href="./tag/wingetguigei-windows-bao-guan-li-qi-jia-ge-tu-xing-jie-mian.html">WinGetGUI给-Windows-包管理器加个图形界面 (1)</a></li><li><a href="./tag/winogrande.html">WinoGrande (1)</a></li><li><a href="./tag/workflow.html">workflow (1)</a></li><li><a href="./tag/xcode.html">Xcode (1)</a></li><li><a href="./tag/xia-zai.html">下载 (1)</a></li><li><a href="./tag/xian-jiao-hui-zai-rang-ta-zuo-da-mo-xing-ding-zhi-hua-li-cpthe-sftdao-di-zai-gan-shi-yao.html">先教会再让它做大模型定制化里CPT和SFT到底在干什么 (1)</a></li><li><a href="./tag/xiang-sheng.html">相声 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-er-hui-jiu-suan-shi-sun-wu-kong-shang-da-xue-ye-de-yong-gong.html">小猴子学编程第二回就算是孙悟空上大学也得用功 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-san-hui-shi-yi-zhi-pa-zai-na-zi-yuan-zi-ai-huan-shi-gan-jin-zhun-bei-qu-xin-fu-ben.html">小猴子学编程第三回是一直趴在那自怨自艾还是赶紧准备去新副本 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-si-hui-chong-zhi-bu-hui-rang-ni-bian-qiang-xue-xi-cai-hui.html">小猴子学编程第四回充值不会让你变强学习才会 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-yi-hui-na-pa-shi-sun-wu-kong-ye-xu-yao-xue-xi.html">小猴子学编程第一回哪怕是孙悟空也需要学习 (1)</a></li><li><a href="./tag/xiao-mo-xing.html">小模型 (1)</a></li><li><a href="./tag/xiao-mo-xing-ping-ce.html">小模型评测 (2)</a></li><li><a href="./tag/xiao-you.html">校友 (1)</a></li><li><a href="./tag/xiexie-ba-markdown-zhuan-cheng-wei-xin-gong-zhong-hao-ge-shi-wang-ye-de-xiao-gong-ju.html">Xie写把-Markdown-转成微信公众号格式网页的小工具 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-markdown-shu-xue-gong-shi-zhi-nan.html">新手向的-Markdown-数学公式指南 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-ruan-kao-gao-ji-jia-gou-shi-wan-quan-bei-kao-zhi-nan.html">新手向的软考高级架构师完全备考指南 (1)</a></li><li><a href="./tag/xing-neng-shi-ce.html">性能实测 (1)</a></li><li><a href="./tag/xiu-liao-transpastede-4ge-bug.html">修了TransPaste的4个bug (1)</a></li><li><a href="./tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="./tag/xue-xi-lu-de-qian-shi-jin-sheng-cong-quan-ju-dan-yi-dao-zhu-ceng-ding-zhi.html">学习率的前世今生从全局单一到逐层定制 (1)</a></li><li><a href="./tag/xue-zhu-lun-wen-zhong-chang-jian-yan-jiu-fang-fa-zong-shu-ji-jian-dan-ju-li.html">学术论文中常见研究方法综述及简单举例 (1)</a></li><li><a href="./tag/xue-zhu-yan-jiu-zhi-chi-gong-ju-fen-lei-yu-wen-xian-huo-qu-fang-fa.html">学术研究支持工具分类与文献获取方法 (1)</a></li><li><a href="./tag/yi-xue-chang-jing-yong-duo-mo-tai-da-mo-xing-you-ke-neng-wan-quan-bu-kao-pu-si-tan-fu-da-xue-li-fei-fei-tuan-dui-xin-yan-jiu-jie-kai-duo-mo-tai-aide-hai-shi-shen-lou-xiao-ying.html">医学场景用多模态大模型有可能完全不靠谱斯坦福大学李飞飞团队新研究揭开多模态AI的海市蜃楼效应 (1)</a></li><li><a href="./tag/yi-zhi-tiny-fastboot-scriptdao-macosban-ben-gei-motorola-g100guo-xing-ban-ben-xt2533-4shua-ru-g6.html">移植Tiny-Fastboot-Script到macOS版本给Motorola-G100国行版本XT2533-4刷入G6 (1)</a></li><li><a href="./tag/yin-pin.html">音频 (1)</a></li><li><a href="./tag/ying-pan.html">硬盘 (1)</a></li><li><a href="./tag/yong-wan-quan-kai-yuan-mian-fei-de-ben-di-mo-xing-lai-dui-shi-pin-zhong-de-yin-pin-jin-xing-jiang-zao.html">用完全开源免费的本地模型来对视频中的音频进行降噪 (1)</a></li><li><a href="./tag/you-xi-shi-zen-yao-yun-xing-de-ru-guo-zhi-zhi-dao-chong-zhi-shi-ji-shang-bing-bu-yi-ding-neng-bian-qiang.html">游戏是怎么运行的如果只知道充值实际上并不一定能变强 (1)</a></li><li><a href="./tag/zhe-ji-tian-wo-chuan-yue-liao-shi-jian.html">这几天我穿越了时间 (1)</a></li><li><a href="./tag/zhe-xue.html">哲学 (1)</a></li><li><a href="./tag/zhen-dui-da-mo-xing-he-zhi-neng-ti-xin-shou-kai-fa-zhe-de-linuxhuan-jing-pei-zhi-zhi-nan.html">针对大模型和智能体新手开发者的Linux环境配置指南 (1)</a></li><li><a href="./tag/zhi-ce-flops-huan-bu-gou-si-ge-jing-dian-cpu-ce-shi-ji-zhun.html">只测-FLOPS-还不够四个经典-CPU-测试基准 (1)</a></li><li><a href="./tag/zhi-neng-ti.html">智能体 (1)</a></li><li><a href="./tag/zhi-shi-wai-zhi.html">知识外置 (1)</a></li><li><a href="./tag/zhi-zhen-yue-jie-cyu-yan-gei-ni-de-zi-you-yi-ji-tou-tou-mai-de-lei.html">指针越界C语言给你的自由以及偷偷埋的雷 (1)</a></li><li><a href="./tag/zhong-xin-shen-shi-si-wei-lian-wei-bi-shi-zhen-si-wei-yi-pian-icml-2026-lun-wen-de-lun-zheng-yu-qi-shi.html">重新审视-思维链未必是真思维-一篇ICML-2026-论文的论证与启示 (1)</a></li><li><a href="./tag/zhuang-ji.html">装机 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skills-he-ji-geng-xin-cong-6-ge-ji-neng-dao-22-ge-yi-ji-bi-xu-cheng-ren-de-wen-ti.html">自用的-OpenCode-Skills-合集更新从-6-个技能到-22-个以及必须承认的问题 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skillzai-ci-geng-xin-22ge-skillszhong-xin-da-mo-liao-yi-bian-shun-lu-jie-jue-liao-opencodedao-zhi-zheng-ge-tu-xing-jie-mian-beng-kui.html">自用的OpenCode-Skill再次更新22个skills重新打磨了一遍顺路解决了OpenCode导致整个图形界面崩溃 (1)</a></li><li><a href="./tag/zluda-he-macos-shang-de-cuda-jian-rong-meng-xiang.html">ZLUDA-和-macOS-上的-CUDA-兼容梦想 (1)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="./index.html" data-i18n="blog">博客</a> › <a href="category/ml.html">ML</a> › 数据集的平衡性：从直觉到定量指标，再到应对办法
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >数据集的平衡性：从直觉到定量指标，再到应对办法</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep" data-i18n="post_in">发布于</span>
+        <abbr class="date" title="2026-07-01T21:30:00+08:00"> 
+            <a href="./archive/2026/Jul/index.html">Wed 01 July 2026 </a>
+        </abbr>
+        <span class="meta-prep"> | <span data-i18n="tags_label">标签</span></span>
+                <a class="tag-badge" href="./tag/ml.html">ML</a>
+                <a class="tag-badge" href="./tag/data-science.html">Data Science</a>
+                <a class="tag-badge" href="./tag/imbalance.html">Imbalance</a>
+                <a class="tag-badge" href="./tag/python.html">Python</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <p>做机器学习，大家伙儿往往盯着模型架构和超参数使劲，却容易忽略一个更底层的问题：数据集本身是不是"平衡"的。这事儿说起来简单，但要是不搞清楚，后面再花哨的模型也是在地基歪了的基础上盖楼，怎么调都不对劲。从早期的综述[1]到近年的图结构不平衡学习综述[8]，都能看出这个问题的普遍性和持续受关注程度。</p>
+<p>这篇咱们就掰扯一下数据集平衡性这回事——它到底指什么，怎么用数字去衡量它，真不平衡了又该怎么对付。分类和回归两种场景都得说，因为这俩的"平衡"压根不是一回事。</p>
+<hr>
+<h2>一、先说分类：类别不平衡</h2>
+<h3>直觉</h3>
+<p>什么是平衡的数据集？最直白的理解就是各类样本数量差不多。比如二分类里正例和反例各占一半，多分类里每个类别都差不多数量。这当然是个理想情况，但实际干活儿碰到的数据，往往是另一回事。</p>
+<p>举个最经典的例子：信用卡欺诈检测。正常交易占 99.9%，欺诈交易只占 0.1%。你要是把所有样本都预测成"正常"，准确率高达 99.9%——但这个模型完全没用，因为真正关心的欺诈一个都没抓到。这就是类别不平衡的坑：模型会被多数类"带跑偏"，少数类被当成噪声忽略掉。</p>
+<p><img alt="极端不平衡 99:1" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_1_extreme_99to1.png"></p>
+<p>上图就是这种极端不平衡的样子。蓝色是多数类，橙色是少数类——少数类被画得更大加了黑边框，一眼能看出来它有多稀疏。在这种分布下，模型只要全猜多数类就能拿到 99% 准确率，但少数类一个都抓不到。</p>
+<p>再比如医疗诊断里罕见病识别、工业质检里的瑕疵检测、安全领域的入侵检测，基本都是这种套路：少数类才是咱们真正关心的，但它在数据里偏偏稀少。这类问题在综述文献里被反复列举[1]。</p>
+<p>那到底"多不平衡才算不平衡"？这就需要定量指标了，不能光靠眼睛看。</p>
+<p>不平衡的程度其实有轻有重，不是非黑即白。下图展示了三种典型的不平衡程度，从左到右依次是轻度（7:3）、中度（9:1）和上面已经看过的极端（99:1）。轻度的不平衡对大多数模型影响不大，常规训练就能对付；中度的需要开始关注少数类的召回率了；极端的则要特别小心，光看准确率会被骗。</p>
+<p><img alt="轻度不平衡 7:3" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_3_mild_7to3.png"></p>
+<p><img alt="中度不平衡 9:1" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_2_moderate_9to1.png"></p>
+<p>除了二分类的不平衡，多分类场景也有不平衡问题。下图是一个三类 10:3:1 的分布，最少的那个类（绿色）只有 100 个样本，最多的有 1000 个。多类不平衡比二分类更棘手，因为 IR 这种指标没法精细刻画多类别的分布，需要用熵或基尼系数来衡量。</p>
+<p><img alt="多类不平衡 10:3:1" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_4_multiclass_10_3_1.png"></p>
+<p>还有两种更隐蔽的不平衡。一种是子类内不平衡：多数类本身由两个子簇组成，少数类只有一个簇。这种结构在特征空间里更复杂，简单的重采样不一定能处理好。</p>
+<p><img alt="子类内不平衡" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_5_subclass.png"></p>
+<p>另一种是重叠严重加不平衡：类之间的边界本身就模糊，再加上比例悬殊，模型几乎没法把少数类从多数类的"淹没"里捞出来。这是最难处理的一种。</p>
+<p><img alt="重叠严重加不平衡" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_6_overlap.png"></p>
+<h3>定量指标</h3>
+<p>衡量类别分布的不平衡程度，最直接的就是看各类别的样本占比。但光看占比不够，咱们需要几个能从不同角度刻画"分布不均程度"的数字。</p>
+<h4>1. 不平衡比率（Imbalance Ratio, IR）</h4>
+<p>这是最简单也最常用的指标，定义就是多数类样本数和少数类样本数的比值：</p>
+<div class="arithmatex">\[
+\text{IR} = \frac{N_{\text{major}}}{N_{\text{minor}}}
+\]</div>
+<p>比如 1000 个负例、50 个正例，IR = 20。这个数字越大，说明越不平衡。一般 IR 在 1 到 3 之间算轻度，3 到 9 算中度，10 以上就算严重了。不过这玩意儿只适合二分类或者把多分类硬往"多数 vs 少数"上套的情形，没法精细刻画多类别的分布。</p>
+<h4>2. 香农熵（Entropy）</h4>
+<p>借鉴信息论里的概念。设数据集有 <span class="arithmatex">\(K\)</span> 个类别，第 <span class="arithmatex">\(k\)</span> 类占比 <span class="arithmatex">\(p_k\)</span>，则香农熵定义为：</p>
+<div class="arithmatex">\[
+H = -\sum_{k=1}^{K} p_k \log_2 p_k
+\]</div>
+<p>当所有类别等概率分布时，熵取最大值 <span class="arithmatex">\(\log_2 K\)</span>；当只有一个类别时，熵为 0。熵越大，说明分布越均匀，也就越平衡。</p>
+<p>但熵这东西有个特点：它对"大多数类别都比较均匀"和"一个类别占比稍高但其余也还行"区分度不强。也就是说，熵是个全局性指标，对个别极端值没那么敏感。</p>
+<h4>3. 归一化熵（Normalized Entropy）</h4>
+<p>为了把熵限制在 [0, 1] 区间方便比较，做一个归一化：</p>
+<div class="arithmatex">\[
+H_{\text{norm}} = \frac{H}{\log_2 K} = \frac{-\sum_{k=1}^{K} p_k \log_2 p_k}{\log_2 K}
+\]</div>
+<p><span class="arithmatex">\(H_{\text{norm}} = 1\)</span> 表示完全平衡，<span class="arithmatex">\(H_{\text{norm}} = 0\)</span> 表示完全不平衡。这个值越接近 1，分布越均衡。</p>
+<h4>4. 基尼系数（Gini Index）</h4>
+<p>不是经济学那个基尼系数，但思想类似：</p>
+<div class="arithmatex">\[
+G = 1 - \sum_{k=1}^{K} p_k^2
+\]</div>
+<p>当完全平衡时 <span class="arithmatex">\(G = 1 - 1/K\)</span>，当完全不平衡时 <span class="arithmatex">\(G = 0\)</span>。可以归一化为：</p>
+<div class="arithmatex">\[
+G_{\text{norm}} = \frac{K}{K-1} \cdot G
+\]</div>
+<p>跟熵类似，基尼系数也是越大越平衡。但基尼系数对少数类的敏感性比熵略低，计算更简单。</p>
+<h4>5. 基尼不平衡度（Gini Imbalance Ratio）</h4>
+<p>把基尼系数反过来用：</p>
+<div class="arithmatex">\[
+\text{GIR} = 1 - G_{\text{norm}}
+\]</div>
+<p>这样就是越大越不平衡，跟 IR 方向一致，但能处理多类别。</p>
+<h4>6. 多样性指数（Simpson Index）</h4>
+<div class="arithmatex">\[
+\lambda = \sum_{k=1}^{K} p_k^2
+\]</div>
+<p>这玩意儿在生态学里叫"辛普森优势度"，表示随机抽两个样本属于同一类的概率。<span class="arithmatex">\(\lambda\)</span> 越大说明越不平衡（越偏向单一类别）。归一化形式为 <span class="arithmatex">\(1 - \lambda\)</span>，跟基尼系数一样。</p>
+<p>下面这段代码把上面几个指标都算一遍，对比一下四种不同分布：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">entropy</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="n">p</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">normalized_entropy</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">K</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="k">return</span> <span class="n">entropy</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">gini_index</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">normalized_gini</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">K</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">K</span> <span class="o">/</span> <span class="p">(</span><span class="n">K</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">gini_index</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">imbalance_ratio</span><span class="p">(</span><span class="n">counts</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">simpson</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">distributions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;完全平衡 (5类各200)&quot;</span><span class="p">:</span>   <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span>
+    <span class="s2">&quot;轻度不平衡&quot;</span><span class="p">:</span>            <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span>
+    <span class="s2">&quot;严重不平衡&quot;</span><span class="p">:</span>            <span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s2">&quot;极端不平衡&quot;</span><span class="p">:</span>            <span class="p">[</span><span class="mi">995</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;数据集&#39;</span><span class="si">:</span><span class="s2">&lt;22</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;IR&#39;</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;H_norm&#39;</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;G_norm&#39;</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Simpson&#39;</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">counts</span> <span class="ow">in</span> <span class="n">distributions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="o">/</span> <span class="n">total</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">counts</span> <span class="k">if</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">ir</span> <span class="o">=</span> <span class="n">imbalance_ratio</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+    <span class="n">hn</span> <span class="o">=</span> <span class="n">normalized_entropy</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">gn</span> <span class="o">=</span> <span class="n">normalized_gini</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">simpson</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">&lt;22</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">ir</span><span class="si">:</span><span class="s2">&gt;8.1f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">hn</span><span class="si">:</span><span class="s2">&gt;8.3f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">gn</span><span class="si">:</span><span class="s2">&gt;8.3f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">s</span><span class="si">:</span><span class="s2">&gt;8.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>运行结果大致是这样：</p>
+<div class="highlight"><pre><span></span><code>数据集                       IR   H_norm   G_norm  Simpson
+------------------------------------------------------------
+完全平衡 (5类各200)         1.0    1.000    1.000    0.200
+轻度不平衡                 10.0    0.879    0.844    0.294
+严重不平衡                180.0    0.451    0.389    0.666
+极端不平衡                 99.0    0.081    0.045    0.990
+</code></pre></div>
+
+<p>可以看出，完全平衡时 <span class="arithmatex">\(H_{\text{norm}}\)</span> 和 <span class="arithmatex">\(G_{\text{norm}}\)</span> 都是 1，Simpson 等于 <span class="arithmatex">\(1/K\)</span>；越不平衡，归一化熵和归一化基尼越往 0 走，Simpson 越往 1 走。几种指标方向一致，但敏感程度不同——熵对中间类别的变化更敏感，基尼对极端类别更敏感。挑哪个看你关心什么。</p>
+<p>下图把四种分布的柱状图和指标放在一起对比，能直观看出 IR、归一化熵、归一化基尼、Simpson 这几个指标是怎么随分布变化的。完全平衡时所有指标都取最优值，极端不平衡时归一化熵跌到 0.081，Simpson 飙到 0.990。</p>
+<p><img alt="四种分布的分类指标对比" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_metrics_comparison.png"></p>
+<h4>7. 混淆矩阵衍生的指标</h4>
+<p>上面那些都是刻画"数据集本身的分布"，没涉及模型预测。但评估不平衡场景下模型表现，光看准确率是没用的，得看这些：</p>
+<ul>
+<li><strong>Precision（精确率）</strong>：<span class="arithmatex">\(\frac{TP}{TP + FP}\)</span>，预测为正的样本里有多少真的是正。</li>
+<li><strong>Recall（召回率）</strong>：<span class="arithmatex">\(\frac{TP}{TP + FN}\)</span>，真正的正例里有多少被找出来了。</li>
+<li><strong>F1-score</strong>：精确率和召回率的调和平均，<span class="arithmatex">\(\frac{2 \cdot P \cdot R}{P + R}\)</span>。</li>
+<li><strong>AUC-ROC</strong>：ROC 曲线下面积，对类别分布不敏感。</li>
+<li><strong>AUC-PR</strong>：PR 曲线下面积，在极不平衡时比 AUC-ROC 更有说服力。</li>
+</ul>
+<p>注意 AUC-ROC 在极不平衡时会显得"虚高"，因为负例太多，FPR 稍微一动分子分母都不大；这时候 AUC-PR 更能反映少数类的识别效果。综述[1]里也强调了这一点。</p>
+<p>下图直观展示了准确率在不平衡场景下的误导性。同一个模型，准确率高达 99.25%，看着好得不得了——但召回率只有 25%，F1 只有 0.222。如果只看准确率，你会以为模型训练得很好；一看召回率和 F1，才知道少数类几乎没抓到。</p>
+<p><img alt="准确率的误导" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_accuracy_misleading.png"></p>
+<h3>怎么应对</h3>
+<p>知道不平衡了，办法大概分三类：动数据、动模型、动评估。这也对应了文献里常说的"数据级、算法级、评估级"三条路线[1]。</p>
+<h4>动数据：重采样</h4>
+<p>最直接的思路。要么把少数类"放大"，要么把多数类"缩小"。</p>
+<p><strong>过采样（Oversampling）</strong>：随机复制少数类样本。简单粗暴，但容易过拟合——模型反复见同样的少数类样本，等于把这些样本背下来了。改进版的代表是 SMOTE：在少数类样本的特征空间里插值造新样本，而不是简单复制。关于 SMOTE 生成样本的理论性质，Kamalov 等人[2]给出了收敛性证明，证明合成样本在概率上收敛到真实分布，而且近邻数取小一点收敛更快。</p>
+<p>SMOTE 的核心步骤：对一个少数类样本 <span class="arithmatex">\(x_i\)</span>，找它的 <span class="arithmatex">\(k\)</span> 个最近邻（默认 <span class="arithmatex">\(k=5\)</span>），随机选一个邻居 <span class="arithmatex">\(x_{zi}\)</span>，在两者连线上随机取一点：</p>
+<div class="arithmatex">\[
+x_{\text{new}} = x_i + \delta \cdot (x_{zi} - x_i), \quad \delta \sim U(0, 1)
+\]</div>
+<p>这样新样本跟原样本"像但不完全一样"，缓解了简单复制带来的过拟合。不过要注意，SMOTE 在高维空间或类别重叠严重的区域容易造出噪声样本，近年也有一些质量控制的改进方案。</p>
+<p><img alt="SMOTE 插值示意" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_smote_illustration.png"></p>
+<p>上图示意了 SMOTE 的插值过程：对每个少数类样本（实心圆），找到它的近邻，在两者连线上随机取一个点（菱形），生成新的合成样本。新样本位于原样本和邻居之间，既扩充了少数类又不像简单复制那样容易过拟合。</p>
+<p><strong>欠采样（Undersampling）</strong>：随机丢弃多数类样本。问题是信息丢失，可能把多数类里有用的样本扔掉。改进思路是"有信息"的欠采样，比如 Tomek Links：找出那些"互为最近邻但类别不同"的样本对，删掉其中的多数类样本，让边界更清晰。</p>
+<p><img alt="随机欠采样示意" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_undersampling.png"></p>
+<p>上图对比了欠采样前后的样本分布。左图是原始的 800:50 分布，右图随机丢弃了 700 个多数类样本（灰色 X 标记），把比例拉到 100:50。代价是丢失了多数类的大部分信息——如果丢弃的样本里包含有价值的模式，模型对多数类的拟合会变差。</p>
+<p><strong>混合采样</strong>：把 SMOTE 和 Tomek Links、或者 SMOTE 和 Edited Nearest Neighbors 组合起来用，既造新样本又清洗边界，效果往往比单独用好。</p>
+<h4>动模型：代价敏感学习</h4>
+<p>数据不动，改模型训练时的"偏好"。给少数类更高的误分类代价，让模型犯错时心疼。</p>
+<p>最常见的是加权交叉熵：</p>
+<div class="arithmatex">\[
+L = -\sum_{k=1}^{K} w_k \cdot y_k \log \hat{p}_k
+\]</div>
+<p>其中 <span class="arithmatex">\(w_k\)</span> 是类别 <span class="arithmatex">\(k\)</span> 的权重，通常设成跟该类样本数成反比：<span class="arithmatex">\(w_k \propto 1/N_k\)</span>。这样少数类每个样本对损失的贡献更大，模型训练时会更重视少数类。</p>
+<p>对树模型（XGBoost、LightGBM）来说，类似机制叫 <code>scale_pos_weight</code>，本质就是调正负样本在损失里的权重比例。</p>
+<p>另外还有一类专门的不平衡学习算法，比如 Balanced Random Forest、EasyEnsemble、BalanceCascade，思路都是"集成多个欠采样的子模型"，用投票或平均来弥补单个欠采样的信息损失。这类集成方法在图数据等复杂结构上也有延伸，综述[8]专门讨论了图上的类别不平衡学习。</p>
+<h4>动评估：换指标</h4>
+<p>别再看准确率了。不平衡场景下，准确率是最有误导性的指标。</p>
+<p>正确做法是：
+- 看 Precision / Recall / F1，而且要分别看每个类别，而不是只看 macro 平均。
+- 看 AUC-PR，特别是正例占比 &lt; 5% 时。
+- 看混淆矩阵本身，直观看模型在哪些类别上犯哪些错。
+- 用分层 K-fold 交叉验证，保证每折的类别比例跟整体一致，否则随机划分可能让某些折里干脆没有少数类样本。</p>
+<hr>
+<h2>二、再说回归：目标值分布不平衡</h2>
+<h3>直觉</h3>
+<p>分类的平衡是"类别数量"，回归哪有类别？回归的"平衡"指的是目标值 <span class="arithmatex">\(y\)</span> 的分布是否均匀——是不是有的取值区间样本扎堆，有的区间几乎没人。</p>
+<p>这个事儿容易被忽略。很多人以为回归问题不存在不平衡问题，其实不然。Yang 等人在 ICML 2021 的工作[3]里正式定义了"深度不平衡回归"（Deep Imbalanced Regression, DIR）这个概念，指出连续标签空间的不平衡在视觉、NLP、医疗等领域普遍存在，而且跟分类不平衡有本质区别——连续标签之间没有硬边界，相邻标签之间还有语义相关性。</p>
+<p>举个最实际的例子：预测房价，大多数房子价格集中在 50 万到 150 万之间，但 500 万以上的豪宅和 20 万以下的破房子都很少。你要是不管不顾直接训练，模型会花大部分"心思"去拟合中间那堆密集样本，对两端的预测会很不准——因为它们对损失的贡献小，模型懒得管。</p>
+<p>再比如预测用户消费金额，大量用户消费为 0 或很低的金额，少数用户是大额消费。预测风力发电量、预测罕见事件的发生时间，也都是这种"长尾分布"。</p>
+<p>回归的不平衡和分类的不平衡长得就不一样。分类不平衡是"类别数量不均"，在散点图上是一大片一种颜色加几个另一种颜色的点。回归不平衡是"目标值分布偏斜"，在直方图上是一头扎堆、一头稀疏的长尾形状。下图就是三种典型的回归目标值分布。</p>
+<p><img alt="正态分布（平衡）" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_reg_normal.png"></p>
+<p>正态分布是最理想的情况，偏度和峰度都接近 0，各区间都有足够样本，模型在每个取值范围都能学得好。</p>
+<p><img alt="对数正态（右偏长尾）" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_reg_lognormal.png"></p>
+<p>对数正态是典型的长尾分布，偏度接近 1.8，峰度超过 6。大部分样本集中在左侧（低值区），右侧拖了一条长长的尾巴。房价、收入、消费金额这类数据基本都是这个形状。右侧稀疏区间的样本太少，模型在那里预测得很不准，但因为它们对总损失的贡献小，模型"懒得管"。</p>
+<p><img alt="双峰分布" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_reg_bimodal.png"></p>
+<p>双峰分布看起来偏度不大（接近 0），但峰度是负的——因为中间一段几乎是空的。这种分布的问题不是"尾部稀疏"，而是"中间断档"。如果模型在中间那段没有样本可学，预测会出现系统性偏差。</p>
+<h3>定量指标</h3>
+<p>回归的平衡性评估，本质上是看 <span class="arithmatex">\(y\)</span> 分布的"形状"——偏不偏、尾长不长、有没有重尾。下面这几个指标从不同角度量化这件事。</p>
+<h4>1. 偏度（Skewness）</h4>
+<p>偏度衡量分布的不对称性：</p>
+<div class="arithmatex">\[
+\gamma_1 = \frac{\frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^3}{\left( \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2 \right)^{3/2}}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(\gamma_1 = 0\)</span>：对称分布（如正态）。</li>
+<li><span class="arithmatex">\(\gamma_1 &gt; 0\)</span>：右偏（正偏），右侧尾巴长，少数大值把均值拉到右边——房价、收入、消费金额这类数据基本都是这样。</li>
+<li><span class="arithmatex">\(\gamma_1 &lt; 0\)</span>：左偏（负偏）。</li>
+</ul>
+<p>一般认为 <span class="arithmatex">\(|\gamma_1| &gt; 1\)</span> 算偏得很厉害，0.5 到 1 之间算中等，0.5 以下算比较对称。</p>
+<h4>2. 峰度（Kurtosis）</h4>
+<p>峰度衡量分布的"尖峭程度"和尾部厚度：</p>
+<div class="arithmatex">\[
+\gamma_2 = \frac{\frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^4}{\left( \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2 \right)^2} - 3
+\]</div>
+<p>减 3 是为了以正态分布为基准（正态分布峰度为 3，减完后正态的"超额峰度"为 0）。</p>
+<ul>
+<li><span class="arithmatex">\(\gamma_2 = 0\)</span>：跟正态一样的尾部厚度。</li>
+<li><span class="arithmatex">\(\gamma_2 &gt; 0\)</span>：尖峰厚尾（leptokurtic），极端值比正态分布多——金融数据、异常值多的数据基本都这样。</li>
+<li><span class="arithmatex">\(\gamma_2 &lt; 0\)</span>：扁峰薄尾（platykurtic），极端值少。</li>
+</ul>
+<p>峰度大意味着分布尾部有较多极端值，这些极端值在训练时会被模型"忽略"，因为它们占比小但数量又不是零——既不像异常值那么好剔除，又不像主峰那样有足够样本去拟合。</p>
+<h4>3. 分位数比率（Quantile Ratio）</h4>
+<p>用分位数比来刻画分布的不均匀程度。比如：</p>
+<div class="arithmatex">\[
+Q_{90/10} = \frac{y_{0.9}}{y_{0.1}}
+\]</div>
+<p>即第 90 百分位除以第 10 百分位。这个比值越接近 1 说明分布越紧凑，越大说明两端差距大。也可以用 <span class="arithmatex">\(y_{0.99} / y_{0.5}\)</span>（极端值跟中位数比）来专门看尾部。</p>
+<p>这个指标的好处是"抗异常值"——分位数本身对极端值不敏感，但它能告诉你"中间 80% 的数据范围跟极端范围比有多小"。</p>
+<h4>4. 基尼系数（经济学版）</h4>
+<p>把回归目标当收入来算基尼系数，这是经济学那套原版：</p>
+<div class="arithmatex">\[
+G = \frac{\sum_{i=1}^{n} \sum_{j=1}^{n} |y_i - y_j|}{2 n^2 \bar{y}}
+\]</div>
+<p><span class="arithmatex">\(G = 0\)</span> 表示所有 <span class="arithmatex">\(y\)</span> 值完全相等（完全平衡），<span class="arithmatex">\(G\)</span> 越接近 1 表示分布越不均。这个指标把回归目标的"不平衡度"统一到了一个 [0, 1] 的数字里，跟分类场景下的归一化熵类似。</p>
+<h4>5. 变异系数（Coefficient of Variation, CV）</h4>
+<div class="arithmatex">\[
+\text{CV} = \frac{\sigma}{|\bar{y}|}
+\]</div>
+<p>标准差除以均值。CV 本身不直接说"不平衡"，但结合偏度看，CV 大且偏度大，基本就是长尾分布的特征。</p>
+<h4>6. 直方图/分位数覆盖率</h4>
+<p>最朴素但也最直观：把目标值分箱，看每个箱子里有多少样本。如果某些箱子几乎是空的，那这些区间就是模型学不好的地方。可以算"覆盖率"：</p>
+<div class="arithmatex">\[
+\text{Coverage} = \frac{\text{非空箱数}}{\text{总箱数}}
+\]</div>
+<p>Coverage 越接近 1 说明各区间都有样本，越接近 0 说明分布越稀疏不均。文献[3]里也用了类似的分箱思路来定义"稀有区间"和"常见区间"。</p>
+<p>下面这段代码算一遍这些指标，对比三种不同的回归目标分布：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurtosis</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">gini_coefficient</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">idx</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">quantile_ratio</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">q_high</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">q_low</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+    <span class="n">qh</span><span class="p">,</span> <span class="n">ql</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">q_high</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">q_low</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">qh</span> <span class="o">/</span> <span class="n">ql</span> <span class="k">if</span> <span class="n">ql</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">coverage</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">h</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">h</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">bins</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5000</span>
+
+<span class="n">distributions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;正态分布&quot;</span><span class="p">:</span>    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+    <span class="s2">&quot;对数正态(右偏)&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+    <span class="s2">&quot;双峰分布&quot;</span><span class="p">:</span>   <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">),</span>
+                                  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">)]),</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;分布&#39;</span><span class="si">:</span><span class="s2">&lt;18</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;偏度&#39;</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;峰度&#39;</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Q90/Q10&#39;</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;基尼&#39;</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;CV&#39;</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;覆盖率&#39;</span><span class="si">:</span><span class="s2">&gt;8</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">72</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">distributions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">skew</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">kurtosis</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">qr</span> <span class="o">=</span> <span class="n">quantile_ratio</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">gini_coefficient</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">cv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">cov</span> <span class="o">=</span> <span class="n">coverage</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">&lt;18</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">s</span><span class="si">:</span><span class="s2">&gt;8.3f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">&gt;8.3f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">qr</span><span class="si">:</span><span class="s2">&gt;10.2f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">g</span><span class="si">:</span><span class="s2">&gt;8.3f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">cv</span><span class="si">:</span><span class="s2">&gt;8.3f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">cov</span><span class="si">:</span><span class="s2">&gt;8.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>结果大致是：</p>
+<div class="highlight"><pre><span></span><code>分布                  偏度      峰度   Q90/Q10     基尼       CV   覆盖率
+------------------------------------------------------------------------
+正态分布            0.006    0.020      1.88    0.084    0.150     1.00
+对数正态(右偏)      1.834    6.140     16.42    0.471    0.834     0.85
+双峰分布            0.054   -1.672      5.12    0.342    0.620     0.80
+</code></pre></div>
+
+<p>正态分布偏度和峰度都接近 0，基尼很小，覆盖率满分。对数正态分布偏度接近 2，峰度超过 6，分位数比 16——典型的长尾，稀疏区域多，覆盖率掉到 0.85。双峰分布峰度是负的（因为中间空），基尼和 CV 都不低，说明虽然对称但不均匀。</p>
+<p><img alt="三种回归分布的指标对比" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_reg_metrics.png"></p>
+<p>上图把这三种分布的偏度、峰度、基尼系数并排画出来，一眼能看出对数正态分布在三个指标上都跟正态分布差得最远，而双峰分布的负峰度是它最明显的特征——光看偏度会以为它很平衡，一看峰度就知道中间断档了。</p>
+<h3>怎么应对</h3>
+<p>回归的不平衡应对思路跟分类不完全一样，但大方向类似：动数据、动损失、动模型。</p>
+<h4>1. 目标值变换</h4>
+<p>最常用、最简单的一招。把长尾分布通过数学变换"压"成接近正态的形状。</p>
+<ul>
+<li><strong>对数变换</strong>：<span class="arithmatex">\(y' = \log(y + c)\)</span>，对右偏分布特别有效，<span class="arithmatex">\(c\)</span> 是个防止 <span class="arithmatex">\(y=0\)</span> 的小常数。</li>
+<li><strong>Box-Cox 变换</strong>：<span class="arithmatex">\(y' = \frac{y^\lambda - 1}{\lambda}\)</span>（<span class="arithmatex">\(\lambda \neq 0\)</span>）或 <span class="arithmatex">\(\log y\)</span>（<span class="arithmatex">\(\lambda = 0\)</span>），<span class="arithmatex">\(\lambda\)</span> 由最大似然估计。</li>
+<li><strong>Yeo-Johnson 变换</strong>：Box-Cox 的改进版，能处理 <span class="arithmatex">\(y \leq 0\)</span> 的情况。</li>
+<li><strong>分位数变换</strong>：把 <span class="arithmatex">\(y\)</span> 映射到指定分布（如标准正态）的分位数上，强制拉成想要的形状。</li>
+</ul>
+<p>变换之后训练，预测时再做逆变换还原。要注意变换后的评估指标也得在变换后的空间里看，不然会失真。</p>
+<p><img alt="对数变换前后对比" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_log_transform.png"></p>
+<p>上图就是对数变换的效果。左边是原始的对数正态分布，偏度 1.83、峰度 6.14，一条明显的长尾。右边是取对数之后的分布，偏度降到接近 0，峰度也接近 0，基本就是正态了。变换把长尾"压"了回去，让模型在每个区间都有足够的样本去拟合。</p>
+<h4>2. 加权损失</h4>
+<p>跟分类的代价敏感一个思路。给损失函数里不同区间的样本加权重，让稀疏区间的样本对损失贡献更大。</p>
+<p><strong>分位数加权</strong>：把 <span class="arithmatex">\(y\)</span> 分箱，每个箱子的权重设成跟该箱子样本数成反比：</p>
+<div class="arithmatex">\[
+w_i = \frac{1}{\text{count}(\text{bin}(y_i))}
+\]</div>
+<p><strong>基于分布的损失重设计</strong>：Ren 等人在 CVPR 2022 的工作[4]指出，普通的 MSE 在不平衡回归里是失效的，因为它的最优解是条件期望，会被密集区域主导。他们从统计视角重新推导，提出了 Balanced MSE，通过引入训练标签分布的先验来校正偏差，并且设计了几种实现，其中一种甚至不需要事先知道标签分布。这是目前不平衡回归里被引用最多的一篇。</p>
+<p><strong>分位数损失（Quantile Loss）</strong>：如果特别关心某个区间，比如关心 90 分位数（高端市场），用分位数损失直接拟合特定分位数，而不是均值：</p>
+<div class="arithmatex">\[
+L_\tau(y, \hat{y}) = \max(\tau(y - \hat{y}), (\tau - 1)(y - \hat{y}))
+\]</div>
+<p><span class="arithmatex">\(\tau = 0.5\)</span> 时就是 MAE，<span class="arithmatex">\(\tau = 0.9\)</span> 时拟合的是 90 分位数。这样即便尾部样本少，模型也会专门去拟合那个位置。</p>
+<p><img alt="分位数损失" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/images/imbalance_quantile_loss.png"></p>
+<p>上图画了三种 <span class="arithmatex">\(\tau\)</span> 值的分位数损失曲线。<span class="arithmatex">\(\tau=0.5\)</span>（绿色）是对称的，就是 MAE；<span class="arithmatex">\(\tau=0.9\)</span>（橙色）在预测偏低时惩罚更大，迫使模型往高了预测，专门拟合高端尾部；<span class="arithmatex">\(\tau=0.1\)</span>（蓝色）则相反，在预测偏高时惩罚更大，专门拟合低端。</p>
+<h4>3. 分布平滑</h4>
+<p>这是 Yang 等人[3]提出来的核心思路。既然连续标签之间有相邻关系，那就不应该把每个标签孤立对待。他们对标签和特征都做了分布平滑：用核函数估计标签附近的样本密度，给稀疏标签附近的特征做加权平均，让模型"借用"相邻标签的信息。这个方法在 IMDB-WIKI-DIR、AgeDB-DIR、STS-B-DIR 三个基准上都显著超过了基线。</p>
+<p>顺着这个思路，Gong 等人[6]在 ICML 2022 提出了 RankSim，用排序相似性正则化来约束特征空间——让标签空间里排序接近的样本，在特征空间里排序也接近。这捕捉的不只是近邻关系，还包括远距离的有序关系。Wang 等人[5]在 NeurIPS 2023 进一步提出了 Variational Imbalanced Regression（VIR），用变分自编码器的框架，借相邻标签的数据来算潜在表示的变分分布，并且预测整个正态逆伽马分布，从而同时给出准确预测和合理的不确定性估计。Keramati 等人[7]的 ConR 则用对比学习正则化来防止少数样本的特征被"吸"到多数类那边去。</p>
+<p>这几条线现在是不平衡回归研究的主流，互相之间可以叠加用。</p>
+<h4>4. 重采样</h4>
+<p>跟分类类似，但回归的重采样不是简单复制。经典的是 SMOTER：在目标值稀疏区间附近用特征空间插值造新样本，新样本的目标值用邻居的加权平均。近年的改进比如 SMOGAN[9]，在传统过采样器造完初始样本后，再用一个分布感知的 GAN 做"过滤"，把不贴合真实联合分布的合成样本往真实分布上拉。Chen 等人[10]则提出误差分布平滑（EDS），通过选代表性子集来减少冗余同时保持平衡，思路更偏"有信息的欠采样"。</p>
+<h4>5. 分区建模</h4>
+<p>把目标值范围分成几段，每段单独训一个模型。比如房价预测，&lt;50 万、50-150 万、&gt;150 万各训一个。每个子模型只在自己那段数据上训练，不用跟其他段的分布较劲。</p>
+<p>缺点是分段处会有不连续，需要平滑处理或者用分段间的软过渡。Xiong 和 Yao 的工作就用层级分类器加范围保持的蒸馏来处理这个不连续问题。优点是每个子模型可以针对自己那段数据的特点选合适的特征和算法。</p>
+<h4>6. 集成方法</h4>
+<p>Boosting 类算法（GBDT、XGBoost、LightGBM、CatBoost）天然对不平衡分布有一定抗性，因为它们会重点拟合残差大的样本——而长尾分布的尾部样本残差往往就大。配合上面的目标值变换和加权损失，效果会更稳。</p>
+<h4>7. 评估指标要换</h4>
+<p>跟分类一个道理，别盯着 MSE / RMSE 不放。在长尾分布下，RMSE 会被尾部少数大残差主导，看着很差，但其实主体预测很准。应该看：</p>
+<ul>
+<li><strong>MAE</strong>：对异常值不敏感，更反映主体效果。</li>
+<li><strong>MAPE / SMAPE</strong>：相对误差，不受量纲影响。</li>
+<li><strong>R²</strong>：看模型解释了多少方差，但对尾部不敏感。</li>
+<li><strong>分位数损失</strong>：专门评估某个分位数的预测效果。</li>
+<li><strong>按区间分组的指标</strong>：把 <span class="arithmatex">\(y\)</span> 分段，每段单独算 MAE / R²，看模型在不同区间的表现是否均衡。文献[3]里特别强调了这个"分区间评估"的思路，因为全局指标会掩盖尾部表现差的真相。</li>
+</ul>
+<hr>
+<h2>三、一些容易踩的坑</h2>
+<p>最后说几个容易忽略的地方。</p>
+<p><strong>分类和回归的平衡不是一回事</strong>。分类看类别数量分布，回归看目标值的连续分布形状，别混为一谈。Yang 等人[3]特别强调了这一点——连续标签之间有相邻关系，而离散类别之间没有，所以分类的方法不能直接套到回归上。回归问题里硬把 <span class="arithmatex">\(y\)</span> 切成几段当分类来评估"平衡"是可以的，但应对办法不一样。</p>
+<p><strong>不平衡不一定就是坏事</strong>。有些场景不平衡是真实的，反映了现实世界的规律——欺诈本来就罕见，罕见病本来就少。强求"平衡"反而可能引入偏差。关键是评估指标要跟上，而不是数据一定要拉成各占一半。</p>
+<p><strong>过采样和欠采样都不能瞎用</strong>。过采样容易过拟合，欠采样容易丢信息，混合采样也不是万能的。先用交叉验证验证效果再决定。SMOTE 在高维空间容易失效，因为距离度量在高维下不靠谱。Kamalov 等人[2]的收敛性分析也建议近邻数取小一点，理论上收敛更快。</p>
+<p><strong>评估指标的口径要清楚</strong>。比如 F1 是 Precision 和 Recall 的调和平均，对两者都不偏；但也可以用算术平均或几何平均，看任务需求。AUC-PR 和 AUC-ROC 在不平衡时差距很大，别只看 ROC。</p>
+<p><strong>回归变换后注意反演</strong>。对 <span class="arithmatex">\(y\)</span> 做了变换，预测后要反变换回原空间，评估时也要想清楚是在变换空间评估还是在原空间评估——这俩结果可能差很多。Balanced MSE[4]里有专门讨论这个细节。</p>
+<p><strong>分层抽样很重要</strong>。不管是分类的分层 K-fold 还是回归的分位数 K-fold，划分数据时一定要保持训练集和测试集的目标分布一致，否则评估结果没参考价值。</p>
+<hr>
+<h2>四、总结</h2>
+<p>数据集的平衡性是个基础但容易被忽视的问题。分类场景下，主要看类别分布是否均匀，用 IR、归一化熵、归一化基尼等指标量化，应对上可以重采样、代价敏感学习、换评估指标。回归场景下，主要看目标值分布的形状是否长尾或偏斜，用偏度、峰度、分位数比率、基尼系数等刻画，应对上靠目标值变换、加权损失、分布平滑、专门的重采样方法。</p>
+<p>从文献发展也能看出脉络：分类不平衡的研究从 SMOTE 到各种集成方法已经相对成熟[1,2]；回归不平衡则是近五年才真正热起来，从 Yang 等人[3]正式定义 DIR，到 Balanced MSE[4]、VIR[5]、RankSim[6]、ConR[7] 一步步把工具箱填满，再到 SMOGAN[9]、EDS[10] 这些数据级方法继续完善。</p>
+<p>思路统一：先定量评估分布，再决定要不要处理，处理时从数据、模型、评估三个层面动手。模型再花哨，地基歪了也白搭。先把数据搞明白，再谈模型——这是数据科学的常识，但恰恰是最容易被忽略的那个常识。</p>
+<hr>
+<h2>参考文献</h2>
+<p>[1] Khan Md. Hasib, Md. Sadiq Iqbal, Faisal Muhammad Shah, et al. "A Survey of Methods for Managing the Classification and Solution of Data Imbalance Problem." <em>Journal of Computer Science</em>, 16(11): 1546–1557, 2020. arXiv:2012.11870.</p>
+<p>[2] Firuz Kamalov, Hana Sulieman, Witold Pedrycz. "Theoretical Convergence of SMOTE-Generated Samples." arXiv:2601.01927, 2026.</p>
+<p>[3] Yuzhe Yang, Kaiwen Zha, Ying-Cong Chen, Hao Wang, Dina Katabi. "Delving into Deep Imbalanced Regression." In <em>ICML 2021</em> (Long Oral). arXiv:2102.09554.</p>
+<p>[4] Jiawei Ren, Mingyuan Zhang, Cunjun Yu, Ziwei Liu. "Balanced MSE for Imbalanced Visual Regression." In <em>CVPR 2022</em>. arXiv:2203.16427.</p>
+<p>[5] Ziyan Wang, Hao Wang. "Variational Imbalanced Regression: Fair Uncertainty Quantification via Probabilistic Smoothing." In <em>NeurIPS 2023</em>. arXiv:2306.06599.</p>
+<p>[6] Yu Gong, Greg Mori, Frederick Tung. "RankSim: Ranking Similarity Regularization for Deep Imbalanced Regression." In <em>ICML 2022</em>. arXiv:2205.15236.</p>
+<p>[7] Mahsa Keramati, Lili Meng, R. David Evans. "ConR: Contrastive Regularizer for Deep Imbalanced Regression." arXiv:2309.06651, 2023.</p>
+<p>[8] Yihong Ma, Yijun Tian, Nuno Moniz, Nitesh V. Chawla. "Class-Imbalanced Learning on Graphs: A Survey." <em>ACM Computing Surveys</em>, 2023. arXiv:2304.04300.</p>
+<p>[9] Shayan Alahyari, Mike Domaratzki. "SMOGAN: Synthetic Minority Oversampling with GAN Refinement for Imbalanced Regression." arXiv:2504.21152, 2025.</p>
+<p>[10] Donghe Chen, Jiaxuan Yue, Tengjie Zheng, Lanxuan Wang, Lin Cheng. "Error Distribution Smoothing: Advancing Low-Dimensional Imbalanced Regression." arXiv:2502.02277, 2025.</p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep" data-i18n="category_label">分类</span>:
+        <abbr class="category">
+            <a href="./category/ml.html">ML</a>
+        </abbr>
+       </footer>
+    
+</section>
+
+<section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
+    <script src="https://giscus.app/client.js"
+        data-repo="cycleuser/cycleuser.github.io"
+        data-repo-id="R_kgDOL4NKYA"
+        data-category="General"
+        data-category-id="DIC_kwDOL4NKYM4DBK3X"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    function update() {
+        var t = giscusTheme(getTheme());
+        var s = document.querySelector('script[src*="giscus"]');
+        if (s) s.setAttribute('data-theme', t);
+        sendTheme(t);
+    }
+    // 初始设置
+    var s = document.querySelector('script[src*="giscus"]');
+    if (s) s.setAttribute('data-theme', giscusTheme(getTheme()));
+    // 监听明暗切换
+    new MutationObserver(function() { update(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    // 重试几次确保 iframe 加载完成
+    var tries = 0;
+    var timer = setInterval(function() {
+        if (document.querySelector('iframe.giscus-frame')) { sendTheme(giscusTheme(getTheme())); clearInterval(timer); }
+        if (++tries > 20) clearInterval(timer);
+    }, 500);
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 864 717" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g transform="matrix(1,0,0,1,-3.87564,-3.90784)">
+        <g id="figure_1" transform="matrix(1.33333,0,0,1.33333,0,0)">
+            <g id="patch_1">
+            </g>
+            <g id="axes_1" transform="matrix(1,0,0,1,-23.6223,-7.691)">
+                <g id="patch_2">
+                    <rect x="153.178" y="28.106" width="444.818" height="471.142" style="fill:white;fill-rule:nonzero;"/>
+                </g>
+                <g id="QuadMesh_1">
+                    <path d="M153.178,28.106L264.382,28.106L264.382,75.22L153.178,75.22L153.178,28.106" style="fill:rgb(255,249,189);fill-rule:nonzero;"/>
+                    <path d="M264.382,28.106L375.587,28.106L375.587,75.22L264.382,75.22L264.382,28.106" style="fill:rgb(255,254,203);fill-rule:nonzero;"/>
+                    <path d="M375.587,28.106L486.791,28.106L486.791,75.22L375.587,75.22L375.587,28.106" style="fill:rgb(255,255,204);fill-rule:nonzero;"/>
+                    <path d="M486.791,28.106L597.996,28.106L597.996,75.22L486.791,75.22L486.791,28.106" style="fill:rgb(255,254,201);fill-rule:nonzero;"/>
+                    <path d="M153.178,75.22L264.382,75.22L264.382,122.335L153.178,122.335L153.178,75.22" style="fill:rgb(254,217,119);fill-rule:nonzero;"/>
+                    <path d="M264.382,75.22L375.587,75.22L375.587,122.335L264.382,122.335L264.382,75.22" style="fill:rgb(255,236,159);fill-rule:nonzero;"/>
+                    <path d="M375.587,75.22L486.791,75.22L486.791,122.335L375.587,122.335L375.587,75.22" style="fill:rgb(255,232,149);fill-rule:nonzero;"/>
+                    <path d="M486.791,75.22L597.996,75.22L597.996,122.335L486.791,122.335L486.791,75.22" style="fill:rgb(255,236,157);fill-rule:nonzero;"/>
+                    <path d="M153.178,122.335L264.382,122.335L264.382,169.449L153.178,169.449L153.178,122.335" style="fill:rgb(255,243,175);fill-rule:nonzero;"/>
+                    <path d="M264.382,122.335L375.587,122.335L375.587,169.449L264.382,169.449L264.382,122.335" style="fill:rgb(255,247,185);fill-rule:nonzero;"/>
+                    <path d="M375.587,122.335L486.791,122.335L486.791,169.449L375.587,169.449L375.587,122.335" style="fill:rgb(255,246,182);fill-rule:nonzero;"/>
+                    <path d="M486.791,122.335L597.996,122.335L597.996,169.449L486.791,169.449L486.791,122.335" style="fill:rgb(255,248,186);fill-rule:nonzero;"/>
+                    <path d="M153.178,169.449L264.382,169.449L264.382,216.563L153.178,216.563L153.178,169.449" style="fill:rgb(254,182,81);fill-rule:nonzero;"/>
+                    <path d="M264.382,169.449L375.587,169.449L375.587,216.563L264.382,216.563L264.382,169.449" style="fill:rgb(254,206,106);fill-rule:nonzero;"/>
+                    <path d="M375.587,169.449L486.791,169.449L486.791,216.563L375.587,216.563L375.587,169.449" style="fill:rgb(254,197,97);fill-rule:nonzero;"/>
+                    <path d="M486.791,169.449L597.996,169.449L597.996,216.563L486.791,216.563L486.791,169.449" style="fill:rgb(254,211,111);fill-rule:nonzero;"/>
+                    <path d="M153.178,216.563L264.382,216.563L264.382,263.677L153.178,263.677L153.178,216.563" style="fill:rgb(229,30,29);fill-rule:nonzero;"/>
+                    <path d="M264.382,216.563L375.587,216.563L375.587,263.677L264.382,263.677L264.382,216.563" style="fill:rgb(240,53,35);fill-rule:nonzero;"/>
+                    <path d="M375.587,216.563L486.791,216.563L486.791,263.677L375.587,263.677L375.587,216.563" style="fill:rgb(237,46,33);fill-rule:nonzero;"/>
+                    <path d="M486.791,216.563L597.996,216.563L597.996,263.677L486.791,263.677L486.791,216.563" style="fill:rgb(240,53,35);fill-rule:nonzero;"/>
+                    <path d="M153.178,263.677L264.382,263.677L264.382,310.792L153.178,310.792L153.178,263.677" style="fill:rgb(128,0,38);fill-rule:nonzero;"/>
+                    <path d="M264.382,263.677L375.587,263.677L375.587,310.792L264.382,310.792L264.382,263.677" style="fill:rgb(253,159,68);fill-rule:nonzero;"/>
+                    <path d="M375.587,263.677L486.791,263.677L486.791,310.792L375.587,310.792L375.587,263.677" style="fill:rgb(252,100,48);fill-rule:nonzero;"/>
+                    <path d="M486.791,263.677L597.996,263.677L597.996,310.792L486.791,310.792L486.791,263.677" style="fill:rgb(254,166,71);fill-rule:nonzero;"/>
+                    <path d="M153.178,310.792L264.382,310.792L264.382,357.906L153.178,357.906L153.178,310.792" style="fill:rgb(248,70,40);fill-rule:nonzero;"/>
+                    <path d="M264.382,310.792L375.587,310.792L375.587,357.906L264.382,357.906L264.382,310.792" style="fill:rgb(255,228,141);fill-rule:nonzero;"/>
+                    <path d="M375.587,310.792L486.791,310.792L486.791,357.906L375.587,357.906L375.587,310.792" style="fill:rgb(254,206,106);fill-rule:nonzero;"/>
+                    <path d="M486.791,310.792L597.996,310.792L597.996,357.906L486.791,357.906L486.791,310.792" style="fill:rgb(255,230,145);fill-rule:nonzero;"/>
+                    <path d="M153.178,357.906L264.382,357.906L264.382,405.02L153.178,405.02L153.178,357.906" style="fill:rgb(128,0,38);fill-rule:nonzero;"/>
+                    <path d="M264.382,357.906L375.587,357.906L375.587,405.02L264.382,405.02L264.382,357.906" style="fill:rgb(254,160,68);fill-rule:nonzero;"/>
+                    <path d="M375.587,357.906L486.791,357.906L486.791,405.02L375.587,405.02L375.587,357.906" style="fill:rgb(241,56,36);fill-rule:nonzero;"/>
+                    <path d="M486.791,357.906L597.996,357.906L597.996,405.02L486.791,405.02L486.791,357.906" style="fill:rgb(254,165,70);fill-rule:nonzero;"/>
+                    <path d="M153.178,405.02L264.382,405.02L264.382,452.134L153.178,452.134L153.178,405.02" style="fill:rgb(252,79,42);fill-rule:nonzero;"/>
+                    <path d="M264.382,405.02L375.587,405.02L375.587,452.134L264.382,452.134L264.382,405.02" style="fill:rgb(254,227,139);fill-rule:nonzero;"/>
+                    <path d="M375.587,405.02L486.791,405.02L486.791,452.134L375.587,452.134L375.587,405.02" style="fill:rgb(254,198,98);fill-rule:nonzero;"/>
+                    <path d="M486.791,405.02L597.996,405.02L597.996,452.134L486.791,452.134L486.791,405.02" style="fill:rgb(255,228,141);fill-rule:nonzero;"/>
+                    <path d="M153.178,452.134L264.382,452.134L264.382,499.249L153.178,499.249L153.178,452.134" style="fill:rgb(255,232,149);fill-rule:nonzero;"/>
+                    <path d="M264.382,452.134L375.587,452.134L375.587,499.249L264.382,499.249L264.382,452.134" style="fill:rgb(255,234,155);fill-rule:nonzero;"/>
+                    <path d="M375.587,452.134L486.791,452.134L486.791,499.249L375.587,499.249L375.587,452.134" style="fill:rgb(255,233,152);fill-rule:nonzero;"/>
+                    <path d="M486.791,452.134L597.996,452.134L597.996,499.249L486.791,499.249L486.791,452.134" style="fill:rgb(255,233,152);fill-rule:nonzero;"/>
+                </g>
+                <g id="matplotlib.axis_1">
+                    <g id="xtick_1">
+                        <g id="m7abbcdb8dd" transform="matrix(1,0,0,1,208.78,499.249)">
+                            <g id="line2d_1">
+                                <g>
+                                    <path id="m7abbcdb8dd1" serif:id="m7abbcdb8dd" d="M0,0L0,3.5" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(0.866025,-0.5,0.5,0.866025,193.168,533.251)">
+                            <g id="text_1">
+                                <text x="0px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">中英互译</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="xtick_2">
+                        <g id="m7abbcdb8dd2" serif:id="m7abbcdb8dd" transform="matrix(1,0,0,1,319.984,499.249)">
+                            <g id="line2d_2">
+                                <g>
+                                    <path id="m7abbcdb8dd3" serif:id="m7abbcdb8dd" d="M0,0L0,3.5" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(0.866025,-0.5,0.5,0.866025,304.363,533.217)">
+                            <g id="text_2">
+                                <text x="0px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">代码解释</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="xtick_3">
+                        <g id="m7abbcdb8dd4" serif:id="m7abbcdb8dd" transform="matrix(1,0,0,1,431.189,499.249)">
+                            <g id="line2d_3">
+                                <g>
+                                    <path id="m7abbcdb8dd5" serif:id="m7abbcdb8dd" d="M0,0L0,3.5" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(0.866025,-0.5,0.5,0.866025,402.558,548.15)">
+                            <g id="text_3">
+                                <text x="0px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">自然语言转代码</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="xtick_4">
+                        <g id="m7abbcdb8dd6" serif:id="m7abbcdb8dd" transform="matrix(1,0,0,1,542.393,499.249)">
+                            <g id="line2d_4">
+                                <g>
+                                    <path id="m7abbcdb8dd7" serif:id="m7abbcdb8dd" d="M0,0L0,3.5" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(0.866025,-0.5,0.5,0.866025,526.772,533.217)">
+                            <g id="text_4">
+                                <text x="0px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">问题解答</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="text_5">
+                    </g>
+                </g>
+                <g id="matplotlib.axis_2">
+                    <g id="ytick_1">
+                        <g id="m1500a05d3e" transform="matrix(1,0,0,1,153.178,51.6634)">
+                            <g id="line2d_5">
+                                <g>
+                                    <path id="m1500a05d3e1" serif:id="m1500a05d3e" d="M0,0L-3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,146.178,54.554)">
+                            <g id="text_6">
+                                <text x="-75px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">deepseek-r1:32b</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_2">
+                        <g id="m1500a05d3e2" serif:id="m1500a05d3e" transform="matrix(1,0,0,1,153.178,98.7776)">
+                            <g id="line2d_6">
+                                <g>
+                                    <path id="m1500a05d3e3" serif:id="m1500a05d3e" d="M0,0L-3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,146.178,101.59)">
+                            <g id="text_7">
+                                <text x="-60px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">devstral:24b</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_3">
+                        <g id="m1500a05d3e4" serif:id="m1500a05d3e" transform="matrix(1,0,0,1,153.178,145.892)">
+                            <g id="line2d_7">
+                                <g>
+                                    <path id="m1500a05d3e5" serif:id="m1500a05d3e" d="M0,0L-3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,146.178,148.782)">
+                            <g id="text_8">
+                                <text x="-50px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">gemma3:27b</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_4">
+                        <g id="m1500a05d3e6" serif:id="m1500a05d3e" transform="matrix(1,0,0,1,153.178,193.006)">
+                            <g id="line2d_8">
+                                <g>
+                                    <path id="m1500a05d3e7" serif:id="m1500a05d3e" d="M0,0L-3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,146.178,195.897)">
+                            <g id="text_9">
+                                <text x="-60px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">gpt-oss:120b</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_5">
+                        <g id="m1500a05d3e8" serif:id="m1500a05d3e" transform="matrix(1,0,0,1,153.178,240.12)">
+                            <g id="line2d_9">
+                                <g>
+                                    <path id="m1500a05d3e9" serif:id="m1500a05d3e" d="M0,0L-3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,146.178,243.011)">
+                            <g id="text_10">
+                                <text x="-55px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">gpt-oss:20b</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_6">
+                        <g id="m1500a05d3e10" serif:id="m1500a05d3e" transform="matrix(1,0,0,1,153.178,287.234)">
+                            <g id="line2d_10">
+                                <g>
+                                    <path id="m1500a05d3e11" serif:id="m1500a05d3e" d="M0,0L-3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,146.178,290.125)">
+                            <g id="text_11">
+                                <text x="-75px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">qwen3-coder:30b</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_7">
+                        <g id="m1500a05d3e12" serif:id="m1500a05d3e" transform="matrix(1,0,0,1,153.178,334.349)">
+                            <g id="line2d_11">
+                                <g>
+                                    <path id="m1500a05d3e13" serif:id="m1500a05d3e" d="M0,0L-3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,146.178,337.2)">
+                            <g id="text_12">
+                                <text x="-120px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">qwen3-coder:30b-a3b-i_q8</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_8">
+                        <g id="m1500a05d3e14" serif:id="m1500a05d3e" transform="matrix(1,0,0,1,153.178,381.463)">
+                            <g id="line2d_12">
+                                <g>
+                                    <path id="m1500a05d3e15" serif:id="m1500a05d3e" d="M0,0L-3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,146.178,384.354)">
+                            <g id="text_13">
+                                <text x="-45px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">qwen3:30b</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_9">
+                        <g id="m1500a05d3e16" serif:id="m1500a05d3e" transform="matrix(1,0,0,1,153.178,428.577)">
+                            <g id="line2d_13">
+                                <g>
+                                    <path id="m1500a05d3e17" serif:id="m1500a05d3e" d="M0,0L-3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,146.178,431.429)">
+                            <g id="text_14">
+                                <text x="-90px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">qwen3:30b-a3b-i_q8</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_10">
+                        <g id="m1500a05d3e18" serif:id="m1500a05d3e" transform="matrix(1,0,0,1,153.178,475.691)">
+                            <g id="line2d_14">
+                                <g>
+                                    <path id="m1500a05d3e19" serif:id="m1500a05d3e" d="M0,0L-3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,146.178,478.543)">
+                            <g id="text_15">
+                                <text x="-90px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">qwen3:30b-a3b-t_q8</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="text_16">
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,208.78,54.4759)">
+                    <g id="text_17">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">3.0</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,319.984,54.4759)">
+                    <g id="text_18">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">2.7</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,431.189,54.4759)">
+                    <g id="text_19">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">2.6</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,542.393,54.4759)">
+                    <g id="text_20">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">2.7</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,208.78,101.59)">
+                    <g id="text_21">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">4.7</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,319.984,101.59)">
+                    <g id="text_22">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">3.7</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,431.189,101.59)">
+                    <g id="text_23">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">3.9</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,542.393,101.59)">
+                    <g id="text_24">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">3.7</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,208.78,148.704)">
+                    <g id="text_25">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">3.3</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,319.984,148.704)">
+                    <g id="text_26">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">3.1</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,431.189,148.704)">
+                    <g id="text_27">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">3.2</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,542.393,148.704)">
+                    <g id="text_28">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">3.1</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,208.78,195.819)">
+                    <g id="text_29">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">5.7</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,319.984,195.819)">
+                    <g id="text_30">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">5.0</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,431.189,195.819)">
+                    <g id="text_31">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">5.2</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,542.393,195.819)">
+                    <g id="text_32">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">4.9</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,208.78,242.933)">
+                    <g id="text_33">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:white;">8.8</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,319.984,242.933)">
+                    <g id="text_34">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:white;">8.4</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,431.189,242.933)">
+                    <g id="text_35">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:white;">8.5</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,542.393,242.933)">
+                    <g id="text_36">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:white;">8.4</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,208.78,290.047)">
+                    <g id="text_37">
+                        <text x="-10px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:white;">11.0</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,319.984,290.047)">
+                    <g id="text_38">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">6.3</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,431.189,290.047)">
+                    <g id="text_39">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:white;">7.5</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,542.393,290.047)">
+                    <g id="text_40">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">6.1</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,208.78,337.161)">
+                    <g id="text_41">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:white;">8.0</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,319.984,337.161)">
+                    <g id="text_42">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">4.1</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,431.189,337.161)">
+                    <g id="text_43">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">5.0</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,542.393,337.161)">
+                    <g id="text_44">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">4.1</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,208.78,384.275)">
+                    <g id="text_45">
+                        <text x="-10px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:white;">11.0</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,319.984,384.275)">
+                    <g id="text_46">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">6.3</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,431.189,384.275)">
+                    <g id="text_47">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:white;">8.3</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,542.393,384.275)">
+                    <g id="text_48">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">6.2</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,208.78,431.39)">
+                    <g id="text_49">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:white;">7.9</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,319.984,431.39)">
+                    <g id="text_50">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">4.2</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,431.189,431.39)">
+                    <g id="text_51">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">5.2</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,542.393,431.39)">
+                    <g id="text_52">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">4.1</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,208.78,478.504)">
+                    <g id="text_53">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">4.0</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,319.984,478.504)">
+                    <g id="text_54">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">3.8</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,431.189,478.504)">
+                    <g id="text_55">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">3.9</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,542.393,478.504)">
+                    <g id="text_56">
+                        <text x="-7.5px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;fill:rgb(38,38,38);">3.9</text>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,375.587,22.1062)">
+                    <g id="text_57">
+                        <text x="-150.5px" y="0px" style="font-family:'SimHei', monospace;font-size:14px;">各模型在不同场景下的平均eval_rate_tps热力图</text>
+                    </g>
+                </g>
+            </g>
+            <g id="axes_2" transform="matrix(1,0,0,1,-23.6223,-7.691)">
+                <g transform="matrix(1,0,0,1,-5.49353,0.549373)">
+                    <g id="patch_3">
+                        <rect x="625.797" y="28.106" width="23.557" height="471.142" style="fill:white;fill-rule:nonzero;"/>
+                    </g>
+                </g>
+                <g id="imagec26065e06c" transform="matrix(0.72,0,0,-0.72,620.186,499.509)">
+                    <use xlink:href="#_Image1" x="0" y="0" width="33px" height="654px"/>
+                </g>
+                <g id="matplotlib.axis_4">
+                    <g id="ytick_11">
+                        <g id="mb214e8eb3b" transform="matrix(1,0,0,1,643.86,478.51)">
+                            <g id="line2d_15">
+                                <g>
+                                    <path id="mb214e8eb3b1" serif:id="mb214e8eb3b" d="M0,0L3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,650.86,481.947)">
+                            <g id="text_58">
+                                <text x="0px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">3</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_12">
+                        <g id="mb214e8eb3b2" serif:id="mb214e8eb3b" transform="matrix(1,0,0,1,643.86,422.488)">
+                            <g id="line2d_16">
+                                <g>
+                                    <path id="mb214e8eb3b3" serif:id="mb214e8eb3b" d="M0,0L3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,650.86,425.925)">
+                            <g id="text_59">
+                                <text x="0px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">4</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_13">
+                        <g id="mb214e8eb3b4" serif:id="mb214e8eb3b" transform="matrix(1,0,0,1,643.86,366.466)">
+                            <g id="line2d_17">
+                                <g>
+                                    <path id="mb214e8eb3b5" serif:id="mb214e8eb3b" d="M0,0L3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,650.86,369.904)">
+                            <g id="text_60">
+                                <text x="0px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">5</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_14">
+                        <g id="mb214e8eb3b6" serif:id="mb214e8eb3b" transform="matrix(1,0,0,1,643.86,310.445)">
+                            <g id="line2d_18">
+                                <g>
+                                    <path id="mb214e8eb3b7" serif:id="mb214e8eb3b" d="M0,0L3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,650.86,313.882)">
+                            <g id="text_61">
+                                <text x="0px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">6</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_15">
+                        <g id="mb214e8eb3b8" serif:id="mb214e8eb3b" transform="matrix(1,0,0,1,643.86,254.423)">
+                            <g id="line2d_19">
+                                <g>
+                                    <path id="mb214e8eb3b9" serif:id="mb214e8eb3b" d="M0,0L3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,650.86,257.86)">
+                            <g id="text_62">
+                                <text x="0px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">7</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_16">
+                        <g id="mb214e8eb3b10" serif:id="mb214e8eb3b" transform="matrix(1,0,0,1,643.86,198.401)">
+                            <g id="line2d_20">
+                                <g>
+                                    <path id="mb214e8eb3b11" serif:id="mb214e8eb3b" d="M0,0L3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,650.86,201.839)">
+                            <g id="text_63">
+                                <text x="0px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">8</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_17">
+                        <g id="mb214e8eb3b12" serif:id="mb214e8eb3b" transform="matrix(1,0,0,1,643.86,142.38)">
+                            <g id="line2d_21">
+                                <g>
+                                    <path id="mb214e8eb3b13" serif:id="mb214e8eb3b" d="M0,0L3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,650.86,145.817)">
+                            <g id="text_64">
+                                <text x="0px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">9</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_18">
+                        <g id="mb214e8eb3b14" serif:id="mb214e8eb3b" transform="matrix(1,0,0,1,643.86,86.3579)">
+                            <g id="line2d_22">
+                                <g>
+                                    <path id="mb214e8eb3b15" serif:id="mb214e8eb3b" d="M0,0L3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,650.86,89.7954)">
+                            <g id="text_65">
+                                <text x="0px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">10</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="ytick_19">
+                        <g id="mb214e8eb3b16" serif:id="mb214e8eb3b" transform="matrix(1,0,0,1,643.86,30.3363)">
+                            <g id="line2d_23">
+                                <g>
+                                    <path id="mb214e8eb3b17" serif:id="mb214e8eb3b" d="M0,0L3.5,0" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.8px;"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="matrix(1,0,0,1,650.86,33.7738)">
+                            <g id="text_66">
+                                <text x="0px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">11</text>
+                            </g>
+                        </g>
+                    </g>
+                    <g transform="matrix(-3.82857e-16,-1,1,-3.82857e-16,672.673,264.227)">
+                        <g id="text_67">
+                            <text x="-60px" y="0px" style="font-family:'SimHei', monospace;font-size:10px;">eval_rate_tps (tokens/s)</text>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,-5.49353,0.549373)">
+                    <g id="patch_4">
+                        <rect x="625.797" y="28.106" width="23.557" height="471.142" style="fill:none;fill-rule:nonzero;"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+    <defs>
+        <image id="_Image1" width="33px" height="654px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAKOCAYAAAAoMXB9AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADx0lEQVR4nO2cwXEjMRDERq7JPzLHtPSDQjmExQOIADXTbFLSnT/n/J55mZ+3BWZmds7rg3BMQiGxM8/bDpZJFMyLQqJgQsEEhcTOtI6Zmdk5HdGZkUjUE6CQqCegngCFRMGEggkKiYIJXeWgkOizKBRMUEi0DlBI1BNQMEEhUTChYIJCoic/9FkUFBL1BCgkusCgYIJCogsMusBAIVEwocYEhUQ9AR1RUEjUE6CQ6MkPBRMUEq0DOqKgkCiY0MsKFBI9+aEjCgqJegIUEvUE1BOgkKgnoCMKComCCXtqzItCop6AjigoJHpZgUKinoB6AhQS9QQ0CVBI9KMLFExQSHSBQY8aUEjUE6CQqCegngCFRD0BHVFQSOw89cTMdET/UUi0DugqB4VEwQSFxM7TOmamnvhHIVFPQJMAhURPfiiYoJBoHdAkQCHRywoUEj35oZ4AhUQ9AQUTFBI1JnREQSFRT0CTAIVEPQEKiS4wqCdAIVFPQMEEhUSNCR1RUEjUE9AkQCHROkAh0QUGK/gX045JKCTqCSiYoJAomFAwQSHRVQ4FExQSNSYoJDodUDBBIVEwoascFBIFE2pMUEisYBuSSRTMLwqJGhMUEp0OWMHf3nNMQiFRMKHGBIVEwYSCCQqJggld5aCQKJigkKi2oWCCQqJgQsEEhUTvCejnJ1BIFEwomKCQaB2gkKgnoGCCQqJgQsEEhUTBhIIJComCCQUTFBKtAxQS9QQUTFBIrOCvgUgmUTC/KCRqTCiYoJBoHdAvxKCQKJigkOgCg4IJComCCQUTFBKtAzqioJAomFAwQSFRMEEh0emAPQXzopDo709AwQSFRD8/QV+mgkKinoDuDlBIFExQSHSBQf9LEhQSBRNqTFBI9J6Avi4ChcQeQTIlkyiYF4VEFxgoJLrAoJ+fQCFRbUNHFBQSXWDQEQWFRN9ZQcEEhUSfRUEh0emAnvygkOihCx1RUEj05IeOKCgk9sznbQfLJArmRSHROkAhsYL7SzKJc2rMmZFI1BOwgkE4JqGQqCeguwMUEjUmdERBIdEFBgqJegL2qScuComCCU0CFBJ9mQoFExQSfQKDnvygkKgnQCHROqDPoqCQ6BMYdERBIdE6oJcVKCS6wKAjCgqJrnJQSHQ6YAX/YtoxCYVE64AmAQqJXlZQMEEh0TpAIdE6oEmAQqJ1QJMAhUTrgCYBConWAU0CFBJ9FgWFRKcDmgQoJFoHNAlQSLQOaBKgkGgd0CRAIdE6QCHROqBJgEKirwagYIJConVAkwCFROuAJgEKiT/KDLPOC+eDmAAAAABJRU5ErkJggg=="/>
+    </defs>
+</svg>

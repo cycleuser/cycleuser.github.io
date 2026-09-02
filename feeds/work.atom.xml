@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CycleUser - Work</title><link href="/" rel="alternate"></link><link href="/feeds/work.atom.xml" rel="self"></link><id>/</id><updated>2017-10-01T00:00:00+08:00</updated><entry><title>GlumPy-Getting started</title><link href="/glumpy-getting-started.html" rel="alternate"></link><published>2017-10-01T00:00:00+08:00</published><updated>2017-10-01T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-10-01:/glumpy-getting-started.html</id><summary type="html">&lt;h1&gt;GlumPy 中文文档翻译：上手简介&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://glumpy.readthedocs.io/en/latest/quickstart.html"&gt;本文档原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;开始上手使用一个新的库或者框架有时候可能会让人头大，尤其是要阅读超级多的参考资料的情况下。本章就仅对 GlumPy 进行一下非常简要的介绍，而不去纠结各种细节。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要内容&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建窗口&lt;/li&gt;
+&lt;li&gt;绘制四边形&lt;/li&gt;
+&lt;li&gt;生成动画&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;创建窗口&lt;/h2&gt;
+&lt;p&gt;创建一个新的窗口，这个过程代码看起来应该是比较好理解的，如下所示：
+（译者注：这里的代码每一个步骤之间都是连贯的，建议读者在 ipython 里面逐个粘贴，不要错过漏掉中间的，否则运行肯定出错。所以当你遇到运行出错的时候建议先检查一下是不是中间有漏掉的。）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;glumpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;
+&lt;span class="n"&gt;window&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Window&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;这时候你就能在桌面上马上看到这个窗口了，可能窗口上还有一些乱七八糟的内容。这是因为我们没有对创口进行清空。所以下面这个带窗口清空的代码就更好一些：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;glumpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;
+
+&lt;span class="n"&gt;window&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Window&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="nd"&gt;@window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;on_draw …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h1&gt;GlumPy 中文文档翻译：上手简介&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://glumpy.readthedocs.io/en/latest/quickstart.html"&gt;本文档原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;开始上手使用一个新的库或者框架有时候可能会让人头大，尤其是要阅读超级多的参考资料的情况下。本章就仅对 GlumPy 进行一下非常简要的介绍，而不去纠结各种细节。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要内容&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建窗口&lt;/li&gt;
+&lt;li&gt;绘制四边形&lt;/li&gt;
+&lt;li&gt;生成动画&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;创建窗口&lt;/h2&gt;
+&lt;p&gt;创建一个新的窗口，这个过程代码看起来应该是比较好理解的，如下所示：
+（译者注：这里的代码每一个步骤之间都是连贯的，建议读者在 ipython 里面逐个粘贴，不要错过漏掉中间的，否则运行肯定出错。所以当你遇到运行出错的时候建议先检查一下是不是中间有漏掉的。）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;glumpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;
+&lt;span class="n"&gt;window&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Window&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;这时候你就能在桌面上马上看到这个窗口了，可能窗口上还有一些乱七八糟的内容。这是因为我们没有对创口进行清空。所以下面这个带窗口清空的代码就更好一些：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;glumpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;
+
+&lt;span class="n"&gt;window&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Window&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="nd"&gt;@window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;on_draw&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;clear&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;在这个版本的代码中，使用了 on_draw() 这个事件，每当窗口需要重绘（redraw）的时候，就会调用这个事件。在 on_draw  这个 handler 中，窗口（window）区域被清理到了默认的背景颜色—黑色。&lt;/p&gt;
+&lt;p&gt;最后调用了 app.run()，这就将控制器交给了 GlumPy 应用循环体，可以对鼠标和键盘之类的应用事件进行响应。&lt;/p&gt;
+&lt;h4&gt;特别注意&lt;/h4&gt;
+&lt;p&gt;只有当所有的应用窗口都关闭的情况下，&lt;strong&gt;run&lt;/strong&gt; 方法才会返回（return），除非整个程序是运行在&lt;strong&gt;交互模式（interactive mode）&lt;/strong&gt;下。如果你使用了  --interactive 这样的参数来切换到交互模式下运行，那么 app.run() 就可能不会显示出一整块。（译者注：这句话翻译得有问题，原文是 If you start the program using the --interactive switch, the app.run() is no longer blocking，回头我再详细润色。）&lt;/p&gt;
+&lt;h2&gt;绘制四边形&lt;/h2&gt;
+&lt;p&gt;现代的 OpenGL 非常强大，但是理解起来挺难的，编写相关程序也是如此。任何的绘制操作都需要一系列的准备步骤，这就使得在不使用第三方库的情况下，绘制过程会繁琐无比。GlumPy 通过 gloo 界面，提供了一些非常简单的使用体验，gloo 可以看做是将 NumPy 和 OpenGL 结合起来的一种“胶水（glue）”。（译者注：这也是 GlumPy 名字的意义所在，GL +  NumPy = GlumPy）&lt;/p&gt;
+&lt;p&gt;接下来咱们就用 GlumPy 来绘制一个彩色的四边形吧。第一步自然还是要导入相关的模块然后创建窗口：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;glumpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gloo&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gl&lt;/span&gt;
+
+&lt;span class="n"&gt;window&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Window&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;然后我们要创建一个 GLSL 程序，用来显示这个四边形。这就要我们先来写一个顶点（vertex）和一个片段着色器（fragment shader），这两个是要用来告诉 OpenGL 要绘制什么，以及如何绘制。目前你还不用纠结去理解这些名词概念和细节，但是要注意到一个重要的点，就是这些 OpenGL 程序都是文本形式的字符串（text strings）。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;vertex&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;         attribute vec2 position;&lt;/span&gt;
+&lt;span class="s2"&gt;         void main()&lt;/span&gt;
+&lt;span class="s2"&gt;         {&lt;/span&gt;
+&lt;span class="s2"&gt;             gl_Position = vec4(position, 0.0, 1.0);&lt;/span&gt;
+&lt;span class="s2"&gt;         } &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="n"&gt;fragment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;           uniform vec4 color;&lt;/span&gt;
+&lt;span class="s2"&gt;           void main() {&lt;/span&gt;
+&lt;span class="s2"&gt;               gl_FragColor = color;&lt;/span&gt;
+&lt;span class="s2"&gt;           } &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="n"&gt;quad&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gloo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Program&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vertex&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fragment&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;gloo 界面的一个好处就是可以直接上传使用非常直观易于人类理解的记号来表达的数据给 GPU（图形处理单元）。position 参数直接关联到了顶点着色器（vertex shader）的位置属性，而 color 参数则直接关联了片段着色器（fragment shader）中的颜色分布。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;quad&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;position&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+                    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+                    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+                    &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;span class="n"&gt;quad&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;color&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;  &lt;span class="c1"&gt;# 红色&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;最后，在 on_draw() 方法中通过 gl.GL_TRIANGLE_STRIP 来渲染这个四边形。代码如下所示：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nd"&gt;@window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;on_draw&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;clear&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;quad&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;draw&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GL_TRIANGLE_STRIP&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;生成动画&lt;/h2&gt;
+&lt;p&gt;动画（animation）其实只是每个时间步长中对显示内容逐渐调整而实现的。我们还利用上面的四边形这个例子，让这个四边形随着时间而扩大和缩小。第一步需要在 on_draw() 函数中提供 dt 这个参数来跟踪记录时间，这个 dt 参数给出的是自从上次调用之后经过的时间。接下来我们首先要对顶点着色器的代码进行修改，使四边形的坐标随着时间变量的正弦值而变化。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;vertex&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;         uniform float time;&lt;/span&gt;
+&lt;span class="s2"&gt;         attribute vec2 position;&lt;/span&gt;
+&lt;span class="s2"&gt;         void main()&lt;/span&gt;
+&lt;span class="s2"&gt;         {&lt;/span&gt;
+&lt;span class="s2"&gt;             vec2 xy = vec2(sin(2.0*time));&lt;/span&gt;
+&lt;span class="s2"&gt;             gl_Position = vec4(position*(0.25 + 0.75*xy*xy), 0.0, 1.0);&lt;/span&gt;
+&lt;span class="s2"&gt;         } &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="n"&gt;quad&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gloo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Program&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;vertex&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fragment&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;然后还需要对时间变量进行初始化，在每次绘制调用的时候对该变量进行更新。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nd"&gt;@window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;on_draw&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;clear&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;quad&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;time&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;dt&lt;/span&gt;
+    &lt;span class="n"&gt;quad&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;draw&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GL_TRIANGLE_STRIP&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;quad&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;time&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.0&lt;/span&gt;
+&lt;span class="n"&gt;quad&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;color&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;quad&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;position&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;特别注意&lt;/h4&gt;
+&lt;p&gt;如果你想要把动画录制下来，可以在运行程序的时候添加 --record filename 这样的后缀来实现。&lt;/p&gt;</content><category term="Work"></category><category term="Python"></category><category term="GlumPy"></category><category term="Data"></category><category term="Visualization"></category></entry><entry><title>我想活下去</title><link href="/wo-xiang-huo-xia-qu.html" rel="alternate"></link><published>2017-05-05T11:20:00+08:00</published><updated>2017-05-05T11:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-05-05:/wo-xiang-huo-xia-qu.html</id><summary type="html">&lt;p&gt;昨天，2017 年 5 月 4 日，是青年节，也是一次相当严重的雾霾污染天气。
+我看到好多人都跟我一样纪念当年的进步先辈，看到现在的社会建设，感到由衷欣慰，笑得张开了嘴。
+然后开始咳嗽，咽喉疼痛，眼睛刺痛。&lt;/p&gt;
+&lt;p&gt;我随手打开了手机搜了一下，虽然其他人还在讨论学术，我走神了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;中国环境监测总站05月04日09时更新空气质量指数:500(严重污染)
+北京空气质量实时数据 (24小时趋势图) 更新时间:2017-05-04 09:00
+&lt;img alt="" src="http://cms-bucket.nosdn.127.net/catchpic/9/95/950db96e9cb0882d8a43e4b1c081312e.png?imageView&amp;amp;thumbnail=550x0"&gt;
+北京空气质量历史数据 (过去10天趋势图) 更新时间:2017-05-04 09:00
+&lt;img alt="" src="http://cms-bucket.nosdn.127.net/catchpic/f/fa/fad26a3a47503190f54bbeb59faba414.png?imageView&amp;amp;thumbnail=550x0"&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我能感觉到自己的眼睛开始逐渐刺痛，咽喉开始感觉到一股莫名的燥热，喘息觉得逐渐地越来越吃力。&lt;/p&gt;
+&lt;p&gt;是的，我是一个“完蛋又可恶”的敏感体质者，我的呼吸道等多重系统都非常敏感又脆弱，社会达尔文主义的流氓大可以称我为“劣质的淘汰品”。&lt;/p&gt;
+&lt;p&gt;然而尼玛体质敏感不是我主观意愿决定的对不对？&lt;/p&gt;
+&lt;p&gt;我真的不想活在空气污染里，更不想这么死掉。&lt;/p&gt;
+&lt;p&gt;我还想每个月领取国家的 1500 元人民币的博士补助 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;昨天，2017 年 5 月 4 日，是青年节，也是一次相当严重的雾霾污染天气。
+我看到好多人都跟我一样纪念当年的进步先辈，看到现在的社会建设，感到由衷欣慰，笑得张开了嘴。
+然后开始咳嗽，咽喉疼痛，眼睛刺痛。&lt;/p&gt;
+&lt;p&gt;我随手打开了手机搜了一下，虽然其他人还在讨论学术，我走神了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;中国环境监测总站05月04日09时更新空气质量指数:500(严重污染)
+北京空气质量实时数据 (24小时趋势图) 更新时间:2017-05-04 09:00
+&lt;img alt="" src="http://cms-bucket.nosdn.127.net/catchpic/9/95/950db96e9cb0882d8a43e4b1c081312e.png?imageView&amp;amp;thumbnail=550x0"&gt;
+北京空气质量历史数据 (过去10天趋势图) 更新时间:2017-05-04 09:00
+&lt;img alt="" src="http://cms-bucket.nosdn.127.net/catchpic/f/fa/fad26a3a47503190f54bbeb59faba414.png?imageView&amp;amp;thumbnail=550x0"&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我能感觉到自己的眼睛开始逐渐刺痛，咽喉开始感觉到一股莫名的燥热，喘息觉得逐渐地越来越吃力。&lt;/p&gt;
+&lt;p&gt;是的，我是一个“完蛋又可恶”的敏感体质者，我的呼吸道等多重系统都非常敏感又脆弱，社会达尔文主义的流氓大可以称我为“劣质的淘汰品”。&lt;/p&gt;
+&lt;p&gt;然而尼玛体质敏感不是我主观意愿决定的对不对？&lt;/p&gt;
+&lt;p&gt;我真的不想活在空气污染里，更不想这么死掉。&lt;/p&gt;
+&lt;p&gt;我还想每个月领取国家的 1500 元人民币的博士补助。
+我还想继续翻译各种我认为很有趣味和意义的课程。
+我还想刚写完一篇文章准备润色好发出去参与更大规模的学术讨论。
+我还想毕业之后赶紧找个博士后站点之后生个宝宝来一点点看着他长大。
+我还想赚点钱让媳妇休息一下，也让爸妈和岳父岳母都不用再操劳。&lt;/p&gt;
+&lt;p&gt;我刚刚才三十岁，我还想再活七十年八十年。
+昨晚骑着自行车回来的路上，虽然我戴着 N95 的口罩却依然异常痛苦。
+感觉似乎自己就这样下去可能很快就死掉了。。。&lt;/p&gt;
+&lt;p&gt;而我的媳妇每天上下班更是奔波在公交和地铁之间，我每次想到她都觉得很对不住她，因为我还在读书，几乎没有任何收入，家里的开销都靠她辛辛苦苦讲课的收入。&lt;/p&gt;
+&lt;p&gt;还好我回到了家，打开了空气净化器，但是空气净化器报警了。于是我拆下旧的滤芯，来换上新的。&lt;/p&gt;
+&lt;p&gt;当然我习惯性来拍照了。
+实际上眼前这种景象已经不能震撼我了，我在几年前就开始每次都习惯这种情况了。&lt;/p&gt;
+&lt;p&gt;不过我记不清这个滤芯是1月换的还是2月换的了。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="img/Air.jpg"&gt;
+空气净化器滤芯的颜色对比。
+我遇到过无数人跟我说这点污染没什么，但是如果他们自己把这些黑色的东西吸取进入肺中，还会这么说么？&lt;/p&gt;
+&lt;p&gt;我的屋里有两台空气净化器7×24小时开动，窗户密封通过空调新风系统进行换气循环。我几乎从来没在污染的天气开过窗户，这里的净化器滤芯尚且如此。&lt;/p&gt;
+&lt;p&gt;那么大家想象一下，你开着窗户进雾霾的办公室会什么样？&lt;/p&gt;
+&lt;p&gt;强迫青少年雾霾天气跑步又是什么样？&lt;/p&gt;
+&lt;p&gt;没有任何保护措施每天开窗上课的高校教室又什么样？&lt;/p&gt;
+&lt;p&gt;当然，我这个净化器滤芯的功耗、风速、使用时间等等都没有任何定量，所以必然不能作为科学实验来解读。甚至我推测可能有洗地之徒会说假如时间足够长，这些污染物分批多次进入人体就可以代谢排出去等等。&lt;/p&gt;
+&lt;p&gt;总之我们不能指望这世界上的无耻之徒，他们总要为丑恶的事物辩护的。&lt;/p&gt;
+&lt;p&gt;我想我们应该做的是保护自己。&lt;/p&gt;
+&lt;p&gt;所以，同学们，你们是否有考虑要求学校在教室中安空气净化器并且至少不在强雾霾天开窗户？&lt;/p&gt;
+&lt;p&gt;然后，老师们，你们是否有想到自己以及子女也可能受到了污染的伤害，或者至少要求学校给办公室安放空气净化器？&lt;/p&gt;
+&lt;p&gt;最后，每一个人，哪怕你是坚定的洗地之徒，哪怕你有多么的无耻无底线，那是否要尊重他人保护自身生命健康安全的最基本的权利？&lt;/p&gt;
+&lt;p&gt;是的，治理雾霾我没出什么力，因为我不会开汽车，也没有直接烧煤，更不控制某家工厂的排放量。所以我只能保护我自己，戴口罩，开净化器。&lt;/p&gt;
+&lt;p&gt;那么，保护自己有错么？如果没有，大家是否应该一起行动起来保护自己？&lt;/p&gt;</content><category term="Work"></category></entry><entry><title>Job</title><link href="/job.html" rel="alternate"></link><published>2017-04-13T00:00:00+08:00</published><updated>2017-04-13T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-04-13:/job.html</id><summary type="html">&lt;h1&gt;Python 的前景和学习方向&lt;/h1&gt;
+&lt;p&gt;本文整理自我在&lt;a href="https://www.zhihu.com/question/58419367/answer/156913703"&gt;这个问题&lt;/a&gt;里的回答。相比原版回答，结尾部分添加了若干私货。&lt;/p&gt;
+&lt;p&gt;Python 在语法上算是比较简单易学，相对其他各种语言，对新手更加友好，学习曲线非常平缓。各种算法用 Python 来实现都相对来说更加简单又易读。&lt;/p&gt;
+&lt;p&gt;因此，有一种趋势，就是很多像我这种外行人，开始学习和使用 Python 来实现某些自己行业内的某些用途。所以现在 Python 有很多新制作的各种轮子，深度学习，数理统计，化学计算，量化交易，等等。但像我这样的人往往可能也像我一样，学得很浅，就能凑合着拿一些框架和模块来应对简单的工作，也就可能像我一样不再太深入探索，而觉得自己掌握的基本够用了。&lt;/p&gt;
+&lt;p&gt;此外，在涉及到性能敏感的应用场景，Python 则未必能够完美胜任，甚至即便使用 cython 和 pypy 之类的加速，也难以全面实现 C++ 等的运行速度。我的一些前辈高人，在处理遥感相关的数据时还是以 C++ 为主 …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Python 的前景和学习方向&lt;/h1&gt;
+&lt;p&gt;本文整理自我在&lt;a href="https://www.zhihu.com/question/58419367/answer/156913703"&gt;这个问题&lt;/a&gt;里的回答。相比原版回答，结尾部分添加了若干私货。&lt;/p&gt;
+&lt;p&gt;Python 在语法上算是比较简单易学，相对其他各种语言，对新手更加友好，学习曲线非常平缓。各种算法用 Python 来实现都相对来说更加简单又易读。&lt;/p&gt;
+&lt;p&gt;因此，有一种趋势，就是很多像我这种外行人，开始学习和使用 Python 来实现某些自己行业内的某些用途。所以现在 Python 有很多新制作的各种轮子，深度学习，数理统计，化学计算，量化交易，等等。但像我这样的人往往可能也像我一样，学得很浅，就能凑合着拿一些框架和模块来应对简单的工作，也就可能像我一样不再太深入探索，而觉得自己掌握的基本够用了。&lt;/p&gt;
+&lt;p&gt;此外，在涉及到性能敏感的应用场景，Python 则未必能够完美胜任，甚至即便使用 cython 和 pypy 之类的加速，也难以全面实现 C++ 等的运行速度。我的一些前辈高人，在处理遥感相关的数据时还是以 C++ 为主，大概就是因为这种原因。&lt;/p&gt;
+&lt;p&gt;所以总体上看， Python 特点是学的人众多且来源复杂，学起来简单却易学难精，轮子众多但质量良莠不一，且熟悉轮子有时候需要比语言学习更多很多的精力。&lt;/p&gt;
+&lt;p&gt;这会导致一种什么情况呢？
+会有很多新人试图通过学习 Python 来作为起步的语言，进入计算机相关行业。而人群中往往只有少数人是足够努力的。这就可能会导致在 Python 使用圈子中，低层次甚至像我这种初级水平的超低层次开发者，逐渐增多并且可能会占到多数。&lt;/p&gt;
+&lt;p&gt;而且由于像我这种低水平的人对深入探索感到吃力，可能更乐于追捧一些自己在网络上看到的所谓“热点”。比如可能看见某些社交平台上遮天蔽日的各种爬虫相关，就以为 Python 最适合来做这个，对其他方面就不怎么太上心了。再比如，看到某些大号发给新人的转行指南，加之以少数通过努力成功赚到第一桶金的先行者的分享，就也可能痴迷 flask，并以此作为主攻方向。&lt;/p&gt;
+&lt;p&gt;这并没有什么问题，这都是人的自由选择，只是这些选择往往建立在跟从的基础上，因为往往没有太多人愿意选择前途未卜的自行探索之路，更愿意遵从同类已探索出来的安全道路。&lt;/p&gt;
+&lt;p&gt;这种扎堆的情况会导致某些方面的人满为患，并且在短期内会极大降低 Python 开发者平均的薪酬和业内评价，可能会让市场上产生一种偏见，认为 Python 是外行转行、低水平开发者、低薪酬的代名词。&lt;/p&gt;
+&lt;p&gt;注意，作为一名外行的超低水平开发者，并我不是说爬虫和flask代表了低技术水平，只是说聚集的新人太多会容易拉低平均水平。&lt;/p&gt;
+&lt;p&gt;那有什么推荐的思路么？还真有。
+我建议大家可以考虑一下结合自己的专业，来把 Python 作为一个辅助工具，解决行业内的各种事，而不是扎堆挤进专业的程序员群体去参加人海中的短兵肉搏。这样能发挥自己之前所学，不至于完全从零起步，劣势不会太显著，甚至如果本行的经验比较丰富，还可能会形成某种优势。&lt;/p&gt;
+&lt;p&gt;以上就是我对 Python 学习者工作前景的认识，由于自身水平所限，非常粗浅和鄙陋，没有太大参考意义。&lt;/p&gt;
+&lt;p&gt;至于可以学习的方向，目前据我所知，有爬虫和数据采集与可视化等的数据方向，flask 和 django 之类的web方向，区块链和加密等相关的数字货币方向，tensorflow 和 pytorch等机器学习方向，用 kivy 或者 pyqt 的跨平台 GUI 开发方向，还有各种结合了学科知识的各种科学计算和实验仿真模拟的方向。&lt;/p&gt;
+&lt;p&gt;当然了，说句纯废话：Python 是一门编程语言，虽然有擅长的某些事，也基本能做差不多任何事，所以学习者在使用的时候，完全不必要限制于某几个特定方向。冷静下来，先旁观一下市场，再自己做思考，选择自己想做的，而不是看到招聘网站的广告和培训班的各种宣传就无脑认同而照做。&lt;/p&gt;
+&lt;p&gt;正如@董伟明  在 &lt;a href="https://zhuanlan.zhihu.com/p/26149723"&gt;Python 技术分享的乱象中所说的&lt;/a&gt;那样，当前 Python 相关的圈子存在各种各样的奇葩现象。&lt;/p&gt;
+&lt;p&gt;最多的就是动不动就万事万物唯有爬虫；
+或者就是随便搞来一些盗版电子书分享链接，或者抄来几句笼统的格言警句一样水的东西，堆砌在某些个回答里面，然后结尾放上自己的营销推广；
+要么是招聘网站，要么是培训机构，用各种神标题来带节奏，纷纷鼓吹各种转行迅速致富月薪过万走上成功之路等等，来迷惑和煽动新人，带来各种类似成功学一样的信徒氛围。&lt;/p&gt;
+&lt;p&gt;乌烟瘴气妖魔鬼怪。&lt;/p&gt;
+&lt;p&gt;我想这里要引用我的一位师兄的话：“仰望星空，脚踏实地。”
+星空是偶尔看看来辨别方向和天时的，要是每天总抬头那么看，会容易得颈椎病；而脚下的大地是每天都要触碰的，是现在一切的基础和依托，所以得留心看着点，别掉坑里面。
+那么怎么留心各种坑呢？
+我相信大家的智商，其实只要稍微冷静一下，还是很好筛选一下哪些声音值得听取的，分辨哪些声音背后是铜臭，而哪些声音背后是单纯的分享，这并不会很难。&lt;/p&gt;
+&lt;p&gt;而最重要的还不止于此，最重要的是专心学习，付出自己所能给出的最大程度的努力，做了就不能让自己后悔没有足够努力。&lt;/p&gt;</content><category term="Work"></category><category term="Discuss"></category><category term="Communicate"></category><category term="Programming"></category><category term="Python"></category></entry><entry><title>Push</title><link href="/push.html" rel="alternate"></link><published>2017-04-12T00:00:00+08:00</published><updated>2017-04-12T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-04-12:/push.html</id><summary type="html">&lt;h1&gt;学习的动力&lt;/h1&gt;
+&lt;table&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=29822980&amp;auto=0&amp;height=66"&gt;&lt;/iframe&gt;&lt;table&gt;
+&lt;/table&gt;
+
+
+
+[这首歌](http://music.163.com/#/song?id=29822980)来自我的同行、偶像、楷模、人生赢家，Randy Marsh先生。
+
+
+
+我曾经经历过这样一种阶段，做什么事情都觉得没有什么兴致，缺乏动力，什么都不想做，又莫名其妙地对所有事情都感到特别厌倦和疲惫。
+
+从本科入学的时候就有这个情况。比如某个课程上，老师在前面给推荐了一些文献书籍等等，然后本来我还想着应该看看，可是他要求必须分成若干小组，每个小组必须翻译完毕某一篇文章。当时就没了动力，觉得很没意思，文献翻译得自然很应付，至于理解和思考根本就是扯了，因为读都懒得读进去。
+
+再比如本来想着应该看看哪些文献，提取整理一些数据做个对比啊什么的。然后正好这时候老师找过去给说应该看哪些文章啊，要写一写哪些总结啊，要提出一些什么问题啊。这时候当然要满满诚意地应允下来，一口一个是啊是啊好的好的。然而到了具体动手做的时候，就又没有最开始那么多动力了。
+
+我当时觉得自己真实缺乏动力，考虑对自己严格要求约束一下，弄个什么奖惩机制之类的。
+
+
+而有的时候我又发现自己很有动力，比如翻译[ Python 教材和 Kivy 文档](https …&lt;/table&gt;</summary><content type="html">&lt;h1&gt;学习的动力&lt;/h1&gt;
+&lt;table&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=29822980&amp;auto=0&amp;height=66"&gt;&lt;/iframe&gt;&lt;table&gt;
+&lt;/table&gt;
+
+
+
+[这首歌](http://music.163.com/#/song?id=29822980)来自我的同行、偶像、楷模、人生赢家，Randy Marsh先生。
+
+
+
+我曾经经历过这样一种阶段，做什么事情都觉得没有什么兴致，缺乏动力，什么都不想做，又莫名其妙地对所有事情都感到特别厌倦和疲惫。
+
+从本科入学的时候就有这个情况。比如某个课程上，老师在前面给推荐了一些文献书籍等等，然后本来我还想着应该看看，可是他要求必须分成若干小组，每个小组必须翻译完毕某一篇文章。当时就没了动力，觉得很没意思，文献翻译得自然很应付，至于理解和思考根本就是扯了，因为读都懒得读进去。
+
+再比如本来想着应该看看哪些文献，提取整理一些数据做个对比啊什么的。然后正好这时候老师找过去给说应该看哪些文章啊，要写一写哪些总结啊，要提出一些什么问题啊。这时候当然要满满诚意地应允下来，一口一个是啊是啊好的好的。然而到了具体动手做的时候，就又没有最开始那么多动力了。
+
+我当时觉得自己真实缺乏动力，考虑对自己严格要求约束一下，弄个什么奖惩机制之类的。
+
+
+而有的时候我又发现自己很有动力，比如翻译[ Python 教材和 Kivy 文档](https://zhuanlan.zhihu.com/p/24644499)的时候，就是自己一直都希望能把这件事做完做好，每次翻译的时候都很有动力。
+再比如编写 [GeoPython](https://zhuanlan.zhihu.com/p/25786642) 的时候，遇到不知道如何去实现某些功能的情况，四处搜索和查找资料可以持续几个小时，一直到问题解决。再比如用 Adobe Illustrator 来编辑整理论文用的图件，也能花上几个小时的时间来一点点调整对齐线条和图框等等。面对这些本来很枯燥的事情反而动力澎湃。
+
+
+后来我去搜索相关的内容，发现好多人都有类似的情况，就是自己本来想做的事情，一旦由他人要求去做，动力就会削弱。貌似是有一个动机转换的过程。
+在自己想做一件事的时候，驱动我们做这件事的是内部动机，这种动机持久而强大，会让我们轻松就完成需要高度自律的工作；而一旦存在外界的要求和指示，这种内部动机就转换成了外部动机，就很容易让我们产生厌倦和懈怠了，因为会让我们觉得这是别人要求的，而不是自己主动想去这样做。
+
+
+所以很多事情都会得到解释了。同门的老师和师兄推荐英文文献，我就可能不喜欢看，因为这是外部动机；而我自己喜欢看计算机相关的文档并且进行翻译，这就会持续下去，这是内部动机。同理，有的同学不喜欢听英语的学术报告会，觉得跟不上又听不懂；而他却又可能在感兴趣的情况下看一些无中文字幕的英语影视作品。
+
+
+怎么办？在动机转换过程中放任自己么？当然不要这样了，我有一个很不成熟的思路，就是对动机进行二次拆解转换。
+
+当遇到别人要求的事情的时候，先自己深思熟虑一下，考虑好这件事自己是不是本来也准备做的，如果正巧是这种情况，一定要多次反复提醒自己，保持好内部动机，将外部动机解读为对自己的某种鼓励、肯定或者支持之类的。
+
+那么还有另外一种情况，就是别人提醒你要求你做的事情，可能是你之前并不想做的，怎么办？你得好好考虑一下是不是要接纳这件事，让它成为你自己决定要做的事情，这样就转换成内部动机；如果你不能接纳，请一定赶紧及时和对方表达清楚。清晰流畅的信息沟通是高效率工作和生活的关键，这样也节省了他人的时间。
+
+如果就是懒癌拖延症晚期怎么办？想想这件事的延误会对你的未来造成哪些影响，以及你是否愿意为之买单，就可以了。</content><category term="Work"></category><category term="Discuss"></category><category term="Communicate"></category><category term="Programming"></category><category term="Science"></category></entry><entry><title>Learning</title><link href="/learning.html" rel="alternate"></link><published>2017-04-09T00:00:00+08:00</published><updated>2017-04-09T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-04-09:/learning.html</id><summary type="html">&lt;h1&gt;关于上课的一些事&lt;/h1&gt;
+&lt;p&gt;我数学物理基础最差，因为比较笨，搞不懂那么多灵活的技巧性的问题，高考时候就是这两科丢分，本科时期就是这两科挂科，考研多亏没有这两个，要不我就狗带了。&lt;/p&gt;
+&lt;p&gt;研一阶段，我是很害怕数值分析和多元统计的，倒是对C++我很喜欢，因为本科时候必修课学过C，选修课学过C++，此外编程啊计算机相关的内容，都是确定性特别强的，会了就是会了，不会就是不会，通常咱们这些非计算机专业的课程中，不会有那种特别需要技巧性的东西。这就适合我这种笨人。&lt;/p&gt;
+&lt;p&gt;然而后来我才发现，其实数值分析反而不太难，毕竟都是几百年前大明朝大清朝时代的那些个老外弄的，无非是按照某些固定步骤进行计算，趋近于某个值的时候就当做满意了之类的。所以学得也不太吃力。刚开课的时候我问过教数值分析的高老师，怎么才能学会呢？他说你把所有题都做一遍就会了。然后我就信了，就真的把教材上面所有题目都做了一遍。事实证明这个确实有效，因为大概做完了之后，我就发现这些题目其实都无非就是改改数字和形式，本质上问的东西没差太多。&lt;/p&gt;
+&lt;p&gt;让我有了更多思考的还是C++。当然这个不仅仅是因为课堂上柯老师特别认真负责讲解得详细深入。而是我开始问自己，学这个编程语言要有什么用处呢？我陆续跟身边的一些同学谈论起这个话题，然而得到的答案大部分都是：没什么用。这让我很不甘心，我觉得这个时代计算机是最广泛应用的日常工具之一，甚至淘汰掉了纸笔，那么与之相关的技能必然不应该是无用的。&lt;/p&gt;
+&lt;p&gt;仔细一想，我觉得问题出在自己身上。
+自己如果不喜欢某个学科 …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;关于上课的一些事&lt;/h1&gt;
+&lt;p&gt;我数学物理基础最差，因为比较笨，搞不懂那么多灵活的技巧性的问题，高考时候就是这两科丢分，本科时期就是这两科挂科，考研多亏没有这两个，要不我就狗带了。&lt;/p&gt;
+&lt;p&gt;研一阶段，我是很害怕数值分析和多元统计的，倒是对C++我很喜欢，因为本科时候必修课学过C，选修课学过C++，此外编程啊计算机相关的内容，都是确定性特别强的，会了就是会了，不会就是不会，通常咱们这些非计算机专业的课程中，不会有那种特别需要技巧性的东西。这就适合我这种笨人。&lt;/p&gt;
+&lt;p&gt;然而后来我才发现，其实数值分析反而不太难，毕竟都是几百年前大明朝大清朝时代的那些个老外弄的，无非是按照某些固定步骤进行计算，趋近于某个值的时候就当做满意了之类的。所以学得也不太吃力。刚开课的时候我问过教数值分析的高老师，怎么才能学会呢？他说你把所有题都做一遍就会了。然后我就信了，就真的把教材上面所有题目都做了一遍。事实证明这个确实有效，因为大概做完了之后，我就发现这些题目其实都无非就是改改数字和形式，本质上问的东西没差太多。&lt;/p&gt;
+&lt;p&gt;让我有了更多思考的还是C++。当然这个不仅仅是因为课堂上柯老师特别认真负责讲解得详细深入。而是我开始问自己，学这个编程语言要有什么用处呢？我陆续跟身边的一些同学谈论起这个话题，然而得到的答案大部分都是：没什么用。这让我很不甘心，我觉得这个时代计算机是最广泛应用的日常工具之一，甚至淘汰掉了纸笔，那么与之相关的技能必然不应该是无用的。&lt;/p&gt;
+&lt;p&gt;仔细一想，我觉得问题出在自己身上。
+自己如果不喜欢某个学科，往往是因为早期吃了点苦头，学得吃力，然后又心里面不愿意去承认是因为自己不够努力或者不够聪明，所以就给自己找借口说自己不喜欢这个科目。比如我对数学和物理一直都是这样的态度。而如果突然发现有的内容还是能学会能掌握的，就开始觉得也不是那么可怕了。比如我对数值分析就是从最开始的恐惧到最后的习以为常。&lt;/p&gt;
+&lt;p&gt;这种状况会形成一个循环，可以是越来越逃避越来越抵触，比如觉得什么模拟啊哪有什么用啊，什么大地构造啊好复杂扯得什么鬼啊；也可能是越来越有兴趣越来越乐在其中，比如想探索一下平时自己做的事情有哪些能用计算机编程来进行简化，或者又想看看能不能从经典文章中抽离出各种计算步骤甚至数学模型等等。&lt;/p&gt;
+&lt;p&gt;所以研一的生活结束之后，我克服了对数学的恐惧，培养了对编程的兴趣。而我的一位很要好的同学，因为极度痛恨C++而导致长期无法通过此课程的考核，最终似乎是肄业了。&lt;/p&gt;
+&lt;p&gt;这让我有了很多乱七八糟的想法。如果在某个时刻，你开始告诉自己说自己不喜欢某一个科目，我觉得，可能就得仔细反思一下了。因为其实很可能还是因为不够努力或者不够聪明。&lt;/p&gt;
+&lt;p&gt;不够努力这个事情我觉得好解决，就努力就行了。但现实是残酷的，我的师弟小丁曾经比我还重，他努力减肥就比我瘦好多成了一枚大帅哥。像他这样就是有志者事竟成的那种人，我坚信他的努力能力是很赞的。而另外有的其他我认识的一些朋友，就是每天经常在看各种言情剧，也经常说自己要学英语看文章来崛起，但是几年来他还是看言情剧的状态更多见。这个故事告诉我们，不够努力就去努力是很没用的一句话，能做到去努力，可能需要客服很多障碍，比如习惯，安逸的舒适区等等，挺不容易的。&lt;/p&gt;
+&lt;p&gt;另外一个就悲催了，不够聪明怎么办？我多次遇到过这个问题，有时候那些个数学问题我就是不懂啊不懂啊，然后我就愤怒，对自己这么笨很生气，我就摔键盘摔鼠标。摔坏了之后我媳妇给我买了新鼠标，并且告诉我不要这样了。后来我买了个打拳击的不倒翁，每次遇到了算法不会写或者功能不会实现，我就打他几下发泄一下，然后接着啃。当然了，我也不是一直在憋着，憋了半天弄不明白，我就会四处找那些比我聪明而又比我有经验的高人。这些高人可以是我的老师们，也可以是各种后来居上的师弟，因为年轻人里面更容易藏龙卧虎。所以我对不够聪明的解决有两个思路，要么自己硬抗，要么找人帮忙。&lt;/p&gt;
+&lt;p&gt;然而几年前的时候，我就基本上完了读书生涯中的全部课程了。那时候我才发现，有课上的日子是幸福的。因为所有要学的东西都有人探索过来，并且总结了非常详细的经验来分享和讲解给大家。而从那时起，我要面对的未知内容往往都是散乱零碎的，甚至没有人去认真当回事对待过的，甚至是没有被关注过的学科之间的弱交叉点。一切都需要自己摸索，零星能搜索到的几篇文献也不一定是引导还是误导。感觉就像是身处爆表的雾霾当中。&lt;/p&gt;
+&lt;p&gt;啊，我又扯了很远很多很乱，然后不好收尾了。
+结尾自然还是总结一下了。我的建议就是：选课要清醒，不要畏难而逃避；上课要认真，因为你交了学费吖；然后学了就尽量尽自己所能做到的最好程度，这样既尊重自己的生命，也开发自己的潜能。如果怕困难又不愿意努力，你应该换一件事情去做。&lt;/p&gt;</content><category term="Work"></category><category term="Discuss"></category><category term="Communicate"></category><category term="Programming"></category><category term="Science"></category></entry><entry><title>CIPW</title><link href="/cipw.html" rel="alternate"></link><published>2017-04-06T00:00:00+08:00</published><updated>2017-04-06T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-04-06:/cipw.html</id><summary type="html">&lt;h1&gt;关于 CIPW 计算&lt;/h1&gt;
+&lt;p&gt;CIPW 的设计初衷真不错，而且在那么久之前就有这种程序化的一步一步来拼的思路，很适合编程实现。&lt;/p&gt;
+&lt;p&gt;不过目前来看，国外流传比较广的计算表格是&lt;a href="http://minerva.union.edu/hollochk/kth/"&gt;美国联合学院的Kurt Hollocher&lt;/a&gt;这位老兄的，下载地址在&lt;a href="https://pan.baidu.com/s/1skN5ugd"&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;他的这个 Excel 表格做的非常细致，每一步都很清晰，不过其中有两处标注出了错，但我检查过，应该是不影响计算的。实际上我就是把他的表格中的算法抽了出来重新实现了，又加了批量计算的几个循环体。&lt;/p&gt;
+&lt;p&gt;国内估计用的比较多的是路远发老师的GeoKit进行计算，但是路老师的计算过程，如果按照&lt;a href="geokit.net/CIPW.htm"&gt;他的网站上面的流程&lt;/a&gt;，似乎和 Kurt 的有所差别，尤其是在 Sr 和 Ni 等元素的处理上，步骤完全不一样。&lt;/p&gt;
+&lt;p&gt;Kurt 的这个表格是 Leon Bagas 分享给我的，他个人推荐用这个，目前我也暂时先用这个来计算了。&lt;/p&gt;
+&lt;p&gt;我的 &lt;a href="https://github.com/chinageology/GeoPython"&gt;GeoPython&lt;/a&gt;  里面还是选择了用 Kurt 的计算思路，因为其中的计算流程更清晰一些。&lt;/p&gt;
+&lt;p&gt;在计算结果上 …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;关于 CIPW 计算&lt;/h1&gt;
+&lt;p&gt;CIPW 的设计初衷真不错，而且在那么久之前就有这种程序化的一步一步来拼的思路，很适合编程实现。&lt;/p&gt;
+&lt;p&gt;不过目前来看，国外流传比较广的计算表格是&lt;a href="http://minerva.union.edu/hollochk/kth/"&gt;美国联合学院的Kurt Hollocher&lt;/a&gt;这位老兄的，下载地址在&lt;a href="https://pan.baidu.com/s/1skN5ugd"&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;他的这个 Excel 表格做的非常细致，每一步都很清晰，不过其中有两处标注出了错，但我检查过，应该是不影响计算的。实际上我就是把他的表格中的算法抽了出来重新实现了，又加了批量计算的几个循环体。&lt;/p&gt;
+&lt;p&gt;国内估计用的比较多的是路远发老师的GeoKit进行计算，但是路老师的计算过程，如果按照&lt;a href="geokit.net/CIPW.htm"&gt;他的网站上面的流程&lt;/a&gt;，似乎和 Kurt 的有所差别，尤其是在 Sr 和 Ni 等元素的处理上，步骤完全不一样。&lt;/p&gt;
+&lt;p&gt;Kurt 的这个表格是 Leon Bagas 分享给我的，他个人推荐用这个，目前我也暂时先用这个来计算了。&lt;/p&gt;
+&lt;p&gt;我的 &lt;a href="https://github.com/chinageology/GeoPython"&gt;GeoPython&lt;/a&gt;  里面还是选择了用 Kurt 的计算思路，因为其中的计算流程更清晰一些。&lt;/p&gt;
+&lt;p&gt;在计算结果上，我在 &lt;a href="https://github.com/chinageology/GeoPython"&gt;GeoPython&lt;/a&gt;  里面使用了 ChemPy 来获取元素的原子量以及各种矿物的分子量，而 Kurt 原版是选择了小数点后两位小数的近似值。所以 GeoPython 里面用的原子量和分子量可能会更精确一些，这在 CIPW 计算结果上会体现在个位数的偶尔差异，以及小数点后数值的明显差异。 ChemPy 是一个化学方面的 Python 模块，我比较推荐使用；而 Kurt 的计算表格中由于使用了 Excel 等原因，数位有所取舍。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/chinageology/GeoPython"&gt;GeoPython&lt;/a&gt; 的 CIPW 模块是这样设计的：数据输入用一个 CIPW.xlsx 或者 CIPW.csv，其中一定要注意的是单位问题，Sr、Ba、Ni、Cr、Zr 这几个元素用的是 ppm，而其他的项目都是质量百分比。&lt;/p&gt;
+&lt;p&gt;计算出来的结果用额外的文件来存储。生成的四个 csv 文件，Claced 的是计算出来的各种岩石参数，比如 DI 值、 Mg# 等等；Result 是计算出来的摩尔数，也就是直接的结算结果；Volume 和 Weight 分别是转成 体积分数和质量分数的结果。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/chinageology/GeoPython/blob/master/Download.md"&gt;下载链接请点击这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;其实不太推荐大家用打包好的 exe 或者 app，而更推荐从 pip 上面来安装 GeoPython，因为每次最新的版本都会首先更新到 pip 上面去，另外打包的版本由于要包含 Python 解释器以及所有依赖包，体积很大，Windows 版本接近 200MB， OSX 版本更是有 800MB 之大。&lt;/p&gt;
+&lt;p&gt;当然如果没有 Python 使用经验的话，暂时只能下载打包好的程序了。&lt;/p&gt;
+&lt;p&gt;我非常鼓励地学同行们一起来学习和使用 Python，我们不必要非常精通，只要能用 Python 来解决一些日常的问题就可以了。&lt;/p&gt;</content><category term="Work"></category><category term="GeoPython"></category><category term="Python"></category></entry><entry><title>Python Use Str in a List to create new Var</title><link href="/python-use-str-in-a-list-to-create-new-var.html" rel="alternate"></link><published>2017-04-01T00:00:00+08:00</published><updated>2017-04-01T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-04-01:/python-use-str-in-a-list-to-create-new-var.html</id><summary type="html">&lt;h1&gt;Python 中用列表中的字符串元素作为名字来创建新变量&lt;/h1&gt;
+&lt;h2&gt;问题的提出&lt;/h2&gt;
+&lt;p&gt;今天我在写一个与计算化学相关的某个 Python 脚本的时候，突然有了一个这样的疑问：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果给定一个列表(list) a;
+已知该列表中的元素均为字符串(str);
+列表中元素的个数 n 以及作为列表元素的这些字符串的值都是不预知的;
+那么，如何以这些列表元素作为变量名称来批量创建 n 个新变量呢？
+以创建 n 个新列表为例。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;于是我开始在 &lt;a href="V2mm.tech"&gt;V2mm&lt;/a&gt; 的群以及其他小伙伴的群里面求助，得到了以 &lt;a href="http://blog.riverrun.xyz"&gt;River&lt;/a&gt; 和 &lt;a href="https://xuanwo.org"&gt;Xuanwo&lt;/a&gt; 等技术流的指点。总结如下：&lt;/p&gt;
+&lt;h2&gt;用类实现&lt;/h2&gt;
+&lt;p&gt;这两种方法是 &lt;a href="http://blog.riverrun.xyz"&gt;River&lt;/a&gt; 提供的。&lt;/p&gt;
+&lt;h3&gt;方法1 静态类型&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;m&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;m …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;h1&gt;Python 中用列表中的字符串元素作为名字来创建新变量&lt;/h1&gt;
+&lt;h2&gt;问题的提出&lt;/h2&gt;
+&lt;p&gt;今天我在写一个与计算化学相关的某个 Python 脚本的时候，突然有了一个这样的疑问：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果给定一个列表(list) a;
+已知该列表中的元素均为字符串(str);
+列表中元素的个数 n 以及作为列表元素的这些字符串的值都是不预知的;
+那么，如何以这些列表元素作为变量名称来批量创建 n 个新变量呢？
+以创建 n 个新列表为例。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;于是我开始在 &lt;a href="V2mm.tech"&gt;V2mm&lt;/a&gt; 的群以及其他小伙伴的群里面求助，得到了以 &lt;a href="http://blog.riverrun.xyz"&gt;River&lt;/a&gt; 和 &lt;a href="https://xuanwo.org"&gt;Xuanwo&lt;/a&gt; 等技术流的指点。总结如下：&lt;/p&gt;
+&lt;h2&gt;用类实现&lt;/h2&gt;
+&lt;p&gt;这两种方法是 &lt;a href="http://blog.riverrun.xyz"&gt;River&lt;/a&gt; 提供的。&lt;/p&gt;
+&lt;h3&gt;方法1 静态类型&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;m&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;m&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]):&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="nb"&gt;setattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[])&lt;/span&gt;
+
+&lt;span class="n"&gt;Test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;方法2 动态类型&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;m&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="n"&gt;MyClass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;MyClass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MyClass&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="n"&gt;MyClass&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;MyClass&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;   &lt;span class="c1"&gt;# [] [] []&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;用字典&lt;/h2&gt;
+&lt;p&gt;这种方法是 &lt;a href="http://o00o.site/"&gt;FlagPlus&lt;/a&gt; 提供的思路；&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;m&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{}&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;:[]})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="http://blog.riverrun.xyz"&gt;River&lt;/a&gt; 给出了精简的建议:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;m&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;用类加字典&lt;/h2&gt;
+&lt;p&gt;这种方法是我基于 &lt;a href="http://o00o.site/"&gt;FlagPlus&lt;/a&gt; 提供的思路自己乱写的。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;m&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Test2&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{}&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;m&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+           &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;:[]})&lt;/span&gt;
+
+&lt;span class="n"&gt;Test2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;用 locals 来添加变量&lt;/h2&gt;
+&lt;p&gt;这两种方法是 &lt;a href="http://blog.riverrun.xyz"&gt;River&lt;/a&gt; 提供的，用 globals 应该也可以。 &lt;a href="http://blog.riverrun.xyz"&gt;River&lt;/a&gt; 不推荐这种方法，因为这样可能污染 module 的命名空间。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;m&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nb"&gt;locals&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;用函数来封装一下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;m&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mylist&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;mylist&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="nb"&gt;locals&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+
+&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;用 exec 直接将字符串来执行&lt;/h2&gt;
+&lt;p&gt;这个思路来自 Kivy 群的 X_Tu，应该是最简单直接地解决了问题。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;m&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;=[]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="https://xuanwo.org"&gt;Xuanwo&lt;/a&gt; 不推荐这样做，变量创建会造成性能开销，因为存在栈上而不是堆上。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.riverrun.xyz"&gt;River&lt;/a&gt; 对此表示存疑：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;堆和栈和“exec” 这个关键字无关，和你在哪里调用 exec 有关。
+其实一个变量在堆上还是在栈上和你的程序上下文有关，不是那么简单。我们都知道闭包就是保存在堆上的，而普通的函数内部变量都在栈上。&lt;/p&gt;
+&lt;p&gt;exec 可以接受额外两个参数，一个代表 locals, 一个代表 globals. 如果 locals 在栈上，生成的变量应该在栈上个，如果 locals 在堆上，生成的变量应该在堆上。待我研究一下，久未搞 c/c++，有点搞不清了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="https://fanzheng.org"&gt;范神&lt;/a&gt; &lt;del&gt;推荐对复杂数据使用数据库，数据库操作时间是毫秒级，会更快一些。&lt;/del&gt;说的数据库是毫秒级，毫秒级是慢的，CPU都是低于微秒的，所以他不推荐用数据库。。。。&lt;/p&gt;</content><category term="Work"></category><category term="Python"></category><category term="Kivy"></category></entry><entry><title>GlumPy-Installation</title><link href="/glumpy-installation.html" rel="alternate"></link><published>2017-03-10T00:00:00+08:00</published><updated>2017-03-10T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-03-10:/glumpy-installation.html</id><summary type="html">&lt;h1&gt;GlumPy 中文文档翻译：安装指南&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://glumpy.readthedocs.io/en/latest/installation.html"&gt;本文档原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本文的安装过程可能还是不够详细，Windows 用户可以参考 &lt;a href="https://zhuanlan.zhihu.com/p/25678091"&gt;我在知乎专栏这篇文章&lt;/a&gt; 中提供的安装截图，下载&lt;a href="https://pan.baidu.com/s/1qY7IxvI#list/path=%2F"&gt;这个链接&lt;/a&gt;里的内容会对安装过程有所帮助。&lt;/p&gt;
+&lt;h2&gt;译者前言&lt;/h2&gt;
+&lt;p&gt;我弃坑了 VisPy，因为在不同操作系统上面运行的效果差距比较大，可能是因为不同操作系统的相关组件和依赖包的版本差别，或者是其他的原因吧。而且好像 GlumPy 就是对 VisPy 的继承， VisPy 的代码提交已经是几个月之前甚至几年前，GlumPy 目前还在活跃。从文档来看这二者也很相似，尤其是这部分安装指南几乎就是修改了一下的 VisPy 安装指南。&lt;/p&gt;
+&lt;p&gt;GlumPy 给我的印象很棒，因为官方开发人员很及时地跟我互动讨论&lt;a href="https://github.com/glumpy/glumpy/issues/87"&gt;一些运行错误产生的原因&lt;/a&gt;，虽然他们的 example 里面的一些一两年的 bug 也没有修改，比如 earth.py 似乎需要把 Arcball 替换成 Trackball，而且对 numpy 的特定版本的需求也需要提示一些 …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;GlumPy 中文文档翻译：安装指南&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://glumpy.readthedocs.io/en/latest/installation.html"&gt;本文档原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本文的安装过程可能还是不够详细，Windows 用户可以参考 &lt;a href="https://zhuanlan.zhihu.com/p/25678091"&gt;我在知乎专栏这篇文章&lt;/a&gt; 中提供的安装截图，下载&lt;a href="https://pan.baidu.com/s/1qY7IxvI#list/path=%2F"&gt;这个链接&lt;/a&gt;里的内容会对安装过程有所帮助。&lt;/p&gt;
+&lt;h2&gt;译者前言&lt;/h2&gt;
+&lt;p&gt;我弃坑了 VisPy，因为在不同操作系统上面运行的效果差距比较大，可能是因为不同操作系统的相关组件和依赖包的版本差别，或者是其他的原因吧。而且好像 GlumPy 就是对 VisPy 的继承， VisPy 的代码提交已经是几个月之前甚至几年前，GlumPy 目前还在活跃。从文档来看这二者也很相似，尤其是这部分安装指南几乎就是修改了一下的 VisPy 安装指南。&lt;/p&gt;
+&lt;p&gt;GlumPy 给我的印象很棒，因为官方开发人员很及时地跟我互动讨论&lt;a href="https://github.com/glumpy/glumpy/issues/87"&gt;一些运行错误产生的原因&lt;/a&gt;，虽然他们的 example 里面的一些一两年的 bug 也没有修改，比如 earth.py 似乎需要把 Arcball 替换成 Trackball，而且对 numpy 的特定版本的需求也需要提示一些，参考&lt;a href="https://github.com/glumpy/glumpy/issues/106"&gt;这里查看更多内容&lt;/a&gt;。&lt;/p&gt;
+&lt;h2&gt;安装方法&lt;/h2&gt;
+&lt;p&gt;最简单直接的安装方法就是用 pip 了：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip install glumpy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;还可以对已经安装的版本进行升级：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip install --upgrade glumpy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;依赖包&lt;/h2&gt;
+&lt;p&gt;GlumPy 常规需要的标准依赖包就是下面这几个：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;numpy: &lt;a href="http://numpy.org/"&gt;http://numpy.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;pyopengl: &lt;a href="http://pyopengl.sourceforge.net/"&gt;http://pyopengl.sourceforge.net&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;cython: &lt;a href="http://cython.org/"&gt;http://cython.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;triangle: &lt;a href="http://dzhelil.info/triangle/"&gt;http://dzhelil.info/triangle/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;安装这些依赖包最简单的方法莫过于用 pip 了：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip install numpy
+pip install cython
+pip install pyopengl
+pip install triangle
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;（译者注：推荐你先安装 cython ，然后是 numpy 接着是 pyopengl 和 triangle。在安装 triangle 的时候可能遇到报错，比如缺少 packaging ，解决方案是用 &lt;code&gt;pip install packaging&lt;/code&gt; 这样的命令来把缺少的包安装上就行。）&lt;/p&gt;
+&lt;p&gt;如果已经安装过上面这些包，可以用下面的命令来升级到最新版本：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;pip install --upgrade numpy
+pip install --upgrade pyopengl
+pip install --upgrade cython
+pip install --upgrade triangle
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;后端需求&lt;/h2&gt;
+&lt;p&gt;GlumPy 需要至少一个工具链来打开窗口创建 OpenGL 环境。这可以用很多标准的 C/C++ 工具链来实现，比如 Qt, GLFW, glut, pygame, SDL2, Wx, GTK2 or GTK3，所以就需要对应的 Python 绑定，或者类似 pyglet 这样的纯 Python 工具链。&lt;/p&gt;
+&lt;h4&gt;特别警告&lt;/h4&gt;
+&lt;p&gt;上面这些后端的包只需要有一个就可以了，不是都要安装！&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;目前常用的后端&lt;/strong&gt;&lt;/th&gt;
+&lt;th align="center"&gt;Qt&lt;/th&gt;
+&lt;th align="center"&gt;GLFW&lt;/th&gt;
+&lt;th align="center"&gt;Pyglet&lt;/th&gt;
+&lt;th align="center"&gt;SDL2&lt;/th&gt;
+&lt;th align="center"&gt;GTK3&lt;/th&gt;
+&lt;th align="right"&gt;Wx3&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;多窗口&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;无修饰窗口&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;窗口尺寸调整&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;窗口移动&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;设定 GL API&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;设定 GL Profile&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;分享 GL Context&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;全屏&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;处理使用 Unicode&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;老古董后端&lt;/strong&gt;&lt;/th&gt;
+&lt;th align="center"&gt;Wx2&lt;/th&gt;
+&lt;th align="center"&gt;Glut&lt;/th&gt;
+&lt;th align="center"&gt;Freeglut&lt;/th&gt;
+&lt;th align="center"&gt;Pygame&lt;/th&gt;
+&lt;th align="right"&gt;GTK 2.x&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;多窗口&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;无修饰窗口&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;窗口尺寸调整&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;窗口移动&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;设定 GL API&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="right"&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;设定 GL Profile&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="right"&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;分享 GL Context&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;全屏&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;处理使用 Unicode&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;滚轮事件&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="center"&gt;✓&lt;/td&gt;
+&lt;td align="center"&gt;—&lt;/td&gt;
+&lt;td align="right"&gt;✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;硬件需求&lt;/h2&gt;
+&lt;p&gt;GlumPy 会对显卡造成很大符合。更确切地说， GlumPy 会通过着色器（shader）来高强度使用图形处理单元（GPU）。所以 GlumPy 需要起码稍微新一点的显卡（只要是最近十二年以来的估计都可以）还需要一个最新版本的显卡驱动，这样 GlumPy 才能使用可编程管线（而不是固定化的管线）。&lt;/p&gt;
+&lt;p&gt;在 Linux 或者 OSX 平台，输入下面这个命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;glxinfo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;上面这个命令执行之后会显示出一大堆结果，就是和你显卡相关的信息了。这时候最重要的是要看看你能否有权限直接使用显卡（direct ），以及你的显卡支持的 GL 版本以及 着色器语言（ shading language ） 的版本。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;...
+direct rendering: Yes
+...
+OpenGL vendor string: NVIDIA Corporation
+OpenGL renderer string: NVIDIA GeForce GT 650M OpenGL Engine
+OpenGL version string: &lt;span class="m"&gt;2&lt;/span&gt;.1 NVIDIA-8.24.9 &lt;span class="m"&gt;310&lt;/span&gt;.40.25f01
+OpenGL shading language version string: &lt;span class="m"&gt;1&lt;/span&gt;.20
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;译者注：上面这样子现实的内容太繁杂了，完全可以用 &lt;code&gt;glxinfo |grep direct &amp;amp;&amp;amp; glxinfo |grep OpenGL&lt;/code&gt; 这样一个命令，在我的机器上输出如下所示：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;direct rendering: Yes
+OpenGL vendor string: NVIDIA Corporation
+OpenGL renderer string: NVIDIA GeForce GTX TITAN OpenGL Engine
+OpenGL version string: &lt;span class="m"&gt;2&lt;/span&gt;.1 NVIDIA-10.15.20 &lt;span class="m"&gt;367&lt;/span&gt;.15.10.35f01
+OpenGL shading language  version string: &lt;span class="m"&gt;1&lt;/span&gt;.20
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;OpenGL 版本最低是 2.1，着色器语言的版本至少要 1.1。如果不符合的话，你需要安装最新版本的对应软件。可以看看你的操作系统是否提供了文档，或者在线搜索一下怎么来操作吧。&lt;/p&gt;
+&lt;h2&gt;在 Windows 7，8，10  x64 bit 操作系统中安装的步骤&lt;/h2&gt;
+&lt;h4&gt;首先是安装 Python3：&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;从&lt;a href="https://www.python.org/downloads/"&gt; Python 官方网站下载页面&lt;/a&gt;来下载 Python。（译者更推荐从&lt;a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/"&gt;清华开源镜像&lt;/a&gt;下载使用 anaconda3 ，这样一来是下载速度快一些，而来也方便使用 conda 安装管理一些包。另外 GlumPy 官方推荐 Python3， 我很钦佩，因为我特别讨厌 2，没什么合理的具体理由，可能因为个人比较 2 吧。）&lt;/li&gt;
+&lt;li&gt;运行安装文件，安装到一个短一点的路径里面，比如&lt;code&gt;C:\python3&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;把 Python 可执行文件所在的目录添加到系统的环境变量 PATH 中（通常在安装过程中这一步就会完成了，一般不用人手动操作）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;重启操作系统，之后安装好的 Python 就可以用了。&lt;/strong&gt;
+重启了之后，在命令行里面输入 &lt;code&gt;python&lt;/code&gt; 然后回车，试试能不能运行。如果能得到一个&lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt;这样的 Python 命令行控制台解释器的提示符，就没有问题了。如果没出现这个，而是报错了，那有 99% 的可能都需要你在系统的环境变量中添加 Python 所在路径。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;然后是安装依赖包（一定要从管理员权限的 cmd 控制台或者 powershell）：&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;C:&lt;span class="se"&gt;\W&lt;/span&gt;indows&lt;span class="se"&gt;\s&lt;/span&gt;ystem32&amp;gt; pip install numpy
+C:&lt;span class="se"&gt;\W&lt;/span&gt;indows&lt;span class="se"&gt;\s&lt;/span&gt;ystem32&amp;gt; pip install cython
+C:&lt;span class="se"&gt;\W&lt;/span&gt;indows&lt;span class="se"&gt;\s&lt;/span&gt;ystem32&amp;gt; pip install pyopengl
+C:&lt;span class="se"&gt;\W&lt;/span&gt;indows&lt;span class="se"&gt;\s&lt;/span&gt;ystem32&amp;gt; pip install triangle
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;接下来安装 GlumPy（一定要从管理员权限的 cmd 控制台或者 powershell）：&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;C:&lt;span class="se"&gt;\W&lt;/span&gt;indows&lt;span class="se"&gt;\s&lt;/span&gt;ystem32&amp;gt; pip install glumpy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;关键部分了，安装 FreeType：&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;从 &lt;a href="https://github.com/ubawurinna/freetype-windows-binaries"&gt;这个链接&lt;/a&gt; 下载一份编译好的 FreeType 文件。&lt;/li&gt;
+&lt;li&gt;把 Zip 文件解压缩出来。&lt;/li&gt;
+&lt;li&gt;把 freetype 字样的 dll 从 win64 这个目录里面复制到你的 Python3 安装目录。&lt;/li&gt;
+&lt;li&gt;把其中的一个 &lt;code&gt;freetype**.dll&lt;/code&gt; 文件重命名成为 &lt;code&gt;freetype.dll&lt;/code&gt;。
+下载的压缩包中附带的一个 README 文件会详细解释区别，推荐用带有 MT 字样的那个 DLL 文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;（译者注：一定注意重命名这一步，文档一定要仔细读。遇到过某些学生不好好读文档，弄半天都出现找不到 freetype 的错误，然后抓狂问我怎么办。所以一定仔细阅读，而且一定注意细节，比如别把名字错误改成 fretype 等等。）&lt;/p&gt;
+&lt;h4&gt;另一个关键，安装 GLFW：&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;首先是去下载了，链接地址在 &lt;a href="http://www.glfw.org/download.html"&gt;这里&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;还是把 Zip 文件解压缩处理。&lt;/li&gt;
+&lt;li&gt;从带有 &lt;code&gt;lib-xxxxx&lt;/code&gt; 字样的文件夹中复制出来一份 glfw.dll 等等文件到你的 Python3 安装目录。
+推荐使用 &lt;code&gt;lib-mingw-w64&lt;/code&gt; 这一个，另外这里不用重新命名，所以别修改文件名哦。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;</content><category term="Work"></category><category term="Python"></category><category term="GlumPy"></category><category term="Data"></category><category term="Visualization"></category></entry><entry><title>My Translations</title><link href="/my-translations.html" rel="alternate"></link><published>2017-03-08T00:00:00+08:00</published><updated>2017-03-08T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-03-08:/my-translations.html</id><summary type="html">&lt;h1&gt;我翻译的一些书籍和资料&lt;/h1&gt;
+&lt;h2&gt;一些多余的话&lt;/h2&gt;
+&lt;table&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=22502857&amp;auto=0&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;a href="http://music.163.com/#/song?id=22502857"&gt;这首歌&lt;/a&gt;很棒，符合我现在的心情和状态。
+每天看文献翻译文档写代码写文档，也是希望自己虽然行走不便，也能成为一个有用的人，一个脱离低级趣味的人，一个纯粹的人。
+梦想是一定要有的，因为已经是活下去的动力之一，实现的效果很大程度上取决于努力的强度。
+十二岁的时候面对 木兰辞 和 为学，我怀疑自己能否背下来，又鼓励自己说天下没有人做不到的事情。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;万里赴戎机，关山度若飞~&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;天下事有难易乎？为之则难者亦易矣，不为则易者亦难矣~&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;平沙落日大荒西，陇上明星高复低~&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;我明白为什么老校友喜欢吟诗，真的可以在不妨碍表达思想感情的情况装比~&lt;/p&gt;
+&lt;p&gt;感谢我媳妇，她在辛苦持家，我还在安逸地读书，我人生最大的幸运和成就就是遇到了她。&lt;/p&gt;
+&lt;p&gt;以后我不准备用小时候的故事吹牛了，希望这是最后一次~&lt;/p&gt;
+&lt;h2&gt;ThinkPython2E 中文版&lt;/h2&gt;
+&lt;p&gt;从 2015 年末到 2016 年 2 月，我翻译了一份&lt;a href="http://blog.cycleuser.org/thinkpython-shuang-yu-xue-bian-cheng.html"&gt;中英双语版本的ThinkPython&lt;/a&gt;，那时候我觉得，双语对照很利于学习积累一些常用的词汇，有助于后续阅读英文文档。&lt;/p&gt;
+&lt;p&gt;然而后来我发现大家更需要的是对编程语言本身的了解和学习，对双语的使用并不具有强需求 …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;我翻译的一些书籍和资料&lt;/h1&gt;
+&lt;h2&gt;一些多余的话&lt;/h2&gt;
+&lt;table&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=22502857&amp;auto=0&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;a href="http://music.163.com/#/song?id=22502857"&gt;这首歌&lt;/a&gt;很棒，符合我现在的心情和状态。
+每天看文献翻译文档写代码写文档，也是希望自己虽然行走不便，也能成为一个有用的人，一个脱离低级趣味的人，一个纯粹的人。
+梦想是一定要有的，因为已经是活下去的动力之一，实现的效果很大程度上取决于努力的强度。
+十二岁的时候面对 木兰辞 和 为学，我怀疑自己能否背下来，又鼓励自己说天下没有人做不到的事情。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;万里赴戎机，关山度若飞~&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;天下事有难易乎？为之则难者亦易矣，不为则易者亦难矣~&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;平沙落日大荒西，陇上明星高复低~&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;我明白为什么老校友喜欢吟诗，真的可以在不妨碍表达思想感情的情况装比~&lt;/p&gt;
+&lt;p&gt;感谢我媳妇，她在辛苦持家，我还在安逸地读书，我人生最大的幸运和成就就是遇到了她。&lt;/p&gt;
+&lt;p&gt;以后我不准备用小时候的故事吹牛了，希望这是最后一次~&lt;/p&gt;
+&lt;h2&gt;ThinkPython2E 中文版&lt;/h2&gt;
+&lt;p&gt;从 2015 年末到 2016 年 2 月，我翻译了一份&lt;a href="http://blog.cycleuser.org/thinkpython-shuang-yu-xue-bian-cheng.html"&gt;中英双语版本的ThinkPython&lt;/a&gt;，那时候我觉得，双语对照很利于学习积累一些常用的词汇，有助于后续阅读英文文档。&lt;/p&gt;
+&lt;p&gt;然而后来我发现大家更需要的是对编程语言本身的了解和学习，对双语的使用并不具有强需求，往往是次要的。&lt;/p&gt;
+&lt;p&gt;所以我整理修改了一下之前的文本，弄好了一份纯中文版本的，放到了 Gitbook 上面：&lt;/p&gt;
+&lt;p&gt;GitHub 地址：&lt;a href="http://link.zhihu.com/?target=https%3A//github.com/cycleuser/ThinkPython-CN"&gt;cycleuser/ThinkPython-CN&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在线阅读地址： &lt;a href="http://link.zhihu.com/?target=https%3A//cycleuser.gitbooks.io/think-python/content/"&gt;Think Python 第二版中文版&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载 PDF、EPUB、Mobi 的地址：&lt;a href="http://link.zhihu.com/?target=https%3A//www.gitbook.com/book/cycleuser/think-python/details"&gt;Think Python 第二版中文版 · GitBook&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我并非专业翻译人员，也不是计算机相关专业，因此这份文稿中可能会有很多错误。所以希望大家发现了错误请尽量告知我，以便我改进文本质量。&lt;/p&gt;
+&lt;h2&gt;Kivy 中文编程指南&lt;/h2&gt;
+&lt;p&gt;从去年后半年开始，我又翻译了 Kivy 的官方 Programming Guide 以及一些具有补充性质的内容。&lt;/p&gt;
+&lt;p&gt;GitHub 链接在 &lt;a href="http://link.zhihu.com/?target=https%3A//github.com/cycleuser/Kivy-CN"&gt;cycleuser/Kivy-CN&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Gitbook 链接在 &lt;a href="http://link.zhihu.com/?target=https%3A//cycleuser.gitbooks.io/kivy-guide-chinese/content/"&gt;前言 · Kivy中文编程指南&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载 PDF、EPUB、Mobi 的地址：&lt;a href="http://link.zhihu.com/?target=https%3A//www.gitbook.com/book/cycleuser/kivy-guide-chinese/details"&gt;Kivy中文编程指南 · GitBook&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;放到 Gitbook 上面了，希望能提高一下阅读体验。也希望大家帮我改错。&lt;/p&gt;</content><category term="Work"></category><category term="Python"></category><category term="Kivy"></category></entry><entry><title>Kivy For Now</title><link href="/kivy-for-now.html" rel="alternate"></link><published>2017-03-06T00:00:00+08:00</published><updated>2017-03-06T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-03-06:/kivy-for-now.html</id><summary type="html">&lt;h1&gt;Kivy中文编程指南：翻译始末&lt;/h1&gt;
+&lt;h2&gt;翻译暂告段落&lt;/h2&gt;
+&lt;p&gt;从去年开始的 &lt;a href="https://github.com/cycleuser/Kivy-CN"&gt;Kivy 编程指南中文翻译项目&lt;/a&gt;，今天基本算是弄完了，我把 Kivy Programming Guide 里面的全部内容翻译了一遍。&lt;/p&gt;
+&lt;p&gt;这里就不贴了，大家可以去我的&lt;a href="https://zhuanlan.zhihu.com/python-kivy"&gt;知乎专栏&lt;/a&gt;或者我的 &lt;a href="https://github.com/cycleuser"&gt;GitHub&lt;/a&gt; 查看详细内容。&lt;/p&gt;
+&lt;p&gt;当然了，质量还是不怎么样好，所以希望大家多批评指正，我会尽快改正。&lt;/p&gt;
+&lt;p&gt;最开始用 Kivy 的时候，感觉有各种各样的 bug ，觉得安装和配置各种繁琐扯皮麻烦，心情也容易变得特别臭。&lt;/p&gt;
+&lt;p&gt;然后开始翻译文档的时候，也还是容易经常变得很暴躁，尤其是遇到一些原文的语法错误、逻辑错误、自己鬼扯也扯不通顺的地方等等。&lt;/p&gt;
+&lt;p&gt;但是后来我逐渐地开始钦佩这些创建了 Kivy 的人们，我意识到他们也跟我一样是一群热爱 Python 的人，想为更多的同样使用 Python 的开发者提供一个完整的工具链，以便于能更简洁轻快地实现跨平台开发。&lt;/p&gt;
+&lt;p&gt;所以，我觉得 Kivy 是一个因为热爱而驱动去追寻自由的项目，这也让我逐渐对 Kivy …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Kivy中文编程指南：翻译始末&lt;/h1&gt;
+&lt;h2&gt;翻译暂告段落&lt;/h2&gt;
+&lt;p&gt;从去年开始的 &lt;a href="https://github.com/cycleuser/Kivy-CN"&gt;Kivy 编程指南中文翻译项目&lt;/a&gt;，今天基本算是弄完了，我把 Kivy Programming Guide 里面的全部内容翻译了一遍。&lt;/p&gt;
+&lt;p&gt;这里就不贴了，大家可以去我的&lt;a href="https://zhuanlan.zhihu.com/python-kivy"&gt;知乎专栏&lt;/a&gt;或者我的 &lt;a href="https://github.com/cycleuser"&gt;GitHub&lt;/a&gt; 查看详细内容。&lt;/p&gt;
+&lt;p&gt;当然了，质量还是不怎么样好，所以希望大家多批评指正，我会尽快改正。&lt;/p&gt;
+&lt;p&gt;最开始用 Kivy 的时候，感觉有各种各样的 bug ，觉得安装和配置各种繁琐扯皮麻烦，心情也容易变得特别臭。&lt;/p&gt;
+&lt;p&gt;然后开始翻译文档的时候，也还是容易经常变得很暴躁，尤其是遇到一些原文的语法错误、逻辑错误、自己鬼扯也扯不通顺的地方等等。&lt;/p&gt;
+&lt;p&gt;但是后来我逐渐地开始钦佩这些创建了 Kivy 的人们，我意识到他们也跟我一样是一群热爱 Python 的人，想为更多的同样使用 Python 的开发者提供一个完整的工具链，以便于能更简洁轻快地实现跨平台开发。&lt;/p&gt;
+&lt;p&gt;所以，我觉得 Kivy 是一个因为热爱而驱动去追寻自由的项目，这也让我逐渐对 Kivy 产生了更多的好感。&lt;/p&gt;
+&lt;p&gt;事到如今我可能并不一定会有机会深入使用 Kivy 去开发，也依然希望 Kivy 能够发展壮大，生根发芽，开花散种，给更多的跟我一样初入门无所适从的新手一个友好又高效的选择。&lt;/p&gt;
+&lt;p&gt;我对 Kivy 官方文档的翻译，暂告一段落。后面的 API 翻译，有一位知乎上的朋友表示有兴趣进行，一位非常年轻有为的少年。看到现在的青少年人都有如此的学习动力和探索精神，不由得让我感慨时代发展之快，自己奔四的路上，还有幸结识了众多初升的太阳。我相信他们会在未来闪耀，那个时代一定更美好。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;饥饿的分割线&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;当初开始翻译的原因&lt;/h2&gt;
+&lt;p&gt;从去年开始，我陆续翻译了一些Kivy官方文档中的开发指南的内容。&lt;/p&gt;
+&lt;p&gt;然后我又觉得有必要找一个更大的平台，以便于能给更多人提供一点便利，所以我又开了一个&lt;a href="https://zhuanlan.zhihu.com/python-kivy"&gt;知乎专栏&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;然而新年这一阵，我做了个手术，身体状况不太好，感觉理解能力和表达能力也有所下降（其实本来也不行），所以我就想，不如按照之&lt;a href="https://github.com/cycleuser/ThinkPython-en-cn"&gt;前ThinkPython的中文翻译&lt;/a&gt;那样，直接把翻译稿开源放到Github吧，地址在&lt;a href="https://github.com/cycleuser/Kivy-CN"&gt;这里&lt;/a&gt;。虽然我并没有想出来这样有什么更好的。&lt;/p&gt;
+&lt;p&gt;接触Kivy时间不长，一年多前最开始知道有这个项目的，当时的观感很差，因为遇到若干个Bug，反馈了之后也没见他们有什么动静。然后时间长了，发现跨平台的Python除了QT基本就只有这个了，相比之下，这个好歹不那么庞大，还是挺好玩的。但也就这样了，没有进一步关注。&lt;/p&gt;
+&lt;p&gt;然后是要写&lt;a href="https://github.com/cycleuser/GeoPython"&gt;GeoPython&lt;/a&gt;，一些基础的方法都实现了之后，遇到了一些数学上的问题，然后学了一些数学相关的内容，大概有了解决思路之后，才意识到，TMD没有GUI啊，这样常规的地球科学领域的同行们根本懒得看对不对？日常用户才懒得吭哧吭哧学习如何在Bash或者Powershell之下使用iPython运行某个脚本对不对？所以我需要GUI，然而QT太庞大繁杂了，衡量了一下自己的智力水平，估计至少要花费半年才能大概入门。所以我又捡起来Kivy了。&lt;/p&gt;
+&lt;p&gt;这个过程中我发现Kivy相关的中文资料还真不多，那我就从最基础的官方文档开始翻译一下吧，好歹自己边学习边相当于做笔记，以教促学，还能给人提供一点有用的参考，哪怕一丁点用处也好。&lt;/p&gt;
+&lt;p&gt;就像我当年给人辅导研究生的C++和考博英语一样，其实也是给自己的持续学习找一个持久的动力，也是争取有一点能够积攒努力产生一个突破口。就像我的启蒙老师许先生当年给我讲的庞中华老前辈一样，一点一点积累总会有收获。&lt;/p&gt;
+&lt;p&gt;我这些翻译的水平良莠不齐，其中有些简单的部分，我基本可以直接进行双语转换，这就不费什么力气。而由于我在编程的经验和水平两方面都比较差，有的部分一些术语名词翻译得不伦不类，所以我又只能心虚地标记上英文，避免对读者产生太严重的误导。&lt;/p&gt;
+&lt;p&gt;但我还是会继续下去的，学习和翻译两个过程还不能停下来。我不能因为自己现在三十多岁了而且水平还很差，就停止学习提高的尝试，因为一旦停下来，就更是一点希望都没有了，那就是直接向命运举白旗投降了。&lt;/p&gt;
+&lt;p&gt;虽然时代已经不同了，我还是很钦佩王江民老前辈，专注和持久而创造了传奇。我没有那么大的野心，也不奢求什么辉煌成就，只是觉得有生之年，做点不后悔的事情吧。&lt;/p&gt;</content><category term="Work"></category><category term="Python"></category><category term="Kivy"></category></entry><entry><title>VisPy</title><link href="/vispy.html" rel="alternate"></link><published>2017-02-25T00:00:00+08:00</published><updated>2017-02-25T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-02-25:/vispy.html</id><content type="html">&lt;h1&gt;VisPy 中文文档翻译&lt;/h1&gt;
+&lt;p&gt;VisPy 是一个高性能交互式 2D/3D 数据可视化库，通过 OpenGL 库来对目前的图形处理单元（GPU）的计算性能进行充分利用，用于超大规模数据集的显示。&lt;/p&gt;
+&lt;h1&gt;译者前言&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://github.com/cycleuser/Kivy-CN"&gt;Kivy 中文编程指南文档&lt;/a&gt;快翻译完了，现在又开了一个新坑，就是这个 &lt;a href="https://github.com/cycleuser/VisPy-CN"&gt;VisPy&lt;/a&gt;，这主要是因为我当前在开发的 &lt;a href="https://github.com/cycleuser/GeoPython"&gt;GeoPython&lt;/a&gt; 项目中存在着超大规模数据呈现的需求，所以我决定用显卡绘图来试一试。我此前从来没有任何 OpenGL 相关的经验，也完全是从零起步，一边学习，一边翻译，所以难免导致翻译质量的波动，而且大部分时刻可能是翻译得挺差的。然而我是一个希望把事情做了就尽量做好的人，所以大家发现任何错误，请一定不吝赐教，让我有改正和提高的机会。&lt;/p&gt;
+&lt;p&gt;这里就不贴了，大家可以去我的&lt;a href="https://zhuanlan.zhihu.com/python-kivy"&gt;知乎专栏&lt;/a&gt;或者我的 &lt;a href="https://github.com/cycleuser"&gt;GitHub&lt;/a&gt; 查看详细内容。&lt;/p&gt;</content><category term="Work"></category><category term="Python"></category><category term="VisPy"></category><category term="Data"></category><category term="Visualization"></category></entry></feed>

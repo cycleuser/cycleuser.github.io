@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CycleUser - Mac</title><link href="/" rel="alternate"></link><link href="/feeds/mac.atom.xml" rel="self"></link><id>/</id><updated>2016-10-01T00:00:00+08:00</updated><entry><title>Use CUDA 8.0 with macOS Sierra (10.12)</title><link href="/use-cuda-80-with-macos-sierra-1012.html" rel="alternate"></link><published>2016-10-01T00:00:00+08:00</published><updated>2016-10-01T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2016-10-01:/use-cuda-80-with-macos-sierra-1012.html</id><summary type="html">&lt;h5&gt;NOTICE 注意&lt;/h5&gt;
+&lt;p&gt;The latest version of CUDA8.63 is now working well with macOS Sierra 10.12.3, and there is no need to bother~&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最新版本的CUDA8.63早已经和渣果Sierra10.12.3磨合的不错了，完全能够正常工作不用折腾了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5&gt;IGNORE THESE 已经兼容了不用看了&lt;/h5&gt;
+&lt;p&gt;The moment I am typing, the latest version of &lt;a href="https://developer.nvidia.com/cuda-downloads"&gt;CUDA&lt;/a&gt; is &lt;a href="https://developer.nvidia.com/compute/cuda/8.0/Prod/local_installers/cuda_8.0.47_mac-dmg"&gt;8.0.4&lt;/a&gt;. It is the …&lt;/p&gt;</summary><content type="html">&lt;h5&gt;NOTICE 注意&lt;/h5&gt;
+&lt;p&gt;The latest version of CUDA8.63 is now working well with macOS Sierra 10.12.3, and there is no need to bother~&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最新版本的CUDA8.63早已经和渣果Sierra10.12.3磨合的不错了，完全能够正常工作不用折腾了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5&gt;IGNORE THESE 已经兼容了不用看了&lt;/h5&gt;
+&lt;p&gt;The moment I am typing, the latest version of &lt;a href="https://developer.nvidia.com/cuda-downloads"&gt;CUDA&lt;/a&gt; is &lt;a href="https://developer.nvidia.com/compute/cuda/8.0/Prod/local_installers/cuda_8.0.47_mac-dmg"&gt;8.0.4&lt;/a&gt;. It is the first version that provide the CUDA driver for macOS Sierra AKA 10.12.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我打字的这个时候，最新版本的&lt;a href="https://developer.nvidia.com/cuda-downloads"&gt;CUDA&lt;/a&gt;是&lt;a href="https://developer.nvidia.com/compute/cuda/8.0/Prod/local_installers/cuda_8.0.47_mac-dmg"&gt;8.0.4&lt;/a&gt;. 这是NVIDIA首次对macOS Sierra 也就是10.12 提供了CUDA驱动支持.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;But there comes the bad news as usual that the latest version of CUDA is not compatible with clang 8.0.0, which is provided with Xcode8. So When trying to compile the sample apps, you will get the following error:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不过有个很悲伤的消息，就是这个最新版本的CUDA很自然的与最新版的Xcode8所提供的clang 8.0.0不兼容。所以当你安装完了那个巨大的Dmg之后 想编译CUDA提供的sample的时候就要遇到下面这个错误提示了：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;nvcc fatal   : The version &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;80000&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; of the host compiler &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Apple clang&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; is not supported
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Someone downgrads to Xcode 7.*  but still gets the following errors:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有的小伙伴尝试了降级到Xcode7.*，然后还是得到了一大堆错误：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt; ...
+make&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;: *** &lt;span class="o"&gt;[&lt;/span&gt;asyncAPI.o&lt;span class="o"&gt;]&lt;/span&gt; Error &lt;span class="m"&gt;2&lt;/span&gt;
+make: *** &lt;span class="o"&gt;[&lt;/span&gt;0_Simple/asyncAPI/Makefile.ph_build&lt;span class="o"&gt;]&lt;/span&gt; Error &lt;span class="m"&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Luckily, I find that we can make the CUDA work with keeping both Xcode 8 and 7. I assume that you are using the Xcode8 as /Applications/Xcode.app and have no other versions of Xcode.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;好在我探索了一下，找到一个思路来运行CUDA，并同时保留Xcode8和7。我假设你目前仅安装了Xcode8，路径和名字为/Applications/Xcode.app。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Rename /Applications/Xcode.app to Xcode8.app, so we can keep both of 8 and 7 without the confliction of their names.&lt;blockquote&gt;
+&lt;p&gt;把已经安装的Xcode.app重命名成Xcode8.app，这样就跟等会我们要安装的Xcode7不发生名字的冲突了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo mv /Applications/Xcode.app /Applications/Xcode8.app
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Download &lt;a href="https://developer.apple.com/download"&gt;XCode 7.3.1 and Command Line Tools for XCode 7.3.1&lt;/a&gt; , then install them.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;下载&lt;a href="https://developer.apple.com/download"&gt;XCode 7.3.1 和 Command Line Tools for XCode 7.3.1&lt;/a&gt;，然后安装即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command on terminal to switch the clang version to what we just installed:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在终端中运行下面这个命令，把clang切换到咱们刚安装的版本：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo xcode-select --switch /Library/Developer/CommandLineTools
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Run the command below to check the version of clang, which should be 7.3.0:&lt;blockquote&gt;
+&lt;p&gt;然后进行一下版本测试吧，应该是7.3.0了：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;clang -v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In my case I got this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我这里得到的结果如下所示：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;Apple LLVM version &lt;span class="m"&gt;7&lt;/span&gt;.3.0 &lt;span class="o"&gt;(&lt;/span&gt;clang-703.0.31&lt;span class="o"&gt;)&lt;/span&gt;
+Target: x86_64-ap ple-darwin16.0.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then we can  compile the sample app of CUDA. Those information are picked up fom &lt;a href="https://devtalk.nvidia.com/default/topic/967644/mac-osx-cuda-8-0-not-compatible-with-clang-8-0-0/?offset=8#4987715"&gt;This Post&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;然后就可以编译CUDA提供的sample了。上面这些信息收集整理自 &lt;a href="https://devtalk.nvidia.com/default/topic/967644/mac-osx-cuda-8-0-not-compatible-with-clang-8-0-0/?offset=8#4987715"&gt;这个帖子&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="Mac"></category><category term="CUDA"></category><category term="Mac"></category></entry><entry><title>Export and Import character of Mount&amp;Blade Warband under Mac OS X</title><link href="/export-and-import-character-of-mountblade-warband-under-mac-os-x.html" rel="alternate"></link><published>2015-11-29T00:00:00+08:00</published><updated>2015-11-29T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2015-11-29:/export-and-import-character-of-mountblade-warband-under-mac-os-x.html</id><summary type="html">&lt;p&gt;Mac系统下Steam安装的骑马与砍杀战团导入导出角色信息&lt;/p&gt;
+&lt;p&gt;Mount&amp;amp;Blade is one of my favourite game. I just install it into my macbook with steam. Then I try to import my old character and find it very tricky to find the right position to put the old txt file at.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我很喜欢骑砍，缓解压力好伙伴，所以渣果的本子也通过Steam来装了一个。然后我想着把旧的人物角色导入进来，发现还挺不好找目录位置来放角色文件的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Then I …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Mac系统下Steam安装的骑马与砍杀战团导入导出角色信息&lt;/p&gt;
+&lt;p&gt;Mount&amp;amp;Blade is one of my favourite game. I just install it into my macbook with steam. Then I try to import my old character and find it very tricky to find the right position to put the old txt file at.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我很喜欢骑砍，缓解压力好伙伴，所以渣果的本子也通过Steam来装了一个。然后我想着把旧的人物角色导入进来，发现还挺不好找目录位置来放角色文件的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Then I do some search find the solution &lt;a href="http://bbs.mountblade.com.cn/thread-560729-1-1.html"&gt;here&lt;/a&gt;. But I don't know whether there are any similar problems in the English world. So I make this translation and put it here to help guys.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;然后我搜索了一下，在中国论坛上找到了一个&lt;a href="http://bbs.mountblade.com.cn/thread-560729-1-1.html"&gt;解决方案&lt;/a&gt;。但我不知道英语世界中大家是不是也可能遇到类似的问题。所以我翻译了一下，把解决方法贴到这里，希望能帮到大家。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You need to right click at Finder, and go to the following location:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你需要右键Finder，然后转到下面的路径：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;/Users/&lt;strong&gt;{YOUR USER NAME HERE}&lt;/strong&gt;/Library/Application Support/MBWarband/&lt;/p&gt;
+&lt;p&gt;（注意，要正确输入你当前的账户名）&lt;/p&gt;
+&lt;p&gt;Then you will find or creat a folder named "Mount and Blade Warband Characters" and then you can put your character file in the folder.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;然后你看看是不是有这么个Mount and Blade Warband Characters文件夹，没有就创建一个，然后把你的角色文件放进去就可以了。&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="Mac"></category><category term="Mac"></category><category term="Game"></category><category term="Mount&amp;Blade"></category></entry><entry><title>Use Physical Drive with VirtualBox under Mac OS X</title><link href="/use-physical-drive-with-virtualbox-under-mac-os-x.html" rel="alternate"></link><published>2015-11-10T00:00:00+08:00</published><updated>2015-11-10T00:00:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2015-11-10:/use-physical-drive-with-virtualbox-under-mac-os-x.html</id><summary type="html">&lt;p&gt;Mac下VirtualBox使用物理磁盘启动操作系统&lt;/p&gt;
+&lt;p&gt;I used to work with a Linux or Windows PC a lot. I always use VMware Player on both of them.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我一般都用Linux或者Windows。在用这两个系统的时候我总选择VMware Player作为虚拟机软件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I choose VMware because the Player is free for personal use and the functions of it are powerful. I can use it to install any …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Mac下VirtualBox使用物理磁盘启动操作系统&lt;/p&gt;
+&lt;p&gt;I used to work with a Linux or Windows PC a lot. I always use VMware Player on both of them.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我一般都用Linux或者Windows。在用这两个系统的时候我总选择VMware Player作为虚拟机软件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I choose VMware because the Player is free for personal use and the functions of it are powerful. I can use it to install any operating system into both a virtual hard disk file and a physical hard drive. The second kind installation is very useful that I can boot the target OS installed both in the VMware Player and on the real machine. Booting it in the Player makes it easy for me to make adjustment at the same time with other work under the host OS. And booting the target OS on the real machine changes it into a whole real operating system and could archive the best performance of the hardware.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我用VMware主要因为Player对个人应用是免费的，而且功能也非常强大。通过VMware Player，我可以随意在虚拟磁盘文件或者物理硬盘上面安装一个操作系统。第二种安装功能非常有用处，通过这样方式安装的系统即可以在虚拟机里面启动，也可以用来启动物理机。在虚拟机里面启动很方便，我可以随时对系统进行调整，随时用外面的宿主系统做其他的事情。而用这个系统来启动物理机就能把虚拟机系统变成真正的操作系统来使用，发挥和直接物理安装一样的高性能。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Then some months ago I had to begin working with a Mac, because I've been learning to code with Xcode and Swift. But VMware doesn't provide a version of VMware Player for Mac OS X, that makes me no choice but to take VirtualBox as an alternative one.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;几个月之前我不得不使用渣果了，因为需要使用Xcode和Swift。然而VMware不提供渣果系统的版本，这就让我只能选择VirtualBox来替补了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The use of physical hard drive with VirtualBox is not that easy as the VMware Player. So I list the process here in case that I forgot or some other friends met similar situation.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;但VirtualBox使用物理磁盘就不像VMware那么方便了。所以我把整个过程列出来，以免自己忘掉了，也可供他人参考。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;The first step is finding the right disk number. You need to enter the dir of /dev, and then use the command ls to show the list of your devices.&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;第一步就是找到你要用的磁盘序号。你需要进入根目录下的dev文件夹，在里面使用ls来列出所有设备信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;$cd&lt;/span&gt; /dev
+dev&lt;span class="nv"&gt;$ls&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;I find my target drive is /dev/disk0. In my case, I am using two hard disks in the Mac boot. One is /dev/disk0 installed with both Linux and Windows already, and the other one is /dev/disk1 with Mac OS X. I am planing to use the /dev/disk0 in the VirtualBox.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;我的目标磁盘就是disk0。我用的渣果机器有两块硬盘。一个是disk0，已经装了Linux和Windows。另一个是disk1，安装的是渣果系统。我准备在VirtualBox里面用disk0.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After finding your target drive, you need to eject all the mounted volumes of the disk, and then get access to it by using the commands below (remember that you need to change the /dev/disk0 to your disk path):&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;找到目标之后，你要推出该磁盘所有已挂载的分区，然后使用下面的命令来获取权限（机主你要把这里的disk0改成你自己的那个硬盘编号）：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;$sudo&lt;/span&gt; chmod &lt;span class="m"&gt;777&lt;/span&gt; /dev/disk0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Then you can use the command below. Here it is only an example. You need to change DISK_NAME into your favorite name and change ~/(meaning the user's home) into your own dir.&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;接下来你要运行下面的命令来创建虚拟磁盘文件了。这里只是一个例子。你需要把DISK_NAME改成你喜欢的名字，另外~/这个目录（就是当前用户的主目录）也改成你要用的目录。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;$sudo&lt;/span&gt; VBoxManage internalcommands createrawvmdk -filename ~/DISK_NAME.vmdk -rawdisk /dev/disk0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You can not use the vmdk file created unless you change the ownership of it and chmod it to 777.&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;现在你还不能使用这个vmdk文件，你还得获取所有权，然后更改其权限为777。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;$sudo&lt;/span&gt; chown YOUR_USER_NAME DISK_NAME.vmdk
+&lt;span class="nv"&gt;$sudo&lt;/span&gt; chmod &lt;span class="m"&gt;777&lt;/span&gt; DISK_NAME.vmdk
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;After that you can use you physical hard drive in the VirtualBox under Mac OS X.&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;这一步做完之后，你就可以在渣果系统中，让VirtualBox使用这个镜像文件所链接的物理硬盘了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Mac"></category><category term="Mac"></category><category term="VirtualBox"></category></entry></feed>

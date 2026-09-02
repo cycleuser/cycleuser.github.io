@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894037367471530"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9894037367471530">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=19' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="./index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li class="active"><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li class="active"><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li class="active"><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li><li class="active"><a href="./2048游戏.html" data-i18n="2048">2048</a></li><li class="active"><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li><li class="active"><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li class="has-sub"><a href="./categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="./category/academic.html">Academic (3)</a></li><li><a href="./category/ai.html">AI (6)</a></li><li><a href="./category/c.html">C (16)</a></li><li><a href="./category/camera.html">Camera (15)</a></li><li><a href="./category/chromebook.html">ChromeBook (2)</a></li><li><a href="./category/cuda.html">CUDA (1)</a></li><li><a href="./category/design.html">Design (1)</a></li><li><a href="./category/diy.html">DIY (1)</a></li><li><a href="./category/duke.html">Duke (1)</a></li><li><a href="./category/education.html">Education (21)</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./category/hackintosh.html">Hackintosh (7)</a></li><li><a href="./category/java.html">Java (1)</a></li><li><a href="./category/linux.html">Linux (4)</a></li><li><a href="./category/llm.html">LLM (55)</a></li><li><a href="./category/ltfs.html">LTFS (1)</a></li><li><a href="./category/mac.html">Mac (3)</a></li><li><a href="./category/math.html">Math (30)</a></li><li><a href="./category/ml.html">ML (4)</a></li><li><a href="./category/modeling.html">Modeling (9)</a></li><li><a href="./category/nas.html">NAS (1)</a></li><li><a href="./category/nix.html">Nix (1)</a></li><li><a href="./category/photography.html">Photography (1)</a></li><li><a href="./category/programming.html">Programming (12)</a></li><li><a href="./category/pve.html">PVE (1)</a></li><li><a href="./category/python.html">Python (26)</a></li><li><a href="./category/qgis.html">QGIS (3)</a></li><li><a href="./category/qt.html">QT (1)</a></li><li><a href="./category/raspbian.html">Raspbian (1)</a></li><li><a href="./category/science.html">Science (2)</a></li><li><a href="./category/sdr.html">SDR (2)</a></li><li><a href="./category/software.html">Software (3)</a></li><li><a href="./category/story.html">Story (68)</a></li><li><a href="./category/sui-bi.html">随笔 (2)</a></li><li><a href="./category/tool.html">Tool (49)</a></li><li><a href="./category/tools.html">Tools (2)</a></li><li><a href="./category/virtualization.html">Virtualization (1)</a></li><li><a href="./category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./category/windows.html">Windows (1)</a></li><li><a href="./category/work.html">Work (24)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="./tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="./tag/7900xtx.html">7900XTX (3)</a></li><li><a href="./tag/9bmo-xing.html">9B模型 (1)</a></li><li><a href="./tag/abbreviations.html">abbreviations (1)</a></li><li><a href="./tag/academic.html">academic (1)</a></li><li><a href="./tag/adamw.html">AdamW (1)</a></li><li><a href="./tag/advice.html">advice (1)</a></li><li><a href="./tag/aerodynamics.html">aerodynamics (3)</a></li><li><a href="./tag/agent.html">Agent (3)</a></li><li><a href="./tag/ai.html">AI (31)</a></li><li><a href="./tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="./tag/aigc.html">AIGC (1)</a></li><li><a href="./tag/ailun-li.html">AI伦理 (1)</a></li><li><a href="./tag/airfoil.html">airfoil (1)</a></li><li><a href="./tag/algorithm.html">Algorithm (12)</a></li><li><a href="./tag/amd.html">AMD (1)</a></li><li><a href="./tag/anime.html">anime (1)</a></li><li><a href="./tag/arc.html">ARC (1)</a></li><li><a href="./tag/architecture.html">Architecture (3)</a></li><li><a href="./tag/arithmetic.html">arithmetic (1)</a></li><li><a href="./tag/attitude.html">Attitude (2)</a></li><li><a href="./tag/bayesian.html">Bayesian (2)</a></li><li><a href="./tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="./tag/beginner.html">Beginner (3)</a></li><li><a href="./tag/ben-di-bu-shu.html">本地部署 (5)</a></li><li><a href="./tag/ben-di-bu-shu-bing-yun-xing-omnicoder-9bde-su-du-zhi-mi-moxing-vs-ollama.html">本地部署并运行omnicoder-9b的速度之谜MoXing-vs-Ollama (1)</a></li><li><a href="./tag/ben-di-mo-xing.html">本地模型 (3)</a></li><li><a href="./tag/bfcl.html">BFCL (4)</a></li><li><a href="./tag/bi-ye-lun-wen.html">毕业论文 (1)</a></li><li><a href="./tag/bian-cheng.html">编程 (1)</a></li><li><a href="./tag/binary.html">binary (1)</a></li><li><a href="./tag/bing-fei-gu-yi-wei-shi-yao-wo-geng-duo-yong-ming-ling-xing-gong-ju-er-bu-shi-gui.html">并非故意-为什么我更多用命令行工具而不是GUI (1)</a></li><li><a href="./tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="./tag/book.html">Book (10)</a></li><li><a href="./tag/brent.html">Brent (1)</a></li><li><a href="./tag/bullshit.html">bullshit (1)</a></li><li><a href="./tag/c.html">C (10)</a></li><li><a href="./tag/camera.html">Camera (23)</a></li><li><a href="./tag/career.html">career (1)</a></li><li><a href="./tag/causation.html">Causation (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-da-mo-xing-omnicoder-9b-jian-ce-moxing-vs-ollama-dui-bi.html">超强的本地大模型-OmniCoder-9B-简测MoXing-vs-Ollama-对比 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-xiao-mo-xing-omnicoder-9bde-an-zhuang-yu-shi-yong-zhi-nan.html">超强的本地小模型OmniCoder-9B的安装与使用指南 (1)</a></li><li><a href="./tag/chao-xiao-mo-xing.html">超小模型 (1)</a></li><li><a href="./tag/chat.html">Chat (1)</a></li><li><a href="./tag/chatgpt.html">ChatGPT (1)</a></li><li><a href="./tag/cheng-chang.html">成长 (1)</a></li><li><a href="./tag/chouchou-pdflun-wen-zhong-ming-ming-gong-ju-sheng-ji-liao-zhe-ci-zhuan-men-you-hua-liao-zhong-wen-lun-wen-zhi-chi.html">Chou瞅-PDF论文重命名工具升级了这次专门优化了中文论文支持 (1)</a></li><li><a href="./tag/chouchou-yi-ge-pythonxiao-gong-ju-rang-ni-de-lun-wen-pdfwen-jian-ming-bu-zai-shi-luan-ma.html">Chou瞅一个Python小工具让你的论文PDF文件名不再是乱码 (1)</a></li><li><a href="./tag/chromebook.html">ChromeBook (2)</a></li><li><a href="./tag/cli.html">CLI (1)</a></li><li><a href="./tag/code.html">Code (2)</a></li><li><a href="./tag/code-generation.html">Code Generation (6)</a></li><li><a href="./tag/coding.html">Coding (1)</a></li><li><a href="./tag/cognition.html">Cognition (1)</a></li><li><a href="./tag/comics.html">comics (1)</a></li><li><a href="./tag/communicate.html">Communicate (6)</a></li><li><a href="./tag/communication.html">communication (3)</a></li><li><a href="./tag/comparison.html">comparison (1)</a></li><li><a href="./tag/computability.html">Computability (12)</a></li><li><a href="./tag/computer.html">computer (3)</a></li><li><a href="./tag/conda.html">Conda (2)</a></li><li><a href="./tag/conda-forge.html">conda-forge (1)</a></li><li><a href="./tag/configback-kua-ping-tai-kai-fa-pei-zhi-wen-jian-de-wu-tong-bei-fen-qian-yi-guan-li-gong-ju.html">ConfigBack-跨平台开发配置文件的无痛备份迁移管理工具 (1)</a></li><li><a href="./tag/cong-shu-zu-dao-fu-za-shu-ju-cyu-yan-shi-zen-yao-yi-bu-bu-bian-fu-za-de.html">从数组到复杂数据C语言是怎么一步步变复杂的 (1)</a></li><li><a href="./tag/copytalker-kua-yue-yu-yan-zhang-ai-de-jin-shi-shi-yu-yin-fan-yi.html">CopyTalker-跨越语言障碍的近实时语音翻译 (1)</a></li><li><a href="./tag/correlation.html">Correlation (1)</a></li><li><a href="./tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="./tag/cs.html">CS (1)</a></li><li><a href="./tag/cuda.html">CUDA (6)</a></li><li><a href="./tag/culture.html">culture (1)</a></li><li><a href="./tag/cursor.html">Cursor (1)</a></li><li><a href="./tag/cyu-yan-fu-xi-quan-gong-lue-yi-wen-chi-tou-suo-you-zhi-shi-dian.html">C语言复习全攻略-一文吃透所有知识点 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-numc-yi-ge-numpy-feng-ge-de-c-yu-yan-ku.html">C语言基础教程NumC-一个-NumPy-风格的-C-语言库 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shi-xian-lei-si-dong-tai-lei-xing-dui-yong-hu-shu-ru-jie-xi-bing-qie-xuan-ze-he-gua-de-shu-ju-lei-xing.html">C语言基础教程-实现类似动态类型对用户输入解析并且选择合适的数据类型 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shu-zu-xing-zhuang-50xing-200000lie-vs-200000xing-50lie-tong-yang-de-shu-ju-bu-tong-de-xing-neng.html">C语言基础教程数组形状-50行200000列-vs-200000行50列-同样的数据不同的性能 (1)</a></li><li><a href="./tag/da-gong.html">打工 (1)</a></li><li><a href="./tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="./tag/da-xue-sheng-huo.html">大学生活 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing.html">大语言模型 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing-li-mian-de-tokende-han-yi-he-yuan-liu.html">大语言模型里面的token的含义和源流 (1)</a></li><li><a href="./tag/dai-ma-neng-li.html">代码能力 (1)</a></li><li><a href="./tag/dan-jing-du-fu-dian-shu-de-fen-bian-lu-wei-shi-yao-zai-ji-suan-ji-li-1000-mo-he-1000-mo-jia-001-ke-neng-shi-yi-yang-de.html">单精度浮点数的分辨率为什么在计算机里-1000-万和-1000-万加-001-可能是一样的 (1)</a></li><li><a href="./tag/dan-yi-zhi-ze-yuan-ze-xie-hao-pythonhan-shu-de-di-yi-bu.html">单一职责原则写好Python函数的第一步 (1)</a></li><li><a href="./tag/data.html">Data (3)</a></li><li><a href="./tag/data-science.html">Data Science (2)</a></li><li><a href="./tag/database.html">Database (1)</a></li><li><a href="./tag/datewise-photo-organizer-ji-yu-ri-qi-shi-jian-jin-xing-tu-pian-zu-zhi-he-lu-jing-guan-li-de-she-ying-fu-zhu-gong-ju-ruan-jian.html">Datewise-Photo-Organizer-基于日期时间进行图片组织和路径管理的摄影辅助工具软件 (1)</a></li><li><a href="./tag/decision-making.html">decision-making (1)</a></li><li><a href="./tag/design.html">Design (1)</a></li><li><a href="./tag/dian-che-nan-ti-han-shang-de-zhi-jia-hui-zai-shi-gu-qian-tu-ran-tui-chu-yao.html">电车难题厂商的智驾会在事故前突然退出么 (1)</a></li><li><a href="./tag/dimension.html">dimension (1)</a></li><li><a href="./tag/discuss.html">Discuss (7)</a></li><li><a href="./tag/disease.html">Disease (1)</a></li><li><a href="./tag/diy.html">DIY (1)</a></li><li><a href="./tag/download.html">Download (1)</a></li><li><a href="./tag/earth-science.html">Earth Science (1)</a></li><li><a href="./tag/education.html">Education (15)</a></li><li><a href="./tag/efficiency.html">efficiency (1)</a></li><li><a href="./tag/ekf.html">EKF (1)</a></li><li><a href="./tag/emotion.html">emotion (1)</a></li><li><a href="./tag/engineering.html">Engineering (1)</a></li><li><a href="./tag/environment.html">Environment (1)</a></li><li><a href="./tag/er-ji.html">耳机 (1)</a></li><li><a href="./tag/er-jin-zhi.html">二进制 (1)</a></li><li><a href="./tag/ertinger-ting-yi-ge-jian-dan-de-yin-pin-jiang-zao-gong-ju.html">ErTing耳听一个简单的音频降噪工具 (1)</a></li><li><a href="./tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="./tag/fa-lan-ke-fu.html">法兰克福 (1)</a></li><li><a href="./tag/family.html">family (1)</a></li><li><a href="./tag/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">FanFu凡赴-把-Ollama-的-GGUF-模型转成-HuggingFace-格式纯好玩 (1)</a></li><li><a href="./tag/fang-fa-bi-gui-mo-geng-zhong-yao-agenticqwenyu-needlede-xiao-mo-xing-zhi-neng-ti-ying-yong-tan-suo.html">方法比规模更重要AgenticQwen与Needle的小模型智能体应用探索 (1)</a></li><li><a href="./tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="./tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="./tag/filtering.html">Filtering (6)</a></li><li><a href="./tag/folderlensyi-ge-pyside6shi-xian-de-jian-dan-wen-jian-guan-li-qi-kai-fa-shi-li.html">FolderLens一个PySide6实现的简单文件管理器开发实例 (1)</a></li><li><a href="./tag/fractal.html">fractal (1)</a></li><li><a href="./tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="./tag/freshman.html">freshman (5)</a></li><li><a href="./tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="./tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./tag/function-calling.html">function calling (1)</a></li><li><a href="./tag/game.html">Game (2)</a></li><li><a href="./tag/gametheory.html">GameTheory (1)</a></li><li><a href="./tag/gangdan-de-zhi-shi-ku-shi-zen-yao-lian-cheng-de.html">GangDan-的知识库是怎么炼成的 (1)</a></li><li><a href="./tag/gangdan-geng-xin-ke-yong-zai-xian-mo-xing-cong-xie-zong-shu-dao-xie-wan-zheng-wen-zhang.html">GangDan-更新可用在线模型从写综述到写完整文章 (1)</a></li><li><a href="./tag/gangdan-wu-yue-zhong-de-ji-zhong-geng-xin-jing-zhun-xuan-wen-zhi-shi-ku-fen-xi-xue-xi-mo-kuai-quan-mian-xiu-fu.html">GangDan-五月中的集中更新精准选文知识库分析学习模块全面修复 (1)</a></li><li><a href="./tag/gangdan-you-geng-xin-liao-yi-bo-cong-kai-fa-zhu-shou-zhuan-xing-wei-zhi-shi-guan-li-yu-jiao-xue-fu-zhu-gong-ju.html">GangDan-又更新了一波从开发助手转型为知识管理与教学辅助工具 (1)</a></li><li><a href="./tag/gangdangang-dan-sheng-ji-kai-yuan-ben-di-zhi-shi-ku-zhi-chi-ben-di-mo-xing-he-zai-xian-mo-xing-de-shen-du-yan-jiu-zhu-shou.html">GangDan纲担升级开源本地知识库-支持本地模型和在线模型的深度研究助手 (1)</a></li><li><a href="./tag/gangdangang-dan-zhong-gou-ji-hu-zhong-zuo-liao-yi-bian.html">GangDan纲担重构-几乎重做了一遍 (1)</a></li><li><a href="./tag/gangdanji-xu-geng-xin-xian-zai-neng-zhi-jie-shang-chuan-cajgou-jian-zhi-shi-ku-liao.html">GangDan继续更新现在能直接上传CAJ构建知识库了 (1)</a></li><li><a href="./tag/gangdanzhi-shi-ku-dao-chu-gai-jin-ke-yi-zhi-jie-dao-chu-xia-zai-hao-de-wen-zhang-yuan-wen-liao.html">GangDan知识库导出改进-可以直接导出下载好的文章原文了 (1)</a></li><li><a href="./tag/gao-xiao-jiao-shi-jian-yi-da-yi-kai-xue-yao-you-dian-nao-huan-yao-an-zhuang-opencodeshi-yong-zhi-neng-ti.html">高校教师建议大一开学要有电脑还要安装OpenCode使用智能体 (1)</a></li><li><a href="./tag/gei-xin-shou-shi-xian-yi-wei-shu-zu-de-liang-chong-si-lu-chuan-tong-cyu-yan-vs-numcku.html">给新手实现一维数组的两种思路传统C语言-vs-NumC库 (1)</a></li><li><a href="./tag/gemma4.html">Gemma4 (1)</a></li><li><a href="./tag/general-education.html">general-education (1)</a></li><li><a href="./tag/geojstool-di-qiu-hua-xue-fen-xi-gong-ju-wang-ye-ban-de-geopytool.html">GeoJsTool-地球化学分析工具-网页版的GeoPyTool (1)</a></li><li><a href="./tag/geology.html">Geology (4)</a></li><li><a href="./tag/geometry.html">geometry (1)</a></li><li><a href="./tag/geopython.html">GeoPython (1)</a></li><li><a href="./tag/gguf.html">GGUF (2)</a></li><li><a href="./tag/gis.html">GIS (3)</a></li><li><a href="./tag/glm.html">GLM (1)</a></li><li><a href="./tag/glumpy.html">GlumPy (2)</a></li><li><a href="./tag/golden-section.html">Golden Section (1)</a></li><li><a href="./tag/gong-ju-diao-yong.html">工具调用 (2)</a></li><li><a href="./tag/google-de-turboquant-suan-fa-ru-he-rang-aigeng-sheng-nei-cun-gao-ding-xiang-liang-liang-hua-nan-ti.html">Google-的-TurboQuant-算法如何让AI更省内存搞定向量量化难题 (1)</a></li><li><a href="./tag/gpt-35.html">GPT-3.5 (3)</a></li><li><a href="./tag/gpt-4o.html">GPT-4o (1)</a></li><li><a href="./tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="./tag/graduate-school.html">graduate-school (1)</a></li><li><a href="./tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="./tag/granite4.html">granite4 (1)</a></li><li><a href="./tag/gsm8k.html">GSM8K (2)</a></li><li><a href="./tag/gu-ge-turboquant-lun-wen-zhong-yi-ji-yu-jin-zui-you-niu-qu-lu-de-gao-su-zai-xian-xiang-liang-liang-hua-suan-fa.html">谷歌-TurboQuant-论文中译基于近最优扭曲率的高速在线向量量化算法 (1)</a></li><li><a href="./tag/guan-xi-xing-shu-ju-ku.html">关系型数据库 (1)</a></li><li><a href="./tag/guide.html">Guide (1)</a></li><li><a href="./tag/hack.html">Hack (2)</a></li><li><a href="./tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="./tag/hadoop.html">Hadoop (2)</a></li><li><a href="./tag/hardware.html">Hardware (2)</a></li><li><a href="./tag/hate.html">Hate (1)</a></li><li><a href="./tag/hbase.html">HBase (1)</a></li><li><a href="./tag/heibancong-markdownzhuan-chu-ppthuan-deng-pian.html">HeiBan从Markdown转出PPT幻灯片 (1)</a></li><li><a href="./tag/heibanhei-ban-jiang-markdownzhuan-huan-cheng-htmllai-dang-jiang-yi.html">HeiBan黑板-将Markdown转换成HTML来当讲义 (1)</a></li><li><a href="./tag/hellaswag.html">HellaSwag (2)</a></li><li><a href="./tag/hermes.html">Hermes (1)</a></li><li><a href="./tag/heroism.html">heroism (1)</a></li><li><a href="./tag/history.html">History (6)</a></li><li><a href="./tag/huan-jue.html">幻觉 (1)</a></li><li><a href="./tag/huan-wei-si-kao-he-ni-chou-sha.html">换位思考和你瞅啥 (1)</a></li><li><a href="./tag/huan-yi-ge-ba-wang-ye-zhuan-huan-cheng-markdownde-python-xiao-gong-ju.html">Huan-一个把网页转换成-Markdown的Python-小工具 (1)</a></li><li><a href="./tag/hui-yi.html">回忆 (1)</a></li><li><a href="./tag/humaneval.html">HumanEval (2)</a></li><li><a href="./tag/ide.html">IDE (2)</a></li><li><a href="./tag/imbalance.html">Imbalance (1)</a></li><li><a href="./tag/imu.html">IMU (1)</a></li><li><a href="./tag/jacobian.html">Jacobian (1)</a></li><li><a href="./tag/java-ji-chu-yu-fa-5fen-zhong-ru-men.html">Java-基础语法5分钟入门 (1)</a></li><li><a href="./tag/ji-chu-zhi-shi-chu-ji-tong-ji-gai-nian-de-jian-dan-jie-shao.html">基础知识初级统计概念的简单介绍 (1)</a></li><li><a href="./tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="./tag/ji-nian.html">纪念 (1)</a></li><li><a href="./tag/ji-suan-ji.html">计算机 (1)</a></li><li><a href="./tag/ji-suan-ji-zu-cheng.html">计算机组成 (1)</a></li><li><a href="./tag/ji-yu-ben-di-mo-xing-de-bian-cheng-xue-xi-fu-zhu-huan-jing-da-jian-wan-zheng-zhi-nan.html">基于本地模型的编程学习辅助环境搭建完整指南 (1)</a></li><li><a href="./tag/ji-yu-tunade-virtualbox-yu-ubuntu-xu-ni-ji-bu-shu-zhi-nan.html">基于TUNA的-VirtualBox-与-Ubuntu-虚拟机部署指南 (1)</a></li><li><a href="./tag/jian-dan-shuo-shuo-pythonli-mian-de-han-shu-shi-di-yi-gong-min-first-class-citizen.html">简单说说Python里面的函数是第一公民First-Class-Citizen (1)</a></li><li><a href="./tag/jie-zhu-pythonlai-li-jie-zi-gua-ying-xin-pu-sen-ji-fen-yuan-li-shi-xian-yu-dong-tai-ke-shi-hua.html">借助Python来理解自适应辛普森积分原理实现与动态可视化 (1)</a></li><li><a href="./tag/jing-xiang.html">镜像 (1)</a></li><li><a href="./tag/jiu-wen-gao-bie-guo-qu-gao-bie-ke-xue-wang.html">旧文告别过去告别科学网 (1)</a></li><li><a href="./tag/jixingji-xing-dang-agent-dui-hua-chao-chu-shang-xia-wen-xian-zhi-zuo-liao-yi-ge-lei-si-xu-ni-ji-re-qian-yi-cao-lu-fang-an.html">JiXing记行-当-Agent-对话超出上下文限制做了一个类似虚拟机热迁移草率方案 (1)</a></li><li><a href="./tag/job.html">Job (1)</a></li><li><a href="./tag/job-hunting.html">job-hunting (1)</a></li><li><a href="./tag/junck.html">Junck (3)</a></li><li><a href="./tag/kalman.html">Kalman (1)</a></li><li><a href="./tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="./tag/kao-yan-qu-mei-chu-shi-yu-fu-shi.html">考研祛魅初试与复试 (1)</a></li><li><a href="./tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="./tag/kivy.html">Kivy (3)</a></li><li><a href="./tag/kuan-biao.html">宽表 (1)</a></li><li><a href="./tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="./tag/language.html">Language (1)</a></li><li><a href="./tag/learn.html">Learn (4)</a></li><li><a href="./tag/learning.html">Learning (10)</a></li><li><a href="./tag/lens.html">Lens (19)</a></li><li><a href="./tag/lesson.html">Lesson (1)</a></li><li><a href="./tag/lfm.html">LFM (1)</a></li><li><a href="./tag/lfm25.html">lfm2.5 (1)</a></li><li><a href="./tag/li-yong-chao-qiang-de-xiao-mo-xing-omnicoder-9b-shi-shi-turboquant-liang-hua-kv-cache-2-bit-tiao-zhan-fp1.html">利用超强的小模型-OmniCoder-9B-试试-TurboQuant-量化-KV-Cache-2-bit-挑战-FP1 (1)</a></li><li><a href="./tag/li-yong-pythonshi-xian-de-yu-ben-di-da-mo-xing-jiao-hu-de-posix-jian-rong-ceng.html">利用Python实现的与本地大模型交互的POSIX-兼容层 (1)</a></li><li><a href="./tag/liang-hua.html">量化 (3)</a></li><li><a href="./tag/liaoliao-rang-ben-di-da-yu-yan-mo-xing-ai-bang-ni-liao-tian-de-kai-yuan-gong-ju.html">Liao聊-让本地大语言模型-AI-帮你聊天的开源工具 (1)</a></li><li><a href="./tag/library.html">Library (1)</a></li><li><a href="./tag/life.html">life (16)</a></li><li><a href="./tag/lift.html">lift (1)</a></li><li><a href="./tag/linux.html">Linux (9)</a></li><li><a href="./tag/liquid-ai.html">Liquid AI (1)</a></li><li><a href="./tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="./tag/llamacpp.html">llama.cpp (3)</a></li><li><a href="./tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="./tag/llm.html">LLM (7)</a></li><li><a href="./tag/ltfs.html">LTFS (1)</a></li><li><a href="./tag/lto.html">LTO (1)</a></li><li><a href="./tag/mac.html">Mac (11)</a></li><li><a href="./tag/macbook-air-m4.html">MacBook Air M4 (2)</a></li><li><a href="./tag/macos.html">macOS (1)</a></li><li><a href="./tag/markdown.html">Markdown (1)</a></li><li><a href="./tag/materials.html">Materials (1)</a></li><li><a href="./tag/math.html">Math (3)</a></li><li><a href="./tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="./tag/mathematics.html">mathematics (1)</a></li><li><a href="./tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="./tag/maturity.html">maturity (1)</a></li><li><a href="./tag/mayavi.html">MayaVi (1)</a></li><li><a href="./tag/mechanics.html">Mechanics (1)</a></li><li><a href="./tag/memory.html">Memory (4)</a></li><li><a href="./tag/methodology.html">Methodology (1)</a></li><li><a href="./tag/mian-dui-wu-mai-ni-shi-wu-neng-wei-li-huan-shi-xiu-shou-pang-guan.html">面对雾霾你是无能为力还是袖手旁观 (1)</a></li><li><a href="./tag/mian-xiang-dui-xiang-bian-cheng-ru-men-yong-wu-xia-jiao-se-li-jie-python-zhong-de-lei.html">面向对象编程入门用武侠角色理解-Python-中的类 (1)</a></li><li><a href="./tag/microscope.html">Microscope (2)</a></li><li><a href="./tag/mindset.html">mindset (2)</a></li><li><a href="./tag/miniconda3.html">Miniconda3 (1)</a></li><li><a href="./tag/ml.html">ML (4)</a></li><li><a href="./tag/mlx.html">mlx (1)</a></li><li><a href="./tag/mmlu.html">MMLU (2)</a></li><li><a href="./tag/mo-xing-ping-ce.html">模型评测 (1)</a></li><li><a href="./tag/mobile.html">Mobile (1)</a></li><li><a href="./tag/moe.html">MoE (1)</a></li><li><a href="./tag/moon.html">Moon (1)</a></li><li><a href="./tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="./tag/moving-average.html">Moving Average (1)</a></li><li><a href="./tag/moxing.html">moxing (1)</a></li><li><a href="./tag/moxing-he-ollama-dui-bi-cong-omnicoder-9bdao-geng-duo-mo-xing.html">MoXing-和-Ollama-对比从omnicoder-9b到更多模型 (1)</a></li><li><a href="./tag/moxing-su-du-zui-gao-da-dao-ollamade-201-tong-mo-xing-tong-ying-jian-de-shi-ce-dui-bi-omnicoder-2-9b-de-q4_k_m.html">MoXing-速度最高达到-Ollama的-201-同模型同硬件的实测对比OmniCoder-2-9B-的-Q4_K_M (1)</a></li><li><a href="./tag/moxing-wu-yue-geng-xin-suan-shi-lai-liao-ge-da-sao-chu.html">MoXing-五月更新算是来了个大扫除 (1)</a></li><li><a href="./tag/moxing-zhu-li-la-ji-lao-yong-bai-yuan-chao-lian-jie-xian-qia-ben-di-yun-xing-omnicoder-2-9bmo-xing-jie-guo-ye-zhi-you-shi-ji-ge-tokenss.html">MoXing-助力垃圾佬用百元超廉价显卡本地运行omnicoder-2-9b模型结果也只有十几个tokenss (1)</a></li><li><a href="./tag/moxingdi-yu-suan-chang-jing-yong-rx580xian-qia-qing-song-yun-xing-qwen35-9b-q4_k_mmo-xing.html">MoXing低预算场景用RX580显卡轻松运行Qwen35-9b-q4_k_m模型 (1)</a></li><li><a href="./tag/moxingsheng-ji-tong-shi-yun-xing-duo-ge-mo-xing-shi-li.html">MoXing升级同时运行多个模型实例 (1)</a></li><li><a href="./tag/moxingxin-sheng-ji-zhi-jie-duo-she-ollama-bu-fen-mo-xing-ti-su-50.html">MoXing新升级直接夺舍-Ollama-部分模型提速-50 (1)</a></li><li><a href="./tag/mtp.html">MTP (1)</a></li><li><a href="./tag/muon.html">Muon (1)</a></li><li><a href="./tag/n8n.html">n8n (1)</a></li><li><a href="./tag/nas.html">NAS (1)</a></li><li><a href="./tag/nemotron.html">Nemotron (1)</a></li><li><a href="./tag/network.html">Network (1)</a></li><li><a href="./tag/ni-de-dian-nao-mei-miao-neng-zuo-duo-shao-ci-fu-dian-yun-suan-flops-de-gu-shi.html">你的电脑每秒能做多少次浮点运算FLOPS-的故事 (1)</a></li><li><a href="./tag/niu-dun-fa-qiu-jie-guo-cheng-de-pythonshi-xian-ji-qi-xiang-jie.html">牛顿法求解过程的Python实现及其详解 (1)</a></li><li><a href="./tag/nixos.html">NixOS (1)</a></li><li><a href="./tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="./tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="./tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="./tag/nosql.html">NoSQL (1)</a></li><li><a href="./tag/numpy.html">NumPy (1)</a></li><li><a href="./tag/nuoyi-geng-xin-xin-zeng-zai-xian-zhuan-huan-yin-qing-mei-xian-qia-ye-bu-pa-chang-wen-dang-ye-bu-na-yao-tou-teng.html">NuoYi-更新新增在线转换引擎没显卡也不怕长文档也不那么头疼 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-geng-xin-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju-shao-wei-sheng-yi-dian-xian-cun-liao.html">NuoYi-挪移更新-离线的-PDFDOCX-转-Markdown-工具稍微省一点显存了 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-yi-ge-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju.html">NuoYi-挪移-一个离线的-PDFDOCX-转-Markdown-工具 (1)</a></li><li><a href="./tag/nvidia.html">Nvidia (1)</a></li><li><a href="./tag/ocr.html">OCR (1)</a></li><li><a href="./tag/ollama.html">Ollama (20)</a></li><li><a href="./tag/ollamaaidgei-ni-guan-li-ben-di-da-mo-xing-pei-ge-de-li-zhu-shou.html">OllamaAid给你管理本地大模型配个得力助手 (1)</a></li><li><a href="./tag/ollamageng-xin-suo-you-ben-di-mo-xing.html">Ollama更新所有本地模型 (1)</a></li><li><a href="./tag/ollamaqian-ru-mo-xing-xuan-xing-zhi-nan-zhu-liu-mo-xing-shen-du-dui-bi.html">Ollama嵌入模型选型指南-主流模型深度对比 (1)</a></li><li><a href="./tag/omlx.html">omlx (1)</a></li><li><a href="./tag/opc.html">OPC (1)</a></li><li><a href="./tag/opencl.html">OpenCL (1)</a></li><li><a href="./tag/opencode.html">opencode (11)</a></li><li><a href="./tag/opencode-jin-jie-zhi-ji-neng-chuang-zuo-chai-jie-miao-shu-dian-xing-ren-wu-hou-yan-zheng-shi-xian-zai-zuo-cheng-ke-fu-yong-de-ji-neng.html">OpenCode-进阶之技能创作拆解描述典型任务后验证实现再做成可复用的技能 (1)</a></li><li><a href="./tag/opencode-skillsfen-xiang-yi-tao-zi-ji-luan-xie-de-huan-suan-shi-yong-de-ai-bian-ma-ji-neng-ku.html">OpenCode-Skills分享一套自己乱写的还算实用的-AI-编码技能库 (1)</a></li><li><a href="./tag/openlaoke-geng-xin-ben-di-gguf-mo-xing-ling-api-fei-yong-pao-qi-lai.html">OpenLaoKe-更新本地-GGUF-模型零-API-费用跑起来 (1)</a></li><li><a href="./tag/openlaokelao-ke-yi-ge-ming-ling-xing-aizhu-shou.html">OpenLaoKe唠嗑一个命令行AI助手 (1)</a></li><li><a href="./tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="./tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="./tag/optimization.html">Optimization (2)</a></li><li><a href="./tag/os.html">os (1)</a></li><li><a href="./tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="./tag/parenting.html">Parenting (1)</a></li><li><a href="./tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="./tag/path.html">PATH (1)</a></li><li><a href="./tag/pdfjie-xi.html">PDF解析 (1)</a></li><li><a href="./tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="./tag/performance.html">Performance (1)</a></li><li><a href="./tag/phd.html">PHD (2)</a></li><li><a href="./tag/philosophy.html">philosophy (2)</a></li><li><a href="./tag/photo.html">Photo (23)</a></li><li><a href="./tag/photography.html">Photography (2)</a></li><li><a href="./tag/physics.html">Physics (3)</a></li><li><a href="./tag/ping-ce.html">评测 (1)</a></li><li><a href="./tag/poem.html">Poem (2)</a></li><li><a href="./tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="./tag/programming.html">Programming (11)</a></li><li><a href="./tag/prompt.html">Prompt (1)</a></li><li><a href="./tag/psychology.html">Psychology (1)</a></li><li><a href="./tag/pve.html">PVE (2)</a></li><li><a href="./tag/pyenv.html">Pyenv (2)</a></li><li><a href="./tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="./tag/python.html">Python (70)</a></li><li><a href="./tag/python-ji-chu-yu-fa-5fen-zhong-ru-men.html">Python-基础语法5分钟入门 (1)</a></li><li><a href="./tag/qemu.html">QEMU (1)</a></li><li><a href="./tag/qgis.html">QGIS (3)</a></li><li><a href="./tag/qt.html">QT (1)</a></li><li><a href="./tag/qu-shen-cha.html">去审查 (1)</a></li><li><a href="./tag/qwen3.html">Qwen3 (10)</a></li><li><a href="./tag/qwen35.html">qwen3.5 (1)</a></li><li><a href="./tag/qwen36.html">Qwen3.6 (3)</a></li><li><a href="./tag/qwen38.html">Qwen3.8 (4)</a></li><li><a href="./tag/radio.html">Radio (2)</a></li><li><a href="./tag/rag.html">RAG (1)</a></li><li><a href="./tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="./tag/raspbian.html">Raspbian (1)</a></li><li><a href="./tag/reading.html">reading (2)</a></li><li><a href="./tag/reflection.html">reflection (4)</a></li><li><a href="./tag/remote.html">Remote (1)</a></li><li><a href="./tag/research.html">Research (3)</a></li><li><a href="./tag/resume.html">resume (1)</a></li><li><a href="./tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="./tag/ri-chang-sheng-huo.html">日常生活 (1)</a></li><li><a href="./tag/rotation.html">Rotation (1)</a></li><li><a href="./tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="./tag/rtx-4070.html">RTX 4070 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-jia-gou-shi-zhuan-ye-ying-yu-gao-pin-ci-hui-biao.html">软考高级系统架构设计师知识精要-架构师专业英语高频词汇表 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-ce-shi-yu-yun-xing-wei-hu.html">软考高级系统架构设计师知识精要-软件测试与运行维护 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-gong-cheng-yu-kai-fa-fang-fa.html">软考高级系统架构设计师知识精要-软件工程与开发方法 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-jia-gou-she-ji-yu-ping-gu.html">软考高级系统架构设计师知识精要-软件架构设计与评估 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-an-quan-yu-qu-kuai-lian-ji-zhu.html">软考高级系统架构设计师知识精要-系统安全与区块链技术 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-jian-mo-yu-umlshe-ji.html">软考高级系统架构设计师知识精要-系统建模与UML设计 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xi-xi-tong-yu-qi-ye-xin-xi-hua.html">软考高级系统架构设计师知识精要-信息系统与企业信息化 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xing-ji-zhu-yu-ji-chu-she-shi.html">软考高级系统架构设计师知识精要-新兴技术与基础设施 (1)</a></li><li><a href="./tag/rust.html">Rust (1)</a></li><li><a href="./tag/rustyu-yan-cheng-xu-she-ji-ji-chu-di-san-zhang-fu-he-shu-ju-lei-xing-yu-xun-huan.html">Rust语言程序设计基础第三章复合数据类型与循环 (1)</a></li><li><a href="./tag/rx590.html">RX590 (1)</a></li><li><a href="./tag/sandbox.html">SandBox (1)</a></li><li><a href="./tag/scholar.html">Scholar (2)</a></li><li><a href="./tag/school.html">School (3)</a></li><li><a href="./tag/science.html">Science (3)</a></li><li><a href="./tag/search.html">Search (1)</a></li><li><a href="./tag/self-study.html">Self-Study (1)</a></li><li><a href="./tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="./tag/server.html">Server (1)</a></li><li><a href="./tag/shang-ye-xin-xi.html">商业信息 (1)</a></li><li><a href="./tag/sheng-cheng-su-du.html">生成速度 (1)</a></li><li><a href="./tag/shi-jie-yi-liu-da-xue-shuo-shuo-er-yi-huan-shi-zhen-de-qu-zuo.html">世界一流大学说说而已还是真的去做 (1)</a></li><li><a href="./tag/shi-yong-llama-factory-cong-modelscope-xia-zai-mo-xing-bing-wei-diao.html">使用-LLaMA-Factory-从-ModelScope-下载模型并微调 (1)</a></li><li><a href="./tag/shi-yong-ollamakuai-su-bu-shu-bing-yun-xing-zui-xin-de-qwen3-30b-a3b-2507mo-xing.html">使用ollama快速部署并运行最新的qwen3-30b-a3b-2507模型 (1)</a></li><li><a href="./tag/shit.html">Shit (1)</a></li><li><a href="./tag/shu-ju-an-quan.html">数据安全 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-0zhang-cyu-yan-pythonde-di-ceng-shi-jiao.html">数据结构与算法基础-第0章-C语言Python的底层视角 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-1zhang-suan-fa-ji-chu-yu-fu-za-du-fen-xi.html">数据结构与算法基础-第1章-算法基础与复杂度分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-2zhang-xian-xing-shu-ju-jie-gou.html">数据结构与算法基础-第2章-线性数据结构 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-4zhang-tu-lun-ji-chu.html">数据结构与算法基础-第4章-图论基础 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-5zhang-pai-xu-suan-fa.html">数据结构与算法基础-第5章-排序算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-6zhang-sou-suo-suan-fa.html">数据结构与算法基础-第6章-搜索算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-7zhang-dong-tai-gui-hua.html">数据结构与算法基础-第7章-动态规划 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-8zhang-gao-ji-suan-fa.html">数据结构与算法基础-第8章-高级算法 (1)</a></li><li><a href="./tag/shu-ju-ke-shi-hua.html">数据可视化 (1)</a></li><li><a href="./tag/shu-ju-ku.html">数据库 (1)</a></li><li><a href="./tag/shu-ju-lei-xing.html">数据类型 (1)</a></li><li><a href="./tag/shu-zhi-ji-fen-man-tan-ru-he-rang-yong-pythonqiu-ji-fen.html">数值积分漫谈如何让用Python求积分 (1)</a></li><li><a href="./tag/shui-ke-xing-cun-zhi-nan-ru-guo-ni-bei-po-yao-qu-ting-ni-bu-xi-huan-de-ke-cheng-gai-zen-yao-ban.html">水课幸存指南-如果你被迫要去听你不喜欢的课程该怎么办 (1)</a></li><li><a href="./tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="./tag/signal-processing.html">Signal Processing (3)</a></li><li><a href="./tag/skill.html">skill (3)</a></li><li><a href="./tag/smollm2.html">smollm2 (1)</a></li><li><a href="./tag/software.html">Software (1)</a></li><li><a href="./tag/sou-suo.html">搜索 (1)</a></li><li><a href="./tag/sports.html">sports (1)</a></li><li><a href="./tag/sql.html">SQL (1)</a></li><li><a href="./tag/state-space.html">State Space (1)</a></li><li><a href="./tag/statistics.html">Statistics (1)</a></li><li><a href="./tag/story.html">Story (50)</a></li><li><a href="./tag/sui-bi.html">随笔 (1)</a></li><li><a href="./tag/t-bench.html">τ-bench (1)</a></li><li><a href="./tag/tape.html">Tape (1)</a></li><li><a href="./tag/telescope.html">Telescope (1)</a></li><li><a href="./tag/terminal.html">Terminal (1)</a></li><li><a href="./tag/textbook.html">textbook (1)</a></li><li><a href="./tag/thinking.html">Thinking (7)</a></li><li><a href="./tag/ti-xing-fa-qiu-ji-fen-de-pythonshi-xian.html">梯形法求积分的Python实现 (1)</a></li><li><a href="./tag/tian-biao.html">填表 (1)</a></li><li><a href="./tag/time-series.html">Time Series (1)</a></li><li><a href="./tag/tokenzi-you-yong-moxingzai-7900xtx-24gxian-qia-shang-ben-di-yun-xing-qwen36-27bmo-xing-gei-opencodeyong-lai-wen-dang-bian.html">Token自由-用MoXing在7900xtx-24G显卡上本地运行Qwen36-27B模型给OpenCode用来文档编 (1)</a></li><li><a href="./tag/tong-ji-xue.html">统计学 (1)</a></li><li><a href="./tag/tong-men-xiang-can-bai-yuan-xian-qia-de-ben-di-mo-xing-da-zhan-rx580-16g-2048sp-vs-rx590-8g-2304sp.html">同门相残-百元显卡的本地模型大战RX580-16G-2048SP-VS-RX590-8G-2304SP (1)</a></li><li><a href="./tag/tong-nian.html">童年 (1)</a></li><li><a href="./tag/tong-xue.html">同学 (1)</a></li><li><a href="./tag/tool.html">Tool (8)</a></li><li><a href="./tag/tool-calling.html">tool calling (3)</a></li><li><a href="./tag/toolbench.html">ToolBench (1)</a></li><li><a href="./tag/tools.html">Tools (10)</a></li><li><a href="./tag/traffic.html">Traffic (1)</a></li><li><a href="./tag/translate.html">Translate (2)</a></li><li><a href="./tag/translation.html">Translation (1)</a></li><li><a href="./tag/transpaste-sheng-ji-yi-ge-jian-tie-ban-fan-yi-gong-ju-de-zi-wo-xiu-yang.html">TransPaste-升级一个剪贴板翻译工具的自我修养 (1)</a></li><li><a href="./tag/transpaste-yi-kuan-ji-yu-ben-di-da-yu-yan-mo-xing-de-qing-liang-ji-jian-tie-ban-fan-yi-gong-ju.html">TransPaste-一款基于本地大语言模型的轻量级剪贴板翻译工具 (1)</a></li><li><a href="./tag/transpasteben-di-ai-fan-yi-gong-ju-xin-ban-ben-sheng-ji-hou-zhi-chi-geng-duo-xi-li-du-de-fan-yi-kong-zhi.html">TransPaste本地-AI-翻译工具新版本升级后支持更多细粒度的翻译控制 (1)</a></li><li><a href="./tag/tui.html">TUI (1)</a></li><li><a href="./tag/tui-jian-yi-kuan-markdownde-kua-ping-tai-chi-xian-bian-ji-qi-zhi-chi-sui-shi-yu-lan.html">推荐一款MarkDown的跨平台离线编辑器支持随时预览 (1)</a></li><li><a href="./tag/tuna.html">TUNA (1)</a></li><li><a href="./tag/turing.html">Turing (12)</a></li><li><a href="./tag/tutorial.html">tutorial (2)</a></li><li><a href="./tag/uav.html">UAV (1)</a></li><li><a href="./tag/ubuntu.html">Ubuntu (4)</a></li><li><a href="./tag/ubuntu-shou-dong-an-zhuang-ollama-0171-lai-yun-xing-qwen3535b-a3b-de-xiang-xi-zhi-nan.html">Ubuntu-手动安装-Ollama-0171-来运行-qwen3535b-a3b-的详细指南 (1)</a></li><li><a href="./tag/ui.html">UI (1)</a></li><li><a href="./tag/ukf.html">UKF (1)</a></li><li><a href="./tag/university.html">university (14)</a></li><li><a href="./tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="./tag/ustc.html">USTC (1)</a></li><li><a href="./tag/ventoy.html">Ventoy (1)</a></li><li><a href="./tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="./tag/vibe-coding-fen-wei-bian-cheng-an-li-tong-guo-dui-hua-shi-xian-ke-yong-de-kuai-su-cha-biao-gong-ju.html">Vibe-Coding-氛围编程案例-通过对话实现可用的快速查表工具 (1)</a></li><li><a href="./tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="./tag/video.html">video (2)</a></li><li><a href="./tag/vidtogif-yi-ge-jian-dan-gao-xiao-de-shi-pin-zhuan-gif-gong-ju.html">VidToGif-一个简单高效的视频转-GIF-工具 (1)</a></li><li><a href="./tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="./tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="./tag/virtualization.html">Virtualization (1)</a></li><li><a href="./tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./tag/vispy.html">VisPy (1)</a></li><li><a href="./tag/visualization.html">Visualization (8)</a></li><li><a href="./tag/vm.html">VM (1)</a></li><li><a href="./tag/vmwarexu-ni-ji-yun-xing-macosunlcokrecoveryosoc4vm-shi-xian-ti-gong-bai-du-yun-pan-xia-zai.html">VMware虚拟机运行macOSunlcokrecoveryosOC4VM-实现提供百度云盘下载 (1)</a></li><li><a href="./tag/void-moxingdi-cheng-ben-fang-an-yong-rx580xian-qia-ben-di-yun-xing-qwen359bmo-xing-da-zao-lei-cursorti-yan.html">Void-MoXing低成本方案用RX580显卡本地运行qwen359B模型打造类Cursor体验 (1)</a></li><li><a href="./tag/vtk.html">VTK (1)</a></li><li><a href="./tag/web.html">Web (1)</a></li><li><a href="./tag/wen-ben-shou-ji.html">文本收集 (1)</a></li><li><a href="./tag/wen-dang-he-cha.html">文档核查 (1)</a></li><li><a href="./tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="./tag/windows.html">Windows (4)</a></li><li><a href="./tag/windows-xi-tong-xia-cong-qing-hua-da-xue-tuna-jing-xiang-an-zhuang-miniconda3-wan-zheng-zhi-nan.html">Windows-系统下从清华大学-TUNA-镜像安装-Miniconda3-完整指南 (1)</a></li><li><a href="./tag/windows11.html">Windows11 (1)</a></li><li><a href="./tag/wingetguigei-windows-bao-guan-li-qi-jia-ge-tu-xing-jie-mian.html">WinGetGUI给-Windows-包管理器加个图形界面 (1)</a></li><li><a href="./tag/winogrande.html">WinoGrande (1)</a></li><li><a href="./tag/workflow.html">workflow (1)</a></li><li><a href="./tag/xcode.html">Xcode (1)</a></li><li><a href="./tag/xia-zai.html">下载 (1)</a></li><li><a href="./tag/xian-jiao-hui-zai-rang-ta-zuo-da-mo-xing-ding-zhi-hua-li-cpthe-sftdao-di-zai-gan-shi-yao.html">先教会再让它做大模型定制化里CPT和SFT到底在干什么 (1)</a></li><li><a href="./tag/xiang-sheng.html">相声 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-er-hui-jiu-suan-shi-sun-wu-kong-shang-da-xue-ye-de-yong-gong.html">小猴子学编程第二回就算是孙悟空上大学也得用功 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-san-hui-shi-yi-zhi-pa-zai-na-zi-yuan-zi-ai-huan-shi-gan-jin-zhun-bei-qu-xin-fu-ben.html">小猴子学编程第三回是一直趴在那自怨自艾还是赶紧准备去新副本 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-si-hui-chong-zhi-bu-hui-rang-ni-bian-qiang-xue-xi-cai-hui.html">小猴子学编程第四回充值不会让你变强学习才会 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-yi-hui-na-pa-shi-sun-wu-kong-ye-xu-yao-xue-xi.html">小猴子学编程第一回哪怕是孙悟空也需要学习 (1)</a></li><li><a href="./tag/xiao-mo-xing.html">小模型 (1)</a></li><li><a href="./tag/xiao-mo-xing-ping-ce.html">小模型评测 (2)</a></li><li><a href="./tag/xiao-you.html">校友 (1)</a></li><li><a href="./tag/xiexie-ba-markdown-zhuan-cheng-wei-xin-gong-zhong-hao-ge-shi-wang-ye-de-xiao-gong-ju.html">Xie写把-Markdown-转成微信公众号格式网页的小工具 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-markdown-shu-xue-gong-shi-zhi-nan.html">新手向的-Markdown-数学公式指南 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-ruan-kao-gao-ji-jia-gou-shi-wan-quan-bei-kao-zhi-nan.html">新手向的软考高级架构师完全备考指南 (1)</a></li><li><a href="./tag/xing-neng-shi-ce.html">性能实测 (1)</a></li><li><a href="./tag/xiu-liao-transpastede-4ge-bug.html">修了TransPaste的4个bug (1)</a></li><li><a href="./tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="./tag/xue-xi-lu-de-qian-shi-jin-sheng-cong-quan-ju-dan-yi-dao-zhu-ceng-ding-zhi.html">学习率的前世今生从全局单一到逐层定制 (1)</a></li><li><a href="./tag/xue-zhu-lun-wen-zhong-chang-jian-yan-jiu-fang-fa-zong-shu-ji-jian-dan-ju-li.html">学术论文中常见研究方法综述及简单举例 (1)</a></li><li><a href="./tag/xue-zhu-yan-jiu-zhi-chi-gong-ju-fen-lei-yu-wen-xian-huo-qu-fang-fa.html">学术研究支持工具分类与文献获取方法 (1)</a></li><li><a href="./tag/yi-xue-chang-jing-yong-duo-mo-tai-da-mo-xing-you-ke-neng-wan-quan-bu-kao-pu-si-tan-fu-da-xue-li-fei-fei-tuan-dui-xin-yan-jiu-jie-kai-duo-mo-tai-aide-hai-shi-shen-lou-xiao-ying.html">医学场景用多模态大模型有可能完全不靠谱斯坦福大学李飞飞团队新研究揭开多模态AI的海市蜃楼效应 (1)</a></li><li><a href="./tag/yi-zhi-tiny-fastboot-scriptdao-macosban-ben-gei-motorola-g100guo-xing-ban-ben-xt2533-4shua-ru-g6.html">移植Tiny-Fastboot-Script到macOS版本给Motorola-G100国行版本XT2533-4刷入G6 (1)</a></li><li><a href="./tag/yin-pin.html">音频 (1)</a></li><li><a href="./tag/ying-pan.html">硬盘 (1)</a></li><li><a href="./tag/yong-wan-quan-kai-yuan-mian-fei-de-ben-di-mo-xing-lai-dui-shi-pin-zhong-de-yin-pin-jin-xing-jiang-zao.html">用完全开源免费的本地模型来对视频中的音频进行降噪 (1)</a></li><li><a href="./tag/you-xi-shi-zen-yao-yun-xing-de-ru-guo-zhi-zhi-dao-chong-zhi-shi-ji-shang-bing-bu-yi-ding-neng-bian-qiang.html">游戏是怎么运行的如果只知道充值实际上并不一定能变强 (1)</a></li><li><a href="./tag/zhe-ji-tian-wo-chuan-yue-liao-shi-jian.html">这几天我穿越了时间 (1)</a></li><li><a href="./tag/zhe-xue.html">哲学 (1)</a></li><li><a href="./tag/zhen-dui-da-mo-xing-he-zhi-neng-ti-xin-shou-kai-fa-zhe-de-linuxhuan-jing-pei-zhi-zhi-nan.html">针对大模型和智能体新手开发者的Linux环境配置指南 (1)</a></li><li><a href="./tag/zhi-ce-flops-huan-bu-gou-si-ge-jing-dian-cpu-ce-shi-ji-zhun.html">只测-FLOPS-还不够四个经典-CPU-测试基准 (1)</a></li><li><a href="./tag/zhi-neng-ti.html">智能体 (1)</a></li><li><a href="./tag/zhi-shi-wai-zhi.html">知识外置 (1)</a></li><li><a href="./tag/zhi-zhen-yue-jie-cyu-yan-gei-ni-de-zi-you-yi-ji-tou-tou-mai-de-lei.html">指针越界C语言给你的自由以及偷偷埋的雷 (1)</a></li><li><a href="./tag/zhong-xin-shen-shi-si-wei-lian-wei-bi-shi-zhen-si-wei-yi-pian-icml-2026-lun-wen-de-lun-zheng-yu-qi-shi.html">重新审视-思维链未必是真思维-一篇ICML-2026-论文的论证与启示 (1)</a></li><li><a href="./tag/zhuang-ji.html">装机 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skills-he-ji-geng-xin-cong-6-ge-ji-neng-dao-22-ge-yi-ji-bi-xu-cheng-ren-de-wen-ti.html">自用的-OpenCode-Skills-合集更新从-6-个技能到-22-个以及必须承认的问题 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skillzai-ci-geng-xin-22ge-skillszhong-xin-da-mo-liao-yi-bian-shun-lu-jie-jue-liao-opencodedao-zhi-zheng-ge-tu-xing-jie-mian-beng-kui.html">自用的OpenCode-Skill再次更新22个skills重新打磨了一遍顺路解决了OpenCode导致整个图形界面崩溃 (1)</a></li><li><a href="./tag/zluda-he-macos-shang-de-cuda-jian-rong-meng-xiang.html">ZLUDA-和-macOS-上的-CUDA-兼容梦想 (1)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="./index.html" data-i18n="blog">博客</a> › <a href="category/qgis.html">QGIS</a> › 空间数据的可视化和分析
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >空间数据的可视化和分析</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep" data-i18n="post_in">发布于</span>
+        <abbr class="date" title="2022-01-01T16:59:00+08:00"> 
+            <a href="./archive/2022/Jan/index.html">Sat 01 January 2022 </a>
+        </abbr>
+        <span class="meta-prep"> | <span data-i18n="tags_label">标签</span></span>
+                <a class="tag-badge" href="./tag/gis.html">GIS</a>
+                <a class="tag-badge" href="./tag/qgis.html">QGIS</a>
+                <a class="tag-badge" href="./tag/python.html">Python</a>
+                <a class="tag-badge" href="./tag/learning.html">Learning</a>
+                <a class="tag-badge" href="./tag/book.html">Book</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <p><a href="https://courses.spatialthoughts.com/spatial-data-viz.html">本文英文原版地址</a></p>
+<h3>使用 QGIS 处理空间数据集</h3>
+<h4>英文原作者：Ujaval Gandhi</h4>
+<h4>中文翻译：CycleUser</h4>
+<h1>导论</h1>
+<p>本课程对位置数据集的使用进行简要介绍。课程会涉及到一系列的使用场景和应用工具，让你能亲自上手体验地图数据的可视化，并从中提取深层信息。这门课假设你对地理信息系统、遥感都一无所知，也适合所有学科的从业人员。我们这里所有练习都用开源软件<a href="https://qgis.org/en/site/">QGIS</a> ，所以此课程也适合用于学习QGIS。</p>
+<p><a href="https://pan.baidu.com/s/1lFjSnJbUuxVpAu5qk4mu1A">点击下载课程幻灯片 提取码: nfr8 </a></p>
+<h1>软件</h1>
+<p>本课程使用的版本是 QGIS LTR version 3.16 （长期支持版本），具体的安装可以参考<a href="https://courses.spatialthoughts.com/install-qgis-ltr.html">QGIS-LTR 安装指南</a> 。【译者注：也可以自行探索，这一步挺简单的。需要注意的就是尽量用默认设置，别自己乱改安装路径导致环境变量设置不对等等自作孽。】</p>
+<h1>获取数据集</h1>
+<p>课程的练习中要用到一系列的数据集，都存放在一起来。下载之后，里面有所有的图层文件、项目文件等等，建议将这些文件到<code>Downloads</code>文件夹下。</p>
+<p><a href="https://pan.baidu.com/s/19v8StzMObZUX-K5gk3V7OQ">点击下载课程数据集 提取码: gld7 </a></p>
+<h1>完成准备工作</h1>
+<p>准备工作需要一小时。在开始练习前，理解空间数据如何建模非常重要，还要了解坐标参考系统。</p>
+<h2>关于地理信息系统的一个使用简介视频</h2>
+<p>为了对地理信息系统的基本概念有一个初步了解，可以观看下面的视频和对应幻灯片。</p>
+<p><a href="https://www.youtube.com/watch?v=yfLjnK569XY"><img alt="Video" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/intro_to_gis.png"></a></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=yfLjnK569XY">点击播放本节视频</a></li>
+<li><a href="https://pan.baidu.com/s/1fgK5anzqC_J3AkOq3QcZag">点击下载对应幻灯片 提取码: 4hic </a></li>
+</ul>
+<h2>做个测试</h2>
+<p>看完了上面的视频和幻灯片后，可以做一下下面的测试，来试试你对地理信息系统的初步了解。</p>
+<ul>
+<li><a href="https://forms.gle/p79Ssyte91NHZtkp6">原版地理信息系统基本概念测试</a></li>
+</ul>
+<h5>地理信息系统简介的基础测试</h5>
+<p>这个小测验是检测你对地理信息系统基础知识的掌握情况。
+- 每道题一分。</p>
+<ol>
+<li>
+<p>下列哪一个不是矢量数据格式（Vector data format）? </p>
+<p>a. Shapefile
+b. GeoPackage
+c. GeoTIFF
+d. CSV</p>
+</li>
+<li>
+<p>地理信息系统是用于下列哪些功能的软件工具？</p>
+<p>a. 创建地图
+b. 查看地理空间数据
+c. 分析空间数据
+d. 创建空间数据通道
+e. 以上全都对</p>
+</li>
+<li>
+<p>假如你要创建一个非洲地图，你可以选择下列哪种坐标参考系？（多选）</p>
+<p>a. Africa Lambert Conformal Conic
+b. Africa Albers Equal Area
+c. Equal Earth
+d. WGS84 Lat/Lon</p>
+</li>
+<li>
+<p>下列哪种数据类型可以用来表示地下水位？</p>
+<p>a. 点向量层，展示每个取样位置的水位
+b. 栅格数据层，整个区域的每个像素都插值表示水位
+c. 线向量层，展示水位的轮廓线
+d. 以上全都对</p>
+</li>
+<li>
+<p>在WGS84坐标系中，班加罗尔（Bangalore）的经纬度坐标是 12.9716° N, 77.5946° E，哪一个是Y坐标？</p>
+<p>a. 12.9716
+b. 77.5946</p>
+</li>
+<li>
+<p>猜一猜GPS坐标为 35.6762° N, 139.6503° E 的是下面哪座城市？</p>
+<p>a. 澳大利亚悉尼
+b. 日本东京
+c. 巴西里约热内卢
+d. 加拿大温哥华</p>
+</li>
+<li>
+<p>参考系'EPSG:4326' 中的 EPSG 是什么的缩写？</p>
+<p>a. European Petroleum Survey Group
+b. Earth Projection Standard Group
+c. European Projection Survey Group</p>
+</li>
+<li>
+<p>保角投影（如墨卡托）保留了以下哪种特性？</p>
+<p>a. 形状
+b. 面积
+c. 距离
+d. 以上全都对</p>
+</li>
+<li>
+<p>下图中红色方框所示位置的UTM分区应该是哪个？
+<img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/q8.jpg"></p>
+<p>a. 34
+b. 34S
+c. 34N
+d. 34J</p>
+</li>
+<li>
+<p>下列关于'Geoid' 命题为真的是：</p>
+<p>a. 近似地球的平均海平面
+b. 是使用精确地表高程测量得到的表面
+c. 是使用重力测量推测出的数学表面
+d. 以上全都对</p>
+</li>
+</ol>
+<h5>参考答案：</h5>
+<p>c; d; ab; d; a; b; a; a; b; d</p>
+<h1>理解空间数据</h1>
+<h2>为什么要在意位置？</h2>
+<blockquote>
+<p>“Everything is related to everything else, but near things are more related than distant things. 所有事物都和其他的事物相联系，而近距离事物之间的联系比远距离的更紧密。” - Waldo Tobler’s <a href="https://en.wikipedia.org/wiki/Tobler%27s_first_law_of_geography">《地理学第一定律（First Law of Geography）》</a></p>
+</blockquote>
+<p>当对现实世界进行建模和分析的时候，位置是一个关键的因子。非空间模型无法准确反映现实世界中发生的过程和互动。例如对<a href="https://medium.com/geoai/using-forest-based-classification-regression-to-model-and-estimate-house-values-5a0e26682c42">预测房价</a> 的问题中，空间预测模型的效果就远胜过非空间模型。</p>
+<h2>位置数据随处可见</h2>
+<p>现在获取位置数据对个人或者企业都很容易。空间数据为数据增加了额外的维度，能够揭示出原本不显著的模式。</p>
+<p>个体有了手机上的定位传感器，就可以将他们的数据附加上位置信息。智能手机拍摄的照片就有内嵌的位置信息。如果选择加入位置信息，用户就可以持续地存储和访问他们的位置历史。</p>
+<p>很多企业也有各种各样的位置数据，顾客地址、网站访客的IP地址、销售区域、供应链条等等。对于其他的一些商业活动，比如出租车服务商、餐饮快递、物流等都产生了大量的位置数据，能用来挖掘出情报。</p>
+<p>物联网设备也在收集传感器数据的同时持续采集位置数据。</p>
+<p>政府机构也在越来越多地采集和分享基于位置的数据。这些与城市基础设施、人口普查、激光雷达和航空图像等等相关的数据，正在被大量采集。很多政府都提供了开放数据共享政策，使得这些数据可以供个人和企业使用。</p>
+<h2>空间数据模型 Spatial Data Model</h2>
+<p>空间数据的模型包含两个部分：<strong>几何（geometry）</strong> + <strong>性质（properties）</strong>。</p>
+<p><em>几何（Geometry）</em> (形状 Shape) 是通过坐标和坐标参考系统定义的； <em>性质（Properties）</em> (属性 Attributes) 是用数据和数据类型来定义的。</p>
+<p>下面就是将班加罗尔这个城市表示成一个点：</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Feature&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;geometry&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Point&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;coordinates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="m m-Double">77.58270263671875</span><span class="p">,</span><span class="w"> </span><span class="m m-Double">12.963074139604124</span><span class="p">]</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="s">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Bengaluru&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+
+<p>上面的格式使用的是 <a href="https://geojson.org/">GeoJson 格式</a> 。点的几何坐标使用了X (经度 Longitude) 和 Y (纬度 Latitude)两者来定义。这个点都被分配了两个属性，第一个 <em>id</em> 的值是 <code>1</code>，而 <em>name</em> 就设置成城市名字 <code>Bengaluru</code>。GeoJson 格式只支持一个坐标参考系统（WGS84），所以这里不需要在具体指定。</p>
+<h2>空间数据格式</h2>
+<p>前面已经讲了表征空间数据的最基本的方法。实际上有很多种数据格式能表征空间数据，这些数据格式有个字适合的不同应用。大多数情况下，空间数据格式就是对已有数据格式的扩展。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>类型</strong></th>
+<th style="text-align: left;"><strong>非空间数据</strong></th>
+<th style="text-align: left;"><strong>空间数据</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">文本</td>
+<td style="text-align: left;">csv, json, xml</td>
+<td style="text-align: left;">csv, geojson, gml, kml</td>
+</tr>
+<tr>
+<td style="text-align: left;">二进制/压缩包</td>
+<td style="text-align: left;">pdf, xls, zip</td>
+<td style="text-align: left;">shapefile, geopdf, geopackage</td>
+</tr>
+<tr>
+<td style="text-align: left;">图像</td>
+<td style="text-align: left;">tiff, jpg, png</td>
+<td style="text-align: left;">geotiff, jpeg2000</td>
+</tr>
+<tr>
+<td style="text-align: left;">数据库</td>
+<td style="text-align: left;">SQLite, PostgreSQL, Oracle</td>
+<td style="text-align: left;">Spatialite, PostGIS, Oracle Spatial</td>
+</tr>
+</tbody>
+</table>
+<h2>空间数据类型</h2>
+<p>空间数据一般可以分成两类，矢量数据（Vector）和栅格数据（Raster）。在网络上提供相关服务的这些数据一般都是被切成一个个小的块（切片，tiles），这些就可以作为第三类来分出来。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>类型</strong></th>
+<th style="text-align: left;"><strong>子类</strong></th>
+<th style="text-align: left;"><strong>样例</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">矢量</td>
+<td style="text-align: left;">点</td>
+<td style="text-align: left;"><em>传感器观测数据, 位置</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">线</td>
+<td style="text-align: left;"><em>GPS 轨迹, 道路, 河流, 轮廓线条</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">多边形</td>
+<td style="text-align: left;"><em>行政区划, 建筑</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">点云</td>
+<td style="text-align: left;"><em>激光雷达测量 LIDAR surveys</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">栅格</td>
+<td style="text-align: left;">照片</td>
+<td style="text-align: left;"><em>航拍和无人机照片</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">网格 Grids</td>
+<td style="text-align: left;"><em>卫星图像, 高程数据</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">网状结构 Mesh</td>
+<td style="text-align: left;"><em>气候和科学观测数据</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">切片</td>
+<td style="text-align: left;">栅格数据切片层</td>
+<td style="text-align: left;"><em>网络地图</em></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">矢量数据切片层</td>
+<td style="text-align: left;"><em>网络地图</em></td>
+</tr>
+</tbody>
+</table>
+<h2>地图投影和坐标参考系统</h2>
+<p>如果说空间数据有什么特殊之处，那一定就是坐标参考系统（Coordinate Reference System，缩写为 CRS）</p>
+<p><em>地图投影（Map Projection）</em> 将地球从立体球型（三维）投射成平面形状（二维）。</p>
+<p><em>坐标参考系（Coordinate Reference System，CRS）</em> 就定义了这个投影得到的二维地图如何关联到地球上的真实位置。</p>
+<p>在<a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/coordinate_reference_systems.html">QGIS 官方文档</a> 中提供了对这一话题的详细介绍。</p>
+<p>目前市面上有几百种不同的地图投影和对应的坐标参考系，每一种都有不同的性质和用途。最重要的是要记住，每一种投影都或多或少在某些方面存在畸变。有一篇 <a href="https://bl.ocks.org/syntagmatic/ba569633d51ebec6ec6e">地图投影集锦</a> 提供了常见投影方案的可视化介绍。更进一步的相关信息可以参考 Jochen Albrecht 所写的<a href="http://www.geo.hunter.cuny.edu/~jochen/gtech201/lectures/lec6concepts/map%20coordinate%20systems/how%20to%20choose%20a%20projection.htm">指南：选择一个投影</a>. 另外一篇 <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/tgis.12636">最近发表的文章</a> 表明了投影选择对面积和体积计算的影响。</p>
+<p>那么你要选择什么投影方案呢？这可能是一个很宏大且复杂的话题，而且答案通常是，看情况。但接下来的这些内容会帮到你。</p>
+<ul>
+<li><strong>全球地图</strong>: 如果你要绘制的是全球地图，目前的主流选择是使用<a href="http://equal-earth.com/">Equal Earth</a> 投影。这种投影的附加优势就是保持了面积，所以对于需要等面积网格进行全球规模分析的场景来说是很好的选择。相比于其他的投影方案，比如 <a href="https://en.wikipedia.org/wiki/Gall%E2%80%93Peters_projection">Gall-Peters 投影</a>等等，<a href="http://equal-earth.com/">Equal Earth</a>在视觉上效果也更好些。新版本的 QGIS 已经内置了对多种 Equal Earth 坐标参考系的支持. 如果你用的是旧版本，可以通过下面的字符串来 <a href="https://docs.qgis.org/testing/en/docs/user_manual/working_with_projections/working_with_projections.html#custom-coordinate-reference-system">自定义坐标参考系（Custom CRS）</a> ：</li>
+</ul>
+<div class="highlight"><pre><span></span><code>+proj=eqearth +datum=WGS84 +wktext
+</code></pre></div>
+
+<p><img alt="The Equal Earth Projection" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/equal-earth.jpg"></p>
+<p>The Equal Earth Projection</p>
+<ul>
+<li>
+<p><strong>国家地图</strong>: 很多国家都制定了某个特定版本的坐标参考系统，目的是最小化本国内的畸变。可以通过访问对应国家的相关机构来获取相关信息。</p>
+</li>
+<li>
+<p><strong>局部和区域地图</strong>: 和国家层面的坐标参考系类似，很多国家都还有州、省一级的坐标参考系。另外，通用横轴墨卡托变换（Universal Transverse Mercator，UTM）为全球任意地区都提供了良好的坐标参考系。在每个区域内的畸变都是最小的。如果你的研究去包含在某个UTM区域内，使用UTM是分析和制图的好选择。
+<img alt="UTM Zones of the world" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/utm_zones.png"></p>
+</li>
+</ul>
+<p>UTM Zones of the world</p>
+<h1>QGIS 简介</h1>
+<p><a href="https://qgis.org/">QGIS</a> 是一个自由、开源软件，可以用于创建、编辑、可视化、分析和出版地理空间数据。QGIS支持Windows、macOS和Linux。本课程使用的是QGIS的长期支持版（Long Term Release，缩写为LTR），可以在<a href="https://qgis.org/en/site/forusers/download.html">QGIS 官网下载页面</a> 下载安装包。</p>
+<h2>插件（Plugins）</h2>
+<p>QGIS为开发者提供了插件这种非常简单的方式来扩展软件核心功能。安装和管理插件，需要在 QGIS 的菜单中选择<strong>Plugins → Manage and Install Plugins..</strong>，然后切换到 <em>All</em> 标签，然后搜索要安装的插件。找到之后，选中，然后点击<em>Install Plugin</em> 就安装了。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/plugins.png"></p>
+<p>本课程中，我们使用的是下面两个插件，需要大家来安装一下：
+* QuickMapServices
+* QuickOSM</p>
+<h1>可视化</h1>
+<h2>点</h2>
+<p>对空间数据的最简单表述方式就是使用表格。一个地理位置可以表示成一对坐标，经度和纬度，然后再加上与之相关的其他属性信息。很多空间数据都是这样的形式，比如Excel表格、CSV逗号分隔符文本，数据库表格等。</p>
+<h3>练习：将空气质量投在地图上</h3>
+<p>世界上很多国家和地区都面对着空气质量变差的问题。要更好地理解这个问题，首先的一步是持续收集各地的空气质量数据，很多机构都有这类数据的收集和公开，比如<a href="https://openaq.org/">OpenAQ</a> 。</p>
+<p>我们使用 <a href="https://blissair.com/what-is-pm-2-5.htm">PM2.5 浓度数据</a> 中一天的数据，然后对其进行投图。目的是将表格数据转换成位置数据的可视化。</p>
+<p>本次练习中，我们使用的是2021年12月30奥地利当天的数据，下载自<a href="https://openaq.org/#/countries?_k=dmlk2k">OpenAQ Data Download</a>。</p>
+<ol>
+<li>在编辑器中打开下载的文件 <code>measurements.csv</code> 然后看一下。<code>value</code>是测量值，<code>latitude</code> 是纬度，<code>longitude</code>是经度。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq1.png"></p>
+<ol>
+<li>下载的这种<code>csv</code>格式的文件可以算作是一种<strong>分隔符文档Delimited Text</strong>，可以在QGIS里面通过<em>Data Source Manager</em>来进行导入。在QGIS主界面点击<em>Open Data Source Manager</em> 按钮即可。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq2.png"></p>
+<ol>
+<li>浏览到下载的<code>measurements.csv</code>文件打。在 <em>Data Source Manager</em> 里面选择<em>Delimited Text</em>，然后在<em>File name</em>里面定位到目标文件，在<em>Geometry Definition</em>里面选择<em>Point coordinates</em>，设置 <code>longitude</code> 为 <em>X Field</em>， <code>latitude</code>为 <em>Y Field</em>，然后选择 <code>EPSG 4326 - WGS 84</code> 作为<em>Geometry CRS</em>，点击<em>Add</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq3.png"></p>
+<ol>
+<li>然后就能看到表格数据加载到QGIS的画布上了，成了一个空间数据层。使用 <em>Identify</em> 按钮来查看各个点，就能看到对应的各项数据。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq4.png"></p>
+<ol>
+<li>点的分布在城市周围，但图上现在还没添加城市地图，所以就要加一个地图层（base-map layer）。这里使用<strong>QuickMapServices</strong> 这个插件来加载多种地图，点击 <strong>Web → QuickMapServices → OSM → OSM Standard</strong> 图层.</li>
+</ol>
+<blockquote>
+<p>注意：如果你想要用其他的地图图层，到 <strong>Web → QuickMapServices → Settings</strong> 中，切换到 <strong>More services</strong>，点击 <code>Get Contributed Pack</code>，然后点击 <strong>Save</strong>保存即可。</p>
+</blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq5.png"></p>
+<ol>
+<li>新图层就添加到左侧的 <em>Layers</em> 面板中了，也同时呈现在了画布<em>Canvas</em>中。现在你就能看到数据点出现在城区地图上面了。接下来咱们点击 <em>Open the Layer Styling Panel</em> 来让数据点看着更好一点。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq6.png"></p>
+<ol>
+<li>这回咱要根据每个点的观测到的 <code>value</code> 来对其进行着色。选择<code>Graduated</code>着色器，然后将 <code>value</code>设置为 <em>Value</em> 列。将<em>Classes</em> 到分类数设置为<code>6</code> 然后点击 <em>Classify</em>。</li>
+</ol>
+<blockquote>
+<p>注意：默认的分类模式是<em>Equal Count</em> - 这对于咱们的练习来说也能用。 关于数据分类的更多内容可以参考 <a href="https://docs.qgis.org/testing/en/docs/user_manual/working_with_vector/vector_properties.html?#graduated-renderer">QGIS 官方文档</a>。</p>
+</blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq7.png"></p>
+<p>要让分类范围再有更多的意义，可以将它们和常用范围联系起来。
+<img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq_naqi.png"></p>
+<ol>
+<li>接下来调整，将图例<em>Legend</em> 调整成人类可读性更好的分类名称，可以双击每一个类别的范围然后来修改。</li>
+</ol>
+<blockquote>
+<p>注意：这里的区间包含上界，不包含下界。所以如果一个区间是 30-60，包含的就是所有 &gt;30 而&lt;=60的值。具体的细节可以参考<a href="https://github.com/qgis/QGIS/issues/29852">QGIS的这个Issue</a> 。</p>
+</blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq8.png"></p>
+<ol>
+<li>由于你修改了分类那对应的可视化方案也要调整了。正好把空气质量调整成对应的模式。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq9.png"></p>
+<ol>
+<li>另外还可以调整一下配色，这里就将原来的单色调成红黄绿三色<code>RdYlGn</code> (Red-Yellow-Green) 。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq10.png"></p>
+<ol>
+<li>这里就发现有问题了，默认的是高值变成绿，低值是红了。我们希望的正好是反过来，所以点击刚才的下来菜单，然后选择<em>Invert Color Ramp</em>来反转配色。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq11.png"></p>
+<ol>
+<li>解下来就是要在点上添加字符标签来。切换到<em>Labels</em> 标签，如下图所示。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq12.png"></p>
+<ol>
+<li>选择 <code>Single labels</code> 然后设置 <code>value</code> 为 <em>Value</em>，下拉，再选择格式化树枝 <em>Formatted numbers</em> ，将小数点 <em>Decimal places</em> 设置为 <code>0</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq13.png"></p>
+<ol>
+<li>然后写换到<em>Background</em> 标签页，选中 <em>Draw background</em> 后调整 <em>Size X</em> 和 <em>Size Y</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq14.png"></p>
+<ol>
+<li>在下面找到 <em>Fill color</em> 部分，我们希望将每处填充上和圆点一样的颜色。点击 <em>Data defined override</em> 按钮然后选择 <em>Edit</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq15.png"></p>
+<ol>
+<li>双击 <code>@symbol_color</code> 变量，加入到表达式中，然后点击<code>OK</code>按钮确认。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq16.png"></p>
+<ol>
+<li>现在就会发现两者颜色匹配了，然后切换到 <em>Placement</em> 选项卡，选择<em>Offset from point</em>，设置 <em>Offset Y</em> 为 <code>-5</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq17.png"></p>
+<ol>
+<li>最后，点击进入 <em>Callouts</em> 标签页，然后选中 <em>Draw callouts</em> 使得所选的方块标签与对应的数据点之间连起来以便于区分。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq18.png"></p>
+<ol>
+<li>现在就点击<em>Save Project</em> 按钮来把这个项目保存成 <code>air_quality.qgz</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq19.png"></p>
+<ol>
+<li>现在标签看着都还挺清晰，但有的太近了，很拥挤。可以手动调整标签位置来解决这个问题。在工具栏区域右键任意位置打开<em>Label Toolbar</em>，如下图所示。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq20.png"></p>
+<ol>
+<li>点击<em>Move a Label</em> 按钮，然后在出现的 <em>Auxiliary Storage</em> 提示界面上点击<em>OK</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq21.png"></p>
+<ol>
+<li>由于上面激活了 <em>Move a Label</em> 按钮，现在可以点击任意一个标签来选中。然后想把它挪到哪里就点到那里即可。弄完之后，再次保存项目。现在就可以导出做好的地图了，到菜单中的<strong>Project → New Print Layout…</strong>，名字留空，直接点击<em>OK</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq22.png"></p>
+<ol>
+<li>输出图幅可以将各种元素都放在一起成为一个静态地图，包括标签、图例、指北针、比例尺等等。可以在<strong>Add Item → Add Map</strong>中来添加地图。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq23.png"></p>
+<ol>
+<li>如果你没看到完整地图扩展范围，可以点击 <em>Set Map Extent to Match Main Canvas Extent</em> 按钮，位置在工具栏中 <code>Map 1</code>的<em>Item Properties</em>的下面。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq24.png"></p>
+<ol>
+<li>接下来，添加一个 <em>Rectangle</em> ，来存放地图切片、比例尺和属性信息等等。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq25.png"></p>
+<ol>
+<li>将这个小矩形放到图幅右上角，设置<em>Corner radius</em> 为<code>10</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq26.png"></p>
+<ol>
+<li>然后在这个小矩形中添加一个 <em>Label</em> 。输入你的地图名字<code>Average PM2.5 Concentration (µg/m3)</code> 以及日期<code>15 February, 2022</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq27.png"></p>
+<ol>
+<li>还是在这个矩形中，再添加一个标签<em>Label</em> ，设置文本为 <code>Data Source: Central Pollution Control Board, EPA AirNow DOS. Downloaded from OpenAQ.org</code>。然后还要添加图例来解释图上的符号和颜色等等。到菜单栏中，找到<strong>Add Item → Add Legend</strong>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq28.png"></p>
+<ol>
+<li>拖动方框来插入图例到白色矩形中。然后再找到<em>Item Properties</em> 标签页来关闭 <em>Auto update</em>，移除 <code>OpenStreetMap monochrome</code> 图层，然后设置 <code>openaq</code>群标签为隐藏<em>Hidden</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq29.png"></p>
+<ol>
+<li>图例默认位置是淑芝的，单独一列。可以将其改成多列，弄成水平。滚轮找到<em>Columns</em>区域，然后设置<em>Count</em> 为<code>2</code>，再选中 <em>Split layers</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq30.png"></p>
+<ol>
+<li>在<em>Main Properties</em>部分，输入一个比例尺的标题<em>Title</em> ，比如 <code>Air Quality Index Category</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq31.png"></p>
+<p>彻底设置满意了，就可以将地图输出了。如果你想放在网站上，就可以用图像<strong>Image</strong> 来导出。如果你以后可能要用矢量图编辑软件来修改，就可以考虑存成 <strong>SVG</strong> 格式，这样你就可以使用 <a href="https://inkscape.org/">InkScape</a>来编辑了。不过一般更通用的可能还是PDF格式。</p>
+<p><img alt="Credit: Atanas Entchev" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/shp_to_pdf.png"></p>
+<p>Credit: Atanas Entchev</p>
+<ol>
+<li>所以接下来就用PDF格式来导出吧。导出之前，切换到布局<em>Layout</em>标签页。我们使用的是OpenStreetMap 的位图地图作为底层。这是使用对缩放有依赖的切片地图绘制的。所以有必要设置一个较高的导出分辨率，以便获得更清晰的更高分辨率的切片地图。另外导出的分辨率<em>Export resolution</em> 可以设置到 <code>100</code> dpi，更高当然也行。菜单栏中找到 <strong>Layout → Export as PDF</strong>然后试试吧。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq32.png"></p>
+<ol>
+<li>在导出选项<em>PDF Export Options</em> 中选中 <em>Create Geospatial PDF (GeoPDF)</em>，这个GeoPDF 是一种增强的PDF格式，具有空间感知，并且保留了图层和属性信息。点击<em>Save</em> 将该文件保存为<code>air_quality.pdf</code>.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq33.png"></p>
+<ol>
+<li>如果你在兼容的阅读其中打开对应的这个新生成的PDF文件，比如使用<a href="https://get.adobe.com/reader/">Adobe Acrobat</a>，你就能看到各个图层的元素，还可以读取特征属性，计算距离等等。</li>
+</ol>
+<blockquote>
+<p>在 Adobe Reader 中，针对 GeoPDF 可以在工具-测量<em>Tools → Measure</em>中启用测量工具。更多信息参考<a href="https://helpx.adobe.com/in/acrobat/using/grids-guides-measurements-pdfs.html#measure_the_height_width_or_area_of_objects">Adobe 官方网站</a>。</p>
+</blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/aq34.png"></p>
+<h2>线条 Lines</h2>
+<p>路、桥、铁轨等很多交通设施，以及河流、溪水等自然景物，都可以用线条来建模。其它一些抽象概念，比如轮廓、轨迹等等也可以使用线性特征来建模。用于存储线条数据集的一般有Shapefiles、GeoJSON、GPX等文件格式。</p>
+<h3>练习：GPS轨迹可视化</h3>
+<p>如今生活里，GPS轨迹随处可见。大多数智能手机都内置了GPS系统，人们普遍用GPS来记录跑步或者骑行等户外活动。网约车公司也在乘客乘坐期间记录里程来计费。快递和物流公司从他们的快件中存储并分析了大规模的GPS数据来推导出位置智能（location intelligence）。</p>
+<p>这个练习中，我们使用的是一个开源的<a href="https://www.basicairdata.eu/projects/android/android-gps-logger/">GPS位置记录APP</a> ，可以运行在Android设备上。如果你用的是iOS设备，推荐你可以试试另一个开源应用<a href="https://apps.apple.com/app/open-gpx-tracker/id984503772">Open GPX Tracker</a>。存储GPS轨迹的默认格式是<a href="https://en.wikipedia.org/wiki/GPS_Exchange_Format">GPS Exchange Format (GPX)</a>。这实际上是一种基于XML的文本格式，允许在一个文件中存储点、轨迹和路径。本次练习使用的是<code>sample_gps_track.gpx</code> 文件，目的是要创建一个动态的GIF图来展示整个行程。</p>
+<ol>
+<li>将 <code>sample_gps_track.gpx</code> 文件拖动添加到QGIS的画布上。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps1.png"></p>
+<ol>
+<li>由于文件中有多条数据类型，程序会弹出一个窗口询问你选择要添加的图层（layers）。这时先按住 <em>Shift</em> 键不放，然后同时选中<code>track_points</code>和 <code>tracks</code>这两项，然后点击<em>OK</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps2.png"></p>
+<ol>
+<li>然后要添加地图，对这种情况来说，暗一点的背景地图视觉效果比较好。在菜单栏中找到<strong>Web → QuickMapServices → CartoDB → Dark Matter</strong>，点击后就在画布上添加了地图了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps3.png"></p>
+<ol>
+<li>点击 <code>sample_gps_track points</code> 图层旁边的小方块，去掉勾选，在画布中就看不到这些点了。选中<code>sample_gps_track tracks</code> 图层，然后点击 <em>Open the Layer Styling Panel</em>。将颜色<em>Color</em> 改成蓝色<code>Blue</code> ，然后设置线宽度<em>Width</em> 为<code>0.5</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps4.png"></p>
+<ol>
+<li>再选中 <code>sample_gps_track points</code> 图层使之可见。在<em>Layer Styling Panel</em>中，选择简单符号<em>Simple marker</em> 。把点的大小<em>Size</em> 设为<code>1</code> 。选择一个浅蓝色作为填充色<em>Fill color</em>，然手设置轮廓颜色<em>Stroke color</em>为透明<code>Transparent Stroke</code> 。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps5.png"></p>
+<ol>
+<li>我们希望点动起来，所以要给他加一个辉光效果（glow effect）。右键<code>gps_points</code>图层，然后选择复制图层<em>Duplicate Layer</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps6.png"></p>
+<ol>
+<li>在图层面板<em>Layers</em>中将复制出来的图层拖动到图层栈的最顶层。在复制的<code>sample_gps_track points_copy</code> 的<em>Layer Styling Panel</em>，选择一种明亮色彩作为<em>Color</em>，然后增加尺寸到 <code>1.5</code>，选中<em>Draw Effects</em> ，然后点击旁边小星星样子的 <em>Effects</em> 按钮。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps7.png"></p>
+<ol>
+<li>然后出现<em>Effects Properties</em> 面板，选中 <em>Outer Glow</em>，设置<em>Spread</em> 和<em>Blue radius</em>都为 <code>2.0</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps8.png"></p>
+<ol>
+<li>现在就可以让点动起来了。右键<code>sample_gps_track points_copy</code>图层后选中属性<em>Properties</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps9.png"></p>
+<p>10.切换到<em>Temportal</em> 标签，勾选上<em>Temportal</em> 小方块。然后将设置<em>Configuration</em>调整为<code>Single Field with Date/Time</code>。设置<em>Field</em>为时间<code>time</code> ，然后点击<em>OK</em>。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps10.png"></p>
+<ol>
+<li>现在你会发现刚刚修改的图层旁边出现了一个小时钟图标，这就表示这个图层可以通过<em>Temporal Controller</em>来控制了。接下来，右键<code>sample_gps_track points</code>图层点击<em>Properties</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps11.png"></p>
+<ol>
+<li>重复上一次的设置操作。不过这回将设置<em>Configuration</em>调整为<em>Accumulate features over time</em>。这样设置是要让已经过去的时间点依然在图层上能显示出来。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps12.png"></p>
+<ol>
+<li>在主界面的<em>Map Navigation Toolbar</em>中找到<em>Temporal Controller Panel</em> 。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps13.png"></p>
+<ol>
+<li>点击之后， <em>Temporal Controller</em> 面板就会出现在画布地图顶端了。点击像播放按钮一样的<em>Animated temportal navigation</em> 按钮。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps14.png"></p>
+<ol>
+<li>接下来，点击刷新形状的<em>Set to Full Range</em>按钮来自动加载起止时间。将步长 <em>Step</em> 设置为 <code>1</code>，然后单位选择成秒 <em>seconds</em>，点击右上角齿轮图标<em>Temporal Settings</em> 。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps15.png"></p>
+<ol>
+<li>将帧率 <em>Frame rate</em> 设置为 <code>10</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps16.png"></p>
+<ol>
+<li>设置完后返回刚刚的界面，选中循环<em>Loop</em>，然后点击播放按钮 <em>Play</em> 。你就能看到画布上的地图现实旅行过程了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps17.png"></p>
+<ol>
+<li>将每个点所对应的时间显示在地图上应该挺有用，到菜单栏中找到<strong>View → Decorations → Title Label…</strong>来设置。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps18.png"></p>
+<ol>
+<li>在标题备注设置<em>Title Label Decoration</em>中，点击插入表达式按钮 <em>Insert an Expression</em> 。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps19.png"></p>
+<ol>
+<li>地图的当前时间存储在<code>@map_start_time</code>这个变量中，可以使用<code>format_date()</code>函数将其转换成更可读的时间戳。但要注意 GPS系统的时间使用的是世界时(universal time，UTC)，所以要用<code>to_interval()</code> 函数将其转换到 UTC+8:00 才对应了北京地区的时区，输入下面的表达式：</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">format_date</span><span class="p">(</span><span class="w"> </span><span class="nv">@map_start_time</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">to_interval</span><span class="p">(</span><span class="s1">&#39;8 hours&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;yyyy-MM-dd hh:mm&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps20.png"></p>
+<ol>
+<li>点击字体选项<em>Font</em> ，把字号调整到 <code>24</code>，设置背景色<em>Background bar color</em> 为白色<code>White</code>，点击<em>OK</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps21.png"></p>
+<ol>
+<li>现在你再播放动画，时间戳就会随着动画中对应点的行进更新了。点击导出动画<em>Export Animation</em> 按钮可以将动画逐帧保存。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps22.png"></p>
+<ol>
+<li>在弹出的<em>Export Map Animation</em> 对话框中，选择输出目录<em>Output directory</em>。这个文静可能有超过500秒的长度，所以可以降低帧数,将步长<em>Step</em> 设置为<code>5</code>。然后点击保存<em>Save</em> ，QGIS就会在你选的文件夹中输出一系列图片了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps23.png"></p>
+<ol>
+<li>有了多张的逐帧图片后，就可以使用一些类似 <a href="https://ezgif.com/">ezgif.com</a> 的工具来创建GIF动图了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/gps24.png"></p>
+<h2>多边形</h2>
+<p>区域就用多边形来建模。一般用来表示行政区划、建筑物、地块等等。多边形在几何上就是用一系列的坐标来表示的。由于形状可能会非常复杂，多边形要有更加繁琐的几何解释，所以很少使用简单的CSV文件格式。GeoJSON和 ShapeFiles 是存储多边形数据集的常用文件格式。</p>
+<h3>练习：人口普查数据可视化</h3>
+<p>人口普查数据是一个国家二级数据的一个主要来源。很多空间分析都需要人口普查数据中的详细人口学信息。</p>
+<p>Census data is usually published as tables by aggregating the raw numbers to an administrative region - typically a <em>census block</em>. To map these tables, one needs to know the <em>geometry</em> of these regions - which are supplied separately as boundary files. Both of these can be joined to create a polygon layer that can be visualized and mapped. See on how this process is carried out in QGIS.</p>
+<p>人口普查数据一般都是按照行政区发布成一个个表格，表格里是对原始数据的汇总，这样一个行政区就成了一个人口区<em>census block</em>。要将这样的表格可视化成地图，就需要知道这些区域的几何形态，也就是边界文件。人口数据和行政区划结合到一起就可以制作出一个多边形图层，这个图层就能放到地图上进行可视化了。这个过程在QGIS中的操作可以参考<a href="https://www.qgistutorials.com/en/docs/3/performing_table_joins.html">这个教程</a> 。</p>
+<p>这个练习使用的是<a href="https://sedac.ciesin.columbia.edu/data/set/india-india-village-level-geospatial-socio-econ-1991-2001">India Village-Level Geospatial Socio-Economic Data Set</a> 这一数据集，由美国航天局社会经济数据和应用中心（NASA Socioeconomic Data and Applications Center，SEDAC）出版公布。此数据集中结合了村/镇一级的边界与印度人口普查的初级人口普查摘要（PCA）和村庄目录（VD）数据系列，使用 ShapeFiles 格式发布。</p>
+<p>这个练习中使用的是印度Karnataka州的ShapeFile数据，将Gulbarga地区的识字率投在地图上。</p>
+<ol>
+<li>将 <code>india-village-census-2001-KA.shp</code> 文件拖动到QGIS画布上。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census1.png"></p>
+<ol>
+<li>这样在图层面板<em>Layers</em>中就加入了新图层<code>india-village-census-2001-KA</code>。使用<em>Identify</em>工具来点击任意一个多边形来查看属性值。每一列的定义都在数据的附加文档中有解释。我们要找的是识字率，对应的后缀<code>_LIT</code> 就很有用。<code>P_LIT</code> 这列表示的是识字人口，而<code>TOT_P</code>表示的是总人口<em>Total Population</em>，借助这两样我们接下来就要计算识字率。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census2.png"></p>
+<ol>
+<li>接下来要从这个图层的众多多边形中选中属于<em>Gulbarga</em> 地区的子集。家在<code>gulbarga_district.shp</code> 。数据中 <code>DT_CEN_CD</code> 这一列包含的就是对应区域的ID。可以用这个 ID来过滤多边形区域，<em>Gulbarga</em> 地区的这个ID是4。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census3.png"></p>
+<ol>
+<li>在图层<em>Layers</em>面板中，拖拽 <code>gulbarga_district</code> 图层到 <code>india-village-census-2001-KA</code> 图层下面。右键 <code>india-village-census-2001-KA</code>图层然后选中<em>Filter</em>进行筛选。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census4.png"></p>
+<ol>
+<li>输入表达式<code>DISTRICT = 4</code> 来选择<em>Gulbarga</em> 地区对应的部分，点击 <em>OK</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census5.png"></p>
+<ol>
+<li>这时候在<code>india-village-census-2001-KA</code> 图层旁边就能看到一个小漏斗图标，表示有一个筛选被施加在该图层上。同时地图画布上也会更新，只显示所筛选区域的多边形。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census6.png"></p>
+<ol>
+<li>接下来我们要创建一个热力图<em>thematic</em> 来展示该区域的识字率。这种场景下创建热力图（thematic (choropleth) map），需要对要投图的值进行标准化（normalize）。常见的错误是在这种地图上使用总数而非比率。</li>
+</ol>
+<p>点击<em>Open the Layer Styling Panel</em>，选中<em>Graduated</em> 着色器。在<em>Value</em>列中点击表达式按钮 <em>Expression</em>。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census7.png"></p>
+<ol>
+<li>输入下面的表达式，由于我们要投图的是识字率，就可以通过识字人口除以总人口来实现标准化。</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="mf">100</span><span class="o">*</span><span class="p">(</span><span class="s">&quot;P_LIT&quot;</span><span class="o">/</span><span class="s">&quot;TOT_P&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census8.png"></p>
+<ol>
+<li>选中一个配色方案和分类模式<em>Mode</em>，然后点击分类按钮<em>Classify</em>。这里可以选择下拉Color ramp然后选中<em>Invert color ramp</em> 使得高值深色低值浅色。点击<em>Apply</em>应用后，就能看到多边形已经根据识字率着色了。这样就很明显能看出各地区的识字率差异。</li>
+</ol>
+<blockquote>
+<p>将数据分类的方案有很多种，具体可以参考<a href="https://gisgeography.com/choropleth-maps-data-classification/">这篇文章</a> ，文中对各种分类模式的优劣进行了点评。</p>
+</blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census9.png"></p>
+<ol>
+<li>不过，如果你放大，就会发现多边形图层中间有空缺的地方。这是因为 you的城市没有对应的数据表格，因此就被排除在图层之外了。有这样的孔洞看着不太好，可以设计一种办法来插值推测这些缺少数据的值。选中 <code>gulbarga_district</code> 图层，将 <em>Symbol layer type</em>设置为 <code>Line pattern fill</code>，其他参数随便设置就好。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census10.png"></p>
+<ol>
+<li>然后你会发现这里面没有交叉的填充样式。这很好办，只要用两个相互垂直的线条填充就可以实现了。在刚才的<em>Layer Styling Panel</em>标签页中点击 <em>Duplicate the current layer</em> 按钮。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census11.png"></p>
+<ol>
+<li>在新添加的线条填充上设置旋转角度<em>Rotation</em> 值为<code>-45.00</code> 或者<code>135.00</code>，然后就会发现图中空白的位置已经被十字交叉填充了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census12.png"></p>
+<ol>
+<li>现在你就有了一个对该区域的识字率的可视化地图了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/census13.png"></p>
+<h2>栅格数据（Raster）-照片（Photos）</h2>
+<p>风筝、热气球、飞机、直升机以及无人机等等空中设备的传感器获取的图像，是绘制地图的重要信息来源。这些图像通常都是位图（basemap），为其他空间数据提供了基础。从这些位图中也可以提取特征信息，再建立模型成为矢量数据。</p>
+<p>最常用的图像格式是 GeoTiff。一个 GeoTiff 文件包含了附加的元数据（metadata），允许用户将像素的行列位置与现实世界的经纬度位置进行对应。常规的照片也可以转换成这样带有空间感知的山歌数据，这种过程就叫做<a href="https://en.wikipedia.org/wiki/Georeferencing">地理配准 GeoReferencing</a>。</p>
+<h3>练习：查看无人机图像</h3>
+<p><a href="https://openaerialmap.org/">OpenAerialMap</a> 是一个提供无人机图像的分享和下载服务的开放网站。本次练习使用的是 WeRobotics 提供的加德满都大学操场（Kathmandu University Grounds）的照片。</p>
+<ol>
+<li>将<code>kathmandu_drone_imagery.tif</code> 文件拖动到 QGIS 地图画布中，使用缩放和平移来查看这张图。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/drone1.png"> </p>
+<ol>
+<li>在图像右下角，会发现坐标参考系（CRS）是 EPSG:32645，表示的是UTM分区45N。选中<em>Identify</em> 工具然后在图片中四处点击。你会发现这个图像包含红绿蓝三色通道。坐标系是投影坐标（projected coordinates0而非地理坐标（geographic coordinates）。也就是公里网格模式，横轴<em>X (Easting)</em>向东，纵轴<em>Y (Northing)</em>向北。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/drone2.png"></p>
+<ol>
+<li>这张图经过了地理坐标配准，所以可以配合其他空间图层一起查看。菜单栏中选中 <strong>Web → QuickMapServices → OSM → OSM Standard</strong>，就将叠瓦地图切片添加到图层面板<em>Layers</em> ，你就能发现这两者之间位置是匹配的，因为原图已经进行过对准。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/drone3.png"></p>
+<h2>栅格数据（Raster）-卫星图像（Satellite Images）</h2>
+<p>地球外面有几百颗观测卫星在持续捕获地球表面的图像。全球很多航空机构都将这些数据公开分享了出来。这些数据集对科学家、研究人员、政府和商业机构等等来说都是无比珍贵的。</p>
+<p>和常规照片不同，卫星图像往往包含很多的波段信息，而常规照片往往只有红绿蓝三通道的信息。卫星图像的信息丰富就为利用机器学习模型来辨别不同物体提供了便利。例如，人工草坪和真正的草坪可能看着都是绿色的，但二者对红外光的反射差距非常显著。所以使用多光谱（multi-spectral）图像所提供的附加信息就能轻松分别出来。</p>
+<h3>练习：观看和使用哨兵2（Sentinel-2）卫星影像并建立拼接</h3>
+<p><a href="https://sentinel.esa.int/web/sentinel/missions/sentinel-2">哨兵2 Sentinel-2</a> 是欧洲航天局（European Space Agency， ESA）发射的两颗卫星。所提供图像的像素分辨率是 10米。这个分辨率不如无人机和航拍的图像分辨率，但在城市和地区层次的分析上还是足够好了。更重要的是，这个系列的数据是用12个不同的波段拍摄的，这对于科学目的但应用来说非常重要。对每个地理位置，这套数据每隔5天采集一次，因此可以对全球进行连续观测。而且欧洲航天局将所有相关数据都公开了。</p>
+<p>此次练习中加载的是2020年2月18日班加罗尔（Bangalore）的数据。<code>sentinel-2</code>文件夹下面有四个JPEG2000格式的文件，分别是红（B4）、绿（B3）、蓝（B2）和近红外（B8）四个波段。</p>
+<ol>
+<li>将4个图像文件拖拽到QGIS地图画布上。放大到任意区域，在<em>Attributes Toolbar</em>中选择<em>Identify</em> 工具，然后点击图像。在<em>Identify Results</em> 窗口中，设置<em>View</em>为<code>Table</code>，然后对比同一对象在不同波段下的反射率差别。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/satellite1.png"></p>
+<ol>
+<li>接下来可以将多个波段结合起来成为一个图像然后一起来进行可视化。这就叫「彩色合成 <em>Color Composites</em>」。要将多个图像合并到一处，找到<strong>Processing → Toolbox</strong>然后选中<strong>GDAL → Raster miscellaneous → Build virtual raster</strong>。双击启动拼接工具。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/satellite2.png"></p>
+<ol>
+<li>选中全部的4个图层作为输入层<em>Input layers</em> ，然后选中 <em>Place each input file into a separate band</em>（将每个输入文件作为单独波段）。接下来点击运行<em>Run</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/satellite3.png"></p>
+<ol>
+<li>这样，在图层<em>Layers</em>中，就出现了拼合出来的新图层 <code>Virtual</code> 。这一图层包含有四个不同波段，要注意其中的波段排列顺序是字母顺序的，所以获得的图片当中的四个通道（Band）与原图的对应关系如下所示：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Virtual Raster Band</strong></th>
+<th style="text-align: left;"><strong>Image</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Band 1</td>
+<td style="text-align: left;">B02 (Blue)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Band 2</td>
+<td style="text-align: left;">B03 (Green)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Band 3</td>
+<td style="text-align: left;">B04 (Red)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Band 4</td>
+<td style="text-align: left;">B08 (NIR)</td>
+</tr>
+</tbody>
+</table>
+<p>首先我们进行「真彩色合成<em>RGB Color Composite</em>」。这也常被称作「自然彩色合成<em>Natural Color Composite</em>」，因为这种图像和人在肉眼观看的效果是一样的。设置<code>Band 3</code>、 <code>Band 2</code> 、 <code>Band 1</code> 作为对应的 <em>Red</em>、<em>Green</em> 、<em>Blue</em> 三个通道。然后将<em>Min/Max Value Settings</em>设置为<code>Cumulative count cut</code>。然后就会发现画布上的图像呈现出自然的色彩。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/satellite4.png"></p>
+<ol>
+<li>接下来要试试的是另一种可视化方案，也就是「假彩色合成<em>False Color Composite</em>」。这里我们创建一个近红外、红、绿的假彩色合成（<em>NRG Color Composite</em> ）。也就是将近红外波段设置为R通道，红光波段设置为G通道，绿光波段设置为B通道。这种合成方式强调了红光下的植被，能够更容易地进行植被解译。注意，水体和植被在自然彩色合成下几乎是一样的颜色，而在NRG假彩色合成下就很好区分了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/satellite5.png"></p>
+<h2>点云（Point Clouds）</h2>
+<p>现代的地图绘制技术包括使用激光雷达传感器（LiDAR sensor）的各种航拍手段。LiDAR是“Light Detection and Ranging”的缩写。这种传感器使用激光脉冲来测量物体距离地面的距离。对每个发出的脉冲，系统都计算对象的X、Y、Z坐标。这个数据对空间数据来说并不新奇，但在一块小区域内使用这样的方法可以获得上百万的点，常规的观看和处理工具就不适用了。这样的点云（<em>Point Cloud</em>）一般使用的是LAS或者LAZ的文件格式进行存储的。</p>
+<p><img alt="Credit: Cargyrak, Wikipedia" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/lidar.jpg"></p>
+<p>Credit: Cargyrak, Wikipedia</p>
+<h3>练习：观看航拍的点云</h3>
+<p>英国环境食品与农村事务部（UK’s Department of Environment Food &amp; Rural Affairs (DEFRA) ）提供了全国范围的LiDAR数据和产品，可以从<a href="https://environment.data.gov.uk/">Defra 数据服务平台</a> 来获得。本次练习使用LAZ格式的牛津大学点云数据集。</p>
+<ol>
+<li><a href="https://github.com/verma/plasio">Plasio</a> 是一个基于浏览器的 LAS/LAZ 格式点云查看器，访问<a href="https://plas.io/">plas.io</a>，点击<em>Browse</em> 然后定位到<code>SP5008_P_10967_20161130_20161130.laz</code>文件，点击<em>Open</em>打开。要注意这么小的区域有超过三百五十万个数据点。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pointcloud1.png"></p>
+<ol>
+<li>数据加载后，在右边的面板中滚动，找到<em>Intensity Source</em> 部分，下拉选项，选中<code>Heightmap Grayscale</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pointcloud2.png"></p>
+<ol>
+<li>使用鼠标左键和滚轮来缩放与平移视图，探索一下数据集吧。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pointcloud3.png"></p>
+<h2>栅格数据（Raster） - 高程数据（Elevation Data）</h2>
+<p>栅格数据很适合对连续对象进行建模，比如高程。栅格中的每个像素的值就是该点的高程。这是一种对地标建模的简单高效的方法。这种栅格数据也就是数字高程模型（Digital Elevation Model，DEM）。</p>
+<p>具体来说，数字高程模型还可以分为两个基本类别：</p>
+<ul>
+<li>数字地表模型（Digital Surface Model，DSM）：表示地球真实表面，包括植被覆盖和建筑物等等。</li>
+<li>数字地形模型（Digital Terrain Model，DTM）：表示裸地表和自然地形。DTM一般是基于DSM实用算法或人工处理而得到。</li>
+</ul>
+<h3>练习：查看和对比 DSM 与 DTM</h3>
+<p>英国环境食品与农村事务部（UK’s Department of Environment Food &amp; Rural Affairs (DEFRA) ）提供了全国范围的高程数据产品，可以从<a href="https://environment.data.gov.uk/">Defra 数据服务平台</a> 来获得。本次练习使用ASC格式的牛津大学高程数据：<code>dsm_F0195499_20161130_20161130_mm_units.asc</code> 和<code>dtm_F0195499_20161130_20161130_mm_units.asc</code>。</p>
+<p><code>.asc</code>文件是一种基于文本的 ASCII 编码的栅格文件格式。这种文件的数据格式很简单，头部介绍栅格信息，像素值就是对应的行列值。如果你使用文字编辑器打开，可能就像下面的样子。</p>
+<div class="highlight"><pre><span></span><code>cols          2000
+nrows         2000
+xllcorner     450000
+yllcorner     208000
+cellsize      1
+NODATA_value  -9999
+-9999 -9999 -9999 -9999 -9999 -9999 ...
+...
+...
+</code></pre></div>
+
+<p>头文件提供的信息中包含有左下角（11）的X、Y坐标。知道这个位置的坐标对，以及图像尺寸和坐标参考系（Coordinate Reference System，CRS），可以对整个图像进行地理配准了。关于坐标参考系的相关信息包含在元数据<a href="https://ckan.publishing.service.gov.uk/harvest/object/2533c88a-ccf2-41d7-8ac7-704c46bfd177/html">metadata</a> ，设置为<em>EPSG:27700 British National Grid</em>。接下来就有足够的信息来查看这些栅格数据了。</p>
+<ol>
+<li>打开 QGIS，在加载数据之前，我们要先设置项目坐标参考系与栅格数据的坐标参考系一致。在菜单栏中找到<strong>Project → Properties</strong>进行设置。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/elevation1.png"></p>
+<ol>
+<li>切换到<em>CRS</em> 标签页，然后搜索<code>EPSG:27700</code>，选中后点击<em>OK</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/elevation2.png"></p>
+<ol>
+<li>将 <code>dsm_F0195499_20161130_20161130_mm_units.asc</code> 文件拖动到试图中。选中<em>Identify</em> 然后在图像上点击任意位置。就会看到对应的<em>Band 1</em> 就是对应像素位置的高程，单位是千米.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/elevation3.png"></p>
+<ol>
+<li>点击 <em>Open the Layer Styling Panel</em>，选中单波段假彩色 <code>Singleband pseudocolor</code> 着色器。扩展到最小最大值设置<em>Min / Max Value Settings</em>部分，选择 <em>Cumulative count cut</em>。 Select a color ramp of your choice. Once the style is applied you will be able to see the building outlines, trees, riverbed etc clearly.</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/elevation4.png"></p>
+<ol>
+<li>接下来将<code>dtm_F0195499_20161130_20161130_mm_units.asc</code> 也拖到视图里。要对这两者进行对比，可以考虑使用同样的参数进行可视化。好在QGIS提供了一种简单办法复用图层设置，右键要复制设置的源图层<code>dsm_F0195499_20161130_20161130_mm_units</code> 后选中 <strong>Styles → Copy Style</strong>即可复制已经做好的图层设置。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/elevation5.png"></p>
+<ol>
+<li>然后选中目标图层 <code>dtm_F0195499_20161130_20161130_mm_units</code>，右键，然后<strong>Styles → Paste Style</strong>，就可以把刚刚复制的图层粘贴上去了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/elevation6.png"></p>
+<ol>
+<li>来回切换 DSM 和 DTM 的图层顺序就可以对比二者来。你会发现 DTM只包含了地表的高程，没有任何其他的自然或者人造物。<a href="https://courses.spatialthoughts.com/images/spatial_data_viz/elevation7.gif">View Animated GIF ↗</a></li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/elevation7.png"></p>
+<h1>分析</h1>
+<h2>练习：Uber交通分析</h2>
+<p><a href="https://movement.uber.com/">Uber</a>提供了超过一百亿次打车出行的匿名数据，旨在帮助全球的城市规划。这些数据都已经免费公开课下载。该数据集中包含了旅行时间和每段路上的速度等信息。</p>
+<p>本次练习使用的是班加罗尔（Bangalore）的 <a href="https://movement.uber.com/explore/bangalore/travel-times/query?lang=hi-IN">旅行时间数据 Travel Times data</a>来分析交通模式，发现30分钟车程可达地区。这种地图也叫做<a href="https://en.wikipedia.org/wiki/Isochrone_map">等时线地图 Isochrone Map</a> ，可以用于城市规划。</p>
+<p>这份数据有两部分，首先是一个GeoJSON文件<code>bangalore_wards.json</code>描绘了城市内各区域的边界，另外有一个CSV文件<code>bangalore-wards-2019-3-OnlyWeekdays-HourlyAggregate.csv</code>包含了城市各区域和一天中各时段的旅行时间，日期是2019年的第三季度（789三个月）。<a href="https://d3i4yxtzktqr9n.cloudfront.net/web-movement/76002ded222a46a02ae89f207e91e335.pdf">一份白皮书</a>讲述了创建这些数据的方法。</p>
+<p>CSV格式文件的内容如下所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>sourceid</strong></th>
+<th style="text-align: left;"><strong>dstid</strong></th>
+<th style="text-align: left;"><strong>hod</strong></th>
+<th style="text-align: left;"><strong>mean_travel_time</strong></th>
+<th style="text-align: left;">…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">55</td>
+<td style="text-align: left;">111</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">2026.76</td>
+<td style="text-align: left;">…</td>
+</tr>
+<tr>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">770.07</td>
+<td style="text-align: left;">…</td>
+</tr>
+<tr>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>sourceid</strong> 和 <strong>dstid</strong> 指的是出发地和目的地的区块ID。</li>
+<li><strong>hod</strong>: hour-of-day，一天中的时间，从0-23。</li>
+<li><strong>mean_travel_time</strong>: 平均旅行时间，秒为单位，从所有旅行中提取。</li>
+</ul>
+<p>班加罗尔城区中有 198 个分区。CSV文件中包含任意两区之间的成对的旅行时间。总共的记录时间会有198 x 198 x 24 = 940896条。但由于在特定时间内不是所有的区都有充足的行程发生，就存在对应的空白。因此实际上这个数据是818263列。这数据规模还是挺大的，需要用一些分析方法来提取其中的正确数据集。</p>
+<ol>
+<li>选中<code>bangalore_wards.json</code>拖拽到QGIS的地图画布。然后夹在一个街景地图作为地图层，在菜单栏找到<strong>Web → QuickMapServices → OSM → OSM Standard</strong>，加载之后，点击 <em>Open Data Source Manager</em> 按钮。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber1.png"></p>
+<ol>
+<li>切换到<em>Delimited Text</em> 按钮，找到<code>bangalore-wards-2019-3-OnlyWeekdays-HourlyAggregate.csv</code> 文件并选中。由于CSV文件只是表格数据，选择<em>No geometry (attribute only table)</em> 选项然后点击添加<em>Add</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber2.png"></p>
+<ol>
+<li>CSV倒入后，图层界面<em>Layers</em> 下面就有了 <code>bangalore-wards-2019-3-OnlyWeekdays-HourlyAggregate</code> 这一项，右键然后选中<em>Show Feature Count</em>。全部的列数就出现在旁边了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber3.png"></p>
+<ol>
+<li>对于本次练习，要计算全部从<a href="https://g.page/spatialthoughts?share">Spatial Thoughts office</a>出发30分钟内车程能到达的位置。在地图上找到对应区域，可以选中<em>Identify</em> 按钮来选择<code>bangalore_wards</code>图层并点击，然后该地的位置结果就会出现，位于<em>JP Nagar</em> 区，<em>MOVEMENT_ID</em> 为<strong>193</strong>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber4.png"></p>
+<ol>
+<li>接下来可以筛选将这个区域作为目的地的行程记录。还可以限制分析范围在早高峰上午9-10点钟这个时间段内。右键<code>bangalore-wards-2019-3-OnlyWeekdays-HourlyAggregate</code> 层然后选中筛选<em>Filter</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber5.png"></p>
+<ol>
+<li>输入下面的筛选表达式，然后点击 <em>OK</em>。</li>
+</ol>
+<div class="highlight"><pre><span></span><code>&quot;dstid&quot; = 193 AND &quot;hod&quot; = 9
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber6.png"></p>
+<ol>
+<li>现在返回到QGIS的主窗口，你会发现数据项目数已经缩减到了<em>197</em>。这是因为城市中一共只有198个区，那以<code>193</code>号位置为目的地的自然只有其他197个，也就是1个目的地，197个出发地。现在到<em>Attributes</em>工具栏中使用<em>Open Attribute Table</em> 打开各图层的属性表格。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber7.png"></p>
+<ol>
+<li>现在我们在图层 <code>bangalore_wards</code>中有各区范围，在层<code>bangalore-wards-2019-3-OnlyWeekdays-HourlyAggregate</code>中有表格信息。现在就可以使用一个公用属性（common attribute）来将属性信息连接起来。此处的 <strong>MOVEMENT_ID</strong> 列来自 <code>bangalore_wards</code> 图层，而 <strong>sourceid</strong> 列来自 <code>bangalore-wards-2019-3-OnlyWeekdays-HourlyAggregate</code> ，这两个都是分区id，可以连接起来。这个操作就叫<em>Table Join</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber8.png"></p>
+<ol>
+<li>在对两个图层进行联合（join）之前，要保证两列中的数值严格一直。比如看上去一样，可能有不同的数据类型。因为GeoJSON格式不允许指定属性的数值类型，所有的值都是存储成字符串<em>String</em>，也就是文本。但当导入CSV到QGIS的时候，QGIS会智能地将这些列的类型根据值来进行解析，因此就会给<strong>sourceid</strong>这列解析成整数<em>Integer</em>。所以我们需要将GeoJSON里的列数据也转换到整数。在菜单栏中找到<strong>Processing → Toolbox</strong>，搜索<em>Vector Table → Field Calculator</em>算法，双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber9.png"></p>
+<ol>
+<li>选择<code>bangalore_wards</code> 作为输入层<em>Input Layer</em>，将要合并的<code>Field name</code>值为<code>joinfield</code> ，然后选择<em>Result field type</em> 作为整数<code>Integer</code>，输入 <code>"MOVEMENT_ID"</code>作为表达式。点击<em>…</em> 按钮，就在<em>Calculated</em>旁，然后选中<em>Save to File..</em>，输入文件名，将文件保存成<code>bangalore_wards_fixed.gpkg</code>。点击<em>Run</em>，关闭<code>Field Calculator</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber10.png"></p>
+<ol>
+<li>经过上面的步骤，在图层<em>Layers</em> 中就多了<code>bangalore_wards_fixed</code> 这一个新图层了。现在就可以进行联接（join）操作了。在<code>Processing Toolbox</code>里面搜索并找到<em>Join attributes by field value</em>算法 。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber11.png"></p>
+<ol>
+<li>选择刚刚生成的<code>bangalore_wards_fixed</code>作为输入层<em>Input layer</em> ，然后设<em>Table field</em>为<code>joinfield</code>。选择<code>bangalore-wards-2019-3-OnlyWeekdays-HourlyAggregate</code>作为第二输入层<em>Input layer 2</em>，并选择<em>Table field 2</em>作为<code>sourceid</code> 。将<em>Joined layer</em> 命名为<code>uber_travel_times.gpkg</code>然后点击<em>Run</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber12.png"></p>
+<ol>
+<li>现在一个新的 <code>uber_travel_times</code>图层就出现在图层面板<em>Layers</em>中了。接下来对其进行可视化的调整。点击<em>Open the Layer Styling Panel</em>，选择<code>Graduated</code>着色器，设置<em>Value</em>为<code>mean_travel_time</code>。选择一个配色方案然后点击<em>Classify</em>进行分类。就能看到随着距离目的地越远颜色就越深。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber13.png"></p>
+<ol>
+<li>咱们想要提取和分析的是小于三十分钟的，所以还需要进一步处理一下。切换到<em>Single symbol</em> 着色器，右键<code>uber_travel_times</code> 图层选择 <em>Filter</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber14.png"></p>
+<ol>
+<li>输入下面的表达式，选择所有平均旅程时间（mean travel time）小于等于1800秒也就是30分钟的(30 minutes) 。另外还要包含目的区域本身。</li>
+</ol>
+<div class="highlight"><pre><span></span><code>&quot;mean_travel_time&quot; &lt;= 1800 OR &quot;MOVEMENT_ID&quot; = 193
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber15.png"></p>
+<ol>
+<li>现在这个图层就显示的是我们感兴趣的区域的众多多边形了。接下来咱们将这些多边形合并成一个多边形。在处理工具箱<code>Processing Toolbox</code>中搜索<em>Dissolve</em>算法。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber16.png"></p>
+<ol>
+<li>选择<code>uber_travel_times</code> 作为输入图层<em>Input layer</em>。将融合的<em>Dissolved</em>图层命名为 <code>30min_isochrone.gpkg</code>，点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber17.png"></p>
+<ol>
+<li>这样得到的新图层<code>30min_isochrone</code> 就出现在图层面板<em>Layers</em>中了。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/uber18.png"></p>
+<h2>练习：分析地铁可及性</h2>
+<p>在规划城市基础设施的时候，尤其是以交通为导向的发展规划（Transit-Oriented Development，TOD），一项指标就是公共交通可及性。 <a href="https://www.livemint.com/news/india/india-s-public-transport-challenge-1568355574941.html">LiveMint</a>上面有一篇关于印度公共交通挑战的文章对印度全国的地铁可及性进行了分析。这个练习中也要实现一个类似的分析过程。</p>
+<p>通过这个分析，我们要确定在班加罗尔城中有多少人口生活在地铁站1km范围内。要解决这个问题，需要用到GIS的线条，结合多个离散数据源的相关信息。要进行这次的分析，首先要查询OpenStreetMap数据库来获得班加罗尔的地铁站位置。然后计算1km范围内的缓冲区域，再将其和基于WorldPop的人口网格（population grid）来完成人口分析。</p>
+<ol>
+<li>找到<code>bangalore.geojson</code> 文件，拖拽到QGIS的地图画布上。这个多边形表示的就是城市边界。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop1.png"></p>
+<ol>
+<li>接下来查询OpenStreetMap来获得该城市上的铁路车站。到菜单栏中找到 <strong>Vector → QuickOSM → QuickOSM</strong>。OpenStreetMap 利用一个标签系统（tagging system）来记录物理特征的属性。这种标签和键值对的具体细节可以参考<a href="https://wiki.openstreetmap.org/wiki/Map_Features">OpenStreetMap wiki</a>。铁路车站的标签是<code>railway=station</code>。在键名<em>Key</em>处设置为<code>railway</code>，键值<em>Value</em>设为<code>station</code>，地理位置过滤选项<em>In</em>设置为<em>Bangalore</em> 。扩展<em>Advanced</em> 区域，只选中 <em>Node</em> 和<em>Points</em> 两个勾选框。点击运行查询<em>Run Query</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop2.png"></p>
+<ol>
+<li>查询完成后，你就能看到新图层<code>railway_station_Bangalore</code>已经加载到地图画布上了。这个图层中包含铁路车站和在建设中的车站。接下来就要进行筛选，只保留我们关注的地铁车站。右键该新图层，选择筛选<em>Filter</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop3.png"></p>
+<ol>
+<li>在<em>Query Builder</em> 输入下面的表达式，然后点击<em>OK</em>。</li>
+</ol>
+<blockquote>
+<p>注意：这里的使用的是<code>IS NOT</code> ，而不是 <code>!=</code>。这是因为这些列当中有位置为<strong>NULL</strong>。而<em>NULL</em> 并不是一个值，不能和其他值进行等于、不等于这样的比较。而<code>IS NOT</code>可以适用于所有类型，能够有效验证项目是否匹配，就包括<strong>NULL</strong>。</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>&quot;operator&quot; = &#39;BMRCL&#39; AND 
+&quot;disused&quot; IS NOT &#39;yes&#39; AND 
+&quot;disused:railway&quot; IS NOT &#39;station&#39;
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop4.png"></p>
+<ol>
+<li>已建成但未连接到整个体系的车站是由于中间的车站还在建设。所以在可视化解译中，要再对这部分车站进行清洗。点击<em>Select Features</em>按钮，选择未连接的地铁站。然后点击<em>Open Attribute Table</em>图标。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop5.png"></p>
+<ol>
+<li>在属性表格中，切换到显示所选特征<em>Show selected Features</em>。然后直邮要删除的个别特征会显示出来。 然后就会凸显出刚刚选中的。现在点击左上角小铅笔图标进入编辑模式<em>Toggle editing mode</em> 然后点击小垃圾桶图标删除选中特征<em>Delete selected features</em>。完成之后，再点击小铅笔图标 <em>Toggle editing mode</em>，然后再点击<em>Save</em>保存。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop6.png"></p>
+<ol>
+<li>现在地图就更新了，只保留了咱们想要的城区地铁站。接下来需要对这些站点应用一个缓冲处理<em>Buffer</em>来获得距离地铁站1km范围内的区域。但咱们的地图用的是EPSG:4326 WGS84地理投影，用的单位是度分秒。要将单位从度分秒转化到公里网格，就必须将图层重新投影到一个合适的坐标参考系统（coordinate reference system，CRS）。到菜单栏中找到<strong>Processing → Toolbox</strong>，搜索定位到<strong>Vector general → Reproject layer</strong> 算法，双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop7.png"></p>
+<ol>
+<li>选择 <code>railway_station_Bangalore</code>作为输入层<em>Input layer</em>。点击下图所示的小图标，目标坐标参考系<em>Target CRS</em>选择<code>EPSG:32643 - WGS 84 UTM Zone 43N</code>。将重命名的<em>Reprojected</em>图层命名为<code>metro_stations_reprojected.gpkg</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop8.png"></p>
+<ol>
+<li>重新投影的<code>metro_stations_reprojected</code>图层创建好后，在<strong>Processing Toolbox</strong>中搜索<strong>Vector geometry → Buffer</strong>然后双击运行算法。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop9.png"></p>
+<ol>
+<li>将<code>metro_stations_reprojected</code> 设做输入层<em>Input layer</em>。设置<em>Distance</em>为 <code>1 kilometer</code>。选中<em>Dissolve result</em> 选项，然后将<em>Buffered</em> 输出图层命名为<code>metro_stations_buffer.gpkg</code>。点击<em>Run</em>来运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop10.png"></p>
+<ol>
+<li>现在图层中就出现了刚刚得到的距离地铁站范围1km的多边形组成的新图层<code>metro_stations_buffer</code>了。图层上的一个个圆表示的就是距离地铁站圆心1km范围。地理处理完成了，我们接下来将得到的图层再转换回原来的坐标参考系。在<strong>Processing Toolbox</strong>中搜索<strong>Vector general → Reproject layer</strong>算法然后运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop11.png"></p>
+<ol>
+<li>选择刚刚生成的<code>metro_stations_buffer</code>图层作为输入图层<em>Input layer</em>，然后设置<em>Target CRS</em>为<code>EPSG:4326 -WGS 84</code>。将新生成的图层命名为 <code>metro_station_buffer_reprojected.gpkg</code>。点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop12.png"></p>
+<ol>
+<li>新图层 <code>metro_station_buffer_reprojected</code>就被添加到画布上了，表示的是距离地铁站1km范围内的地方。之前已经有了<code>bangalore</code> 图层表示整个城区范围。接下来要给这些图层添加人口数据。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop13.png"></p>
+<ol>
+<li>找到<code>ind_ppp_2000_KA.tif</code>文件，拖拽到画布上。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop14.png"></p>
+<ol>
+<li>选择 <code>ind_ppp_2000_KA</code> 图层，然后使用 <em>Identify</em>工具查看像素质。这个栅格图像的分辨率大约是100m x 100m，单一通道，每个像素的值是对应大小区域的估计人口。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop15.png"></p>
+<ol>
+<li>将所有落在多边形的区域中的像素加到一起就能获得对应区域的总人口。这个操作也叫区域统计<em>Zonal Statistics</em>。在<strong>Processing Toolbox</strong>中搜索<strong>Raster analysis → Zonal statistics</strong>算法。这个算法是对每个层增加了一个新属性，这个属性存储的是每个层当中包含在多边形中的总人口。双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop16.png"></p>
+<ol>
+<li>选择<code>bangalore</code>作为输入层<em>Input layer</em>，将<code>ind_ppp_2000_KA</code>作为栅格层<em>Raster layer</em>。输入<code>population_</code>作为输出列前缀<em>Output column prefix</em>。我们感兴趣的只是总和<strong>Sum</strong>，所以点击<em>Statistics to calculate</em>旁边的<code>...</code>，然后只选中<code>Sum</code>。在<em>Zonal Statistics</em> 中点击<code>...</code> 然后将生成文件设置保存为 <code>banglore_pop.gpkg</code>。点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop17.png"></p>
+<ol>
+<li>算法完成后，选择<code>metro_station_buffer_reprojected</code>作为输入层<em>Input layer</em>。然后再<em>Zonal Statistics</em> 中点击 <code>...</code>将生成层保存为<code>metro_station_buffer_pop.gpkg</code>。点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop18.png"></p>
+<ol>
+<li>现在地图画布上就出现了新生成的两个图层了。点击<code>banglore_pop</code>然后使用<em>Identify</em>工具，然后点击多边形。里面的<strong>population_sum</strong> 就应该是人口了。可以📧然后选择复制属性值<em>Copy Attribute Value</em>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop19.png"></p>
+<ol>
+<li>QGIS 有一个内置计算器。点击界面左下角的<em>Locator</em>窗体然后输入等号<code>=</code>。将<code>metro_station_buffer_pop</code>和<code>banglore_pop</code>的人口总数粘贴进去，算出比值。得到的结果就是班加罗尔城市中住在地铁周围1km范围内的人口比例。</li>
+</ol>
+<div class="highlight"><pre><span></span><code>= 100 * pasted value from from metro_station_buffer_pop / pasted value from banglore_pop 
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/pop20.png"></p>
+<h2>练习：绿地分布</h2>
+<p>拥挤的城市区域中，公园之类的开放空间很有必要。这些场所不仅能改善环境提供娱乐设施，还对人的心理健康有正面影响。</p>
+<p>本次练习中，我们使用来自Bruhat Bengaluru Mahanagara Palike (BBMP)出版的公园列表，计算城市中每个分区的公园面积。这个数据可以通过 <a href="http://opencity.in">OpenCity - Urban Data Portal</a> 获取到PDF格式的文件。本课程原作者将PDF格式数据文件使用<a href="https://www.zamzar.com/convert/pdf-to-xls/">Zamzar Online file conversion</a>转换成了表格文件<code>BBMP_Parks.xlsx</code>。</p>
+<blockquote>
+<p>注意，本练习只考虑每个区域的公园总面积。但实际上公园质量也很重要，对此的相关分析可以参考<a href="https://www.ichangemycity.com/pdf/parks-playgrounds-survey-report.pdf">Parks and Playgrounds Score of Bengaluru Report</a>。</p>
+</blockquote>
+<ol>
+<li>将<code>bangalore_wards.json</code>文件拖拽到QGIS地图画布上。然后找到<code>BBMP_Parks.xlsx</code>文件。QGIS也可以直接读取Excel文件。拽到画布上就可以，现在就有<code>bangalore_wards</code>和<code>BBMP_Parks_Area</code> 两个图层出现在图层面板<em>Layers</em> 。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park1.png"></p>
+<ol>
+<li>选中 <code>BBMP_Parks_Area</code> 图层然后点击<em>Open Attribute Table</em>。可以看到数据有超过900多行，每行都描述了一个公园和对应的面积，单位是平方米。我们不需要提取公园的地理位置坐标，但需要知道归属的区。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park2.png"></p>
+<ol>
+<li>接下来可以按照各个区计算每个区一共有多少个公园。打开<em>Processing Toolbox</em>然后搜索<strong>Vector analysis → Statistics by categories</strong> 算法，双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park3.png"></p>
+<ol>
+<li>选中<code>BBMP_Parks_Area</code>图层作为输入向量层<em>Input vector layer</em>。选中<code>Area</code>作为<em>Field to calculate statistics on</em>. 由于要按区分辨，选中<code>Ward</code>作为<em>Field(s) with categories</em>。将生成的<em>Statistics by category</em>层存储为<code>park_area_by_ward.gpkg</code>。点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park4.png"></p>
+<ol>
+<li>接下来每一个区都有一个对应的面积总和<em>sum</em>，然后可以将其于一个空间图层联接起来。在<code>Processing Toolbox</code>里面搜索<em>Join attributes by field value</em>算法。选中<code>bangalore_wards</code>作为输入层<em>Input layer</em>，然后设置<code>WARD_NO</code>作为<em>Table field</em>。选择<code>park_area_by_ward</code>作为第二输入层<em>Input layer 2</em>，设置<code>Ward</code>为<em>Table field 2</em>。这里的<code>park_area_by_ward</code>包含很多列，但我们要用的只有<em>sum</em>。所以选中<code>sum</code>作为<em>Layer 2 fields to copy</em>。将输出层命名为<code>bangalore_wards_park_area_joined.gpkg</code>然后点击<em>Run</em>运行。</li>
+</ol>
+<blockquote>
+<p>可能会有警告提示你不是所有的特征都成功联接。这是因为Excel文件并不能包涵覆盖所有区域的全部数据。这对于咱们的练习分析目的来说没啥影响，不用担心。</p>
+</blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park5.png"></p>
+<ol>
+<li>新图层<code>bangalore_wards_park_area_joined</code>就出现在图层面板<em>Layers</em>了。在完成结果之前，可以将每一列都重命名一下使之更容易理解。在<em>Processing Toolbox</em>里面搜索找到<strong>Vector table → Refactor fields</strong> 算法。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park6.png"></p>
+<ol>
+<li>选中不需要的列，然后用<em>Delete field</em>移除。对于<em>sum</em>列，输入<code>PARK_AREA</code>作为名称<em>Field name</em>。然后将<em>Refactored</em>输出的文件名设置为<code>bangalore_wards_park_area.gpkg</code>，点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park7.png"></p>
+<ol>
+<li>得到的新图层<code>bangalore_wards_park_area</code>也能在图层面板<em>Layers</em>里看到了。打开一下属性表格查看各分区的公园面积吧。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/park8.png"></p>
+<h2>练习：选择最佳居住区</h2>
+<p>寻找最优区域是空间分析技术的常见实用场景。使用合适的模型，就可以将多种因素一起考虑，然后推断出排列顺序。这里我们使用的是一个真实的场景，要在一个城市中根据多个因素寻找最佳居住场所。</p>
+<p>本次练习所选用的优选因素如下：</p>
+<ul>
+<li>距离工作地必须在三十分钟车程范围内，办公地点设为<a href="https://g.page/spatialthoughts?share">Spatial Thoughts office</a>。</li>
+<li>距离地铁站点必须在1km范围内。</li>
+<li>要有公园，无公园的区域不考虑。</li>
+</ul>
+<p>前面的练习已经为这次联系准备了数据：</p>
+<ul>
+<li><code>30min_isochrone.gpkg</code> 图层表示的是距离工作地30分钟的区域。</li>
+<li><code>metro_station_buffer_reprojected.gpkg</code> 图层表示的是地铁周围1km范围。</li>
+<li><code>bangalore_wards_park_area.gpkg</code> 表示了每个区的公园面积。</li>
+</ul>
+<p>接下来就把上面这几层都用上，交叉分析出来就可以了。</p>
+<ol>
+<li>将<code>30min_isochrone.gpkg</code>、 <code>metro_station_buffer_reprojected.gpkg</code>、<code>bangalore_wards_park_area.gpkg</code>这三个文件拖拽到QGIS里面，然后在<em>Processing Toolbox</em>里面搜索<strong>Vector overlay → Intersection</strong>算法，双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay1.png"></p>
+<ol>
+<li>选中<code>30min_isochrone</code>作为输入层<em>Input layer</em>，选中<code>metro_station_buffer_reprojected</code>作为叠覆层<em>Overlay layer</em>。设置<em>Intersection</em>交叉生成文件为<code>intersection.gpkg</code>。点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay2.png"></p>
+<ol>
+<li>得到的<code>intersection</code>图层表示符合地铁站1km和开车通勤时间30分钟内这两个条件。接下来要用第三个条件筛选。在<em>Processing Toolbox</em>中搜索定位到<strong>Vector analysis → Overlap analysis</strong> 算法，双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay3.png"></p>
+<ol>
+<li>选中<code>bangalore_wards_park_area.gpkg</code>作为输入层<em>Input layer</em>。选中<code>intersection</code>作为叠覆层<em>Overlay layer</em>。将输出层<em>Output layer</em>命名为<code>park_intersection_overlap.gpkg</code>，然后点击<em>Run</em>运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay4.png"></p>
+<ol>
+<li>得到的新图层 <code>park_intersection_overlap</code> 比原来的多了两列：<code>intersection_area</code>和<code>intersection_pc</code>。对每个多边形，现在知道每个区域与我们感兴趣区域的交叉比例。如果假设公园在每个区都是均匀分布，就一使用<code>intersection_pc</code>这个参数计算公园比例。在<em>Processing Toolbox</em>中搜索定位到<em>Vector Table → Field Calculator</em> 算法，双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay5.png"></p>
+<ol>
+<li>输出文件<em>Output file</em>设置为<code>park_intersection_percentage_area.gpkg</code>。将输出域名<em>Output field name</em>设置为<code>perc_area</code>。输入下面的表达式，然后点击<em>OK</em>。</li>
+</ol>
+<div class="highlight"><pre><span></span><code>(&quot;intersection_pc&quot; * &quot;PARK_AREA&quot;)/100
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay6.png"></p>
+<ol>
+<li>基本就差不多了，现在就知道兴趣区内每个地区的公园总面积了。可以排一下顺序。在<em>ProcessingWe Toolbox</em>里面搜索定位到 <em>Vector Table → Add autoincremental field</em> 算法，双击运行。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay7.png"></p>
+<ol>
+<li>选择<code>park_intersection_percentage_area</code>作为输入层<em>Input layer</em>。输入<code>RANK</code>作为<em>Field name</em> ，输入<code>1</code>作为<em>Start values at</em>。扩展<em>Advanced parameter</em>区域然后选<code>perc_area</code>作为<em>Sort expression</em>。去掉勾选<em>Sort ascending</em>。将<em>Incremented</em> 输出层命名为<code>bangalore_ward_rank.gpkg</code>然后点击<em>Run</em>保存。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay8.png"></p>
+<ol>
+<li>右键新生成的<code>bangalore_ward_rank</code>图层选中筛选器<em>Filter</em>。输入下面的表达式就获得前十个候选区域。</li>
+</ol>
+<div class="highlight"><pre><span></span><code>&quot;RANK&quot; &lt;= 10
+</code></pre></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay9.png"></p>
+<ol>
+<li>接下来看到的就是排名最靠前的十个区域。点击<em>Open the Layer Styling Panel</em> 切换到<em>Labels</em>标签页。选择<em>Single labels</em>然后设置<code>RANK</code>作为<em>Value</em>。这样地图上就显示出排序了</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/overlay10.png"></p>
+<h1>补充资料</h1>
+<h2>查看云优化的无人机图像</h2>
+<p><a href="https://map.openaerialmap.org/#/39.220848083496094,-6.162059582511514,11/user/5ac4842b26964b0010033104">Zanzibar Mapping Initiative (ZMI)</a>是坦桑尼亚科学和技术委员会（Tanzania Commission for Science and Technology ，COSTECH）和桑吉巴尔革命政府（Revolutionary Government of Zanzibar，RGoZ）的一项合作计划。这个计划正在拍摄无人机照片来为桑吉巴尔创建航拍地图，并通过<a href="https://openaerialmap.org/">开放航拍计划 OpenAerialMap</a>公开。</p>
+<p>针对这样的大规模图像的使用和分析，有一种新文件格式叫做<a href="https://www.cogeo.org/">云优化的地理信息位图 Cloud-Optimized GeoTIFF (COG)</a> 。作为一种「云优化」（<em>Cloud-optimized</em> ）的GeoTIFF格式，和之前我们看到的常规GeoTIFF一样有地理信息，但不需要将所有图像下载到本地，你就可以读取图像的一部分（<em>portions</em>），使用的是云端服务推流技术，客户端就是QGIS这类软件。这就使得对这类数据的读取和分析非常简单方便，不用下载很大的文件了。</p>
+<p>桑吉巴尔测绘计划的所有图像的收集和处理都是以云优化的GeoTIFF格式存储在亚马逊S3云上。接下来我们用QGIS来查看一下。</p>
+<ol>
+<li>首先要在 OpenAerialMap 上访问<a href="https://map.openaerialmap.org/#/39.220848083496094,-6.162059582511514,11/user/5ac4842b26964b0010033104">Zanzibar Mapping Initiative (ZMI)</a> 的用户页面。找到你要用的图像，右键<code>Download raw .tiff image file</code>按钮，然后选中复制链接地址<em>Copy Link Address</em>。本次练习使用的是<a href="https://oin-hotosm.s3.amazonaws.com/5b00370f2b6a08001185f125/10/5b00370f2b6a08001185f130.tif">这个图像链接</a></li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/cog1.jpg"></p>
+<ol>
+<li>在QGIS中，点击<em>Open Data Source Manager</em>，或者使用快捷键<code>Ctrl+L</code> / <code>Cmd +L</code>。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/cog2.png"></p>
+<ol>
+<li>切换到栅格<em>Raster</em>标签，然后选中协议<code>Protocol: HTTP(S), cloud etc.</code>作为数据源<em>Source type</em>。输入刚刚的geotiff链接地址作为<em>URI</em>。然后点击<em>Add</em>添加。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/cog3.png"></p>
+<ol>
+<li>初始化下载之后，图像就可以在QGIS中呈现为一个新图层了。要注意每个图像的原始大小可能有几百兆字节，但加载的时候其实只传输了必要的一小部分。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/cog4.png"></p>
+<ol>
+<li>使用<em>Identify</em> 工具来点一点图像。你会发现这是一个四通道的无人机图像，四个通道就是红、绿、蓝、明度（Red, Green, Blue, Alpha）。你不仅可以查看图像，还可以查询图像的像素值。这酒喝常规的GeoTIFF格式文件一样。如果你使用的是XYZ切片图层，是绝对无法实现这个效果的。所以一个云优化的GeoTIFF格式提供了这一独一无二的功能，具有这种快速流式访问的独特优势，同时保留了源数据的完全性。</li>
+</ol>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS/cog5.png"></p>
+<h1>数据来源</h1>
+<ul>
+<li>Delhi PM2.5 concentrations. Downloaded from <a href="https://openaq.org/">OpenAQ</a> <a href="https://openaq.org/#/countries?_k=dmlk2k">data download</a> service. Source data from Central Pollution Control Board (CPCB) India and EPAAirNow DOC.</li>
+<li>OSM Tile Layer, Bangalore Metro Stations : (c) OpenStreetMap contributors</li>
+<li>India Village-Level Geospatial Socio-Economic Data Set. Meiyappan, P., P. S. Roy, A. Soliman, T. Li, P. Mondal, S. Wang, and A. K. Jain. 2018. India Village-Level Geospatial Socio-Economic Data Set: 1991, 2001. Palisades, NY: NASA Socioeconomic Data and Applications Center (SEDAC). <a href="https://doi.org/10.7927/H4CN71ZJ">https://doi.org/10.7927/H4CN71ZJ</a>. Accessed 15 February 2020.</li>
+<li>Census 2001 Districts: Downloaded from <a href="https://github.com/datameet/maps/tree/master/States">Datameet Spatial Data repository</a>.</li>
+<li>Oxford Point Cloud. DTM, and DSM. Downloaded from <a href="https://environment.data.gov.uk/DefraDataDownload/">Defra Data Services Platform</a>. Crown Copyright 2019</li>
+<li>Kathmandu University Ground Drone Imagery. Downloaded from <a href="https://map.openaerialmap.org/#/85.53695037961006,27.61776421799196,20/user/59f0ecea31eff4000c3804fd/5a00c096bac48e5b1cf75232?_k=tkjpjw">OpenAerialMap</a>. Captured by <a href="https://werobotics.org/">WeRobotics</a></li>
+<li>Zanzibar Cloud-Optimized GeoTiff and XYZ Layer. Accessed from <a href="https://map.openaerialmap.org/#/39.220848083496094,-6.162059582511514,11/user/5ac4842b26964b0010033104">OpenAerialMap</a>. Commission for Lands (COLA) ; Revolutionary Government of Zanzibar (RGoZ)</li>
+<li>Bangalore Sentinel-2 Imagery. Downloaded from <a href="https://scihub.copernicus.eu/">Copernicus Open Access Hub</a>. Copyright European Space Agency - ESA.</li>
+<li>Travel Times for Bangalore. Data retrieved from Uber Movement, (c) 2020 Uber Technologies, Inc., <a href="https://movement.uber.com">https://movement.uber.com</a>.</li>
+<li>Bangalore Ward Maps Provided by <a href="http://projects.datameet.org/Municipal_Spatial_Data/">Spatial Data of Municipalities (Maps) Project</a> by Data{Meet}.</li>
+<li>Karnataka Population Grid 2020: Downloaded from <a href="https://www.worldpop.org/geodata/summary?id=6527">WorldPop</a> - School of Geography and Environmental Science, University of Southampton; Department of Geography and Geosciences, University of Louisville; Departement de Geographie, Universite de Namur) and Center for International Earth Science Information Network (CIESIN), Columbia University (2018). Global High Resolution Population Denominators Project - Funded by The Bill and Melinda Gates Foundation (OPP1134076). <a href="https://dx.doi.org/10.5258/SOTON/WP00645">https://dx.doi.org/10.5258/SOTON/WP00645</a></li>
+<li><a href="http://opencity.in/documents/bbmp-list-of-parks-wardwise">BBMP: List of Parks - wardwise</a>: Downloaded from OpenCity Urban Data Portal by Oorvani Foundation and DataMeet.</li>
+</ul>
+<h1>授权协议</h1>
+<p>本课程材料采用<a href="https://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性4.0国际许可协议</a>授权。你可以为任何非商业目的自由使用该材料。请适当注明原作者的名字。</p>
+<p>本中文翻译版本禁止商用。</p>
+<p>如果你想利用英文原版内容作为商业产品的一部分，需要 <a href="https://spatialthoughts.com/contact/">联系英文原作者</a> 询问价格和使用条款，获得<em>培训授权</em>，付对应费用。</p>
+<p>© 2020 Ujaval Gandhi <a href="https://spatialthoughts.com">www.spatialthoughts.com</a></p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep" data-i18n="category_label">分类</span>:
+        <abbr class="category">
+            <a href="./category/qgis.html">QGIS</a>
+        </abbr>
+       </footer>
+    
+</section>
+
+<section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
+    <script src="https://giscus.app/client.js"
+        data-repo="cycleuser/cycleuser.github.io"
+        data-repo-id="R_kgDOL4NKYA"
+        data-category="General"
+        data-category-id="DIC_kwDOL4NKYM4DBK3X"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    function update() {
+        var t = giscusTheme(getTheme());
+        var s = document.querySelector('script[src*="giscus"]');
+        if (s) s.setAttribute('data-theme', t);
+        sendTheme(t);
+    }
+    // 初始设置
+    var s = document.querySelector('script[src*="giscus"]');
+    if (s) s.setAttribute('data-theme', giscusTheme(getTheme()));
+    // 监听明暗切换
+    new MutationObserver(function() { update(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    // 重试几次确保 iframe 加载完成
+    var tries = 0;
+    var timer = setInterval(function() {
+        if (document.querySelector('iframe.giscus-frame')) { sendTheme(giscusTheme(getTheme())); clearInterval(timer); }
+        if (++tries > 20) clearInterval(timer);
+    }, 500);
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

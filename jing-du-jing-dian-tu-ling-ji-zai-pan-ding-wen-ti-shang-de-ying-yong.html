@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894037367471530"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9894037367471530">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=19' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="./index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li class="active"><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li class="active"><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li class="active"><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li><li class="active"><a href="./2048游戏.html" data-i18n="2048">2048</a></li><li class="active"><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li><li class="active"><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li class="has-sub"><a href="./categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="./category/academic.html">Academic (3)</a></li><li><a href="./category/ai.html">AI (6)</a></li><li><a href="./category/c.html">C (16)</a></li><li><a href="./category/camera.html">Camera (15)</a></li><li><a href="./category/chromebook.html">ChromeBook (2)</a></li><li><a href="./category/cuda.html">CUDA (1)</a></li><li><a href="./category/design.html">Design (1)</a></li><li><a href="./category/diy.html">DIY (1)</a></li><li><a href="./category/duke.html">Duke (1)</a></li><li><a href="./category/education.html">Education (21)</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./category/hackintosh.html">Hackintosh (7)</a></li><li><a href="./category/java.html">Java (1)</a></li><li><a href="./category/linux.html">Linux (4)</a></li><li><a href="./category/llm.html">LLM (55)</a></li><li><a href="./category/ltfs.html">LTFS (1)</a></li><li><a href="./category/mac.html">Mac (3)</a></li><li><a href="./category/math.html">Math (30)</a></li><li><a href="./category/ml.html">ML (4)</a></li><li><a href="./category/modeling.html">Modeling (9)</a></li><li><a href="./category/nas.html">NAS (1)</a></li><li><a href="./category/nix.html">Nix (1)</a></li><li><a href="./category/photography.html">Photography (1)</a></li><li><a href="./category/programming.html">Programming (12)</a></li><li><a href="./category/pve.html">PVE (1)</a></li><li><a href="./category/python.html">Python (26)</a></li><li><a href="./category/qgis.html">QGIS (3)</a></li><li><a href="./category/qt.html">QT (1)</a></li><li><a href="./category/raspbian.html">Raspbian (1)</a></li><li><a href="./category/science.html">Science (2)</a></li><li><a href="./category/sdr.html">SDR (2)</a></li><li><a href="./category/software.html">Software (3)</a></li><li><a href="./category/story.html">Story (68)</a></li><li><a href="./category/sui-bi.html">随笔 (2)</a></li><li><a href="./category/tool.html">Tool (49)</a></li><li><a href="./category/tools.html">Tools (2)</a></li><li><a href="./category/virtualization.html">Virtualization (1)</a></li><li><a href="./category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./category/windows.html">Windows (1)</a></li><li><a href="./category/work.html">Work (24)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="./tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="./tag/7900xtx.html">7900XTX (3)</a></li><li><a href="./tag/9bmo-xing.html">9B模型 (1)</a></li><li><a href="./tag/abbreviations.html">abbreviations (1)</a></li><li><a href="./tag/academic.html">academic (1)</a></li><li><a href="./tag/adamw.html">AdamW (1)</a></li><li><a href="./tag/advice.html">advice (1)</a></li><li><a href="./tag/aerodynamics.html">aerodynamics (3)</a></li><li><a href="./tag/agent.html">Agent (3)</a></li><li><a href="./tag/ai.html">AI (31)</a></li><li><a href="./tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="./tag/aigc.html">AIGC (1)</a></li><li><a href="./tag/ailun-li.html">AI伦理 (1)</a></li><li><a href="./tag/airfoil.html">airfoil (1)</a></li><li><a href="./tag/algorithm.html">Algorithm (12)</a></li><li><a href="./tag/amd.html">AMD (1)</a></li><li><a href="./tag/anime.html">anime (1)</a></li><li><a href="./tag/arc.html">ARC (1)</a></li><li><a href="./tag/architecture.html">Architecture (3)</a></li><li><a href="./tag/arithmetic.html">arithmetic (1)</a></li><li><a href="./tag/attitude.html">Attitude (2)</a></li><li><a href="./tag/bayesian.html">Bayesian (2)</a></li><li><a href="./tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="./tag/beginner.html">Beginner (3)</a></li><li><a href="./tag/ben-di-bu-shu.html">本地部署 (5)</a></li><li><a href="./tag/ben-di-bu-shu-bing-yun-xing-omnicoder-9bde-su-du-zhi-mi-moxing-vs-ollama.html">本地部署并运行omnicoder-9b的速度之谜MoXing-vs-Ollama (1)</a></li><li><a href="./tag/ben-di-mo-xing.html">本地模型 (3)</a></li><li><a href="./tag/bfcl.html">BFCL (4)</a></li><li><a href="./tag/bi-ye-lun-wen.html">毕业论文 (1)</a></li><li><a href="./tag/bian-cheng.html">编程 (1)</a></li><li><a href="./tag/binary.html">binary (1)</a></li><li><a href="./tag/bing-fei-gu-yi-wei-shi-yao-wo-geng-duo-yong-ming-ling-xing-gong-ju-er-bu-shi-gui.html">并非故意-为什么我更多用命令行工具而不是GUI (1)</a></li><li><a href="./tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="./tag/book.html">Book (10)</a></li><li><a href="./tag/brent.html">Brent (1)</a></li><li><a href="./tag/bullshit.html">bullshit (1)</a></li><li><a href="./tag/c.html">C (10)</a></li><li><a href="./tag/camera.html">Camera (23)</a></li><li><a href="./tag/career.html">career (1)</a></li><li><a href="./tag/causation.html">Causation (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-da-mo-xing-omnicoder-9b-jian-ce-moxing-vs-ollama-dui-bi.html">超强的本地大模型-OmniCoder-9B-简测MoXing-vs-Ollama-对比 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-xiao-mo-xing-omnicoder-9bde-an-zhuang-yu-shi-yong-zhi-nan.html">超强的本地小模型OmniCoder-9B的安装与使用指南 (1)</a></li><li><a href="./tag/chao-xiao-mo-xing.html">超小模型 (1)</a></li><li><a href="./tag/chat.html">Chat (1)</a></li><li><a href="./tag/chatgpt.html">ChatGPT (1)</a></li><li><a href="./tag/cheng-chang.html">成长 (1)</a></li><li><a href="./tag/chouchou-pdflun-wen-zhong-ming-ming-gong-ju-sheng-ji-liao-zhe-ci-zhuan-men-you-hua-liao-zhong-wen-lun-wen-zhi-chi.html">Chou瞅-PDF论文重命名工具升级了这次专门优化了中文论文支持 (1)</a></li><li><a href="./tag/chouchou-yi-ge-pythonxiao-gong-ju-rang-ni-de-lun-wen-pdfwen-jian-ming-bu-zai-shi-luan-ma.html">Chou瞅一个Python小工具让你的论文PDF文件名不再是乱码 (1)</a></li><li><a href="./tag/chromebook.html">ChromeBook (2)</a></li><li><a href="./tag/cli.html">CLI (1)</a></li><li><a href="./tag/code.html">Code (2)</a></li><li><a href="./tag/code-generation.html">Code Generation (6)</a></li><li><a href="./tag/coding.html">Coding (1)</a></li><li><a href="./tag/cognition.html">Cognition (1)</a></li><li><a href="./tag/comics.html">comics (1)</a></li><li><a href="./tag/communicate.html">Communicate (6)</a></li><li><a href="./tag/communication.html">communication (3)</a></li><li><a href="./tag/comparison.html">comparison (1)</a></li><li><a href="./tag/computability.html">Computability (12)</a></li><li><a href="./tag/computer.html">computer (3)</a></li><li><a href="./tag/conda.html">Conda (2)</a></li><li><a href="./tag/conda-forge.html">conda-forge (1)</a></li><li><a href="./tag/configback-kua-ping-tai-kai-fa-pei-zhi-wen-jian-de-wu-tong-bei-fen-qian-yi-guan-li-gong-ju.html">ConfigBack-跨平台开发配置文件的无痛备份迁移管理工具 (1)</a></li><li><a href="./tag/cong-shu-zu-dao-fu-za-shu-ju-cyu-yan-shi-zen-yao-yi-bu-bu-bian-fu-za-de.html">从数组到复杂数据C语言是怎么一步步变复杂的 (1)</a></li><li><a href="./tag/copytalker-kua-yue-yu-yan-zhang-ai-de-jin-shi-shi-yu-yin-fan-yi.html">CopyTalker-跨越语言障碍的近实时语音翻译 (1)</a></li><li><a href="./tag/correlation.html">Correlation (1)</a></li><li><a href="./tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="./tag/cs.html">CS (1)</a></li><li><a href="./tag/cuda.html">CUDA (6)</a></li><li><a href="./tag/culture.html">culture (1)</a></li><li><a href="./tag/cursor.html">Cursor (1)</a></li><li><a href="./tag/cyu-yan-fu-xi-quan-gong-lue-yi-wen-chi-tou-suo-you-zhi-shi-dian.html">C语言复习全攻略-一文吃透所有知识点 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-numc-yi-ge-numpy-feng-ge-de-c-yu-yan-ku.html">C语言基础教程NumC-一个-NumPy-风格的-C-语言库 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shi-xian-lei-si-dong-tai-lei-xing-dui-yong-hu-shu-ru-jie-xi-bing-qie-xuan-ze-he-gua-de-shu-ju-lei-xing.html">C语言基础教程-实现类似动态类型对用户输入解析并且选择合适的数据类型 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shu-zu-xing-zhuang-50xing-200000lie-vs-200000xing-50lie-tong-yang-de-shu-ju-bu-tong-de-xing-neng.html">C语言基础教程数组形状-50行200000列-vs-200000行50列-同样的数据不同的性能 (1)</a></li><li><a href="./tag/da-gong.html">打工 (1)</a></li><li><a href="./tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="./tag/da-xue-sheng-huo.html">大学生活 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing.html">大语言模型 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing-li-mian-de-tokende-han-yi-he-yuan-liu.html">大语言模型里面的token的含义和源流 (1)</a></li><li><a href="./tag/dai-ma-neng-li.html">代码能力 (1)</a></li><li><a href="./tag/dan-jing-du-fu-dian-shu-de-fen-bian-lu-wei-shi-yao-zai-ji-suan-ji-li-1000-mo-he-1000-mo-jia-001-ke-neng-shi-yi-yang-de.html">单精度浮点数的分辨率为什么在计算机里-1000-万和-1000-万加-001-可能是一样的 (1)</a></li><li><a href="./tag/dan-yi-zhi-ze-yuan-ze-xie-hao-pythonhan-shu-de-di-yi-bu.html">单一职责原则写好Python函数的第一步 (1)</a></li><li><a href="./tag/data.html">Data (3)</a></li><li><a href="./tag/data-science.html">Data Science (2)</a></li><li><a href="./tag/database.html">Database (1)</a></li><li><a href="./tag/datewise-photo-organizer-ji-yu-ri-qi-shi-jian-jin-xing-tu-pian-zu-zhi-he-lu-jing-guan-li-de-she-ying-fu-zhu-gong-ju-ruan-jian.html">Datewise-Photo-Organizer-基于日期时间进行图片组织和路径管理的摄影辅助工具软件 (1)</a></li><li><a href="./tag/decision-making.html">decision-making (1)</a></li><li><a href="./tag/design.html">Design (1)</a></li><li><a href="./tag/dian-che-nan-ti-han-shang-de-zhi-jia-hui-zai-shi-gu-qian-tu-ran-tui-chu-yao.html">电车难题厂商的智驾会在事故前突然退出么 (1)</a></li><li><a href="./tag/dimension.html">dimension (1)</a></li><li><a href="./tag/discuss.html">Discuss (7)</a></li><li><a href="./tag/disease.html">Disease (1)</a></li><li><a href="./tag/diy.html">DIY (1)</a></li><li><a href="./tag/download.html">Download (1)</a></li><li><a href="./tag/earth-science.html">Earth Science (1)</a></li><li><a href="./tag/education.html">Education (15)</a></li><li><a href="./tag/efficiency.html">efficiency (1)</a></li><li><a href="./tag/ekf.html">EKF (1)</a></li><li><a href="./tag/emotion.html">emotion (1)</a></li><li><a href="./tag/engineering.html">Engineering (1)</a></li><li><a href="./tag/environment.html">Environment (1)</a></li><li><a href="./tag/er-ji.html">耳机 (1)</a></li><li><a href="./tag/er-jin-zhi.html">二进制 (1)</a></li><li><a href="./tag/ertinger-ting-yi-ge-jian-dan-de-yin-pin-jiang-zao-gong-ju.html">ErTing耳听一个简单的音频降噪工具 (1)</a></li><li><a href="./tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="./tag/fa-lan-ke-fu.html">法兰克福 (1)</a></li><li><a href="./tag/family.html">family (1)</a></li><li><a href="./tag/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">FanFu凡赴-把-Ollama-的-GGUF-模型转成-HuggingFace-格式纯好玩 (1)</a></li><li><a href="./tag/fang-fa-bi-gui-mo-geng-zhong-yao-agenticqwenyu-needlede-xiao-mo-xing-zhi-neng-ti-ying-yong-tan-suo.html">方法比规模更重要AgenticQwen与Needle的小模型智能体应用探索 (1)</a></li><li><a href="./tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="./tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="./tag/filtering.html">Filtering (6)</a></li><li><a href="./tag/folderlensyi-ge-pyside6shi-xian-de-jian-dan-wen-jian-guan-li-qi-kai-fa-shi-li.html">FolderLens一个PySide6实现的简单文件管理器开发实例 (1)</a></li><li><a href="./tag/fractal.html">fractal (1)</a></li><li><a href="./tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="./tag/freshman.html">freshman (5)</a></li><li><a href="./tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="./tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./tag/function-calling.html">function calling (1)</a></li><li><a href="./tag/game.html">Game (2)</a></li><li><a href="./tag/gametheory.html">GameTheory (1)</a></li><li><a href="./tag/gangdan-de-zhi-shi-ku-shi-zen-yao-lian-cheng-de.html">GangDan-的知识库是怎么炼成的 (1)</a></li><li><a href="./tag/gangdan-geng-xin-ke-yong-zai-xian-mo-xing-cong-xie-zong-shu-dao-xie-wan-zheng-wen-zhang.html">GangDan-更新可用在线模型从写综述到写完整文章 (1)</a></li><li><a href="./tag/gangdan-wu-yue-zhong-de-ji-zhong-geng-xin-jing-zhun-xuan-wen-zhi-shi-ku-fen-xi-xue-xi-mo-kuai-quan-mian-xiu-fu.html">GangDan-五月中的集中更新精准选文知识库分析学习模块全面修复 (1)</a></li><li><a href="./tag/gangdan-you-geng-xin-liao-yi-bo-cong-kai-fa-zhu-shou-zhuan-xing-wei-zhi-shi-guan-li-yu-jiao-xue-fu-zhu-gong-ju.html">GangDan-又更新了一波从开发助手转型为知识管理与教学辅助工具 (1)</a></li><li><a href="./tag/gangdangang-dan-sheng-ji-kai-yuan-ben-di-zhi-shi-ku-zhi-chi-ben-di-mo-xing-he-zai-xian-mo-xing-de-shen-du-yan-jiu-zhu-shou.html">GangDan纲担升级开源本地知识库-支持本地模型和在线模型的深度研究助手 (1)</a></li><li><a href="./tag/gangdangang-dan-zhong-gou-ji-hu-zhong-zuo-liao-yi-bian.html">GangDan纲担重构-几乎重做了一遍 (1)</a></li><li><a href="./tag/gangdanji-xu-geng-xin-xian-zai-neng-zhi-jie-shang-chuan-cajgou-jian-zhi-shi-ku-liao.html">GangDan继续更新现在能直接上传CAJ构建知识库了 (1)</a></li><li><a href="./tag/gangdanzhi-shi-ku-dao-chu-gai-jin-ke-yi-zhi-jie-dao-chu-xia-zai-hao-de-wen-zhang-yuan-wen-liao.html">GangDan知识库导出改进-可以直接导出下载好的文章原文了 (1)</a></li><li><a href="./tag/gao-xiao-jiao-shi-jian-yi-da-yi-kai-xue-yao-you-dian-nao-huan-yao-an-zhuang-opencodeshi-yong-zhi-neng-ti.html">高校教师建议大一开学要有电脑还要安装OpenCode使用智能体 (1)</a></li><li><a href="./tag/gei-xin-shou-shi-xian-yi-wei-shu-zu-de-liang-chong-si-lu-chuan-tong-cyu-yan-vs-numcku.html">给新手实现一维数组的两种思路传统C语言-vs-NumC库 (1)</a></li><li><a href="./tag/gemma4.html">Gemma4 (1)</a></li><li><a href="./tag/general-education.html">general-education (1)</a></li><li><a href="./tag/geojstool-di-qiu-hua-xue-fen-xi-gong-ju-wang-ye-ban-de-geopytool.html">GeoJsTool-地球化学分析工具-网页版的GeoPyTool (1)</a></li><li><a href="./tag/geology.html">Geology (4)</a></li><li><a href="./tag/geometry.html">geometry (1)</a></li><li><a href="./tag/geopython.html">GeoPython (1)</a></li><li><a href="./tag/gguf.html">GGUF (2)</a></li><li><a href="./tag/gis.html">GIS (3)</a></li><li><a href="./tag/glm.html">GLM (1)</a></li><li><a href="./tag/glumpy.html">GlumPy (2)</a></li><li><a href="./tag/golden-section.html">Golden Section (1)</a></li><li><a href="./tag/gong-ju-diao-yong.html">工具调用 (2)</a></li><li><a href="./tag/google-de-turboquant-suan-fa-ru-he-rang-aigeng-sheng-nei-cun-gao-ding-xiang-liang-liang-hua-nan-ti.html">Google-的-TurboQuant-算法如何让AI更省内存搞定向量量化难题 (1)</a></li><li><a href="./tag/gpt-35.html">GPT-3.5 (3)</a></li><li><a href="./tag/gpt-4o.html">GPT-4o (1)</a></li><li><a href="./tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="./tag/graduate-school.html">graduate-school (1)</a></li><li><a href="./tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="./tag/granite4.html">granite4 (1)</a></li><li><a href="./tag/gsm8k.html">GSM8K (2)</a></li><li><a href="./tag/gu-ge-turboquant-lun-wen-zhong-yi-ji-yu-jin-zui-you-niu-qu-lu-de-gao-su-zai-xian-xiang-liang-liang-hua-suan-fa.html">谷歌-TurboQuant-论文中译基于近最优扭曲率的高速在线向量量化算法 (1)</a></li><li><a href="./tag/guan-xi-xing-shu-ju-ku.html">关系型数据库 (1)</a></li><li><a href="./tag/guide.html">Guide (1)</a></li><li><a href="./tag/hack.html">Hack (2)</a></li><li><a href="./tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="./tag/hadoop.html">Hadoop (2)</a></li><li><a href="./tag/hardware.html">Hardware (2)</a></li><li><a href="./tag/hate.html">Hate (1)</a></li><li><a href="./tag/hbase.html">HBase (1)</a></li><li><a href="./tag/heibancong-markdownzhuan-chu-ppthuan-deng-pian.html">HeiBan从Markdown转出PPT幻灯片 (1)</a></li><li><a href="./tag/heibanhei-ban-jiang-markdownzhuan-huan-cheng-htmllai-dang-jiang-yi.html">HeiBan黑板-将Markdown转换成HTML来当讲义 (1)</a></li><li><a href="./tag/hellaswag.html">HellaSwag (2)</a></li><li><a href="./tag/hermes.html">Hermes (1)</a></li><li><a href="./tag/heroism.html">heroism (1)</a></li><li><a href="./tag/history.html">History (6)</a></li><li><a href="./tag/huan-jue.html">幻觉 (1)</a></li><li><a href="./tag/huan-wei-si-kao-he-ni-chou-sha.html">换位思考和你瞅啥 (1)</a></li><li><a href="./tag/huan-yi-ge-ba-wang-ye-zhuan-huan-cheng-markdownde-python-xiao-gong-ju.html">Huan-一个把网页转换成-Markdown的Python-小工具 (1)</a></li><li><a href="./tag/hui-yi.html">回忆 (1)</a></li><li><a href="./tag/humaneval.html">HumanEval (2)</a></li><li><a href="./tag/ide.html">IDE (2)</a></li><li><a href="./tag/imbalance.html">Imbalance (1)</a></li><li><a href="./tag/imu.html">IMU (1)</a></li><li><a href="./tag/jacobian.html">Jacobian (1)</a></li><li><a href="./tag/java-ji-chu-yu-fa-5fen-zhong-ru-men.html">Java-基础语法5分钟入门 (1)</a></li><li><a href="./tag/ji-chu-zhi-shi-chu-ji-tong-ji-gai-nian-de-jian-dan-jie-shao.html">基础知识初级统计概念的简单介绍 (1)</a></li><li><a href="./tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="./tag/ji-nian.html">纪念 (1)</a></li><li><a href="./tag/ji-suan-ji.html">计算机 (1)</a></li><li><a href="./tag/ji-suan-ji-zu-cheng.html">计算机组成 (1)</a></li><li><a href="./tag/ji-yu-ben-di-mo-xing-de-bian-cheng-xue-xi-fu-zhu-huan-jing-da-jian-wan-zheng-zhi-nan.html">基于本地模型的编程学习辅助环境搭建完整指南 (1)</a></li><li><a href="./tag/ji-yu-tunade-virtualbox-yu-ubuntu-xu-ni-ji-bu-shu-zhi-nan.html">基于TUNA的-VirtualBox-与-Ubuntu-虚拟机部署指南 (1)</a></li><li><a href="./tag/jian-dan-shuo-shuo-pythonli-mian-de-han-shu-shi-di-yi-gong-min-first-class-citizen.html">简单说说Python里面的函数是第一公民First-Class-Citizen (1)</a></li><li><a href="./tag/jie-zhu-pythonlai-li-jie-zi-gua-ying-xin-pu-sen-ji-fen-yuan-li-shi-xian-yu-dong-tai-ke-shi-hua.html">借助Python来理解自适应辛普森积分原理实现与动态可视化 (1)</a></li><li><a href="./tag/jing-xiang.html">镜像 (1)</a></li><li><a href="./tag/jiu-wen-gao-bie-guo-qu-gao-bie-ke-xue-wang.html">旧文告别过去告别科学网 (1)</a></li><li><a href="./tag/jixingji-xing-dang-agent-dui-hua-chao-chu-shang-xia-wen-xian-zhi-zuo-liao-yi-ge-lei-si-xu-ni-ji-re-qian-yi-cao-lu-fang-an.html">JiXing记行-当-Agent-对话超出上下文限制做了一个类似虚拟机热迁移草率方案 (1)</a></li><li><a href="./tag/job.html">Job (1)</a></li><li><a href="./tag/job-hunting.html">job-hunting (1)</a></li><li><a href="./tag/junck.html">Junck (3)</a></li><li><a href="./tag/kalman.html">Kalman (1)</a></li><li><a href="./tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="./tag/kao-yan-qu-mei-chu-shi-yu-fu-shi.html">考研祛魅初试与复试 (1)</a></li><li><a href="./tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="./tag/kivy.html">Kivy (3)</a></li><li><a href="./tag/kuan-biao.html">宽表 (1)</a></li><li><a href="./tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="./tag/language.html">Language (1)</a></li><li><a href="./tag/learn.html">Learn (4)</a></li><li><a href="./tag/learning.html">Learning (10)</a></li><li><a href="./tag/lens.html">Lens (19)</a></li><li><a href="./tag/lesson.html">Lesson (1)</a></li><li><a href="./tag/lfm.html">LFM (1)</a></li><li><a href="./tag/lfm25.html">lfm2.5 (1)</a></li><li><a href="./tag/li-yong-chao-qiang-de-xiao-mo-xing-omnicoder-9b-shi-shi-turboquant-liang-hua-kv-cache-2-bit-tiao-zhan-fp1.html">利用超强的小模型-OmniCoder-9B-试试-TurboQuant-量化-KV-Cache-2-bit-挑战-FP1 (1)</a></li><li><a href="./tag/li-yong-pythonshi-xian-de-yu-ben-di-da-mo-xing-jiao-hu-de-posix-jian-rong-ceng.html">利用Python实现的与本地大模型交互的POSIX-兼容层 (1)</a></li><li><a href="./tag/liang-hua.html">量化 (3)</a></li><li><a href="./tag/liaoliao-rang-ben-di-da-yu-yan-mo-xing-ai-bang-ni-liao-tian-de-kai-yuan-gong-ju.html">Liao聊-让本地大语言模型-AI-帮你聊天的开源工具 (1)</a></li><li><a href="./tag/library.html">Library (1)</a></li><li><a href="./tag/life.html">life (16)</a></li><li><a href="./tag/lift.html">lift (1)</a></li><li><a href="./tag/linux.html">Linux (9)</a></li><li><a href="./tag/liquid-ai.html">Liquid AI (1)</a></li><li><a href="./tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="./tag/llamacpp.html">llama.cpp (3)</a></li><li><a href="./tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="./tag/llm.html">LLM (7)</a></li><li><a href="./tag/ltfs.html">LTFS (1)</a></li><li><a href="./tag/lto.html">LTO (1)</a></li><li><a href="./tag/mac.html">Mac (11)</a></li><li><a href="./tag/macbook-air-m4.html">MacBook Air M4 (2)</a></li><li><a href="./tag/macos.html">macOS (1)</a></li><li><a href="./tag/markdown.html">Markdown (1)</a></li><li><a href="./tag/materials.html">Materials (1)</a></li><li><a href="./tag/math.html">Math (3)</a></li><li><a href="./tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="./tag/mathematics.html">mathematics (1)</a></li><li><a href="./tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="./tag/maturity.html">maturity (1)</a></li><li><a href="./tag/mayavi.html">MayaVi (1)</a></li><li><a href="./tag/mechanics.html">Mechanics (1)</a></li><li><a href="./tag/memory.html">Memory (4)</a></li><li><a href="./tag/methodology.html">Methodology (1)</a></li><li><a href="./tag/mian-dui-wu-mai-ni-shi-wu-neng-wei-li-huan-shi-xiu-shou-pang-guan.html">面对雾霾你是无能为力还是袖手旁观 (1)</a></li><li><a href="./tag/mian-xiang-dui-xiang-bian-cheng-ru-men-yong-wu-xia-jiao-se-li-jie-python-zhong-de-lei.html">面向对象编程入门用武侠角色理解-Python-中的类 (1)</a></li><li><a href="./tag/microscope.html">Microscope (2)</a></li><li><a href="./tag/mindset.html">mindset (2)</a></li><li><a href="./tag/miniconda3.html">Miniconda3 (1)</a></li><li><a href="./tag/ml.html">ML (4)</a></li><li><a href="./tag/mlx.html">mlx (1)</a></li><li><a href="./tag/mmlu.html">MMLU (2)</a></li><li><a href="./tag/mo-xing-ping-ce.html">模型评测 (1)</a></li><li><a href="./tag/mobile.html">Mobile (1)</a></li><li><a href="./tag/moe.html">MoE (1)</a></li><li><a href="./tag/moon.html">Moon (1)</a></li><li><a href="./tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="./tag/moving-average.html">Moving Average (1)</a></li><li><a href="./tag/moxing.html">moxing (1)</a></li><li><a href="./tag/moxing-he-ollama-dui-bi-cong-omnicoder-9bdao-geng-duo-mo-xing.html">MoXing-和-Ollama-对比从omnicoder-9b到更多模型 (1)</a></li><li><a href="./tag/moxing-su-du-zui-gao-da-dao-ollamade-201-tong-mo-xing-tong-ying-jian-de-shi-ce-dui-bi-omnicoder-2-9b-de-q4_k_m.html">MoXing-速度最高达到-Ollama的-201-同模型同硬件的实测对比OmniCoder-2-9B-的-Q4_K_M (1)</a></li><li><a href="./tag/moxing-wu-yue-geng-xin-suan-shi-lai-liao-ge-da-sao-chu.html">MoXing-五月更新算是来了个大扫除 (1)</a></li><li><a href="./tag/moxing-zhu-li-la-ji-lao-yong-bai-yuan-chao-lian-jie-xian-qia-ben-di-yun-xing-omnicoder-2-9bmo-xing-jie-guo-ye-zhi-you-shi-ji-ge-tokenss.html">MoXing-助力垃圾佬用百元超廉价显卡本地运行omnicoder-2-9b模型结果也只有十几个tokenss (1)</a></li><li><a href="./tag/moxingdi-yu-suan-chang-jing-yong-rx580xian-qia-qing-song-yun-xing-qwen35-9b-q4_k_mmo-xing.html">MoXing低预算场景用RX580显卡轻松运行Qwen35-9b-q4_k_m模型 (1)</a></li><li><a href="./tag/moxingsheng-ji-tong-shi-yun-xing-duo-ge-mo-xing-shi-li.html">MoXing升级同时运行多个模型实例 (1)</a></li><li><a href="./tag/moxingxin-sheng-ji-zhi-jie-duo-she-ollama-bu-fen-mo-xing-ti-su-50.html">MoXing新升级直接夺舍-Ollama-部分模型提速-50 (1)</a></li><li><a href="./tag/mtp.html">MTP (1)</a></li><li><a href="./tag/muon.html">Muon (1)</a></li><li><a href="./tag/n8n.html">n8n (1)</a></li><li><a href="./tag/nas.html">NAS (1)</a></li><li><a href="./tag/nemotron.html">Nemotron (1)</a></li><li><a href="./tag/network.html">Network (1)</a></li><li><a href="./tag/ni-de-dian-nao-mei-miao-neng-zuo-duo-shao-ci-fu-dian-yun-suan-flops-de-gu-shi.html">你的电脑每秒能做多少次浮点运算FLOPS-的故事 (1)</a></li><li><a href="./tag/niu-dun-fa-qiu-jie-guo-cheng-de-pythonshi-xian-ji-qi-xiang-jie.html">牛顿法求解过程的Python实现及其详解 (1)</a></li><li><a href="./tag/nixos.html">NixOS (1)</a></li><li><a href="./tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="./tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="./tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="./tag/nosql.html">NoSQL (1)</a></li><li><a href="./tag/numpy.html">NumPy (1)</a></li><li><a href="./tag/nuoyi-geng-xin-xin-zeng-zai-xian-zhuan-huan-yin-qing-mei-xian-qia-ye-bu-pa-chang-wen-dang-ye-bu-na-yao-tou-teng.html">NuoYi-更新新增在线转换引擎没显卡也不怕长文档也不那么头疼 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-geng-xin-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju-shao-wei-sheng-yi-dian-xian-cun-liao.html">NuoYi-挪移更新-离线的-PDFDOCX-转-Markdown-工具稍微省一点显存了 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-yi-ge-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju.html">NuoYi-挪移-一个离线的-PDFDOCX-转-Markdown-工具 (1)</a></li><li><a href="./tag/nvidia.html">Nvidia (1)</a></li><li><a href="./tag/ocr.html">OCR (1)</a></li><li><a href="./tag/ollama.html">Ollama (20)</a></li><li><a href="./tag/ollamaaidgei-ni-guan-li-ben-di-da-mo-xing-pei-ge-de-li-zhu-shou.html">OllamaAid给你管理本地大模型配个得力助手 (1)</a></li><li><a href="./tag/ollamageng-xin-suo-you-ben-di-mo-xing.html">Ollama更新所有本地模型 (1)</a></li><li><a href="./tag/ollamaqian-ru-mo-xing-xuan-xing-zhi-nan-zhu-liu-mo-xing-shen-du-dui-bi.html">Ollama嵌入模型选型指南-主流模型深度对比 (1)</a></li><li><a href="./tag/omlx.html">omlx (1)</a></li><li><a href="./tag/opc.html">OPC (1)</a></li><li><a href="./tag/opencl.html">OpenCL (1)</a></li><li><a href="./tag/opencode.html">opencode (11)</a></li><li><a href="./tag/opencode-jin-jie-zhi-ji-neng-chuang-zuo-chai-jie-miao-shu-dian-xing-ren-wu-hou-yan-zheng-shi-xian-zai-zuo-cheng-ke-fu-yong-de-ji-neng.html">OpenCode-进阶之技能创作拆解描述典型任务后验证实现再做成可复用的技能 (1)</a></li><li><a href="./tag/opencode-skillsfen-xiang-yi-tao-zi-ji-luan-xie-de-huan-suan-shi-yong-de-ai-bian-ma-ji-neng-ku.html">OpenCode-Skills分享一套自己乱写的还算实用的-AI-编码技能库 (1)</a></li><li><a href="./tag/openlaoke-geng-xin-ben-di-gguf-mo-xing-ling-api-fei-yong-pao-qi-lai.html">OpenLaoKe-更新本地-GGUF-模型零-API-费用跑起来 (1)</a></li><li><a href="./tag/openlaokelao-ke-yi-ge-ming-ling-xing-aizhu-shou.html">OpenLaoKe唠嗑一个命令行AI助手 (1)</a></li><li><a href="./tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="./tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="./tag/optimization.html">Optimization (2)</a></li><li><a href="./tag/os.html">os (1)</a></li><li><a href="./tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="./tag/parenting.html">Parenting (1)</a></li><li><a href="./tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="./tag/path.html">PATH (1)</a></li><li><a href="./tag/pdfjie-xi.html">PDF解析 (1)</a></li><li><a href="./tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="./tag/performance.html">Performance (1)</a></li><li><a href="./tag/phd.html">PHD (2)</a></li><li><a href="./tag/philosophy.html">philosophy (2)</a></li><li><a href="./tag/photo.html">Photo (23)</a></li><li><a href="./tag/photography.html">Photography (2)</a></li><li><a href="./tag/physics.html">Physics (3)</a></li><li><a href="./tag/ping-ce.html">评测 (1)</a></li><li><a href="./tag/poem.html">Poem (2)</a></li><li><a href="./tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="./tag/programming.html">Programming (11)</a></li><li><a href="./tag/prompt.html">Prompt (1)</a></li><li><a href="./tag/psychology.html">Psychology (1)</a></li><li><a href="./tag/pve.html">PVE (2)</a></li><li><a href="./tag/pyenv.html">Pyenv (2)</a></li><li><a href="./tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="./tag/python.html">Python (70)</a></li><li><a href="./tag/python-ji-chu-yu-fa-5fen-zhong-ru-men.html">Python-基础语法5分钟入门 (1)</a></li><li><a href="./tag/qemu.html">QEMU (1)</a></li><li><a href="./tag/qgis.html">QGIS (3)</a></li><li><a href="./tag/qt.html">QT (1)</a></li><li><a href="./tag/qu-shen-cha.html">去审查 (1)</a></li><li><a href="./tag/qwen3.html">Qwen3 (10)</a></li><li><a href="./tag/qwen35.html">qwen3.5 (1)</a></li><li><a href="./tag/qwen36.html">Qwen3.6 (3)</a></li><li><a href="./tag/qwen38.html">Qwen3.8 (4)</a></li><li><a href="./tag/radio.html">Radio (2)</a></li><li><a href="./tag/rag.html">RAG (1)</a></li><li><a href="./tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="./tag/raspbian.html">Raspbian (1)</a></li><li><a href="./tag/reading.html">reading (2)</a></li><li><a href="./tag/reflection.html">reflection (4)</a></li><li><a href="./tag/remote.html">Remote (1)</a></li><li><a href="./tag/research.html">Research (3)</a></li><li><a href="./tag/resume.html">resume (1)</a></li><li><a href="./tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="./tag/ri-chang-sheng-huo.html">日常生活 (1)</a></li><li><a href="./tag/rotation.html">Rotation (1)</a></li><li><a href="./tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="./tag/rtx-4070.html">RTX 4070 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-jia-gou-shi-zhuan-ye-ying-yu-gao-pin-ci-hui-biao.html">软考高级系统架构设计师知识精要-架构师专业英语高频词汇表 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-ce-shi-yu-yun-xing-wei-hu.html">软考高级系统架构设计师知识精要-软件测试与运行维护 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-gong-cheng-yu-kai-fa-fang-fa.html">软考高级系统架构设计师知识精要-软件工程与开发方法 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-jia-gou-she-ji-yu-ping-gu.html">软考高级系统架构设计师知识精要-软件架构设计与评估 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-an-quan-yu-qu-kuai-lian-ji-zhu.html">软考高级系统架构设计师知识精要-系统安全与区块链技术 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-jian-mo-yu-umlshe-ji.html">软考高级系统架构设计师知识精要-系统建模与UML设计 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xi-xi-tong-yu-qi-ye-xin-xi-hua.html">软考高级系统架构设计师知识精要-信息系统与企业信息化 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xing-ji-zhu-yu-ji-chu-she-shi.html">软考高级系统架构设计师知识精要-新兴技术与基础设施 (1)</a></li><li><a href="./tag/rust.html">Rust (1)</a></li><li><a href="./tag/rustyu-yan-cheng-xu-she-ji-ji-chu-di-san-zhang-fu-he-shu-ju-lei-xing-yu-xun-huan.html">Rust语言程序设计基础第三章复合数据类型与循环 (1)</a></li><li><a href="./tag/rx590.html">RX590 (1)</a></li><li><a href="./tag/sandbox.html">SandBox (1)</a></li><li><a href="./tag/scholar.html">Scholar (2)</a></li><li><a href="./tag/school.html">School (3)</a></li><li><a href="./tag/science.html">Science (3)</a></li><li><a href="./tag/search.html">Search (1)</a></li><li><a href="./tag/self-study.html">Self-Study (1)</a></li><li><a href="./tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="./tag/server.html">Server (1)</a></li><li><a href="./tag/shang-ye-xin-xi.html">商业信息 (1)</a></li><li><a href="./tag/sheng-cheng-su-du.html">生成速度 (1)</a></li><li><a href="./tag/shi-jie-yi-liu-da-xue-shuo-shuo-er-yi-huan-shi-zhen-de-qu-zuo.html">世界一流大学说说而已还是真的去做 (1)</a></li><li><a href="./tag/shi-yong-llama-factory-cong-modelscope-xia-zai-mo-xing-bing-wei-diao.html">使用-LLaMA-Factory-从-ModelScope-下载模型并微调 (1)</a></li><li><a href="./tag/shi-yong-ollamakuai-su-bu-shu-bing-yun-xing-zui-xin-de-qwen3-30b-a3b-2507mo-xing.html">使用ollama快速部署并运行最新的qwen3-30b-a3b-2507模型 (1)</a></li><li><a href="./tag/shit.html">Shit (1)</a></li><li><a href="./tag/shu-ju-an-quan.html">数据安全 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-0zhang-cyu-yan-pythonde-di-ceng-shi-jiao.html">数据结构与算法基础-第0章-C语言Python的底层视角 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-1zhang-suan-fa-ji-chu-yu-fu-za-du-fen-xi.html">数据结构与算法基础-第1章-算法基础与复杂度分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-2zhang-xian-xing-shu-ju-jie-gou.html">数据结构与算法基础-第2章-线性数据结构 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-4zhang-tu-lun-ji-chu.html">数据结构与算法基础-第4章-图论基础 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-5zhang-pai-xu-suan-fa.html">数据结构与算法基础-第5章-排序算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-6zhang-sou-suo-suan-fa.html">数据结构与算法基础-第6章-搜索算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-7zhang-dong-tai-gui-hua.html">数据结构与算法基础-第7章-动态规划 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-8zhang-gao-ji-suan-fa.html">数据结构与算法基础-第8章-高级算法 (1)</a></li><li><a href="./tag/shu-ju-ke-shi-hua.html">数据可视化 (1)</a></li><li><a href="./tag/shu-ju-ku.html">数据库 (1)</a></li><li><a href="./tag/shu-ju-lei-xing.html">数据类型 (1)</a></li><li><a href="./tag/shu-zhi-ji-fen-man-tan-ru-he-rang-yong-pythonqiu-ji-fen.html">数值积分漫谈如何让用Python求积分 (1)</a></li><li><a href="./tag/shui-ke-xing-cun-zhi-nan-ru-guo-ni-bei-po-yao-qu-ting-ni-bu-xi-huan-de-ke-cheng-gai-zen-yao-ban.html">水课幸存指南-如果你被迫要去听你不喜欢的课程该怎么办 (1)</a></li><li><a href="./tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="./tag/signal-processing.html">Signal Processing (3)</a></li><li><a href="./tag/skill.html">skill (3)</a></li><li><a href="./tag/smollm2.html">smollm2 (1)</a></li><li><a href="./tag/software.html">Software (1)</a></li><li><a href="./tag/sou-suo.html">搜索 (1)</a></li><li><a href="./tag/sports.html">sports (1)</a></li><li><a href="./tag/sql.html">SQL (1)</a></li><li><a href="./tag/state-space.html">State Space (1)</a></li><li><a href="./tag/statistics.html">Statistics (1)</a></li><li><a href="./tag/story.html">Story (50)</a></li><li><a href="./tag/sui-bi.html">随笔 (1)</a></li><li><a href="./tag/t-bench.html">τ-bench (1)</a></li><li><a href="./tag/tape.html">Tape (1)</a></li><li><a href="./tag/telescope.html">Telescope (1)</a></li><li><a href="./tag/terminal.html">Terminal (1)</a></li><li><a href="./tag/textbook.html">textbook (1)</a></li><li><a href="./tag/thinking.html">Thinking (7)</a></li><li><a href="./tag/ti-xing-fa-qiu-ji-fen-de-pythonshi-xian.html">梯形法求积分的Python实现 (1)</a></li><li><a href="./tag/tian-biao.html">填表 (1)</a></li><li><a href="./tag/time-series.html">Time Series (1)</a></li><li><a href="./tag/tokenzi-you-yong-moxingzai-7900xtx-24gxian-qia-shang-ben-di-yun-xing-qwen36-27bmo-xing-gei-opencodeyong-lai-wen-dang-bian.html">Token自由-用MoXing在7900xtx-24G显卡上本地运行Qwen36-27B模型给OpenCode用来文档编 (1)</a></li><li><a href="./tag/tong-ji-xue.html">统计学 (1)</a></li><li><a href="./tag/tong-men-xiang-can-bai-yuan-xian-qia-de-ben-di-mo-xing-da-zhan-rx580-16g-2048sp-vs-rx590-8g-2304sp.html">同门相残-百元显卡的本地模型大战RX580-16G-2048SP-VS-RX590-8G-2304SP (1)</a></li><li><a href="./tag/tong-nian.html">童年 (1)</a></li><li><a href="./tag/tong-xue.html">同学 (1)</a></li><li><a href="./tag/tool.html">Tool (8)</a></li><li><a href="./tag/tool-calling.html">tool calling (3)</a></li><li><a href="./tag/toolbench.html">ToolBench (1)</a></li><li><a href="./tag/tools.html">Tools (10)</a></li><li><a href="./tag/traffic.html">Traffic (1)</a></li><li><a href="./tag/translate.html">Translate (2)</a></li><li><a href="./tag/translation.html">Translation (1)</a></li><li><a href="./tag/transpaste-sheng-ji-yi-ge-jian-tie-ban-fan-yi-gong-ju-de-zi-wo-xiu-yang.html">TransPaste-升级一个剪贴板翻译工具的自我修养 (1)</a></li><li><a href="./tag/transpaste-yi-kuan-ji-yu-ben-di-da-yu-yan-mo-xing-de-qing-liang-ji-jian-tie-ban-fan-yi-gong-ju.html">TransPaste-一款基于本地大语言模型的轻量级剪贴板翻译工具 (1)</a></li><li><a href="./tag/transpasteben-di-ai-fan-yi-gong-ju-xin-ban-ben-sheng-ji-hou-zhi-chi-geng-duo-xi-li-du-de-fan-yi-kong-zhi.html">TransPaste本地-AI-翻译工具新版本升级后支持更多细粒度的翻译控制 (1)</a></li><li><a href="./tag/tui.html">TUI (1)</a></li><li><a href="./tag/tui-jian-yi-kuan-markdownde-kua-ping-tai-chi-xian-bian-ji-qi-zhi-chi-sui-shi-yu-lan.html">推荐一款MarkDown的跨平台离线编辑器支持随时预览 (1)</a></li><li><a href="./tag/tuna.html">TUNA (1)</a></li><li><a href="./tag/turing.html">Turing (12)</a></li><li><a href="./tag/tutorial.html">tutorial (2)</a></li><li><a href="./tag/uav.html">UAV (1)</a></li><li><a href="./tag/ubuntu.html">Ubuntu (4)</a></li><li><a href="./tag/ubuntu-shou-dong-an-zhuang-ollama-0171-lai-yun-xing-qwen3535b-a3b-de-xiang-xi-zhi-nan.html">Ubuntu-手动安装-Ollama-0171-来运行-qwen3535b-a3b-的详细指南 (1)</a></li><li><a href="./tag/ui.html">UI (1)</a></li><li><a href="./tag/ukf.html">UKF (1)</a></li><li><a href="./tag/university.html">university (14)</a></li><li><a href="./tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="./tag/ustc.html">USTC (1)</a></li><li><a href="./tag/ventoy.html">Ventoy (1)</a></li><li><a href="./tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="./tag/vibe-coding-fen-wei-bian-cheng-an-li-tong-guo-dui-hua-shi-xian-ke-yong-de-kuai-su-cha-biao-gong-ju.html">Vibe-Coding-氛围编程案例-通过对话实现可用的快速查表工具 (1)</a></li><li><a href="./tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="./tag/video.html">video (2)</a></li><li><a href="./tag/vidtogif-yi-ge-jian-dan-gao-xiao-de-shi-pin-zhuan-gif-gong-ju.html">VidToGif-一个简单高效的视频转-GIF-工具 (1)</a></li><li><a href="./tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="./tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="./tag/virtualization.html">Virtualization (1)</a></li><li><a href="./tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./tag/vispy.html">VisPy (1)</a></li><li><a href="./tag/visualization.html">Visualization (8)</a></li><li><a href="./tag/vm.html">VM (1)</a></li><li><a href="./tag/vmwarexu-ni-ji-yun-xing-macosunlcokrecoveryosoc4vm-shi-xian-ti-gong-bai-du-yun-pan-xia-zai.html">VMware虚拟机运行macOSunlcokrecoveryosOC4VM-实现提供百度云盘下载 (1)</a></li><li><a href="./tag/void-moxingdi-cheng-ben-fang-an-yong-rx580xian-qia-ben-di-yun-xing-qwen359bmo-xing-da-zao-lei-cursorti-yan.html">Void-MoXing低成本方案用RX580显卡本地运行qwen359B模型打造类Cursor体验 (1)</a></li><li><a href="./tag/vtk.html">VTK (1)</a></li><li><a href="./tag/web.html">Web (1)</a></li><li><a href="./tag/wen-ben-shou-ji.html">文本收集 (1)</a></li><li><a href="./tag/wen-dang-he-cha.html">文档核查 (1)</a></li><li><a href="./tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="./tag/windows.html">Windows (4)</a></li><li><a href="./tag/windows-xi-tong-xia-cong-qing-hua-da-xue-tuna-jing-xiang-an-zhuang-miniconda3-wan-zheng-zhi-nan.html">Windows-系统下从清华大学-TUNA-镜像安装-Miniconda3-完整指南 (1)</a></li><li><a href="./tag/windows11.html">Windows11 (1)</a></li><li><a href="./tag/wingetguigei-windows-bao-guan-li-qi-jia-ge-tu-xing-jie-mian.html">WinGetGUI给-Windows-包管理器加个图形界面 (1)</a></li><li><a href="./tag/winogrande.html">WinoGrande (1)</a></li><li><a href="./tag/workflow.html">workflow (1)</a></li><li><a href="./tag/xcode.html">Xcode (1)</a></li><li><a href="./tag/xia-zai.html">下载 (1)</a></li><li><a href="./tag/xian-jiao-hui-zai-rang-ta-zuo-da-mo-xing-ding-zhi-hua-li-cpthe-sftdao-di-zai-gan-shi-yao.html">先教会再让它做大模型定制化里CPT和SFT到底在干什么 (1)</a></li><li><a href="./tag/xiang-sheng.html">相声 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-er-hui-jiu-suan-shi-sun-wu-kong-shang-da-xue-ye-de-yong-gong.html">小猴子学编程第二回就算是孙悟空上大学也得用功 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-san-hui-shi-yi-zhi-pa-zai-na-zi-yuan-zi-ai-huan-shi-gan-jin-zhun-bei-qu-xin-fu-ben.html">小猴子学编程第三回是一直趴在那自怨自艾还是赶紧准备去新副本 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-si-hui-chong-zhi-bu-hui-rang-ni-bian-qiang-xue-xi-cai-hui.html">小猴子学编程第四回充值不会让你变强学习才会 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-yi-hui-na-pa-shi-sun-wu-kong-ye-xu-yao-xue-xi.html">小猴子学编程第一回哪怕是孙悟空也需要学习 (1)</a></li><li><a href="./tag/xiao-mo-xing.html">小模型 (1)</a></li><li><a href="./tag/xiao-mo-xing-ping-ce.html">小模型评测 (2)</a></li><li><a href="./tag/xiao-you.html">校友 (1)</a></li><li><a href="./tag/xiexie-ba-markdown-zhuan-cheng-wei-xin-gong-zhong-hao-ge-shi-wang-ye-de-xiao-gong-ju.html">Xie写把-Markdown-转成微信公众号格式网页的小工具 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-markdown-shu-xue-gong-shi-zhi-nan.html">新手向的-Markdown-数学公式指南 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-ruan-kao-gao-ji-jia-gou-shi-wan-quan-bei-kao-zhi-nan.html">新手向的软考高级架构师完全备考指南 (1)</a></li><li><a href="./tag/xing-neng-shi-ce.html">性能实测 (1)</a></li><li><a href="./tag/xiu-liao-transpastede-4ge-bug.html">修了TransPaste的4个bug (1)</a></li><li><a href="./tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="./tag/xue-xi-lu-de-qian-shi-jin-sheng-cong-quan-ju-dan-yi-dao-zhu-ceng-ding-zhi.html">学习率的前世今生从全局单一到逐层定制 (1)</a></li><li><a href="./tag/xue-zhu-lun-wen-zhong-chang-jian-yan-jiu-fang-fa-zong-shu-ji-jian-dan-ju-li.html">学术论文中常见研究方法综述及简单举例 (1)</a></li><li><a href="./tag/xue-zhu-yan-jiu-zhi-chi-gong-ju-fen-lei-yu-wen-xian-huo-qu-fang-fa.html">学术研究支持工具分类与文献获取方法 (1)</a></li><li><a href="./tag/yi-xue-chang-jing-yong-duo-mo-tai-da-mo-xing-you-ke-neng-wan-quan-bu-kao-pu-si-tan-fu-da-xue-li-fei-fei-tuan-dui-xin-yan-jiu-jie-kai-duo-mo-tai-aide-hai-shi-shen-lou-xiao-ying.html">医学场景用多模态大模型有可能完全不靠谱斯坦福大学李飞飞团队新研究揭开多模态AI的海市蜃楼效应 (1)</a></li><li><a href="./tag/yi-zhi-tiny-fastboot-scriptdao-macosban-ben-gei-motorola-g100guo-xing-ban-ben-xt2533-4shua-ru-g6.html">移植Tiny-Fastboot-Script到macOS版本给Motorola-G100国行版本XT2533-4刷入G6 (1)</a></li><li><a href="./tag/yin-pin.html">音频 (1)</a></li><li><a href="./tag/ying-pan.html">硬盘 (1)</a></li><li><a href="./tag/yong-wan-quan-kai-yuan-mian-fei-de-ben-di-mo-xing-lai-dui-shi-pin-zhong-de-yin-pin-jin-xing-jiang-zao.html">用完全开源免费的本地模型来对视频中的音频进行降噪 (1)</a></li><li><a href="./tag/you-xi-shi-zen-yao-yun-xing-de-ru-guo-zhi-zhi-dao-chong-zhi-shi-ji-shang-bing-bu-yi-ding-neng-bian-qiang.html">游戏是怎么运行的如果只知道充值实际上并不一定能变强 (1)</a></li><li><a href="./tag/zhe-ji-tian-wo-chuan-yue-liao-shi-jian.html">这几天我穿越了时间 (1)</a></li><li><a href="./tag/zhe-xue.html">哲学 (1)</a></li><li><a href="./tag/zhen-dui-da-mo-xing-he-zhi-neng-ti-xin-shou-kai-fa-zhe-de-linuxhuan-jing-pei-zhi-zhi-nan.html">针对大模型和智能体新手开发者的Linux环境配置指南 (1)</a></li><li><a href="./tag/zhi-ce-flops-huan-bu-gou-si-ge-jing-dian-cpu-ce-shi-ji-zhun.html">只测-FLOPS-还不够四个经典-CPU-测试基准 (1)</a></li><li><a href="./tag/zhi-neng-ti.html">智能体 (1)</a></li><li><a href="./tag/zhi-shi-wai-zhi.html">知识外置 (1)</a></li><li><a href="./tag/zhi-zhen-yue-jie-cyu-yan-gei-ni-de-zi-you-yi-ji-tou-tou-mai-de-lei.html">指针越界C语言给你的自由以及偷偷埋的雷 (1)</a></li><li><a href="./tag/zhong-xin-shen-shi-si-wei-lian-wei-bi-shi-zhen-si-wei-yi-pian-icml-2026-lun-wen-de-lun-zheng-yu-qi-shi.html">重新审视-思维链未必是真思维-一篇ICML-2026-论文的论证与启示 (1)</a></li><li><a href="./tag/zhuang-ji.html">装机 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skills-he-ji-geng-xin-cong-6-ge-ji-neng-dao-22-ge-yi-ji-bi-xu-cheng-ren-de-wen-ti.html">自用的-OpenCode-Skills-合集更新从-6-个技能到-22-个以及必须承认的问题 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skillzai-ci-geng-xin-22ge-skillszhong-xin-da-mo-liao-yi-bian-shun-lu-jie-jue-liao-opencodedao-zhi-zheng-ge-tu-xing-jie-mian-beng-kui.html">自用的OpenCode-Skill再次更新22个skills重新打磨了一遍顺路解决了OpenCode导致整个图形界面崩溃 (1)</a></li><li><a href="./tag/zluda-he-macos-shang-de-cuda-jian-rong-meng-xiang.html">ZLUDA-和-macOS-上的-CUDA-兼容梦想 (1)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="./index.html" data-i18n="blog">博客</a> › <a href="category/math.html">Math</a> › 精读经典-图灵机在判定问题上的应用
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >精读经典-图灵机在判定问题上的应用</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep" data-i18n="post_in">发布于</span>
+        <abbr class="date" title="2026-02-25T10:20:00+08:00"> 
+            <a href="./archive/2026/Feb/index.html">Wed 25 February 2026 </a>
+        </abbr>
+        <span class="meta-prep"> | <span data-i18n="tags_label">标签</span></span>
+                <a class="tag-badge" href="./tag/turing.html">Turing</a>
+                <a class="tag-badge" href="./tag/computability.html">Computability</a>
+                <a class="tag-badge" href="./tag/algorithm.html">Algorithm</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <p>今天这段依然出自艾伦·图灵（Alan Turing）1936年发表的经典论文《论可计算数及其在判定问题上的应用》（Alan Turing, <em>On Computable Numbers, with an Application to the Entscheidungsproblem</em>, 1936），具体是文章的第十一章。</p>
+<hr>
+<h1><strong>原文</strong></h1>
+<h2>11. Application to the Entscheidungsproblem</h2>
+<p>The results of §8 have some important applications. In particular, they can be used to show that the Hilbert Entscheidungsproblem can have no solution. For the present I shall confine myself to proving this particular theorem. For the formulation of this problem I must refer the reader to Hilbert and Ackermann's <em>Grundzüge der Theoretischen Logik</em> (Berlin, 1931), chapter 3.</p>
+<p>I propose, therefore, to show that there can be no general process for determining whether a given formula <span class="arithmatex">\(\mathfrak{U}\)</span> of the functional calculus <span class="arithmatex">\(\mathbf{K}\)</span> is provable, i.e. that there can be no machine which, supplied with any one <span class="arithmatex">\(\mathfrak{U}\)</span> of these formulae, will eventually say whether <span class="arithmatex">\(\mathfrak{U}\)</span> is provable.</p>
+<p>It should perhaps be remarked that what I shall prove is quite different from the well-known results of Gödel. Gödel has shown that (in the formalism of Principia Mathematica) there are propositions <span class="arithmatex">\(\mathfrak{U}\)</span> such that neither <span class="arithmatex">\(\mathfrak{U}\)</span> nor <span class="arithmatex">\(-\mathfrak{U}\)</span> is provable. As a consequence of this, it is shown that no proof of consistency of Principia Mathematica (or of <span class="arithmatex">\(\mathbf{K}\)</span>) can be given within that formalism. On the other hand, I shall show that there is no general method which tells whether a given formula <span class="arithmatex">\(\mathfrak{U}\)</span> is provable in <span class="arithmatex">\(\mathbf{K}\)</span>, or, what comes to the same, whether the system consisting of <span class="arithmatex">\(\mathbf{K}\)</span> with <span class="arithmatex">\(-\mathfrak{U}\)</span> adjoined as an extra axiom is consistent.</p>
+<p>If the negation of what Gödel has shown had been proved, i.e. if, for each <span class="arithmatex">\(\mathfrak{U}\)</span>, either <span class="arithmatex">\(\mathfrak{U}\)</span> or <span class="arithmatex">\(-\mathfrak{U}\)</span> is provable, then we should have an immediate solution of the Entscheidungsproblem. For we can invent a machine <span class="arithmatex">\(\mathcal{K}\)</span> which will prove consecutively all provable formulae. Sooner or later <span class="arithmatex">\(\mathcal{K}\)</span> will reach either <span class="arithmatex">\(\mathfrak{U}\)</span> or <span class="arithmatex">\(-\mathfrak{U}\)</span>. If it reaches <span class="arithmatex">\(\mathfrak{U}\)</span>, then we know that <span class="arithmatex">\(\mathfrak{U}\)</span> is provable. If it reaches <span class="arithmatex">\(-\mathfrak{U}\)</span>, then, since <span class="arithmatex">\(\mathbf{K}\)</span> is consistent (Hilbert and Ackermann, p. 65), we know that <span class="arithmatex">\(\mathfrak{U}\)</span> is not provable.</p>
+<p>Owing to the absence of integers in <span class="arithmatex">\(\mathbf{K}\)</span> the proofs appear somewhat lengthy. The underlying ideas are quite straightforward.
+Corresponding to each computing machine <span class="arithmatex">\(\mathcal{M}\)</span> we construct a formula Un(<span class="arithmatex">\(\mathcal{M}\)</span>) and we show that, if there is a general method for determining whether Un(<span class="arithmatex">\(\mathcal{M}\)</span>) is provable, then there is a general method for determining whether <span class="arithmatex">\(\mathcal{M}\)</span> ever prints 0.</p>
+<p>The interpretations of the propositional functions involved are as follows:
+<span class="arithmatex">\(R_{S_l}(x, y)\)</span> is to be interpreted as "in the complete configuration <span class="arithmatex">\(x\)</span> (of <span class="arithmatex">\(\mathcal{M}\)</span>) the symbol on the square <span class="arithmatex">\(y\)</span> is <span class="arithmatex">\(S_l\)</span>".
+<span class="arithmatex">\(I(x, y)\)</span> is to be interpreted as "in the complete configuration <span class="arithmatex">\(x\)</span> the square <span class="arithmatex">\(y\)</span> is scanned".
+<span class="arithmatex">\(K_{q_m}(x)\)</span> is to be interpreted as "in the complete configuration <span class="arithmatex">\(x\)</span> the m-configuration is <span class="arithmatex">\(q_m\)</span>".
+<span class="arithmatex">\(F(x, y)\)</span> is to be interpreted as "<span class="arithmatex">\(y\)</span> is the immediate successor of <span class="arithmatex">\(x\)</span>".</p>
+<p><span class="arithmatex">\(Inst \{ q_i S_j S_k L q_l \}\)</span> is to be an abbreviation for
+<span class="arithmatex">\((x, y, x', y') \{ ( R_{S_j}(x, y) \&amp; I(x, y) \&amp; K_{q_i}(x) \&amp; F(x, x') \&amp; F(y', y) ) \rightarrow ( I(x', y') \&amp; R_{S_k}(x', y) \&amp; K_{q_l}(x') \&amp; (z) [ F(y', z) \vee (R_{S_j}(x, z) \rightarrow R_{S_k}(x', z)) ] ) \}\)</span></p>
+<p><span class="arithmatex">\(Inst \{ q_i S_j S_k R q_l \}\)</span> and <span class="arithmatex">\(Inst \{ q_i S_j S_k N q_l \}\)</span> are to be abbreviations for other similarly constructed expressions.</p>
+<p>Let us put the description of <span class="arithmatex">\(\mathcal{M}\)</span> into the first standard form of §6. This description consists of a number of expressions such as "<span class="arithmatex">\(q_i S_j S_k L q_l\)</span>" (or with <span class="arithmatex">\(R\)</span> or <span class="arithmatex">\(N\)</span> substituted for <span class="arithmatex">\(L\)</span>). Let us form all the corresponding expressions such as <span class="arithmatex">\(Inst \{ q_i S_j S_k L q_l \}\)</span> and take their logical sum. This we call Des(<span class="arithmatex">\(\mathcal{M}\)</span>).</p>
+<p>The formula Un(<span class="arithmatex">\(\mathcal{M}\)</span>) is to be
+<span class="arithmatex">\((Es)[ N(s) \&amp; (x)( N(x) \rightarrow (Es') F(x, s') ) \&amp; (y, z)( F(y, z) \rightarrow N(y) \&amp; N(z) ) \&amp; (y) R_{S_0}(s, y) \&amp; I(s, u) \&amp; K_{q_1}(s) \&amp; \text{Des}(\mathcal{M}) ] \rightarrow (Es)(Et)[ N(s) \&amp; N(t) \&amp; R_{S_1}(s, t) ]\)</span></p>
+<p><span class="arithmatex">\([N(x) \&amp; \dots \&amp; \text{Des}(\mathcal{M})]\)</span> may be abbreviated to <span class="arithmatex">\(A(\mathcal{M})\)</span>.</p>
+<p>[When we substitute the meanings suggested on p. 259–60 we find that Un(<span class="arithmatex">\(\mathcal{M}\)</span>) has the interpretation "in some complete configuration of <span class="arithmatex">\(\mathcal{M}\)</span>, <span class="arithmatex">\(S_1\)</span> appears on the tape". Corresponding to this I prove that</p>
+<p>(i) If <span class="arithmatex">\(S_1\)</span> appears on the tape in some complete configuration of <span class="arithmatex">\(\mathcal{M}\)</span>, then Un(<span class="arithmatex">\(\mathcal{M}\)</span>) is provable.</p>
+<p>(ii) If Un(<span class="arithmatex">\(\mathcal{M}\)</span>) is provable, then <span class="arithmatex">\(S_1\)</span> appears on the tape in some complete configuration of <span class="arithmatex">\(\mathcal{M}\)</span>.</p>
+<p>When this has been done, the remainder of the theorem is trivial.]</p>
+<p><strong>Lemma 1.</strong> If <span class="arithmatex">\(S_1\)</span> appears on the tape in some complete configuration of <span class="arithmatex">\(\mathcal{M}\)</span>, then Un(<span class="arithmatex">\(\mathcal{M}\)</span>) is provable.</p>
+<p>We have to show how to prove Un(<span class="arithmatex">\(\mathcal{M}\)</span>). Let us suppose that in the n-th complete configuration the sequence of symbols on the tape is <span class="arithmatex">\(S_{r_0}, S_{r_1}, ...., S_{r_n}\)</span>, followed by blanks, and that the scanned symbol is the <span class="arithmatex">\(l\)</span>-th, and that the m-configuration is <span class="arithmatex">\(q_k\)</span>. Then we may form the proposition
+$<span class="arithmatex">\(R_{S_{r_0}}(u^{(0)}, u) \&amp; R_{S_{r_1}}(u^{(0)}, u') \&amp; ... \&amp; R_{S_{r_n}}(u^{(0)}, u^{(n)})\)</span>$
+$<span class="arithmatex">\(\&amp; I(u^{(0)}, u^{(l)}) \&amp; K_{q_k}(u^{(0)}) \&amp; (y) [ F(y, u) \lor F(y, u') \lor ... \lor F(y, u^{(n)}) \lor R_{S_0}(u^{(0)}, y) ]\)</span>$
+which we may abbreviate to <span class="arithmatex">\(CC_n\)</span>.</p>
+<p>As before, <span class="arithmatex">\(F(u, y) \&amp; F(y, u') \&amp; ... \&amp; F(u^{(n-1)}, u^{(n)})\)</span> is abbreviated to <span class="arithmatex">\(F^{(n)}\)</span>.</p>
+<p>I shall show that all formulae of the form <span class="arithmatex">\(A(\mathcal{M}) \&amp; F^{(n)} \to CC_n\)</span> (abbreviated to <span class="arithmatex">\(CF_n\)</span>) are provable. The meaning of <span class="arithmatex">\(CF_n\)</span> is "The n-th complete configuration of <span class="arithmatex">\(\mathcal{M}\)</span> is so and so", where "so and so" stands for the actual n-th complete configuration of <span class="arithmatex">\(\mathcal{M}\)</span>. That <span class="arithmatex">\(CF_n\)</span> should be provable is therefore to be expected.</p>
+<p><span class="arithmatex">\(CF_0\)</span> is certainly provable, for in the complete configuration the symbols are all blanks, the m-configuration is <span class="arithmatex">\(q_1\)</span>, and the scanned square is <span class="arithmatex">\(u\)</span>, i.e. <span class="arithmatex">\(CC_0\)</span> is
+$<span class="arithmatex">\(R_{S_0}(u^{(0)}, u) \&amp; I(u^{(0)}, u) \&amp; K_{q_1}(u^{(0)}) \&amp; (y) R_{S_0}(u^{(0)}, y)\)</span>$</p>
+<p><span class="arithmatex">\(A(\mathcal{M}) \to CC_0\)</span> is then trivial.</p>
+<p>We next show that <span class="arithmatex">\(CF_n \to CF_{n+1}\)</span> is provable for each <span class="arithmatex">\(n\)</span>. There are three cases to consider, according as in the move from the n-th to the <span class="arithmatex">\((n+1)\)</span>-th configuration the machine moves to left or to right or remains stationary. We suppose that the first case applies, i.e. the machine moves to the left. A similar argument applies in the other cases.</p>
+<p>If <span class="arithmatex">\(r(l, n) = i\)</span>, <span class="arithmatex">\(r(l+1, n) = a\)</span>, <span class="arithmatex">\(k(n) = m\)</span>, and <span class="arithmatex">\(\delta(m, i) = q_k S_k L q_l\)</span>, then Des(<span class="arithmatex">\(\mathcal{M}\)</span>) must include <span class="arithmatex">\(Inst\{q_m S_i S_k L q_l\}\)</span> as one of its terms, i.e.
+$<span class="arithmatex">\(\text{Des}(\mathcal{M}) \to Inst\{q_m S_i S_k L q_l\}\)</span>$</p>
+<p>Hence
+$<span class="arithmatex">\(A(\mathcal{M}) \&amp; F^{(n+1)} \to Inst\{q_m S_i S_k L q_l\} \&amp; F(u^{(l)}, u^{(l+1)}) \&amp; CC_n\)</span>$</p>
+<p>and
+$<span class="arithmatex">\((A(\mathcal{M}) \&amp; F^{(n+1)} \&amp; CC_n) \to CC_{n+1}\)</span>$</p>
+<p>i.e.
+$<span class="arithmatex">\(CF_n \to CF_{n+1}\)</span>$</p>
+<p><span class="arithmatex">\(CF_n\)</span> is provable for each <span class="arithmatex">\(n\)</span>. Now it is the assumption of this lemma that <span class="arithmatex">\(S_1\)</span> appears somewhere, in some complete configuration, in the sequence of symbols printed by <span class="arithmatex">\(\mathcal{M}\)</span>; that is, for some integers <span class="arithmatex">\(N, K\)</span>, <span class="arithmatex">\(CC_N\)</span> has <span class="arithmatex">\(R_{S_1}(u^{(N)}, u^{(K)})\)</span> as one of its terms, and therefore <span class="arithmatex">\(CC_N \to R_{S_1}(u^{(N)}, u^{(K)})\)</span> is provable. We have then
+$<span class="arithmatex">\(A(\mathcal{M}) \&amp; F^{(N+K)} \to CC_N\)</span>$
+and
+$<span class="arithmatex">\(A(\mathcal{M}) \&amp; F^{(N+K)} \to R_{S_1}(u^{(N)}, u^{(K)})\)</span>$
+and
+$<span class="arithmatex">\((\exists u) A(\mathcal{M}) \to (\exists u)(\exists u') ... (\exists u^{(N+K)}) (A(\mathcal{M}) \&amp; F^{(N+K)})\)</span>$
+where <span class="arithmatex">\(N' = \max(N, K)\)</span>. And so
+$<span class="arithmatex">\((\exists u) A(\mathcal{M}) \to (\exists u)(\exists u') ... (\exists u^{(N')}) R_{S_1}(u^{(N)}, u^{(K)})\)</span>$
+i.e. Un(<span class="arithmatex">\(\mathcal{M}\)</span>) is provable.</p>
+<p><strong>Lemma 2.</strong> If Un(<span class="arithmatex">\(\mathcal{M}\)</span>) is provable, then <span class="arithmatex">\(S_1\)</span> appears on the tape in some complete configuration of <span class="arithmatex">\(\mathcal{M}\)</span>.</p>
+<p>If we substitute any propositional functions for function variables in a provable formula, we obtain a true formula. In particular, if we substitute the meanings tabulated above in Un(<span class="arithmatex">\(\mathcal{M}\)</span>), we obtain a true proposition with the meaning "<span class="arithmatex">\(S_1\)</span> appears on the tape in some complete configuration of <span class="arithmatex">\(\mathcal{M}\)</span>".</p>
+<p>We are now in a position to show that the Entscheidungsproblem cannot be solved. Let us suppose the contrary. Then there is a general (mechanical) process for determining whether Un(<span class="arithmatex">\(\mathcal{M}\)</span>) is provable. By Lemmas 1 and 2, this implies that there is a process for determining whether <span class="arithmatex">\(\mathcal{M}\)</span> ever prints 0, and this is impossible, by §8. Hence the Entscheidungsproblem cannot be solved.</p>
+<p>In view of the large number of particular cases of solutions of the Entscheidungsproblem for formulae with restricted systems of quantors, it is interesting to express Un(<span class="arithmatex">\(\mathcal{M}\)</span>) in a form in which all quantors are at the beginning. Un(<span class="arithmatex">\(\mathcal{M}\)</span>) is, in fact, expressible in the form</p>
+<div class="arithmatex">\[
+(u)(\exists x)(w)(\exists u_1)\ldots(\exists u_n)\mathfrak{B},
+\tag{I}
+\]</div>
+<h2>where <span class="arithmatex">\(\mathfrak{B}\)</span> contains no quantors, and <span class="arithmatex">\(n = 6\)</span>. By unimportant modifications we can obtain a formula, with all essential properties of Un(<span class="arithmatex">\(\mathcal{M}\)</span>), which is of form (I) with <span class="arithmatex">\(n = 5\)</span>.</h2>
+<h1><strong>翻译</strong></h1>
+<h2>11. 判定问题的应用</h2>
+<p>第8节的结果有一些重要应用。尤其是，它们可以用来证明希尔伯特判定问题（Entscheidungsproblem）不可能有解。目前我只限于证明这个特定定理。关于该问题的表述，请读者参阅希尔伯特和阿克曼的《理论逻辑基础》（<em>Grundzüge der Theoretischen Logik</em>，柏林，1931年）第3章。</p>
+<p>因此，本文要证明的是：不存在通用过程来判定谓词演算 <span class="arithmatex">\(\mathbf{K}\)</span> 中任意给定公式 <span class="arithmatex">\(\mathfrak{U}\)</span> 是否可证——换个说法就是，不存在一台机器，给它任意公式 <span class="arithmatex">\(\mathfrak{U}\)</span>，它最终能判定 <span class="arithmatex">\(\mathfrak{U}\)</span> 是否可证。</p>
+<p>需要特别指出的是，我将证明的结果与哥德尔的著名结论截然不同。哥德尔在《数学原理 Principia Mathematica》所构建的形式逻辑体系下证明了，存在命题 <span class="arithmatex">\(\mathfrak{U}\)</span>，使得 <span class="arithmatex">\(\mathfrak{U}\)</span> 和 <span class="arithmatex">\(-\mathfrak{U}\)</span> 都不可证。由此可以推出，无法在该形式体系内给出《数学原理》（或 <span class="arithmatex">\(\mathbf{K}\)</span>）的一致性证明。而我要证明的是：不存在通用方法，判定给定公式 <span class="arithmatex">\(\mathfrak{U}\)</span> 在 <span class="arithmatex">\(\mathbf{K}\)</span> 中是否可证——这个判定问题等价于判定由 <span class="arithmatex">\(\mathbf{K}\)</span> 加上 <span class="arithmatex">\(-\mathfrak{U}\)</span> 作为额外公理所构成的系统是否一致。</p>
+<p>如果哥德尔所证结论的反面成立——即对每个 <span class="arithmatex">\(\mathfrak{U}\)</span>，<span class="arithmatex">\(\mathfrak{U}\)</span> 或 <span class="arithmatex">\(-\mathfrak{U}\)</span> ，两者至少有一个可证——那么判定问题立即有解。因为我们可以设计一台机器 <span class="arithmatex">\(\mathcal{K}\)</span>，按顺序证明所有可证公式。迟早 <span class="arithmatex">\(\mathcal{K}\)</span> 会得到 <span class="arithmatex">\(\mathfrak{U}\)</span> 或 <span class="arithmatex">\(-\mathfrak{U}\)</span>。如果得到 <span class="arithmatex">\(\mathfrak{U}\)</span>，则 <span class="arithmatex">\(\mathfrak{U}\)</span> 可证；如果得到 <span class="arithmatex">\(-\mathfrak{U}\)</span>，由于 <span class="arithmatex">\(\mathbf{K}\)</span> 是一致的（见希尔伯特和阿克曼，第65页），则 <span class="arithmatex">\(\mathfrak{U}\)</span> 不可证。</p>
+<p>由于 <span class="arithmatex">\(\mathbf{K}\)</span> 中没有整数，证明显得有些冗长，但基本思想非常直接。对应于每台计算机器 <span class="arithmatex">\(\mathcal{M}\)</span>，我们构造一个公式 Un(<span class="arithmatex">\(\mathcal{M}\)</span>)，并证明：如果存在通用方法判定 Un(<span class="arithmatex">\(\mathcal{M}\)</span>) 是否可证，那么就存在通用方法判定 <span class="arithmatex">\(\mathcal{M}\)</span> 是否会打印0。</p>
+<p>相关命题函数的解释如下：
+<span class="arithmatex">\(R_{S_l}(x, y)\)</span> 意为“在 <span class="arithmatex">\(\mathcal{M}\)</span> 的完整构型 <span class="arithmatex">\(x\)</span> 中，方格 <span class="arithmatex">\(y\)</span> 上的符号是 <span class="arithmatex">\(S_l\)</span>”。
+<span class="arithmatex">\(I(x, y)\)</span> 意为“在完整构型 <span class="arithmatex">\(x\)</span> 中，方格 <span class="arithmatex">\(y\)</span> 正被扫描”。
+<span class="arithmatex">\(K_{q_m}(x)\)</span> 意为“在完整构型 <span class="arithmatex">\(x\)</span> 中，m-构型是 <span class="arithmatex">\(q_m\)</span>”。
+<span class="arithmatex">\(F(x, y)\)</span> 意为“<span class="arithmatex">\(y\)</span> 是 <span class="arithmatex">\(x\)</span> 的直接后继”。</p>
+<p><span class="arithmatex">\(Inst \{ q_i S_j S_k L q_l \}\)</span> 是以下表达式的缩写：
+<span class="arithmatex">\((x, y, x', y') \{ ( R_{S_j}(x, y) \&amp; I(x, y) \&amp; K_{q_i}(x) \&amp; F(x, x') \&amp; F(y', y) ) \rightarrow ( I(x', y') \&amp; R_{S_k}(x', y) \&amp; K_{q_l}(x') \&amp; (z) [ F(y', z) \vee (R_{S_j}(x, z) \rightarrow R_{S_k}(x', z)) ] ) \}\)</span></p>
+<p><span class="arithmatex">\(Inst \{ q_i S_j S_k R q_l \}\)</span> 和 <span class="arithmatex">\(Inst \{ q_i S_j S_k N q_l \}\)</span> 是类似构造的表达式的缩写。</p>
+<p>将 <span class="arithmatex">\(\mathcal{M}\)</span> 的描述写成第6节的第一种标准形式。该描述由若干形如“<span class="arithmatex">\(q_i S_j S_k L q_l\)</span>”（或将 <span class="arithmatex">\(L\)</span> 换成 <span class="arithmatex">\(R\)</span> 或 <span class="arithmatex">\(N\)</span>）的表达式组成。构造所有对应的表达式如 <span class="arithmatex">\(Inst \{ q_i S_j S_k L q_l \}\)</span>，取它们的逻辑和，称为 Des(<span class="arithmatex">\(\mathcal{M}\)</span>)。</p>
+<p>公式 Un(<span class="arithmatex">\(\mathcal{M}\)</span>) 定义为：
+<span class="arithmatex">\((Es)[ N(s) \&amp; (x)( N(x) \rightarrow (Es') F(x, s') ) \&amp; (y, z)( F(y, z) \rightarrow N(y) \&amp; N(z) ) \&amp; (y) R_{S_0}(s, y) \&amp; I(s, u) \&amp; K_{q_1}(s) \&amp; \text{Des}(\mathcal{M}) ] \rightarrow (Es)(Et)[ N(s) \&amp; N(t) \&amp; R_{S_1}(s, t) ]\)</span></p>
+<p><span class="arithmatex">\([N(x) \&amp; \dots \&amp; \text{Des}(\mathcal{M})]\)</span> 可缩写为 <span class="arithmatex">\(A(\mathcal{M})\)</span>。</p>
+<p>代入前文建议的含义，我们发现 Un(<span class="arithmatex">\(\mathcal{M}\)</span>) 的解释是“在 <span class="arithmatex">\(\mathcal{M}\)</span> 的某个完整构型中，<span class="arithmatex">\(S_1\)</span> 出现在纸带上”。相应地，可以证明</p>
+<p>(i) 若 <span class="arithmatex">\(S_1\)</span> 出现在 <span class="arithmatex">\(\mathcal{M}\)</span> 的某个完整构型的纸带上，则 Un(<span class="arithmatex">\(\mathcal{M}\)</span>) 可证。</p>
+<p>(ii) 若 Un(<span class="arithmatex">\(\mathcal{M}\)</span>) 可证，则 <span class="arithmatex">\(S_1\)</span> 出现在 <span class="arithmatex">\(\mathcal{M}\)</span> 的某个完整构型的纸带上。</p>
+<p>上面这部分等到证明后，定理其余部分即显然。</p>
+<p><strong>引理 1.</strong> 若 <span class="arithmatex">\(S_1\)</span> 出现在 <span class="arithmatex">\(\mathcal{M}\)</span> 的某个完整构型的纸带上，则 Un(<span class="arithmatex">\(\mathcal{M}\)</span>) 可证。</p>
+<p>我们需展示如何证明 Un(<span class="arithmatex">\(\mathcal{M}\)</span>)。设第 n 个完整构型中，纸带上的符号序列为 <span class="arithmatex">\(S_{r_0}, S_{r_1}, ...., S_{r_n}\)</span>，其后为空白，被扫描的是第 <span class="arithmatex">\(l\)</span> 个符号，m-构型为 <span class="arithmatex">\(q_k\)</span>。则可形成命题</p>
+<div class="arithmatex">\[R_{S_{r_0}}(u^{(0)}, u) \&amp; R_{S_{r_1}}(u^{(0)}, u') \&amp; ... \&amp; R_{S_{r_n}}(u^{(0)}, u^{(n)})\]</div>
+<div class="arithmatex">\[\&amp; I(u^{(0)}, u^{(l)}) \&amp; K_{q_k}(u^{(0)}) \&amp; (y) [ F(y, u) \lor F(y, u') \lor ... \lor F(y, u^{(n)}) \lor R_{S_0}(u^{(0)}, y) ]\]</div>
+<p>将其缩写为 <span class="arithmatex">\(CC_n\)</span>。</p>
+<p>如前，<span class="arithmatex">\(F(u, y) \&amp; F(y, u') \&amp; ... \&amp; F(u^{(n-1)}, u^{(n)})\)</span> 缩写为 <span class="arithmatex">\(F^{(n)}\)</span>。</p>
+<p>我将证明所有形如 <span class="arithmatex">\(A(\mathcal{M}) \&amp; F^{(n)} \to CC_n\)</span>（缩写为 <span class="arithmatex">\(CF_n\)</span>）的公式均可证。<span class="arithmatex">\(CF_n\)</span> 意为“<span class="arithmatex">\(\mathcal{M}\)</span> 的第 n 个完整构型如此这般”，其中“如此这般”指 <span class="arithmatex">\(\mathcal{M}\)</span> 的实际第 n 个完整构型。故 <span class="arithmatex">\(CF_n\)</span> 应可证。</p>
+<p><span class="arithmatex">\(CF_0\)</span> 显然可证，因初始完整构型中所有符号皆为空白，m-构型为 <span class="arithmatex">\(q_1\)</span>，扫描方格为 <span class="arithmatex">\(u\)</span>，即 <span class="arithmatex">\(CC_0\)</span> 为
+$<span class="arithmatex">\(R_{S_0}(u^{(0)}, u) \&amp; I(u^{(0)}, u) \&amp; K_{q_1}(u^{(0)}) \&amp; (y) R_{S_0}(u^{(0)}, y)\)</span>$</p>
+<p>于是 <span class="arithmatex">\(A(\mathcal{M}) \to CC_0\)</span> 显然成立。</p>
+<p>下一步证明对每个 <span class="arithmatex">\(n\)</span>，<span class="arithmatex">\(CF_n \to CF_{n+1}\)</span> 可证。需考虑三种情形：从第 n 个到第 <span class="arithmatex">\((n+1)\)</span> 个构型，机器左移、右移或静止。设第一种情形成立，即机器左移。其余情形论证类似。</p>
+<p>若 <span class="arithmatex">\(r(l, n) = i\)</span>，<span class="arithmatex">\(r(l+1, n) = a\)</span>，<span class="arithmatex">\(k(n) = m\)</span>，且 <span class="arithmatex">\(\delta(m, i) = q_k S_k L q_l\)</span>，则 Des(<span class="arithmatex">\(\mathcal{M}\)</span>) 必含 <span class="arithmatex">\(Inst\{q_m S_i S_k L q_l\}\)</span> 作为一项，即
+$<span class="arithmatex">\(\text{Des}(\mathcal{M}) \to Inst\{q_m S_i S_k L q_l\}\)</span>$</p>
+<p>故
+$<span class="arithmatex">\(A(\mathcal{M}) \&amp; F^{(n+1)} \to Inst\{q_m S_i S_k L q_l\} \&amp; F(u^{(l)}, u^{(l+1)}) \&amp; CC_n\)</span>$</p>
+<p>且
+$<span class="arithmatex">\((A(\mathcal{M}) \&amp; F^{(n+1)} \&amp; CC_n) \to CC_{n+1}\)</span>$</p>
+<p>即
+$<span class="arithmatex">\(CF_n \to CF_{n+1}\)</span>$</p>
+<p>故对每个 <span class="arithmatex">\(n\)</span>，<span class="arithmatex">\(CF_n\)</span> 均可证。现据引理假设，<span class="arithmatex">\(S_1\)</span> 在某个完整构型中出现在 <span class="arithmatex">\(\mathcal{M}\)</span> 打印的符号序列中；即存在整数 <span class="arithmatex">\(N, K\)</span>，使 <span class="arithmatex">\(CC_N\)</span> 含 <span class="arithmatex">\(R_{S_1}(u^{(N)}, u^{(K)})\)</span> 作为一项，故 <span class="arithmatex">\(CC_N \to R_{S_1}(u^{(N)}, u^{(K)})\)</span> 可证。于是
+$<span class="arithmatex">\(A(\mathcal{M}) \&amp; F^{(N+K)} \to CC_N\)</span>$
+且
+$<span class="arithmatex">\(A(\mathcal{M}) \&amp; F^{(N+K)} \to R_{S_1}(u^{(N)}, u^{(K)})\)</span>$
+且
+$<span class="arithmatex">\((\exists u) A(\mathcal{M}) \to (\exists u)(\exists u') ... (\exists u^{(N+K)}) (A(\mathcal{M}) \&amp; F^{(N+K)})\)</span>$
+其中 <span class="arithmatex">\(N' = \max(N, K)\)</span>。故
+$<span class="arithmatex">\((\exists u) A(\mathcal{M}) \to (\exists u)(\exists u') ... (\exists u^{(N')}) R_{S_1}(u^{(N)}, u^{(K)})\)</span>$
+即 Un(<span class="arithmatex">\(\mathcal{M}\)</span>) 可证。</p>
+<p><strong>引理 2.</strong> 若 Un(<span class="arithmatex">\(\mathcal{M}\)</span>) 可证，则 <span class="arithmatex">\(S_1\)</span> 出现在 <span class="arithmatex">\(\mathcal{M}\)</span> 的某个完整构型的纸带上。</p>
+<p>若将可证公式中的函数变量代以任意命题函数，所得公式为真。特别地，将上述列表中的含义代入 Un(<span class="arithmatex">\(\mathcal{M}\)</span>)，所得真命题意为“<span class="arithmatex">\(S_1\)</span> 在 <span class="arithmatex">\(\mathcal{M}\)</span> 的某个完整构型中出现在纸带上”。</p>
+<p>现在可以证明判定问题不可解。假设相反，则存在通用（机械）过程判定 Un(<span class="arithmatex">\(\mathcal{M}\)</span>) 是否可证。据引理1和2，这意味着存在过程判定 <span class="arithmatex">\(\mathcal{M}\)</span> 是否会打印0，而据第8节，此为不可能。故判定问题不可解。</p>
+<p>在对于量词系统受限的公式方面，判定问题已有大量特例场景得到了解决，将 Un(<span class="arithmatex">\(\mathcal{M}\)</span>) 表达成所有量词置于开头的形式是有意义的。实际上，可以将 Un(<span class="arithmatex">\(\mathcal{M}\)</span>) 表达成下面的形式：</p>
+<div class="arithmatex">\[
+(u)(\exists x)(w)(\exists u_1)\ldots(\exists u_n)\mathfrak{B},
+\tag{I}
+\]</div>
+<p>其中 <span class="arithmatex">\(\mathfrak{B}\)</span> 不含量词，且 <span class="arithmatex">\(n = 6\)</span>。通过一些非本质性的修改，可以得到一个具有 Un(<span class="arithmatex">\(\mathcal{M}\)</span>) 全部本质特征的公式，其形式为 (I) 且 <span class="arithmatex">\(n = 5\)</span>。</p>
+<hr>
+<h1><strong>逐段解析</strong></h1>
+<h2>判定问题的来龙去脉</h2>
+<p>要理解图灵这篇文章的历史意义，必须回到二十世纪初数学界的一场宏大梦想。</p>
+<p>十九世纪末，数学经历了一场深刻的基础危机。集合论悖论、非欧几何的发现、分析学的严格化，都迫使数学家们重新审视数学的根基。德国数学家大卫·希尔伯特提出了一个雄心勃勃的计划：将全部数学建立在一套完备、一致的公理系统之上。所谓完备，是指任何数学命题，在这个系统里要么能被证明为真，要么能被证明为假；所谓一致，是指这个系统不会自相矛盾，不会同时证明一个命题既真又假。</p>
+<p>希尔伯特计划的核心是判定问题（德语叫 Entscheidungsproblem，英语叫 Decision Problem）。这个问题问的是：是否存在一种机械的、有限步骤的方法，能够判定任意数学命题的真假？换句话说，能否造出一台"数学真理机器"，输入任意命题，输出"可证"或"不可证"？</p>
+<p>如果答案是肯定的，数学将变成一项完全机械化的事业。数学家不再需要灵感、直觉、创造力，只需要按部就班地运行算法即可。这在当时的许多人看来并非天方夜谭——毕竟，代数方程有求根公式，几何证明有作图法，为什么整个数学不能有一套通用的判定程序呢？</p>
+<p>然而，这个梦想在1930年代被彻底了否定。</p>
+<h2>哥德尔的工作</h2>
+<p>1931年，年仅25岁的奥地利逻辑学家库尔特·哥德尔发表了两条不完备性定理，震惊了整个数学界。</p>
+<p>第一不完备性定理说：在任何足够强的一致形式系统中，必然存在一些命题，它们是真的，但在这个系统内无法被证明。哥德尔的证明极其巧妙——他构造了一个自指的命题，大意是"本命题在系统中不可证"。如果这个命题可证，系统就矛盾了；如果不可证，那它说的就是真话，但真话却无法被证明。这揭示了形式系统的内在局限：完备性与一致性不可兼得。</p>
+<p>第二不完备性定理更加致命：任何足够强的一致形式系统，都无法在内部证明自身的一致性。这直接宣判了希尔伯特计划的核心目标无法实现——你永远不能用数学自己证明数学没有矛盾。</p>
+<p>哥德尔的工作告诉我们：存在特定的命题，系统对它无能为力。</p>
+<p>但注意，这并不直接回答判定问题。</p>
+<p>哥德尔证明的是「存在不可判定的命题」，但这些命题是特别构造出来的，也许普通的数学命题仍然可以被判定？换句话说，也许存在某种更聪明的方法，虽然不能判定所有命题，但能判定我们关心的绝大多数命题？</p>
+<p>图灵的工作正是要证明：连这种希望也是虚幻的。</p>
+<h2>一致性与可证性的关系</h2>
+<p>在图灵的论述中，有一个关键逻辑需要解释清楚。他说：判定一个公式是否可证，等价于判定一个新系统是否一致。这到底是怎么回事？</p>
+<p>首先，什么叫「一致」？一个形式系统是「一致的」，就是它不会自相矛盾——不会同时证明某个命题和它的否定。举个例子，如果系统能够证明「所有天鹅都是白的」，又能够证明「存在一只黑天鹅」，那这两个结论就冲突了，系统就不一致了。一致的系统只说真话，不会自己打自己的脸。</p>
+<p>现在来看图灵说的等价关系。给定一个公式𝔘，我们问：𝔘在系统K中是否可证？这个问题可以转化成另一个问题：如果把-𝔘（即𝔘的否定）作为一条新公理加入K，得到的新系统是否一致？</p>
+<p>为什么这两个问题等价？推理如下。</p>
+<p>第一种情况：假设𝔘在K中可证。这意味着K里面已经有𝔘的证明了。现在我们把-𝔘加进去作为公理，新系统里就同时存在两样东西：一是𝔘的证明（从原来的K继承来的），二是-𝔘作为公理（直接假定它成立）。一个命题和它的否定同时被系统接受，系统就自相矛盾了。所以：𝔘可证，则新系统不一致。</p>
+<p>第二种情况：假设𝔘在K中不可证。这意味着K里面没有𝔘的证明。现在把-𝔘加进去作为公理。由于K本身是一致的（不会同时证明𝔘和-𝔘），而𝔘又不可证，所以K和-𝔘之间不会产生冲突。新系统依然一致。所以：𝔘不可证，则新系统一致。</p>
+<p>把这两种情况合起来：𝔘可证当且仅当新系统不一致。两边取个否定，就得到：𝔘不可证当且仅当新系统一致。这就是图灵所说的等价关系。</p>
+<p>还有一个相关的问题：为什么如果𝔘或-𝔘有一个可证，另一个就一定不可证？这背后的原理是系统的一致性。假设𝔘可证，又假设-𝔘也可证，那么系统同时证明了𝔘和-𝔘，这意味着系统自相矛盾。但K是一个一致的系统，它不会自相矛盾。所以如果𝔘可证，-𝔘一定不可证；反过来，如果-𝔘可证，𝔘一定不可证。两者不可能同时可证。</p>
+<p>但是，两者能不能同时不可证呢？这正是哥德尔发现的情况！在某些系统中，存在这样的𝔘，使得𝔘和-𝔘都不可证。这种命题叫「不可判定命题」——系统既不能证明它对，也不能证明它错。哥德尔构造出了这种命题，从而打破了「完备性」的幻想。</p>
+<h2>逻辑系统K与编码方案</h2>
+<p>图灵的证明中涉及一个叫K的逻辑系统，还有一些命题函数。这些都是什么？为什么它们能把图灵机的行为翻译成逻辑公式？</p>
+<p>首先，K是什么？K是一个「谓词演算」系统，也叫「一阶逻辑」。它是现代逻辑学的基础形式系统，包含命题连接词（如「并且」「或者」「并非」「如果...那么...」）、量词（「所有」「存在」）以及谓词和个体变量。你可以把它理解成一个形式化的推理框架，规定了什么样的推理是合法的。希尔伯特和阿克曼在他们的书中详细描述了这个系统。</p>
+<p>为什么图灵说「K中没有整数」？这是一个关键的技术细节。在一阶逻辑的标准表述中，自然数并不是内置的原始对象。你无法直接说「x是一个自然数」，也无法直接进行算术运算。K只提供抽象的个体变量和谓词，不预设任何特定的数学结构。这和皮亚诺算术或《数学原理》的系统不同——后两者明确包含自然数和算术公理。</p>
+<p>正因如此，图灵必须「从零开始」构造出一套语言来描述图灵机。他不能直接说「第n个时刻」或「第k个方格」，而必须用谓词和量词间接地表达这些概念。这就是为什么证明显得「有些冗长」——他要用纯逻辑的语言重建整套计算框架。</p>
+<p>那么，图灵是如何把图灵机翻译成逻辑公式的？核心思想是用四类谓词来刻画机器在任意时刻的完整状态。</p>
+<p>第一类谓词描述「纸带内容」。它表达的是：在某个时刻，某个方格上写的是什么符号。这就像给纸带拍一张快照，记录每个位置的字符。</p>
+<p>第二类谓词描述「读写头位置」。它表达的是：在某个时刻，读写头正停在哪个方格上。这告诉我们机器「正在看哪里」。</p>
+<p>第三类谓词描述「机器的内部状态」。它表达的是：在某个时刻，机器处于哪个状态。图灵机有多种状态，不同状态下机器的行为不同，这个谓词就是为了标记当前状态。</p>
+<p>第四类谓词描述「时刻的先后顺序」。它表达的是：某个时刻是另一个时刻的直接后继，即紧挨着的下一时刻。这建立了时间的链条，让我们能说「这一步之后是那一步」。</p>
+<p>有了这四类基本词汇，每一条机器指令就可以翻译成一个逻辑公式。比如，一条指令说：「如果在状态A扫描到符号B，就打印符号C，左移，进入状态D。」翻译成逻辑语言，大意就是：如果在某个时刻机器处于状态A且扫描符号B，那么在下一时刻，原来的符号B位置变成了符号C，读写头左移了一格，机器状态变成了D。这就是一个「如果...那么...」形式的蕴涵式。</p>
+<p>把所有指令对应的蕴涵式合并起来，就得到机器的「完整描述」——一个刻画机器全部行为规则的大公式。最后，图灵定义了一个核心公式Un(<span class="arithmatex">\(\mathcal{M}\)</span>)，它的意思是：「如果机器M从空白纸带开始运行，那么在某个时刻，纸带上会出现某个特定符号。」这个特定符号就是图灵用来标记「打印了0」的记号。</p>
+<p>现在关键问题来了：为什么「判定Un(<span class="arithmatex">\(\mathcal{M}\)</span>)是否可证」等价于「判定M是否会打印0」？</p>
+<p>这涉及到两个方向的推理。第一个方向：如果机器确实打印了那个符号，为什么Un(<span class="arithmatex">\(\mathcal{M}\)</span>)可证？答案在于，打印符号是一个有限过程——机器运行了有限步之后，在某个方格上写下了这个符号。既然是有限步，每一步的状态转移都可以被逻辑公式精确描述。把这些描述串起来，就像记录一段旅程的每一步脚印，最终构成一个完整的证明链。</p>
+<p>第二个方向：如果Un(<span class="arithmatex">\(\mathcal{M}\)</span>)可证，为什么机器确实会打印那个符号？这依赖于逻辑系统的「可靠性」——一个可靠的系统不会证明假命题。如果Un(<span class="arithmatex">\(\mathcal{M}\)</span>)说「机器会打印这个符号」而且它被证明了，那么机器就真的会打印。证明不会凭空产生，它必须基于公理和推理规则，而这些公理和规则正确地反映了机器的行为逻辑。</p>
+<p>两个方向合起来，就建立了等价关系：问机器会不会打印符号，等价于问Un(<span class="arithmatex">\(\mathcal{M}\)</span>)能不能被证明。这个等价关系是图灵整个证明的枢纽——它把一个关于计算的问题，转化成了一个关于逻辑证明的问题。</p>
+<h2>图灵的贡献</h2>
+<p>图灵1936年的贡献比哥德尔更加彻底。他证明的是：不存在任何通用的机械方法，能够判定任意命题是否可证。注意措辞的区别——哥德尔说"存在特定的例外"，图灵说"整个任务本身就不可能完成"。</p>
+<p>打个比方：哥德尔指出有些案件永远审不完；图灵指出根本不可能建造一个能审理所有案件的万能法庭。前者是局部问题，后者是根本限制。</p>
+<p>图灵还特别指出了他的结果与哥德尔的关系。如果哥德尔的结论反过来成立——即每个命题要么可证，要么其否定可证——那么判定问题反而有解了。因为我们可以设计一台机器，按顺序枚举所有可能的证明，迟早会碰到目标命题或其否定的证明。但哥德尔已经证明这种完备性不成立，所以枚举法注定失败。然而，枚举法的失败并不意味着判定问题必然无解——也许存在某种不依赖枚举的巧妙方法？图灵的工作正是要堵死这条路。</p>
+<h2>归约证明的逻辑</h2>
+<p>图灵采用的是「归约法」——这是不可解性证明中的经典策略。其核心思想是：把一个已知的不可解问题，转化为待证明的问题。如果转化成功，那么待证明的问题也不可能解决——否则我们就可以用后者来解决前者，产生矛盾。</p>
+<p>图灵的证明可以分解为四个步骤，每一步都清晰可验证。</p>
+<p><strong>第一步：找一个已知的不可解问题。</strong></p>
+<p>第8节已经证明了一个关键结果：不存在通用方法判定任意图灵机是否会打印符号0。这个问题的不可解性，与著名的「停机问题」本质相同。停机问题问的是：给定任意程序和输入，能否判定程序最终会停止还是永远运行下去？答案是：不可能。这个结论直观上可以理解——程序的行为千变万化，我们无法预见所有可能性。</p>
+<p>现在，图灵手上有了一个「锚点」：打印0的问题是不可解的。</p>
+<p><strong>第二步：把图灵机编码为逻辑公式。</strong></p>
+<p>这是整个证明中最精巧的部分。图灵设计了一套系统化的编码方案，把任意一台图灵机的结构和行为，完整地翻译成一阶逻辑公式。具体来说，他用四类谓词来刻画机器的完整构型：</p>
+<ul>
+<li><span class="arithmatex">\(R_{S_l}(x, y)\)</span> 表示「在时刻 <span class="arithmatex">\(x\)</span>，方格 <span class="arithmatex">\(y\)</span> 上的符号是 <span class="arithmatex">\(S_l\)</span>」——这刻画了纸带内容。</li>
+<li><span class="arithmatex">\(I(x, y)\)</span> 表示「在时刻 <span class="arithmatex">\(x\)</span>，读写头正扫描方格 <span class="arithmatex">\(y\)</span>」——这刻画了读写头位置。</li>
+<li><span class="arithmatex">\(K_{q_m}(x)\)</span> 表示「在时刻 <span class="arithmatex">\(x\)</span>，机器处于状态 <span class="arithmatex">\(q_m\)</span>」——这刻画了机器的内部状态。</li>
+<li><span class="arithmatex">\(F(x, y)\)</span> 表示「<span class="arithmatex">\(y\)</span> 是 <span class="arithmatex">\(x\)</span> 的直接后继」——这刻画了时刻的先后顺序。</li>
+</ul>
+<p>有了这些基本词汇，每一条机器指令都可以翻译成一个逻辑蕴涵式。例如，指令「若在状态 <span class="arithmatex">\(q_i\)</span> 扫描到符号 <span class="arithmatex">\(S_j\)</span>，则打印 <span class="arithmatex">\(S_k\)</span>，左移，转入状态 <span class="arithmatex">\(q_l\)</span>」就翻译成 <span class="arithmatex">\(Inst\{q_i S_j S_k L q_l\}\)</span>，它表达的是：如果在某时刻机器处于状态 <span class="arithmatex">\(q_i\)</span> 且扫描符号 <span class="arithmatex">\(S_j\)</span>，那么下一时刻纸带、读写头和状态会如何变化。</p>
+<p>把所有指令对应的公式合取起来，就得到机器的完整描述 Des(<span class="arithmatex">\(\mathcal{M}\)</span>)。最后，图灵定义了一个核心公式 Un(<span class="arithmatex">\(\mathcal{M}\)</span>)，它的直观含义是：「如果机器 <span class="arithmatex">\(\mathcal{M}\)</span> 从空白纸带开始运行，那么在某个时刻，纸带上会出现符号 <span class="arithmatex">\(S_1\)</span>」。这里 <span class="arithmatex">\(S_1\)</span> 就是图灵用作标记的那个符号（在第8节中，他用的是打印0来标记）。为了证明判定问题不可解，这里的「打印0」和「打印 <span class="arithmatex">\(S_1\)</span>」是等价的设定。</p>
+<p><strong>第三步：建立等价关系。</strong></p>
+<p>这是整个证明的核心。图灵证明了两个引理，建立起「机器行为」与「公式可证性」之间的精确对应。这两个引理分别处理两个方向，合起来就建立了完整的等价关系。</p>
+<p><strong>引理一：如果机器确实在运行过程中打印了符号S1，那么公式Un(<span class="arithmatex">\(\mathcal{M}\)</span>)可证。</strong></p>
+<p>为什么这个方向成立？关键在于：打印符号是一个有限过程。</p>
+<p>想象一下，机器从空白纸带开始，一步一步运行。每一步，它根据当前状态和扫描到的符号，决定打印什么、移动方向、转入什么状态。假设机器在第N步打印了S1。那么从第0步到第N步，机器一共走了N+1个完整构型——每个构型都完整记录了纸带内容、读写头位置和机器状态。</p>
+<p>图灵的编码方案正是为这每一拍「快照」服务的。对于第k个构型，逻辑公式可以精确描述：此时纸带上每个方格是什么符号、读写头在哪个位置、机器处于什么状态。更重要的是，从第k个构型到第k+1个构型的转移，也可以被一条「如果...那么...」的蕴涵式刻画——这条蕴涵式正是机器指令的翻译。</p>
+<p>现在，把所有这些刻画串起来：初始构型的描述、每一步转移的蕴涵式、最终构型中S1出现在纸带上的事实。这就构成了一条完整的推理链——从「机器开始运行」推出「机器打印了S1」。这条推理链，就是Un(<span class="arithmatex">\(\mathcal{M}\)</span>)的证明。</p>
+<p>所以，只要机器确实打印了S1，就一定能在逻辑系统里构造出Un(<span class="arithmatex">\(\mathcal{M}\)</span>)的证明。这不是魔法，而是因为机器的每一步操作都可以被逻辑语言忠实记录。</p>
+<p><strong>引理二：如果公式Un(<span class="arithmatex">\(\mathcal{M}\)</span>)可证，那么机器确实会打印符号S1。</strong></p>
+<p>这个方向涉及逻辑系统的一个根本性质：可靠性。</p>
+<p>什么叫可靠性？一个逻辑系统是「可靠的」，意思是：如果某个公式在这个系统里可证，那么这个公式陈述的内容就是真的。可靠系统不会证明假命题——它不会凭空捏造不存在的事实。</p>
+<p>为什么K系统是可靠的？因为它的推理规则都是保真的。比如，从「A并且B」推出「A」，这个推理规则永远不会把真命题变成假命题。从「如果A那么B」和「A」推出「B」，这个规则也是保真的。K系统的每一条推理规则都经过严格审视，确保不会引入错误。</p>
+<p>现在，Un(<span class="arithmatex">\(\mathcal{M}\)</span>)说的是什么？它说的是「如果机器M从空白纸带开始运行，那么在某个时刻，纸带上会出现S1」。如果Un(<span class="arithmatex">\(\mathcal{M}\)</span>)可证，而K又是可靠的，那么Un(<span class="arithmatex">\(\mathcal{M}\)</span>)陈述的内容就必须是真的。换句话说，机器M从空白纸带开始运行后，真的会在某时刻打印S1。</p>
+<p>这里有一个微妙之处：Un(<span class="arithmatex">\(\mathcal{M}\)</span>)的证明依赖于机器描述Des(M)作为「前提」。Des(M)是机器所有指令的逻辑翻译，它正确地反映了机器的行为规则。所以，基于Des(M)推出的结论，必然符合机器的真实行为。</p>
+<p><strong>两个引理合起来的威力。</strong></p>
+<p>引理一说：打印S1 → Un(<span class="arithmatex">\(\mathcal{M}\)</span>)可证。
+引理二说：Un(<span class="arithmatex">\(\mathcal{M}\)</span>)可证 → 打印S1。</p>
+<p>两个方向合起来，就是完整的等价关系：机器是否打印S1，当且仅当Un(<span class="arithmatex">\(\mathcal{M}\)</span>)是否可证。</p>
+<p>这个等价关系意味着什么？它意味着「机器行为问题」和「逻辑可证问题」本质上是同一个问题，只是换了两套语言来描述。问「机器会不会打印S1」，等价于问「Un(<span class="arithmatex">\(\mathcal{M}\)</span>)能不能被证明」。这就把一个关于计算的问题，完美转化成了一个关于逻辑的问题。</p>
+<p><strong>第四步：反证完成。</strong></p>
+<p>现在万事俱备。假设判定问题有解，即存在通用算法能判定任意公式是否可证。我们来推导矛盾：</p>
+<p>取任意图灵机 <span class="arithmatex">\(\mathcal{M}\)</span>，用第二步的方法构造公式 Un(<span class="arithmatex">\(\mathcal{M}\)</span>)。然后用判定算法检验 Un(<span class="arithmatex">\(\mathcal{M}\)</span>) 是否可证。根据第三步的等价关系，检验结果直接告诉我们 <span class="arithmatex">\(\mathcal{M}\)</span> 是否会打印 <span class="arithmatex">\(S_1\)</span>。</p>
+<p>但这意味着我们找到了判定「机器是否打印 <span class="arithmatex">\(S_1\)</span>」的通用方法——而第8节已经证明，这种方法不可能存在。矛盾。</p>
+<p>因此，假设错误。判定问题无解。</p>
+<p>这就是图灵证明的完整逻辑链条。四个步骤环环相扣：从已知的不可解问题出发，构造编码方案，建立等价关系，最后反证收尾。整个过程干净利落，展示了图灵深邃的洞察力——他看到了「计算」与「证明」之间的内在联系，并用这种联系证明了逻辑学的根本界限。</p>
+<hr>
+<p><strong>本章总结</strong>：图灵证明判定问题不可解，终结了希尔伯特的机械化数学之梦。其核心创新在于将图灵机行为编码为逻辑公式，建立计算与证明的等价桥梁，揭示了算法能力的根本边界。</p>
+<hr>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep" data-i18n="category_label">分类</span>:
+        <abbr class="category">
+            <a href="./category/math.html">Math</a>
+        </abbr>
+       </footer>
+    
+</section>
+
+<section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
+    <script src="https://giscus.app/client.js"
+        data-repo="cycleuser/cycleuser.github.io"
+        data-repo-id="R_kgDOL4NKYA"
+        data-category="General"
+        data-category-id="DIC_kwDOL4NKYM4DBK3X"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    function update() {
+        var t = giscusTheme(getTheme());
+        var s = document.querySelector('script[src*="giscus"]');
+        if (s) s.setAttribute('data-theme', t);
+        sendTheme(t);
+    }
+    // 初始设置
+    var s = document.querySelector('script[src*="giscus"]');
+    if (s) s.setAttribute('data-theme', giscusTheme(getTheme()));
+    // 监听明暗切换
+    new MutationObserver(function() { update(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    // 重试几次确保 iframe 加载完成
+    var tries = 0;
+    var timer = setInterval(function() {
+        if (document.querySelector('iframe.giscus-frame')) { sendTheme(giscusTheme(getTheme())); clearInterval(timer); }
+        if (++tries > 20) clearInterval(timer);
+    }, 500);
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

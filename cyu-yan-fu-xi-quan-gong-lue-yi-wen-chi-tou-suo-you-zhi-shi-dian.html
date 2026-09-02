@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894037367471530"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9894037367471530">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=19' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="./index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li class="active"><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li class="active"><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li class="active"><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li><li class="active"><a href="./2048游戏.html" data-i18n="2048">2048</a></li><li class="active"><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li><li class="active"><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li class="has-sub"><a href="./categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="./category/academic.html">Academic (3)</a></li><li><a href="./category/ai.html">AI (6)</a></li><li><a href="./category/c.html">C (16)</a></li><li><a href="./category/camera.html">Camera (15)</a></li><li><a href="./category/chromebook.html">ChromeBook (2)</a></li><li><a href="./category/cuda.html">CUDA (1)</a></li><li><a href="./category/design.html">Design (1)</a></li><li><a href="./category/diy.html">DIY (1)</a></li><li><a href="./category/duke.html">Duke (1)</a></li><li><a href="./category/education.html">Education (21)</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./category/hackintosh.html">Hackintosh (7)</a></li><li><a href="./category/java.html">Java (1)</a></li><li><a href="./category/linux.html">Linux (4)</a></li><li><a href="./category/llm.html">LLM (55)</a></li><li><a href="./category/ltfs.html">LTFS (1)</a></li><li><a href="./category/mac.html">Mac (3)</a></li><li><a href="./category/math.html">Math (30)</a></li><li><a href="./category/ml.html">ML (4)</a></li><li><a href="./category/modeling.html">Modeling (9)</a></li><li><a href="./category/nas.html">NAS (1)</a></li><li><a href="./category/nix.html">Nix (1)</a></li><li><a href="./category/photography.html">Photography (1)</a></li><li><a href="./category/programming.html">Programming (12)</a></li><li><a href="./category/pve.html">PVE (1)</a></li><li><a href="./category/python.html">Python (26)</a></li><li><a href="./category/qgis.html">QGIS (3)</a></li><li><a href="./category/qt.html">QT (1)</a></li><li><a href="./category/raspbian.html">Raspbian (1)</a></li><li><a href="./category/science.html">Science (2)</a></li><li><a href="./category/sdr.html">SDR (2)</a></li><li><a href="./category/software.html">Software (3)</a></li><li><a href="./category/story.html">Story (68)</a></li><li><a href="./category/sui-bi.html">随笔 (2)</a></li><li><a href="./category/tool.html">Tool (49)</a></li><li><a href="./category/tools.html">Tools (2)</a></li><li><a href="./category/virtualization.html">Virtualization (1)</a></li><li><a href="./category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./category/windows.html">Windows (1)</a></li><li><a href="./category/work.html">Work (24)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="./tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="./tag/7900xtx.html">7900XTX (3)</a></li><li><a href="./tag/9bmo-xing.html">9B模型 (1)</a></li><li><a href="./tag/abbreviations.html">abbreviations (1)</a></li><li><a href="./tag/academic.html">academic (1)</a></li><li><a href="./tag/adamw.html">AdamW (1)</a></li><li><a href="./tag/advice.html">advice (1)</a></li><li><a href="./tag/aerodynamics.html">aerodynamics (3)</a></li><li><a href="./tag/agent.html">Agent (3)</a></li><li><a href="./tag/ai.html">AI (31)</a></li><li><a href="./tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="./tag/aigc.html">AIGC (1)</a></li><li><a href="./tag/ailun-li.html">AI伦理 (1)</a></li><li><a href="./tag/airfoil.html">airfoil (1)</a></li><li><a href="./tag/algorithm.html">Algorithm (12)</a></li><li><a href="./tag/amd.html">AMD (1)</a></li><li><a href="./tag/anime.html">anime (1)</a></li><li><a href="./tag/arc.html">ARC (1)</a></li><li><a href="./tag/architecture.html">Architecture (3)</a></li><li><a href="./tag/arithmetic.html">arithmetic (1)</a></li><li><a href="./tag/attitude.html">Attitude (2)</a></li><li><a href="./tag/bayesian.html">Bayesian (2)</a></li><li><a href="./tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="./tag/beginner.html">Beginner (3)</a></li><li><a href="./tag/ben-di-bu-shu.html">本地部署 (5)</a></li><li><a href="./tag/ben-di-bu-shu-bing-yun-xing-omnicoder-9bde-su-du-zhi-mi-moxing-vs-ollama.html">本地部署并运行omnicoder-9b的速度之谜MoXing-vs-Ollama (1)</a></li><li><a href="./tag/ben-di-mo-xing.html">本地模型 (3)</a></li><li><a href="./tag/bfcl.html">BFCL (4)</a></li><li><a href="./tag/bi-ye-lun-wen.html">毕业论文 (1)</a></li><li><a href="./tag/bian-cheng.html">编程 (1)</a></li><li><a href="./tag/binary.html">binary (1)</a></li><li><a href="./tag/bing-fei-gu-yi-wei-shi-yao-wo-geng-duo-yong-ming-ling-xing-gong-ju-er-bu-shi-gui.html">并非故意-为什么我更多用命令行工具而不是GUI (1)</a></li><li><a href="./tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="./tag/book.html">Book (10)</a></li><li><a href="./tag/brent.html">Brent (1)</a></li><li><a href="./tag/bullshit.html">bullshit (1)</a></li><li><a href="./tag/c.html">C (10)</a></li><li><a href="./tag/camera.html">Camera (23)</a></li><li><a href="./tag/career.html">career (1)</a></li><li><a href="./tag/causation.html">Causation (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-da-mo-xing-omnicoder-9b-jian-ce-moxing-vs-ollama-dui-bi.html">超强的本地大模型-OmniCoder-9B-简测MoXing-vs-Ollama-对比 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-xiao-mo-xing-omnicoder-9bde-an-zhuang-yu-shi-yong-zhi-nan.html">超强的本地小模型OmniCoder-9B的安装与使用指南 (1)</a></li><li><a href="./tag/chao-xiao-mo-xing.html">超小模型 (1)</a></li><li><a href="./tag/chat.html">Chat (1)</a></li><li><a href="./tag/chatgpt.html">ChatGPT (1)</a></li><li><a href="./tag/cheng-chang.html">成长 (1)</a></li><li><a href="./tag/chouchou-pdflun-wen-zhong-ming-ming-gong-ju-sheng-ji-liao-zhe-ci-zhuan-men-you-hua-liao-zhong-wen-lun-wen-zhi-chi.html">Chou瞅-PDF论文重命名工具升级了这次专门优化了中文论文支持 (1)</a></li><li><a href="./tag/chouchou-yi-ge-pythonxiao-gong-ju-rang-ni-de-lun-wen-pdfwen-jian-ming-bu-zai-shi-luan-ma.html">Chou瞅一个Python小工具让你的论文PDF文件名不再是乱码 (1)</a></li><li><a href="./tag/chromebook.html">ChromeBook (2)</a></li><li><a href="./tag/cli.html">CLI (1)</a></li><li><a href="./tag/code.html">Code (2)</a></li><li><a href="./tag/code-generation.html">Code Generation (6)</a></li><li><a href="./tag/coding.html">Coding (1)</a></li><li><a href="./tag/cognition.html">Cognition (1)</a></li><li><a href="./tag/comics.html">comics (1)</a></li><li><a href="./tag/communicate.html">Communicate (6)</a></li><li><a href="./tag/communication.html">communication (3)</a></li><li><a href="./tag/comparison.html">comparison (1)</a></li><li><a href="./tag/computability.html">Computability (12)</a></li><li><a href="./tag/computer.html">computer (3)</a></li><li><a href="./tag/conda.html">Conda (2)</a></li><li><a href="./tag/conda-forge.html">conda-forge (1)</a></li><li><a href="./tag/configback-kua-ping-tai-kai-fa-pei-zhi-wen-jian-de-wu-tong-bei-fen-qian-yi-guan-li-gong-ju.html">ConfigBack-跨平台开发配置文件的无痛备份迁移管理工具 (1)</a></li><li><a href="./tag/cong-shu-zu-dao-fu-za-shu-ju-cyu-yan-shi-zen-yao-yi-bu-bu-bian-fu-za-de.html">从数组到复杂数据C语言是怎么一步步变复杂的 (1)</a></li><li><a href="./tag/copytalker-kua-yue-yu-yan-zhang-ai-de-jin-shi-shi-yu-yin-fan-yi.html">CopyTalker-跨越语言障碍的近实时语音翻译 (1)</a></li><li><a href="./tag/correlation.html">Correlation (1)</a></li><li><a href="./tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="./tag/cs.html">CS (1)</a></li><li><a href="./tag/cuda.html">CUDA (6)</a></li><li><a href="./tag/culture.html">culture (1)</a></li><li><a href="./tag/cursor.html">Cursor (1)</a></li><li><a href="./tag/cyu-yan-fu-xi-quan-gong-lue-yi-wen-chi-tou-suo-you-zhi-shi-dian.html">C语言复习全攻略-一文吃透所有知识点 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-numc-yi-ge-numpy-feng-ge-de-c-yu-yan-ku.html">C语言基础教程NumC-一个-NumPy-风格的-C-语言库 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shi-xian-lei-si-dong-tai-lei-xing-dui-yong-hu-shu-ru-jie-xi-bing-qie-xuan-ze-he-gua-de-shu-ju-lei-xing.html">C语言基础教程-实现类似动态类型对用户输入解析并且选择合适的数据类型 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shu-zu-xing-zhuang-50xing-200000lie-vs-200000xing-50lie-tong-yang-de-shu-ju-bu-tong-de-xing-neng.html">C语言基础教程数组形状-50行200000列-vs-200000行50列-同样的数据不同的性能 (1)</a></li><li><a href="./tag/da-gong.html">打工 (1)</a></li><li><a href="./tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="./tag/da-xue-sheng-huo.html">大学生活 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing.html">大语言模型 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing-li-mian-de-tokende-han-yi-he-yuan-liu.html">大语言模型里面的token的含义和源流 (1)</a></li><li><a href="./tag/dai-ma-neng-li.html">代码能力 (1)</a></li><li><a href="./tag/dan-jing-du-fu-dian-shu-de-fen-bian-lu-wei-shi-yao-zai-ji-suan-ji-li-1000-mo-he-1000-mo-jia-001-ke-neng-shi-yi-yang-de.html">单精度浮点数的分辨率为什么在计算机里-1000-万和-1000-万加-001-可能是一样的 (1)</a></li><li><a href="./tag/dan-yi-zhi-ze-yuan-ze-xie-hao-pythonhan-shu-de-di-yi-bu.html">单一职责原则写好Python函数的第一步 (1)</a></li><li><a href="./tag/data.html">Data (3)</a></li><li><a href="./tag/data-science.html">Data Science (2)</a></li><li><a href="./tag/database.html">Database (1)</a></li><li><a href="./tag/datewise-photo-organizer-ji-yu-ri-qi-shi-jian-jin-xing-tu-pian-zu-zhi-he-lu-jing-guan-li-de-she-ying-fu-zhu-gong-ju-ruan-jian.html">Datewise-Photo-Organizer-基于日期时间进行图片组织和路径管理的摄影辅助工具软件 (1)</a></li><li><a href="./tag/decision-making.html">decision-making (1)</a></li><li><a href="./tag/design.html">Design (1)</a></li><li><a href="./tag/dian-che-nan-ti-han-shang-de-zhi-jia-hui-zai-shi-gu-qian-tu-ran-tui-chu-yao.html">电车难题厂商的智驾会在事故前突然退出么 (1)</a></li><li><a href="./tag/dimension.html">dimension (1)</a></li><li><a href="./tag/discuss.html">Discuss (7)</a></li><li><a href="./tag/disease.html">Disease (1)</a></li><li><a href="./tag/diy.html">DIY (1)</a></li><li><a href="./tag/download.html">Download (1)</a></li><li><a href="./tag/earth-science.html">Earth Science (1)</a></li><li><a href="./tag/education.html">Education (15)</a></li><li><a href="./tag/efficiency.html">efficiency (1)</a></li><li><a href="./tag/ekf.html">EKF (1)</a></li><li><a href="./tag/emotion.html">emotion (1)</a></li><li><a href="./tag/engineering.html">Engineering (1)</a></li><li><a href="./tag/environment.html">Environment (1)</a></li><li><a href="./tag/er-ji.html">耳机 (1)</a></li><li><a href="./tag/er-jin-zhi.html">二进制 (1)</a></li><li><a href="./tag/ertinger-ting-yi-ge-jian-dan-de-yin-pin-jiang-zao-gong-ju.html">ErTing耳听一个简单的音频降噪工具 (1)</a></li><li><a href="./tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="./tag/fa-lan-ke-fu.html">法兰克福 (1)</a></li><li><a href="./tag/family.html">family (1)</a></li><li><a href="./tag/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">FanFu凡赴-把-Ollama-的-GGUF-模型转成-HuggingFace-格式纯好玩 (1)</a></li><li><a href="./tag/fang-fa-bi-gui-mo-geng-zhong-yao-agenticqwenyu-needlede-xiao-mo-xing-zhi-neng-ti-ying-yong-tan-suo.html">方法比规模更重要AgenticQwen与Needle的小模型智能体应用探索 (1)</a></li><li><a href="./tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="./tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="./tag/filtering.html">Filtering (6)</a></li><li><a href="./tag/folderlensyi-ge-pyside6shi-xian-de-jian-dan-wen-jian-guan-li-qi-kai-fa-shi-li.html">FolderLens一个PySide6实现的简单文件管理器开发实例 (1)</a></li><li><a href="./tag/fractal.html">fractal (1)</a></li><li><a href="./tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="./tag/freshman.html">freshman (5)</a></li><li><a href="./tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="./tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./tag/function-calling.html">function calling (1)</a></li><li><a href="./tag/game.html">Game (2)</a></li><li><a href="./tag/gametheory.html">GameTheory (1)</a></li><li><a href="./tag/gangdan-de-zhi-shi-ku-shi-zen-yao-lian-cheng-de.html">GangDan-的知识库是怎么炼成的 (1)</a></li><li><a href="./tag/gangdan-geng-xin-ke-yong-zai-xian-mo-xing-cong-xie-zong-shu-dao-xie-wan-zheng-wen-zhang.html">GangDan-更新可用在线模型从写综述到写完整文章 (1)</a></li><li><a href="./tag/gangdan-wu-yue-zhong-de-ji-zhong-geng-xin-jing-zhun-xuan-wen-zhi-shi-ku-fen-xi-xue-xi-mo-kuai-quan-mian-xiu-fu.html">GangDan-五月中的集中更新精准选文知识库分析学习模块全面修复 (1)</a></li><li><a href="./tag/gangdan-you-geng-xin-liao-yi-bo-cong-kai-fa-zhu-shou-zhuan-xing-wei-zhi-shi-guan-li-yu-jiao-xue-fu-zhu-gong-ju.html">GangDan-又更新了一波从开发助手转型为知识管理与教学辅助工具 (1)</a></li><li><a href="./tag/gangdangang-dan-sheng-ji-kai-yuan-ben-di-zhi-shi-ku-zhi-chi-ben-di-mo-xing-he-zai-xian-mo-xing-de-shen-du-yan-jiu-zhu-shou.html">GangDan纲担升级开源本地知识库-支持本地模型和在线模型的深度研究助手 (1)</a></li><li><a href="./tag/gangdangang-dan-zhong-gou-ji-hu-zhong-zuo-liao-yi-bian.html">GangDan纲担重构-几乎重做了一遍 (1)</a></li><li><a href="./tag/gangdanji-xu-geng-xin-xian-zai-neng-zhi-jie-shang-chuan-cajgou-jian-zhi-shi-ku-liao.html">GangDan继续更新现在能直接上传CAJ构建知识库了 (1)</a></li><li><a href="./tag/gangdanzhi-shi-ku-dao-chu-gai-jin-ke-yi-zhi-jie-dao-chu-xia-zai-hao-de-wen-zhang-yuan-wen-liao.html">GangDan知识库导出改进-可以直接导出下载好的文章原文了 (1)</a></li><li><a href="./tag/gao-xiao-jiao-shi-jian-yi-da-yi-kai-xue-yao-you-dian-nao-huan-yao-an-zhuang-opencodeshi-yong-zhi-neng-ti.html">高校教师建议大一开学要有电脑还要安装OpenCode使用智能体 (1)</a></li><li><a href="./tag/gei-xin-shou-shi-xian-yi-wei-shu-zu-de-liang-chong-si-lu-chuan-tong-cyu-yan-vs-numcku.html">给新手实现一维数组的两种思路传统C语言-vs-NumC库 (1)</a></li><li><a href="./tag/gemma4.html">Gemma4 (1)</a></li><li><a href="./tag/general-education.html">general-education (1)</a></li><li><a href="./tag/geojstool-di-qiu-hua-xue-fen-xi-gong-ju-wang-ye-ban-de-geopytool.html">GeoJsTool-地球化学分析工具-网页版的GeoPyTool (1)</a></li><li><a href="./tag/geology.html">Geology (4)</a></li><li><a href="./tag/geometry.html">geometry (1)</a></li><li><a href="./tag/geopython.html">GeoPython (1)</a></li><li><a href="./tag/gguf.html">GGUF (2)</a></li><li><a href="./tag/gis.html">GIS (3)</a></li><li><a href="./tag/glm.html">GLM (1)</a></li><li><a href="./tag/glumpy.html">GlumPy (2)</a></li><li><a href="./tag/golden-section.html">Golden Section (1)</a></li><li><a href="./tag/gong-ju-diao-yong.html">工具调用 (2)</a></li><li><a href="./tag/google-de-turboquant-suan-fa-ru-he-rang-aigeng-sheng-nei-cun-gao-ding-xiang-liang-liang-hua-nan-ti.html">Google-的-TurboQuant-算法如何让AI更省内存搞定向量量化难题 (1)</a></li><li><a href="./tag/gpt-35.html">GPT-3.5 (3)</a></li><li><a href="./tag/gpt-4o.html">GPT-4o (1)</a></li><li><a href="./tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="./tag/graduate-school.html">graduate-school (1)</a></li><li><a href="./tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="./tag/granite4.html">granite4 (1)</a></li><li><a href="./tag/gsm8k.html">GSM8K (2)</a></li><li><a href="./tag/gu-ge-turboquant-lun-wen-zhong-yi-ji-yu-jin-zui-you-niu-qu-lu-de-gao-su-zai-xian-xiang-liang-liang-hua-suan-fa.html">谷歌-TurboQuant-论文中译基于近最优扭曲率的高速在线向量量化算法 (1)</a></li><li><a href="./tag/guan-xi-xing-shu-ju-ku.html">关系型数据库 (1)</a></li><li><a href="./tag/guide.html">Guide (1)</a></li><li><a href="./tag/hack.html">Hack (2)</a></li><li><a href="./tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="./tag/hadoop.html">Hadoop (2)</a></li><li><a href="./tag/hardware.html">Hardware (2)</a></li><li><a href="./tag/hate.html">Hate (1)</a></li><li><a href="./tag/hbase.html">HBase (1)</a></li><li><a href="./tag/heibancong-markdownzhuan-chu-ppthuan-deng-pian.html">HeiBan从Markdown转出PPT幻灯片 (1)</a></li><li><a href="./tag/heibanhei-ban-jiang-markdownzhuan-huan-cheng-htmllai-dang-jiang-yi.html">HeiBan黑板-将Markdown转换成HTML来当讲义 (1)</a></li><li><a href="./tag/hellaswag.html">HellaSwag (2)</a></li><li><a href="./tag/hermes.html">Hermes (1)</a></li><li><a href="./tag/heroism.html">heroism (1)</a></li><li><a href="./tag/history.html">History (6)</a></li><li><a href="./tag/huan-jue.html">幻觉 (1)</a></li><li><a href="./tag/huan-wei-si-kao-he-ni-chou-sha.html">换位思考和你瞅啥 (1)</a></li><li><a href="./tag/huan-yi-ge-ba-wang-ye-zhuan-huan-cheng-markdownde-python-xiao-gong-ju.html">Huan-一个把网页转换成-Markdown的Python-小工具 (1)</a></li><li><a href="./tag/hui-yi.html">回忆 (1)</a></li><li><a href="./tag/humaneval.html">HumanEval (2)</a></li><li><a href="./tag/ide.html">IDE (2)</a></li><li><a href="./tag/imbalance.html">Imbalance (1)</a></li><li><a href="./tag/imu.html">IMU (1)</a></li><li><a href="./tag/jacobian.html">Jacobian (1)</a></li><li><a href="./tag/java-ji-chu-yu-fa-5fen-zhong-ru-men.html">Java-基础语法5分钟入门 (1)</a></li><li><a href="./tag/ji-chu-zhi-shi-chu-ji-tong-ji-gai-nian-de-jian-dan-jie-shao.html">基础知识初级统计概念的简单介绍 (1)</a></li><li><a href="./tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="./tag/ji-nian.html">纪念 (1)</a></li><li><a href="./tag/ji-suan-ji.html">计算机 (1)</a></li><li><a href="./tag/ji-suan-ji-zu-cheng.html">计算机组成 (1)</a></li><li><a href="./tag/ji-yu-ben-di-mo-xing-de-bian-cheng-xue-xi-fu-zhu-huan-jing-da-jian-wan-zheng-zhi-nan.html">基于本地模型的编程学习辅助环境搭建完整指南 (1)</a></li><li><a href="./tag/ji-yu-tunade-virtualbox-yu-ubuntu-xu-ni-ji-bu-shu-zhi-nan.html">基于TUNA的-VirtualBox-与-Ubuntu-虚拟机部署指南 (1)</a></li><li><a href="./tag/jian-dan-shuo-shuo-pythonli-mian-de-han-shu-shi-di-yi-gong-min-first-class-citizen.html">简单说说Python里面的函数是第一公民First-Class-Citizen (1)</a></li><li><a href="./tag/jie-zhu-pythonlai-li-jie-zi-gua-ying-xin-pu-sen-ji-fen-yuan-li-shi-xian-yu-dong-tai-ke-shi-hua.html">借助Python来理解自适应辛普森积分原理实现与动态可视化 (1)</a></li><li><a href="./tag/jing-xiang.html">镜像 (1)</a></li><li><a href="./tag/jiu-wen-gao-bie-guo-qu-gao-bie-ke-xue-wang.html">旧文告别过去告别科学网 (1)</a></li><li><a href="./tag/jixingji-xing-dang-agent-dui-hua-chao-chu-shang-xia-wen-xian-zhi-zuo-liao-yi-ge-lei-si-xu-ni-ji-re-qian-yi-cao-lu-fang-an.html">JiXing记行-当-Agent-对话超出上下文限制做了一个类似虚拟机热迁移草率方案 (1)</a></li><li><a href="./tag/job.html">Job (1)</a></li><li><a href="./tag/job-hunting.html">job-hunting (1)</a></li><li><a href="./tag/junck.html">Junck (3)</a></li><li><a href="./tag/kalman.html">Kalman (1)</a></li><li><a href="./tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="./tag/kao-yan-qu-mei-chu-shi-yu-fu-shi.html">考研祛魅初试与复试 (1)</a></li><li><a href="./tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="./tag/kivy.html">Kivy (3)</a></li><li><a href="./tag/kuan-biao.html">宽表 (1)</a></li><li><a href="./tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="./tag/language.html">Language (1)</a></li><li><a href="./tag/learn.html">Learn (4)</a></li><li><a href="./tag/learning.html">Learning (10)</a></li><li><a href="./tag/lens.html">Lens (19)</a></li><li><a href="./tag/lesson.html">Lesson (1)</a></li><li><a href="./tag/lfm.html">LFM (1)</a></li><li><a href="./tag/lfm25.html">lfm2.5 (1)</a></li><li><a href="./tag/li-yong-chao-qiang-de-xiao-mo-xing-omnicoder-9b-shi-shi-turboquant-liang-hua-kv-cache-2-bit-tiao-zhan-fp1.html">利用超强的小模型-OmniCoder-9B-试试-TurboQuant-量化-KV-Cache-2-bit-挑战-FP1 (1)</a></li><li><a href="./tag/li-yong-pythonshi-xian-de-yu-ben-di-da-mo-xing-jiao-hu-de-posix-jian-rong-ceng.html">利用Python实现的与本地大模型交互的POSIX-兼容层 (1)</a></li><li><a href="./tag/liang-hua.html">量化 (3)</a></li><li><a href="./tag/liaoliao-rang-ben-di-da-yu-yan-mo-xing-ai-bang-ni-liao-tian-de-kai-yuan-gong-ju.html">Liao聊-让本地大语言模型-AI-帮你聊天的开源工具 (1)</a></li><li><a href="./tag/library.html">Library (1)</a></li><li><a href="./tag/life.html">life (16)</a></li><li><a href="./tag/lift.html">lift (1)</a></li><li><a href="./tag/linux.html">Linux (9)</a></li><li><a href="./tag/liquid-ai.html">Liquid AI (1)</a></li><li><a href="./tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="./tag/llamacpp.html">llama.cpp (3)</a></li><li><a href="./tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="./tag/llm.html">LLM (7)</a></li><li><a href="./tag/ltfs.html">LTFS (1)</a></li><li><a href="./tag/lto.html">LTO (1)</a></li><li><a href="./tag/mac.html">Mac (11)</a></li><li><a href="./tag/macbook-air-m4.html">MacBook Air M4 (2)</a></li><li><a href="./tag/macos.html">macOS (1)</a></li><li><a href="./tag/markdown.html">Markdown (1)</a></li><li><a href="./tag/materials.html">Materials (1)</a></li><li><a href="./tag/math.html">Math (3)</a></li><li><a href="./tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="./tag/mathematics.html">mathematics (1)</a></li><li><a href="./tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="./tag/maturity.html">maturity (1)</a></li><li><a href="./tag/mayavi.html">MayaVi (1)</a></li><li><a href="./tag/mechanics.html">Mechanics (1)</a></li><li><a href="./tag/memory.html">Memory (4)</a></li><li><a href="./tag/methodology.html">Methodology (1)</a></li><li><a href="./tag/mian-dui-wu-mai-ni-shi-wu-neng-wei-li-huan-shi-xiu-shou-pang-guan.html">面对雾霾你是无能为力还是袖手旁观 (1)</a></li><li><a href="./tag/mian-xiang-dui-xiang-bian-cheng-ru-men-yong-wu-xia-jiao-se-li-jie-python-zhong-de-lei.html">面向对象编程入门用武侠角色理解-Python-中的类 (1)</a></li><li><a href="./tag/microscope.html">Microscope (2)</a></li><li><a href="./tag/mindset.html">mindset (2)</a></li><li><a href="./tag/miniconda3.html">Miniconda3 (1)</a></li><li><a href="./tag/ml.html">ML (4)</a></li><li><a href="./tag/mlx.html">mlx (1)</a></li><li><a href="./tag/mmlu.html">MMLU (2)</a></li><li><a href="./tag/mo-xing-ping-ce.html">模型评测 (1)</a></li><li><a href="./tag/mobile.html">Mobile (1)</a></li><li><a href="./tag/moe.html">MoE (1)</a></li><li><a href="./tag/moon.html">Moon (1)</a></li><li><a href="./tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="./tag/moving-average.html">Moving Average (1)</a></li><li><a href="./tag/moxing.html">moxing (1)</a></li><li><a href="./tag/moxing-he-ollama-dui-bi-cong-omnicoder-9bdao-geng-duo-mo-xing.html">MoXing-和-Ollama-对比从omnicoder-9b到更多模型 (1)</a></li><li><a href="./tag/moxing-su-du-zui-gao-da-dao-ollamade-201-tong-mo-xing-tong-ying-jian-de-shi-ce-dui-bi-omnicoder-2-9b-de-q4_k_m.html">MoXing-速度最高达到-Ollama的-201-同模型同硬件的实测对比OmniCoder-2-9B-的-Q4_K_M (1)</a></li><li><a href="./tag/moxing-wu-yue-geng-xin-suan-shi-lai-liao-ge-da-sao-chu.html">MoXing-五月更新算是来了个大扫除 (1)</a></li><li><a href="./tag/moxing-zhu-li-la-ji-lao-yong-bai-yuan-chao-lian-jie-xian-qia-ben-di-yun-xing-omnicoder-2-9bmo-xing-jie-guo-ye-zhi-you-shi-ji-ge-tokenss.html">MoXing-助力垃圾佬用百元超廉价显卡本地运行omnicoder-2-9b模型结果也只有十几个tokenss (1)</a></li><li><a href="./tag/moxingdi-yu-suan-chang-jing-yong-rx580xian-qia-qing-song-yun-xing-qwen35-9b-q4_k_mmo-xing.html">MoXing低预算场景用RX580显卡轻松运行Qwen35-9b-q4_k_m模型 (1)</a></li><li><a href="./tag/moxingsheng-ji-tong-shi-yun-xing-duo-ge-mo-xing-shi-li.html">MoXing升级同时运行多个模型实例 (1)</a></li><li><a href="./tag/moxingxin-sheng-ji-zhi-jie-duo-she-ollama-bu-fen-mo-xing-ti-su-50.html">MoXing新升级直接夺舍-Ollama-部分模型提速-50 (1)</a></li><li><a href="./tag/mtp.html">MTP (1)</a></li><li><a href="./tag/muon.html">Muon (1)</a></li><li><a href="./tag/n8n.html">n8n (1)</a></li><li><a href="./tag/nas.html">NAS (1)</a></li><li><a href="./tag/nemotron.html">Nemotron (1)</a></li><li><a href="./tag/network.html">Network (1)</a></li><li><a href="./tag/ni-de-dian-nao-mei-miao-neng-zuo-duo-shao-ci-fu-dian-yun-suan-flops-de-gu-shi.html">你的电脑每秒能做多少次浮点运算FLOPS-的故事 (1)</a></li><li><a href="./tag/niu-dun-fa-qiu-jie-guo-cheng-de-pythonshi-xian-ji-qi-xiang-jie.html">牛顿法求解过程的Python实现及其详解 (1)</a></li><li><a href="./tag/nixos.html">NixOS (1)</a></li><li><a href="./tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="./tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="./tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="./tag/nosql.html">NoSQL (1)</a></li><li><a href="./tag/numpy.html">NumPy (1)</a></li><li><a href="./tag/nuoyi-geng-xin-xin-zeng-zai-xian-zhuan-huan-yin-qing-mei-xian-qia-ye-bu-pa-chang-wen-dang-ye-bu-na-yao-tou-teng.html">NuoYi-更新新增在线转换引擎没显卡也不怕长文档也不那么头疼 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-geng-xin-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju-shao-wei-sheng-yi-dian-xian-cun-liao.html">NuoYi-挪移更新-离线的-PDFDOCX-转-Markdown-工具稍微省一点显存了 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-yi-ge-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju.html">NuoYi-挪移-一个离线的-PDFDOCX-转-Markdown-工具 (1)</a></li><li><a href="./tag/nvidia.html">Nvidia (1)</a></li><li><a href="./tag/ocr.html">OCR (1)</a></li><li><a href="./tag/ollama.html">Ollama (20)</a></li><li><a href="./tag/ollamaaidgei-ni-guan-li-ben-di-da-mo-xing-pei-ge-de-li-zhu-shou.html">OllamaAid给你管理本地大模型配个得力助手 (1)</a></li><li><a href="./tag/ollamageng-xin-suo-you-ben-di-mo-xing.html">Ollama更新所有本地模型 (1)</a></li><li><a href="./tag/ollamaqian-ru-mo-xing-xuan-xing-zhi-nan-zhu-liu-mo-xing-shen-du-dui-bi.html">Ollama嵌入模型选型指南-主流模型深度对比 (1)</a></li><li><a href="./tag/omlx.html">omlx (1)</a></li><li><a href="./tag/opc.html">OPC (1)</a></li><li><a href="./tag/opencl.html">OpenCL (1)</a></li><li><a href="./tag/opencode.html">opencode (11)</a></li><li><a href="./tag/opencode-jin-jie-zhi-ji-neng-chuang-zuo-chai-jie-miao-shu-dian-xing-ren-wu-hou-yan-zheng-shi-xian-zai-zuo-cheng-ke-fu-yong-de-ji-neng.html">OpenCode-进阶之技能创作拆解描述典型任务后验证实现再做成可复用的技能 (1)</a></li><li><a href="./tag/opencode-skillsfen-xiang-yi-tao-zi-ji-luan-xie-de-huan-suan-shi-yong-de-ai-bian-ma-ji-neng-ku.html">OpenCode-Skills分享一套自己乱写的还算实用的-AI-编码技能库 (1)</a></li><li><a href="./tag/openlaoke-geng-xin-ben-di-gguf-mo-xing-ling-api-fei-yong-pao-qi-lai.html">OpenLaoKe-更新本地-GGUF-模型零-API-费用跑起来 (1)</a></li><li><a href="./tag/openlaokelao-ke-yi-ge-ming-ling-xing-aizhu-shou.html">OpenLaoKe唠嗑一个命令行AI助手 (1)</a></li><li><a href="./tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="./tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="./tag/optimization.html">Optimization (2)</a></li><li><a href="./tag/os.html">os (1)</a></li><li><a href="./tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="./tag/parenting.html">Parenting (1)</a></li><li><a href="./tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="./tag/path.html">PATH (1)</a></li><li><a href="./tag/pdfjie-xi.html">PDF解析 (1)</a></li><li><a href="./tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="./tag/performance.html">Performance (1)</a></li><li><a href="./tag/phd.html">PHD (2)</a></li><li><a href="./tag/philosophy.html">philosophy (2)</a></li><li><a href="./tag/photo.html">Photo (23)</a></li><li><a href="./tag/photography.html">Photography (2)</a></li><li><a href="./tag/physics.html">Physics (3)</a></li><li><a href="./tag/ping-ce.html">评测 (1)</a></li><li><a href="./tag/poem.html">Poem (2)</a></li><li><a href="./tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="./tag/programming.html">Programming (11)</a></li><li><a href="./tag/prompt.html">Prompt (1)</a></li><li><a href="./tag/psychology.html">Psychology (1)</a></li><li><a href="./tag/pve.html">PVE (2)</a></li><li><a href="./tag/pyenv.html">Pyenv (2)</a></li><li><a href="./tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="./tag/python.html">Python (70)</a></li><li><a href="./tag/python-ji-chu-yu-fa-5fen-zhong-ru-men.html">Python-基础语法5分钟入门 (1)</a></li><li><a href="./tag/qemu.html">QEMU (1)</a></li><li><a href="./tag/qgis.html">QGIS (3)</a></li><li><a href="./tag/qt.html">QT (1)</a></li><li><a href="./tag/qu-shen-cha.html">去审查 (1)</a></li><li><a href="./tag/qwen3.html">Qwen3 (10)</a></li><li><a href="./tag/qwen35.html">qwen3.5 (1)</a></li><li><a href="./tag/qwen36.html">Qwen3.6 (3)</a></li><li><a href="./tag/qwen38.html">Qwen3.8 (4)</a></li><li><a href="./tag/radio.html">Radio (2)</a></li><li><a href="./tag/rag.html">RAG (1)</a></li><li><a href="./tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="./tag/raspbian.html">Raspbian (1)</a></li><li><a href="./tag/reading.html">reading (2)</a></li><li><a href="./tag/reflection.html">reflection (4)</a></li><li><a href="./tag/remote.html">Remote (1)</a></li><li><a href="./tag/research.html">Research (3)</a></li><li><a href="./tag/resume.html">resume (1)</a></li><li><a href="./tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="./tag/ri-chang-sheng-huo.html">日常生活 (1)</a></li><li><a href="./tag/rotation.html">Rotation (1)</a></li><li><a href="./tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="./tag/rtx-4070.html">RTX 4070 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-jia-gou-shi-zhuan-ye-ying-yu-gao-pin-ci-hui-biao.html">软考高级系统架构设计师知识精要-架构师专业英语高频词汇表 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-ce-shi-yu-yun-xing-wei-hu.html">软考高级系统架构设计师知识精要-软件测试与运行维护 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-gong-cheng-yu-kai-fa-fang-fa.html">软考高级系统架构设计师知识精要-软件工程与开发方法 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-jia-gou-she-ji-yu-ping-gu.html">软考高级系统架构设计师知识精要-软件架构设计与评估 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-an-quan-yu-qu-kuai-lian-ji-zhu.html">软考高级系统架构设计师知识精要-系统安全与区块链技术 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-jian-mo-yu-umlshe-ji.html">软考高级系统架构设计师知识精要-系统建模与UML设计 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xi-xi-tong-yu-qi-ye-xin-xi-hua.html">软考高级系统架构设计师知识精要-信息系统与企业信息化 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xing-ji-zhu-yu-ji-chu-she-shi.html">软考高级系统架构设计师知识精要-新兴技术与基础设施 (1)</a></li><li><a href="./tag/rust.html">Rust (1)</a></li><li><a href="./tag/rustyu-yan-cheng-xu-she-ji-ji-chu-di-san-zhang-fu-he-shu-ju-lei-xing-yu-xun-huan.html">Rust语言程序设计基础第三章复合数据类型与循环 (1)</a></li><li><a href="./tag/rx590.html">RX590 (1)</a></li><li><a href="./tag/sandbox.html">SandBox (1)</a></li><li><a href="./tag/scholar.html">Scholar (2)</a></li><li><a href="./tag/school.html">School (3)</a></li><li><a href="./tag/science.html">Science (3)</a></li><li><a href="./tag/search.html">Search (1)</a></li><li><a href="./tag/self-study.html">Self-Study (1)</a></li><li><a href="./tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="./tag/server.html">Server (1)</a></li><li><a href="./tag/shang-ye-xin-xi.html">商业信息 (1)</a></li><li><a href="./tag/sheng-cheng-su-du.html">生成速度 (1)</a></li><li><a href="./tag/shi-jie-yi-liu-da-xue-shuo-shuo-er-yi-huan-shi-zhen-de-qu-zuo.html">世界一流大学说说而已还是真的去做 (1)</a></li><li><a href="./tag/shi-yong-llama-factory-cong-modelscope-xia-zai-mo-xing-bing-wei-diao.html">使用-LLaMA-Factory-从-ModelScope-下载模型并微调 (1)</a></li><li><a href="./tag/shi-yong-ollamakuai-su-bu-shu-bing-yun-xing-zui-xin-de-qwen3-30b-a3b-2507mo-xing.html">使用ollama快速部署并运行最新的qwen3-30b-a3b-2507模型 (1)</a></li><li><a href="./tag/shit.html">Shit (1)</a></li><li><a href="./tag/shu-ju-an-quan.html">数据安全 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-0zhang-cyu-yan-pythonde-di-ceng-shi-jiao.html">数据结构与算法基础-第0章-C语言Python的底层视角 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-1zhang-suan-fa-ji-chu-yu-fu-za-du-fen-xi.html">数据结构与算法基础-第1章-算法基础与复杂度分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-2zhang-xian-xing-shu-ju-jie-gou.html">数据结构与算法基础-第2章-线性数据结构 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-4zhang-tu-lun-ji-chu.html">数据结构与算法基础-第4章-图论基础 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-5zhang-pai-xu-suan-fa.html">数据结构与算法基础-第5章-排序算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-6zhang-sou-suo-suan-fa.html">数据结构与算法基础-第6章-搜索算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-7zhang-dong-tai-gui-hua.html">数据结构与算法基础-第7章-动态规划 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-8zhang-gao-ji-suan-fa.html">数据结构与算法基础-第8章-高级算法 (1)</a></li><li><a href="./tag/shu-ju-ke-shi-hua.html">数据可视化 (1)</a></li><li><a href="./tag/shu-ju-ku.html">数据库 (1)</a></li><li><a href="./tag/shu-ju-lei-xing.html">数据类型 (1)</a></li><li><a href="./tag/shu-zhi-ji-fen-man-tan-ru-he-rang-yong-pythonqiu-ji-fen.html">数值积分漫谈如何让用Python求积分 (1)</a></li><li><a href="./tag/shui-ke-xing-cun-zhi-nan-ru-guo-ni-bei-po-yao-qu-ting-ni-bu-xi-huan-de-ke-cheng-gai-zen-yao-ban.html">水课幸存指南-如果你被迫要去听你不喜欢的课程该怎么办 (1)</a></li><li><a href="./tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="./tag/signal-processing.html">Signal Processing (3)</a></li><li><a href="./tag/skill.html">skill (3)</a></li><li><a href="./tag/smollm2.html">smollm2 (1)</a></li><li><a href="./tag/software.html">Software (1)</a></li><li><a href="./tag/sou-suo.html">搜索 (1)</a></li><li><a href="./tag/sports.html">sports (1)</a></li><li><a href="./tag/sql.html">SQL (1)</a></li><li><a href="./tag/state-space.html">State Space (1)</a></li><li><a href="./tag/statistics.html">Statistics (1)</a></li><li><a href="./tag/story.html">Story (50)</a></li><li><a href="./tag/sui-bi.html">随笔 (1)</a></li><li><a href="./tag/t-bench.html">τ-bench (1)</a></li><li><a href="./tag/tape.html">Tape (1)</a></li><li><a href="./tag/telescope.html">Telescope (1)</a></li><li><a href="./tag/terminal.html">Terminal (1)</a></li><li><a href="./tag/textbook.html">textbook (1)</a></li><li><a href="./tag/thinking.html">Thinking (7)</a></li><li><a href="./tag/ti-xing-fa-qiu-ji-fen-de-pythonshi-xian.html">梯形法求积分的Python实现 (1)</a></li><li><a href="./tag/tian-biao.html">填表 (1)</a></li><li><a href="./tag/time-series.html">Time Series (1)</a></li><li><a href="./tag/tokenzi-you-yong-moxingzai-7900xtx-24gxian-qia-shang-ben-di-yun-xing-qwen36-27bmo-xing-gei-opencodeyong-lai-wen-dang-bian.html">Token自由-用MoXing在7900xtx-24G显卡上本地运行Qwen36-27B模型给OpenCode用来文档编 (1)</a></li><li><a href="./tag/tong-ji-xue.html">统计学 (1)</a></li><li><a href="./tag/tong-men-xiang-can-bai-yuan-xian-qia-de-ben-di-mo-xing-da-zhan-rx580-16g-2048sp-vs-rx590-8g-2304sp.html">同门相残-百元显卡的本地模型大战RX580-16G-2048SP-VS-RX590-8G-2304SP (1)</a></li><li><a href="./tag/tong-nian.html">童年 (1)</a></li><li><a href="./tag/tong-xue.html">同学 (1)</a></li><li><a href="./tag/tool.html">Tool (8)</a></li><li><a href="./tag/tool-calling.html">tool calling (3)</a></li><li><a href="./tag/toolbench.html">ToolBench (1)</a></li><li><a href="./tag/tools.html">Tools (10)</a></li><li><a href="./tag/traffic.html">Traffic (1)</a></li><li><a href="./tag/translate.html">Translate (2)</a></li><li><a href="./tag/translation.html">Translation (1)</a></li><li><a href="./tag/transpaste-sheng-ji-yi-ge-jian-tie-ban-fan-yi-gong-ju-de-zi-wo-xiu-yang.html">TransPaste-升级一个剪贴板翻译工具的自我修养 (1)</a></li><li><a href="./tag/transpaste-yi-kuan-ji-yu-ben-di-da-yu-yan-mo-xing-de-qing-liang-ji-jian-tie-ban-fan-yi-gong-ju.html">TransPaste-一款基于本地大语言模型的轻量级剪贴板翻译工具 (1)</a></li><li><a href="./tag/transpasteben-di-ai-fan-yi-gong-ju-xin-ban-ben-sheng-ji-hou-zhi-chi-geng-duo-xi-li-du-de-fan-yi-kong-zhi.html">TransPaste本地-AI-翻译工具新版本升级后支持更多细粒度的翻译控制 (1)</a></li><li><a href="./tag/tui.html">TUI (1)</a></li><li><a href="./tag/tui-jian-yi-kuan-markdownde-kua-ping-tai-chi-xian-bian-ji-qi-zhi-chi-sui-shi-yu-lan.html">推荐一款MarkDown的跨平台离线编辑器支持随时预览 (1)</a></li><li><a href="./tag/tuna.html">TUNA (1)</a></li><li><a href="./tag/turing.html">Turing (12)</a></li><li><a href="./tag/tutorial.html">tutorial (2)</a></li><li><a href="./tag/uav.html">UAV (1)</a></li><li><a href="./tag/ubuntu.html">Ubuntu (4)</a></li><li><a href="./tag/ubuntu-shou-dong-an-zhuang-ollama-0171-lai-yun-xing-qwen3535b-a3b-de-xiang-xi-zhi-nan.html">Ubuntu-手动安装-Ollama-0171-来运行-qwen3535b-a3b-的详细指南 (1)</a></li><li><a href="./tag/ui.html">UI (1)</a></li><li><a href="./tag/ukf.html">UKF (1)</a></li><li><a href="./tag/university.html">university (14)</a></li><li><a href="./tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="./tag/ustc.html">USTC (1)</a></li><li><a href="./tag/ventoy.html">Ventoy (1)</a></li><li><a href="./tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="./tag/vibe-coding-fen-wei-bian-cheng-an-li-tong-guo-dui-hua-shi-xian-ke-yong-de-kuai-su-cha-biao-gong-ju.html">Vibe-Coding-氛围编程案例-通过对话实现可用的快速查表工具 (1)</a></li><li><a href="./tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="./tag/video.html">video (2)</a></li><li><a href="./tag/vidtogif-yi-ge-jian-dan-gao-xiao-de-shi-pin-zhuan-gif-gong-ju.html">VidToGif-一个简单高效的视频转-GIF-工具 (1)</a></li><li><a href="./tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="./tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="./tag/virtualization.html">Virtualization (1)</a></li><li><a href="./tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./tag/vispy.html">VisPy (1)</a></li><li><a href="./tag/visualization.html">Visualization (8)</a></li><li><a href="./tag/vm.html">VM (1)</a></li><li><a href="./tag/vmwarexu-ni-ji-yun-xing-macosunlcokrecoveryosoc4vm-shi-xian-ti-gong-bai-du-yun-pan-xia-zai.html">VMware虚拟机运行macOSunlcokrecoveryosOC4VM-实现提供百度云盘下载 (1)</a></li><li><a href="./tag/void-moxingdi-cheng-ben-fang-an-yong-rx580xian-qia-ben-di-yun-xing-qwen359bmo-xing-da-zao-lei-cursorti-yan.html">Void-MoXing低成本方案用RX580显卡本地运行qwen359B模型打造类Cursor体验 (1)</a></li><li><a href="./tag/vtk.html">VTK (1)</a></li><li><a href="./tag/web.html">Web (1)</a></li><li><a href="./tag/wen-ben-shou-ji.html">文本收集 (1)</a></li><li><a href="./tag/wen-dang-he-cha.html">文档核查 (1)</a></li><li><a href="./tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="./tag/windows.html">Windows (4)</a></li><li><a href="./tag/windows-xi-tong-xia-cong-qing-hua-da-xue-tuna-jing-xiang-an-zhuang-miniconda3-wan-zheng-zhi-nan.html">Windows-系统下从清华大学-TUNA-镜像安装-Miniconda3-完整指南 (1)</a></li><li><a href="./tag/windows11.html">Windows11 (1)</a></li><li><a href="./tag/wingetguigei-windows-bao-guan-li-qi-jia-ge-tu-xing-jie-mian.html">WinGetGUI给-Windows-包管理器加个图形界面 (1)</a></li><li><a href="./tag/winogrande.html">WinoGrande (1)</a></li><li><a href="./tag/workflow.html">workflow (1)</a></li><li><a href="./tag/xcode.html">Xcode (1)</a></li><li><a href="./tag/xia-zai.html">下载 (1)</a></li><li><a href="./tag/xian-jiao-hui-zai-rang-ta-zuo-da-mo-xing-ding-zhi-hua-li-cpthe-sftdao-di-zai-gan-shi-yao.html">先教会再让它做大模型定制化里CPT和SFT到底在干什么 (1)</a></li><li><a href="./tag/xiang-sheng.html">相声 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-er-hui-jiu-suan-shi-sun-wu-kong-shang-da-xue-ye-de-yong-gong.html">小猴子学编程第二回就算是孙悟空上大学也得用功 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-san-hui-shi-yi-zhi-pa-zai-na-zi-yuan-zi-ai-huan-shi-gan-jin-zhun-bei-qu-xin-fu-ben.html">小猴子学编程第三回是一直趴在那自怨自艾还是赶紧准备去新副本 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-si-hui-chong-zhi-bu-hui-rang-ni-bian-qiang-xue-xi-cai-hui.html">小猴子学编程第四回充值不会让你变强学习才会 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-yi-hui-na-pa-shi-sun-wu-kong-ye-xu-yao-xue-xi.html">小猴子学编程第一回哪怕是孙悟空也需要学习 (1)</a></li><li><a href="./tag/xiao-mo-xing.html">小模型 (1)</a></li><li><a href="./tag/xiao-mo-xing-ping-ce.html">小模型评测 (2)</a></li><li><a href="./tag/xiao-you.html">校友 (1)</a></li><li><a href="./tag/xiexie-ba-markdown-zhuan-cheng-wei-xin-gong-zhong-hao-ge-shi-wang-ye-de-xiao-gong-ju.html">Xie写把-Markdown-转成微信公众号格式网页的小工具 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-markdown-shu-xue-gong-shi-zhi-nan.html">新手向的-Markdown-数学公式指南 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-ruan-kao-gao-ji-jia-gou-shi-wan-quan-bei-kao-zhi-nan.html">新手向的软考高级架构师完全备考指南 (1)</a></li><li><a href="./tag/xing-neng-shi-ce.html">性能实测 (1)</a></li><li><a href="./tag/xiu-liao-transpastede-4ge-bug.html">修了TransPaste的4个bug (1)</a></li><li><a href="./tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="./tag/xue-xi-lu-de-qian-shi-jin-sheng-cong-quan-ju-dan-yi-dao-zhu-ceng-ding-zhi.html">学习率的前世今生从全局单一到逐层定制 (1)</a></li><li><a href="./tag/xue-zhu-lun-wen-zhong-chang-jian-yan-jiu-fang-fa-zong-shu-ji-jian-dan-ju-li.html">学术论文中常见研究方法综述及简单举例 (1)</a></li><li><a href="./tag/xue-zhu-yan-jiu-zhi-chi-gong-ju-fen-lei-yu-wen-xian-huo-qu-fang-fa.html">学术研究支持工具分类与文献获取方法 (1)</a></li><li><a href="./tag/yi-xue-chang-jing-yong-duo-mo-tai-da-mo-xing-you-ke-neng-wan-quan-bu-kao-pu-si-tan-fu-da-xue-li-fei-fei-tuan-dui-xin-yan-jiu-jie-kai-duo-mo-tai-aide-hai-shi-shen-lou-xiao-ying.html">医学场景用多模态大模型有可能完全不靠谱斯坦福大学李飞飞团队新研究揭开多模态AI的海市蜃楼效应 (1)</a></li><li><a href="./tag/yi-zhi-tiny-fastboot-scriptdao-macosban-ben-gei-motorola-g100guo-xing-ban-ben-xt2533-4shua-ru-g6.html">移植Tiny-Fastboot-Script到macOS版本给Motorola-G100国行版本XT2533-4刷入G6 (1)</a></li><li><a href="./tag/yin-pin.html">音频 (1)</a></li><li><a href="./tag/ying-pan.html">硬盘 (1)</a></li><li><a href="./tag/yong-wan-quan-kai-yuan-mian-fei-de-ben-di-mo-xing-lai-dui-shi-pin-zhong-de-yin-pin-jin-xing-jiang-zao.html">用完全开源免费的本地模型来对视频中的音频进行降噪 (1)</a></li><li><a href="./tag/you-xi-shi-zen-yao-yun-xing-de-ru-guo-zhi-zhi-dao-chong-zhi-shi-ji-shang-bing-bu-yi-ding-neng-bian-qiang.html">游戏是怎么运行的如果只知道充值实际上并不一定能变强 (1)</a></li><li><a href="./tag/zhe-ji-tian-wo-chuan-yue-liao-shi-jian.html">这几天我穿越了时间 (1)</a></li><li><a href="./tag/zhe-xue.html">哲学 (1)</a></li><li><a href="./tag/zhen-dui-da-mo-xing-he-zhi-neng-ti-xin-shou-kai-fa-zhe-de-linuxhuan-jing-pei-zhi-zhi-nan.html">针对大模型和智能体新手开发者的Linux环境配置指南 (1)</a></li><li><a href="./tag/zhi-ce-flops-huan-bu-gou-si-ge-jing-dian-cpu-ce-shi-ji-zhun.html">只测-FLOPS-还不够四个经典-CPU-测试基准 (1)</a></li><li><a href="./tag/zhi-neng-ti.html">智能体 (1)</a></li><li><a href="./tag/zhi-shi-wai-zhi.html">知识外置 (1)</a></li><li><a href="./tag/zhi-zhen-yue-jie-cyu-yan-gei-ni-de-zi-you-yi-ji-tou-tou-mai-de-lei.html">指针越界C语言给你的自由以及偷偷埋的雷 (1)</a></li><li><a href="./tag/zhong-xin-shen-shi-si-wei-lian-wei-bi-shi-zhen-si-wei-yi-pian-icml-2026-lun-wen-de-lun-zheng-yu-qi-shi.html">重新审视-思维链未必是真思维-一篇ICML-2026-论文的论证与启示 (1)</a></li><li><a href="./tag/zhuang-ji.html">装机 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skills-he-ji-geng-xin-cong-6-ge-ji-neng-dao-22-ge-yi-ji-bi-xu-cheng-ren-de-wen-ti.html">自用的-OpenCode-Skills-合集更新从-6-个技能到-22-个以及必须承认的问题 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skillzai-ci-geng-xin-22ge-skillszhong-xin-da-mo-liao-yi-bian-shun-lu-jie-jue-liao-opencodedao-zhi-zheng-ge-tu-xing-jie-mian-beng-kui.html">自用的OpenCode-Skill再次更新22个skills重新打磨了一遍顺路解决了OpenCode导致整个图形界面崩溃 (1)</a></li><li><a href="./tag/zluda-he-macos-shang-de-cuda-jian-rong-meng-xiang.html">ZLUDA-和-macOS-上的-CUDA-兼容梦想 (1)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="./index.html" data-i18n="blog">博客</a> › <a href="category/c.html">C</a> › C语言复习全攻略-一文吃透所有知识点
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >C语言复习全攻略-一文吃透所有知识点</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep" data-i18n="post_in">发布于</span>
+        <abbr class="date" title="2026-06-17T14:33:00+08:00"> 
+            <a href="./archive/2026/Jun/index.html">Wed 17 June 2026 </a>
+        </abbr>
+        <span class="meta-prep"> | <span data-i18n="tags_label">标签</span></span>
+                <a class="tag-badge" href="./tag/cyu-yan-fu-xi-quan-gong-lue-yi-wen-chi-tou-suo-you-zhi-shi-dian.html">C语言复习全攻略-一文吃透所有知识点</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <h1>理解比记忆更重要，代码都直接运行一遍，想明白整个过程，肯定没问题。希望能对期末复习的小朋友们有所帮助。</h1>
+<hr>
+<h2>第1章 C语言概述与开发环境</h2>
+<p><strong>C语言的特殊地位</strong></p>
+<p>C语言在高级语言中拥有独特地位——兼具高级特性和底层控制能力。什么意思呢？</p>
+<ul>
+<li><strong>高级特性</strong>：像其他高级语言一样，C语言有函数、结构体等抽象机制，让你不用关心硬件细节就能写程序</li>
+<li><strong>底层控制</strong>：C语言可以直接访问和管理内存地址（通过指针），可以操作位运算，甚至可以内嵌汇编</li>
+</ul>
+<p>一句话总结：C语言站在高级语言和汇编语言之间，既有高级语言的抽象能力，又有接近底层的控制力。</p>
+<p><strong>程序开发流程</strong></p>
+<p>源代码到可执行文件的完整过程：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>做什么</th>
+<th>类比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>预处理</td>
+<td>处理 <code>#include</code>、<code>#define</code> 等指令</td>
+<td>把参考书整本抄进来</td>
+</tr>
+<tr>
+<td>编译</td>
+<td>把预处理后的代码翻译成目标代码（.o文件）</td>
+<td>翻译成机器能懂的"半成品"</td>
+</tr>
+<tr>
+<td>链接</td>
+<td>把多个目标代码和库合并成可执行文件</td>
+<td>把各个零件组装成成品</td>
+</tr>
+</tbody>
+</table>
+<p>注意：程序开发设计阶段的主要任务是确定实现方案和架构，不是写代码！写代码是"实现阶段"的事。</p>
+<p><strong>开发环境</strong></p>
+<ul>
+<li>GCC编译器：推荐初学者使用，原因是标准兼容性和跨平台性（不是"编译最快"或"错误提示好"）</li>
+<li>Windows安装：最简便的方式是使用集成MinGW的IDE（如Code::Blocks、Dev-C++）</li>
+<li>历史背景：上世纪C语言开发主要在命令行环境中进行，不是图形界面</li>
+</ul>
+<h3>知识速记</h3>
+<ul>
+<li>C语言兼具高级特性和底层控制能力</li>
+<li>C语言能直接访问和管理内存地址</li>
+<li>源代码到可执行文件：预处理-编译-链接</li>
+<li>设计阶段主要任务：确定实现方案和架构</li>
+<li>GCC推荐理由：标准兼容性和跨平台性</li>
+<li>上世纪C开发主要在命令行环境，不是图形界面</li>
+</ul>
+<hr>
+<h2>第2章 基本语法与编码规范</h2>
+<p><strong>语句结束符</strong></p>
+<p>C语言中每条语句必须以分号 <code>;</code> 结尾。这是硬性规定，忘记分号是初学者最常见的编译错误之一。</p>
+<div class="highlight"><pre><span></span><code>int a = 10;    // 正确  
+int b = 20     // 编译错误：缺少分号
+</code></pre></div>
+
+<p><strong>中文标点陷阱</strong></p>
+<p>代码中使用中文标点符号会导致编译错误和语法冲突！</p>
+<div class="highlight"><pre><span></span><code>int a＝10；   // 错误！&quot;＝&quot;和&quot;；&quot;是中文标点  
+int a=10;     // 正确的英文标点
+</code></pre></div>
+
+<p>中文标点和英文标号看起来几乎一样，但计算机区分它们。这是很多同学从中文输入法切回来时容易犯的错误。</p>
+<p><strong>代码注释</strong></p>
+<p>良好的代码注释应该重点说明代码的目的和逻辑，而不是代码的语法结构。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 好的注释：说明目的  </span>
+<span class="c1">// 计算圆的面积  </span>
+<span class="n">area</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w">  </span>
+
+<span class="c1">// 坏的注释：重复语法  </span>
+<span class="c1">// 把PI乘以r再乘以r赋值给area  </span>
+<span class="n">area</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+</code></pre></div>
+
+<p><strong>printf函数的头文件</strong></p>
+<p><code>printf</code> 函数的声明位于 <code>stdio.h</code> 头文件中，不是 <code>string.h</code>！</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>所属头文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>printf, scanf, fprintf, fopen</td>
+<td>stdio.h</td>
+</tr>
+<tr>
+<td>strlen, strcpy, strcmp</td>
+<td>string.h</td>
+</tr>
+<tr>
+<td>malloc, free, exit</td>
+<td>stdlib.h</td>
+</tr>
+<tr>
+<td>sin, cos, sqrt</td>
+<td>math.h</td>
+</tr>
+</tbody>
+</table>
+<h3>知识速记</h3>
+<ul>
+<li>每条语句必须以分号 ; 结尾</li>
+<li>中文标点导致编译错误和语法冲突</li>
+<li>良好注释说明目的和逻辑，不是语法结构</li>
+<li>printf声明在stdio.h，不是string.h</li>
+</ul>
+<hr>
+<h2>第3章 头文件与函数基础</h2>
+<p><strong>头文件的作用</strong></p>
+<p>使用头文件而不是直接声明的主要好处是提高代码组织性和重用性。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 直接声明：每次都要手写，容易出错  </span>
+<span class="nb">int</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="nb">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">  </span>
+<span class="n">void</span><span class="w"> </span><span class="n">print_result</span><span class="p">(</span><span class="nb">int</span><span class="w"> </span><span class="n">r</span><span class="p">);</span><span class="w">  </span>
+
+<span class="c1">// 使用头文件：一次定义，处处包含  </span>
+#<span class="n">include</span><span class="w"> </span><span class="s">&quot;mylib.h&quot;</span><span class="w">  </span><span class="c1">// 所有声明都在头文件中</span>
+</code></pre></div>
+
+<p>头文件的核心价值：</p>
+<ol>
+<li>组织性：把相关声明集中管理</li>
+<li>重用性：多个源文件可以共享同一套声明</li>
+<li>一致性：修改声明只需改头文件，不用逐个文件改</li>
+</ol>
+<p>注意：使用头文件的主要好处不是减少编译时间（这是一个常见的误解！）</p>
+<p><strong>头文件保护机制</strong></p>
+<p>复杂项目中避免头文件重复包含的方法是使用头文件保护机制：</p>
+<div class="highlight"><pre><span></span><code><span class="gh">#</span>ifndef MYHEADER_H  
+<span class="gh">#</span>define MYHEADER_H  
+
+// 头文件内容  
+
+<span class="gh">#</span>endif
+</code></pre></div>
+
+<p>或者使用 <code>#pragma once</code>（部分编译器支持）。</p>
+<p><strong>函数参数传递方式</strong></p>
+<p>C语言中函数调用时参数采用按值传递方式。这意味着函数接收的是参数的副本，修改副本不影响原变量。（第11章会详细讲）</p>
+<p><strong>递归调用</strong></p>
+<p>C语言中实现函数递归调用的方法是函数调用自身：</p>
+<div class="highlight"><pre><span></span><code>int factorial(int n) {  
+    if (n &lt;= 1) return 1;     // 基准条件  
+    return n * factorial(n-1); // 调用自身  
+}
+</code></pre></div>
+
+<h3>知识速记</h3>
+<ul>
+<li>头文件好处：提高代码组织性和重用性</li>
+<li>头文件好处不是减少编译时间</li>
+<li>stdio.h包含标准输入输出函数声明</li>
+<li>避免重复包含：使用头文件保护机制</li>
+<li>函数参数按值传递</li>
+<li>递归 = 函数调用自身</li>
+</ul>
+<hr>
+<h2>第4章 数据类型与类型转换</h2>
+<p><strong>基本数据类型</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>用途</th>
+<th>大小（典型）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int</td>
+<td>存储整数</td>
+<td>4字节</td>
+</tr>
+<tr>
+<td>float</td>
+<td>单精度浮点数</td>
+<td>4字节</td>
+</tr>
+<tr>
+<td>double</td>
+<td>双精度浮点数</td>
+<td>8字节</td>
+</tr>
+<tr>
+<td>char</td>
+<td>字符（本质是小整数）</td>
+<td>1字节</td>
+</tr>
+</tbody>
+</table>
+<p><strong>为什么不全用long double？</strong></p>
+<p>虽然 long double 精度最高，但占用内存多且计算慢。选择数据类型要在精度和性能之间取舍。</p>
+<p><strong>静态类型 vs 动态类型</strong></p>
+<ul>
+<li>C语言是静态类型语言：变量类型在编译时确定，声明时必须指定类型</li>
+<li>Python是动态类型语言：变量类型在运行时确定，不需要提前声明</li>
+</ul>
+<div class="highlight"><pre><span></span><code>C语言（静态）：    int a = 10;      // 编译时就知道a是int  
+Python（动态）：   a = 10           // 运行时才知道a是int
+</code></pre></div>
+
+<p><strong>类型转换</strong></p>
+<ol>
+<li>隐式类型转换：编译器自动进行的类型转换</li>
+</ol>
+<p><code>int a = 10;  
+   double b = a;  // int自动转为double，b = 10.0</code>
+2. 强制类型转换：使用括号加目标类型</p>
+<p><code>double pi = 3.14;  
+   int i = (int)pi;  // 强制转换，i = 3（小数部分截断，不是四舍五入！）</code></p>
+<p>注意：强制类型转换的语法是 <code>(目标类型)</code>，不是什么 <code>convert</code> 关键字，也不是函数调用！</p>
+<p><strong>int赋值浮点数的后果</strong></p>
+<div class="highlight"><pre><span></span><code>int a = 3.14;  // 小数部分被截断，a = 3
+</code></pre></div>
+
+<p>不是编译错误，不是运行错误，不是自动转换——是小数部分被截断！</p>
+<h3>知识速记</h3>
+<ul>
+<li>int存储整数，float/double存浮点数，char存字符</li>
+<li>静态类型语言在编译时确定类型</li>
+<li>Python是动态类型系统</li>
+<li>隐式转换：编译器自动进行</li>
+<li>强制转换语法：<code>(类型)</code>，如 <code>(int)pi</code></li>
+<li>int赋值浮点数：小数部分被截断（不是四舍五入）</li>
+<li>不全用long double：占内存多且计算慢</li>
+</ul>
+<hr>
+<h2>第5章 变量与可移植性</h2>
+<p><strong>未初始化变量</strong></p>
+<p>C语言中未初始化的局部变量包含不确定的垃圾值（不是0，不是空值，不是默认值）！</p>
+<div class="highlight"><pre><span></span><code>int a;           // a的值是不确定的垃圾值  
+printf(&quot;%d&quot;, a); // 可能输出任何值，这是未定义行为
+</code></pre></div>
+
+<p>注意：全局变量会自动初始化为0，但局部变量不会！这是重要区别。</p>
+<p><strong>变量命名</strong></p>
+<ul>
+<li>良好变量命名风格的主要好处是提高代码可读性和维护性</li>
+<li>变量名不能使用C语言关键字，因为关键字有特殊语法含义（如 <code>int</code>、<code>return</code>、<code>while</code> 等）</li>
+</ul>
+<p><strong>int大小问题</strong></p>
+<p>int类型大小在不同平台可能不同，这是因为历史原因和硬件架构差异：</p>
+<ul>
+<li>16位系统：int通常是2字节</li>
+<li>32位系统：int通常是4字节</li>
+<li>64位系统：int通常是4字节（但long可能不同）</li>
+</ul>
+<p><strong>可移植代码</strong></p>
+<p>编写可移植C语言代码应该使用标准类型并避免平台特性：</p>
+<ul>
+<li>使用 <code>sizeof</code> 而不是硬编码大小</li>
+<li>使用标准库函数而不是平台特有API</li>
+<li>注意路径分隔符（Windows用 <code>\</code>，Linux用 <code>/</code>）</li>
+</ul>
+<p><strong>IDE格式化功能</strong></p>
+<p>IDE代码格式化功能的主要作用是自动调整格式保持一致性，不是检查语法，不是优化性能。</p>
+<h3>知识速记</h3>
+<ul>
+<li>未初始化局部变量：不确定的垃圾值</li>
+<li>全局变量自动初始化为0，局部变量不会</li>
+<li>良好命名提高可读性和维护性</li>
+<li>变量名不能用关键字（关键字有特殊语法含义）</li>
+<li>int大小因平台不同：历史原因和硬件架构差异</li>
+<li>可移植代码：使用标准类型，避免平台特性</li>
+<li>IDE格式化：自动调整格式保持一致性</li>
+</ul>
+<hr>
+<h2>第6章 常量定义：#define vs const</h2>
+<p>这是高频对比知识点，必须牢记两者的区别！</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>#define</th>
+<th>const</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>处理阶段</strong></td>
+<td>预处理阶段（编译前）</td>
+<td>编译阶段</td>
+</tr>
+<tr>
+<td><strong>类型检查</strong></td>
+<td>没有类型检查</td>
+<td>有类型检查</td>
+</tr>
+<tr>
+<td><strong>内存占用</strong></td>
+<td>不占用内存（文本替换）</td>
+<td>占用内存（真正变量）</td>
+</tr>
+<tr>
+<td><strong>调试信息</strong></td>
+<td>调试时看不到宏名</td>
+<td>调试时可以看到变量名</td>
+</tr>
+<tr>
+<td><strong>作用域</strong></td>
+<td>全局（无作用域限制）</td>
+<td>遵循变量作用域规则</td>
+</tr>
+</tbody>
+</table>
+<p><strong>#define 的工作原理</strong></p>
+<div class="highlight"><pre><span></span><code>#define PI 3.14  
+// 预处理器在编译前把所有PI替换成3.14（纯文本替换）  
+// 所以PI不是真正的变量，不分配内存
+</code></pre></div>
+
+<p><strong>const 的工作原理</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="bp">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span><span class="w">  </span>
+<span class="o">//</span><span class="w"> </span><span class="n">PI是一个真正的变量</span><span class="err">，有类型（</span><span class="n">double</span><span class="err">），有内存地址</span><span class="w">  </span>
+<span class="o">//</span><span class="w"> </span><span class="err">只是编译器禁止修改它的值</span>
+</code></pre></div>
+
+<p><strong>什么时候用const？</strong></p>
+<p>当需要类型检查和调试信息时，应该使用 <code>const</code> 而不是 <code>#define</code>。因为 const 有类型检查，编译器能帮你发现类型不匹配的错误。</p>
+<h3>知识速记</h3>
+<ul>
+<li>
+<h1>define和const的主要区别：处理阶段和类型检查不同</h1>
+</li>
+<li>
+<h1>define不分配内存，const分配内存</h1>
+</li>
+<li>const有类型检查且分配内存</li>
+<li>
+<h1>define和const没有区别？错！</h1>
+</li>
+<li>需要类型检查和调试信息时用const</li>
+</ul>
+<hr>
+<h2>第7章 运算符与表达式</h2>
+<p><strong>算术运算符</strong></p>
+<p>C语言中算术运算符包括加、减、乘、除、取模运算符（+ - * / %）。</p>
+<p>取模运算符 <code>%</code> 的特点：</p>
+<ul>
+<li>求两数相除的余数</li>
+<li>只适用于整数，浮点数不能使用</li>
+<li>结果符号与左操作数一致</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="mf">10</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="mf">3</span><span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="err">（</span><span class="mf">10</span><span class="n">除以3余1</span><span class="err">）</span><span class="w">  </span>
+<span class="o">-</span><span class="mf">10</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="mf">3</span><span class="w">   </span><span class="o">//</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="err">（</span><span class="n">符号与左操作数一致</span><span class="err">）</span><span class="w">  </span>
+<span class="mf">10.0</span><span class="w"> </span><span class="err">%</span><span class="w"> </span><span class="mf">3</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">编译错误</span><span class="err">！</span><span class="n">浮点数不能用%</span>
+</code></pre></div>
+
+<p><strong>运算符优先级</strong></p>
+<p>运算符优先级决定表达式中各运算符的求值顺序。要改变默认优先级，使用圆括号 <code>()</code>：</p>
+<div class="highlight"><pre><span></span><code>int a = 2 + 3 <span class="gs">* 4;    // = 14（先乘除后加减）  </span>
+<span class="gs">int b = (2 + 3) *</span> 4;  // = 20（括号改变优先级）
+</code></pre></div>
+
+<p><strong>== 和 = 的区别</strong></p>
+<p>初学者容易混淆 <code>==</code> 和 <code>=</code>，因为语法相似但功能完全不同：</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="ss">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span>比较：<span class="nv">a</span>是否等于<span class="mi">5</span>？<span class="w">  </span>
+<span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="ss">)</span><span class="w">   </span><span class="o">//</span><span class="w"> </span>赋值：把<span class="mi">5</span>赋给<span class="nv">a</span>，永远为真！
+</code></pre></div>
+
+<p><strong>短路求值</strong></p>
+<p>逻辑运算符 <code>&amp;&amp;</code> 和 <code>||</code> 具有短路求值特性：</p>
+<ul>
+<li><code>&amp;&amp;</code>：如果左边为假，右边不计算</li>
+<li><code>||</code>：如果左边为真，右边不计算</li>
+</ul>
+<div class="highlight"><pre><span></span><code>if (p != NULL &amp;&amp; *p &gt; 0)  // 如果p是NULL，不会对*p解引用  
+if (b != 0 &amp;&amp; a/b &gt; 0)   // 如果b为0，不会执行除法，避免除零错误
+</code></pre></div>
+
+<p>短路求值的主要好处不是简化语法，而是避免除零错误或空指针访问！</p>
+<p><strong>复合赋值运算符</strong></p>
+<p><code>+=</code>、<code>-=</code>、<code>*=</code>、<code>/=</code>、<code>%=</code> 等将运算和赋值合并：</p>
+<div class="highlight"><pre><span></span><code>a += b;  // 等价于 a = a + b  
+a -= b;  // 等价于 a = a - b  
+a <span class="gs">*= b;  // 等价于 a = a *</span> b
+</code></pre></div>
+
+<p>优点：代码更简洁、减少重复书写变量名的错误。</p>
+<p><strong>sizeof运算符</strong></p>
+<p><code>sizeof</code> 运算符的作用是返回数据类型或变量的字节数：</p>
+<div class="highlight"><pre><span></span><code>sizeof(int)    // 通常返回4  
+sizeof(char)   // 返回1  
+sizeof(double) // 通常返回8
+</code></pre></div>
+
+<h3>知识速记</h3>
+<ul>
+<li>算术运算符：+ - * / %</li>
+<li>取模运算符只适用于整数，浮点数不能用</li>
+<li>改变优先级：使用圆括号()</li>
+<li>==是比较，=是赋值（语法相似功能不同）</li>
+<li>短路求值：避免除零错误或空指针访问</li>
+<li>短路求值主要好处不是简化语法</li>
+<li>复合赋值：+=等价于a=a+b</li>
+<li>sizeof返回字节数</li>
+</ul>
+<hr>
+<h2>第8章 控制流程：条件与循环</h2>
+<p><strong>if语句</strong></p>
+<p>基本语法结构：<code>if(条件) 语句</code></p>
+<p>C语言中没有专门的布尔类型（C99之前），真假用整数表示：</p>
+<ul>
+<li>0 表示假</li>
+<li>非0 表示真</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="mi">5</span><span class="ss">)</span><span class="w">   </span><span class="o">//</span><span class="w"> </span>真！<span class="mi">5</span>是非<span class="mi">0</span><span class="w">  </span>
+<span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="mi">0</span><span class="ss">)</span><span class="w">   </span><span class="o">//</span><span class="w"> </span>假<span class="w">  </span>
+<span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="o">-</span><span class="mi">1</span><span class="ss">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span>真！<span class="o">-</span><span class="mi">1</span>也是非<span class="mi">0</span>
+</code></pre></div>
+
+<p><strong>switch语句</strong></p>
+<p>相比多个if-else的优势：代码清晰且可能有性能优势（编译器可优化为跳转表）。</p>
+<p>switch中忘记写break的后果：会继续执行下一个case（称为"穿透"）！</p>
+<div class="highlight"><pre><span></span><code><span class="nv">switch</span><span class="w"> </span><span class="ss">(</span><span class="nv">grade</span><span class="ss">)</span><span class="w"> </span>{<span class="w">  </span>
+<span class="w">    </span><span class="nv">case</span><span class="w"> </span><span class="s1">&#39;A&#39;</span>:<span class="w"> </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;优秀&quot;</span><span class="ss">)</span><span class="c1">; break;  // 有break  </span>
+<span class="w">    </span><span class="nv">case</span><span class="w"> </span><span class="s1">&#39;B&#39;</span>:<span class="w"> </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;良好&quot;</span><span class="ss">)</span><span class="c1">;          // 没有break，会继续执行case &#39;C&#39;  </span>
+<span class="w">    </span><span class="nv">case</span><span class="w"> </span><span class="s1">&#39;C&#39;</span>:<span class="w"> </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;中等&quot;</span><span class="ss">)</span><span class="c1">; break;  </span>
+}<span class="w">  </span>
+<span class="o">//</span><span class="w"> </span>如果<span class="nv">grade</span><span class="o">=</span><span class="s1">&#39;B&#39;</span>，输出<span class="s2">&quot;良好中等&quot;</span>——两个都打印了！
+</code></pre></div>
+
+<p><strong>break vs continue</strong></p>
+<table>
+<thead>
+<tr>
+<th>语句</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>break</td>
+<td>跳出当前循环或switch（不是所有循环！）</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>跳过当前迭代，进入下一次循环判断</td>
+</tr>
+</tbody>
+</table>
+<p>注意：continue不是跳出循环！continue是跳过本次循环的剩余部分。</p>
+<p><strong>三种循环</strong></p>
+<table>
+<thead>
+<tr>
+<th>循环</th>
+<th>特点</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>for</td>
+<td>初始化+条件+更新三合一</td>
+<td>已知循环次数</td>
+</tr>
+<tr>
+<td>while</td>
+<td>先判断再执行</td>
+<td>可能一次都不执行</td>
+</tr>
+<tr>
+<td>do-while</td>
+<td>先执行再判断</td>
+<td>至少执行一次</td>
+</tr>
+</tbody>
+</table>
+<p><strong>for循环的三个部分</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="ss">(</span>初始化表达式<span class="c1">; 条件判断表达式; 更新表达式) {  </span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span>循环体<span class="w">  </span>
+}<span class="w">  </span>
+<span class="o">//</span><span class="w"> </span>例：<span class="k">for</span><span class="ss">(</span><span class="nv">int</span><span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="c1">; i&lt;10; i++) { ... }  </span>
+<span class="o">//</span><span class="w">      </span>初始化：<span class="nv">int</span><span class="w"> </span><span class="nv">i</span><span class="o">=</span><span class="mi">0</span>（执行一次）<span class="w">  </span>
+<span class="o">//</span><span class="w">      </span>条件：<span class="nv">i</span><span class="o">&lt;</span><span class="mi">10</span>（每次循环前检查）<span class="w">  </span>
+<span class="o">//</span><span class="w">      </span>更新：<span class="nv">i</span><span class="o">++</span>（每次循环后执行）
+</code></pre></div>
+
+<p><strong>do-while的适用场景</strong></p>
+<p>当至少需要执行一次循环体时，do-while更合适，比如先获取用户输入再判断：</p>
+<div class="highlight"><pre><span></span><code><span class="nv">int</span><span class="w"> </span><span class="nv">n</span><span class="c1">;  </span>
+<span class="k">do</span><span class="w"> </span>{<span class="w">  </span>
+<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;请输入正整数：&quot;</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">    </span><span class="nv">scanf</span><span class="ss">(</span><span class="s2">&quot;%d&quot;</span>,<span class="w"> </span><span class="o">&amp;</span><span class="nv">n</span><span class="ss">)</span><span class="c1">;  </span>
+}<span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="ss">(</span><span class="nv">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="ss">)</span><span class="c1">;  // 至少输入一次</span>
+</code></pre></div>
+
+<p><strong>goto语句</strong></p>
+<p>goto语句不推荐使用，因为破坏程序结构、降低可读性。</p>
+<h3>知识速记</h3>
+<ul>
+<li>if语法：if(条件)语句结构</li>
+<li>C语言0为假，非0为真</li>
+<li>switch忘记break：继续执行下一个case</li>
+<li>break：跳出当前循环或switch</li>
+<li>continue：跳过当前迭代（不是跳出循环！）</li>
+<li>do-while：至少执行一次</li>
+<li>for三部分：初始化、条件、更新</li>
+<li>goto不推荐：破坏结构、降低可读性</li>
+</ul>
+<hr>
+<h2>第9章 数组、指针与字符串</h2>
+<p><strong>数组的核心特点</strong></p>
+<ol>
+<li>存储相同类型的数据</li>
+<li>内存中连续存储</li>
+<li>下标从0开始</li>
+<li>大小固定（声明后不能改变）</li>
+</ol>
+<div class="highlight"><pre><span></span><code>int arr[5];           // 声明包含5个int的数组  
+int arr[] = {10, 20, 30, 40, 50};  // 初始化  
+arr[0]  // 第1个元素（值为10）  
+arr[2]  // 第3个元素（值为30）  
+arr[4]  // 第5个元素（值为50）
+</code></pre></div>
+
+<p>注意：arr[2]是下标为2的元素，即第3个元素（下标从0开始！）</p>
+<p><strong>数组越界</strong></p>
+<p>访问数组越界可能导致程序崩溃或数据损坏。C语言不自动检查数组边界，原因是为了性能考虑（不是技术限制，不是设计缺陷！）。</p>
+<div class="highlight"><pre><span></span><code>int arr[5];  
+arr[10] = 99;  // 越界访问！可能崩溃、可能损坏数据、可能看似正常
+</code></pre></div>
+
+<p><strong>指针——C语言的精髓</strong></p>
+<p>指针被称为C语言精髓，因为它提供了对内存的直接控制能力。</p>
+<div class="highlight"><pre><span></span><code>int a = 10;  
+int *p = &amp;a;    // p存储a的地址  
+printf(&quot;%d&quot;, *p);  // 输出10（解引用*p就是a）
+</code></pre></div>
+
+<p>关键关系：<code>*p</code> 和 <code>a</code> 代表同一个变量！</p>
+<p>指针的主要应用场景：</p>
+<ul>
+<li>动态内存管理（malloc/free）</li>
+<li>高效数据访问</li>
+<li>实现引用调用</li>
+<li>传递大型数据结构</li>
+</ul>
+<p><strong>指针初始化</strong></p>
+<p>好的编程习惯：声明指针时初始化为NULL</p>
+<div class="highlight"><pre><span></span><code>int *p = NULL;  // 安全初始化
+</code></pre></div>
+
+<p><strong>字符串表示</strong></p>
+<p>C语言中字符串是以空字符 <code>\0</code> 结尾的字符数组：</p>
+<div class="highlight"><pre><span></span><code>char str[] = &quot;Hello&quot;;  // 实际存储：&#39;H&#39;,&#39;e&#39;,&#39;l&#39;,&#39;l&#39;,&#39;o&#39;,&#39;\0&#39;  
+// 5个可见字符，但占6个字节（含&#39;\0&#39;）
+</code></pre></div>
+
+<p><strong>字符数组 vs 字符指针</strong></p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>char str[] = "Hello"</th>
+<th>char *p = "Hello"</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>存储位置</td>
+<td>栈/数据段</td>
+<td>字符串常量（只读数据段）</td>
+</tr>
+<tr>
+<td>可修改</td>
+<td>可以修改数组元素</td>
+<td>不能修改（段错误！）</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>数组自己的空间</td>
+<td>指针指向常量区</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>char str[] = &quot;Hello&quot;;  
+str[0] = &#39;h&#39;;    // 可以修改  
+
+char *p = &quot;Hello&quot;;  
+p[0] = &#39;h&#39;;      // 段错误！字符串常量不可修改
+</code></pre></div>
+
+<p><strong>内存管理</strong></p>
+<p>C语言内存管理相比高级语言的特点：需要程序员手动管理（malloc分配、free释放）。</p>
+<h3>知识速记</h3>
+<ul>
+<li>数组：相同类型、连续存储、下标从0、大小固定</li>
+<li>数组越界：可能崩溃或数据损坏</li>
+<li>C不检查数组边界：为了性能考虑</li>
+<li>指针是C语言精髓：对内存的直接控制</li>
+<li>*p和a代表同一个变量（p指向a时）</li>
+<li>字符串以'\0'结尾</li>
+<li>"Hello"：5个字符，6个字节</li>
+<li>字符数组可修改，字符指针指向的常量不可修改</li>
+<li>C语言内存管理：程序员手动管理</li>
+<li>指针初始化为NULL是好习惯</li>
+</ul>
+<hr>
+<h2>第10章 结构体、共用体与枚举</h2>
+<p><strong>结构体（struct）</strong></p>
+<p>结构体的主要作用：将不同类型的数据组合成一个整体。</p>
+<div class="highlight"><pre><span></span><code><span class="nt">struct</span><span class="w"> </span><span class="nt">Student</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="err">int</span><span class="w"> </span><span class="err">id</span><span class="p">;</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">学号</span><span class="w">  </span>
+<span class="w">    </span><span class="err">char</span><span class="w"> </span><span class="err">name</span><span class="cp">[</span><span class="mi">51</span><span class="cp">]</span><span class="p">;</span><span class="w">   </span><span class="err">//</span><span class="w"> </span><span class="err">姓名</span><span class="w">  </span>
+<span class="w">    </span><span class="err">float</span><span class="w"> </span><span class="err">score</span><span class="p">;</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">成绩</span><span class="w">  </span>
+<span class="p">}</span><span class="o">;</span><span class="w">  </span>
+
+<span class="nt">struct</span><span class="w"> </span><span class="nt">Student</span><span class="w"> </span><span class="nt">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="err">1001,</span><span class="w"> </span><span class="err">&quot;Zhang&quot;</span><span class="p">}</span><span class="o">;</span><span class="w">  </span>
+<span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;ID: %d\n&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">stu</span><span class="p">.</span><span class="nc">id</span><span class="o">);</span><span class="w">      </span><span class="o">//</span><span class="w"> </span><span class="nt">使用点运算符访问成员</span><span class="w">  </span>
+<span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;Name: %s\n&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">stu</span><span class="p">.</span><span class="nc">name</span><span class="o">);</span>
+</code></pre></div>
+
+<ul>
+<li>访问成员：点运算符 <code>.</code>（结构体变量）或箭头运算符 <code>-&gt;</code>（结构体指针）</li>
+<li>结构体赋值是值拷贝，修改副本不影响原件</li>
+</ul>
+<div class="highlight"><pre><span></span><code>struct Point p1 = {3, 4};  
+struct Point p2 = p1;  // 值拷贝！p2是独立的副本  
+p2.x = 10;            // 修改p2不影响p1
+</code></pre></div>
+
+<p><strong>共用体（union）</strong></p>
+<p>所有成员共享同一块内存，同时只能使用一个成员：</p>
+<div class="highlight"><pre><span></span><code>union Data {  
+    int i;  
+    float f;  
+    char c;  
+};  
+// sizeof(union Data) = max(sizeof(int), sizeof(float), sizeof(char))
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>结构体 struct</th>
+<th>共用体 union</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内存</td>
+<td>成员独立存储</td>
+<td>成员共享存储</td>
+</tr>
+<tr>
+<td>同时使用</td>
+<td>可以使用所有成员</td>
+<td>同时只能用一个</td>
+</tr>
+<tr>
+<td>大小</td>
+<td>各成员大小之和（含对齐）</td>
+<td>最大成员的大小</td>
+</tr>
+<tr>
+<td>场景</td>
+<td>存储不同类型的相关数据</td>
+<td>节省内存</td>
+</tr>
+</tbody>
+</table>
+<p><strong>枚举（enum）</strong></p>
+<p>枚举用于定义一组命名的整数常量，提高代码可读性：</p>
+<div class="highlight"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="nb nb-Type">Color</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">RED</span><span class="p">,</span><span class="w"> </span><span class="n">GREEN</span><span class="p">,</span><span class="w"> </span><span class="n">BLUE</span><span class="w"> </span><span class="p">};</span><span class="w">  </span>
+<span class="o">//</span><span class="w"> </span><span class="n">RED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">GREEN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">BLUE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="err">（默认从</span><span class="mi">0</span><span class="err">开始）</span>
+</code></pre></div>
+
+<p>如果显式指定某个值，后续值在此基础上递增：</p>
+<div class="highlight"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="n">Week</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">MON</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">TUE</span><span class="p">,</span><span class="w"> </span><span class="n">WED</span><span class="p">,</span><span class="w"> </span><span class="n">THU</span><span class="p">,</span><span class="w"> </span><span class="n">FRI</span><span class="w"> </span><span class="p">};</span><span class="w">  </span>
+<span class="o">//</span><span class="w"> </span><span class="n">MON</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">TUE</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">WED</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">THU</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">FRI</span><span class="o">=</span><span class="mi">5</span>
+</code></pre></div>
+
+<p><strong>枚举 vs #define</strong></p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>enum</th>
+<th>#define</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>类型检查</td>
+<td>有类型检查</td>
+<td>无</td>
+</tr>
+<tr>
+<td>自动分配值</td>
+<td>自动递增</td>
+<td>手动指定</td>
+</tr>
+<tr>
+<td>调试信息</td>
+<td>可见枚举名</td>
+<td>只看到数字</td>
+</tr>
+<tr>
+<td>作用域</td>
+<td>遵循作用域</td>
+<td>全局污染</td>
+</tr>
+</tbody>
+</table>
+<p><strong>typedef</strong></p>
+<p>使用typedef为结构体类型创建别名，简化声明：</p>
+<div class="highlight"><pre><span></span><code><span class="nx">typedef</span><span class="w"> </span><span class="nx">struct</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">int</span><span class="w"> </span><span class="nx">x</span><span class="p">;</span><span class="w"> </span><span class="nx">int</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="nx">Point</span><span class="p">;</span><span class="w">  </span>
+<span class="nx">Point</span><span class="w"> </span><span class="nx">p1</span><span class="p">;</span><span class="w">  </span><span class="c1">// 不用写struct Point</span>
+</code></pre></div>
+
+<h3>知识速记</h3>
+<ul>
+<li>结构体：将不同类型数据组合成一个整体</li>
+<li>结构体赋值是值拷贝</li>
+<li>共用体成员共享内存，同时只能用一个</li>
+<li>枚举默认从0开始，显式赋值后递增</li>
+<li>枚举优势：有类型检查且自动分配值</li>
+<li>typedef简化结构体声明</li>
+<li>点运算符访问成员：变量名.成员名</li>
+</ul>
+<hr>
+<h2>第11章 函数：参数传递与递归</h2>
+<p><strong>传值调用 vs 传地址调用</strong></p>
+<p>这是C语言最重要的概念之一！</p>
+<p><strong>传值调用</strong>：函数接收参数的副本，修改不影响原变量</p>
+<div class="highlight"><pre><span></span><code>void change(int n) {  
+    n = 100;    // 修改的是副本  
+}  
+
+int a = 5;  
+change(a);  
+printf(&quot;%d&quot;, a);  // 输出5！a没有变！
+</code></pre></div>
+
+<p><strong>传地址调用</strong>（通过指针实现）：函数接收变量的地址，可以修改原变量</p>
+<div class="highlight"><pre><span></span><code>void change(int *n) {  
+    *n = 100;   // 通过指针修改原变量  
+}  
+
+int a = 5;  
+change(&amp;a);     // 传递a的地址  
+printf(&quot;%d&quot;, a);  // 输出100！a被修改了！
+</code></pre></div>
+
+<p><strong>引用调用的优势</strong></p>
+<ol>
+<li>可以修改原变量</li>
+<li>效率更高（不需要复制大量数据）</li>
+</ol>
+<p><strong>什么时候用传地址调用？</strong></p>
+<ol>
+<li>需要在函数内修改传入变量的值</li>
+<li>传递大型数据结构（如结构体、数组）以避免复制开销</li>
+</ol>
+<p><strong>函数返回指针的注意事项</strong></p>
+<p>不能返回局部变量的地址！因为局部变量在函数返回后内存就被释放了：</p>
+<div class="highlight"><pre><span></span><code>int* bad_func() {  
+    int local = 10;  
+    return &amp;local;  // 返回局部变量地址！悬空指针！  
+}  
+
+int* good_func() {  
+    int *p = malloc(sizeof(int));  // 堆上分配  
+    *p = 10;  
+    return p;  
+}
+</code></pre></div>
+
+<p><strong>递归</strong></p>
+<p>递归是函数直接或间接调用自身的过程。递归三要素：</p>
+<ol>
+<li>基准条件（终止条件）：防止无限递归</li>
+<li>递归步骤：每次调用向基准条件靠近</li>
+<li>深度限制：递归深度不能超过栈空间</li>
+</ol>
+<div class="highlight"><pre><span></span><code>int factorial(int n) {  
+    if (n &lt;= 1) return 1;       // 基准条件  
+    return n <span class="gs">* factorial(n-1);  // 递归步骤：向基准条件靠近  </span>
+<span class="gs">}  </span>
+<span class="gs">// factorial(4) = 4 *</span> factorial(3) = 4 <span class="gs">* 3 *</span> 2 * 1 = 24
+</code></pre></div>
+
+<p><strong>return语句</strong></p>
+<p>return语句将计算结果返回给调用者：</p>
+<div class="highlight"><pre><span></span><code><span class="nv">int</span><span class="w"> </span><span class="nv">add</span><span class="ss">(</span><span class="nv">int</span><span class="w"> </span><span class="nv">a</span>,<span class="w"> </span><span class="nv">int</span><span class="w"> </span><span class="nv">b</span><span class="ss">)</span><span class="w"> </span>{<span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">b</span><span class="c1">;  // 返回a+b的值  </span>
+}
+</code></pre></div>
+
+<p>void函数不需要return值（也可以用 <code>return;</code> 提前返回）。</p>
+<p><strong>main函数</strong></p>
+<p>C程序从main函数开始执行，main是程序的入口点。</p>
+<h3>知识速记</h3>
+<ul>
+<li>C语言函数参数默认按值传递</li>
+<li>传值调用：修改不影响原变量</li>
+<li>传地址调用：通过指针修改原变量</li>
+<li>引用调用优势：可以修改原变量且效率更高</li>
+<li>返回指针：不能返回局部变量地址</li>
+<li>递归三要素：基准条件、向基准靠近、深度限制</li>
+<li>factorial(4) = 24</li>
+<li>程序从main函数开始执行</li>
+<li>void表示不返回值</li>
+</ul>
+<hr>
+<h2>第12章 算法：排序与迭代</h2>
+<p><strong>三种基础排序对比</strong></p>
+<table>
+<thead>
+<tr>
+<th>排序</th>
+<th>基本思想</th>
+<th>时间复杂度</th>
+<th>稳定性</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>冒泡排序</td>
+<td>相邻元素比较交换，大元素逐步移到末尾</td>
+<td>O(n^2)</td>
+<td>稳定</td>
+<td>适用于数据量小或基本有序</td>
+</tr>
+<tr>
+<td>选择排序</td>
+<td>每次选最小元素放到已排序部分末尾</td>
+<td>O(n^2)</td>
+<td>不稳定</td>
+<td>交换次数少</td>
+</tr>
+<tr>
+<td>插入排序</td>
+<td>将元素插入已排序部分的正确位置</td>
+<td>O(n^2)</td>
+<td>稳定</td>
+<td>数据基本有序时效率高</td>
+</tr>
+</tbody>
+</table>
+<p><strong>为什么选择排序不稳定？</strong></p>
+<p>选择排序可能改变相等元素的相对位置。例如：[5a, 5b, 3] - 选最小的3和5a交换 - [3, 5b, 5a]，两个5的相对顺序变了。</p>
+<p><strong>归并排序</strong></p>
+<ul>
+<li>基本思想：分治法——将数组分割后合并</li>
+<li>时间复杂度：O(n log n) 对数线性复杂度</li>
+<li>主要缺点：需要额外的存储空间</li>
+<li>相比冒泡排序：时间复杂度更优，但空间复杂度更高</li>
+</ul>
+<p><strong>递归 vs 迭代</strong></p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>递归</th>
+<th>迭代</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>方式</td>
+<td>函数调用自身</td>
+<td>循环重复执行</td>
+</tr>
+<tr>
+<td>优点</td>
+<td>代码简洁，适合递归结构问题</td>
+<td>执行效率高，不依赖栈空间</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>可能栈溢出，函数调用开销大</td>
+<td>复杂问题代码不够直观</td>
+</tr>
+<tr>
+<td>场景</td>
+<td>树遍历、阶乘、斐波那契</td>
+<td>简单重复操作</td>
+</tr>
+</tbody>
+</table>
+<p><strong>斐波那契数列</strong></p>
+<p>每个数是前两个数之和：1, 1, 2, 3, 5, 8, 13, 21, ...</p>
+<div class="highlight"><pre><span></span><code><span class="nv">int</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>,<span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="c1">;  </span>
+<span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;%d %d &quot;</span>,<span class="w"> </span><span class="nv">a</span>,<span class="w"> </span><span class="nv">b</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="k">for</span><span class="ss">(</span><span class="nv">int</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="c1">; i &lt;= 8; i++) {  </span>
+<span class="w">    </span><span class="nv">int</span><span class="w"> </span><span class="k">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">b</span><span class="c1">;  </span>
+<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;%d &quot;</span>,<span class="w"> </span><span class="k">next</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">    </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">b</span><span class="c1">;  </span>
+<span class="w">    </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">next</span><span class="c1">;  </span>
+}<span class="w">  </span>
+<span class="o">//</span><span class="w"> </span>输出：<span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="mi">21</span>
+</code></pre></div>
+
+<p>计算斐波那契数列时C语言版本出现负数不是因为算法错误，而是因为整数溢出！fib(47)以后int就放不下了。</p>
+<p><strong>常见编程模式</strong></p>
+<p>累加求和：</p>
+<div class="highlight"><pre><span></span><code><span class="nv">int</span><span class="w"> </span><span class="nv">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="c1">;  </span>
+<span class="k">for</span><span class="ss">(</span><span class="nv">int</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="c1">; i &lt;= n; i++) {  </span>
+<span class="w">    </span><span class="nv">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">i</span><span class="c1">;  </span>
+}<span class="w">  </span>
+<span class="o">//</span><span class="w"> </span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="o">+</span><span class="mi">5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span>
+</code></pre></div>
+
+<p>找最大值：</p>
+<div class="highlight"><pre><span></span><code><span class="nc">int</span><span class="w"> </span><span class="nf">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">;</span><span class="w">  </span>
+<span class="k">for</span><span class="p">(</span><span class="nc">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">max</span><span class="p">)</span><span class="w"> </span><span class="nf">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span><span class="w">  </span>
+<span class="err">}</span><span class="w">  </span>
+<span class="o">//</span><span class="w"> </span><span class="n">注意</span><span class="err">：</span><span class="n">i从1开始</span><span class="err">，</span><span class="n">因为max初始化为arr</span><span class="o">[</span><span class="n">0</span><span class="o">]</span>
+</code></pre></div>
+
+<p>筛选偶数：</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="p">(</span><span class="nc">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="err">}</span><span class="w">  </span>
+<span class="err">}</span>
+</code></pre></div>
+
+<p>冒泡排序核心交换：</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">j+1</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nc">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">j+1</span><span class="o">]</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="n">arr</span><span class="o">[</span><span class="n">j+1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">三变量交换</span><span class="w">  </span>
+<span class="err">}</span>
+</code></pre></div>
+
+<h3>知识速记</h3>
+<ul>
+<li>冒泡排序：O(n^2)，稳定</li>
+<li>选择排序：O(n^2)，不稳定，交换次数少</li>
+<li>插入排序：O(n^2)，稳定，基本有序时效率高</li>
+<li>归并排序：O(n log n)，需要额外空间</li>
+<li>选择排序不稳定：可能改变相等元素相对位置</li>
+<li>斐波那契出现负数：整数溢出，不是算法错误</li>
+<li>累加和模式、找最大值模式</li>
+<li>三变量交换</li>
+</ul>
+<hr>
+<h2>第13章 文件操作</h2>
+<p><strong>文件操作三步曲</strong></p>
+<ol>
+<li>打开文件：<code>fopen()</code></li>
+<li>读写文件：<code>fprintf()</code>/<code>fscanf()</code>、<code>fwrite()</code>/<code>fread()</code></li>
+<li>关闭文件：<code>fclose()</code></li>
+</ol>
+<p><strong>fopen函数</strong></p>
+<div class="highlight"><pre><span></span><code>FILE *fp = fopen(&quot;data.txt&quot;, &quot;r&quot;);
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>含义</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"r"</td>
+<td>只读模式</td>
+<td>文件必须存在</td>
+</tr>
+<tr>
+<td>"w"</td>
+<td>写入模式</td>
+<td>会覆盖原有内容！</td>
+</tr>
+<tr>
+<td>"a"</td>
+<td>追加模式</td>
+<td>在文件末尾添加内容</td>
+</tr>
+</tbody>
+</table>
+<p><strong>检查文件是否成功打开</strong></p>
+<div class="highlight"><pre><span></span><code>FILE *fp = fopen(&quot;data.txt&quot;, &quot;r&quot;);  
+if (fp == NULL) {  
+    printf(&quot;文件打开失败！\n&quot;);  
+    return -1;  
+}
+</code></pre></div>
+
+<p><strong>为什么必须调用fclose？</strong></p>
+<ol>
+<li>刷新缓冲区：将缓冲区中的数据真正写入磁盘</li>
+<li>释放系统资源：文件描述符是有限资源</li>
+</ol>
+<p>忘记关闭文件的后果：</p>
+<ul>
+<li>数据未完全写入而丢失</li>
+<li>系统文件描述符耗尽</li>
+<li>内存泄露</li>
+</ul>
+<p><strong>文件路径</strong></p>
+<p>C语言中使用字符串表示文件路径：</p>
+<ul>
+<li>相对路径：相对于当前目录，如 <code>"data.txt"</code></li>
+<li>绝对路径：从根目录开始，如 <code>"/home/user/data.txt"</code></li>
+</ul>
+<p>注意：不同操作系统使用不同的路径分隔符：Windows用 <code>\</code>，Linux/Mac用 <code>/</code></p>
+<p><strong>写入数据</strong></p>
+<p>向文件写入数据使用 fprintf 或 fwrite 函数：</p>
+<div class="highlight"><pre><span></span><code>FILE *fp = fopen(&quot;out.txt&quot;, &quot;w&quot;);  
+fprintf(fp, &quot;Hello World\n&quot;);  // 格式化写入  
+fclose(fp);
+</code></pre></div>
+
+<h3>知识速记</h3>
+<ul>
+<li>文件操作：fopen - 读写 - fclose</li>
+<li>检查打开成功：文件指针是否为NULL</li>
+<li>fclose作用：释放资源+确保数据写入</li>
+<li>"r"只读、"w"写入（覆盖）、"a"追加</li>
+<li>路径用字符串表示</li>
+<li>跨平台注意路径分隔符</li>
+<li>写入用fprintf或fwrite</li>
+</ul>
+<hr>
+<h2>第14章 Python与C混合开发</h2>
+<p><strong>Python与C的区别</strong></p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>C语言</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>语法</td>
+<td>大括号 <code>{}</code></td>
+<td>缩进</td>
+</tr>
+<tr>
+<td>内存管理</td>
+<td>手动管理</td>
+<td>自动管理（GC）</td>
+</tr>
+<tr>
+<td>开发效率</td>
+<td>较低</td>
+<td>较高（语法简洁+丰富库）</td>
+</tr>
+<tr>
+<td>执行效率</td>
+<td>高（编译后机器码）</td>
+<td>较低（解释执行）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>混合开发的分工</strong></p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>适合谁</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>业务逻辑、数据处理、快速原型</td>
+<td>Python</td>
+<td>开发效率高</td>
+</tr>
+<tr>
+<td>性能敏感的计算密集型任务</td>
+<td>C</td>
+<td>执行效率高</td>
+</tr>
+</tbody>
+</table>
+<p><strong>编译动态链接库</strong></p>
+<p>将C语言函数编译成.so文件的目的是供其他语言调用。</p>
+<div class="highlight"><pre><span></span><code>gcc -shared -fPIC -o mylib.so mylib.c
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-shared</td>
+<td>生成共享库（动态链接库）而非可执行文件</td>
+</tr>
+<tr>
+<td>-fPIC</td>
+<td>生成位置无关代码（Position Independent Code），使库可加载到内存任意位置</td>
+</tr>
+</tbody>
+</table>
+<p>注意：Linux下动态链接库扩展名为 .so，Windows下为 .dll。</p>
+<p><strong>Python调用C库</strong></p>
+<p>使用ctypes模块：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nx">ctypes</span><span class="w">  </span>
+<span class="nx">lib</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">ctypes</span><span class="p">.</span><span class="nx">CDLL</span><span class="p">(</span><span class="s">&quot;./mylib.so&quot;</span><span class="p">)</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">加载动态库</span><span class="w">  </span>
+<span class="nx">lib</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">restype</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">ctypes</span><span class="p">.</span><span class="nx">c_int</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="nx">设置返回值类型</span><span class="w">  </span>
+<span class="nx">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w">              </span><span class="err">#</span><span class="w"> </span><span class="nx">调用C函数</span>
+</code></pre></div>
+
+<p>也可以使用 cffi 或编写 C 扩展模块。</p>
+<p><strong>什么情况下Python可能比C更快？</strong></p>
+<p>当使用高度优化的科学计算库时（如NumPy底层是C实现的），Python可能比手写的C代码更快。</p>
+<h3>知识速记</h3>
+<ul>
+<li>C用大括号，Python用缩进</li>
+<li>C手动管理内存，Python自动管理</li>
+<li>C编译为.so供其他语言调用</li>
+<li>-shared：生成共享库</li>
+<li>-fPIC：位置无关代码</li>
+<li>.so（Linux）、.dll（Windows）</li>
+<li>Python用ctypes加载C库</li>
+<li>lib.add.restype = ctypes.c_int 设置返回类型</li>
+<li>用优化库时Python可能比C更快</li>
+</ul>
+<hr>
+<h2>第15章 字符编码与加密</h2>
+<p><strong>ASCII编码</strong></p>
+<p>char本质上是8位整数，可以直接当整数用：</p>
+<div class="highlight"><pre><span></span><code><span class="nt">char</span><span class="w"> </span><span class="nt">ch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="o">;</span><span class="w">  </span>
+<span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;ASCII: %d&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">ch</span><span class="o">);</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="nt">输出65</span><span class="err">（</span><span class="s1">&#39;A&#39;</span><span class="nt">的ASCII值</span><span class="err">）</span><span class="w">  </span>
+<span class="nt">char</span><span class="w"> </span><span class="nt">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">65</span><span class="o">;</span><span class="w">              </span><span class="o">//</span><span class="w"> </span><span class="nt">等价于</span><span class="w"> </span><span class="nt">char</span><span class="w"> </span><span class="nt">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;A&#39;</span>
+</code></pre></div>
+
+<p><strong>数字字符转整数</strong></p>
+<div class="highlight"><pre><span></span><code>char ch = &#39;5&#39;;  
+int num = ch - &#39;0&#39;;  // num = 5  
+// &#39;0&#39;=48, &#39;5&#39;=53, 53-48=5
+</code></pre></div>
+
+<p><strong>大小写转换</strong></p>
+<p>利用ASCII码中大小写字母的固定偏移差：</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 小写转大写  </span>
+<span class="k">if</span><span class="p">(</span><span class="n">ch</span><span class="w"> </span><span class="o">&gt;</span><span class="p">=</span><span class="w"> </span><span class="s">&#39;a&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">&lt;</span><span class="p">=</span><span class="w"> </span><span class="s">&#39;z&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="n">ch</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s">&#39;a&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#39;A&#39;</span><span class="p">;</span><span class="w">  </span>
+<span class="p">}</span><span class="w">  </span>
+<span class="c1">// 大写转小写  </span>
+<span class="k">if</span><span class="p">(</span><span class="n">ch</span><span class="w"> </span><span class="o">&gt;</span><span class="p">=</span><span class="w"> </span><span class="s">&#39;A&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">&lt;</span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Z&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="n">ch</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s">&#39;A&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#39;a&#39;</span><span class="p">;</span><span class="w">  </span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>原理：'a'-'z'是97-122，'A'-'Z'是65-90，差值恒为32。</p>
+<p><strong>偏移加密（凯撒密码）</strong></p>
+<p>偏移加密的基本原理：将字符按固定偏移量移动。</p>
+<div class="highlight"><pre><span></span><code>char encrypted = ch + 3;  // 每个字符向后移3位
+</code></pre></div>
+
+<p>凯撒密码是偏移加密的一种。但偏移加密安全性较低，容易破解（只有26种可能，暴力枚举即可）。</p>
+<p><strong>Base64编码</strong></p>
+<p>Base64编码的用途是将二进制数据转换为文本格式，不是加密，不是压缩，不是校验！</p>
+<h3>知识速记</h3>
+<ul>
+<li>char本质是小整数，可用%d输出ASCII值</li>
+<li>char c = 65 等价于 c = 'A'</li>
+<li>数字字符转整数：ch - '0'</li>
+<li>大小写转换：ch - 'a' + 'A' 或 ch - 'A' + 'a'</li>
+<li>偏移加密：按固定偏移量移动字符</li>
+<li>凯撒密码是偏移加密的一种</li>
+<li>偏移加密安全性较低</li>
+<li>Base64：二进制转文本格式（不是加密）</li>
+</ul>
+<hr>
+<h2>第16章 安全编程与陷阱</h2>
+<p><strong>整数除以整数</strong></p>
+<p>C语言中两个整数相除，结果仍然是整数，小数部分被截断：</p>
+<div class="highlight"><pre><span></span><code>int a = 5, b = 2;  
+float result = a / b;   // result = 2.0，不是2.5！  
+// 因为5/2先按整数除法得2，再转为float  
+
+// 要得到2.5：  
+float result = 5.0 / 2;       // 5.0是浮点数  
+float result = (float)a / b;  // 强制转换
+</code></pre></div>
+
+<p><strong>整数溢出</strong></p>
+<p>整数溢出可能导致缓冲区溢出和权限提升等安全问题，不只是计算错误！</p>
+<div class="highlight"><pre><span></span><code>int big = 2147483647;  // int最大值  
+big = big + 1;         // 溢出！可能变成负数
+</code></pre></div>
+
+<p><strong>数组越界与缓冲区溢出</strong></p>
+<ul>
+<li>C语言不自动检查数组边界——原因是为了性能考虑</li>
+<li>字符串处理容易缓冲区溢出——因为没有自动边界检查机制</li>
+<li>缓冲区溢出攻击的目标是执行恶意代码或获取权限</li>
+</ul>
+<p><strong>float转int</strong></p>
+<p>浮点数强制转为整数时，小数部分被截断（不是四舍五入）：</p>
+<div class="highlight"><pre><span></span><code>float f = 3.14;  
+int i = (int)f;   // i = 3（截断，不是四舍五入）  
+
+float f = 3.99;  
+int i = (int)f;   // i = 3（仍然截断！不是4）
+</code></pre></div>
+
+<p><strong>sizeof运算符</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;int size: %d bytes&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">sizeof</span><span class="o">(</span><span class="nt">int</span><span class="o">));</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="nt">通常输出4</span>
+</code></pre></div>
+
+<p>sizeof返回数据类型或变量占用的字节数。</p>
+<h3>知识速记</h3>
+<ul>
+<li>整数除整数得整数（5/2=2，不是2.5）</li>
+<li>要得小数：用5.0/2或(float)5/2</li>
+<li>整数溢出可导致缓冲区溢出和权限提升</li>
+<li>C不检查数组边界：为了性能</li>
+<li>缓冲区溢出攻击目标：执行恶意代码或获取权限</li>
+<li>float转int：截断，不是四舍五入</li>
+<li>sizeof返回字节数</li>
+</ul>
+<hr>
+<h2>终极自查清单</h2>
+<h3>容易混淆的知识点</h3>
+<table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>正确理解</th>
+<th>常见误解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C语言能直接访问内存地址</td>
+<td>是的</td>
+<td>以为高级语言不能</td>
+</tr>
+<tr>
+<td>计算斐波那契出现负数</td>
+<td>是整数溢出</td>
+<td>以为是算法错误</td>
+</tr>
+<tr>
+<td>函数参数传递方式</td>
+<td>按值传递</td>
+<td>以为按引用</td>
+</tr>
+<tr>
+<td>#define与const占内存</td>
+<td>#define不占，const占</td>
+<td>以为都占内存</td>
+</tr>
+<tr>
+<td>const有类型检查吗</td>
+<td>有类型检查</td>
+<td>以为没有</td>
+</tr>
+<tr>
+<td>printf在哪个头文件</td>
+<td>stdio.h</td>
+<td>以为是string.h</td>
+</tr>
+<tr>
+<td>良好注释应说明什么</td>
+<td>目的和逻辑</td>
+<td>以为是语法结构</td>
+</tr>
+<tr>
+<td>头文件主要好处</td>
+<td>提高组织性和重用性</td>
+<td>以为是减少编译时间</td>
+</tr>
+<tr>
+<td>continue的作用</td>
+<td>跳过当前迭代</td>
+<td>以为跳出循环</td>
+</tr>
+<tr>
+<td>短路求值主要好处</td>
+<td>避免除零/空指针</td>
+<td>以为是简化语法</td>
+</tr>
+<tr>
+<td>上世纪C开发环境</td>
+<td>命令行环境</td>
+<td>以为是图形界面</td>
+</tr>
+</tbody>
+</table>
+<h3>必背代码模板</h3>
+<p><strong>1. 结构体定义与使用</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">struct</span><span class="w"> </span><span class="nt">Student</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="err">int</span><span class="w"> </span><span class="err">id</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="err">char</span><span class="w"> </span><span class="err">name</span><span class="cp">[</span><span class="mi">51</span><span class="cp">]</span><span class="p">;</span><span class="w">  </span>
+<span class="p">}</span><span class="o">;</span><span class="w">  </span>
+<span class="nt">struct</span><span class="w"> </span><span class="nt">Student</span><span class="w"> </span><span class="nt">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="err">1001,</span><span class="w"> </span><span class="err">&quot;Zhang&quot;</span><span class="p">}</span><span class="o">;</span><span class="w">  </span>
+<span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;ID: %d\n&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">stu</span><span class="p">.</span><span class="nc">id</span><span class="o">);</span>
+</code></pre></div>
+
+<p><strong>2. 指针传参交换两个值</strong></p>
+<div class="highlight"><pre><span></span><code>void swap(int *a, int *b) {  
+    int temp = *a;  
+    *a = *b;  
+    *b = temp;  
+}  
+int x = 5, y = 10;  
+swap(&amp;x, &amp;y);  // x变为10，y变为5
+</code></pre></div>
+
+<p><strong>3. 数组遍历求和</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nc">int</span><span class="w"> </span><span class="nf">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span>
+<span class="k">for</span><span class="p">(</span><span class="nc">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
+<span class="w">    </span><span class="nf">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span><span class="w">  </span>
+<span class="err">}</span>
+</code></pre></div>
+
+<p><strong>4. 文件操作</strong></p>
+<div class="highlight"><pre><span></span><code>FILE *fp = fopen(&quot;data.txt&quot;, &quot;r&quot;);  
+if(fp == NULL) { return -1; }  
+fprintf(fp, &quot;Hello&quot;);  
+fclose(fp);
+</code></pre></div>
+
+<p><strong>5. 递归求阶乘</strong></p>
+<div class="highlight"><pre><span></span><code>int factorial(int n) {  
+    if(n &lt;= 1) return 1;  
+    return n * factorial(n-1);  
+}
+</code></pre></div>
+
+<p><strong>6. 动态链接库编译与Python调用</strong></p>
+<div class="highlight"><pre><span></span><code>gcc -shared -fPIC -o mylib.so mylib.c
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nx">ctypes</span><span class="w">  </span>
+<span class="nx">lib</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">ctypes</span><span class="p">.</span><span class="nx">CDLL</span><span class="p">(</span><span class="s">&quot;./mylib.so&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="nx">lib</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">restype</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">ctypes</span><span class="p">.</span><span class="nx">c_int</span>
+</code></pre></div>
+
+<hr>
+<blockquote>
+<p>C语言的核心是指针和内存管理，把这两块搞透，就赢了大半！</p>
+<p>复习建议：先过一遍自查清单，把容易混淆的知识点搞清楚；再背代码模板；多动手写代码验证理解。</p>
+<p>理解为主，记忆为辅，知其然更要知其所以然！</p>
+</blockquote>
+<p>预览时标签不可点</p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep" data-i18n="category_label">分类</span>:
+        <abbr class="category">
+            <a href="./category/c.html">C</a>
+        </abbr>
+       </footer>
+    
+</section>
+
+<section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
+    <script src="https://giscus.app/client.js"
+        data-repo="cycleuser/cycleuser.github.io"
+        data-repo-id="R_kgDOL4NKYA"
+        data-category="General"
+        data-category-id="DIC_kwDOL4NKYM4DBK3X"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    function update() {
+        var t = giscusTheme(getTheme());
+        var s = document.querySelector('script[src*="giscus"]');
+        if (s) s.setAttribute('data-theme', t);
+        sendTheme(t);
+    }
+    // 初始设置
+    var s = document.querySelector('script[src*="giscus"]');
+    if (s) s.setAttribute('data-theme', giscusTheme(getTheme()));
+    // 监听明暗切换
+    new MutationObserver(function() { update(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    // 重试几次确保 iframe 加载完成
+    var tries = 0;
+    var timer = setInterval(function() {
+        if (document.querySelector('iframe.giscus-frame')) { sendTheme(giscusTheme(getTheme())); clearInterval(timer); }
+        if (++tries > 20) clearInterval(timer);
+    }, 500);
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

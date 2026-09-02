@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect x="0" y="0" width="600" height="400" fill="#ffffff"/>
+  <rect x="30" y="30" width="540" height="340" fill="none" stroke="#000000" stroke-width="3"/>
+  <rect x="36" y="36" width="528" height="328" fill="none" stroke="#000000" stroke-width="1"/>
+
+  <!-- 左侧：自满的人，认知容器满了 -->
+  <!-- 头部 -->
+  <circle cx="130" cy="140" r="35" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <path d="M 98 126 Q 130 112 162 126" fill="none" stroke="#000000" stroke-width="3"/>
+  <circle cx="118" cy="138" r="3" fill="#000000"/>
+  <circle cx="142" cy="138" r="3" fill="#000000"/>
+  <!-- 傲慢表情：嘴角上翘 -->
+  <path d="M 118 155 Q 130 165 142 155" fill="none" stroke="#000000" stroke-width="2"/>
+  <!-- 头上的"满了"容器 -->
+  <path d="M 105 85 L 155 85 L 152 105 L 108 105 Z" fill="#000000" opacity="0.12" stroke="#000000" stroke-width="2"/>
+  <text x="115" y="100" font-family="serif" font-size="9" fill="#000000">满了</text>
+  <!-- 身体 -->
+  <path d="M 105 172 Q 130 176 155 172 L 157 220 Q 130 222 103 220 Z" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 举着牌子"终极真理" -->
+  <line x1="160" y1="180" x2="190" y2="165" stroke="#000000" stroke-width="2"/>
+  <rect x="175" y="150" width="60" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <text x="180" y="163" font-family="serif" font-size="9" fill="#000000">终极真理</text>
+
+  <!-- 自满人脚下的基座 -->
+  <rect x="100" y="220" width="60" height="8" fill="none" stroke="#000000" stroke-width="2"/>
+  <text x="100" y="245" font-family="serif" font-size="10" fill="#000000" opacity="0.5">认知已满</text>
+
+  <!-- 右侧：谦逊的人，容器还有空 -->
+  <!-- 头部 -->
+  <circle cx="430" cy="140" r="35" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <path d="M 398 126 Q 430 112 462 126" fill="none" stroke="#000000" stroke-width="3"/>
+  <circle cx="418" cy="138" r="3.5" fill="#000000"/>
+  <circle cx="442" cy="138" r="3.5" fill="#000000"/>
+  <!-- 谦逊表情：微笑 -->
+  <path d="M 420 155 Q 430 160 440 155" fill="none" stroke="#000000" stroke-width="2"/>
+  <!-- 头上的"还有空"容器 -->
+  <path d="M 405 85 L 455 85 L 452 105 L 408 105 Z" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="410" y="88" width="40" height="10" fill="none" stroke="#000000" stroke-width="1"/>
+  <text x="418" y="97" font-family="serif" font-size="8" fill="#000000">还有空间</text>
+  <!-- 身体 -->
+  <path d="M 405 172 Q 430 176 455 172 L 457 220 Q 430 222 403 220 Z" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 手里拿着书"未知" -->
+  <line x1="405" y1="180" x2="375" y2="165" stroke="#000000" stroke-width="2"/>
+  <rect x="340" y="150" width="50" height="20" fill="none" stroke="#000000" stroke-width="2"/>
+  <text x="350" y="163" font-family="serif" font-size="9" fill="#000000">未知</text>
+
+  <!-- 谦逊人脚下：开放地基 -->
+  <path d="M 395 225 L 465 225 L 460 240 L 400 240 Z" fill="none" stroke="#000000" stroke-width="2"/>
+  <text x="400" y="255" font-family="serif" font-size="10" fill="#000000" opacity="0.5">还能进步</text>
+
+  <!-- 中间对比线 -->
+  <line x1="280" y1="90" x2="280" y2="300" stroke="#000000" stroke-width="1" stroke-dasharray="4,4" opacity="0.3"/>
+
+  <!-- 底部文字 -->
+  <text x="100" y="295" font-family="serif" font-size="11" fill="#000000" opacity="0.6">自负：我知道一切</text>
+  <text x="390" y="295" font-family="serif" font-size="11" fill="#000000" opacity="0.6">谦逊：我知道我不知道</text>
+
+  <!-- 小孙悟空在最右侧，观察两者 -->
+  <circle cx="540" cy="300" r="22" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <path d="M 520 288 Q 540 278 560 288" fill="none" stroke="#000000" stroke-width="3"/>
+  <circle cx="533" cy="298" r="3" fill="#000000"/>
+  <circle cx="547" cy="298" r="3" fill="#000000"/>
+  <path d="M 534 310 Q 540 312 546 310" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <path d="M 524 318 Q 540 320 556 318 L 556 350 Q 540 352 524 350 Z" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 手指对比 -->
+  <line x1="524" y1="325" x2="500" y2="310" stroke="#000000" stroke-width="2"/>
+  <line x1="524" y1="330" x2="500" y2="345" stroke="#000000" stroke-width="2"/>
+
+  <!-- 标题 -->
+  <text x="55" y="22" font-family="serif" font-size="13" fill="#000000">陆 · 谦逊是一种认知能力</text>
+</svg>

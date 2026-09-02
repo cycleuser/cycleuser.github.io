@@ -1,0 +1,5077 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>封神对战</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a1a2e 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            font-family: 'Microsoft YaHei', 'SimHei', sans-serif;
+            touch-action: manipulation;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        #gameContainer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #gameCanvas {
+            display: block;
+            background: #000;
+            border-radius: 4px;
+            max-width: 100%;
+            max-height: 100%;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 0 50px rgba(255, 200, 100, 0.3);
+        }
+        
+        @media (max-width: 1023px) and (orientation: landscape) {
+            #gameCanvas {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                margin: 0;
+            }
+        }
+        
+        @media (max-width: 1023px) and (orientation: portrait) {
+            #gameCanvas {
+                position: relative;
+                margin: 10px auto;
+                transform: none;
+            }
+        }
+        @media (max-width: 1023px) and (orientation: portrait) {
+            html, body {
+                overflow: hidden;
+                width: 100vw;
+                height: 100vh;
+            }
+            body::before {
+                content: "请将设备旋转至横向模式以获得最佳游戏体验";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: linear-gradient(135deg, #1a0a2e 0%, #0a1a2e 100%);
+                color: #ffd700;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                text-align: center;
+                z-index: 9999;
+                padding: 20px;
+                box-sizing: border-box;
+                text-shadow: 0 0 20px #ffd700;
+            }
+        }
+        
+        #controls {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            pointer-events: none;
+        }
+        
+        .left-joystick-container {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: auto;
+            z-index: 101;
+        }
+        
+        .right-buttons-container {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            z-index: 101;
+        }
+        
+        .right-buttons-container > * {
+            pointer-events: auto;
+        }
+        
+        #joystickArea {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            touch-action: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+        }
+
+        #joystickArea::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 40%, rgba(255,215,0,0.15) 40%, rgba(255,215,0,0.15) 60%, transparent 60%),
+                linear-gradient(0deg, transparent 40%, rgba(255,215,0,0.15) 40%, rgba(255,215,0,0.15) 60%, transparent 60%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        #joystickBase {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        #joystickKnob {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ffd700, #aa8800);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.05s;
+            pointer-events: none;
+            z-index: 2;
+        }
+        
+        #joystickKnob.active {
+            transform: translate(-50%, -50%) scale(0.95);
+            background: radial-gradient(circle at 30% 30%, #ffee88, #ffd700);
+        }
+
+        .joy-indicator {
+            position: absolute;
+            color: rgba(255, 215, 0, 0.5);
+            font-size: 24px;
+            pointer-events: none;
+            font-weight: bold;
+        }
+        .joy-indicator.up { top: 8px; left: 50%; transform: translateX(-50%); }
+        .joy-indicator.down { bottom: 8px; left: 50%; transform: translateX(-50%); }
+        .joy-indicator.left { left: 8px; top: 50%; transform: translateY(-50%); }
+        .joy-indicator.right { right: 8px; top: 50%; transform: translateY(-50%); }
+
+        .ctrl-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            transition: all 0.1s;
+            user-select: none;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        }
+
+        .ctrl-btn:active {
+            transform: scale(0.92);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .ctrl-btn.attack {
+            background: linear-gradient(135deg, rgba(255, 100, 50, 0.5), rgba(255, 50, 50, 0.3));
+            border-color: rgba(255, 150, 100, 0.5);
+            box-shadow: 0 0 20px rgba(255, 100, 50, 0.3);
+        }
+        .ctrl-btn.attack:active {
+            background: linear-gradient(135deg, rgba(255, 100, 50, 0.7), rgba(255, 50, 50, 0.5));
+        }
+
+        .ctrl-btn.defend {
+            background: linear-gradient(135deg, rgba(100, 150, 255, 0.5), rgba(80, 100, 255, 0.3));
+            border-color: rgba(150, 180, 255, 0.5);
+            box-shadow: 0 0 20px rgba(100, 150, 255, 0.3);
+        }
+        .ctrl-btn.defend:active {
+            background: linear-gradient(135deg, rgba(100, 150, 255, 0.7), rgba(80, 100, 255, 0.5));
+        }
+
+        .ctrl-btn.skill {
+            background: linear-gradient(135deg, rgba(200, 100, 255, 0.5), rgba(150, 50, 255, 0.3));
+            border-color: rgba(220, 150, 255, 0.5);
+            box-shadow: 0 0 20px rgba(200, 100, 255, 0.3);
+        }
+        .ctrl-btn.skill:active {
+            background: linear-gradient(135deg, rgba(200, 100, 255, 0.7), rgba(150, 50, 255, 0.5));
+        }
+        
+        @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+            #controls { display: none !important; }
+        }
+        
+        #fullscreenBtn {
+            position: fixed;
+            top: 8px;
+            right: 8px;
+            z-index: 200;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(30,30,60,0.8));
+            border: 2px solid #ffd700;
+            color: #ffd700;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            touch-action: manipulation;
+            text-shadow: 0 0 10px #ffd700;
+        }
+        #fullscreenBtn:active { background: rgba(255, 215, 0, 0.3); }
+        
+        #mobileUtils {
+            display: none;
+            position: fixed;
+            top: 8px;
+            left: 8px;
+            z-index: 200;
+            flex-direction: row;
+            gap: 8px;
+        }
+        .util-btn {
+            background: rgba(0,0,0,0.8);
+            border: 2px solid #888;
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            touch-action: manipulation;
+            text-align: center;
+        }
+        .util-btn:active { background: rgba(100,100,100,0.9); }
+        .util-btn.restart { border-color: #88cc88; }
+        .util-btn.back { border-color: #cc8888; }
+        .util-btn.formation { border-color: #cc88cc; color: #ffaaff; }
+    </style>
+</head>
+<body>
+    <button id="fullscreenBtn">全屏</button>
+    <div id="mobileUtils">
+        <button class="util-btn restart" id="btnRestart">重来 R</button>
+        <button class="util-btn back" id="btnBack">返回</button>
+        <button class="util-btn formation" id="btnFormation">阵法</button>
+    </div>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    <div id="controls">
+        <div class="left-joystick-container">
+            <div id="joystickArea">
+                <div id="joystickBase">
+                    <span class="joy-indicator up">▲</span>
+                    <span class="joy-indicator down">▼</span>
+                    <span class="joy-indicator left">◀</span>
+                    <span class="joy-indicator right">▶</span>
+                </div>
+                <div id="joystickKnob"></div>
+            </div>
+        </div>
+        
+        <div class="right-buttons-container">
+            <div class="ctrl-btn skill" id="btnSkill">法</div>
+            <div class="ctrl-btn attack" id="btnAttack">攻</div>
+            <div class="ctrl-btn defend" id="btnDefend">防</div>
+        </div>
+    </div>
+
+<script>
+// ========== 封神对战 - Fengshen Battle ==========
+const SCREEN_WIDTH = 1000;
+const SCREEN_HEIGHT = 562;
+const GROUND_Y = SCREEN_HEIGHT - 100;
+const GRAVITY = 0.75;
+const ACCEL = 0.85;
+const FRICTION = 0.88;
+const MAX_SPEED = 7;
+const ATTACK_FOV_DEG = 75;
+const FPS = 60;
+
+// Colors for factions
+const CHANJIAO_COLOR = '#ffcc33';      // 阐教 - Golden
+const JIEJIAO_COLOR = '#8844ff';       // 截教 - Purple
+const XIFANG_COLOR = '#ffffff';        // 西方教 - White/Gold
+const SHANG_COLOR = '#cc2222';         // 商朝 - Red
+const ZHOU_COLOR = '#2288cc';          // 周朝 - Blue
+const YAOZU_COLOR = '#44cc44';         // 妖族 - Green
+const RENXIAN_COLOR = '#ff8844';       // 人仙 - Orange
+const SANQING_COLOR = '#ffff88';       // 三清 - Bright Gold
+
+// ========== 封神人物数据 ==========
+const ALL_HEROES = {
+    '阐教': [
+        '元始天尊', '太上老君', '燃灯道人', '南极仙翁', '云中子', '广成子', '赤精子', '黄龙真人',
+        '太乙真人', '惧留孙', '道行天尊', '清虚道德真君', '灵宝大法师', '玉鼎真人', '文殊广法天尊',
+        '普贤真人', '慈航道人', '哪吒', '杨戬', '雷震子', '韦护', '金吒', '木吒', '李靖',
+        '土行孙', '邓婵玉', '龙吉公主', '黄天化', '姜子牙', '申公豹', '萧升', '曹宝'
+    ],
+    '截教': [
+        '通天教主', '多宝道人', '金灵圣母', '无当圣母', '龟灵圣母', '赵公明', '云霄', '碧霄', '琼霄',
+        '闻仲', '十天君', '余元', '石矶娘娘', '火灵圣母', '金光仙', '灵牙仙', '虬首仙', '金箍仙',
+        '吕岳', '罗宣', '刘环', '乌云仙', '金鳌岛十仙', '长耳定光仙', '马元', '王魔', '杨森',
+        '孔宣', '袁洪', '常昊', '马善', '高友乾', '李兴霸', '张绍', '九龙岛四圣'
+    ],
+    '西方教': [
+        '接引道人', '准提道人', '药师佛', '观音菩萨', '文殊菩萨', '普贤菩萨', '地藏菩萨',
+        '惧留孙', '孔雀明王'
+    ],
+    '商朝': [
+        '纣王', '妲己', '申公豹', '闻仲', '黄飞虎', '比干', '箕子', '微子', '商容',
+        '费仲', '尤浑', '鲁雄', '殷郊', '殷洪', '邓九公', '张桂芳', '风林', '丘引',
+        '魔家四将', '高明', '高觉', '晁田', '晁雷', '土行孙', '邓婵玉', '苏护',
+        '郑伦', '陈奇', '余化', '余达', '高继能', '张奎', '高兰英'
+    ],
+    '周朝': [
+        '周文王', '周武王', '姜子牙', '姬发', '姬旦', '姬奭', '南宫适', '散宜生',
+        '伯邑考', '黄飞虎', '黄天化', '黄飞彪', '周纪', '黄明', '龙环', '吴谦',
+        '崇黑虎', '崇侯虎', '苏全忠', '郑伦', '晁田', '晁雷', '养由基', '蓬蒙'
+    ],
+    '妖族': [
+        '妲己', '琵琶精', '九头雉鸡精', '轩辕坟三妖', '梅山七怪', '袁洪', '常昊',
+        '吴龙', '杨显', '戴礼', '金大升', '朱子真', '彭遵', '蛟魔王', '九婴',
+        '牛魔王', '蛇妖', '虎妖', '豹妖', '狐妖', '熊妖', '鹿妖', '狼妖'
+    ],
+    '人仙': [
+        '姜子牙', '申公豹', '伯邑考', '武成王', '苏护', '郑伦', '陈塘关李靖',
+        '苏全忠', '黄飞虎', '邓九公', '崇侯虎', '崇黑虎', '殷郊', '殷洪', '后羿'
+    ]
+};
+
+// 女性人物
+const FEMALE_HEROES = ['妲己', '云霄', '碧霄', '琼霄', '龙吉公主', '邓婵玉', '金灵圣母', '无当圣母', 
+    '龟灵圣母', '石矶娘娘', '火灵圣母', '琵琶精', '九头雉鸡精', '高兰英', '观音菩萨', '慈航道人'];
+
+// ========== 法宝数据 (Magical Treasures) ==========
+const ALL_FABAO = {
+    // 阐教法宝
+    '盘古幡': { attack: 50, defense: 30, range: 200, price: 0, category: 'banner', skill: '开天辟地', effect: '混沌开辟' },
+    '太极图': { attack: 40, defense: 50, range: 180, price: 0, category: 'diagram', skill: '阴阳逆转', effect: '乾坤颠倒' },
+    '打神鞭': { attack: 35, defense: 10, range: 150, price: 500, category: 'whip', skill: '诛神灭仙', effect: '神魂震荡' },
+    '杏黄旗': { attack: 15, defense: 45, range: 100, price: 400, category: 'banner', skill: '万法不侵', effect: '金光护体' },
+    '九龙神火罩': { attack: 30, defense: 20, range: 130, price: 450, category: 'cover', skill: '九龙真火', effect: '烈焰焚天' },
+    '乾坤圈': { attack: 28, defense: 15, range: 160, price: 380, category: 'ring', skill: '乾坤一掷', effect: '缚魔镇妖' },
+    '混天绫': { attack: 20, defense: 30, range: 200, price: 350, category: 'ribbon', skill: '混天缠绕', effect: '束缚无形' },
+    '火尖枪': { attack: 32, defense: 8, range: 140, price: 420, category: 'spear', skill: '三昧真火', effect: '焚尽万物' },
+    '风火轮': { attack: 25, defense: 12, range: 180, price: 400, category: 'wheel', skill: '风火双遁', effect: '御空飞行' },
+    '三尖两刃刀': { attack: 38, defense: 15, range: 135, price: 480, category: 'blade', skill: '劈山救母', effect: '开山裂石' },
+    '啸天犬': { attack: 22, defense: 10, range: 150, price: 300, category: 'beast', skill: '神犬噬魂', effect: '撕咬神兵' },
+    '黄金棍': { attack: 30, defense: 18, range: 125, price: 350, category: 'staff', skill: '横扫千军', effect: '金棍破空' },
+    '莫邪宝剑': { attack: 25, defense: 12, range: 120, price: 280, category: 'sword', skill: '剑气纵横', effect: '宝剑出鞘' },
+    '玲珑塔': { attack: 18, defense: 40, range: 100, price: 450, category: 'pagoda', skill: '镇妖伏魔', effect: '塔压九天' },
+    '番天印': { attack: 45, defense: 5, range: 180, price: 550, category: 'seal', skill: '番天覆地', effect: '一印灭世' },
+    '落魂钟': { attack: 35, defense: 25, range: 150, price: 480, category: 'bell', skill: '摄魂夺魄', effect: '魂飞魄散' },
+    '金蛟剪': { attack: 42, defense: 8, range: 160, price: 520, category: 'scissors', skill: '剪灭万法', effect: '绞碎金身' },
+    
+    // 截教法宝
+    '诛仙四剑': { attack: 55, defense: 20, range: 200, price: 0, category: 'sword', skill: '诛仙剑阵', effect: '诛尽万仙' },
+    '六魂幡': { attack: 48, defense: 15, range: 180, price: 0, category: 'banner', skill: '六魂大法', effect: '魂魄尽散' },
+    '混元金斗': { attack: 25, defense: 35, range: 120, price: 450, category: 'bowl', skill: '颠倒乾坤', effect: '困敌金斗' },
+    '定海珠': { attack: 40, defense: 20, range: 200, price: 500, category: 'pearl', skill: '水淹七军', effect: '翻江倒海' },
+    '金交剪': { attack: 38, defense: 10, range: 140, price: 400, category: 'scissors', skill: '剪碎神魂', effect: '一剪两段' },
+    '戮仙剑': { attack: 45, defense: 12, range: 150, price: 480, category: 'sword', skill: '戮仙灭神', effect: '一剑诛仙' },
+    '陷仙剑': { attack: 43, defense: 14, range: 145, price: 470, category: 'sword', skill: '陷落无边', effect: '陷入绝境' },
+    '绝仙剑': { attack: 44, defense: 13, range: 148, price: 475, category: 'sword', skill: '绝仙断魂', effect: '仙路断绝' },
+    '五火七禽扇': { attack: 38, defense: 18, range: 180, price: 420, category: 'fan', skill: '五火焚天', effect: '七禽啸空' },
+    '钉头七箭书': { attack: 50, defense: 0, range: 300, price: 550, category: 'curse', skill: '诅咒灭神', effect: '魂飞魄散' },
+    '缚龙索': { attack: 18, defense: 28, range: 160, price: 320, category: 'rope', skill: '缚龙锁蛟', effect: '束缚真龙' },
+    '乾坤弓': { attack: 35, defense: 8, range: 250, price: 400, category: 'bow', skill: '震天一箭', effect: '射落星辰' },
+    '震天箭': { attack: 40, defense: 0, range: 280, price: 380, category: 'arrow', skill: '箭落九天', effect: '震碎星河' },
+    
+    // 西方教法宝
+    '十二品金莲': { attack: 25, defense: 60, range: 100, price: 0, category: 'lotus', skill: '金莲护体', effect: '功德无量' },
+    '七宝妙树': { attack: 30, defense: 40, range: 150, price: 0, category: 'tree', skill: '七宝禅光', effect: '净化万物' },
+    '加持神杵': { attack: 35, defense: 25, range: 120, price: 400, category: 'pestle', skill: '降魔神杵', effect: '伏魔卫道' },
+    '六根清净竹': { attack: 20, defense: 35, range: 140, price: 350, category: 'bamboo', skill: '清心寡欲', effect: '六根清净' },
+    '金刚琢': { attack: 45, defense: 15, range: 180, price: 500, category: 'ring', skill: '金刚不坏', effect: '套取万宝' },
+    
+    // 普通武器
+    '青铜剑': { attack: 8, defense: 4, range: 110, price: 50, category: 'sword', skill: '剑气', effect: '普通攻击' },
+    '方天画戟': { attack: 18, defense: 8, range: 130, price: 200, category: 'halberd', skill: '横扫', effect: '画戟之威' },
+    '钢鞭': { attack: 15, defense: 5, range: 115, price: 150, category: 'whip', skill: '鞭打', effect: '钢鞭抽击' },
+    '长枪': { attack: 12, defense: 6, range: 125, price: 120, category: 'spear', skill: '枪刺', effect: '枪出如龙' },
+    '大刀': { attack: 14, defense: 4, range: 118, price: 130, category: 'blade', skill: '劫砍', effect: '刀光霍霍' },
+    '双锤': { attack: 20, defense: 3, range: 105, price: 180, category: 'hammer', skill: '双锤震地', effect: '锤落星沉' },
+    '弓箭': { attack: 10, defense: 2, range: 220, price: 100, category: 'bow', skill: '连珠箭', effect: '箭如流星' },
+    '射日神弓': { attack: 50, defense: 5, range: 350, price: 0, category: 'bow', skill: '射落九日', effect: '日辉降世' },
+    '落日弓': { attack: 35, defense: 3, range: 300, price: 400, category: 'bow', skill: '落日之弓', effect: '射穿云霍' },
+    '穿云弓': { attack: 30, defense: 4, range: 280, price: 350, category: 'bow', skill: '穿云裂日', effect: '箭射九霄' }
+};
+
+// ========== 阵法数据 (Battle Formations) ==========
+const ALL_FORMATIONS = {
+    '诛仙阵': { 
+        power: 100, defense: 50, effect: '诛仙四剑齐出，万仙难挡',
+        color: '#ff0000', requiredLevel: 10
+    },
+    '万仙阵': { 
+        power: 120, defense: 40, effect: '万仙齐聚，气势冲天',
+        color: '#8844ff', requiredLevel: 12
+    },
+    '十绝阵': { 
+        power: 80, defense: 60, effect: '十阵连环，步步杀机',
+        color: '#44ff44', requiredLevel: 8
+    },
+    '红水阵': { 
+        power: 60, defense: 30, effect: '红水漫天，腐蚀神体',
+        color: '#ff4444', requiredLevel: 5
+    },
+    '黄河阵': { 
+        power: 70, defense: 35, effect: '混沌黄河，吞噬万物',
+        color: '#ffaa00', requiredLevel: 6
+    },
+    '风吼阵': { 
+        power: 50, defense: 25, effect: '狂风呼啸，裂空碎石',
+        color: '#88ccff', requiredLevel: 4
+    },
+    '寒冰阵': { 
+        power: 55, defense: 28, effect: '极寒冰封，冻结神魂',
+        color: '#aaddff', requiredLevel: 4
+    },
+    '落魂阵': { 
+        power: 65, defense: 20, effect: '摄人魂魄，神志不清',
+        color: '#884488', requiredLevel: 5
+    },
+    '化血阵': { 
+        power: 75, defense: 15, effect: '化血为雾，销蚀肉身',
+        color: '#cc0000', requiredLevel: 6
+    },
+    '烈焰阵': { 
+        power: 58, defense: 22, effect: '烈焰焚天，万物成灰',
+        color: '#ff6600', requiredLevel: 4
+    },
+    '混元阵': { 
+        power: 90, defense: 70, effect: '混元归一，攻防兼备',
+        color: '#ffcc00', requiredLevel: 9
+    },
+    '九曲黄河阵': {
+        power: 85, defense: 45, effect: '九曲回转，困敌于内',
+        color: '#cc8800', requiredLevel: 7
+    }
+};
+
+// ========== 人物属性数据 ==========
+// [血量, 攻击, 防御, 范围, 默认法宝, 神通, 无双值, 境界]
+const HERO_STATS = {
+    '阐教': {
+        '元始天尊': [9999, 150, 150, 300, '盘古幡', '开天辟地', 3, '圣人'],
+        '太上老君': [9998, 140, 160, 280, '太极图', '太极两仪', 3, '圣人'],
+        '燃灯道人': [600, 65, 55, 180, '乾坤尺', '定海慧灯', 5, '大罗金仙'],
+        '南极仙翁': [500, 50, 60, 160, '三宝玉如意', '南极长生', 6, '大罗金仙'],
+        '云中子': [480, 55, 50, 170, '紫电锤', '五雷正法', 6, '金仙'],
+        '广成子': [520, 58, 52, 165, '番天印', '翻天覆地', 5, '金仙'],
+        '赤精子': [500, 56, 48, 168, '阴阳镜', '阴阳逆乱', 5, '金仙'],
+        '黄龙真人': [490, 52, 55, 160, '如意金鞭', '金鞭震邪', 6, '金仙'],
+        '太乙真人': [550, 60, 58, 175, '九龙神火罩', '九龙真火', 5, '金仙'],
+        '惧留孙': [480, 48, 62, 155, '捆仙绳', '捆仙缚魔', 6, '金仙'],
+        '道行天尊': [470, 50, 50, 160, '降魔杵', '降魔伏妖', 6, '金仙'],
+        '清虚道德真君': [510, 54, 56, 165, '五火七禽扇', '五火焚天', 5, '金仙'],
+        '灵宝大法师': [460, 46, 58, 150, '定风珠', '风雷变化', 6, '金仙'],
+        '玉鼎真人': [530, 62, 50, 170, '斩仙剑', '斩仙灭神', 5, '金仙'],
+        '文殊广法天尊': [500, 55, 55, 165, '遁龙桩', '七宝金莲', 5, '金仙'],
+        '普贤真人': [490, 53, 57, 162, '太极符印', '万法归一', 5, '金仙'],
+        '慈航道人': [480, 50, 60, 158, '清净琉璃瓶', '慈航普度', 6, '金仙'],
+        '哪吒': [450, 70, 35, 160, '火尖枪', '三头六臂', 4, '天仙'],
+        '杨戬': [500, 75, 45, 150, '三尖两刃刀', '九转玄功', 4, '天仙'],
+        '雷震子': [420, 65, 40, 155, '黄金棍', '风雷双翅', 5, '天仙'],
+        '韦护': [400, 55, 45, 145, '降魔杵', '降魔神威', 5, '天仙'],
+        '金吒': [380, 58, 42, 148, '遁龙桩', '七宝金莲', 5, '天仙'],
+        '木吒': [390, 60, 40, 150, '吴钩双剑', '剑气纵横', 5, '天仙'],
+        '李靖': [420, 50, 55, 140, '玲珑塔', '托塔镇魔', 5, '天仙'],
+        '土行孙': [350, 45, 35, 130, '捆仙绳', '土遁之术', 6, '真仙'],
+        '邓婵玉': [340, 50, 32, 180, '五色神石', '石打将军', 6, '真仙'],
+        '龙吉公主': [380, 55, 45, 170, '四海瓶', '龙女降世', 5, '真仙'],
+        '黄天化': [400, 62, 38, 145, '莫邪宝剑', '攒心钉', 5, '真仙'],
+        '姜子牙': [300, 35, 40, 135, '打神鞭', '封神榜', 7, '人仙'],
+        '申公豹': [320, 40, 38, 140, '开天珠', '请神之术', 6, '人仙'],
+        '萧升': [280, 32, 35, 130, '落宝金钱', '落宝', 7, '人仙'],
+        '曹宝': [290, 34, 36, 132, '落宝金钱', '聚宝', 7, '人仙']
+    },
+    '截教': {
+        '通天教主': [9997, 145, 140, 290, '诛仙四剑', '诛仙剑阵', 3, '圣人'],
+        '多宝道人': [580, 68, 52, 175, '番天印', '万仙来朝', 4, '大罗金仙'],
+        '金灵圣母': [550, 65, 55, 170, '龙虎如意', '金光圣母', 5, '大罗金仙'],
+        '无当圣母': [540, 60, 58, 168, '六魂幡', '六魂大法', 5, '大罗金仙'],
+        '龟灵圣母': [600, 55, 70, 160, '日月珠', '龟息神功', 5, '大罗金仙'],
+        '赵公明': [620, 72, 60, 165, '定海珠', '二十四颗定海珠', 4, '大罗金仙'],
+        '云霄': [480, 58, 50, 165, '混元金斗', '颠倒乾坤', 5, '金仙'],
+        '碧霄': [470, 56, 48, 168, '混元金斗', '金斗收魂', 5, '金仙'],
+        '琼霄': [460, 54, 52, 162, '金蛟剪', '剪碎万物', 5, '金仙'],
+        '闻仲': [550, 70, 65, 155, '雌雄双鞭', '雷霆之怒', 4, '金仙'],
+        '十天君': [500, 65, 50, 160, '各式法宝', '十绝阵', 5, '金仙'],
+        '余元': [480, 60, 48, 158, '化血神刀', '化血阵', 5, '金仙'],
+        '石矶娘娘': [450, 55, 55, 155, '八卦紫绶仙衣', '石矶怒火', 5, '金仙'],
+        '火灵圣母': [440, 62, 42, 165, '金霞冠', '烈焰焚天', 5, '金仙'],
+        '金光仙': [420, 58, 45, 160, '七宝金莲', '金光护体', 6, '金仙'],
+        '灵牙仙': [430, 56, 48, 155, '金刚琢', '金刚不坏', 6, '金仙'],
+        '虬首仙': [440, 60, 46, 158, '蟠龙杖', '蟠龙显威', 6, '金仙'],
+        '金箍仙': [425, 55, 50, 152, '金箍', '紧箍咒', 6, '金仙'],
+        '吕岳': [460, 58, 44, 180, '瘟癀伞', '瘟疫之源', 5, '金仙'],
+        '罗宣': [480, 68, 40, 175, '五龙轮', '火龙真人', 5, '金仙'],
+        '刘环': [400, 52, 42, 150, '红沙阵法', '困敌红沙', 6, '金仙'],
+        '乌云仙': [410, 50, 55, 145, '定风珠', '乌云遮日', 6, '金仙'],
+        '金鳌岛十仙': [450, 58, 52, 160, '各式法宝', '十仙联手', 5, '金仙'],
+        '长耳定光仙': [380, 45, 48, 150, '六魂幡', '定光神通', 6, '金仙'],
+        '马元': [420, 60, 45, 155, '戮仙剑', '戮仙之威', 5, '金仙'],
+        '王魔': [400, 55, 50, 148, '混元锤', '混元神威', 6, '金仙'],
+        '杨森': [390, 52, 48, 145, '开天印', '开天辟地', 6, '金仙'],
+        '孔宣': [650, 80, 70, 180, '五色神光', '孔雀明王', 4, '准圣'],
+        '袁洪': [550, 75, 55, 165, '铁棒', '梅山七变', 4, '大妖'],
+        '常昊': [420, 58, 48, 150, '九头神功', '九头蛇身', 5, '大妖'],
+        '马善': [380, 52, 45, 145, '火眼金睛', '法天象地', 6, '大妖'],
+        '高友乾': [370, 50, 42, 142, '飞剑', '剑术精通', 6, '真仙'],
+        '李兴霸': [360, 48, 44, 140, '方天戟', '戟法无双', 6, '真仙'],
+        '张绍': [350, 46, 40, 138, '宝剑', '剑气冲霄', 6, '真仙'],
+        '九龙岛四圣': [450, 60, 55, 158, '各式法宝', '四圣合击', 5, '金仙']
+    },
+    '西方教': {
+        '接引道人': [9996, 130, 170, 270, '十二品金莲', '接引众生', 3, '圣人'],
+        '准提道人': [9995, 135, 165, 275, '七宝妙树', '准提神咒', 3, '圣人'],
+        '药师佛': [700, 60, 80, 200, '药师琉璃光', '妙手回春', 5, '大罗金仙'],
+        '观音菩萨': [650, 55, 85, 220, '净瓶杨柳', '慈悲为怀', 5, '大罗金仙'],
+        '文殊菩萨': [600, 65, 70, 190, '青莲宝色旗', '智慧无边', 5, '大罗金仙'],
+        '普贤菩萨': [620, 60, 75, 185, '白莲花', '普度众生', 5, '大罗金仙'],
+        '地藏菩萨': [680, 50, 90, 180, '地藏神杖', '地狱不空', 5, '大罗金仙'],
+        '惧留孙': [480, 48, 62, 155, '捆仙绳', '捆仙缚魔', 6, '金仙'],
+        '孔雀明王': [700, 85, 75, 200, '五色神光', '明王降世', 4, '准圣']
+    },
+    '商朝': {
+        '纣王': [400, 55, 45, 130, '轩辕剑', '帝王之威', 6, '凡人'],
+        '妲己': [300, 65, 25, 140, '魅惑术', '倾国倾城', 5, '妖仙'],
+        '申公豹': [320, 40, 38, 140, '开天珠', '请神之术', 6, '人仙'],
+        '闻仲': [550, 70, 65, 155, '雌雄双鞭', '雷霆之怒', 4, '金仙'],
+        '黄飞虎': [450, 60, 55, 145, '五色神牛', '武成王威', 5, '真仙'],
+        '比干': [280, 30, 50, 120, '七窍玲珑心', '忠肝义胆', 8, '凡人'],
+        '箕子': [260, 28, 45, 115, '竹简', '箕子明道', 8, '凡人'],
+        '微子': [270, 29, 48, 118, '玉圭', '仁德之心', 8, '凡人'],
+        '商容': [250, 25, 40, 110, '笏板', '忠臣之志', 9, '凡人'],
+        '费仲': [200, 20, 30, 100, '毒计', '奸臣误国', 10, '凡人'],
+        '尤浑': [200, 22, 28, 102, '谗言', '小人得志', 10, '凡人'],
+        '鲁雄': [350, 45, 40, 135, '大刀', '老将之威', 7, '凡人'],
+        '殷郊': [420, 58, 48, 150, '落魂钟', '落魂摄魄', 5, '真仙'],
+        '殷洪': [410, 55, 50, 148, '阴阳镜', '阴阳逆转', 5, '真仙'],
+        '邓九公': [380, 50, 45, 142, '斩将刀', '沙场老将', 6, '凡人'],
+        '张桂芳': [390, 52, 42, 145, '呼名落马术', '呼名落马', 6, '真仙'],
+        '风林': [350, 48, 40, 138, '五行旗', '五行变化', 6, '真仙'],
+        '丘引': [340, 45, 42, 135, '地行术', '土遁神通', 6, '真仙'],
+        '魔家四将': [500, 65, 60, 160, '各式法宝', '四将齐出', 5, '天仙'],
+        '高明': [380, 55, 42, 200, '千里眼', '洞察万里', 6, '妖仙'],
+        '高觉': [375, 52, 45, 220, '顺风耳', '聆听八方', 6, '妖仙'],
+        '晁田': [360, 50, 48, 140, '铁枪', '枪法精湛', 6, '凡人'],
+        '晁雷': [355, 48, 46, 138, '铁锤', '锤法无双', 6, '凡人'],
+        '苏护': [370, 52, 50, 142, '宝剑', '冀州侯威', 6, '凡人'],
+        '郑伦': [420, 58, 45, 148, '降魔杵', '哼哈二将', 5, '真仙'],
+        '陈奇': [400, 55, 48, 145, '牙刷', '口吐黑烟', 6, '妖仙'],
+        '余化': [410, 56, 46, 150, '化血神刀', '化血神功', 5, '真仙'],
+        '余达': [380, 50, 44, 142, '开天斧', '斧劈华山', 6, '真仙'],
+        '高继能': [390, 52, 42, 145, '混元伞', '遮天蔽日', 6, '真仙'],
+        '张奎': [450, 62, 55, 155, '千里眼', '地行千里', 5, '真仙'],
+        '高兰英': [380, 55, 45, 160, '日月珠', '日月齐辉', 5, '真仙']
+    },
+    '周朝': {
+        '周文王': [300, 30, 55, 120, '先天八卦', '演算天机', 8, '凡人'],
+        '周武王': [380, 55, 50, 140, '轩辕剑', '天命所归', 6, '凡人'],
+        '姜子牙': [300, 35, 40, 135, '打神鞭', '封神榜', 7, '人仙'],
+        '姬发': [370, 52, 48, 138, '天子剑', '武王伐纣', 6, '凡人'],
+        '姬旦': [320, 40, 52, 130, '周礼', '制礼作乐', 7, '凡人'],
+        '姬奭': [310, 38, 50, 128, '召伯', '甘棠遗爱', 7, '凡人'],
+        '南宫适': [400, 58, 48, 145, '方天戟', '猛将之威', 5, '凡人'],
+        '散宜生': [280, 35, 45, 125, '笏板', '谋臣之智', 8, '凡人'],
+        '伯邑考': [250, 28, 35, 115, '瑶琴', '以德报怨', 9, '凡人'],
+        '黄飞虎': [450, 60, 55, 145, '五色神牛', '武成王威', 5, '真仙'],
+        '黄天化': [400, 62, 38, 145, '莫邪宝剑', '攒心钉', 5, '真仙'],
+        '黄飞彪': [360, 48, 42, 138, '双锤', '飞彪之勇', 6, '凡人'],
+        '周纪': [350, 46, 44, 136, '大刀', '老将风范', 6, '凡人'],
+        '黄明': [340, 44, 42, 134, '铁枪', '枪法娴熟', 6, '凡人'],
+        '龙环': [345, 45, 43, 135, '龙头拐', '龙腾虎跃', 6, '凡人'],
+        '吴谦': [338, 43, 45, 133, '宝剑', '剑术精通', 6, '凡人'],
+        '崇黑虎': [420, 60, 50, 150, '火眼金睛', '铁嘴神鹰', 5, '真仙'],
+        '崇侯虎': [350, 50, 45, 140, '大刀', '北伯侯威', 6, '凡人'],
+        '苏全忠': [380, 55, 48, 142, '长枪', '忠义之士', 5, '凡人'],
+        '郑伦': [420, 58, 45, 148, '降魔杵', '哼哈二将', 5, '真仙'],
+        '晁田': [360, 50, 48, 140, '铁枪', '枪法精湛', 6, '凡人'],
+        '晁雷': [355, 48, 46, 138, '铁锤', '锤法无双', 6, '凡人'],
+        '养由基': [380, 70, 35, 280, '乾坤弓', '百步穿杨', 5, '凡人'],
+        '蓬蒙': [360, 65, 32, 270, '震天箭', '射日神弓', 5, '凡人']
+    },
+    '妖族': {
+        '妲己': [300, 65, 25, 140, '魅惑术', '倾国倾城', 5, '妖仙'],
+        '琵琶精': [280, 58, 28, 145, '琵琶', '天籁魔音', 6, '妖仙'],
+        '九头雉鸡精': [350, 62, 35, 150, '九头神功', '九首齐出', 5, '妖仙'],
+        '轩辕坟三妖': [400, 60, 40, 155, '妖法', '三妖合体', 5, '妖仙'],
+        '梅山七怪': [450, 65, 50, 160, '七十二变', '梅山神通', 5, '大妖'],
+        '袁洪': [550, 75, 55, 165, '铁棒', '梅山七变', 4, '大妖'],
+        '常昊': [420, 58, 48, 150, '九头神功', '九头蛇身', 5, '大妖'],
+        '吴龙': [400, 55, 45, 148, '蜈蚣法', '百足之毒', 5, '大妖'],
+        '杨显': [380, 52, 42, 145, '羊角神功', '铁头功', 6, '大妖'],
+        '戴礼': [385, 53, 44, 146, '狗王神功', '獠牙撕咬', 6, '大妖'],
+        '金大升': [390, 54, 46, 147, '金刚神功', '力大无穷', 6, '大妖'],
+        '朱子真': [375, 50, 48, 144, '猪妖神功', '冲撞神功', 6, '大妖'],
+        '彭遵': [395, 56, 45, 149, '豹妖神功', '闪电突袭', 5, '大妖'],
+        '蛟魔王': [500, 68, 58, 170, '蛟龙神功', '翻江倒海', 4, '大妖'],
+        '九婴': [480, 72, 50, 180, '九头火焰', '九婴神火', 4, '上古凶兽'],
+        '牛魔王': [600, 70, 65, 155, '铁扇', '法天象地', 4, '大妖'],
+        '蛇妖': [300, 45, 35, 140, '毒液', '毒蛇噬咬', 6, '妖怪'],
+        '虎妖': [350, 55, 40, 135, '虎爪', '猛虎扑食', 6, '妖怪'],
+        '豹妖': [330, 60, 35, 145, '豹拳', '疾风豹影', 6, '妖怪'],
+        '狐妖': [280, 50, 30, 150, '魅术', '狐媚惑心', 6, '妖怪'],
+        '熊妖': [400, 52, 55, 130, '熊掌', '泰山压顶', 6, '妖怪'],
+        '鹿妖': [320, 48, 42, 155, '鹿角', '鹿角冲撞', 6, '妖怪'],
+        '狼妖': [340, 58, 38, 140, '狼牙', '群狼战术', 6, '妖怪']
+    },
+    '人仙': {
+        '姜子牙': [300, 35, 40, 135, '打神鞭', '封神榜', 7, '人仙'],
+        '申公豹': [320, 40, 38, 140, '开天珠', '请神之术', 6, '人仙'],
+        '伯邑考': [250, 28, 35, 115, '瑶琴', '以德报怨', 9, '凡人'],
+        '武成王': [450, 60, 55, 145, '五色神牛', '武成王威', 5, '真仙'],
+        '苏护': [370, 52, 50, 142, '宝剑', '冀州侯威', 6, '凡人'],
+        '郑伦': [420, 58, 45, 148, '降魔杵', '哼哈二将', 5, '真仙'],
+        '陈塘关李靖': [420, 50, 55, 140, '玲珑塔', '托塔镇魔', 5, '天仙'],
+        '苏全忠': [380, 55, 48, 142, '长枪', '忠义之士', 5, '凡人'],
+        '黄飞虎': [450, 60, 55, 145, '五色神牛', '武成王威', 5, '真仙'],
+        '邓九公': [380, 50, 45, 142, '斩将刀', '沙场老将', 6, '凡人'],
+        '崇侯虎': [350, 50, 45, 140, '大刀', '北伯侯威', 6, '凡人'],
+        '崇黑虎': [420, 60, 50, 150, '火眼金睛', '铁嘴神鹰', 5, '真仙'],
+        '殷郊': [420, 58, 48, 150, '落魂钟', '落魂摄魄', 5, '真仙'],
+        '殷洪': [410, 55, 50, 148, '阴阳镜', '阴阳逆转', 5, '真仙'],
+        '后羿': [500, 85, 40, 320, '射日神弓', '射落九日', 4, '上仙']
+    }
+};
+
+// ========== 护甲数据 ==========
+const ALL_ARMORS = {
+    '布衣': { defense: 0, speed: 0, price: 0 },
+    '道袍': { defense: 8, speed: 0.05, price: 150 },
+    '铁甲': { defense: 15, speed: -0.2, price: 300 },
+    '锁子甲': { defense: 20, speed: -0.15, price: 450 },
+    '金丝软甲': { defense: 25, speed: 0, price: 600 },
+    '天蚕宝衣': { defense: 35, speed: 0.1, price: 900 },
+    '混元道袍': { defense: 45, speed: 0.15, price: 1200 },
+    '八卦仙衣': { defense: 55, speed: 0.2, price: 1500 },
+    '五行遁甲': { defense: 40, speed: 0.25, price: 1800 },
+    '先天灵宝甲': { defense: 70, speed: 0.1, price: 2500 }
+};
+
+// ========== 游戏状态 ==========
+let gameState = 'selection'; // selection, battle, shop, formation
+let selectedFaction = null;
+let selectedHero = null;
+let selectedFaction2 = null;
+let selectedHero2 = null;
+let vsAI = true;
+let selectionPhase = 1;
+let heroScrollY = 0;
+let heroScrollMax = 0;
+let shopScrollY = 0;
+let shopScrollMax = 0;
+let shopCategory = 'fabao';
+let swipeStartX = 0, swipeStartY = 0, swipeStartTime = 0;
+let battleReturnState = null;
+let activeShopPlayer = 1;
+let currentFormation = null;
+let formationActive = false;
+let formationTimer = 0;
+
+// 玩家数据
+let playerGold = 500;
+let playerFabao = ['青铜剑', '长枪', '大刀', '弓箭'];
+let playerArmors = ['布衣', '道袍'];
+let currentFabao = null;
+let currentArmor = '布衣';
+let winStreak = 0;
+let totalWins = 0;
+
+// 玩家2数据
+let player2Gold = 500;
+let player2Fabao = ['青铜剑', '长枪', '大刀', '弓箭'];
+let player2Armors = ['布衣', '道袍'];
+let currentFabao2 = null;
+let currentArmor2 = '布衣';
+
+// 战斗变量
+let char1 = null, char2 = null;
+let projectiles = [];
+let gameOver = false;
+let winner = null;
+let battleLog = [];
+
+// ========== 画布设置 ==========
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+let scale = 1;
+let isMobile = false;
+
+function resizeCanvas() {
+    const container = document.getElementById('gameContainer');
+    const aspectRatio = SCREEN_WIDTH / SCREEN_HEIGHT;
+    
+    let targetWidth, targetHeight;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    const windowRatio = windowWidth / windowHeight;
+    
+    isMobile = 'ontouchstart' in window || window.innerWidth < 1024;
+    
+    if (windowRatio > aspectRatio) {
+        targetHeight = windowHeight;
+        targetWidth = targetHeight * aspectRatio;
+    } else {
+        targetWidth = windowWidth;
+        targetHeight = targetWidth / aspectRatio;
+    }
+    
+    canvas.width = SCREEN_WIDTH;
+    canvas.height = SCREEN_HEIGHT;
+    canvas.style.width = targetWidth + 'px';
+    canvas.style.height = targetHeight + 'px';
+    scale = targetWidth / SCREEN_WIDTH;
+    
+    if (isMobile) {
+        canvas.style.position = 'absolute';
+        canvas.style.left = '50%';
+        canvas.style.top = '50%';
+        canvas.style.transform = 'translate(-50%, -50%)';
+        canvas.style.margin = '0';
+    } else {
+        canvas.style.position = 'relative';
+        canvas.style.left = 'auto';
+        canvas.style.top = 'auto';
+        canvas.style.transform = 'none';
+        canvas.style.margin = '0 auto';
+    }
+    
+    const controls = document.getElementById('controls');
+    if (isMobile && window.innerWidth > window.innerHeight) {
+        controls.style.flexDirection = 'row';
+    }
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+window.addEventListener('orientationchange', () => setTimeout(resizeCanvas, 150));
+
+// 全屏支持
+document.getElementById('fullscreenBtn').addEventListener('click', () => {
+    if (document.fullscreenElement) {
+        document.exitFullscreen();
+    } else {
+        document.documentElement.requestFullscreen().catch(e => {});
+    }
+});
+
+// ========== 工具函数 ==========
+function hypot(dx, dy) { return Math.sqrt(dx*dx + dy*dy); }
+function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+function randFloat(min, max) { return Math.random() * (max - min) + min; }
+function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+function lerp(a, b, t) { return a + (b - a) * t; }
+function vibrate(ms) { if (navigator.vibrate) navigator.vibrate(ms); }
+
+function roundRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+}
+
+function getFactionColor(faction) {
+    const colors = {
+        '阐教': CHANJIAO_COLOR,
+        '截教': JIEJIAO_COLOR,
+        '西方教': XIFANG_COLOR,
+        '商朝': SHANG_COLOR,
+        '周朝': ZHOU_COLOR,
+        '妖族': YAOZU_COLOR,
+        '人仙': RENXIAN_COLOR
+    };
+    return colors[faction] || '#ffffff';
+}
+
+function fabaoCategory(fabao) {
+    if (!fabao) return 'default';
+    const f = ALL_FABAO[fabao];
+    if (f) return f.category;
+    return 'default';
+}
+
+function calculateStats(baseStats, fabao, armor) {
+    const f = ALL_FABAO[fabao] || { attack: 0, defense: 0, range: 0 };
+    const a = ALL_ARMORS[armor] || { defense: 0, speed: 0 };
+    
+    let blood = baseStats[0];
+    let attack = baseStats[1] + f.attack;
+    let defense = baseStats[2] + f.defense + a.defense;
+    let range = baseStats[3] + (f.range - 100) * 0.5;
+    
+    const baseSpeed = 1 + a.speed;
+    const bloodPenalty = Math.max(0, (blood - 400) * 0.0008);
+    const defensePenalty = Math.max(0, defense * 0.015);
+    let speed = baseSpeed - bloodPenalty - defensePenalty;
+    speed = Math.max(0.35, speed);
+    
+    return { blood, attack, defense, range, speed };
+}
+
+// ========== 特效系统 ==========
+let particles = [];
+let floatingTexts = [];
+let screenShake = { duration: 0, magnitude: 0, offsetX: 0, offsetY: 0 };
+let divineEffects = [];
+let formationEffects = [];
+
+function shake(duration, magnitude) {
+    screenShake.duration = duration;
+    screenShake.magnitude = magnitude;
+}
+
+function updateShake() {
+    if (screenShake.duration > 0) {
+        screenShake.duration--;
+        screenShake.offsetX = randInt(-screenShake.magnitude, screenShake.magnitude);
+        screenShake.offsetY = randInt(-screenShake.magnitude, screenShake.magnitude);
+    } else {
+        screenShake.offsetX = 0;
+        screenShake.offsetY = 0;
+    }
+}
+
+class Particle {
+    constructor(x, y, color, size, life, vx, vy, gravity = 0, glow = false) {
+        this.x = x; this.y = y; this.color = color;
+        this.size = size; this.life = life; this.maxLife = life;
+        this.vx = vx; this.vy = vy; this.gravity = gravity;
+        this.glow = glow;
+    }
+    update() {
+        this.x += this.vx; this.y += this.vy;
+        this.vy += this.gravity; this.life--;
+        this.size *= 0.97;
+    }
+    draw(ctx, ox, oy) {
+        if (this.life > 0) {
+            const alpha = this.life / this.maxLife;
+            ctx.globalAlpha = alpha;
+            if (this.glow) {
+                ctx.shadowColor = this.color;
+                ctx.shadowBlur = 15;
+            }
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x - ox, this.y - oy, this.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+            ctx.globalAlpha = 1;
+        }
+    }
+}
+
+function spawnParticles(x, y, count, color, speed, size = 3, glow = false) {
+    for (let i = 0; i < count; i++) {
+        const vx = (Math.random() - 0.5) * speed * 2;
+        const vy = (Math.random() - 0.5) * speed * 2;
+        particles.push(new Particle(x, y, color, size * randFloat(0.5, 1.5), randInt(25, 50), vx, vy, 0.15, glow));
+    }
+}
+
+function spawnDivineParticles(x, y, count, color) {
+    for (let i = 0; i < count; i++) {
+        const angle = (i / count) * Math.PI * 2;
+        const speed = randFloat(3, 8);
+        const vx = Math.cos(angle) * speed;
+        const vy = Math.sin(angle) * speed - 2;
+        particles.push(new Particle(x, y, color, randFloat(4, 8), randInt(40, 70), vx, vy, 0.1, true));
+    }
+}
+
+class FloatingText {
+    constructor(x, y, text, color, fontSize = 20) {
+        this.x = x; this.y = y; this.text = text;
+        this.color = color; this.life = 80; this.vy = -1.8;
+        this.fontSize = fontSize;
+    }
+    update() { this.y += this.vy; this.life--; this.vy *= 0.98; }
+    draw(ctx, ox, oy) {
+        if (this.life > 0) {
+            const alpha = this.life < 25 ? this.life / 25 : 1;
+            ctx.globalAlpha = alpha;
+            ctx.font = `bold ${this.fontSize}px Microsoft YaHei, SimHei, sans-serif`;
+            ctx.fillStyle = this.color;
+            ctx.textAlign = 'center';
+            ctx.shadowColor = this.color;
+            ctx.shadowBlur = 10;
+            ctx.fillText(this.text, this.x - ox, this.y - oy);
+            ctx.shadowBlur = 0;
+            ctx.globalAlpha = 1;
+        }
+    }
+}
+
+function spawnText(x, y, text, color, fontSize = 20) {
+    floatingTexts.push(new FloatingText(x, y, text, color, fontSize));
+}
+
+// ========== 神通特效 ==========
+class DivineEffect {
+    constructor(x, y, character, skillName) {
+        this.x = x; this.y = y;
+        this.character = character;
+        this.skillName = skillName;
+        this.color = character.getColor();
+        this.life = 120; this.maxLife = 120;
+        this.radius = 10;
+        this.phase = 0;
+    }
+    
+    update() {
+        this.life--;
+        this.radius += 4;
+        this.phase += 0.12;
+    }
+    
+    draw(ctx, ox, oy) {
+        if (this.life <= 0) return;
+        const progress = 1 - this.life / this.maxLife;
+        const alpha = Math.min(1, (1 - progress) * 1.8);
+        const sx = this.x - ox, sy = this.y - oy;
+        
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        
+        // 绘制神通特效
+        this.drawDivineSkill(ctx, sx, sy, progress);
+        
+        ctx.restore();
+    }
+    
+    drawDivineSkill(ctx, sx, sy, progress) {
+        const skill = this.skillName;
+        
+        // 根据神通类型绘制不同特效
+        if (skill.includes('火') || skill.includes('焰') || skill.includes('炎')) {
+            this.drawFireEffect(ctx, sx, sy, progress);
+        } else if (skill.includes('雷') || skill.includes('电')) {
+            this.drawLightningEffect(ctx, sx, sy, progress);
+        } else if (skill.includes('剑') || skill.includes('刀')) {
+            this.drawSwordEffect(ctx, sx, sy, progress);
+        } else if (skill.includes('金') || skill.includes('光')) {
+            this.drawGoldenEffect(ctx, sx, sy, progress);
+        } else if (skill.includes('水') || skill.includes('海')) {
+            this.drawWaterEffect(ctx, sx, sy, progress);
+        } else if (skill.includes('妖') || skill.includes('魔')) {
+            this.drawDarkEffect(ctx, sx, sy, progress);
+        } else {
+            this.drawDefaultEffect(ctx, sx, sy, progress);
+        }
+        
+        // 显示神通名称
+        if (progress < 0.5) {
+            ctx.font = 'bold 28px Microsoft YaHei';
+            ctx.fillStyle = this.color;
+            ctx.textAlign = 'center';
+            ctx.shadowColor = this.color;
+            ctx.shadowBlur = 20;
+            ctx.fillText(this.skillName, sx, sy - 80 - progress * 50);
+            ctx.shadowBlur = 0;
+        }
+    }
+    
+    drawFireEffect(ctx, sx, sy, progress) {
+        // 火焰漩涡
+        for (let i = 0; i < 8; i++) {
+            const angle = (i / 8) * Math.PI * 2 + this.phase;
+            const r = this.radius * (0.5 + progress * 0.5);
+            const x = sx + Math.cos(angle) * r;
+            const y = sy + Math.sin(angle) * r * 0.6;
+            
+            const gradient = ctx.createRadialGradient(x, y, 0, x, y, 30);
+            gradient.addColorStop(0, '#ffffff');
+            gradient.addColorStop(0.3, '#ffaa00');
+            gradient.addColorStop(0.7, '#ff4400');
+            gradient.addColorStop(1, 'transparent');
+            
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(x, y, 30 - progress * 10, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        
+        // 中心火柱
+        const gradient = ctx.createRadialGradient(sx, sy, 0, sx, sy, this.radius);
+        gradient.addColorStop(0, 'rgba(255,255,255,0.9)');
+        gradient.addColorStop(0.4, 'rgba(255,200,0,0.7)');
+        gradient.addColorStop(1, 'rgba(255,0,0,0)');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(sx, sy, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    
+    drawLightningEffect(ctx, sx, sy, progress) {
+        ctx.strokeStyle = '#88ffff';
+        ctx.lineWidth = 4;
+        ctx.shadowColor = '#00ffff';
+        ctx.shadowBlur = 20;
+        
+        // 闪电链
+        for (let i = 0; i < 6; i++) {
+            const angle = (i / 6) * Math.PI * 2 + this.phase;
+            ctx.beginPath();
+            let px = sx, py = sy;
+            ctx.moveTo(px, py);
+            
+            for (let j = 0; j < 5; j++) {
+                px += Math.cos(angle) * 25 + randFloat(-15, 15);
+                py += Math.sin(angle) * 25 + randFloat(-15, 15);
+                ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+        }
+        ctx.shadowBlur = 0;
+    }
+    
+    drawSwordEffect(ctx, sx, sy, progress) {
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = 3;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 15;
+        
+        // 剑气纵横
+        for (let i = 0; i < 12; i++) {
+            const angle = (i / 12) * Math.PI * 2 + this.phase * 2;
+            const r1 = 30 + progress * 80;
+            const r2 = r1 + 60;
+            
+            ctx.beginPath();
+            ctx.moveTo(sx + Math.cos(angle) * r1, sy + Math.sin(angle) * r1);
+            ctx.lineTo(sx + Math.cos(angle) * r2, sy + Math.sin(angle) * r2);
+            ctx.stroke();
+        }
+        ctx.shadowBlur = 0;
+    }
+    
+    drawGoldenEffect(ctx, sx, sy, progress) {
+        // 金光普照
+        for (let i = 0; i < 3; i++) {
+            const r = (30 + i * 40) * (0.3 + progress * 0.7);
+            ctx.strokeStyle = `rgba(255, 215, 0, ${0.8 - i * 0.2})`;
+            ctx.lineWidth = 4 - i;
+            ctx.shadowColor = '#ffd700';
+            ctx.shadowBlur = 15;
+            ctx.beginPath();
+            ctx.arc(sx, sy, r, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+        
+        // 金色光芒
+        for (let i = 0; i < 16; i++) {
+            const angle = (i / 16) * Math.PI * 2 + this.phase;
+            const len = 50 + Math.sin(this.phase * 3 + i) * 20;
+            ctx.strokeStyle = '#ffd700';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(sx + Math.cos(angle) * 40, sy + Math.sin(angle) * 40);
+            ctx.lineTo(sx + Math.cos(angle) * (40 + len), sy + Math.sin(angle) * (40 + len));
+            ctx.stroke();
+        }
+        ctx.shadowBlur = 0;
+    }
+    
+    drawWaterEffect(ctx, sx, sy, progress) {
+        // 水波荡漾
+        for (let i = 0; i < 5; i++) {
+            const r = (20 + i * 30) * progress;
+            const wave = Math.sin(this.phase * 2 + i) * 5;
+            ctx.strokeStyle = `rgba(0, 150, 255, ${0.7 - i * 0.12})`;
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.ellipse(sx, sy + wave, r, r * 0.4, 0, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+    }
+    
+    drawDarkEffect(ctx, sx, sy, progress) {
+        // 暗黑妖气
+        const gradient = ctx.createRadialGradient(sx, sy, 0, sx, sy, this.radius * 1.5);
+        gradient.addColorStop(0, 'rgba(100, 0, 150, 0.8)');
+        gradient.addColorStop(0.5, 'rgba(50, 0, 100, 0.5)');
+        gradient.addColorStop(1, 'transparent');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(sx, sy, this.radius * 1.5, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // 妖气螺旋
+        ctx.strokeStyle = '#aa44ff';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        for (let i = 0; i < 100; i++) {
+            const t = i / 100;
+            const angle = t * Math.PI * 6 + this.phase;
+            const r = t * this.radius * 1.2;
+            const x = sx + Math.cos(angle) * r;
+            const y = sy + Math.sin(angle) * r;
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+    }
+    
+    drawDefaultEffect(ctx, sx, sy, progress) {
+        // 默认神通光环
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 20;
+        
+        for (let i = 0; i < 3; i++) {
+            const r = (30 + i * 35) * progress;
+            ctx.strokeStyle = this.color;
+            ctx.lineWidth = 4 - i;
+            ctx.beginPath();
+            ctx.arc(sx, sy, r, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+        
+        // 放射线
+        ctx.lineWidth = 2;
+        for (let i = 0; i < 16; i++) {
+            const angle = (i / 16) * Math.PI * 2 + this.phase;
+            const r1 = 25 * progress;
+            const r2 = (80 + Math.sin(this.phase * 2 + i) * 20) * progress;
+            ctx.beginPath();
+            ctx.moveTo(sx + Math.cos(angle) * r1, sy + Math.sin(angle) * r1);
+            ctx.lineTo(sx + Math.cos(angle) * r2, sy + Math.sin(angle) * r2);
+            ctx.stroke();
+        }
+        ctx.shadowBlur = 0;
+    }
+}
+
+function spawnDivineEffect(x, y, character, skillName) {
+    divineEffects.push(new DivineEffect(x, y, character, skillName));
+    spawnDivineParticles(x, y, 30, character.getColor());
+}
+
+// ========== 阵法特效 ==========
+class FormationEffect {
+    constructor(formation, x, y) {
+        this.formation = formation;
+        this.x = x; this.y = y;
+        this.life = 300;
+        this.maxLife = 300;
+        this.phase = 0;
+        this.data = ALL_FORMATIONS[formation];
+    }
+    
+    update() {
+        this.life--;
+        this.phase += 0.05;
+    }
+    
+    draw(ctx, ox, oy) {
+        if (this.life <= 0) return;
+        const progress = 1 - this.life / this.maxLife;
+        const alpha = this.life < 60 ? this.life / 60 : 1;
+        const sx = this.x - ox, sy = this.y - oy;
+        
+        ctx.save();
+        ctx.globalAlpha = alpha * 0.7;
+        
+        // 绘制阵法
+        const color = this.data.color;
+        const baseR = 120;
+        
+        // 外圈
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 3;
+        ctx.shadowColor = color;
+        ctx.shadowBlur = 20;
+        ctx.beginPath();
+        ctx.arc(sx, sy, baseR, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        // 内部八卦图案
+        for (let i = 0; i < 8; i++) {
+            const angle = (i / 8) * Math.PI * 2 + this.phase;
+            const x1 = sx + Math.cos(angle) * 40;
+            const y1 = sy + Math.sin(angle) * 40;
+            const x2 = sx + Math.cos(angle) * baseR;
+            const y2 = sy + Math.sin(angle) * baseR;
+            
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+        }
+        
+        // 符文圆环
+        ctx.lineWidth = 2;
+        for (let i = 0; i < 3; i++) {
+            const r = 50 + i * 30;
+            ctx.beginPath();
+            ctx.arc(sx, sy, r, this.phase + i, this.phase + i + Math.PI * 1.5);
+            ctx.stroke();
+        }
+        
+        // 阵法名称
+        if (progress < 0.2) {
+            ctx.font = 'bold 32px Microsoft YaHei';
+            ctx.fillStyle = color;
+            ctx.textAlign = 'center';
+            ctx.fillText(this.formation, sx, sy - baseR - 20);
+            
+            ctx.font = '16px Microsoft YaHei';
+            ctx.fillText(this.data.effect, sx, sy - baseR + 5);
+        }
+        
+        ctx.shadowBlur = 0;
+        ctx.restore();
+    }
+}
+
+function activateFormation(formation, x, y) {
+    formationEffects.push(new FormationEffect(formation, x, y));
+    formationActive = true;
+    formationTimer = 300;
+    currentFormation = formation;
+}
+
+// ========== 角色类 ==========
+class Character {
+    constructor(name, faction, blood, attack, defense, range, fabao, isPlayer = false) {
+        this.name = name;
+        this.faction = faction;
+        this.blood = blood;
+        this.maxBlood = blood;
+        this.attackPower = attack;
+        this.defensePower = defense;
+        this.attackRange = (ALL_FABAO[fabao]) ? ALL_FABAO[fabao].range : range;
+        this.fabao = fabao;
+        this.isPlayer = isPlayer;
+        this.x = SCREEN_WIDTH / 2;
+        this.y = GROUND_Y;
+        this.vx = 0; this.vy = 0;
+        this.direction = 0;
+        this.radius = 25;
+        this.isAlive = true;
+        this.onGround = true;
+        this.maxSpeed = clamp(MAX_SPEED - (attack - 40) * 0.03, 4.5, 8.5);
+        this.jumpStrength = 14;
+        this.attackCooldown = 350;
+        this.lastAttackTime = 0;
+        this.attacking = false;
+        this.attackDuration = 0;
+        this.attackAnimTotal = 200;
+        this.attackDirRad = 0;
+        this.attackIsRanged = false;
+        this.attacking = false;
+        this.defending = false;
+        this.defenseTimer = 0;
+        this.hitTimer = 0;
+        this.runPhase = 0;
+        this.idlePhase = Math.random() * 100;
+        // 神通系统
+        this.shenTong = 0;
+        this.shenTongMax = 6;
+        this.shenTongActive = false;
+        this.shenTongTimer = 0;
+        this.special = '';
+        this.realm = '';
+        this.moveLeft = false;
+        this.moveRight = false;
+        // 连击系统
+        this.comboCount = 0;
+        this.comboTimer = 0;
+        this.attackType = 0; // 0-4 不同攻击类型
+        this.lastComboTime = 0;
+    }
+    
+    getColor() { return getFactionColor(this.faction); }
+    
+    moveByInput(dt) {
+        if (!this.isAlive) return;
+        const dtScale = dt / 16.67;
+        let ax = 0;
+        if (this.moveLeft) ax -= ACCEL;
+        if (this.moveRight) ax += ACCEL;
+        this.vx += ax * dtScale;
+        if (!this.moveLeft && !this.moveRight) this.vx *= Math.pow(FRICTION, dtScale);
+        this.vx = clamp(this.vx, -this.maxSpeed, this.maxSpeed);
+        this.x += this.vx * dtScale;
+        this.x = clamp(this.x, this.radius, SCREEN_WIDTH - this.radius);
+    }
+    
+    attemptJump() {
+        if (this.onGround && this.isAlive) {
+            this.vy = -this.jumpStrength;
+            this.onGround = false;
+        }
+    }
+    
+    applyPhysics(dt) {
+        const dtScale = dt / 16.67;
+        this.vy += GRAVITY * dtScale;
+        this.y += this.vy * dtScale;
+        if (this.y >= GROUND_Y) {
+            this.y = GROUND_Y;
+            this.vy = 0;
+            this.onGround = true;
+        } else {
+            this.onGround = false;
+        }
+    }
+    
+    faceEnemy(enemy) {
+        this.direction = enemy.x >= this.x ? 0 : 180;
+    }
+    
+    attack(enemy, currentTime) {
+        if (!this.isAlive || !enemy.isAlive) return null;
+        if (currentTime - this.lastAttackTime < this.attackCooldown) return null;
+        
+        const dx = enemy.x - this.x;
+        const dy = enemy.y - this.y;
+        const distance = hypot(dx, dy);
+        const rad = this.direction * Math.PI / 180;
+        const frontDot = dx * Math.cos(rad) + dy * Math.sin(rad);
+        const angleToEnemy = Math.atan2(dy, dx) * 180 / Math.PI;
+        let angDiff = ((angleToEnemy - this.direction + 180) % 360) - 180;
+        
+        if (distance <= this.attackRange && frontDot > 0 && Math.abs(angDiff) <= ATTACK_FOV_DEG / 2) {
+            let realDamage = Math.floor(this.attackPower * (1 - enemy.defensePower / 120));
+            let isCrit = false;
+            let isInstantKill = false;
+            
+            // 神通触发
+            if (this.shenTong >= this.shenTongMax) {
+                this.shenTongActive = true;
+                this.shenTongTimer = 2000;
+                
+                realDamage = Math.floor(realDamage * 3.5);
+                isCrit = true;
+                
+                const instantKillChance = 0.12 + this.attackPower * 0.0004;
+                if (Math.random() < instantKillChance) {
+                    realDamage = enemy.blood + 1;
+                    isInstantKill = true;
+                }
+                
+                this.shenTong = 0;
+                spawnDivineEffect(this.x, this.y - 40, this, this.special);
+                shake(20, 15);
+            } else {
+                this.shenTong++;
+            }
+            
+            const msg = enemy.takeDamage(realDamage, this, isCrit, isInstantKill);
+            this.attackDirRad = Math.atan2(dy, dx);
+            this.attackIsRanged = false;
+            
+            // 根据法宝类型设置攻击动画时长
+            const cat = fabaoCategory(this.fabao);
+            const animMap = { 
+                sword: 240, 
+                spear: 240, 
+                blade: 300, 
+                axe: 320, 
+                whip: 280, 
+                staff: 260,
+                hammer: 320,
+                bow: 280,
+                arrow: 280,
+                fan: 220 
+            };
+            this.attackAnimTotal = animMap[cat] || 260;
+            
+            this.lastAttackTime = currentTime;
+            this.attacking = true;
+            this.attackDuration = this.attackAnimTotal;
+            
+            // 连击系统
+            if (currentTime - this.lastComboTime < 600) {
+                this.comboCount = (this.comboCount + 1) % 5;
+            } else {
+                this.comboCount = 0;
+            }
+            this.lastComboTime = currentTime;
+            this.attackType = this.comboCount;
+            this.comboTimer = 600;
+            
+            if (isInstantKill) {
+                return `${this.name} 施展【${this.special}】，秒杀 ${enemy.name}！`;
+            } else if (isCrit) {
+                return `${this.name} 施展【${this.special}】，暴击 ${enemy.name}，造成 ${realDamage} 伤害！`;
+            }
+            return `${this.name} 使用 ${this.fabao} 攻击 ${enemy.name}，造成 ${realDamage} 伤害`;
+        }
+        return null;
+    }
+    
+    takeDamage(damage, attacker, isCrit = false, isInstantKill = false) {
+        if (this.defending) {
+            const dx = attacker.x - this.x;
+            const angleToAttacker = Math.atan2(0, dx) * 180 / Math.PI;
+            let angDiff = ((angleToAttacker - this.direction + 180) % 360) - 180;
+            if (Math.abs(angDiff) <= 100) {
+                damage = Math.floor(damage * 0.35);
+                spawnParticles(this.x, this.y - 30, 12, '#ffd700', 5, 4, true);
+                spawnText(this.x, this.y - 45, '格挡!', '#ffd700', 18);
+            } else {
+                damage = Math.floor(damage * 0.75);
+            }
+        }
+        
+        // 阵法加成
+        if (formationActive && currentFormation) {
+            const formData = ALL_FORMATIONS[currentFormation];
+            damage = Math.floor(damage * (1 - formData.defense / 200));
+        }
+        
+        this.blood -= damage;
+        
+        if (isInstantKill) {
+            spawnParticles(this.x, this.y - 30, 35, '#ff0000', 10, 6, true);
+            spawnText(this.x, this.y - 70, '魂飞魄散!', '#ff0000', 32);
+            shake(20, 12);
+        } else if (isCrit) {
+            spawnParticles(this.x, this.y - 30, 25, '#ffcc00', 8, 5, true);
+            spawnText(this.x, this.y - 60, String(damage), '#ffcc00', 28);
+        } else {
+            spawnParticles(this.x, this.y - 30, Math.max(5, Math.floor(damage / 3)), '#cc0000', 5);
+            spawnText(this.x, this.y - 55, String(damage), '#ff4444', 22);
+        }
+        
+        if (damage > 20) shake(6, 4);
+        
+        this.hitTimer = 250;
+        if (this.blood <= 0) {
+            this.blood = 0;
+            this.isAlive = false;
+            spawnParticles(this.x, this.y, 45, this.getColor(), 8, 6, true);
+            return `${this.name} 陨落！`;
+        }
+        return `${this.name} 受到 ${damage} 伤害`;
+    }
+    
+    update(dt) {
+        if (this.attacking) {
+            this.attackDuration -= dt;
+            if (this.attackDuration <= 0) this.attacking = false;
+        }
+        if (this.hitTimer > 0) this.hitTimer -= dt;
+        if (this.defenseTimer > 0) {
+            this.defenseTimer -= dt;
+            if (this.defenseTimer <= 0) this.defending = false;
+        }
+        if (this.shenTongTimer > 0) {
+            this.shenTongTimer -= dt;
+            if (this.shenTongTimer <= 0) this.shenTongActive = false;
+        }
+        if (this.comboTimer > 0) {
+            this.comboTimer -= dt;
+            if (this.comboTimer <= 0) this.comboCount = 0;
+        }
+        
+        const speed = Math.abs(this.vx);
+        if (this.onGround && speed > 0.1) {
+            this.runPhase += (speed / this.maxSpeed) * 0.2 * (dt / 16);
+        }
+        this.idlePhase += dt * 0.002;
+    }
+}
+
+// ========== 绘制角色 - 飘逸仙侠剪影风格 ==========
+function drawCharacter(ctx, ch, ox, oy) {
+    const sx = ch.x - ox;
+    const sy = ch.y - oy;
+    const facing = ch.direction === 0 ? 1 : -1;
+    const color = ch.getColor();
+    const time = Date.now() * 0.001;
+    const isFemale = FEMALE_HEROES.includes(ch.name);
+    
+    ctx.save();
+    ctx.translate(sx, sy);
+    ctx.scale(facing, 1);
+    
+    // 受击闪烁
+    if (ch.hitTimer > 0 && Math.floor(ch.hitTimer / 40) % 2 === 0) {
+        ctx.globalAlpha = 0.5;
+    }
+    
+    // 移动拖尾效果
+    if (Math.abs(ch.vx) > 2) {
+        const trailAlpha = Math.min(0.4, Math.abs(ch.vx) * 0.05);
+        for (let i = 1; i <= 4; i++) {
+            ctx.globalAlpha = trailAlpha * (1 - i * 0.2);
+            ctx.save();
+            ctx.translate(-ch.vx * i * 2 * facing, 0);
+            drawSilhouette(ctx, ch, color, time, isFemale, 0.7);
+            ctx.restore();
+        }
+        ctx.globalAlpha = ch.hitTimer > 0 ? 0.5 : 1;
+    }
+    
+    // 神通激活 - 仙气缭绕
+    if (ch.shenTongActive) {
+        drawDivineAura(ctx, color, time);
+    }
+    
+    // 主体剪影
+    drawSilhouette(ctx, ch, color, time, isFemale, 1);
+    
+    // 防御结界
+    if (ch.defending) {
+        drawDefenseBarrier(ctx, color, time);
+    }
+    
+    ctx.restore();
+    
+    // UI元素
+    drawCharacterUI(ctx, ch, sx, sy, color);
+}
+
+// 绘制飘逸剪影
+function drawSilhouette(ctx, ch, color, time, isFemale, scale) {
+    const breathe = Math.sin(time * 2) * 2;
+    const windSway = Math.sin(time * 1.5) * 3;
+    const isMoving = Math.abs(ch.vx) > 0.5;
+    const isJumping = !ch.onGround;
+    const isAttacking = ch.attacking;
+    const runPhase = ch.runPhase;
+    
+    ctx.save();
+    ctx.scale(scale, scale);
+    
+    // 整体发光
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 15;
+    
+    // 飘带/披风 - 后层
+    drawFlowingRibbon(ctx, color, time, windSway, isMoving, ch.vx, -1);
+    
+    // 长袍下摆 - 飘逸
+    drawFlowingRobe(ctx, color, time, windSway, isMoving, runPhase, isFemale, isJumping);
+    
+    // 身体主体
+    drawBody(ctx, color, breathe, isFemale, isAttacking, ch);
+    
+    // 手臂和武器
+    drawArmsAndWeapon(ctx, ch, color, time, isAttacking);
+    
+    // 头部和发型
+    drawHeadAndHair(ctx, color, time, windSway, isFemale, isMoving, ch.vx);
+    
+    // 飘带/披风 - 前层
+    drawFlowingRibbon(ctx, color, time, windSway, isMoving, ch.vx, 1);
+    
+    ctx.shadowBlur = 0;
+    ctx.restore();
+}
+
+// 绘制飘逸长袍
+function drawFlowingRobe(ctx, color, time, windSway, isMoving, runPhase, isFemale, isJumping) {
+    const robeColor = shadeColor(color, -25);
+    const waveSpeed = isMoving ? 8 : 2;
+    const waveAmp = isMoving ? 12 : 5;
+    
+    ctx.fillStyle = robeColor;
+    ctx.beginPath();
+    
+    // 腰部起点
+    const waistY = -20;
+    const waistW = isFemale ? 10 : 12;
+    
+    ctx.moveTo(-waistW, waistY);
+    
+    // 左侧袍摆 - 多层波浪
+    const leftFlow = Math.sin(time * waveSpeed + 1) * waveAmp + windSway;
+    const leftMid = Math.sin(time * waveSpeed * 0.7) * (waveAmp * 0.6);
+    ctx.quadraticCurveTo(
+        -waistW - 8 + leftMid, waistY + 25,
+        -waistW - 15 + leftFlow, waistY + 55
+    );
+    
+    // 底部波浪边缘
+    const segments = 6;
+    for (let i = 0; i <= segments; i++) {
+        const t = i / segments;
+        const x = lerp(-waistW - 15 + leftFlow, waistW + 15 - leftFlow, t);
+        const waveOffset = Math.sin(time * waveSpeed + t * 4) * 5;
+        const y = waistY + 55 + waveOffset + (isJumping ? -10 : 0);
+        
+        if (i === 0) continue;
+        ctx.lineTo(x, y);
+    }
+    
+    // 右侧袍摆
+    const rightFlow = Math.sin(time * waveSpeed) * waveAmp - windSway;
+    ctx.quadraticCurveTo(
+        waistW + 8 - leftMid, waistY + 25,
+        waistW, waistY
+    );
+    
+    ctx.closePath();
+    ctx.fill();
+    
+    // 袍摆高光纹理
+    ctx.strokeStyle = shadeColor(color, 20);
+    ctx.lineWidth = 1;
+    ctx.globalAlpha = 0.3;
+    for (let i = 0; i < 3; i++) {
+        const y = waistY + 20 + i * 12;
+        ctx.beginPath();
+        ctx.moveTo(-waistW - 5 + i * 2, y);
+        ctx.quadraticCurveTo(
+            0, y + Math.sin(time * 2 + i) * 3,
+            waistW + 5 - i * 2, y
+        );
+        ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+}
+
+// 绘制身体主体
+function drawBody(ctx, color, breathe, isFemale, isAttacking, ch) {
+    const torsoH = 35;
+    const shoulderW = isFemale ? 14 : 18;
+    const waistW = isFemale ? 8 : 10;
+    
+    // 上身轮廓
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    
+    // 肩膀
+    ctx.moveTo(-shoulderW, -torsoH - 5);
+    
+    // 左臂连接
+    ctx.quadraticCurveTo(-shoulderW - 5, -torsoH + 5, -shoulderW - 3, -torsoH + 15);
+    
+    // 左侧身体曲线
+    ctx.quadraticCurveTo(-waistW - 5, -torsoH/2, -waistW, -20);
+    
+    // 腰部
+    ctx.lineTo(waistW, -20);
+    
+    // 右侧身体曲线
+    ctx.quadraticCurveTo(waistW + 5, -torsoH/2, shoulderW + 3, -torsoH + 15);
+    
+    // 右臂连接
+    ctx.quadraticCurveTo(shoulderW + 5, -torsoH + 5, shoulderW, -torsoH - 5);
+    
+    // 领口
+    ctx.quadraticCurveTo(5, -torsoH - 10 + breathe, 0, -torsoH - 8);
+    ctx.quadraticCurveTo(-5, -torsoH - 10 + breathe, -shoulderW, -torsoH - 5);
+    
+    ctx.closePath();
+    ctx.fill();
+    
+    // 衣领V字
+    ctx.strokeStyle = shadeColor(color, 30);
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(-6, -torsoH - 5);
+    ctx.lineTo(0, -torsoH + 8);
+    ctx.lineTo(6, -torsoH - 5);
+    ctx.stroke();
+    
+    // 腰带
+    ctx.fillStyle = '#ffd700';
+    ctx.shadowColor = '#ffd700';
+    ctx.shadowBlur = 8;
+    ctx.beginPath();
+    ctx.ellipse(0, -22, waistW + 6, 3, 0, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 腰带装饰
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.arc(0, -22, 4, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+}
+
+// 绘制手臂和武器 - 强力连击系统
+function drawArmsAndWeapon(ctx, ch, color, time, isAttacking) {
+    const attackProgress = isAttacking ? (1 - ch.attackDuration / 300) : 0;
+    const attackType = ch.attackType || 0;
+    const isJumping = !ch.onGround;
+    const isShenTong = ch.shenTongActive;
+    const weaponCat = fabaoCategory(ch.fabao);
+    const isBow = weaponCat === 'bow' || weaponCat === 'arrow';
+    
+    ctx.fillStyle = color;
+    
+    if (isAttacking) {
+        // 根据连击次数和状态选择攻击动作
+        if (isShenTong) {
+            if (isBow) {
+                drawArcherUltimate(ctx, ch, color, time, attackProgress);
+            } else {
+                drawUltimateAttack(ctx, ch, color, time, attackProgress);
+            }
+        } else if (isBow) {
+            // 弓箭手专属攻击动作
+            drawArcherAttack(ctx, ch, color, time, attackProgress, attackType);
+        } else if (isJumping) {
+            drawAerialAttack(ctx, ch, color, time, attackProgress);
+        } else {
+            switch(attackType) {
+                case 0: drawSlashAttack(ctx, ch, color, attackProgress); break;
+                case 1: drawThrustAttack(ctx, ch, color, attackProgress); break;
+                case 2: drawSweepAttack(ctx, ch, color, attackProgress); break;
+                case 3: drawSpinAttack(ctx, ch, color, time, attackProgress); break;
+                case 4: drawHeavyAttack(ctx, ch, color, attackProgress); break;
+            }
+        }
+    } else {
+        if (isBow) {
+            drawArcherIdle(ctx, ch, color, time);
+        } else {
+            drawIdlePose(ctx, ch, color, time);
+        }
+    }
+}
+
+// 弓箭手站立姿态
+function drawArcherIdle(ctx, ch, color, time) {
+    const idleSway = Math.sin(time * 1.5) * 0.08;
+    
+    // 左手持弓
+    ctx.save();
+    ctx.translate(-5, -35);
+    ctx.rotate(-0.2 + idleSway);
+    drawArm(ctx, color, 26, -0.1);
+    
+    ctx.save();
+    ctx.translate(24, 0);
+    ctx.rotate(0.1);
+    drawFabao(ctx, ch.fabao, ch.getColor(), 0.9);
+    ctx.restore();
+    ctx.restore();
+    
+    // 右手垂下准备拿箭
+    ctx.save();
+    ctx.translate(10, -30);
+    ctx.rotate(0.5 + idleSway);
+    drawArm(ctx, color, 28, 0.3);
+    ctx.restore();
+}
+
+// 弓箭手攻击动作 - 拉弓射箭
+function drawArcherAttack(ctx, ch, color, time, progress, attackType) {
+    // 拉弓阶段 0-0.4, 璧击阶段 0.4-0.6, 射出阶段 0.6-1
+    const drawPhase = progress < 0.4 ? progress / 0.4 : 1;
+    const holdPhase = progress >= 0.4 && progress < 0.6 ? (progress - 0.4) / 0.2 : 0;
+    const releasePhase = progress >= 0.6 ? (progress - 0.6) / 0.4 : 0;
+    
+    const drawBack = drawPhase * 25;
+    const bodyLean = Math.sin(drawPhase * Math.PI * 0.5) * 0.15;
+    
+    ctx.save();
+    ctx.rotate(-bodyLean);
+    
+    // 左手持弓 - 前伸
+    ctx.save();
+    ctx.translate(-5 + drawPhase * 15, -38);
+    ctx.rotate(-0.3 - drawPhase * 0.2);
+    drawArm(ctx, color, 30 + drawPhase * 5, -0.1);
+    
+    // 弓
+    ctx.save();
+    ctx.translate(28, 0);
+    ctx.rotate(0);
+    drawFabao(ctx, ch.fabao, ch.getColor(), 1.1);
+    ctx.restore();
+    ctx.restore();
+    
+    // 右手拉弦
+    ctx.save();
+    ctx.translate(5 - drawBack * 0.8, -36);
+    ctx.rotate(0.3 + drawPhase * 0.5);
+    drawArm(ctx, color, 25 + drawBack * 0.3, 0.4);
+    ctx.restore();
+    
+    // 箭矢飞行特效
+    if (releasePhase > 0) {
+        drawArrowFlight(ctx, color, releasePhase, attackType);
+    }
+    
+    // 蓄力光晕
+    if (drawPhase > 0.5 && releasePhase === 0) {
+        ctx.globalAlpha = (drawPhase - 0.5) * 1.5;
+        const glowSize = 15 + holdPhase * 10;
+        const gradient = ctx.createRadialGradient(40, -35, 0, 40, -35, glowSize);
+        gradient.addColorStop(0, '#ffffff');
+        gradient.addColorStop(0.5, color);
+        gradient.addColorStop(1, 'transparent');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(40, -35, glowSize, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+    }
+    
+    ctx.restore();
+}
+
+// 箭矢飞行特效
+function drawArrowFlight(ctx, color, progress, attackType) {
+    const distance = progress * 150;
+    const spread = attackType * 0.15; // 不同攻击类型不同散布
+    
+    ctx.save();
+    ctx.translate(50, -35);
+    
+    // 主箭
+    ctx.save();
+    ctx.translate(distance, 0);
+    
+    // 箭身
+    ctx.strokeStyle = '#8b6040';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(-30, 0);
+    ctx.lineTo(15, 0);
+    ctx.stroke();
+    
+    // 箭头
+    ctx.fillStyle = '#c0c0c0';
+    ctx.beginPath();
+    ctx.moveTo(15, -3);
+    ctx.lineTo(25, 0);
+    ctx.lineTo(15, 3);
+    ctx.closePath();
+    ctx.fill();
+    
+    // 箭尾羽
+    ctx.fillStyle = '#ffffff88';
+    ctx.beginPath();
+    ctx.moveTo(-28, 0);
+    ctx.lineTo(-35, -5);
+    ctx.lineTo(-30, 0);
+    ctx.lineTo(-35, 5);
+    ctx.closePath();
+    ctx.fill();
+    
+    ctx.restore();
+    
+    // 箭矢拖尾
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 3;
+    ctx.globalAlpha = 0.6 * (1 - progress);
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 10;
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(distance - 20, 0);
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+    ctx.globalAlpha = 1;
+    
+    // 多重箭 (连珠箭效果)
+    if (attackType >= 2) {
+        for (let i = 1; i <= attackType - 1; i++) {
+            const offsetY = (i % 2 === 0 ? 1 : -1) * (Math.ceil(i/2) * 15);
+            const delay = i * 0.1;
+            const arrowDist = Math.max(0, (progress - delay) * 150);
+            
+            if (arrowDist > 0) {
+                ctx.globalAlpha = 0.7;
+                ctx.strokeStyle = '#8b6040';
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.moveTo(arrowDist - 25, offsetY);
+                ctx.lineTo(arrowDist + 10, offsetY);
+                ctx.stroke();
+                
+                ctx.fillStyle = '#c0c0c0';
+                ctx.beginPath();
+                ctx.moveTo(arrowDist + 10, offsetY - 2);
+                ctx.lineTo(arrowDist + 18, offsetY);
+                ctx.lineTo(arrowDist + 10, offsetY + 2);
+                ctx.closePath();
+                ctx.fill();
+                ctx.globalAlpha = 1;
+            }
+        }
+    }
+    
+    ctx.restore();
+}
+
+// 弓箭手终极大招 - 射日神功
+function drawArcherUltimate(ctx, ch, color, time, progress) {
+    const chargePhase = progress < 0.5 ? progress / 0.5 : 1;
+    const releasePhase = progress >= 0.5 ? (progress - 0.5) / 0.5 : 0;
+    
+    // 背景光球
+    ctx.save();
+    const sunSize = 30 + chargePhase * 50;
+    const sunGrad = ctx.createRadialGradient(0, -40, 0, 0, -40, sunSize);
+    sunGrad.addColorStop(0, '#ffffff');
+    sunGrad.addColorStop(0.3, '#ffff00');
+    sunGrad.addColorStop(0.6, '#ff8800');
+    sunGrad.addColorStop(1, 'transparent');
+    ctx.fillStyle = sunGrad;
+    ctx.globalAlpha = 0.8;
+    ctx.beginPath();
+    ctx.arc(0, -40, sunSize, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.restore();
+    
+    // 拉弓姿态
+    ctx.save();
+    ctx.translate(0, -chargePhase * 10);
+    
+    // 左手持弓
+    ctx.save();
+    ctx.translate(-5, -35);
+    ctx.rotate(-0.5);
+    drawArm(ctx, color, 35, -0.2);
+    ctx.save();
+    ctx.translate(32, 0);
+    drawFabao(ctx, ch.fabao, ch.getColor(), 1.3);
+    ctx.restore();
+    ctx.restore();
+    
+    // 右手拉弦
+    ctx.save();
+    ctx.translate(-20, -35);
+    ctx.rotate(0.8);
+    drawArm(ctx, color, 30, 0.5);
+    ctx.restore();
+    
+    ctx.restore();
+    
+    // 多箭齐发
+    if (releasePhase > 0) {
+        const numArrows = 9;
+        for (let i = 0; i < numArrows; i++) {
+            const angle = ((i - 4) / 8) * 0.6;
+            const delay = i * 0.05;
+            const arrowProgress = Math.max(0, (releasePhase - delay) * 1.5);
+            
+            if (arrowProgress > 0) {
+                ctx.save();
+                ctx.translate(40, -40);
+                ctx.rotate(angle);
+                
+                const dist = arrowProgress * 200;
+                
+                // 金色神箭
+                ctx.strokeStyle = '#ffd700';
+                ctx.lineWidth = 3;
+                ctx.shadowColor = '#ffd700';
+                ctx.shadowBlur = 15;
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(dist, 0);
+                ctx.stroke();
+                
+                // 箭头光芒
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.arc(dist, 0, 5 * (1 - arrowProgress * 0.5), 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.shadowBlur = 0;
+                ctx.restore();
+            }
+        }
+    }
+}
+
+// 站立姿态
+function drawIdlePose(ctx, ch, color, time) {
+    const idleSway = Math.sin(time * 1.5) * 0.1;
+    const breathe = Math.sin(time * 2) * 0.03;
+    
+    // 左手负于身后 - 仙侠站姿
+    ctx.save();
+    ctx.translate(-14, -32);
+    ctx.rotate(-0.8 + idleSway);
+    drawArm(ctx, color, 26, -0.2);
+    ctx.restore();
+    
+    // 右手持武器 - 优雅斜持
+    ctx.save();
+    ctx.translate(12, -35);
+    ctx.rotate(0.4 + idleSway + breathe);
+    drawArm(ctx, color, 28, 0.15);
+    
+    ctx.save();
+    ctx.translate(26, 2);
+    ctx.rotate(-0.3 + Math.sin(time * 2) * 0.05);
+    drawFabao(ctx, ch.fabao, ch.getColor(), 1);
+    ctx.restore();
+    
+    ctx.restore();
+}
+
+// 攻击1: 横斩 - 从右上到左下的弧形斩击
+function drawSlashAttack(ctx, ch, color, progress) {
+    const phase = progress < 0.3 ? progress / 0.3 : 
+                  progress < 0.7 ? 1 : 
+                  1 - (progress - 0.7) / 0.3;
+    const swingAngle = -1.5 + phase * 3.5;
+    const bodyTwist = Math.sin(progress * Math.PI) * 0.15;
+    
+    // 后手平衡
+    ctx.save();
+    ctx.translate(-15, -30);
+    ctx.rotate(-1.2 + bodyTwist);
+    drawArm(ctx, color, 30, -0.4);
+    ctx.restore();
+    
+    // 攻击手 - 大弧度挥砍
+    ctx.save();
+    ctx.translate(10 + phase * 8, -42 + phase * 10);
+    ctx.rotate(swingAngle);
+    drawArm(ctx, color, 35, 0.3);
+    
+    ctx.save();
+    ctx.translate(33, 0);
+    ctx.rotate(0.2);
+    drawFabao(ctx, ch.fabao, ch.getColor(), 1.3);
+    ctx.restore();
+    
+    // 剑气弧形轨迹
+    if (progress > 0.2 && progress < 0.75) {
+        drawSlashTrail(ctx, color, progress, swingAngle, 70);
+    }
+    
+    ctx.restore();
+}
+
+// 攻击2: 突刺 - 快速前刺
+function drawThrustAttack(ctx, ch, color, progress) {
+    const thrustDist = Math.sin(progress * Math.PI) * 45;
+    const prepPhase = progress < 0.25 ? progress / 0.25 : 1;
+    const pullBack = (1 - prepPhase) * 15;
+    
+    // 后手收拢
+    ctx.save();
+    ctx.translate(-12, -28);
+    ctx.rotate(-0.6);
+    drawArm(ctx, color, 22, -0.2);
+    ctx.restore();
+    
+    // 双手前刺
+    ctx.save();
+    ctx.translate(8 - pullBack + thrustDist * 0.3, -38);
+    ctx.rotate(0.1);
+    
+    // 主手
+    drawArm(ctx, color, 30 + thrustDist * 0.4, 0.1);
+    
+    // 武器前刺
+    ctx.save();
+    ctx.translate(28 + thrustDist, 0);
+    ctx.rotate(0);
+    drawFabao(ctx, ch.fabao, ch.getColor(), 1.2);
+    ctx.restore();
+    
+    // 刺击特效
+    if (progress > 0.3 && progress < 0.8) {
+        drawThrustTrail(ctx, color, progress, thrustDist);
+    }
+    
+    ctx.restore();
+}
+
+// 攻击3: 横扫 - 大范围横扫
+function drawSweepAttack(ctx, ch, color, progress) {
+    const sweepAngle = -2 + progress * 4.5;
+    const crouch = Math.sin(progress * Math.PI) * 8;
+    
+    ctx.save();
+    ctx.translate(0, crouch);
+    
+    // 后手平衡
+    ctx.save();
+    ctx.translate(-18, -25);
+    ctx.rotate(-1 - progress * 0.5);
+    drawArm(ctx, color, 28, -0.3);
+    ctx.restore();
+    
+    // 攻击手 - 低姿横扫
+    ctx.save();
+    ctx.translate(5, -28 + crouch * 0.5);
+    ctx.rotate(sweepAngle);
+    drawArm(ctx, color, 38, 0.4);
+    
+    ctx.save();
+    ctx.translate(36, 0);
+    ctx.rotate(0.3);
+    drawFabao(ctx, ch.fabao, ch.getColor(), 1.4);
+    ctx.restore();
+    
+    // 大范围扫击波
+    if (progress > 0.15 && progress < 0.85) {
+        drawSweepWave(ctx, color, progress);
+    }
+    
+    ctx.restore();
+    ctx.restore();
+}
+
+// 攻击4: 旋转斩 - 360度旋转攻击
+function drawSpinAttack(ctx, ch, color, time, progress) {
+    const spinAngle = progress * Math.PI * 2.5;
+    const liftHeight = Math.sin(progress * Math.PI) * 15;
+    
+    ctx.save();
+    ctx.translate(0, -liftHeight);
+    ctx.rotate(Math.sin(spinAngle) * 0.2);
+    
+    // 双手向外展开
+    const armAngle = spinAngle + time * 2;
+    
+    // 左手
+    ctx.save();
+    ctx.translate(-5, -35);
+    ctx.rotate(-Math.PI/2 + Math.sin(armAngle) * 0.5);
+    drawArm(ctx, color, 32, 0);
+    ctx.restore();
+    
+    // 右手持武器
+    ctx.save();
+    ctx.translate(5, -35);
+    ctx.rotate(Math.PI/2 + Math.cos(armAngle) * 0.5);
+    drawArm(ctx, color, 35, 0);
+    
+    ctx.save();
+    ctx.translate(33, 0);
+    ctx.rotate(spinAngle * 0.5);
+    drawFabao(ctx, ch.fabao, ch.getColor(), 1.3);
+    ctx.restore();
+    ctx.restore();
+    
+    // 旋转光环
+    drawSpinEffect(ctx, color, progress, spinAngle);
+    
+    ctx.restore();
+}
+
+// 攻击5: 重击 - 蓄力下动
+function drawHeavyAttack(ctx, ch, color, progress) {
+    const prepPhase = progress < 0.4 ? progress / 0.4 : 1;
+    const strikePhase = progress >= 0.4 ? (progress - 0.4) / 0.6 : 0;
+    const raiseHeight = prepPhase * 25;
+    const strikeDown = strikePhase * 40;
+    const bodyLean = Math.sin(strikePhase * Math.PI) * 0.3;
+    
+    ctx.save();
+    ctx.rotate(bodyLean);
+    
+    // 双手举起后砍下
+    ctx.save();
+    ctx.translate(0, -40 - raiseHeight + strikeDown);
+    
+    const armAngle = prepPhase * -2 + strikePhase * 3.5;
+    
+    // 左手
+    ctx.save();
+    ctx.translate(-8, 0);
+    ctx.rotate(armAngle - 0.3);
+    drawArm(ctx, color, 30, -0.2);
+    ctx.restore();
+    
+    // 右手
+    ctx.save();
+    ctx.translate(8, 0);
+    ctx.rotate(armAngle + 0.3);
+    drawArm(ctx, color, 30, 0.2);
+    
+    ctx.save();
+    ctx.translate(28, 0);
+    ctx.rotate(armAngle * 0.3);
+    drawFabao(ctx, ch.fabao, ch.getColor(), 1.5);
+    ctx.restore();
+    ctx.restore();
+    
+    ctx.restore();
+    
+    // 重击特效
+    if (strikePhase > 0.5) {
+        drawHeavyImpact(ctx, color, strikePhase);
+    }
+    
+    ctx.restore();
+}
+
+// 空中攻击
+function drawAerialAttack(ctx, ch, color, time, progress) {
+    const spinAngle = progress * Math.PI * 1.5;
+    const dive = progress > 0.5 ? (progress - 0.5) * 2 : 0;
+    
+    ctx.save();
+    ctx.rotate(spinAngle * 0.3);
+    
+    // 飞踢姿态
+    ctx.save();
+    ctx.translate(0, -35);
+    ctx.rotate(-0.5 + dive);
+    
+    // 双手向后
+    ctx.save();
+    ctx.translate(-10, 0);
+    ctx.rotate(-1.5 - dive);
+    drawArm(ctx, color, 28, -0.3);
+    ctx.restore();
+    
+    ctx.save();
+    ctx.translate(10, 0);
+    ctx.rotate(-1 - dive * 0.5);
+    drawArm(ctx, color, 30, 0.2);
+    
+    ctx.save();
+    ctx.translate(28, 0);
+    ctx.rotate(-dive);
+    drawFabao(ctx, ch.fabao, ch.getColor(), 1.2);
+    ctx.restore();
+    ctx.restore();
+    
+    ctx.restore();
+    
+    // 空中拖尾
+    drawAerialTrail(ctx, color, progress);
+    
+    ctx.restore();
+}
+
+// 终极大招攻击
+function drawUltimateAttack(ctx, ch, color, time, progress) {
+    const burstPhase = progress < 0.3 ? progress / 0.3 : 1;
+    const attackPhase = progress >= 0.3 ? (progress - 0.3) / 0.7 : 0;
+    const auraSize = 40 + burstPhase * 60;
+    
+    // 爆发光环
+    ctx.save();
+    ctx.globalAlpha = 0.6;
+    const gradient = ctx.createRadialGradient(0, -35, 0, 0, -35, auraSize);
+    gradient.addColorStop(0, '#ffffff');
+    gradient.addColorStop(0.3, color);
+    gradient.addColorStop(1, 'transparent');
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(0, -35, auraSize, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.restore();
+    
+    // 旋转多重攻击
+    const numStrikes = 6;
+    for (let i = 0; i < numStrikes; i++) {
+        const strikeAngle = (i / numStrikes) * Math.PI * 2 + attackPhase * Math.PI * 4;
+        const strikeProgress = (attackPhase * numStrikes - i) % 1;
+        
+        if (strikeProgress > 0 && strikeProgress < 0.5) {
+            ctx.save();
+            ctx.rotate(strikeAngle);
+            ctx.translate(50, 0);
+            
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 4;
+            ctx.shadowColor = color;
+            ctx.shadowBlur = 15;
+            ctx.globalAlpha = 1 - strikeProgress * 2;
+            ctx.beginPath();
+            ctx.moveTo(0, -20);
+            ctx.lineTo(40, 0);
+            ctx.lineTo(0, 20);
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+            ctx.globalAlpha = 1;
+            
+            ctx.restore();
+        }
+    }
+    
+    // 中心姿态 - 御剑飞仙
+    ctx.save();
+    ctx.translate(0, -35);
+    ctx.rotate(time * 3);
+    
+    // 双手结印
+    ctx.save();
+    ctx.translate(-15, 0);
+    ctx.rotate(-0.8);
+    drawArm(ctx, color, 25, -0.3);
+    ctx.restore();
+    
+    ctx.save();
+    ctx.translate(15, 0);
+    ctx.rotate(0.8);
+    drawArm(ctx, color, 25, 0.3);
+    ctx.restore();
+    
+    // 武器绕身旋转
+    for (let i = 0; i < 3; i++) {
+        const angle = (i / 3) * Math.PI * 2 + time * 5;
+        ctx.save();
+        ctx.rotate(angle);
+        ctx.translate(35, 0);
+        ctx.rotate(angle * 2);
+        drawFabao(ctx, ch.fabao, color, 0.8);
+        ctx.restore();
+    }
+    
+    ctx.restore();
+}
+
+// === 攻击特效绘制函数 ===
+
+// 斩击轨迹
+function drawSlashTrail(ctx, color, progress, angle, radius) {
+    const intensity = Math.sin(progress * Math.PI);
+    ctx.save();
+    ctx.globalAlpha = intensity * 0.8;
+    
+    // 多层剑气
+    for (let i = 0; i < 3; i++) {
+        const r = radius - i * 15;
+        const width = 8 - i * 2;
+        
+        const grad = ctx.createLinearGradient(-r, 0, r, 0);
+        grad.addColorStop(0, 'transparent');
+        grad.addColorStop(0.3, color);
+        grad.addColorStop(0.7, '#ffffff');
+        grad.addColorStop(1, 'transparent');
+        
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = width;
+        ctx.lineCap = 'round';
+        ctx.shadowColor = color;
+        ctx.shadowBlur = 10;
+        ctx.beginPath();
+        ctx.arc(0, 0, r, angle - 1.2, angle + 0.3);
+        ctx.stroke();
+    }
+    
+    ctx.shadowBlur = 0;
+    ctx.restore();
+}
+
+// 突刺轨迹
+function drawThrustTrail(ctx, color, progress, distance) {
+    const intensity = Math.sin(progress * Math.PI);
+    ctx.save();
+    ctx.globalAlpha = intensity * 0.7;
+    
+    // 突刺光束
+    const grad = ctx.createLinearGradient(0, 0, distance + 50, 0);
+    grad.addColorStop(0, 'transparent');
+    grad.addColorStop(0.2, color + '88');
+    grad.addColorStop(0.8, '#ffffff');
+    grad.addColorStop(1, color);
+    
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.moveTo(20, -8);
+    ctx.lineTo(distance + 60, -3);
+    ctx.lineTo(distance + 80, 0);
+    ctx.lineTo(distance + 60, 3);
+    ctx.lineTo(20, 8);
+    ctx.closePath();
+    ctx.fill();
+    
+    // 尖端光芒
+    ctx.fillStyle = '#ffffff';
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 15;
+    ctx.beginPath();
+    ctx.arc(distance + 70, 0, 5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    
+    ctx.restore();
+}
+
+// 扫击波
+function drawSweepWave(ctx, color, progress) {
+    const intensity = Math.sin(progress * Math.PI);
+    const waveRadius = 30 + progress * 80;
+    
+    ctx.save();
+    ctx.globalAlpha = intensity * 0.6;
+    
+    // 地面冲击波
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 6;
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 20;
+    ctx.beginPath();
+    ctx.ellipse(0, 20, waveRadius, 15, 0, 0, Math.PI);
+    ctx.stroke();
+    
+    // 内层
+    ctx.strokeStyle = '#ffffff';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.ellipse(0, 20, waveRadius * 0.7, 10, 0, 0, Math.PI);
+    ctx.stroke();
+    
+    ctx.shadowBlur = 0;
+    ctx.restore();
+}
+
+// 旋转特效
+function drawSpinEffect(ctx, color, progress, angle) {
+    const intensity = Math.sin(progress * Math.PI);
+    
+    ctx.save();
+    ctx.globalAlpha = intensity * 0.5;
+    
+    // 旋转光环
+    for (let i = 0; i < 8; i++) {
+        const trailAngle = angle - i * 0.3;
+        const trailAlpha = 1 - i * 0.12;
+        const r = 50 + Math.sin(angle * 2 + i) * 10;
+        
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 4 - i * 0.4;
+        ctx.globalAlpha = intensity * trailAlpha * 0.4;
+        ctx.beginPath();
+        ctx.arc(0, -20, r, trailAngle - 0.5, trailAngle + 0.2);
+        ctx.stroke();
+    }
+    
+    // 中心光球
+    ctx.globalAlpha = intensity * 0.8;
+    const grad = ctx.createRadialGradient(0, -20, 0, 0, -20, 30);
+    grad.addColorStop(0, '#ffffff');
+    grad.addColorStop(0.5, color);
+    grad.addColorStop(1, 'transparent');
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(0, -20, 30, 0, Math.PI * 2);
+    ctx.fill();
+    
+    ctx.restore();
+}
+
+// 重击特效
+function drawHeavyImpact(ctx, color, progress) {
+    const intensity = 1 - progress;
+    const impactSize = progress * 100;
+    
+    ctx.save();
+    ctx.globalAlpha = intensity * 0.7;
+    ctx.translate(0, 30);
+    
+    // 冲击波
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 5;
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 25;
+    ctx.beginPath();
+    ctx.ellipse(0, 0, impactSize, impactSize * 0.3, 0, 0, Math.PI * 2);
+    ctx.stroke();
+    
+    // 裂纹
+    ctx.strokeStyle = '#ffffff';
+    ctx.lineWidth = 2;
+    for (let i = 0; i < 8; i++) {
+        const angle = (i / 8) * Math.PI * 2;
+        const len = impactSize * 0.8;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(Math.cos(angle) * len, Math.sin(angle) * len * 0.3);
+        ctx.stroke();
+    }
+    
+    // 碎石飞溅
+    ctx.fillStyle = '#888';
+    for (let i = 0; i < 12; i++) {
+        const angle = (i / 12) * Math.PI * 2 + progress * 2;
+        const dist = impactSize * 0.6 * (0.5 + Math.random() * 0.5);
+        const size = 3 + Math.random() * 4;
+        const x = Math.cos(angle) * dist;
+        const y = Math.sin(angle) * dist * 0.3 - progress * 30;
+        ctx.beginPath();
+        ctx.arc(x, y, size * intensity, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    
+    ctx.shadowBlur = 0;
+    ctx.restore();
+}
+
+// 空中拖尾
+function drawAerialTrail(ctx, color, progress) {
+    ctx.save();
+    
+    for (let i = 0; i < 6; i++) {
+        const trailAlpha = (1 - i * 0.15) * (1 - progress * 0.5);
+        ctx.globalAlpha = trailAlpha * 0.4;
+        ctx.fillStyle = color;
+        
+        const offsetX = -i * 8;
+        const offsetY = i * 5;
+        const scale = 1 - i * 0.1;
+        
+        ctx.beginPath();
+        ctx.ellipse(offsetX, -35 + offsetY, 15 * scale, 25 * scale, progress * 0.5, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    
+    ctx.restore();
+}
+
+// 绘制单个手臂
+function drawArm(ctx, color, length, bend) {
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    
+    // 上臂
+    ctx.moveTo(-3, 0);
+    ctx.quadraticCurveTo(
+        -4 + bend * 10, length * 0.4,
+        -2 + bend * 8, length * 0.55
+    );
+    
+    // 下臂到手
+    ctx.quadraticCurveTo(
+        bend * 5, length * 0.75,
+        2, length
+    );
+    
+    // 袖口
+    ctx.lineTo(6, length - 3);
+    ctx.quadraticCurveTo(4, length * 0.7, 4, length * 0.5);
+    ctx.quadraticCurveTo(5 + bend * 5, length * 0.3, 3, 0);
+    
+    ctx.closePath();
+    ctx.fill();
+    
+    // 袖口飘逸
+    ctx.strokeStyle = shadeColor(color, 15);
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(-2, length - 5);
+    ctx.quadraticCurveTo(2, length + 8, 6, length - 5);
+    ctx.stroke();
+}
+
+// 绘制头部和发型
+function drawHeadAndHair(ctx, color, time, windSway, isFemale, isMoving, vx) {
+    const headY = -58;
+    const headR = isFemale ? 9 : 10;
+    const hairFlow = windSway + (isMoving ? -vx * 2 : 0);
+    
+    // 头发底层 - 飘逸长发
+    ctx.fillStyle = shadeColor(color, -40);
+    ctx.beginPath();
+    
+    if (isFemale) {
+        // 女性 - 长发飘飘
+        ctx.moveTo(-headR - 2, headY - 5);
+        // 左侧长发
+        ctx.quadraticCurveTo(
+            -headR - 8 + hairFlow * 0.5, headY + 20,
+            -headR - 12 + hairFlow, headY + 50
+        );
+        ctx.quadraticCurveTo(
+            -headR - 5 + hairFlow * 0.3, headY + 35,
+            -headR + 2, headY + 15
+        );
+        // 后脑
+        ctx.lineTo(headR - 2, headY + 15);
+        // 右侧长发
+        ctx.quadraticCurveTo(
+            headR + 5 - hairFlow * 0.3, headY + 35,
+            headR + 10 - hairFlow * 0.8, headY + 45
+        );
+        ctx.quadraticCurveTo(
+            headR + 6 - hairFlow * 0.5, headY + 20,
+            headR + 2, headY - 5
+        );
+    } else {
+        // 男性 - 束发飘带
+        ctx.moveTo(-headR, headY - 3);
+        ctx.quadraticCurveTo(-headR - 3 + hairFlow * 0.3, headY + 10, -headR - 5 + hairFlow * 0.5, headY + 25);
+        ctx.lineTo(-headR + 5, headY + 10);
+        ctx.lineTo(headR - 5, headY + 10);
+        ctx.lineTo(headR + 5 - hairFlow * 0.5, headY + 25);
+        ctx.quadraticCurveTo(headR + 3 - hairFlow * 0.3, headY + 10, headR, headY - 3);
+    }
+    
+    ctx.closePath();
+    ctx.fill();
+    
+    // 头部剪影
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(0, headY, headR, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 发髻/头冠
+    ctx.fillStyle = shadeColor(color, -30);
+    if (isFemale) {
+        // 女性发髻
+        ctx.beginPath();
+        ctx.ellipse(0, headY - headR - 3, 6, 8, 0, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // 发簪
+        ctx.fillStyle = '#ffd700';
+        ctx.shadowColor = '#ffd700';
+        ctx.shadowBlur = 5;
+        ctx.beginPath();
+        ctx.moveTo(-1, headY - headR - 12);
+        ctx.lineTo(0, headY - headR - 20);
+        ctx.lineTo(1, headY - headR - 12);
+        ctx.fill();
+        
+        // 簪花
+        ctx.beginPath();
+        ctx.arc(-4, headY - headR - 8, 3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        
+        // 飘带
+        ctx.strokeStyle = '#ff6688';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(4, headY - headR - 5);
+        ctx.quadraticCurveTo(
+            10 + hairFlow, headY - headR + 15,
+            8 + hairFlow * 1.5, headY - headR + 35
+        );
+        ctx.stroke();
+    } else {
+        // 男性发冠
+        ctx.beginPath();
+        ctx.moveTo(-5, headY - headR);
+        ctx.lineTo(0, headY - headR - 12);
+        ctx.lineTo(5, headY - headR);
+        ctx.closePath();
+        ctx.fill();
+        
+        // 发带飘动
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(0, headY - headR - 10);
+        ctx.quadraticCurveTo(
+            -15 + hairFlow, headY - headR + 5,
+            -25 + hairFlow * 2, headY - headR + 20
+        );
+        ctx.stroke();
+        
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(0, headY - headR - 8);
+        ctx.quadraticCurveTo(
+            -12 + hairFlow * 0.8, headY - headR + 8,
+            -20 + hairFlow * 1.5, headY - headR + 28
+        );
+        ctx.stroke();
+    }
+}
+
+// 绘制飘带
+function drawFlowingRibbon(ctx, color, time, windSway, isMoving, vx, layer) {
+    const ribbonColor = layer > 0 ? shadeColor(color, 20) : shadeColor(color, -20);
+    const baseX = layer > 0 ? 8 : -10;
+    const speed = isMoving ? 4 : 2;
+    const amplitude = isMoving ? 20 : 8;
+    const flowOffset = -vx * 3 * layer;
+    
+    ctx.strokeStyle = ribbonColor;
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    ctx.globalAlpha = 0.8;
+    
+    ctx.beginPath();
+    ctx.moveTo(baseX, -25);
+    
+    // 飘带曲线
+    const points = 8;
+    for (let i = 1; i <= points; i++) {
+        const t = i / points;
+        const wave = Math.sin(time * speed + t * 3 + layer) * amplitude * t;
+        const x = baseX + wave + flowOffset * t;
+        const y = -25 + t * 60;
+        
+        if (i === 1) {
+            ctx.quadraticCurveTo(baseX + wave * 0.3, -25 + 15, x, y);
+        } else {
+            ctx.lineTo(x, y);
+        }
+    }
+    
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+}
+
+// 绘制神通光环
+function drawDivineAura(ctx, color, time) {
+    // 仙气光环
+    for (let i = 0; i < 3; i++) {
+        const r = 50 + i * 20 + Math.sin(time * 3 + i) * 10;
+        const gradient = ctx.createRadialGradient(0, -35, r * 0.3, 0, -35, r);
+        gradient.addColorStop(0, color + '44');
+        gradient.addColorStop(0.5, color + '22');
+        gradient.addColorStop(1, 'transparent');
+        
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(0, -35, r, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    
+    // 环绕光点
+    ctx.fillStyle = '#ffffff';
+    for (let i = 0; i < 8; i++) {
+        const angle = (i / 8) * Math.PI * 2 + time * 2;
+        const r = 45 + Math.sin(time * 4 + i) * 10;
+        const x = Math.cos(angle) * r;
+        const y = -35 + Math.sin(angle) * r * 0.4;
+        const size = 2 + Math.sin(time * 5 + i) * 1;
+        
+        ctx.beginPath();
+        ctx.arc(x, y, size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+// 绘制防御结界
+function drawDefenseBarrier(ctx, color, time) {
+    ctx.save();
+    
+    // 八卦护盾
+    const r = 40;
+    ctx.strokeStyle = '#88ccff';
+    ctx.lineWidth = 3;
+    ctx.shadowColor = '#88ccff';
+    ctx.shadowBlur = 20;
+    
+    // 外圈
+    ctx.beginPath();
+    ctx.arc(0, -30, r, 0, Math.PI * 2);
+    ctx.stroke();
+    
+    // 内部八卦纹
+    ctx.lineWidth = 1.5;
+    ctx.globalAlpha = 0.6;
+    for (let i = 0; i < 8; i++) {
+        const angle = (i / 8) * Math.PI * 2 + time;
+        ctx.beginPath();
+        ctx.moveTo(0, -30);
+        ctx.lineTo(Math.cos(angle) * r, -30 + Math.sin(angle) * r);
+        ctx.stroke();
+    }
+    
+    // 太极图案
+    ctx.fillStyle = '#88ccff';
+    ctx.globalAlpha = 0.4;
+    ctx.beginPath();
+    ctx.arc(0, -30, r * 0.3, 0, Math.PI, true);
+    ctx.arc(0, -30 + r * 0.15, r * 0.15, Math.PI, 0, true);
+    ctx.arc(0, -30 - r * 0.15, r * 0.15, Math.PI, 0, false);
+    ctx.fill();
+    
+    ctx.restore();
+}
+
+// 绘制角色UI
+function drawCharacterUI(ctx, ch, sx, sy, color) {
+    const barWidth = 55;
+    const barY = sy - 100;
+    const healthPercent = ch.blood / ch.maxBlood;
+    const shenTongPercent = ch.shenTong / ch.shenTongMax;
+    
+    // 血条背景
+    ctx.fillStyle = 'rgba(0,0,0,0.6)';
+    roundRect(ctx, sx - barWidth/2 - 3, barY - 3, barWidth + 6, 10, 5);
+    ctx.fill();
+    
+    // 血条
+    const healthColor = healthPercent > 0.5 ? '#44ff88' : (healthPercent > 0.25 ? '#ffaa00' : '#ff4444');
+    const healthGradient = ctx.createLinearGradient(sx - barWidth/2, 0, sx + barWidth/2, 0);
+    healthGradient.addColorStop(0, healthColor);
+    healthGradient.addColorStop(1, shadeColor(healthColor, -20));
+    
+    ctx.fillStyle = healthGradient;
+    ctx.shadowColor = healthColor;
+    ctx.shadowBlur = 8;
+    roundRect(ctx, sx - barWidth/2, barY, barWidth * healthPercent, 4, 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    
+    // 神通条
+    ctx.fillStyle = 'rgba(0,0,0,0.5)';
+    roundRect(ctx, sx - barWidth/2 - 3, barY + 8, barWidth + 6, 6, 3);
+    ctx.fill();
+    
+    const stGradient = ctx.createLinearGradient(sx - barWidth/2, 0, sx + barWidth/2, 0);
+    stGradient.addColorStop(0, '#aa66ff');
+    stGradient.addColorStop(1, '#ff66aa');
+    
+    ctx.fillStyle = stGradient;
+    ctx.shadowColor = '#aa66ff';
+    ctx.shadowBlur = 6;
+    roundRect(ctx, sx - barWidth/2, barY + 10, barWidth * shenTongPercent, 2, 1);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    
+    // 名字
+    ctx.font = 'bold 13px Microsoft YaHei';
+    ctx.fillStyle = color;
+    ctx.textAlign = 'center';
+    ctx.shadowColor = '#000';
+    ctx.shadowBlur = 6;
+    ctx.fillText(ch.name, sx, barY - 10);
+    
+    // 境界小字
+    ctx.font = '10px Microsoft YaHei';
+    ctx.fillStyle = '#aaa';
+    ctx.fillText(ch.realm, sx, barY - 22);
+    ctx.shadowBlur = 0;
+}
+
+function shadeColor(color, percent) {
+    const num = parseInt(color.replace('#', ''), 16);
+    const amt = Math.round(2.55 * percent);
+    const R = Math.max(0, Math.min(255, (num >> 16) + amt));
+    const G = Math.max(0, Math.min(255, ((num >> 8) & 0x00FF) + amt));
+    const B = Math.max(0, Math.min(255, (num & 0x0000FF) + amt));
+    return '#' + (0x1000000 + R * 0x10000 + G * 0x100 + B).toString(16).slice(1);
+}
+
+// ========== 绘制法宝 - 飘逸仙器风格 ==========
+function drawFabao(ctx, fabao, color, scale = 1) {
+    const cat = fabaoCategory(fabao);
+    const time = Date.now() * 0.001;
+    
+    ctx.save();
+    ctx.scale(scale, scale);
+    
+    // 法宝光芒
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 12;
+    
+    switch(cat) {
+        case 'sword':
+            drawElegantSword(ctx, color, time);
+            break;
+        case 'spear':
+            drawElegantSpear(ctx, color, time);
+            break;
+        case 'whip':
+            drawElegantWhip(ctx, color, time);
+            break;
+        case 'banner':
+            drawElegantBanner(ctx, color, time);
+            break;
+        case 'ring':
+            drawElegantRing(ctx, color, time);
+            break;
+        case 'pagoda':
+            drawElegantPagoda(ctx, color, time);
+            break;
+        case 'fan':
+            drawElegantFan(ctx, color, time);
+            break;
+        case 'pearl':
+            drawElegantPearl(ctx, color, time);
+            break;
+        case 'ribbon':
+            drawElegantRibbon(ctx, color, time);
+            break;
+        case 'wheel':
+            drawElegantWheel(ctx, color, time);
+            break;
+        case 'blade':
+            drawElegantBlade(ctx, color, time);
+            break;
+        case 'bow':
+        case 'arrow':
+            drawElegantBow(ctx, color, time);
+            break;
+        case 'halberd':
+            drawElegantHalberd(ctx, color, time);
+            break;
+        case 'hammer':
+            drawElegantHammer(ctx, color, time);
+            break;
+        case 'staff':
+            drawElegantStaff(ctx, color, time);
+            break;
+        default:
+            drawElegantSword(ctx, color, time);
+    }
+    
+    ctx.shadowBlur = 0;
+    ctx.restore();
+}
+
+// 飘逸仙剑
+function drawElegantSword(ctx, color, time) {
+    const glow = Math.sin(time * 3) * 0.2 + 0.8;
+    
+    // 剑身渐变
+    const bladeGrad = ctx.createLinearGradient(0, 0, 55, 0);
+    bladeGrad.addColorStop(0, '#e8e8e8');
+    bladeGrad.addColorStop(0.4, '#ffffff');
+    bladeGrad.addColorStop(0.6, '#c0e0ff');
+    bladeGrad.addColorStop(1, '#88ccff');
+    
+    // 剑身
+    ctx.fillStyle = bladeGrad;
+    ctx.beginPath();
+    ctx.moveTo(8, 0);
+    ctx.lineTo(52, -2);
+    ctx.lineTo(58, 0);
+    ctx.lineTo(52, 2);
+    ctx.lineTo(8, 0);
+    ctx.closePath();
+    ctx.fill();
+    
+    // 剑脊高光
+    ctx.strokeStyle = `rgba(255,255,255,${glow})`;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(10, 0);
+    ctx.lineTo(55, 0);
+    ctx.stroke();
+    
+    // 剑格 - 精致
+    ctx.fillStyle = '#ffd700';
+    ctx.beginPath();
+    ctx.ellipse(6, 0, 3, 7, 0, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 剑格装饰
+    ctx.fillStyle = '#ff4444';
+    ctx.beginPath();
+    ctx.arc(6, 0, 2, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 剑柄
+    const handleGrad = ctx.createLinearGradient(-12, 0, 6, 0);
+    handleGrad.addColorStop(0, '#4a3020');
+    handleGrad.addColorStop(0.5, '#8b6040');
+    handleGrad.addColorStop(1, '#4a3020');
+    ctx.fillStyle = handleGrad;
+    ctx.fillRect(-12, -3, 18, 6);
+    
+    // 剑穗
+    ctx.fillStyle = '#ffd700';
+    ctx.beginPath();
+    ctx.arc(-12, 0, 4, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 剑穗飘带
+    ctx.strokeStyle = '#ff6666';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(-14, 0);
+    ctx.quadraticCurveTo(-20 + Math.sin(time * 4) * 5, 15, -25 + Math.sin(time * 3) * 8, 30);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(-14, 0);
+    ctx.quadraticCurveTo(-22 + Math.sin(time * 4 + 1) * 4, 12, -28 + Math.sin(time * 3 + 1) * 6, 25);
+    ctx.stroke();
+}
+
+// 飘逸长枪
+function drawElegantSpear(ctx, color, time) {
+    // 枪杆
+    const shaftGrad = ctx.createLinearGradient(-25, 0, 65, 0);
+    shaftGrad.addColorStop(0, '#3a2010');
+    shaftGrad.addColorStop(0.5, '#6b4020');
+    shaftGrad.addColorStop(1, '#3a2010');
+    ctx.strokeStyle = shaftGrad;
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(-25, 0);
+    ctx.lineTo(55, 0);
+    ctx.stroke();
+    
+    // 枪头 - 亮银
+    const tipGrad = ctx.createLinearGradient(55, -10, 75, 10);
+    tipGrad.addColorStop(0, '#e0e0e0');
+    tipGrad.addColorStop(0.5, '#ffffff');
+    tipGrad.addColorStop(1, '#b0b0b0');
+    ctx.fillStyle = tipGrad;
+    ctx.beginPath();
+    ctx.moveTo(55, -6);
+    ctx.lineTo(75, 0);
+    ctx.lineTo(55, 6);
+    ctx.quadraticCurveTo(58, 0, 55, -6);
+    ctx.fill();
+    
+    // 枪头高光
+    ctx.strokeStyle = '#ffffff';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(56, -3);
+    ctx.lineTo(72, 0);
+    ctx.stroke();
+    
+    // 红缨 - 飘逸
+    ctx.strokeStyle = '#ff3333';
+    ctx.lineWidth = 3;
+    const tassleX = 50;
+    for (let i = 0; i < 6; i++) {
+        const offset = (i - 2.5) * 3;
+        ctx.beginPath();
+        ctx.moveTo(tassleX, 0);
+        ctx.quadraticCurveTo(
+            tassleX - 10 + Math.sin(time * 5 + i) * 5, 
+            offset + 12,
+            tassleX - 20 + Math.sin(time * 4 + i) * 10, 
+            offset + 25
+        );
+        ctx.stroke();
+    }
+}
+
+// 飘逸钢鞭
+function drawElegantWhip(ctx, color, time) {
+    // 鞭身 - 波浪形
+    ctx.strokeStyle = '#404040';
+    ctx.lineWidth = 5;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    for (let i = 1; i <= 10; i++) {
+        const t = i / 10;
+        const x = t * 60;
+        const y = Math.sin(t * 4 + time * 6) * (6 + t * 4);
+        ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    
+    // 鞭身高光
+    ctx.strokeStyle = '#808080';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(2, -1);
+    for (let i = 1; i <= 10; i++) {
+        const t = i / 10;
+        const x = t * 60;
+        const y = Math.sin(t * 4 + time * 6) * (6 + t * 4) - 2;
+        ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    
+    // 鞭把
+    ctx.fillStyle = '#ffd700';
+    ctx.beginPath();
+    ctx.ellipse(-5, 0, 6, 4, 0, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+// 飘逸幡旗
+function drawElegantBanner(ctx, color, time) {
+    // 旗杆
+    ctx.strokeStyle = '#8b6040';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(0, 15);
+    ctx.lineTo(0, -35);
+    ctx.stroke();
+    
+    // 旗帜 - 飘动
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.moveTo(0, -35);
+    const waveAmp = 8 + Math.sin(time * 3) * 3;
+    ctx.quadraticCurveTo(20 + waveAmp, -30 + Math.sin(time * 4) * 3, 35 + waveAmp, -25);
+    ctx.quadraticCurveTo(40 + waveAmp * 0.5, -15, 35 + waveAmp * 0.3, -5);
+    ctx.quadraticCurveTo(20, 0 + Math.sin(time * 4 + 1) * 2, 0, 5);
+    ctx.closePath();
+    ctx.fill();
+    
+    // 旗帜纹理
+    ctx.strokeStyle = shadeColor(color, 30);
+    ctx.lineWidth = 1;
+    for (let i = 0; i < 3; i++) {
+        ctx.beginPath();
+        ctx.moveTo(3, -30 + i * 12);
+        ctx.quadraticCurveTo(20 + waveAmp * 0.5, -28 + i * 12, 30 + waveAmp * 0.3, -25 + i * 12);
+        ctx.stroke();
+    }
+    
+    // 旗尖
+    ctx.fillStyle = '#ffd700';
+    ctx.beginPath();
+    ctx.moveTo(-3, -38);
+    ctx.lineTo(0, -48);
+    ctx.lineTo(3, -38);
+    ctx.closePath();
+    ctx.fill();
+}
+
+// 飘逸干坤圈
+function drawElegantRing(ctx, color, time) {
+    const glow = Math.sin(time * 4) * 0.3 + 0.7;
+    
+    // 外圈
+    ctx.strokeStyle = '#ffd700';
+    ctx.lineWidth = 4;
+    ctx.shadowColor = '#ffd700';
+    ctx.shadowBlur = 15 * glow;
+    ctx.beginPath();
+    ctx.arc(25, 0, 18, 0, Math.PI * 2);
+    ctx.stroke();
+    
+    // 内纹
+    ctx.strokeStyle = '#ffee88';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.arc(25, 0, 14, 0, Math.PI * 2);
+    ctx.stroke();
+    
+    // 旋转符文
+    ctx.strokeStyle = `rgba(255, 215, 0, ${glow})`;
+    ctx.lineWidth = 2;
+    for (let i = 0; i < 8; i++) {
+        const angle = (i / 8) * Math.PI * 2 + time * 2;
+        ctx.beginPath();
+        ctx.arc(25, 0, 16, angle, angle + 0.3);
+        ctx.stroke();
+    }
+}
+
+// 飘逸玲珑塔
+function drawElegantPagoda(ctx, color, time) {
+    const float = Math.sin(time * 2) * 2;
+    
+    ctx.save();
+    ctx.translate(15, float);
+    
+    // 塔身
+    for (let i = 0; i < 5; i++) {
+        const w = 22 - i * 4;
+        const h = 10;
+        const y = -i * 12;
+        
+        const tierGrad = ctx.createLinearGradient(-w/2, y, w/2, y + h);
+        tierGrad.addColorStop(0, '#ffd700');
+        tierGrad.addColorStop(0.5, '#ffee88');
+        tierGrad.addColorStop(1, '#cc9900');
+        
+        ctx.fillStyle = tierGrad;
+        ctx.beginPath();
+        ctx.moveTo(-w/2, y);
+        ctx.lineTo(-w/2 - 3, y + h);
+        ctx.lineTo(w/2 + 3, y + h);
+        ctx.lineTo(w/2, y);
+        ctx.closePath();
+        ctx.fill();
+    }
+    
+    // 塔顶
+    ctx.fillStyle = '#ff4444';
+    ctx.beginPath();
+    ctx.moveTo(0, -60);
+    ctx.lineTo(5, -50);
+    ctx.lineTo(-5, -50);
+    ctx.closePath();
+    ctx.fill();
+    
+    // 塔光
+    ctx.fillStyle = `rgba(255, 255, 200, ${0.3 + Math.sin(time * 5) * 0.2})`;
+    ctx.beginPath();
+    ctx.arc(0, -30, 30, 0, Math.PI * 2);
+    ctx.fill();
+    
+    ctx.restore();
+}
+
+// 飘逸羽扇
+function drawElegantFan(ctx, color, time) {
+    const spread = 0.9; // 扇子张开角度
+    
+    // 扇面
+    const fanGrad = ctx.createRadialGradient(0, 0, 5, 0, 0, 38);
+    fanGrad.addColorStop(0, shadeColor(color, 20));
+    fanGrad.addColorStop(0.7, color);
+    fanGrad.addColorStop(1, shadeColor(color, -20));
+    
+    ctx.fillStyle = fanGrad;
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.arc(0, 0, 38, -spread, spread);
+    ctx.closePath();
+    ctx.fill();
+    
+    // 扇骨 - 精致
+    ctx.strokeStyle = '#ffd700';
+    ctx.lineWidth = 1.5;
+    for (let i = -4; i <= 4; i++) {
+        const angle = i * spread / 4;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(Math.cos(angle) * 36, Math.sin(angle) * 36);
+        ctx.stroke();
+    }
+    
+    // 扇边
+    ctx.strokeStyle = '#ffd700';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(0, 0, 38, -spread, spread);
+    ctx.stroke();
+    
+    // 扇柄
+    ctx.fillStyle = '#8b4513';
+    ctx.fillRect(-2, -5, 4, 12);
+    
+    // 扇坠
+    ctx.strokeStyle = '#ff6666';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(0, 6);
+    ctx.quadraticCurveTo(5 + Math.sin(time * 4) * 3, 18, 3 + Math.sin(time * 3) * 5, 28);
+    ctx.stroke();
+}
+
+// 飘逸宝珠
+function drawElegantPearl(ctx, color, time) {
+    const pulse = Math.sin(time * 3) * 0.15 + 1;
+    const r = 14 * pulse;
+    
+    // 外光
+    const outerGlow = ctx.createRadialGradient(22, 0, r * 0.5, 22, 0, r * 2);
+    outerGlow.addColorStop(0, color + '44');
+    outerGlow.addColorStop(1, 'transparent');
+    ctx.fillStyle = outerGlow;
+    ctx.beginPath();
+    ctx.arc(22, 0, r * 2, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 珠体
+    const pearlGrad = ctx.createRadialGradient(18, -4, 0, 22, 0, r);
+    pearlGrad.addColorStop(0, '#ffffff');
+    pearlGrad.addColorStop(0.3, '#ffffee');
+    pearlGrad.addColorStop(0.7, color);
+    pearlGrad.addColorStop(1, shadeColor(color, -30));
+    
+    ctx.fillStyle = pearlGrad;
+    ctx.beginPath();
+    ctx.arc(22, 0, r, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 高光点
+    ctx.fillStyle = 'rgba(255,255,255,0.8)';
+    ctx.beginPath();
+    ctx.arc(18, -5, 4, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 环绕光点
+    ctx.fillStyle = '#ffffff';
+    for (let i = 0; i < 6; i++) {
+        const angle = (i / 6) * Math.PI * 2 + time * 2;
+        const orbitR = r + 8;
+        const x = 22 + Math.cos(angle) * orbitR;
+        const y = Math.sin(angle) * orbitR * 0.5;
+        ctx.beginPath();
+        ctx.arc(x, y, 2, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+// 飘逸缩地 / 飘带
+function drawElegantRibbon(ctx, color, time) {
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 4;
+    ctx.lineCap = 'round';
+    
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    for (let i = 1; i <= 12; i++) {
+        const t = i / 12;
+        const x = t * 50;
+        const y = Math.sin(t * 6 + time * 5) * 15 * t;
+        ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    
+    // 高光
+    ctx.strokeStyle = shadeColor(color, 40);
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(2, -1);
+    for (let i = 1; i <= 12; i++) {
+        const t = i / 12;
+        const x = t * 50;
+        const y = Math.sin(t * 6 + time * 5) * 15 * t - 2;
+        ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+}
+
+// 飘逸风火轮
+function drawElegantWheel(ctx, color, time) {
+    const spin = time * 8;
+    
+    ctx.save();
+    ctx.translate(20, 0);
+    ctx.rotate(spin);
+    
+    // 火焰光环
+    const fireGrad = ctx.createRadialGradient(0, 0, 5, 0, 0, 20);
+    fireGrad.addColorStop(0, '#ffff00');
+    fireGrad.addColorStop(0.5, '#ff6600');
+    fireGrad.addColorStop(1, '#ff000044');
+    ctx.fillStyle = fireGrad;
+    ctx.beginPath();
+    ctx.arc(0, 0, 18, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 轮辐
+    ctx.strokeStyle = '#ffd700';
+    ctx.lineWidth = 2;
+    for (let i = 0; i < 6; i++) {
+        const angle = (i / 6) * Math.PI * 2;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(Math.cos(angle) * 15, Math.sin(angle) * 15);
+        ctx.stroke();
+    }
+    
+    // 中心
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.arc(0, 0, 4, 0, Math.PI * 2);
+    ctx.fill();
+    
+    ctx.restore();
+    
+    // 火焰拖尾
+    ctx.fillStyle = '#ff660066';
+    for (let i = 0; i < 8; i++) {
+        const trail = (spin - i * 0.3) % (Math.PI * 2);
+        const x = 20 + Math.cos(trail) * 15;
+        const y = Math.sin(trail) * 15;
+        ctx.beginPath();
+        ctx.arc(x, y, 4 - i * 0.4, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+// 飘逸三尖两刃刀 / 大刀
+function drawElegantBlade(ctx, color, time) {
+    const glow = Math.sin(time * 3) * 0.2 + 0.8;
+    
+    // 刀杆
+    const shaftGrad = ctx.createLinearGradient(-20, 0, 20, 0);
+    shaftGrad.addColorStop(0, '#3a2010');
+    shaftGrad.addColorStop(0.5, '#6b4020');
+    shaftGrad.addColorStop(1, '#3a2010');
+    ctx.strokeStyle = shaftGrad;
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.moveTo(-25, 0);
+    ctx.lineTo(15, 0);
+    ctx.stroke();
+    
+    // 三尖刀头 - 独特造型
+    const bladeGrad = ctx.createLinearGradient(15, -20, 70, 20);
+    bladeGrad.addColorStop(0, '#c0c0c0');
+    bladeGrad.addColorStop(0.3, '#ffffff');
+    bladeGrad.addColorStop(0.7, '#e0e0e0');
+    bladeGrad.addColorStop(1, '#a0a0a0');
+    
+    ctx.fillStyle = bladeGrad;
+    ctx.beginPath();
+    // 中央主刃
+    ctx.moveTo(15, 0);
+    ctx.lineTo(70, 0);
+    ctx.lineTo(65, 3);
+    ctx.lineTo(15, 5);
+    ctx.lineTo(15, -5);
+    ctx.lineTo(65, -3);
+    ctx.lineTo(70, 0);
+    ctx.closePath();
+    ctx.fill();
+    
+    // 上刃尖
+    ctx.beginPath();
+    ctx.moveTo(50, -3);
+    ctx.lineTo(68, -15);
+    ctx.lineTo(55, -8);
+    ctx.closePath();
+    ctx.fill();
+    
+    // 下刃尖
+    ctx.beginPath();
+    ctx.moveTo(50, 3);
+    ctx.lineTo(68, 15);
+    ctx.lineTo(55, 8);
+    ctx.closePath();
+    ctx.fill();
+    
+    // 刀刃高光
+    ctx.strokeStyle = `rgba(255,255,255,${glow})`;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(20, 0);
+    ctx.lineTo(65, 0);
+    ctx.stroke();
+    
+    // 刀格 - 圆形护手
+    ctx.fillStyle = '#ffd700';
+    ctx.beginPath();
+    ctx.ellipse(15, 0, 5, 8, 0, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 刀格红宝石
+    ctx.fillStyle = '#ff3333';
+    ctx.shadowColor = '#ff3333';
+    ctx.shadowBlur = 5;
+    ctx.beginPath();
+    ctx.arc(15, 0, 3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    
+    // 刀尾装饰
+    ctx.fillStyle = '#ffd700';
+    ctx.beginPath();
+    ctx.arc(-25, 0, 5, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+// 飘逸弓箭
+function drawElegantBow(ctx, color, time) {
+    const drawBack = Math.sin(time * 2) * 0.1; // 弓弦拉动
+    
+    // 弓身 - 优雅曲线
+    const bowGrad = ctx.createLinearGradient(0, -30, 0, 30);
+    bowGrad.addColorStop(0, '#5a3010');
+    bowGrad.addColorStop(0.5, '#8b5020');
+    bowGrad.addColorStop(1, '#5a3010');
+    
+    ctx.strokeStyle = bowGrad;
+    ctx.lineWidth = 4;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(-5, -25);
+    ctx.quadraticCurveTo(25, -20, 30, 0);
+    ctx.quadraticCurveTo(25, 20, -5, 25);
+    ctx.stroke();
+    
+    // 弓弦
+    ctx.strokeStyle = '#ddddaa';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(-5, -25);
+    ctx.lineTo(-10 - drawBack * 20, 0);
+    ctx.lineTo(-5, 25);
+    ctx.stroke();
+    
+    // 箭
+    ctx.save();
+    ctx.translate(-8 - drawBack * 15, 0);
+    
+    // 箭杆
+    ctx.strokeStyle = '#8b6040';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(-15, 0);
+    ctx.lineTo(50, 0);
+    ctx.stroke();
+    
+    // 箭头 - 锐利
+    const tipGrad = ctx.createLinearGradient(45, -6, 60, 6);
+    tipGrad.addColorStop(0, '#c0c0c0');
+    tipGrad.addColorStop(0.5, '#ffffff');
+    tipGrad.addColorStop(1, '#a0a0a0');
+    ctx.fillStyle = tipGrad;
+    ctx.beginPath();
+    ctx.moveTo(50, -4);
+    ctx.lineTo(62, 0);
+    ctx.lineTo(50, 4);
+    ctx.closePath();
+    ctx.fill();
+    
+    // 箭羽
+    ctx.fillStyle = '#ffffff';
+    ctx.globalAlpha = 0.8;
+    ctx.beginPath();
+    ctx.moveTo(-10, 0);
+    ctx.lineTo(-18, -8);
+    ctx.lineTo(-12, 0);
+    ctx.lineTo(-18, 8);
+    ctx.closePath();
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    
+    ctx.restore();
+    
+    // 弓身装饰
+    ctx.fillStyle = '#ffd700';
+    ctx.beginPath();
+    ctx.arc(30, 0, 4, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(-5, -25, 3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(-5, 25, 3, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+// 飘逸方天画戟
+function drawElegantHalberd(ctx, color, time) {
+    const glow = Math.sin(time * 3) * 0.2 + 0.8;
+    
+    // 戟杆
+    const shaftGrad = ctx.createLinearGradient(-25, 0, 55, 0);
+    shaftGrad.addColorStop(0, '#4a3020');
+    shaftGrad.addColorStop(0.5, '#7b5030');
+    shaftGrad.addColorStop(1, '#4a3020');
+    ctx.strokeStyle = shaftGrad;
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.moveTo(-30, 0);
+    ctx.lineTo(45, 0);
+    ctx.stroke();
+    
+    // 戟头主刃
+    const bladeGrad = ctx.createLinearGradient(45, -25, 75, 25);
+    bladeGrad.addColorStop(0, '#d0d0d0');
+    bladeGrad.addColorStop(0.5, '#ffffff');
+    bladeGrad.addColorStop(1, '#b0b0b0');
+    ctx.fillStyle = bladeGrad;
+    
+    // 中央刺
+    ctx.beginPath();
+    ctx.moveTo(45, -3);
+    ctx.lineTo(75, 0);
+    ctx.lineTo(45, 3);
+    ctx.closePath();
+    ctx.fill();
+    
+    // 月牙刃 - 上
+    ctx.beginPath();
+    ctx.moveTo(40, -5);
+    ctx.quadraticCurveTo(55, -25, 50, -30);
+    ctx.quadraticCurveTo(60, -20, 55, -8);
+    ctx.closePath();
+    ctx.fill();
+    
+    // 月牙刃 - 下
+    ctx.beginPath();
+    ctx.moveTo(40, 5);
+    ctx.quadraticCurveTo(55, 25, 50, 30);
+    ctx.quadraticCurveTo(60, 20, 55, 8);
+    ctx.closePath();
+    ctx.fill();
+    
+    // 戟头高光
+    ctx.strokeStyle = `rgba(255,255,255,${glow})`;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(48, 0);
+    ctx.lineTo(72, 0);
+    ctx.stroke();
+    
+    // 装饰红缨
+    ctx.strokeStyle = '#ff3333';
+    ctx.lineWidth = 3;
+    for (let i = 0; i < 5; i++) {
+        ctx.beginPath();
+        ctx.moveTo(38, 0);
+        ctx.quadraticCurveTo(
+            30 + Math.sin(time * 5 + i) * 5, 
+            -8 + i * 4,
+            20 + Math.sin(time * 4 + i) * 8, 
+            -12 + i * 6
+        );
+        ctx.stroke();
+    }
+    
+    // 戟尾
+    ctx.fillStyle = '#ffd700';
+    ctx.beginPath();
+    ctx.arc(-30, 0, 5, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+// 飘逸双锤
+function drawElegantHammer(ctx, color, time) {
+    const swing = Math.sin(time * 4) * 0.1;
+    
+    // 锤柄
+    const handleGrad = ctx.createLinearGradient(-15, 0, 25, 0);
+    handleGrad.addColorStop(0, '#4a3020');
+    handleGrad.addColorStop(0.5, '#7b5030');
+    handleGrad.addColorStop(1, '#4a3020');
+    ctx.strokeStyle = handleGrad;
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.moveTo(-20, 0);
+    ctx.lineTo(20, 0);
+    ctx.stroke();
+    
+    // 锤头 - 金色
+    ctx.save();
+    ctx.translate(32, 0);
+    ctx.rotate(swing);
+    
+    const hammerGrad = ctx.createRadialGradient(0, 0, 5, 0, 0, 18);
+    hammerGrad.addColorStop(0, '#ffee88');
+    hammerGrad.addColorStop(0.7, '#ffd700');
+    hammerGrad.addColorStop(1, '#cc9900');
+    
+    ctx.fillStyle = hammerGrad;
+    ctx.beginPath();
+    ctx.moveTo(-8, -15);
+    ctx.lineTo(8, -15);
+    ctx.quadraticCurveTo(15, -12, 15, 0);
+    ctx.quadraticCurveTo(15, 12, 8, 15);
+    ctx.lineTo(-8, 15);
+    ctx.quadraticCurveTo(-15, 12, -15, 0);
+    ctx.quadraticCurveTo(-15, -12, -8, -15);
+    ctx.fill();
+    
+    // 锤头高光
+    ctx.fillStyle = 'rgba(255,255,255,0.4)';
+    ctx.beginPath();
+    ctx.ellipse(-5, -8, 6, 4, -0.3, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 锤面纹路
+    ctx.strokeStyle = '#cc9900';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(-10, 0);
+    ctx.lineTo(10, 0);
+    ctx.stroke();
+    
+    ctx.restore();
+    
+    // 锤尾装饰
+    ctx.fillStyle = '#ffd700';
+    ctx.beginPath();
+    ctx.arc(-20, 0, 4, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+// 飘逸金棍/棍棒
+function drawElegantStaff(ctx, color, time) {
+    const glow = Math.sin(time * 3) * 0.15 + 0.85;
+    
+    // 棍身 - 渐变金色
+    const staffGrad = ctx.createLinearGradient(-25, 0, 55, 0);
+    staffGrad.addColorStop(0, '#cc9900');
+    staffGrad.addColorStop(0.3, '#ffd700');
+    staffGrad.addColorStop(0.5, '#ffee88');
+    staffGrad.addColorStop(0.7, '#ffd700');
+    staffGrad.addColorStop(1, '#cc9900');
+    
+    ctx.strokeStyle = staffGrad;
+    ctx.lineWidth = 6;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(-25, 0);
+    ctx.lineTo(55, 0);
+    ctx.stroke();
+    
+    // 棍身高光
+    ctx.strokeStyle = `rgba(255,255,255,${glow})`;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(-20, -2);
+    ctx.lineTo(50, -2);
+    ctx.stroke();
+    
+    // 金篍
+    ctx.fillStyle = '#ffd700';
+    for (let i = 0; i < 5; i++) {
+        const x = -15 + i * 17;
+        ctx.beginPath();
+        ctx.arc(x, 0, 5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#ffee88';
+        ctx.beginPath();
+        ctx.arc(x, -1, 2, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#ffd700';
+    }
+    
+    // 棍端装饰
+    ctx.fillStyle = '#ff4444';
+    ctx.beginPath();
+    ctx.arc(-25, 0, 4, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(55, 0, 4, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+// ========== 绘制背景 ==========
+function drawBackground(ctx) {
+    // 渐变天空
+    const skyGradient = ctx.createLinearGradient(0, 0, 0, SCREEN_HEIGHT);
+    skyGradient.addColorStop(0, '#0a0a2e');
+    skyGradient.addColorStop(0.3, '#1a1a4e');
+    skyGradient.addColorStop(0.6, '#2a1a3e');
+    skyGradient.addColorStop(1, '#1a0a1e');
+    ctx.fillStyle = skyGradient;
+    ctx.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    
+    // 星星
+    ctx.fillStyle = '#ffffff';
+    for (let i = 0; i < 80; i++) {
+        const x = (i * 137 + Date.now() * 0.001) % SCREEN_WIDTH;
+        const y = (i * 89) % (SCREEN_HEIGHT - 150);
+        const size = 0.5 + (i % 3) * 0.5;
+        const alpha = 0.3 + Math.sin(Date.now() * 0.002 + i) * 0.3;
+        ctx.globalAlpha = alpha;
+        ctx.beginPath();
+        ctx.arc(x, y, size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    
+    // 云雾
+    for (let i = 0; i < 5; i++) {
+        const x = ((Date.now() * 0.01 + i * 250) % (SCREEN_WIDTH + 200)) - 100;
+        const y = 80 + i * 60;
+        const gradient = ctx.createRadialGradient(x, y, 0, x, y, 80);
+        gradient.addColorStop(0, 'rgba(100, 80, 120, 0.15)');
+        gradient.addColorStop(1, 'transparent');
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.ellipse(x, y, 120, 40, 0, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    
+    // 远山
+    ctx.fillStyle = '#1a1a3e';
+    ctx.beginPath();
+    ctx.moveTo(0, GROUND_Y);
+    for (let x = 0; x <= SCREEN_WIDTH; x += 50) {
+        const h = 80 + Math.sin(x * 0.01) * 40 + Math.sin(x * 0.02) * 20;
+        ctx.lineTo(x, GROUND_Y - h);
+    }
+    ctx.lineTo(SCREEN_WIDTH, GROUND_Y);
+    ctx.closePath();
+    ctx.fill();
+    
+    // 地面
+    const groundGradient = ctx.createLinearGradient(0, GROUND_Y, 0, SCREEN_HEIGHT);
+    groundGradient.addColorStop(0, '#2a2a4a');
+    groundGradient.addColorStop(1, '#1a1a2a');
+    ctx.fillStyle = groundGradient;
+    ctx.fillRect(0, GROUND_Y, SCREEN_WIDTH, SCREEN_HEIGHT - GROUND_Y);
+    
+    // 地面纹理
+    ctx.strokeStyle = '#3a3a5a';
+    ctx.lineWidth = 1;
+    for (let x = 0; x < SCREEN_WIDTH; x += 30) {
+        ctx.beginPath();
+        ctx.moveTo(x, GROUND_Y);
+        ctx.lineTo(x + 15, SCREEN_HEIGHT);
+        ctx.stroke();
+    }
+}
+
+// ========== AI系统 ==========
+class AIController {
+    constructor(character, enemy) {
+        this.char = character;
+        this.enemy = enemy;
+        this.lastDecisionTime = 0;
+        this.decisionInterval = 150;
+        this.targetX = character.x;
+        this.aggressiveness = 0.6 + Math.random() * 0.3;
+    }
+    
+    update(currentTime) {
+        if (!this.char.isAlive || !this.enemy.isAlive) return;
+        
+        if (currentTime - this.lastDecisionTime > this.decisionInterval) {
+            this.makeDecision(currentTime);
+            this.lastDecisionTime = currentTime;
+        }
+        
+        // 移动控制
+        const dx = this.targetX - this.char.x;
+        this.char.moveLeft = dx < -15;
+        this.char.moveRight = dx > 15;
+        this.char.faceEnemy(this.enemy);
+    }
+    
+    makeDecision(currentTime) {
+        const dx = this.enemy.x - this.char.x;
+        const dist = Math.abs(dx);
+        const inRange = dist <= this.char.attackRange * 0.9;
+        const closeRange = dist < 80;
+        
+        // 攻击决策
+        if (inRange && Math.random() < this.aggressiveness) {
+            const result = this.char.attack(this.enemy, currentTime);
+            if (result) battleLog.unshift(result);
+        }
+        
+        // 防御决策
+        if (closeRange && this.enemy.attacking && Math.random() < 0.4) {
+            this.char.defending = true;
+            this.char.defenseTimer = 500;
+        } else if (this.char.defending && Math.random() < 0.3) {
+            this.char.defending = false;
+        }
+        
+        // 移动决策
+        const optimalDist = this.char.attackRange * 0.7;
+        if (dist > optimalDist + 50) {
+            this.targetX = this.enemy.x - Math.sign(dx) * optimalDist;
+        } else if (dist < optimalDist - 30 && Math.random() < 0.4) {
+            this.targetX = this.char.x - Math.sign(dx) * 60;
+        } else {
+            // 随机移动
+            if (Math.random() < 0.2) {
+                this.targetX = this.char.x + (Math.random() - 0.5) * 100;
+            }
+        }
+        
+        this.targetX = clamp(this.targetX, 50, SCREEN_WIDTH - 50);
+        
+        // 跳跃
+        if (Math.random() < 0.05 && this.char.onGround) {
+            this.char.attemptJump();
+        }
+    }
+}
+
+let aiController = null;
+
+// ========== 游戏循环 ==========
+let lastTime = 0;
+
+function gameLoop(timestamp) {
+    const dt = timestamp - lastTime || 16.67;
+    lastTime = timestamp;
+    
+    updateShake();
+    
+    ctx.save();
+    ctx.translate(screenShake.offsetX, screenShake.offsetY);
+    
+    if (gameState === 'selection') {
+        drawSelectionScreen();
+    } else if (gameState === 'battle') {
+        updateBattle(dt, timestamp);
+        drawBattle();
+    } else if (gameState === 'shop') {
+        drawShopScreen();
+    } else if (gameState === 'formation') {
+        drawFormationScreen();
+    }
+    
+    ctx.restore();
+    
+    // 更新特效
+    particles = particles.filter(p => { p.update(); return p.life > 0; });
+    floatingTexts = floatingTexts.filter(t => { t.update(); return t.life > 0; });
+    divineEffects = divineEffects.filter(e => { e.update(); return e.life > 0; });
+    formationEffects = formationEffects.filter(f => { f.update(); return f.life > 0; });
+    
+    // 更新控件可见性
+    updateControlsVisibility();
+    
+    requestAnimationFrame(gameLoop);
+}
+
+function updateControlsVisibility() {
+    const controls = document.getElementById('controls');
+    const mobileUtils = document.getElementById('mobileUtils');
+    
+    if (isMobile && gameState === 'battle' && !gameOver) {
+        controls.style.display = 'block';
+        mobileUtils.style.display = 'flex';
+    } else {
+        controls.style.display = 'none';
+        if (isMobile && gameState !== 'selection') {
+            mobileUtils.style.display = 'flex';
+        } else {
+            mobileUtils.style.display = 'none';
+        }
+    }
+}
+
+// ========== 战斗更新 ==========
+function updateBattle(dt, currentTime) {
+    if (gameOver) return;
+    
+    // 更新角色
+    char1.moveByInput(dt);
+    char1.applyPhysics(dt);
+    char1.update(dt);
+    
+    char2.moveByInput(dt);
+    char2.applyPhysics(dt);
+    char2.update(dt);
+    
+    // AI更新
+    if (vsAI && aiController) {
+        aiController.update(currentTime);
+    }
+    
+    // 阵法计时
+    if (formationActive && formationTimer > 0) {
+        formationTimer -= dt;
+        if (formationTimer <= 0) {
+            formationActive = false;
+            currentFormation = null;
+        }
+    }
+    
+    // 检查胜负
+    if (!char1.isAlive || !char2.isAlive) {
+        gameOver = true;
+        winner = char1.isAlive ? char1 : char2;
+        
+        if (winner === char1 && vsAI) {
+            const goldReward = 50 + winStreak * 20;
+            playerGold += goldReward;
+            winStreak++;
+            totalWins++;
+            battleLog.unshift(`获得金币: ${goldReward}`);
+        } else if (winner === char2 && vsAI) {
+            winStreak = 0;
+        }
+    }
+}
+
+// ========== 战斗绘制 ==========
+function drawBattle() {
+    drawBackground(ctx);
+    
+    // 绘制阵法效果
+    for (const f of formationEffects) {
+        f.draw(ctx, 0, 0);
+    }
+    
+    // 绘制角色
+    drawCharacter(ctx, char1, 0, 0);
+    drawCharacter(ctx, char2, 0, 0);
+    
+    // 绘制特效
+    for (const p of particles) p.draw(ctx, 0, 0);
+    for (const t of floatingTexts) t.draw(ctx, 0, 0);
+    for (const e of divineEffects) e.draw(ctx, 0, 0);
+    
+    // UI
+    drawBattleUI();
+    
+    // 胜负画面
+    if (gameOver) {
+        drawVictoryScreen();
+    }
+}
+
+function drawBattleUI() {
+    // 左上角玩家1信息
+    ctx.fillStyle = 'rgba(0,0,0,0.6)';
+    roundRect(ctx, 10, 10, 220, 80, 8);
+    ctx.fill();
+    
+    ctx.font = 'bold 16px Microsoft YaHei';
+    ctx.fillStyle = char1.getColor();
+    ctx.textAlign = 'left';
+    ctx.fillText(`${char1.name} [${char1.special}]`, 20, 32);
+    
+    ctx.font = '12px Microsoft YaHei';
+    ctx.fillStyle = '#ff6666';
+    ctx.fillText(`血量: ${char1.blood}/${char1.maxBlood}`, 20, 52);
+    ctx.fillStyle = '#aa66ff';
+    ctx.fillText(`神通: ${char1.shenTong}/${char1.shenTongMax}`, 120, 52);
+    ctx.fillStyle = '#ffd700';
+    ctx.fillText(`法宝: ${char1.fabao}`, 20, 72);
+    
+    // 右上角玩家2/AI信息
+    ctx.fillStyle = 'rgba(0,0,0,0.6)';
+    roundRect(ctx, SCREEN_WIDTH - 230, 10, 220, 80, 8);
+    ctx.fill();
+    
+    ctx.font = 'bold 16px Microsoft YaHei';
+    ctx.fillStyle = char2.getColor();
+    ctx.textAlign = 'right';
+    ctx.fillText(`${char2.name} [${char2.special}]`, SCREEN_WIDTH - 20, 32);
+    
+    ctx.font = '12px Microsoft YaHei';
+    ctx.fillStyle = '#ff6666';
+    ctx.fillText(`血量: ${char2.blood}/${char2.maxBlood}`, SCREEN_WIDTH - 110, 52);
+    ctx.fillStyle = '#aa66ff';
+    ctx.fillText(`神通: ${char2.shenTong}/${char2.shenTongMax}`, SCREEN_WIDTH - 20, 52);
+    ctx.fillStyle = '#ffd700';
+    ctx.textAlign = 'right';
+    ctx.fillText(`法宝: ${char2.fabao}`, SCREEN_WIDTH - 20, 72);
+    
+    // 阵法状态
+    if (formationActive && currentFormation) {
+        ctx.textAlign = 'center';
+        ctx.font = 'bold 18px Microsoft YaHei';
+        ctx.fillStyle = ALL_FORMATIONS[currentFormation].color;
+        ctx.shadowColor = ALL_FORMATIONS[currentFormation].color;
+        ctx.shadowBlur = 10;
+        ctx.fillText(`【${currentFormation}】激活中`, SCREEN_WIDTH/2, 30);
+        ctx.shadowBlur = 0;
+    }
+    
+    // 战斗日志
+    ctx.textAlign = 'left';
+    ctx.font = '12px Microsoft YaHei';
+    for (let i = 0; i < Math.min(4, battleLog.length); i++) {
+        ctx.fillStyle = `rgba(255,255,255,${0.8 - i * 0.15})`;
+        ctx.fillText(battleLog[i], 15, SCREEN_HEIGHT - 60 + i * 15);
+    }
+    
+    // 操作提示
+    if (!isMobile) {
+        ctx.textAlign = 'center';
+        ctx.font = '12px Microsoft YaHei';
+        ctx.fillStyle = '#888';
+        ctx.fillText('W/A/S/D移动 | J攻击 | K防御 | L神通 | 神通条满自动释放大招', SCREEN_WIDTH/2, SCREEN_HEIGHT - 10);
+    }
+}
+
+function drawVictoryScreen() {
+    // 半透明遮罩
+    ctx.fillStyle = 'rgba(0,0,0,0.7)';
+    ctx.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    
+    // 胜利特效
+    const centerX = SCREEN_WIDTH / 2;
+    const centerY = SCREEN_HEIGHT / 2 - 30;
+    
+    // 光芒
+    ctx.save();
+    ctx.translate(centerX, centerY);
+    const time = Date.now() * 0.002;
+    for (let i = 0; i < 12; i++) {
+        const angle = (i / 12) * Math.PI * 2 + time;
+        ctx.strokeStyle = winner.getColor();
+        ctx.lineWidth = 3;
+        ctx.globalAlpha = 0.3 + Math.sin(time * 2 + i) * 0.2;
+        ctx.beginPath();
+        ctx.moveTo(Math.cos(angle) * 50, Math.sin(angle) * 50);
+        ctx.lineTo(Math.cos(angle) * 150, Math.sin(angle) * 150);
+        ctx.stroke();
+    }
+    ctx.restore();
+    ctx.globalAlpha = 1;
+    
+    // 胜利文字
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 48px Microsoft YaHei';
+    ctx.fillStyle = winner.getColor();
+    ctx.shadowColor = winner.getColor();
+    ctx.shadowBlur = 20;
+    ctx.fillText(`${winner.name} 得道!`, centerX, centerY);
+    ctx.shadowBlur = 0;
+    
+    ctx.font = '24px Microsoft YaHei';
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(`施展【${winner.special}】镇压对手`, centerX, centerY + 50);
+    
+    // 奖励信息
+    if (vsAI && winner === char1) {
+        ctx.font = '18px Microsoft YaHei';
+        ctx.fillStyle = '#ffd700';
+        ctx.fillText(`连胜: ${winStreak} | 金币: ${playerGold}`, centerX, centerY + 90);
+    }
+    
+    // 按钮
+    ctx.font = '16px Microsoft YaHei';
+    ctx.fillStyle = '#aaa';
+    ctx.fillText('按 R 重新开始 | 按 ESC 返回选择', centerX, centerY + 130);
+    
+    // 商店按钮
+    if (vsAI && winner === char1) {
+        ctx.fillStyle = '#aa6644';
+        roundRect(ctx, SCREEN_WIDTH - 130, SCREEN_HEIGHT - 50, 110, 35, 6);
+        ctx.fill();
+        ctx.fillStyle = '#fff';
+        ctx.fillText('商店', SCREEN_WIDTH - 75, SCREEN_HEIGHT - 28);
+    }
+}
+
+// ========== 选择界面 ==========
+function drawSelectionScreen() {
+    drawBackground(ctx);
+    
+    // 标题
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 42px Microsoft YaHei';
+    const titleGradient = ctx.createLinearGradient(SCREEN_WIDTH/2 - 150, 0, SCREEN_WIDTH/2 + 150, 0);
+    titleGradient.addColorStop(0, '#ffd700');
+    titleGradient.addColorStop(0.5, '#ffffff');
+    titleGradient.addColorStop(1, '#ffd700');
+    ctx.fillStyle = titleGradient;
+    ctx.shadowColor = '#ffd700';
+    ctx.shadowBlur = 20;
+    ctx.fillText('封神对战', SCREEN_WIDTH/2, 50);
+    ctx.shadowBlur = 0;
+    
+    // 阵营选择
+    const factions = Object.keys(ALL_HEROES);
+    const factionY = 95;
+    const factionSpacing = 130;
+    const startX = (SCREEN_WIDTH - (factions.length - 1) * factionSpacing) / 2;
+    
+    ctx.font = 'bold 18px Microsoft YaHei';
+    for (let i = 0; i < factions.length; i++) {
+        const f = factions[i];
+        const fx = startX + i * factionSpacing;
+        const isSelected = selectedFaction === f;
+        
+        // 阵营按钮
+        ctx.fillStyle = isSelected ? getFactionColor(f) : 'rgba(60,60,80,0.8)';
+        roundRect(ctx, fx - 55, factionY - 18, 110, 36, 8);
+        ctx.fill();
+        
+        if (isSelected) {
+            ctx.strokeStyle = '#ffd700';
+            ctx.lineWidth = 2;
+            ctx.shadowColor = '#ffd700';
+            ctx.shadowBlur = 10;
+            roundRect(ctx, fx - 55, factionY - 18, 110, 36, 8);
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+        }
+        
+        ctx.fillStyle = isSelected ? '#000' : '#fff';
+        ctx.textAlign = 'center';
+        ctx.fillText(f, fx, factionY + 6);
+    }
+    
+    // 如果选择了阵营，显示人物列表
+    if (selectedFaction) {
+        const heroes = ALL_HEROES[selectedFaction];
+        const heroAreaTop = 145;
+        const heroAreaBottom = SCREEN_HEIGHT - 120;
+        const heroAreaHeight = heroAreaBottom - heroAreaTop;
+        const heroH = 45;
+        const cols = 4;
+        const rows = Math.ceil(heroes.length / cols);
+        const totalHeight = rows * heroH;
+        
+        heroScrollMax = Math.max(0, totalHeight - heroAreaHeight);
+        heroScrollY = clamp(heroScrollY, 0, heroScrollMax);
+        
+        // 裁剪区域
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(50, heroAreaTop, SCREEN_WIDTH - 100, heroAreaHeight);
+        ctx.clip();
+        
+        // 人物列表
+        const colWidth = (SCREEN_WIDTH - 100) / cols;
+        for (let i = 0; i < heroes.length; i++) {
+            const hero = heroes[i];
+            const col = i % cols;
+            const row = Math.floor(i / cols);
+            const hx = 50 + col * colWidth + colWidth / 2;
+            const hy = heroAreaTop + 25 + row * heroH - heroScrollY;
+            
+            if (hy < heroAreaTop - 30 || hy > heroAreaBottom + 30) continue;
+            
+            const isSelected = selectedHero === hero;
+            const stats = HERO_STATS[selectedFaction][hero];
+            
+            // 人物卡片
+            ctx.fillStyle = isSelected ? 'rgba(255,215,0,0.3)' : 'rgba(40,40,60,0.8)';
+            roundRect(ctx, hx - colWidth/2 + 5, hy - 18, colWidth - 10, 36, 6);
+            ctx.fill();
+            
+            if (isSelected) {
+                ctx.strokeStyle = '#ffd700';
+                ctx.lineWidth = 2;
+                roundRect(ctx, hx - colWidth/2 + 5, hy - 18, colWidth - 10, 36, 6);
+                ctx.stroke();
+            }
+            
+            // 人物名称
+            ctx.font = '14px Microsoft YaHei';
+            ctx.fillStyle = isSelected ? '#ffd700' : getFactionColor(selectedFaction);
+            ctx.textAlign = 'center';
+            ctx.fillText(hero, hx, hy - 2);
+            
+            // 境界
+            if (stats) {
+                ctx.font = '10px Microsoft YaHei';
+                ctx.fillStyle = '#aaa';
+                ctx.fillText(stats[7], hx, hy + 12);
+            }
+        }
+        
+        ctx.restore();
+        
+        // 滚动条
+        if (heroScrollMax > 0) {
+            const scrollBarX = SCREEN_WIDTH - 25;
+            const scrollBarH = heroAreaHeight - 20;
+            ctx.fillStyle = 'rgba(100,100,100,0.3)';
+            ctx.fillRect(scrollBarX, heroAreaTop + 10, 10, scrollBarH);
+            
+            const thumbH = Math.max(30, scrollBarH * (heroAreaHeight / totalHeight));
+            const thumbY = heroAreaTop + 10 + (scrollBarH - thumbH) * (heroScrollY / heroScrollMax);
+            ctx.fillStyle = 'rgba(255,215,0,0.6)';
+            roundRect(ctx, scrollBarX, thumbY, 10, thumbH, 5);
+            ctx.fill();
+        }
+    }
+    
+    // 选中人物信息
+    if (selectedHero && HERO_STATS[selectedFaction] && HERO_STATS[selectedFaction][selectedHero]) {
+        const stats = HERO_STATS[selectedFaction][selectedHero];
+        
+        ctx.fillStyle = 'rgba(0,0,0,0.8)';
+        roundRect(ctx, SCREEN_WIDTH - 280, SCREEN_HEIGHT - 180, 260, 160, 10);
+        ctx.fill();
+        
+        ctx.font = 'bold 18px Microsoft YaHei';
+        ctx.fillStyle = getFactionColor(selectedFaction);
+        ctx.textAlign = 'left';
+        ctx.fillText(`${selectedHero}`, SCREEN_WIDTH - 265, SCREEN_HEIGHT - 155);
+        
+        ctx.font = '12px Microsoft YaHei';
+        ctx.fillStyle = '#ffd700';
+        ctx.fillText(`境界: ${stats[7]}`, SCREEN_WIDTH - 130, SCREEN_HEIGHT - 155);
+        
+        ctx.font = '13px Microsoft YaHei';
+        ctx.fillStyle = '#ff6666';
+        ctx.fillText(`血量: ${stats[0]}`, SCREEN_WIDTH - 265, SCREEN_HEIGHT - 130);
+        ctx.fillStyle = '#ffaa66';
+        ctx.fillText(`攻击: ${stats[1]}`, SCREEN_WIDTH - 155, SCREEN_HEIGHT - 130);
+        ctx.fillStyle = '#66aaff';
+        ctx.fillText(`防御: ${stats[2]}`, SCREEN_WIDTH - 265, SCREEN_HEIGHT - 108);
+        ctx.fillStyle = '#66ff66';
+        ctx.fillText(`范围: ${stats[3]}`, SCREEN_WIDTH - 155, SCREEN_HEIGHT - 108);
+        ctx.fillStyle = '#ffd700';
+        ctx.fillText(`法宝: ${stats[4]}`, SCREEN_WIDTH - 265, SCREEN_HEIGHT - 86);
+        ctx.fillStyle = '#aa66ff';
+        ctx.fillText(`神通: ${stats[5]}`, SCREEN_WIDTH - 265, SCREEN_HEIGHT - 64);
+        ctx.fillStyle = '#88ccff';
+        ctx.fillText(`无双: ${stats[6]}回`, SCREEN_WIDTH - 155, SCREEN_HEIGHT - 64);
+    }
+    
+    // 金币和战绩
+    ctx.textAlign = 'left';
+    ctx.font = '14px Microsoft YaHei';
+    ctx.fillStyle = '#ffd700';
+    ctx.fillText(`金币: ${playerGold}`, 20, SCREEN_HEIGHT - 95);
+    ctx.fillStyle = '#88ff88';
+    ctx.fillText(`连胜: ${winStreak}`, 120, SCREEN_HEIGHT - 95);
+    ctx.fillStyle = '#88ccff';
+    ctx.fillText(`总胜: ${totalWins}`, 200, SCREEN_HEIGHT - 95);
+    
+    // 开始按钮
+    if (selectedHero) {
+        ctx.fillStyle = '#44aa44';
+        roundRect(ctx, SCREEN_WIDTH - 160, SCREEN_HEIGHT - 55, 140, 40, 8);
+        ctx.fill();
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 18px Microsoft YaHei';
+        ctx.textAlign = 'center';
+        ctx.fillText('开始战斗 →', SCREEN_WIDTH - 90, SCREEN_HEIGHT - 28);
+    }
+    
+    // 商店按钮
+    ctx.fillStyle = '#aa6644';
+    roundRect(ctx, 20, SCREEN_HEIGHT - 55, 100, 40, 8);
+    ctx.fill();
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 16px Microsoft YaHei';
+    ctx.textAlign = 'center';
+    ctx.fillText('商店', 70, SCREEN_HEIGHT - 28);
+    
+    // 模式切换
+    ctx.font = '14px Microsoft YaHei';
+    ctx.fillStyle = vsAI ? '#66ff66' : '#6666ff';
+    ctx.fillText(`模式: ${vsAI ? '人机对战' : '双人对战'} (点击切换)`, SCREEN_WIDTH/2, SCREEN_HEIGHT - 28);
+    
+    // 提示
+    ctx.font = '12px Microsoft YaHei';
+    ctx.fillStyle = '#888';
+    ctx.fillText('点击阵营和人物进行选择', SCREEN_WIDTH/2, SCREEN_HEIGHT - 8);
+}
+
+// ========== 商店界面 ==========
+function drawShopScreen() {
+    ctx.fillStyle = '#0a0a1a';
+    ctx.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    
+    // 标题
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 32px Microsoft YaHei';
+    ctx.fillStyle = '#ffd700';
+    ctx.shadowColor = '#ffd700';
+    ctx.shadowBlur = 15;
+    ctx.fillText('封神宝库', SCREEN_WIDTH/2, 40);
+    ctx.shadowBlur = 0;
+    
+    // 金币
+    ctx.font = '18px Microsoft YaHei';
+    ctx.fillStyle = '#ffd700';
+    ctx.fillText(`金币: ${playerGold}`, SCREEN_WIDTH/2, 70);
+    
+    // 分类标签
+    const tabY = 95;
+    const fabaoTabX = 150;
+    const armorTabX = 350;
+    const tabW = 140;
+    const tabH = 40;
+    
+    ctx.fillStyle = shopCategory === 'fabao' ? '#4488aa' : '#333';
+    roundRect(ctx, fabaoTabX - tabW/2, tabY - tabH/2, tabW, tabH, 8);
+    ctx.fill();
+    
+    ctx.fillStyle = shopCategory === 'armors' ? '#4488aa' : '#333';
+    roundRect(ctx, armorTabX - tabW/2, tabY - tabH/2, tabW, tabH, 8);
+    ctx.fill();
+    
+    ctx.fillStyle = '#fff';
+    ctx.font = '16px Microsoft YaHei';
+    ctx.fillText('法宝', fabaoTabX, tabY + 6);
+    ctx.fillText('护甲', armorTabX, tabY + 6);
+    
+    // 物品列表
+    const items = shopCategory === 'fabao' ? ALL_FABAO : ALL_ARMORS;
+    const itemList = Object.keys(items).filter(name => items[name].price > 0);
+    const startY = 140;
+    const itemH = 55;
+    const cols = 5;
+    const colW = (SCREEN_WIDTH - 100) / cols;
+    
+    const rows = Math.ceil(itemList.length / cols);
+    const totalH = rows * itemH;
+    const areaH = SCREEN_HEIGHT - 230;
+    shopScrollMax = Math.max(0, totalH - areaH);
+    shopScrollY = clamp(shopScrollY, 0, shopScrollMax);
+    
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(40, startY, SCREEN_WIDTH - 80, areaH);
+    ctx.clip();
+    
+    for (let i = 0; i < itemList.length; i++) {
+        const name = itemList[i];
+        const item = items[name];
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        const ix = 50 + col * colW + colW / 2;
+        const iy = startY + 30 + row * itemH - shopScrollY;
+        
+        if (iy < startY - 30 || iy > startY + areaH + 30) continue;
+        
+        const owned = shopCategory === 'fabao' ? playerFabao.includes(name) : playerArmors.includes(name);
+        const canBuy = playerGold >= item.price;
+        const equipped = shopCategory === 'fabao' ? currentFabao === name : currentArmor === name;
+        
+        // 物品背景
+        if (equipped) {
+            ctx.fillStyle = '#445588';
+        } else if (owned) {
+            ctx.fillStyle = '#336633';
+        } else if (canBuy) {
+            ctx.fillStyle = '#444466';
+        } else {
+            ctx.fillStyle = '#222';
+        }
+        roundRect(ctx, ix - colW/2 + 5, iy - 22, colW - 10, 44, 6);
+        ctx.fill();
+        
+        if (equipped) {
+            ctx.strokeStyle = '#88aaff';
+            ctx.lineWidth = 2;
+            roundRect(ctx, ix - colW/2 + 5, iy - 22, colW - 10, 44, 6);
+            ctx.stroke();
+        }
+        
+        // 名称
+        ctx.font = '13px Microsoft YaHei';
+        ctx.fillStyle = owned ? '#66ff66' : (canBuy ? '#fff' : '#666');
+        ctx.textAlign = 'center';
+        ctx.fillText(name, ix, iy - 4);
+        
+        // 价格/状态
+        ctx.font = '11px Microsoft YaHei';
+        if (!owned) {
+            ctx.fillStyle = canBuy ? '#ffd700' : '#666';
+            ctx.fillText(`价格: ${item.price}`, ix, iy + 12);
+        } else if (equipped) {
+            ctx.fillStyle = '#88aaff';
+            ctx.fillText('已装备', ix, iy + 12);
+        } else {
+            ctx.fillStyle = '#66ff66';
+            ctx.fillText('点击装备', ix, iy + 12);
+        }
+    }
+    
+    ctx.restore();
+    
+    // 信息面板
+    ctx.fillStyle = 'rgba(0,0,0,0.7)';
+    roundRect(ctx, SCREEN_WIDTH - 260, startY, 240, 200, 10);
+    ctx.fill();
+    
+    ctx.textAlign = 'left';
+    ctx.font = '14px Microsoft YaHei';
+    ctx.fillStyle = '#fff';
+    ctx.fillText('点击购买或装备物品', SCREEN_WIDTH - 245, startY + 25);
+    ctx.fillStyle = '#66ff66';
+    ctx.fillText('绿色表示已拥有', SCREEN_WIDTH - 245, startY + 50);
+    
+    ctx.fillStyle = '#ffd700';
+    ctx.fillText(`连胜: ${winStreak}`, SCREEN_WIDTH - 245, startY + 80);
+    ctx.fillText(`总胜: ${totalWins}`, SCREEN_WIDTH - 140, startY + 80);
+    
+    ctx.fillStyle = '#aaa';
+    ctx.fillText('当前装备:', SCREEN_WIDTH - 245, startY + 110);
+    ctx.fillStyle = '#fff';
+    ctx.fillText(`法宝: ${currentFabao || '无'}`, SCREEN_WIDTH - 245, startY + 135);
+    ctx.fillText(`护甲: ${currentArmor}`, SCREEN_WIDTH - 245, startY + 160);
+    
+    // 返回按钮
+    ctx.fillStyle = '#666';
+    roundRect(ctx, 30, SCREEN_HEIGHT - 60, 100, 40, 8);
+    ctx.fill();
+    ctx.fillStyle = '#fff';
+    ctx.font = '16px Microsoft YaHei';
+    ctx.textAlign = 'center';
+    ctx.fillText('返回', 80, SCREEN_HEIGHT - 35);
+}
+
+// ========== 阵法界面 ==========
+function drawFormationScreen() {
+    ctx.fillStyle = '#0a0a2e';
+    ctx.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    
+    // 标题
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 32px Microsoft YaHei';
+    ctx.fillStyle = '#aa66ff';
+    ctx.shadowColor = '#aa66ff';
+    ctx.shadowBlur = 15;
+    ctx.fillText('天地阵法', SCREEN_WIDTH/2, 45);
+    ctx.shadowBlur = 0;
+    
+    // 阵法列表
+    const formations = Object.keys(ALL_FORMATIONS);
+    const cols = 4;
+    const rows = Math.ceil(formations.length / cols);
+    const colW = (SCREEN_WIDTH - 80) / cols;
+    const rowH = 100;
+    const startY = 90;
+    
+    for (let i = 0; i < formations.length; i++) {
+        const name = formations[i];
+        const data = ALL_FORMATIONS[name];
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        const x = 40 + col * colW + colW / 2;
+        const y = startY + row * rowH + rowH / 2;
+        
+        // 阵法卡片
+        ctx.fillStyle = 'rgba(40,40,80,0.8)';
+        roundRect(ctx, x - colW/2 + 10, y - 40, colW - 20, 80, 10);
+        ctx.fill();
+        
+        ctx.strokeStyle = data.color;
+        ctx.lineWidth = 2;
+        roundRect(ctx, x - colW/2 + 10, y - 40, colW - 20, 80, 10);
+        ctx.stroke();
+        
+        // 名称
+        ctx.font = 'bold 16px Microsoft YaHei';
+        ctx.fillStyle = data.color;
+        ctx.textAlign = 'center';
+        ctx.fillText(name, x, y - 15);
+        
+        // 属性
+        ctx.font = '11px Microsoft YaHei';
+        ctx.fillStyle = '#ffaa66';
+        ctx.fillText(`威力: ${data.power}`, x - 30, y + 5);
+        ctx.fillStyle = '#66aaff';
+        ctx.fillText(`防御: ${data.defense}`, x + 30, y + 5);
+        
+        // 效果
+        ctx.font = '10px Microsoft YaHei';
+        ctx.fillStyle = '#aaa';
+        const effect = data.effect.length > 12 ? data.effect.substring(0, 12) + '...' : data.effect;
+        ctx.fillText(effect, x, y + 25);
+    }
+    
+    // 提示
+    ctx.font = '14px Microsoft YaHei';
+    ctx.fillStyle = '#888';
+    ctx.fillText('点击阵法可在战斗中激活 (需要神通值满)', SCREEN_WIDTH/2, SCREEN_HEIGHT - 60);
+    
+    // 返回按钮
+    ctx.fillStyle = '#666';
+    roundRect(ctx, 30, SCREEN_HEIGHT - 50, 100, 35, 8);
+    ctx.fill();
+    ctx.fillStyle = '#fff';
+    ctx.font = '14px Microsoft YaHei';
+    ctx.fillText('返回', 80, SCREEN_HEIGHT - 28);
+}
+
+// ========== 输入处理 ==========
+const keys = {};
+
+document.addEventListener('keydown', e => {
+    keys[e.key.toLowerCase()] = true;
+    
+    if (gameState === 'battle' && !gameOver && char1) {
+        if (['w', 'arrowup'].includes(e.key.toLowerCase())) char1.attemptJump();
+        if (e.key.toLowerCase() === 'j' || e.key.toLowerCase() === 'x') {
+            const result = char1.attack(char2, performance.now());
+            if (result) battleLog.unshift(result);
+        }
+        if (e.key.toLowerCase() === 'k' || e.key.toLowerCase() === 'c') {
+            char1.defending = true;
+            char1.defenseTimer = 800;
+        }
+    }
+    
+    // 双人模式玩家2
+    if (gameState === 'battle' && !gameOver && !vsAI && char2) {
+        if (e.key === 'ArrowUp') char2.attemptJump();
+        if (e.key === '1') {
+            const result = char2.attack(char1, performance.now());
+            if (result) battleLog.unshift(result);
+        }
+        if (e.key === '2') {
+            char2.defending = true;
+            char2.defenseTimer = 800;
+        }
+    }
+    
+    // 全局按键
+    if (e.key.toLowerCase() === 'r' && gameOver) {
+        restartBattle();
+    }
+    if (e.key === 'Escape') {
+        if (gameState === 'battle') {
+            gameState = 'selection';
+            gameOver = false;
+        } else if (gameState === 'shop' || gameState === 'formation') {
+            gameState = battleReturnState || 'selection';
+        }
+    }
+});
+
+document.addEventListener('keyup', e => {
+    keys[e.key.toLowerCase()] = false;
+});
+
+// 持续移动检测
+setInterval(() => {
+    if (gameState === 'battle' && !gameOver && char1) {
+        char1.moveLeft = keys['a'] || keys['arrowleft'];
+        char1.moveRight = keys['d'] || keys['arrowright'];
+        char1.faceEnemy(char2);
+    }
+    if (gameState === 'battle' && !gameOver && !vsAI && char2) {
+        char2.moveLeft = keys['arrowleft'];
+        char2.moveRight = keys['arrowright'];
+        char2.faceEnemy(char1);
+    }
+}, 16);
+
+// ========== 鼠标/触摸处理 ==========
+canvas.addEventListener('click', e => {
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / scale;
+    const y = (e.clientY - rect.top) / scale;
+    
+    handleClick(x, y);
+});
+
+canvas.addEventListener('touchstart', e => {
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.touches[0].clientX - rect.left) / scale;
+    const y = (e.touches[0].clientY - rect.top) / scale;
+    
+    e.preventDefault();
+    swipeStartX = e.touches[0].clientX;
+    swipeStartY = e.touches[0].clientY;
+    swipeStartTime = Date.now();
+    
+    vibrate(5);
+    handleClick(x, y);
+}, { passive: false });
+
+canvas.addEventListener('touchend', e => {
+    if (e.changedTouches.length === 0) return;
+    
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+    const deltaX = endX - swipeStartX;
+    const deltaY = endY - swipeStartY;
+    const deltaTime = Date.now() - swipeStartTime;
+    
+    const minSwipeDist = 50;
+    const maxSwipeTime = 300;
+    
+    if (deltaTime < maxSwipeTime) {
+        const absDx = Math.abs(deltaX);
+        const absDy = Math.abs(deltaY);
+        
+        // 垂直滑动 - 滚动列表
+        if (absDy > minSwipeDist && absDy > absDx) {
+            if (gameState === 'selection' && selectedFaction && heroScrollMax > 0) {
+                heroScrollY = clamp(heroScrollY - deltaY, 0, heroScrollMax);
+            } else if (gameState === 'shop' && shopScrollMax > 0) {
+                shopScrollY = clamp(shopScrollY - deltaY, 0, shopScrollMax);
+            }
+        }
+    }
+}, { passive: true });
+
+// 鼠标滚轮
+canvas.addEventListener('wheel', e => {
+    if (gameState === 'selection' && selectedFaction && heroScrollMax > 0) {
+        heroScrollY = clamp(heroScrollY + e.deltaY * 0.5, 0, heroScrollMax);
+    } else if (gameState === 'shop' && shopScrollMax > 0) {
+        shopScrollY = clamp(shopScrollY + e.deltaY * 0.5, 0, shopScrollMax);
+    }
+});
+
+function handleClick(x, y) {
+    if (gameState === 'selection') {
+        handleSelectionClick(x, y);
+    } else if (gameState === 'shop') {
+        handleShopClick(x, y);
+    } else if (gameState === 'formation') {
+        handleFormationClick(x, y);
+    } else if (gameState === 'battle' && gameOver) {
+        // 检查商店按钮
+        if (vsAI && winner === char1 && 
+            x > SCREEN_WIDTH - 130 && x < SCREEN_WIDTH - 10 &&
+            y > SCREEN_HEIGHT - 50 && y < SCREEN_HEIGHT - 10) {
+            battleReturnState = 'battle';
+            gameState = 'shop';
+            vibrate(15);
+        } else {
+            restartBattle();
+            vibrate(10);
+        }
+    }
+}
+
+function handleSelectionClick(x, y) {
+    // 阵营选择
+    const factions = Object.keys(ALL_HEROES);
+    const factionY = 95;
+    const factionSpacing = 130;
+    const startX = (SCREEN_WIDTH - (factions.length - 1) * factionSpacing) / 2;
+    
+    for (let i = 0; i < factions.length; i++) {
+        const fx = startX + i * factionSpacing;
+        if (x > fx - 55 && x < fx + 55 && y > factionY - 18 && y < factionY + 18) {
+            selectedFaction = factions[i];
+            selectedHero = null;
+            heroScrollY = 0;
+            vibrate(10);
+            return;
+        }
+    }
+    
+    // 人物选择
+    if (selectedFaction) {
+        const heroes = ALL_HEROES[selectedFaction];
+        const heroAreaTop = 145;
+        const heroH = 45;
+        const cols = 4;
+        const colWidth = (SCREEN_WIDTH - 100) / cols;
+        
+        for (let i = 0; i < heroes.length; i++) {
+            const hero = heroes[i];
+            const col = i % cols;
+            const row = Math.floor(i / cols);
+            const hx = 50 + col * colWidth + colWidth / 2;
+            const hy = heroAreaTop + 25 + row * heroH - heroScrollY;
+            
+            if (x > hx - colWidth/2 + 5 && x < hx + colWidth/2 - 5 &&
+                y > hy - 18 && y < hy + 18) {
+                selectedHero = hero;
+                vibrate(10);
+                return;
+            }
+        }
+    }
+    
+    // 开始按钮
+    if (selectedHero && 
+        x > SCREEN_WIDTH - 160 && x < SCREEN_WIDTH - 20 &&
+        y > SCREEN_HEIGHT - 55 && y < SCREEN_HEIGHT - 15) {
+        startBattle();
+        vibrate(15);
+        return;
+    }
+    
+    // 商店按钮
+    if (x > 20 && x < 120 && y > SCREEN_HEIGHT - 55 && y < SCREEN_HEIGHT - 15) {
+        battleReturnState = 'selection';
+        gameState = 'shop';
+        vibrate(10);
+        return;
+    }
+    
+    // 模式切换
+    if (y > SCREEN_HEIGHT - 45 && y < SCREEN_HEIGHT - 15 &&
+        x > SCREEN_WIDTH/2 - 100 && x < SCREEN_WIDTH/2 + 100) {
+        vsAI = !vsAI;
+        vibrate(10);
+    }
+}
+
+function handleShopClick(x, y) {
+    // 分类标签
+    const tabY = 95;
+    if (y > tabY - 20 && y < tabY + 20) {
+        if (x > 80 && x < 220) {
+            shopCategory = 'fabao';
+            shopScrollY = 0;
+            vibrate(10);
+            return;
+        }
+        if (x > 280 && x < 420) {
+            shopCategory = 'armors';
+            shopScrollY = 0;
+            vibrate(10);
+            return;
+        }
+    }
+    
+    // 物品点击
+    const items = shopCategory === 'fabao' ? ALL_FABAO : ALL_ARMORS;
+    const itemList = Object.keys(items).filter(name => items[name].price > 0);
+    const startY = 140;
+    const itemH = 55;
+    const cols = 5;
+    const colW = (SCREEN_WIDTH - 100) / cols;
+    
+    for (let i = 0; i < itemList.length; i++) {
+        const name = itemList[i];
+        const item = items[name];
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        const ix = 50 + col * colW + colW / 2;
+        const iy = startY + 30 + row * itemH - shopScrollY;
+        
+        if (x > ix - colW/2 + 5 && x < ix + colW/2 - 5 &&
+            y > iy - 22 && y < iy + 22) {
+            
+            const owned = shopCategory === 'fabao' ? playerFabao.includes(name) : playerArmors.includes(name);
+            
+            if (owned) {
+                // 装备
+                if (shopCategory === 'fabao') {
+                    currentFabao = name;
+                } else {
+                    currentArmor = name;
+                }
+                vibrate(10);
+            } else if (playerGold >= item.price) {
+                // 购买
+                playerGold -= item.price;
+                if (shopCategory === 'fabao') {
+                    playerFabao.push(name);
+                    currentFabao = name;
+                } else {
+                    playerArmors.push(name);
+                    currentArmor = name;
+                }
+                vibrate(15);
+            }
+            return;
+        }
+    }
+    
+    // 返回按钮
+    if (x > 30 && x < 130 && y > SCREEN_HEIGHT - 60 && y < SCREEN_HEIGHT - 20) {
+        gameState = battleReturnState || 'selection';
+        vibrate(10);
+    }
+}
+
+function handleFormationClick(x, y) {
+    // 阵法点击
+    const formations = Object.keys(ALL_FORMATIONS);
+    const cols = 4;
+    const colW = (SCREEN_WIDTH - 80) / cols;
+    const rowH = 100;
+    const startY = 90;
+    
+    for (let i = 0; i < formations.length; i++) {
+        const name = formations[i];
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        const fx = 40 + col * colW + colW / 2;
+        const fy = startY + row * rowH + rowH / 2;
+        
+        if (x > fx - colW/2 + 10 && x < fx + colW/2 - 10 &&
+            y > fy - 40 && y < fy + 40) {
+            // 激活阵法
+            if (char1 && char1.shenTong >= char1.shenTongMax) {
+                activateFormation(name, SCREEN_WIDTH/2, GROUND_Y - 50);
+                char1.shenTong = 0;
+                gameState = 'battle';
+                vibrate(20);
+            }
+            return;
+        }
+    }
+    
+    // 返回按钮
+    if (x > 30 && x < 130 && y > SCREEN_HEIGHT - 50 && y < SCREEN_HEIGHT - 15) {
+        gameState = battleReturnState || 'battle';
+        vibrate(10);
+    }
+}
+
+// ========== 战斗初始化 ==========
+function startBattle() {
+    if (!selectedHero || !selectedFaction) return;
+    
+    const stats1 = HERO_STATS[selectedFaction][selectedHero];
+    if (!stats1) return;
+    
+    // 创建玩家1
+    const fabao1 = currentFabao || stats1[4];
+    const calcStats1 = calculateStats(stats1, fabao1, currentArmor);
+    
+    char1 = new Character(
+        selectedHero, selectedFaction,
+        calcStats1.blood, calcStats1.attack, calcStats1.defense, calcStats1.range,
+        fabao1, true
+    );
+    char1.special = stats1[5];
+    char1.shenTongMax = stats1[6];
+    char1.realm = stats1[7];
+    char1.x = 200;
+    char1.direction = 0;
+    
+    // 创建AI对手
+    const enemyFaction = getRandomFaction();
+    const enemyHeroes = ALL_HEROES[enemyFaction];
+    const enemyHero = enemyHeroes[randInt(0, enemyHeroes.length - 1)];
+    const stats2 = HERO_STATS[enemyFaction][enemyHero];
+    
+    if (!stats2) {
+        console.error('Enemy stats not found:', enemyFaction, enemyHero);
+        return;
+    }
+    
+    const fabao2 = stats2[4];
+    const calcStats2 = calculateStats(stats2, fabao2, '布衣');
+    
+    char2 = new Character(
+        enemyHero, enemyFaction,
+        calcStats2.blood, calcStats2.attack, calcStats2.defense, calcStats2.range,
+        fabao2, false
+    );
+    char2.special = stats2[5];
+    char2.shenTongMax = stats2[6];
+    char2.realm = stats2[7];
+    char2.x = SCREEN_WIDTH - 200;
+    char2.direction = 180;
+    
+    if (vsAI) {
+        aiController = new AIController(char2, char1);
+    }
+    
+    gameState = 'battle';
+    gameOver = false;
+    winner = null;
+    battleLog = [`${char1.name} 对战 ${char2.name}!`];
+    particles = [];
+    floatingTexts = [];
+    divineEffects = [];
+    formationEffects = [];
+    formationActive = false;
+    currentFormation = null;
+}
+
+function getRandomFaction() {
+    const factions = Object.keys(ALL_HEROES);
+    return factions[randInt(0, factions.length - 1)];
+}
+
+function restartBattle() {
+    startBattle();
+}
+
+// ========== 移动端控制 ==========
+let joystickActive = false;
+const joystickArea = document.getElementById('joystickArea');
+const joystickKnob = document.getElementById('joystickKnob');
+
+joystickArea.addEventListener('touchstart', e => {
+    joystickActive = true;
+    joystickKnob.classList.add('active');
+    updateJoystick(e);
+}, { passive: true });
+
+joystickArea.addEventListener('touchmove', e => {
+    if (joystickActive) updateJoystick(e);
+}, { passive: true });
+
+joystickArea.addEventListener('touchend', () => {
+    joystickActive = false;
+    joystickKnob.classList.remove('active');
+    joystickKnob.style.transform = 'translate(-50%, -50%)';
+    if (char1) {
+        char1.moveLeft = false;
+        char1.moveRight = false;
+    }
+});
+
+function updateJoystick(e) {
+    const rect = joystickArea.getBoundingClientRect();
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const touchX = e.touches[0].clientX - rect.left;
+    const touchY = e.touches[0].clientY - rect.top;
+    
+    let dx = touchX - centerX;
+    let dy = touchY - centerY;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    const maxDist = 35;
+    
+    if (dist > maxDist) {
+        dx = dx / dist * maxDist;
+        dy = dy / dist * maxDist;
+    }
+    
+    joystickKnob.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))`;
+    
+    if (char1 && gameState === 'battle' && !gameOver) {
+        char1.moveLeft = dx < -10;
+        char1.moveRight = dx > 10;
+        if (dy < -20 && char1.onGround) {
+            char1.attemptJump();
+        }
+    }
+}
+
+// 攻击按钮
+document.getElementById('btnAttack').addEventListener('touchstart', e => {
+    e.preventDefault();
+    if (char1 && char2 && gameState === 'battle' && !gameOver) {
+        const result = char1.attack(char2, performance.now());
+        if (result) battleLog.unshift(result);
+    }
+    vibrate(10);
+}, { passive: false });
+
+// 防御按钮
+document.getElementById('btnDefend').addEventListener('touchstart', e => {
+    e.preventDefault();
+    if (char1 && gameState === 'battle' && !gameOver) {
+        char1.defending = true;
+        char1.defenseTimer = 800;
+    }
+    vibrate(8);
+}, { passive: false });
+
+document.getElementById('btnDefend').addEventListener('touchend', () => {
+    if (char1) {
+        char1.defending = false;
+    }
+});
+
+// 神通/法术按钮
+document.getElementById('btnSkill').addEventListener('touchstart', e => {
+    e.preventDefault();
+    if (char1 && char1.shenTong >= char1.shenTongMax) {
+        battleReturnState = 'battle';
+        gameState = 'formation';
+    }
+    vibrate(12);
+}, { passive: false });
+
+// 工具按钮
+document.getElementById('btnRestart').addEventListener('click', () => {
+    if (gameOver) restartBattle();
+    vibrate(10);
+});
+
+document.getElementById('btnBack').addEventListener('click', () => {
+    if (gameState === 'battle') {
+        gameState = 'selection';
+        gameOver = false;
+    } else if (gameState === 'shop' || gameState === 'formation') {
+        gameState = battleReturnState || 'selection';
+    }
+    vibrate(10);
+});
+
+document.getElementById('btnFormation').addEventListener('click', () => {
+    if (gameState === 'battle' && !gameOver) {
+        battleReturnState = 'battle';
+        gameState = 'formation';
+    }
+    vibrate(10);
+});
+
+// ========== 启动游戏 ==========
+requestAnimationFrame(gameLoop);
+</script>
+</body>
+</html>

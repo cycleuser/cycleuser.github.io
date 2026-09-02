@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>手机当罗盘 · 产状测量</title>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<style>
+  :root { --bg:#0f1720; --card:#1b2733; --acc:#27ae60; --acc2:#c0392b; --mut:#8fa3b5; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { margin:0; font-family:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+         background:var(--bg); color:#e8eef4; padding:44px 16px 16px; text-align:center; }
+  h1 { font-size:17px; margin:0 0 4px; }
+  .sub { color:var(--mut); font-size:11px; line-height:1.4; margin:0 auto 10px; max-width:300px; }
+  .card { background:var(--card); border-radius:14px; padding:16px; margin-bottom:12px; box-shadow:0 2px 10px rgba(0,0,0,.3); }
+  .big { display:flex; gap:12px; }
+  .big .item { flex:1; text-align:center; }
+  .big .v { font-size:34px; font-weight:700; color:var(--acc); line-height:1.1; }
+  .big .l { font-size:12px; color:var(--mut); margin-top:4px; }
+  .row { display:flex; justify-content:space-between; font-size:13px; padding:5px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+  .row:last-child { border-bottom:0; }
+  .row .k { color:var(--mut); }
+  .row .val { font-variant-numeric:tabular-nums; }
+  button { padding:12px 10px; font-size:14px; font-weight:600; border:0; border-radius:10px;
+           background:var(--acc); color:#fff; white-space:nowrap; overflow:hidden;
+           text-overflow:ellipsis; }
+  button.sec { background:#31404f; }
+  button:active { opacity:.8; }
+  .btn-row { display:flex; gap:8px; margin-bottom:10px; }
+  .btn-row button { flex:1; min-width:0; }
+  .warn { color:#f1c40f; font-size:12px; margin-top:8px; line-height:1.5; }
+  .disk-wrap { display:flex; justify-content:center; margin:8px 0; }
+  canvas { background:transparent; }
+  .frozen { color:var(--acc2)!important; }
+  .tag { display:inline-block; font-size:11px; padding:2px 8px; border-radius:8px; background:#31404f; color:var(--mut); }
+  #langToggle { position:fixed; top:8px; right:8px; z-index:1000; width:auto; margin:0;
+    padding:6px 12px; font-size:13px; font-weight:600; border-radius:20px;
+    background:rgba(49,64,79,.85); color:#e8eef4; backdrop-filter:blur(4px);
+    box-shadow:0 1px 6px rgba(0,0,0,.35); cursor:pointer; }
+  #homeLink { position:fixed; top:8px; left:8px; z-index:1000; display:inline-flex;
+    align-items:center; gap:4px; padding:6px 12px; font-size:13px; font-weight:600;
+    border-radius:20px; text-decoration:none; background:rgba(49,64,79,.85);
+    color:#e8eef4; backdrop-filter:blur(4px); box-shadow:0 1px 6px rgba(0,0,0,.35); }
+  details.card > summary { list-style:none; display:flex; align-items:center; gap:6px;
+    cursor:pointer; font-size:13px; color:var(--mut); padding:4px 0; user-select:none; }
+  details.card > summary::-webkit-details-marker { display:none; }
+  details.card > summary .tri { width:0; height:0; border-left:6px solid var(--mut);
+    border-top:4px solid transparent; border-bottom:4px solid transparent;
+    transition:transform .2s; }
+  details.card[open] > summary .tri { transform:rotate(90deg); }
+  details.card[open] > summary { margin-bottom:6px; }
+  details.card { padding:12px 16px; }
+</style>
+</head>
+<body>
+  <a id="homeLink" href="https://blog.cycleuser.org" title="返回博客主页 / Back to blog" data-i18n="home">← 博客</a>
+  <button id="langToggle" title="中文 / English">EN</button>
+  <h1 data-i18n="title">手机当罗盘测产状</h1>
+  <div class="sub" data-i18n="sub">把手机紧贴任意平面（怎么摆都行），读取姿态角，实时算出<b>倾向 / 倾角</b>。</div>
+
+  <div class="card">
+    <div class="big">
+      <div class="item"><div class="v" id="dip">--</div><div class="l" data-i18n="dipLabel">倾角</div></div>
+      <div class="item"><div class="v" id="dipdir">--</div><div class="l" data-i18n="dipdirLabel">倾向</div></div>
+    </div>
+    <div class="disk-wrap"><canvas id="disk" width="280" height="250"></canvas></div>
+  </div>
+
+  <div class="btn-row">
+    <button id="startBtn" data-i18n="start">开始测量</button>
+    <button id="saveBtn" class="sec" data-i18n="save">保存</button>
+  </div>
+  <div class="card" style="margin-top:12px;">
+    <div class="row"><span class="k" data-i18n="noteLabel">备注 / Note</span>
+      <span class="val" id="savedCount" style="font-size:11px">0</span>
+    </div>
+    <input id="noteInput" type="text" style="width:100%;margin-top:6px;padding:10px;border-radius:10px;
+      border:1px solid #31404f;background:#0c141c;color:#e8eef4;font-size:14px;"
+      data-i18n-ph="notePh" placeholder="敲几个字备注这条测点…">
+    <div class="btn-row" style="margin-top:8px;">
+      <button id="photoBtn" class="sec" data-i18n="photo">拍照</button>
+      <button id="recBtn" class="sec" data-i18n="rec">录音</button>
+      <button id="dlBtn" class="sec" data-i18n="download">下载</button>
+    </div>
+    <input id="photoInput" type="file" accept="image/*" capture="environment" style="display:none">
+    <div id="mediaList" style="margin-top:6px;font-size:12px;color:var(--mut);text-align:left;"></div>
+  </div>
+
+  <details class="card">
+    <summary><span class="tri"></span><span data-i18n="rawLabel">详细信息</span></summary>
+    <div class="row"><span class="k" data-i18n="yaw">航向 α</span><span class="val" id="alpha">--</span></div>
+    <div class="row"><span class="k" data-i18n="pitch">俯仰 β</span><span class="val" id="beta">--</span></div>
+    <div class="row"><span class="k" data-i18n="roll">横滚 γ</span><span class="val" id="gamma">--</span></div>
+    <div class="row"><span class="k" data-i18n="normalLabel">屏幕法线 n</span><span class="val" id="normal">--</span></div>
+    <div class="row"><span class="k" data-i18n="headingLabel">罗盘航向</span><span class="val" id="heading">--</span></div>
+    <div class="row"><span class="k" data-i18n="declLabel">磁偏角</span><span class="val" id="decl">0.0°</span></div>
+    <div class="row"><span class="k" data-i18n="locLabel">经纬度</span><span class="val" id="loc" data-i18n="locNone">未获取</span></div>
+    <div class="row"><span class="k" data-i18n="altLabel">高程</span><span class="val" id="alt" data-i18n="locNone">未获取</span></div>
+  </details>
+
+  <div class="warn" id="tips" data-i18n="tips">
+    提示：iOS 需在弹窗中点「允许」；页面必须通过 <b>HTTPS</b> 打开传感器才可用。
+    Android 若无反应，请在浏览器设置中开启「运动与方向」权限。
+  </div>
+
+<script>
+const d2r = Math.PI/180, r2d = 180/Math.PI;
+let frozen = false, declination = 0, hasCompass = false;
+
+// roundRect polyfill（老浏览器兼容）
+if(!CanvasRenderingContext2D.prototype.roundRect){
+  CanvasRenderingContext2D.prototype.roundRect = function(x,y,w,h,r){
+    r = Math.min(r, w/2, h/2);
+    this.beginPath();
+    this.moveTo(x+r, y);
+    this.arcTo(x+w, y, x+w, y+h, r);
+    this.arcTo(x+w, y+h, x, y+h, r);
+    this.arcTo(x, y+h, x, y, r);
+    this.arcTo(x, y, x+w, y, r);
+    this.closePath();
+    return this;
+  };
+}
+
+// ---- 多语言 i18n ----
+const I18N = {
+  zh: {
+    title: "手机当罗盘测产状",
+    sub: '手机贴平面，实时算<b>倾向/倾角</b>。',
+    start: "开始",
+    measuring: "测量中…",
+    dipLabel: "倾角", dipdirLabel: "倾向",
+    waiting: "等待传感器…", freeze: "暂停", frozen: "已暂停",
+    save: "保存", download: "下载", savedCount: "已存 {n} 帧", noteLabel: "备注",
+    notePh: "敲几个字备注这条测点…", downloadEmpty: "还没存数据", saved: "已存 ✓",
+    photo: "拍照", rec: "录音", recStop: "停止录音", photoNA: "相机不可用", recNA: "录音不可用",
+    rawLabel: "详细信息", stop: "停止",
+    altLabel: "高程",
+    yaw: "航向 α", pitch: "俯仰 β", roll: "横滚 γ",
+    normalLabel: "屏幕法线 n", headingLabel: "罗盘航向",
+    declLabel: "磁偏角", locLabel: "经纬度", locNone: "未获取",
+    locFail: "拒绝/失败", locFixing: "定位中…", locDenied: "已拒绝",
+    realtime: " · 实时", headingNA: "不可用", noPerm: "未授权传感器", home: "← 博客",
+    tips: '提示：iOS 需在弹窗中点「允许」；页面必须通过 <b>HTTPS</b> 打开传感器才可用。Android 若无反应，请在浏览器设置中开启「运动与方向」权限。'
+  },
+  en: {
+    title: "Phone Compass · Attitude",
+    sub: 'Place phone on a plane, get <b>dip/dir</b> live.',
+    start: "Start",
+    measuring: "Measuring…",
+    dipLabel: "Dip", dipdirLabel: "Dip Dir",
+    waiting: "Waiting for sensor…", freeze: "Pause", frozen: "Paused",
+    save: "Save", download: "Download", savedCount: "{n} frames saved", noteLabel: "Note",
+    notePh: "type a note for this point…", downloadEmpty: "No data yet", saved: "Saved ✓",
+    photo: "Photo", rec: "Record", recStop: "Stop", photoNA: "camera unavailable", recNA: "mic unavailable",
+    rawLabel: "Details", stop: "Stop",
+    altLabel: "Altitude",
+    yaw: "Yaw α", pitch: "Pitch β", roll: "Roll γ",
+    normalLabel: "Screen normal n", headingLabel: "Compass heading",
+    declLabel: "Declination", locLabel: "Lat / Lon", locNone: "not acquired",
+    locFail: "denied/failed", locFixing: "locating…", locDenied: "denied",
+    realtime: " · live", headingNA: "unavailable", noPerm: "Sensor access denied", home: "← Blog",
+    tips: 'Tip: on iOS tap "Allow" in the dialog; the page must be opened over <b>HTTPS</b> for sensors to work. On Android, enable "Motion & orientation" access in browser settings.'
+  }
+};
+let lang = localStorage.getItem('cz_lang') || 'zh';
+function t(key){ return (I18N[lang] && I18N[lang][key]) || I18N.zh[key] || key; }
+function applyLang(){
+  document.documentElement.lang = (lang === 'zh') ? 'zh' : 'en';
+  document.title = t('title');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    el.innerHTML = t(el.getAttribute('data-i18n'));
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    el.placeholder = t(el.getAttribute('data-i18n-ph'));
+  });
+  const btn = document.getElementById('langToggle');
+  btn.textContent = (lang === 'zh') ? 'EN' : '中';
+  // 冻结按钮文本（合并到 startBtn）
+  const sb = document.getElementById('startBtn');
+  if(started) sb.textContent = frozen ? t('freeze') : t('start');
+  else sb.textContent = t('start');
+  const headEl = document.getElementById('heading');
+  if(headEl.textContent === I18N.zh.headingNA || headEl.textContent === I18N.en.headingNA)
+    headEl.textContent = t('headingNA');
+}
+document.getElementById('langToggle').onclick = ()=>{
+  lang = (lang === 'zh') ? 'en' : 'zh';
+  localStorage.setItem('cz_lang', lang);
+  applyLang();
+};
+
+// ---- 由四元数 q=[qx,qy,qz,qw] 把设备 z 轴(屏幕法线)旋转到 ENU ----
+// q 旋转设备坐标系 -> ENU(East,North,Up)；设备 z 轴 = [0,0,1]
+// v' = q * v * q*  ；等价展开：
+function normalFromQuat(q){
+  const [x,y,z,w] = q;
+  // 归一化
+  const n = Math.hypot(x,y,z,w) || 1;
+  const X=x/n, Y=y/n, Z=z/n, W=w/n;
+  // R(v) = v + 2*cross(q.xyz, cross(q.xyz,v)) + 2*w*cross(q.xyz,v)
+  const vx=0, vy=0, vz=1;
+  const cx = Y*vz - Z*vy;
+  const cy = Z*vx - X*vz;
+  const cz = X*vy - Y*vx;
+  const ccx = Y*cz - Z*cy;
+  const ccy = Z*cx - X*cz;
+  const ccz = X*cy - Y*cx;
+  const rE = vx + 2*ccx + 2*W*cx;   // 东
+  const rN = vy + 2*ccy + 2*W*cy;   // 北
+  const rU = vz + 2*ccz + 2*W*cz;   // 上
+  return [rE, rN, rU];
+}
+
+// 由设备姿态角(alpha,beta,gamma，单位弧度)按 W3C 规范构造四元数
+// 参见 https://www.w3.org/TR/orientation-sensor/#helper-create-quaternion-from-euler-angles
+function quatFromEuler(a, b, g){
+  const cz=Math.cos(a/2), sz=Math.sin(a/2);
+  const cx=Math.cos(b/2), sx=Math.sin(b/2);
+  const cy=Math.cos(g/2), sy=Math.sin(g/2);
+  const qx = sx*cy*cz - cx*sy*sz;
+  const qy = cx*sy*cz + sx*cy*sz;
+  const qz = cx*cy*sz + sx*sy*cz;
+  const qw = cx*cy*cz - sx*sy*sz;
+  return [qx,qy,qz,qw];
+}
+
+function attitudeFromNormal(n){
+  let [e,nn,u] = n;
+  const len = Math.hypot(e,nn,u) || 1;
+  e/=len; nn/=len; u/=len;
+  // 统一约定：倾向 = 屏幕外法线的水平投影方位（屏幕所朝方向）
+  // 这样无论屏幕朝上/朝下、竖立/平放，倾向都指向屏幕所朝方向
+  // 参考校准：手机竖直立在面上 -> dip=90, dipdir=屏幕朝向
+  const screenDown = u < 0;
+  const dip = Math.acos(Math.min(1,Math.max(-1,Math.abs(u)))) * r2d * (screenDown ? -1 : 1);
+  let dipdir = Math.atan2(e, nn) * r2d;     // 始终=屏幕法线水平投影方位
+  dipdir = (dipdir + 360) % 360;
+  return {dip, dipdir, n:[e,nn,u], screenDown};
+}
+
+// ---- 画产状盘 ----
+// 模型：指针固定朝 canvas 顶部（不动），表盘整体旋转使 dipdir 方位刻度对准顶部指针；
+//       气泡=物理水平仪，朝法线水平投影(上坡方向)跑，幅度=法线水平分量。
+// 高清：按设备像素比缩放 canvas，避免位图模糊
+const cv = document.getElementById('disk'), ctx = cv.getContext('2d');
+const dpr = window.devicePixelRatio || 1;
+const DW = 280, DH = 250; // CSS 显示尺寸
+cv.style.width = DW+'px'; cv.style.height = DH+'px';
+cv.width = DW*dpr; cv.height = DH*dpr;
+ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+function drawDisk(dip, dipdir, screenDown, n){
+  const w=DW, h=DH, cx=w/2, cy=h/2, R=100;
+  ctx.clearRect(0,0,w,h);
+  // 表盘背景：径向渐变，更精致
+  const grad = ctx.createRadialGradient(cx-R*0.3, cy-R*0.3, R*0.1, cx, cy, R);
+  grad.addColorStop(0, '#162634');
+  grad.addColorStop(1, '#0a1218');
+  ctx.fillStyle = grad;
+  ctx.beginPath(); ctx.arc(cx,cy,R,0,2*Math.PI); ctx.fill();
+  // 外圈双环
+  ctx.strokeStyle='#3a5263'; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.arc(cx,cy,R,0,2*Math.PI); ctx.stroke();
+  ctx.strokeStyle='rgba(143,163,181,.25)'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.arc(cx,cy,R-3,0,2*Math.PI); ctx.stroke();
+
+  // ---- 可旋转方位表盘：指针指法线方向，但倾向=法线反方向(下坡)，所以表盘转 (180-dipdir) ----
+  // 局部坐标已把方位 a 画在 (a-90)*d2r，N(0) 在顶部；转 (180-dipdir) 让下坡方位到顶部
+  const rotRad = (180 - dipdir) * d2r;
+  ctx.save();
+  ctx.translate(cx, cy); ctx.rotate(rotRad);
+
+  // ---- 内层：度数标注（含 0/90/180/270）----
+  ctx.fillStyle='rgba(143,163,181,.7)'; ctx.font='9px sans-serif';
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  for(let ang=0; ang<360; ang+=45){
+    const a=(ang-90)*d2r;
+    ctx.fillText(ang+'', Math.cos(a)*(R-26), Math.sin(a)*(R-26));
+  }
+
+  // ---- 每 5° 细刻度线 ----
+  ctx.strokeStyle='rgba(49,64,79,.5)'; ctx.lineWidth=0.5;
+  for(let ang=0; ang<360; ang+=5){
+    if(ang%45===0) continue;
+    const a=(ang-90)*d2r;
+    ctx.beginPath();
+    ctx.moveTo(Math.cos(a)*(R-22), Math.sin(a)*(R-22));
+    ctx.lineTo(Math.cos(a)*(R-25), Math.sin(a)*(R-25));
+    ctx.stroke();
+  }
+
+  // ---- 每 45° 中刻度线（对齐度数数字）----
+  ctx.strokeStyle='#31404f'; ctx.lineWidth=1;
+  for(let ang=0; ang<360; ang+=45){
+    if(ang%90===0) continue;
+    const a=(ang-90)*d2r;
+    ctx.beginPath();
+    ctx.moveTo(Math.cos(a)*(R-18), Math.sin(a)*(R-18));
+    ctx.lineTo(Math.cos(a)*(R-26), Math.sin(a)*(R-26));
+    ctx.stroke();
+  }
+
+  // ---- 分隔环（内外层分界，留宽外圈给字母）----
+  ctx.strokeStyle='rgba(143,163,181,.3)'; ctx.lineWidth=0.8;
+  ctx.beginPath(); ctx.arc(0, 0, R-18, 0, 2*Math.PI); ctx.stroke();
+
+  // ---- 外层环：N/E/S/W 方位字母，宽裕空间独立展示 ----
+  ctx.font='11px sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+  const labs=[['N',0,'#e74c3c'],['E',90,'#8fa3b5'],['S',180,'#8fa3b5'],['W',270,'#8fa3b5']];
+  labs.forEach(([t,ang,col])=>{
+    const a=(ang-90)*d2r;
+    ctx.fillStyle=col;
+    ctx.fillText(t, Math.cos(a)*(R-9), Math.sin(a)*(R-9));
+  });
+  ctx.restore();
+
+  if(isNaN(dip)) return;
+
+  // ---- 中央物理水平仪气泡 ----
+  // 气泡朝下坡方向(重力水平投影)跑，幅度=法线水平分量(倾角越大越偏)
+  // 下坡 = 法线水平投影的反方向 = (-n_E, -n_N)
+  const bubbleR = 30, dotR = 9;
+  const maxOff = bubbleR - dotR - 2;
+  const horiz = Math.hypot(n[0], n[1]);
+  const off = Math.min(maxOff, horiz * maxOff);
+  const bubbleAz = Math.atan2(-n[0], -n[1]) * r2d;
+  const bAng = (bubbleAz - 90) * d2r;
+  const bx = cx + Math.cos(bAng) * off;
+  const by = cy + Math.sin(bAng) * off;
+  ctx.strokeStyle='#27ae60'; ctx.lineWidth=1.5;
+  ctx.beginPath(); ctx.arc(cx, cy, bubbleR, 0, 2*Math.PI); ctx.stroke();
+  ctx.strokeStyle='rgba(39,174,96,.35)'; ctx.lineWidth=1;
+  ctx.beginPath();
+  ctx.moveTo(cx-bubbleR+4, cy); ctx.lineTo(cx+bubbleR-4, cy);
+  ctx.moveTo(cx, cy-bubbleR+4); ctx.lineTo(cx, cy+bubbleR-4);
+  ctx.stroke();
+  ctx.strokeStyle='rgba(143,163,181,.5)';
+  ctx.beginPath(); ctx.arc(cx, cy, 4, 0, 2*Math.PI); ctx.stroke();
+  const bubbleCol = screenDown ? '#c0392b' : '#27ae60';
+  ctx.fillStyle = screenDown ? 'rgba(192,57,43,.25)' : 'rgba(39,174,96,.25)';
+  ctx.beginPath(); ctx.arc(bx, by, dotR, 0, 2*Math.PI); ctx.fill();
+  ctx.strokeStyle = bubbleCol; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.arc(bx, by, dotR, 0, 2*Math.PI); ctx.stroke();
+  ctx.fillStyle='rgba(255,255,255,.4)';
+  ctx.beginPath(); ctx.arc(bx-dotR*0.3, by-dotR*0.3, dotR*0.35, 0, 2*Math.PI); ctx.fill();
+
+  // ---- 固定倾向指针：始终朝 canvas 顶部（不随表盘转），短、白色半透明 ----
+  const innerR = bubbleR + 8;
+  const outerR = R - 28;
+  const ptrCol = screenDown ? 'rgba(231,76,60,.85)' : (frozen ? 'rgba(231,76,60,.85)' : 'rgba(255,255,255,.82)');
+  ctx.strokeStyle=ptrCol; ctx.lineWidth=3.5; ctx.lineCap='round';
+  ctx.beginPath();
+  ctx.moveTo(cx, cy - innerR);
+  ctx.lineTo(cx, cy - outerR);
+  ctx.stroke();
+  ctx.fillStyle=ptrCol;
+  const ah=9;
+  ctx.beginPath();
+  ctx.moveTo(cx, cy - outerR);
+  ctx.lineTo(cx - Math.sin(0.4)*ah, cy - outerR + Math.cos(0.4)*ah);
+  ctx.lineTo(cx + Math.sin(0.4)*ah, cy - outerR + Math.cos(0.4)*ah);
+  ctx.closePath(); ctx.fill();
+
+  // 倾角数字
+  ctx.fillStyle='#e8eef4'; ctx.font='bold 13px sans-serif';
+  ctx.textAlign='center'; ctx.textBaseline='middle';
+  ctx.fillText((screenDown?'-':'')+dip.toFixed(0)+'\u00b0', cx, cy+R-14);
+
+  // ---- 两根细长水平管，贴圆盘外边 ----
+  // 纵管(左)：垂直，测南北倾斜，气泡偏移 = n_N（n_N 正=北=canvas 上=负 y）
+  // 横管(下)：水平，测东西倾斜，气泡偏移 = n_E（n_E 正=东=canvas 右=正 x）
+  // 气泡往"高的一端"跑（法线指向=高端方向）
+  const tubeLen = 110, tubeW = 9, bubbleW = 7;
+  const maxBubble = (tubeLen/2 - bubbleW/2 - 2);
+  const tubeCol = screenDown ? 'rgba(192,57,43,.6)' : 'rgba(39,174,96,.65)';
+  const tubeFill = screenDown ? 'rgba(192,57,43,.35)' : 'rgba(39,174,96,.3)';
+
+  // 纵管：圆盘左侧，垂直
+  const vxc = cx - R - 8;
+  ctx.strokeStyle='#3a5263'; ctx.lineWidth=1.5;
+  ctx.beginPath();
+  ctx.roundRect(vxc - tubeW/2, cy - tubeLen/2, tubeW, tubeLen, 4);
+  ctx.stroke();
+  ctx.fillStyle = 'rgba(12,20,28,.8)';
+  ctx.beginPath();
+  ctx.roundRect(vxc - tubeW/2, cy - tubeLen/2, tubeW, tubeLen, 4);
+  ctx.fill();
+  // 纵管气泡：n_N 正→北→canvas 上→负 y
+  const vOff = Math.max(-maxBubble, Math.min(maxBubble, n[1] * maxBubble));
+  ctx.fillStyle = tubeFill;
+  ctx.beginPath();
+  ctx.roundRect(vxc - bubbleW/2, cy - vOff - bubbleW/2, bubbleW, bubbleW, 3);
+  ctx.fill();
+  ctx.strokeStyle = tubeCol; ctx.lineWidth=1;
+  ctx.beginPath();
+  ctx.roundRect(vxc - bubbleW/2, cy - vOff - bubbleW/2, bubbleW, bubbleW, 3);
+  ctx.stroke();
+  // 纵管中心标记
+  ctx.strokeStyle='rgba(143,163,181,.6)'; ctx.lineWidth=1;
+  ctx.beginPath();
+  ctx.moveTo(vxc - tubeW/2 - 2, cy); ctx.lineTo(vxc + tubeW/2 + 2, cy);
+  ctx.stroke();
+
+  // 横管：圆盘下方，水平
+  const hyT = cy + R + 8;
+  ctx.strokeStyle='#3a5263'; ctx.lineWidth=1.5;
+  ctx.beginPath();
+  ctx.roundRect(cx - tubeLen/2, hyT - tubeW/2, tubeLen, tubeW, 4);
+  ctx.stroke();
+  ctx.fillStyle = 'rgba(12,20,28,.8)';
+  ctx.beginPath();
+  ctx.roundRect(cx - tubeLen/2, hyT - tubeW/2, tubeLen, tubeW, 4);
+  ctx.fill();
+  // 横管气泡：n_E 正→东→canvas 右→正 x
+  const hOff = Math.max(-maxBubble, Math.min(maxBubble, n[0] * maxBubble));
+  ctx.fillStyle = tubeFill;
+  ctx.beginPath();
+  ctx.roundRect(cx + hOff - bubbleW/2, hyT - bubbleW/2, bubbleW, bubbleW, 3);
+  ctx.fill();
+  ctx.strokeStyle = tubeCol; ctx.lineWidth=1;
+  ctx.beginPath();
+  ctx.roundRect(cx + hOff - bubbleW/2, hyT - bubbleW/2, bubbleW, bubbleW, 3);
+  ctx.stroke();
+  // 横管中心标记
+  ctx.strokeStyle='rgba(143,163,181,.6)'; ctx.lineWidth=1;
+  ctx.beginPath();
+  ctx.moveTo(cx, hyT - tubeW/2 - 2); ctx.lineTo(cx, hyT + tubeW/2 + 2);
+  ctx.stroke();
+}
+
+// 平滑：指数滑动平均，减小瞬时抖动（低权重+死区，避免跳来跳去）
+let nSmooth = [0,0,1];
+function smoothAdd(n){
+  const a = 0.15; // 新值权重，越小越稳
+  const next = [nSmooth[0]*(1-a)+n[0]*a, nSmooth[1]*(1-a)+n[1]*a, nSmooth[2]*(1-a)+n[2]*a];
+  // 死区：变化量很小时不更新，抑制末位抖动
+  const dx = next[0]-nSmooth[0], dy = next[1]-nSmooth[1], dz = next[2]-nSmooth[2];
+  if(Math.hypot(dx,dy,dz) < 0.004) return nSmooth.slice();
+  nSmooth = next;
+  return nSmooth.slice();
+}
+
+// 用加速度计校正四元数方向约定：Android/iOS 的 AbsoluteOrientationSensor
+// 返回的四元数方向约定可能不一致。用重力锚定：
+// W3C 约定 accelerationIncludingGravity 在设备平放屏幕朝上时 = [0,0,+9.8]
+// 即设备系下指向"天"(反重力方向)。旋转到 ENU 后应≈[0,0,+1]；若朝下则取共轭。
+function fixQuatDir(q){
+  if(!lastAccG) return q;
+  const gl = Math.hypot(lastAccG[0],lastAccG[1],lastAccG[2]) || 1;
+  const updev = [lastAccG[0]/gl, lastAccG[1]/gl, lastAccG[2]/gl]; // 设备系"天"方向
+  const upenu = devAxisInENU(q, updev);                          // 旋转到 ENU
+  if(upenu[2] < 0){                                              // 朝下=方向反
+    return [-q[0],-q[1],-q[2],q[3]];                             // 共轭 = device→ENU
+  }
+  return q;
+}
+
+// 显示一帧：四元数 q 表示设备->ENU；已含罗盘方位
+function showQuat(q, heading){
+  if(frozen) return;
+  q = fixQuatDir(q);
+  let n = normalFromQuat(q);
+  n = smoothAdd(n);
+  const att = attitudeFromNormal(n);
+  let dipdir = att.dipdir;
+  dipdir = (dipdir + declination + 360) % 360;
+  // 设备 y 轴(手机顶边)在 ENU 中的向量 — 用于表盘旋转环和气泡
+  const yTop = devAxisInENU(q, [0,1,0]);
+  const dipEl = document.getElementById('dip');
+  dipEl.textContent = att.dip.toFixed(1)+'°';
+  dipEl.classList.toggle('frozen', att.screenDown);
+  document.getElementById('dipdir').textContent = dipdir.toFixed(1)+'°';
+  document.getElementById('alpha').textContent =
+    ((heading!=null)? heading : NaN).toFixed(1)+'°';
+  document.getElementById('beta').textContent = att.dip.toFixed(1)+'°';
+  document.getElementById('gamma').textContent =
+    (Math.atan2(att.n[0], att.n[1])*r2d).toFixed(1)+'°';
+  document.getElementById('normal').textContent =
+    '('+att.n[0].toFixed(3)+', '+att.n[1].toFixed(3)+', '+att.n[2].toFixed(3)+')'
+    + (att.screenDown? ' ⚠屏幕朝下':'');
+  document.getElementById('heading').textContent =
+    (heading!=null)? heading.toFixed(1)+'°' : t('headingNA');
+  drawDisk(Math.abs(att.dip), dipdir, att.screenDown, att.n);
+  // 缓存当前帧原始数据，供"存一帧"使用
+  curFrame = {
+    q: q.slice(),
+    heading: heading,
+    n: att.n.slice(),
+    dip: att.dip,
+    dipdir: dipdir,
+    screenDown: att.screenDown,
+    alpha: (heading!=null)? heading : NaN,
+    accG: lastAccG ? lastAccG.slice() : null
+  };
+}
+
+let lastHeading = null;
+let lastAccG = null; // 设备系下含重力的加速度（指向地心为 +）
+let curFrame = null;      // 当前帧原始数据
+let records = [];         // 已存的测点
+let curPos = null;        // 当前定位 {lat, lon, alt}
+
+// ---- 优先方案：AbsoluteOrientationSensor（硬件融合 加速度+陀螺仪+磁力计）----
+let absSensor = null;
+function startAbsSensor(){
+  if(typeof AbsoluteOrientationSensor === 'undefined') return false;
+  try{
+    const s = new AbsoluteOrientationSensor({frequency: 30, referenceFrame:'device'});
+    s.onerror = e => { console.warn('abs err', e.error && e.error.name); };
+    s.onreading = () => {
+      const q = s.quaternion;
+      if(!q || q.length<4) return;
+      hasCompass = true;
+      // heading 由四元数推得（设备 y 轴在水平面投影的方向 = 航向）
+      const yE = normalFromQuat([q[0],q[1],q[2],q[3]]); // 这里复用：z 轴朝上
+      // 单独算设备 y 轴 [0,1,0] 在 ENU 中的方向
+      const yy = devAxisInENU(q, [0,1,0]);
+      let hdg = (Math.atan2(yy[0], yy[1]) * r2d + 360) % 360; // 顺时针距北
+      lastHeading = hdg;
+      showQuat([q[0],q[1],q[2],q[3]], hdg);
+    };
+    s.start();
+    absSensor = s;
+    return true;
+  }catch(err){ console.warn('abs init', err); return false; }
+}
+
+// 设备系某单位轴 v 在 ENU 中的方向
+function devAxisInENU(q, v){
+  const [x,y,z,w] = q;
+  const N=Math.hypot(x,y,z,w)||1, X=x/N,Y=y/N,Z=z/N,W=w/N;
+  const vx=v[0],vy=v[1],vz=v[2];
+  const cx=Y*vz-Z*vy, cy=Z*vx-X*vz, cz=X*vy-Y*vx;
+  const ccx=Y*cz-Z*cy, ccy=Z*cx-X*cz, ccz=X*cy-Y*cx;
+  return [vx+2*ccx+2*W*cx, vy+2*ccy+2*W*cy, vz+2*ccz+2*W*cz];
+}
+
+// ---- 回退方案：DeviceOrientationEvent + DeviceMotionEvent ----
+function onOrient(e){
+  // 取真北航向：iOS 用 webkitCompassHeading；Android 绝对事件用 360-alpha
+  if(e.webkitCompassHeading != null && !isNaN(e.webkitCompassHeading)){
+    hasCompass = true; lastHeading = e.webkitCompassHeading;
+  } else if(e.absolute && e.alpha!=null && e.alpha!=null){
+    hasCompass = true; lastHeading = (360 - e.alpha) % 360;
+  }
+  if(e.alpha==null && e.beta==null && e.gamma==null) return;
+
+  // 按规范由 Euler 角构造四元数
+  const a = (e.alpha||0)*d2r, b = (e.beta||0)*d2r, g = (e.gamma||0)*d2r;
+  let q = quatFromEuler(a, b, g);
+
+  // iOS：alpha 为相对磁北的逆时针角，等价于已含罗盘
+  // Android 非绝对事件：alpha 为相对参考(漂移)；若有罗盘航向，用航向替换 alpha 的方位基准
+  if(!e.webkitCompassHeading && !e.absolute && lastHeading!=null){
+    // 把 alpha 调整为 (360 - heading) 以对齐 W3C 约定
+    q = quatFromEuler((360 - lastHeading)*d2r, b, g);
+    hasCompass = true;
+  }
+
+  showQuat(q, lastHeading);
+}
+
+function onMotion(e){
+  const acc = e.accelerationIncludingGravity;
+  if(!acc || acc.x==null) return;
+  // 设备系下重力方向（重力沿 -g，accelerationIncludingGravity 含 -g，故读数指向地心）
+  lastAccG = [acc.x, acc.y, acc.z];
+}
+
+async function start(){
+  // iOS 13+ 权限：DeviceOrientation 与 DeviceMotion 都要请求
+  try{
+    if(typeof DeviceOrientationEvent!=='undefined' &&
+       typeof DeviceOrientationEvent.requestPermission==='function'){
+      const p = await DeviceOrientationEvent.requestPermission();
+      if(p!=='granted'){ alert(t('noPerm')); return; }
+    }
+    if(typeof DeviceMotionEvent!=='undefined' &&
+       typeof DeviceMotionEvent.requestPermission==='function'){
+      await DeviceMotionEvent.requestPermission();
+    }
+  }catch(err){ console.warn(err); }
+
+  // 优先 AbsoluteOrientationSensor（已硬件融合）
+  if(!startAbsSensor()){
+    // 回退到事件 API
+    window.addEventListener('deviceorientationabsolute', onOrient, true);
+    window.addEventListener('deviceorientation', onOrient, true);
+    window.addEventListener('devicemotion', onMotion, true);
+  }
+  document.getElementById('startBtn').textContent = t('freeze');
+
+  // 定位 + 磁偏角（简易估计）
+  // 无网/SIM 时用纯 GPS 冷启动，需长超时；用 watchPosition 持续等卫星
+  if(navigator.geolocation){
+    document.getElementById('loc').textContent = t('locFixing');
+    document.getElementById('alt').textContent = t('locFixing');
+    const onPos = pos=>{
+      const la=pos.coords.latitude, lo=pos.coords.longitude, al=pos.coords.altitude;
+      curPos = {lat:la, lon:lo, alt:al};
+      const altStr = (al!=null && !isNaN(al)) ? al.toFixed(1)+'m' : '—';
+      document.getElementById('loc').textContent = la.toFixed(5)+', '+lo.toFixed(5);
+      document.getElementById('alt').textContent = altStr;
+      declination = estimateDeclination(la, lo);
+      document.getElementById('decl').textContent = declination.toFixed(1)+'°';
+    };
+    const onErr = err=>{
+      // 失败仍继续等（watchPosition 会持续重试），只标注状态
+      if(err.code === err.PERMISSION_DENIED){
+        document.getElementById('loc').textContent = t('locDenied');
+        document.getElementById('alt').textContent = t('locDenied');
+      }
+      // 超时或位置不可用：保持"定位中"，watch 继续
+    };
+    navigator.geolocation.watchPosition(onPos, onErr,
+      {enableHighAccuracy:true, timeout:120000, maximumAge:0});
+  }
+}
+
+// 极简磁偏角估计（一阶近似，精确值请用 WMM/IGRF 模型）
+function estimateDeclination(lat, lon){
+  // 简化：中国东部约 -3°~-6°(西偏)，此处给出粗略经验式，仅示意
+  return -0.7*(lon-105)/10 - 0.15*(lat-30)/10;
+}
+
+// 时间戳命名：YYYYMMDDHHmmss
+function tsName(d){
+  const p = n => String(n).padStart(2,'0');
+  const D = d || new Date();
+  return D.getFullYear()+p(D.getMonth()+1)+p(D.getDate())+p(D.getHours())+p(D.getMinutes())+p(D.getSeconds());
+}
+
+let started = false;
+document.getElementById('startBtn').onclick = ()=>{
+  if(!started){
+    started = true;
+    start();
+  } else {
+    // 已启动：切换冻结/继续
+    frozen = !frozen;
+    const btn = document.getElementById('startBtn');
+    btn.textContent = frozen ? t('freeze') : t('start');
+  }
+};
+// 当前测点的附件（拍照/录音），保存时随记录入库
+let curAttachments = []; // [{name, blob}]
+function renderMediaList(){
+  const el = document.getElementById('mediaList');
+  el.innerHTML = curAttachments.length
+    ? curAttachments.map(a => '<div>📎 '+a.name+'</div>').join('')
+    : '';
+}
+// 拍照
+document.getElementById('photoBtn').onclick = ()=>{
+  document.getElementById('photoInput').click();
+};
+document.getElementById('photoInput').onchange = e=>{
+  const f = e.target.files[0];
+  if(!f) return;
+  curAttachments.push({name: 'photo_'+tsName()+'.'+(f.type.split('/')[1]||'jpg'), blob: f});
+  renderMediaList();
+  e.target.value = '';
+};
+// 录音
+let mediaRecorder = null, recChunks = [];
+document.getElementById('recBtn').onclick = ()=>{
+  const btn = document.getElementById('recBtn');
+  if(mediaRecorder && mediaRecorder.state === 'recording'){
+    mediaRecorder.stop();
+    return;
+  }
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+    alert(t('recNA')); return;
+  }
+  navigator.mediaDevices.getUserMedia({audio:true}).then(stream=>{
+    recChunks = [];
+    // 优先高压缩编码：aac(mp4) > opus(webm) > 默认
+    const mimeTypes = ['audio/mp4;codecs=opus','audio/mp4','audio/aac','audio/webm;codecs=opus','audio/webm'];
+    let recMime = '';
+    for(const m of mimeTypes){ if(MediaRecorder.isTypeSupported(m)){ recMime = m; break; } }
+    mediaRecorder = recMime ? new MediaRecorder(stream, {mimeType: recMime}) : new MediaRecorder(stream);
+    mediaRecorder.ondataavailable = e => { if(e.data.size) recChunks.push(e.data); };
+    mediaRecorder.onstop = ()=>{
+      const mt = mediaRecorder.mimeType || 'audio/webm';
+      const blob = new Blob(recChunks, {type: mt});
+      const ext = (mt.split('/')[1] || 'webm').split(';')[0].replace('x-','');
+      curAttachments.push({name: 'rec_'+tsName()+'.'+ext, blob});
+      renderMediaList();
+      stream.getTracks().forEach(t=>t.stop());
+      btn.textContent = t('rec');
+      btn.classList.remove('frozen');
+    };
+    mediaRecorder.start();
+    btn.textContent = t('recStop');
+    btn.classList.add('frozen');
+  }).catch(()=>{ alert(t('recNA')); });
+};
+// 存一帧
+document.getElementById('saveBtn').onclick = ()=>{
+  if(!curFrame) return;
+  const noteEl = document.getElementById('noteInput');
+  // 把当前附件绑定到本条记录
+  const rec = {
+    idx: records.length + 1,
+    time: new Date().toISOString(),
+    dip: curFrame.dip,
+    dipdir: curFrame.dipdir,
+    heading: curFrame.heading,
+    lat: curPos ? curPos.lat : '',
+    lon: curPos ? curPos.lon : '',
+    alt: (curPos && curPos.alt!=null && !isNaN(curPos.alt)) ? curPos.alt : '',
+    nE: curFrame.n[0], nN: curFrame.n[1], nU: curFrame.n[2],
+    qx: curFrame.q[0], qy: curFrame.q[1], qz: curFrame.q[2], qw: curFrame.q[3],
+    accX: curFrame.accG ? curFrame.accG[0] : '',
+    accY: curFrame.accG ? curFrame.accG[1] : '',
+    accZ: curFrame.accG ? curFrame.accG[2] : '',
+    note: noteEl.value || '',
+    attachments: curAttachments.slice()
+  };
+  records.push(rec);
+  document.getElementById('savedCount').textContent = t('savedCount').replace('{n}', records.length);
+  const btn = document.getElementById('saveBtn');
+  const orig = btn.textContent;
+  btn.textContent = t('saved');
+  setTimeout(()=>{ btn.textContent = orig; }, 600);
+  noteEl.value = '';
+  curAttachments = [];
+  renderMediaList();
+};
+// 下载：有附件打包 ZIP（CSV + 附件），无附件仅 CSV
+document.getElementById('dlBtn').onclick = async ()=>{
+  if(records.length === 0){ alert(t('downloadEmpty')); return; }
+  const cols = ['idx','time','dip','dipdir','heading','lat','lon','alt','nE','nN','nU','qx','qy','qz','qw','accX','accY','accZ','note','attachments'];
+  const lines = [cols.join(',')];
+  let hasFiles = false;
+  records.forEach(r=>{
+    const attStr = (r.attachments||[]).map(a=>a.name).join(';');
+    if(r.attachments && r.attachments.length) hasFiles = true;
+    const row = cols.map(c=>{
+      if(c === 'attachments') return attStr ? '"'+attStr+'"' : '';
+      const v = r[c];
+      if(v == null) return '';
+      const s = String(v);
+      return /[",\n]/.test(s) ? '"'+s.replace(/"/g,'""')+'"' : s;
+    });
+    lines.push(row.join(','));
+  });
+  const csvText = '\uFEFF'+lines.join('\n');
+  const stamp = new Date().toISOString().slice(0,19).replace(/[:T]/g,'-');
+  if(hasFiles && typeof JSZip !== 'undefined'){
+    const zip = new JSZip();
+    zip.file('attitude_'+stamp+'.csv', csvText);
+    const media = zip.folder('media');
+    records.forEach(r=>{
+      (r.attachments||[]).forEach(a=>{
+        media.file(r.idx+'_'+a.name, a.blob);
+      });
+    });
+    const blob = await zip.generateAsync({type:'blob'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'attitude_'+stamp+'.zip';
+    a.click();
+    URL.revokeObjectURL(url);
+  } else {
+    const blob = new Blob([csvText], {type:'text/csv;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'attitude_'+stamp+'.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+};
+applyLang();
+drawDisk(NaN,NaN,false,null);
+</script>
+<div style="position:fixed;right:6px;bottom:4px;z-index:999;font-size:10px;color:rgba(143,163,181,.5);font-family:-apple-system,system-ui,sans-serif;pointer-events:none;user-select:none">v1.4.4 · 2026-07-22</div>
+<script>
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js').catch(e=>console.warn('SW reg failed:',e));
+}
+</script>
+</body>
+</html>

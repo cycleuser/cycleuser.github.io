@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect x="0" y="0" width="600" height="400" fill="#ffffff"/>
+  <rect x="30" y="30" width="540" height="340" fill="none" stroke="#000000" stroke-width="3"/>
+  <rect x="36" y="36" width="528" height="328" fill="none" stroke="#000000" stroke-width="1"/>
+
+  <!-- 左侧：蛋白质结构 -->
+  <!-- 螺旋 -->
+  <path d="M 70 90 Q 85 80 100 90 Q 85 100 70 90 Q 85 110 100 90 Q 85 120 70 90 Q 85 130 100 90 Q 85 140 70 90 Q 85 150 100 90" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <!-- 折叠链 -->
+  <path d="M 120 100 L 140 95 L 135 110 L 155 105 L 150 120 L 170 115 L 165 130" fill="none" stroke="#000000" stroke-width="2"/>
+  <!-- 分子节点 -->
+  <circle cx="120" cy="100" r="5" fill="none" stroke="#000000" stroke-width="2"/>
+  <circle cx="140" cy="95" r="5" fill="none" stroke="#000000" stroke-width="2"/>
+  <circle cx="135" cy="110" r="5" fill="none" stroke="#000000" stroke-width="2"/>
+  <circle cx="155" cy="105" r="5" fill="none" stroke="#000000" stroke-width="2"/>
+  <circle cx="150" cy="120" r="5" fill="none" stroke="#000000" stroke-width="2"/>
+  <circle cx="170" cy="115" r="5" fill="none" stroke="#000000" stroke-width="2"/>
+  <circle cx="165" cy="130" r="5" fill="none" stroke="#000000" stroke-width="2"/>
+  <!-- 标签 -->
+  <text x="65" y="60" font-family="serif" font-size="12" fill="#000000">AlphaFold</text>
+  <text x="65" y="170" font-family="serif" font-size="10" fill="#000000" opacity="0.5">Evoformer + 演化信息</text>
+
+  <!-- 中间：十个探索方向，只有两个亮 -->
+  <!-- 灯泡/圆圈阵列 -->
+  <circle cx="260" cy="100" r="14" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <circle cx="295" cy="100" r="14" fill="none" stroke="#000000" stroke-width="1" opacity="0.3"/>
+  <circle cx="330" cy="100" r="14" fill="none" stroke="#000000" stroke-width="1" opacity="0.3"/>
+  <circle cx="365" cy="100" r="14" fill="none" stroke="#000000" stroke-width="1" opacity="0.3"/>
+  <circle cx="260" cy="135" r="14" fill="none" stroke="#000000" stroke-width="1" opacity="0.3"/>
+  <circle cx="295" cy="135" r="14" fill="#000000" opacity="0.15"/>
+  <circle cx="330" cy="135" r="14" fill="none" stroke="#000000" stroke-width="1" opacity="0.3"/>
+  <circle cx="365" cy="135" r="14" fill="none" stroke="#000000" stroke-width="1" opacity="0.3"/>
+  <circle cx="260" cy="170" r="14" fill="none" stroke="#000000" stroke-width="1" opacity="0.3"/>
+  <circle cx="295" cy="170" r="14" fill="none" stroke="#000000" stroke-width="1" opacity="0.3"/>
+  <!-- 亮着的用星号标记 -->
+  <text x="255" y="105" font-family="serif" font-size="16" fill="#000000">★</text>
+  <text x="290" y="140" font-family="serif" font-size="16" fill="#000000">★</text>
+  <!-- 标签 -->
+  <text x="245" y="210" font-family="serif" font-size="11" fill="#000000">10个方向，2个成功</text>
+  <text x="240" y="225" font-family="serif" font-size="10" fill="#000000" opacity="0.5">幸存者偏差</text>
+
+  <!-- 右侧：Transform/GPT标志，被叉掉 -->
+  <rect x="420" y="85" width="120" height="50" rx="5" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <text x="445" y="115" font-family="serif" font-size="16" fill="#000000">Transformer</text>
+  <text x="435" y="130" font-family="serif" font-size="10" fill="#000000" opacity="0.5">= AGI?</text>
+  <!-- 大叉 -->
+  <line x1="415" y1="90" x2="545" y2="130" stroke="#000000" stroke-width="4"/>
+  <line x1="545" y1="90" x2="415" y2="130" stroke="#000000" stroke-width="4"/>
+
+  <!-- 小孙悟空在中间，手里拿着一个方向牌，看着其他方向 -->
+  <circle cx="300" cy="290" r="30" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <path d="M 272 276 Q 300 264 328 276" fill="none" stroke="#000000" stroke-width="3"/>
+  <circle cx="290" cy="288" r="4" fill="#000000"/>
+  <circle cx="310" cy="288" r="4" fill="#000000"/>
+  <!-- 思考的嘴 -->
+  <line x1="296" y1="304" x2="304" y2="304" stroke="#000000" stroke-width="2"/>
+  <path d="M 278 318 Q 300 322 322 318 L 324 355 Q 300 358 276 355 Z" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 手指向各个方向 -->
+  <line x1="278" y1="325" x2="250" y2="305" stroke="#000000" stroke-width="2"/>
+  <line x1="322" y1="325" x2="350" y2="305" stroke="#000000" stroke-width="2"/>
+
+  <!-- 底部文字 -->
+  <text x="390" y="160" font-family="serif" font-size="10" fill="#000000" opacity="0.6">到目前为止并不是</text>
+
+  <!-- 标题 -->
+  <text x="55" y="22" font-family="serif" font-size="13" fill="#000000">肆 · 成功的案例不能证明路径的普适</text>
+</svg>

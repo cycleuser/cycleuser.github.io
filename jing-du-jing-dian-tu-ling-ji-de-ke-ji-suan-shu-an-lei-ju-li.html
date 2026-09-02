@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894037367471530"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9894037367471530">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=19' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="./index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li class="active"><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li class="active"><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li class="active"><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li><li class="active"><a href="./2048游戏.html" data-i18n="2048">2048</a></li><li class="active"><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li><li class="active"><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li class="has-sub"><a href="./categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="./category/academic.html">Academic (3)</a></li><li><a href="./category/ai.html">AI (6)</a></li><li><a href="./category/c.html">C (16)</a></li><li><a href="./category/camera.html">Camera (15)</a></li><li><a href="./category/chromebook.html">ChromeBook (2)</a></li><li><a href="./category/cuda.html">CUDA (1)</a></li><li><a href="./category/design.html">Design (1)</a></li><li><a href="./category/diy.html">DIY (1)</a></li><li><a href="./category/duke.html">Duke (1)</a></li><li><a href="./category/education.html">Education (21)</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./category/hackintosh.html">Hackintosh (7)</a></li><li><a href="./category/java.html">Java (1)</a></li><li><a href="./category/linux.html">Linux (4)</a></li><li><a href="./category/llm.html">LLM (55)</a></li><li><a href="./category/ltfs.html">LTFS (1)</a></li><li><a href="./category/mac.html">Mac (3)</a></li><li><a href="./category/math.html">Math (30)</a></li><li><a href="./category/ml.html">ML (4)</a></li><li><a href="./category/modeling.html">Modeling (9)</a></li><li><a href="./category/nas.html">NAS (1)</a></li><li><a href="./category/nix.html">Nix (1)</a></li><li><a href="./category/photography.html">Photography (1)</a></li><li><a href="./category/programming.html">Programming (12)</a></li><li><a href="./category/pve.html">PVE (1)</a></li><li><a href="./category/python.html">Python (26)</a></li><li><a href="./category/qgis.html">QGIS (3)</a></li><li><a href="./category/qt.html">QT (1)</a></li><li><a href="./category/raspbian.html">Raspbian (1)</a></li><li><a href="./category/science.html">Science (2)</a></li><li><a href="./category/sdr.html">SDR (2)</a></li><li><a href="./category/software.html">Software (3)</a></li><li><a href="./category/story.html">Story (68)</a></li><li><a href="./category/sui-bi.html">随笔 (2)</a></li><li><a href="./category/tool.html">Tool (49)</a></li><li><a href="./category/tools.html">Tools (2)</a></li><li><a href="./category/virtualization.html">Virtualization (1)</a></li><li><a href="./category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./category/windows.html">Windows (1)</a></li><li><a href="./category/work.html">Work (24)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="./tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="./tag/7900xtx.html">7900XTX (3)</a></li><li><a href="./tag/9bmo-xing.html">9B模型 (1)</a></li><li><a href="./tag/abbreviations.html">abbreviations (1)</a></li><li><a href="./tag/academic.html">academic (1)</a></li><li><a href="./tag/adamw.html">AdamW (1)</a></li><li><a href="./tag/advice.html">advice (1)</a></li><li><a href="./tag/aerodynamics.html">aerodynamics (3)</a></li><li><a href="./tag/agent.html">Agent (3)</a></li><li><a href="./tag/ai.html">AI (31)</a></li><li><a href="./tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="./tag/aigc.html">AIGC (1)</a></li><li><a href="./tag/ailun-li.html">AI伦理 (1)</a></li><li><a href="./tag/airfoil.html">airfoil (1)</a></li><li><a href="./tag/algorithm.html">Algorithm (12)</a></li><li><a href="./tag/amd.html">AMD (1)</a></li><li><a href="./tag/anime.html">anime (1)</a></li><li><a href="./tag/arc.html">ARC (1)</a></li><li><a href="./tag/architecture.html">Architecture (3)</a></li><li><a href="./tag/arithmetic.html">arithmetic (1)</a></li><li><a href="./tag/attitude.html">Attitude (2)</a></li><li><a href="./tag/bayesian.html">Bayesian (2)</a></li><li><a href="./tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="./tag/beginner.html">Beginner (3)</a></li><li><a href="./tag/ben-di-bu-shu.html">本地部署 (5)</a></li><li><a href="./tag/ben-di-bu-shu-bing-yun-xing-omnicoder-9bde-su-du-zhi-mi-moxing-vs-ollama.html">本地部署并运行omnicoder-9b的速度之谜MoXing-vs-Ollama (1)</a></li><li><a href="./tag/ben-di-mo-xing.html">本地模型 (3)</a></li><li><a href="./tag/bfcl.html">BFCL (4)</a></li><li><a href="./tag/bi-ye-lun-wen.html">毕业论文 (1)</a></li><li><a href="./tag/bian-cheng.html">编程 (1)</a></li><li><a href="./tag/binary.html">binary (1)</a></li><li><a href="./tag/bing-fei-gu-yi-wei-shi-yao-wo-geng-duo-yong-ming-ling-xing-gong-ju-er-bu-shi-gui.html">并非故意-为什么我更多用命令行工具而不是GUI (1)</a></li><li><a href="./tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="./tag/book.html">Book (10)</a></li><li><a href="./tag/brent.html">Brent (1)</a></li><li><a href="./tag/bullshit.html">bullshit (1)</a></li><li><a href="./tag/c.html">C (10)</a></li><li><a href="./tag/camera.html">Camera (23)</a></li><li><a href="./tag/career.html">career (1)</a></li><li><a href="./tag/causation.html">Causation (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-da-mo-xing-omnicoder-9b-jian-ce-moxing-vs-ollama-dui-bi.html">超强的本地大模型-OmniCoder-9B-简测MoXing-vs-Ollama-对比 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-xiao-mo-xing-omnicoder-9bde-an-zhuang-yu-shi-yong-zhi-nan.html">超强的本地小模型OmniCoder-9B的安装与使用指南 (1)</a></li><li><a href="./tag/chao-xiao-mo-xing.html">超小模型 (1)</a></li><li><a href="./tag/chat.html">Chat (1)</a></li><li><a href="./tag/chatgpt.html">ChatGPT (1)</a></li><li><a href="./tag/cheng-chang.html">成长 (1)</a></li><li><a href="./tag/chouchou-pdflun-wen-zhong-ming-ming-gong-ju-sheng-ji-liao-zhe-ci-zhuan-men-you-hua-liao-zhong-wen-lun-wen-zhi-chi.html">Chou瞅-PDF论文重命名工具升级了这次专门优化了中文论文支持 (1)</a></li><li><a href="./tag/chouchou-yi-ge-pythonxiao-gong-ju-rang-ni-de-lun-wen-pdfwen-jian-ming-bu-zai-shi-luan-ma.html">Chou瞅一个Python小工具让你的论文PDF文件名不再是乱码 (1)</a></li><li><a href="./tag/chromebook.html">ChromeBook (2)</a></li><li><a href="./tag/cli.html">CLI (1)</a></li><li><a href="./tag/code.html">Code (2)</a></li><li><a href="./tag/code-generation.html">Code Generation (6)</a></li><li><a href="./tag/coding.html">Coding (1)</a></li><li><a href="./tag/cognition.html">Cognition (1)</a></li><li><a href="./tag/comics.html">comics (1)</a></li><li><a href="./tag/communicate.html">Communicate (6)</a></li><li><a href="./tag/communication.html">communication (3)</a></li><li><a href="./tag/comparison.html">comparison (1)</a></li><li><a href="./tag/computability.html">Computability (12)</a></li><li><a href="./tag/computer.html">computer (3)</a></li><li><a href="./tag/conda.html">Conda (2)</a></li><li><a href="./tag/conda-forge.html">conda-forge (1)</a></li><li><a href="./tag/configback-kua-ping-tai-kai-fa-pei-zhi-wen-jian-de-wu-tong-bei-fen-qian-yi-guan-li-gong-ju.html">ConfigBack-跨平台开发配置文件的无痛备份迁移管理工具 (1)</a></li><li><a href="./tag/cong-shu-zu-dao-fu-za-shu-ju-cyu-yan-shi-zen-yao-yi-bu-bu-bian-fu-za-de.html">从数组到复杂数据C语言是怎么一步步变复杂的 (1)</a></li><li><a href="./tag/copytalker-kua-yue-yu-yan-zhang-ai-de-jin-shi-shi-yu-yin-fan-yi.html">CopyTalker-跨越语言障碍的近实时语音翻译 (1)</a></li><li><a href="./tag/correlation.html">Correlation (1)</a></li><li><a href="./tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="./tag/cs.html">CS (1)</a></li><li><a href="./tag/cuda.html">CUDA (6)</a></li><li><a href="./tag/culture.html">culture (1)</a></li><li><a href="./tag/cursor.html">Cursor (1)</a></li><li><a href="./tag/cyu-yan-fu-xi-quan-gong-lue-yi-wen-chi-tou-suo-you-zhi-shi-dian.html">C语言复习全攻略-一文吃透所有知识点 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-numc-yi-ge-numpy-feng-ge-de-c-yu-yan-ku.html">C语言基础教程NumC-一个-NumPy-风格的-C-语言库 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shi-xian-lei-si-dong-tai-lei-xing-dui-yong-hu-shu-ru-jie-xi-bing-qie-xuan-ze-he-gua-de-shu-ju-lei-xing.html">C语言基础教程-实现类似动态类型对用户输入解析并且选择合适的数据类型 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shu-zu-xing-zhuang-50xing-200000lie-vs-200000xing-50lie-tong-yang-de-shu-ju-bu-tong-de-xing-neng.html">C语言基础教程数组形状-50行200000列-vs-200000行50列-同样的数据不同的性能 (1)</a></li><li><a href="./tag/da-gong.html">打工 (1)</a></li><li><a href="./tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="./tag/da-xue-sheng-huo.html">大学生活 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing.html">大语言模型 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing-li-mian-de-tokende-han-yi-he-yuan-liu.html">大语言模型里面的token的含义和源流 (1)</a></li><li><a href="./tag/dai-ma-neng-li.html">代码能力 (1)</a></li><li><a href="./tag/dan-jing-du-fu-dian-shu-de-fen-bian-lu-wei-shi-yao-zai-ji-suan-ji-li-1000-mo-he-1000-mo-jia-001-ke-neng-shi-yi-yang-de.html">单精度浮点数的分辨率为什么在计算机里-1000-万和-1000-万加-001-可能是一样的 (1)</a></li><li><a href="./tag/dan-yi-zhi-ze-yuan-ze-xie-hao-pythonhan-shu-de-di-yi-bu.html">单一职责原则写好Python函数的第一步 (1)</a></li><li><a href="./tag/data.html">Data (3)</a></li><li><a href="./tag/data-science.html">Data Science (2)</a></li><li><a href="./tag/database.html">Database (1)</a></li><li><a href="./tag/datewise-photo-organizer-ji-yu-ri-qi-shi-jian-jin-xing-tu-pian-zu-zhi-he-lu-jing-guan-li-de-she-ying-fu-zhu-gong-ju-ruan-jian.html">Datewise-Photo-Organizer-基于日期时间进行图片组织和路径管理的摄影辅助工具软件 (1)</a></li><li><a href="./tag/decision-making.html">decision-making (1)</a></li><li><a href="./tag/design.html">Design (1)</a></li><li><a href="./tag/dian-che-nan-ti-han-shang-de-zhi-jia-hui-zai-shi-gu-qian-tu-ran-tui-chu-yao.html">电车难题厂商的智驾会在事故前突然退出么 (1)</a></li><li><a href="./tag/dimension.html">dimension (1)</a></li><li><a href="./tag/discuss.html">Discuss (7)</a></li><li><a href="./tag/disease.html">Disease (1)</a></li><li><a href="./tag/diy.html">DIY (1)</a></li><li><a href="./tag/download.html">Download (1)</a></li><li><a href="./tag/earth-science.html">Earth Science (1)</a></li><li><a href="./tag/education.html">Education (15)</a></li><li><a href="./tag/efficiency.html">efficiency (1)</a></li><li><a href="./tag/ekf.html">EKF (1)</a></li><li><a href="./tag/emotion.html">emotion (1)</a></li><li><a href="./tag/engineering.html">Engineering (1)</a></li><li><a href="./tag/environment.html">Environment (1)</a></li><li><a href="./tag/er-ji.html">耳机 (1)</a></li><li><a href="./tag/er-jin-zhi.html">二进制 (1)</a></li><li><a href="./tag/ertinger-ting-yi-ge-jian-dan-de-yin-pin-jiang-zao-gong-ju.html">ErTing耳听一个简单的音频降噪工具 (1)</a></li><li><a href="./tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="./tag/fa-lan-ke-fu.html">法兰克福 (1)</a></li><li><a href="./tag/family.html">family (1)</a></li><li><a href="./tag/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">FanFu凡赴-把-Ollama-的-GGUF-模型转成-HuggingFace-格式纯好玩 (1)</a></li><li><a href="./tag/fang-fa-bi-gui-mo-geng-zhong-yao-agenticqwenyu-needlede-xiao-mo-xing-zhi-neng-ti-ying-yong-tan-suo.html">方法比规模更重要AgenticQwen与Needle的小模型智能体应用探索 (1)</a></li><li><a href="./tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="./tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="./tag/filtering.html">Filtering (6)</a></li><li><a href="./tag/folderlensyi-ge-pyside6shi-xian-de-jian-dan-wen-jian-guan-li-qi-kai-fa-shi-li.html">FolderLens一个PySide6实现的简单文件管理器开发实例 (1)</a></li><li><a href="./tag/fractal.html">fractal (1)</a></li><li><a href="./tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="./tag/freshman.html">freshman (5)</a></li><li><a href="./tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="./tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./tag/function-calling.html">function calling (1)</a></li><li><a href="./tag/game.html">Game (2)</a></li><li><a href="./tag/gametheory.html">GameTheory (1)</a></li><li><a href="./tag/gangdan-de-zhi-shi-ku-shi-zen-yao-lian-cheng-de.html">GangDan-的知识库是怎么炼成的 (1)</a></li><li><a href="./tag/gangdan-geng-xin-ke-yong-zai-xian-mo-xing-cong-xie-zong-shu-dao-xie-wan-zheng-wen-zhang.html">GangDan-更新可用在线模型从写综述到写完整文章 (1)</a></li><li><a href="./tag/gangdan-wu-yue-zhong-de-ji-zhong-geng-xin-jing-zhun-xuan-wen-zhi-shi-ku-fen-xi-xue-xi-mo-kuai-quan-mian-xiu-fu.html">GangDan-五月中的集中更新精准选文知识库分析学习模块全面修复 (1)</a></li><li><a href="./tag/gangdan-you-geng-xin-liao-yi-bo-cong-kai-fa-zhu-shou-zhuan-xing-wei-zhi-shi-guan-li-yu-jiao-xue-fu-zhu-gong-ju.html">GangDan-又更新了一波从开发助手转型为知识管理与教学辅助工具 (1)</a></li><li><a href="./tag/gangdangang-dan-sheng-ji-kai-yuan-ben-di-zhi-shi-ku-zhi-chi-ben-di-mo-xing-he-zai-xian-mo-xing-de-shen-du-yan-jiu-zhu-shou.html">GangDan纲担升级开源本地知识库-支持本地模型和在线模型的深度研究助手 (1)</a></li><li><a href="./tag/gangdangang-dan-zhong-gou-ji-hu-zhong-zuo-liao-yi-bian.html">GangDan纲担重构-几乎重做了一遍 (1)</a></li><li><a href="./tag/gangdanji-xu-geng-xin-xian-zai-neng-zhi-jie-shang-chuan-cajgou-jian-zhi-shi-ku-liao.html">GangDan继续更新现在能直接上传CAJ构建知识库了 (1)</a></li><li><a href="./tag/gangdanzhi-shi-ku-dao-chu-gai-jin-ke-yi-zhi-jie-dao-chu-xia-zai-hao-de-wen-zhang-yuan-wen-liao.html">GangDan知识库导出改进-可以直接导出下载好的文章原文了 (1)</a></li><li><a href="./tag/gao-xiao-jiao-shi-jian-yi-da-yi-kai-xue-yao-you-dian-nao-huan-yao-an-zhuang-opencodeshi-yong-zhi-neng-ti.html">高校教师建议大一开学要有电脑还要安装OpenCode使用智能体 (1)</a></li><li><a href="./tag/gei-xin-shou-shi-xian-yi-wei-shu-zu-de-liang-chong-si-lu-chuan-tong-cyu-yan-vs-numcku.html">给新手实现一维数组的两种思路传统C语言-vs-NumC库 (1)</a></li><li><a href="./tag/gemma4.html">Gemma4 (1)</a></li><li><a href="./tag/general-education.html">general-education (1)</a></li><li><a href="./tag/geojstool-di-qiu-hua-xue-fen-xi-gong-ju-wang-ye-ban-de-geopytool.html">GeoJsTool-地球化学分析工具-网页版的GeoPyTool (1)</a></li><li><a href="./tag/geology.html">Geology (4)</a></li><li><a href="./tag/geometry.html">geometry (1)</a></li><li><a href="./tag/geopython.html">GeoPython (1)</a></li><li><a href="./tag/gguf.html">GGUF (2)</a></li><li><a href="./tag/gis.html">GIS (3)</a></li><li><a href="./tag/glm.html">GLM (1)</a></li><li><a href="./tag/glumpy.html">GlumPy (2)</a></li><li><a href="./tag/golden-section.html">Golden Section (1)</a></li><li><a href="./tag/gong-ju-diao-yong.html">工具调用 (2)</a></li><li><a href="./tag/google-de-turboquant-suan-fa-ru-he-rang-aigeng-sheng-nei-cun-gao-ding-xiang-liang-liang-hua-nan-ti.html">Google-的-TurboQuant-算法如何让AI更省内存搞定向量量化难题 (1)</a></li><li><a href="./tag/gpt-35.html">GPT-3.5 (3)</a></li><li><a href="./tag/gpt-4o.html">GPT-4o (1)</a></li><li><a href="./tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="./tag/graduate-school.html">graduate-school (1)</a></li><li><a href="./tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="./tag/granite4.html">granite4 (1)</a></li><li><a href="./tag/gsm8k.html">GSM8K (2)</a></li><li><a href="./tag/gu-ge-turboquant-lun-wen-zhong-yi-ji-yu-jin-zui-you-niu-qu-lu-de-gao-su-zai-xian-xiang-liang-liang-hua-suan-fa.html">谷歌-TurboQuant-论文中译基于近最优扭曲率的高速在线向量量化算法 (1)</a></li><li><a href="./tag/guan-xi-xing-shu-ju-ku.html">关系型数据库 (1)</a></li><li><a href="./tag/guide.html">Guide (1)</a></li><li><a href="./tag/hack.html">Hack (2)</a></li><li><a href="./tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="./tag/hadoop.html">Hadoop (2)</a></li><li><a href="./tag/hardware.html">Hardware (2)</a></li><li><a href="./tag/hate.html">Hate (1)</a></li><li><a href="./tag/hbase.html">HBase (1)</a></li><li><a href="./tag/heibancong-markdownzhuan-chu-ppthuan-deng-pian.html">HeiBan从Markdown转出PPT幻灯片 (1)</a></li><li><a href="./tag/heibanhei-ban-jiang-markdownzhuan-huan-cheng-htmllai-dang-jiang-yi.html">HeiBan黑板-将Markdown转换成HTML来当讲义 (1)</a></li><li><a href="./tag/hellaswag.html">HellaSwag (2)</a></li><li><a href="./tag/hermes.html">Hermes (1)</a></li><li><a href="./tag/heroism.html">heroism (1)</a></li><li><a href="./tag/history.html">History (6)</a></li><li><a href="./tag/huan-jue.html">幻觉 (1)</a></li><li><a href="./tag/huan-wei-si-kao-he-ni-chou-sha.html">换位思考和你瞅啥 (1)</a></li><li><a href="./tag/huan-yi-ge-ba-wang-ye-zhuan-huan-cheng-markdownde-python-xiao-gong-ju.html">Huan-一个把网页转换成-Markdown的Python-小工具 (1)</a></li><li><a href="./tag/hui-yi.html">回忆 (1)</a></li><li><a href="./tag/humaneval.html">HumanEval (2)</a></li><li><a href="./tag/ide.html">IDE (2)</a></li><li><a href="./tag/imbalance.html">Imbalance (1)</a></li><li><a href="./tag/imu.html">IMU (1)</a></li><li><a href="./tag/jacobian.html">Jacobian (1)</a></li><li><a href="./tag/java-ji-chu-yu-fa-5fen-zhong-ru-men.html">Java-基础语法5分钟入门 (1)</a></li><li><a href="./tag/ji-chu-zhi-shi-chu-ji-tong-ji-gai-nian-de-jian-dan-jie-shao.html">基础知识初级统计概念的简单介绍 (1)</a></li><li><a href="./tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="./tag/ji-nian.html">纪念 (1)</a></li><li><a href="./tag/ji-suan-ji.html">计算机 (1)</a></li><li><a href="./tag/ji-suan-ji-zu-cheng.html">计算机组成 (1)</a></li><li><a href="./tag/ji-yu-ben-di-mo-xing-de-bian-cheng-xue-xi-fu-zhu-huan-jing-da-jian-wan-zheng-zhi-nan.html">基于本地模型的编程学习辅助环境搭建完整指南 (1)</a></li><li><a href="./tag/ji-yu-tunade-virtualbox-yu-ubuntu-xu-ni-ji-bu-shu-zhi-nan.html">基于TUNA的-VirtualBox-与-Ubuntu-虚拟机部署指南 (1)</a></li><li><a href="./tag/jian-dan-shuo-shuo-pythonli-mian-de-han-shu-shi-di-yi-gong-min-first-class-citizen.html">简单说说Python里面的函数是第一公民First-Class-Citizen (1)</a></li><li><a href="./tag/jie-zhu-pythonlai-li-jie-zi-gua-ying-xin-pu-sen-ji-fen-yuan-li-shi-xian-yu-dong-tai-ke-shi-hua.html">借助Python来理解自适应辛普森积分原理实现与动态可视化 (1)</a></li><li><a href="./tag/jing-xiang.html">镜像 (1)</a></li><li><a href="./tag/jiu-wen-gao-bie-guo-qu-gao-bie-ke-xue-wang.html">旧文告别过去告别科学网 (1)</a></li><li><a href="./tag/jixingji-xing-dang-agent-dui-hua-chao-chu-shang-xia-wen-xian-zhi-zuo-liao-yi-ge-lei-si-xu-ni-ji-re-qian-yi-cao-lu-fang-an.html">JiXing记行-当-Agent-对话超出上下文限制做了一个类似虚拟机热迁移草率方案 (1)</a></li><li><a href="./tag/job.html">Job (1)</a></li><li><a href="./tag/job-hunting.html">job-hunting (1)</a></li><li><a href="./tag/junck.html">Junck (3)</a></li><li><a href="./tag/kalman.html">Kalman (1)</a></li><li><a href="./tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="./tag/kao-yan-qu-mei-chu-shi-yu-fu-shi.html">考研祛魅初试与复试 (1)</a></li><li><a href="./tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="./tag/kivy.html">Kivy (3)</a></li><li><a href="./tag/kuan-biao.html">宽表 (1)</a></li><li><a href="./tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="./tag/language.html">Language (1)</a></li><li><a href="./tag/learn.html">Learn (4)</a></li><li><a href="./tag/learning.html">Learning (10)</a></li><li><a href="./tag/lens.html">Lens (19)</a></li><li><a href="./tag/lesson.html">Lesson (1)</a></li><li><a href="./tag/lfm.html">LFM (1)</a></li><li><a href="./tag/lfm25.html">lfm2.5 (1)</a></li><li><a href="./tag/li-yong-chao-qiang-de-xiao-mo-xing-omnicoder-9b-shi-shi-turboquant-liang-hua-kv-cache-2-bit-tiao-zhan-fp1.html">利用超强的小模型-OmniCoder-9B-试试-TurboQuant-量化-KV-Cache-2-bit-挑战-FP1 (1)</a></li><li><a href="./tag/li-yong-pythonshi-xian-de-yu-ben-di-da-mo-xing-jiao-hu-de-posix-jian-rong-ceng.html">利用Python实现的与本地大模型交互的POSIX-兼容层 (1)</a></li><li><a href="./tag/liang-hua.html">量化 (3)</a></li><li><a href="./tag/liaoliao-rang-ben-di-da-yu-yan-mo-xing-ai-bang-ni-liao-tian-de-kai-yuan-gong-ju.html">Liao聊-让本地大语言模型-AI-帮你聊天的开源工具 (1)</a></li><li><a href="./tag/library.html">Library (1)</a></li><li><a href="./tag/life.html">life (16)</a></li><li><a href="./tag/lift.html">lift (1)</a></li><li><a href="./tag/linux.html">Linux (9)</a></li><li><a href="./tag/liquid-ai.html">Liquid AI (1)</a></li><li><a href="./tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="./tag/llamacpp.html">llama.cpp (3)</a></li><li><a href="./tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="./tag/llm.html">LLM (7)</a></li><li><a href="./tag/ltfs.html">LTFS (1)</a></li><li><a href="./tag/lto.html">LTO (1)</a></li><li><a href="./tag/mac.html">Mac (11)</a></li><li><a href="./tag/macbook-air-m4.html">MacBook Air M4 (2)</a></li><li><a href="./tag/macos.html">macOS (1)</a></li><li><a href="./tag/markdown.html">Markdown (1)</a></li><li><a href="./tag/materials.html">Materials (1)</a></li><li><a href="./tag/math.html">Math (3)</a></li><li><a href="./tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="./tag/mathematics.html">mathematics (1)</a></li><li><a href="./tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="./tag/maturity.html">maturity (1)</a></li><li><a href="./tag/mayavi.html">MayaVi (1)</a></li><li><a href="./tag/mechanics.html">Mechanics (1)</a></li><li><a href="./tag/memory.html">Memory (4)</a></li><li><a href="./tag/methodology.html">Methodology (1)</a></li><li><a href="./tag/mian-dui-wu-mai-ni-shi-wu-neng-wei-li-huan-shi-xiu-shou-pang-guan.html">面对雾霾你是无能为力还是袖手旁观 (1)</a></li><li><a href="./tag/mian-xiang-dui-xiang-bian-cheng-ru-men-yong-wu-xia-jiao-se-li-jie-python-zhong-de-lei.html">面向对象编程入门用武侠角色理解-Python-中的类 (1)</a></li><li><a href="./tag/microscope.html">Microscope (2)</a></li><li><a href="./tag/mindset.html">mindset (2)</a></li><li><a href="./tag/miniconda3.html">Miniconda3 (1)</a></li><li><a href="./tag/ml.html">ML (4)</a></li><li><a href="./tag/mlx.html">mlx (1)</a></li><li><a href="./tag/mmlu.html">MMLU (2)</a></li><li><a href="./tag/mo-xing-ping-ce.html">模型评测 (1)</a></li><li><a href="./tag/mobile.html">Mobile (1)</a></li><li><a href="./tag/moe.html">MoE (1)</a></li><li><a href="./tag/moon.html">Moon (1)</a></li><li><a href="./tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="./tag/moving-average.html">Moving Average (1)</a></li><li><a href="./tag/moxing.html">moxing (1)</a></li><li><a href="./tag/moxing-he-ollama-dui-bi-cong-omnicoder-9bdao-geng-duo-mo-xing.html">MoXing-和-Ollama-对比从omnicoder-9b到更多模型 (1)</a></li><li><a href="./tag/moxing-su-du-zui-gao-da-dao-ollamade-201-tong-mo-xing-tong-ying-jian-de-shi-ce-dui-bi-omnicoder-2-9b-de-q4_k_m.html">MoXing-速度最高达到-Ollama的-201-同模型同硬件的实测对比OmniCoder-2-9B-的-Q4_K_M (1)</a></li><li><a href="./tag/moxing-wu-yue-geng-xin-suan-shi-lai-liao-ge-da-sao-chu.html">MoXing-五月更新算是来了个大扫除 (1)</a></li><li><a href="./tag/moxing-zhu-li-la-ji-lao-yong-bai-yuan-chao-lian-jie-xian-qia-ben-di-yun-xing-omnicoder-2-9bmo-xing-jie-guo-ye-zhi-you-shi-ji-ge-tokenss.html">MoXing-助力垃圾佬用百元超廉价显卡本地运行omnicoder-2-9b模型结果也只有十几个tokenss (1)</a></li><li><a href="./tag/moxingdi-yu-suan-chang-jing-yong-rx580xian-qia-qing-song-yun-xing-qwen35-9b-q4_k_mmo-xing.html">MoXing低预算场景用RX580显卡轻松运行Qwen35-9b-q4_k_m模型 (1)</a></li><li><a href="./tag/moxingsheng-ji-tong-shi-yun-xing-duo-ge-mo-xing-shi-li.html">MoXing升级同时运行多个模型实例 (1)</a></li><li><a href="./tag/moxingxin-sheng-ji-zhi-jie-duo-she-ollama-bu-fen-mo-xing-ti-su-50.html">MoXing新升级直接夺舍-Ollama-部分模型提速-50 (1)</a></li><li><a href="./tag/mtp.html">MTP (1)</a></li><li><a href="./tag/muon.html">Muon (1)</a></li><li><a href="./tag/n8n.html">n8n (1)</a></li><li><a href="./tag/nas.html">NAS (1)</a></li><li><a href="./tag/nemotron.html">Nemotron (1)</a></li><li><a href="./tag/network.html">Network (1)</a></li><li><a href="./tag/ni-de-dian-nao-mei-miao-neng-zuo-duo-shao-ci-fu-dian-yun-suan-flops-de-gu-shi.html">你的电脑每秒能做多少次浮点运算FLOPS-的故事 (1)</a></li><li><a href="./tag/niu-dun-fa-qiu-jie-guo-cheng-de-pythonshi-xian-ji-qi-xiang-jie.html">牛顿法求解过程的Python实现及其详解 (1)</a></li><li><a href="./tag/nixos.html">NixOS (1)</a></li><li><a href="./tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="./tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="./tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="./tag/nosql.html">NoSQL (1)</a></li><li><a href="./tag/numpy.html">NumPy (1)</a></li><li><a href="./tag/nuoyi-geng-xin-xin-zeng-zai-xian-zhuan-huan-yin-qing-mei-xian-qia-ye-bu-pa-chang-wen-dang-ye-bu-na-yao-tou-teng.html">NuoYi-更新新增在线转换引擎没显卡也不怕长文档也不那么头疼 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-geng-xin-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju-shao-wei-sheng-yi-dian-xian-cun-liao.html">NuoYi-挪移更新-离线的-PDFDOCX-转-Markdown-工具稍微省一点显存了 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-yi-ge-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju.html">NuoYi-挪移-一个离线的-PDFDOCX-转-Markdown-工具 (1)</a></li><li><a href="./tag/nvidia.html">Nvidia (1)</a></li><li><a href="./tag/ocr.html">OCR (1)</a></li><li><a href="./tag/ollama.html">Ollama (20)</a></li><li><a href="./tag/ollamaaidgei-ni-guan-li-ben-di-da-mo-xing-pei-ge-de-li-zhu-shou.html">OllamaAid给你管理本地大模型配个得力助手 (1)</a></li><li><a href="./tag/ollamageng-xin-suo-you-ben-di-mo-xing.html">Ollama更新所有本地模型 (1)</a></li><li><a href="./tag/ollamaqian-ru-mo-xing-xuan-xing-zhi-nan-zhu-liu-mo-xing-shen-du-dui-bi.html">Ollama嵌入模型选型指南-主流模型深度对比 (1)</a></li><li><a href="./tag/omlx.html">omlx (1)</a></li><li><a href="./tag/opc.html">OPC (1)</a></li><li><a href="./tag/opencl.html">OpenCL (1)</a></li><li><a href="./tag/opencode.html">opencode (11)</a></li><li><a href="./tag/opencode-jin-jie-zhi-ji-neng-chuang-zuo-chai-jie-miao-shu-dian-xing-ren-wu-hou-yan-zheng-shi-xian-zai-zuo-cheng-ke-fu-yong-de-ji-neng.html">OpenCode-进阶之技能创作拆解描述典型任务后验证实现再做成可复用的技能 (1)</a></li><li><a href="./tag/opencode-skillsfen-xiang-yi-tao-zi-ji-luan-xie-de-huan-suan-shi-yong-de-ai-bian-ma-ji-neng-ku.html">OpenCode-Skills分享一套自己乱写的还算实用的-AI-编码技能库 (1)</a></li><li><a href="./tag/openlaoke-geng-xin-ben-di-gguf-mo-xing-ling-api-fei-yong-pao-qi-lai.html">OpenLaoKe-更新本地-GGUF-模型零-API-费用跑起来 (1)</a></li><li><a href="./tag/openlaokelao-ke-yi-ge-ming-ling-xing-aizhu-shou.html">OpenLaoKe唠嗑一个命令行AI助手 (1)</a></li><li><a href="./tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="./tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="./tag/optimization.html">Optimization (2)</a></li><li><a href="./tag/os.html">os (1)</a></li><li><a href="./tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="./tag/parenting.html">Parenting (1)</a></li><li><a href="./tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="./tag/path.html">PATH (1)</a></li><li><a href="./tag/pdfjie-xi.html">PDF解析 (1)</a></li><li><a href="./tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="./tag/performance.html">Performance (1)</a></li><li><a href="./tag/phd.html">PHD (2)</a></li><li><a href="./tag/philosophy.html">philosophy (2)</a></li><li><a href="./tag/photo.html">Photo (23)</a></li><li><a href="./tag/photography.html">Photography (2)</a></li><li><a href="./tag/physics.html">Physics (3)</a></li><li><a href="./tag/ping-ce.html">评测 (1)</a></li><li><a href="./tag/poem.html">Poem (2)</a></li><li><a href="./tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="./tag/programming.html">Programming (11)</a></li><li><a href="./tag/prompt.html">Prompt (1)</a></li><li><a href="./tag/psychology.html">Psychology (1)</a></li><li><a href="./tag/pve.html">PVE (2)</a></li><li><a href="./tag/pyenv.html">Pyenv (2)</a></li><li><a href="./tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="./tag/python.html">Python (70)</a></li><li><a href="./tag/python-ji-chu-yu-fa-5fen-zhong-ru-men.html">Python-基础语法5分钟入门 (1)</a></li><li><a href="./tag/qemu.html">QEMU (1)</a></li><li><a href="./tag/qgis.html">QGIS (3)</a></li><li><a href="./tag/qt.html">QT (1)</a></li><li><a href="./tag/qu-shen-cha.html">去审查 (1)</a></li><li><a href="./tag/qwen3.html">Qwen3 (10)</a></li><li><a href="./tag/qwen35.html">qwen3.5 (1)</a></li><li><a href="./tag/qwen36.html">Qwen3.6 (3)</a></li><li><a href="./tag/qwen38.html">Qwen3.8 (4)</a></li><li><a href="./tag/radio.html">Radio (2)</a></li><li><a href="./tag/rag.html">RAG (1)</a></li><li><a href="./tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="./tag/raspbian.html">Raspbian (1)</a></li><li><a href="./tag/reading.html">reading (2)</a></li><li><a href="./tag/reflection.html">reflection (4)</a></li><li><a href="./tag/remote.html">Remote (1)</a></li><li><a href="./tag/research.html">Research (3)</a></li><li><a href="./tag/resume.html">resume (1)</a></li><li><a href="./tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="./tag/ri-chang-sheng-huo.html">日常生活 (1)</a></li><li><a href="./tag/rotation.html">Rotation (1)</a></li><li><a href="./tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="./tag/rtx-4070.html">RTX 4070 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-jia-gou-shi-zhuan-ye-ying-yu-gao-pin-ci-hui-biao.html">软考高级系统架构设计师知识精要-架构师专业英语高频词汇表 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-ce-shi-yu-yun-xing-wei-hu.html">软考高级系统架构设计师知识精要-软件测试与运行维护 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-gong-cheng-yu-kai-fa-fang-fa.html">软考高级系统架构设计师知识精要-软件工程与开发方法 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-jia-gou-she-ji-yu-ping-gu.html">软考高级系统架构设计师知识精要-软件架构设计与评估 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-an-quan-yu-qu-kuai-lian-ji-zhu.html">软考高级系统架构设计师知识精要-系统安全与区块链技术 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-jian-mo-yu-umlshe-ji.html">软考高级系统架构设计师知识精要-系统建模与UML设计 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xi-xi-tong-yu-qi-ye-xin-xi-hua.html">软考高级系统架构设计师知识精要-信息系统与企业信息化 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xing-ji-zhu-yu-ji-chu-she-shi.html">软考高级系统架构设计师知识精要-新兴技术与基础设施 (1)</a></li><li><a href="./tag/rust.html">Rust (1)</a></li><li><a href="./tag/rustyu-yan-cheng-xu-she-ji-ji-chu-di-san-zhang-fu-he-shu-ju-lei-xing-yu-xun-huan.html">Rust语言程序设计基础第三章复合数据类型与循环 (1)</a></li><li><a href="./tag/rx590.html">RX590 (1)</a></li><li><a href="./tag/sandbox.html">SandBox (1)</a></li><li><a href="./tag/scholar.html">Scholar (2)</a></li><li><a href="./tag/school.html">School (3)</a></li><li><a href="./tag/science.html">Science (3)</a></li><li><a href="./tag/search.html">Search (1)</a></li><li><a href="./tag/self-study.html">Self-Study (1)</a></li><li><a href="./tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="./tag/server.html">Server (1)</a></li><li><a href="./tag/shang-ye-xin-xi.html">商业信息 (1)</a></li><li><a href="./tag/sheng-cheng-su-du.html">生成速度 (1)</a></li><li><a href="./tag/shi-jie-yi-liu-da-xue-shuo-shuo-er-yi-huan-shi-zhen-de-qu-zuo.html">世界一流大学说说而已还是真的去做 (1)</a></li><li><a href="./tag/shi-yong-llama-factory-cong-modelscope-xia-zai-mo-xing-bing-wei-diao.html">使用-LLaMA-Factory-从-ModelScope-下载模型并微调 (1)</a></li><li><a href="./tag/shi-yong-ollamakuai-su-bu-shu-bing-yun-xing-zui-xin-de-qwen3-30b-a3b-2507mo-xing.html">使用ollama快速部署并运行最新的qwen3-30b-a3b-2507模型 (1)</a></li><li><a href="./tag/shit.html">Shit (1)</a></li><li><a href="./tag/shu-ju-an-quan.html">数据安全 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-0zhang-cyu-yan-pythonde-di-ceng-shi-jiao.html">数据结构与算法基础-第0章-C语言Python的底层视角 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-1zhang-suan-fa-ji-chu-yu-fu-za-du-fen-xi.html">数据结构与算法基础-第1章-算法基础与复杂度分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-2zhang-xian-xing-shu-ju-jie-gou.html">数据结构与算法基础-第2章-线性数据结构 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-4zhang-tu-lun-ji-chu.html">数据结构与算法基础-第4章-图论基础 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-5zhang-pai-xu-suan-fa.html">数据结构与算法基础-第5章-排序算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-6zhang-sou-suo-suan-fa.html">数据结构与算法基础-第6章-搜索算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-7zhang-dong-tai-gui-hua.html">数据结构与算法基础-第7章-动态规划 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-8zhang-gao-ji-suan-fa.html">数据结构与算法基础-第8章-高级算法 (1)</a></li><li><a href="./tag/shu-ju-ke-shi-hua.html">数据可视化 (1)</a></li><li><a href="./tag/shu-ju-ku.html">数据库 (1)</a></li><li><a href="./tag/shu-ju-lei-xing.html">数据类型 (1)</a></li><li><a href="./tag/shu-zhi-ji-fen-man-tan-ru-he-rang-yong-pythonqiu-ji-fen.html">数值积分漫谈如何让用Python求积分 (1)</a></li><li><a href="./tag/shui-ke-xing-cun-zhi-nan-ru-guo-ni-bei-po-yao-qu-ting-ni-bu-xi-huan-de-ke-cheng-gai-zen-yao-ban.html">水课幸存指南-如果你被迫要去听你不喜欢的课程该怎么办 (1)</a></li><li><a href="./tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="./tag/signal-processing.html">Signal Processing (3)</a></li><li><a href="./tag/skill.html">skill (3)</a></li><li><a href="./tag/smollm2.html">smollm2 (1)</a></li><li><a href="./tag/software.html">Software (1)</a></li><li><a href="./tag/sou-suo.html">搜索 (1)</a></li><li><a href="./tag/sports.html">sports (1)</a></li><li><a href="./tag/sql.html">SQL (1)</a></li><li><a href="./tag/state-space.html">State Space (1)</a></li><li><a href="./tag/statistics.html">Statistics (1)</a></li><li><a href="./tag/story.html">Story (50)</a></li><li><a href="./tag/sui-bi.html">随笔 (1)</a></li><li><a href="./tag/t-bench.html">τ-bench (1)</a></li><li><a href="./tag/tape.html">Tape (1)</a></li><li><a href="./tag/telescope.html">Telescope (1)</a></li><li><a href="./tag/terminal.html">Terminal (1)</a></li><li><a href="./tag/textbook.html">textbook (1)</a></li><li><a href="./tag/thinking.html">Thinking (7)</a></li><li><a href="./tag/ti-xing-fa-qiu-ji-fen-de-pythonshi-xian.html">梯形法求积分的Python实现 (1)</a></li><li><a href="./tag/tian-biao.html">填表 (1)</a></li><li><a href="./tag/time-series.html">Time Series (1)</a></li><li><a href="./tag/tokenzi-you-yong-moxingzai-7900xtx-24gxian-qia-shang-ben-di-yun-xing-qwen36-27bmo-xing-gei-opencodeyong-lai-wen-dang-bian.html">Token自由-用MoXing在7900xtx-24G显卡上本地运行Qwen36-27B模型给OpenCode用来文档编 (1)</a></li><li><a href="./tag/tong-ji-xue.html">统计学 (1)</a></li><li><a href="./tag/tong-men-xiang-can-bai-yuan-xian-qia-de-ben-di-mo-xing-da-zhan-rx580-16g-2048sp-vs-rx590-8g-2304sp.html">同门相残-百元显卡的本地模型大战RX580-16G-2048SP-VS-RX590-8G-2304SP (1)</a></li><li><a href="./tag/tong-nian.html">童年 (1)</a></li><li><a href="./tag/tong-xue.html">同学 (1)</a></li><li><a href="./tag/tool.html">Tool (8)</a></li><li><a href="./tag/tool-calling.html">tool calling (3)</a></li><li><a href="./tag/toolbench.html">ToolBench (1)</a></li><li><a href="./tag/tools.html">Tools (10)</a></li><li><a href="./tag/traffic.html">Traffic (1)</a></li><li><a href="./tag/translate.html">Translate (2)</a></li><li><a href="./tag/translation.html">Translation (1)</a></li><li><a href="./tag/transpaste-sheng-ji-yi-ge-jian-tie-ban-fan-yi-gong-ju-de-zi-wo-xiu-yang.html">TransPaste-升级一个剪贴板翻译工具的自我修养 (1)</a></li><li><a href="./tag/transpaste-yi-kuan-ji-yu-ben-di-da-yu-yan-mo-xing-de-qing-liang-ji-jian-tie-ban-fan-yi-gong-ju.html">TransPaste-一款基于本地大语言模型的轻量级剪贴板翻译工具 (1)</a></li><li><a href="./tag/transpasteben-di-ai-fan-yi-gong-ju-xin-ban-ben-sheng-ji-hou-zhi-chi-geng-duo-xi-li-du-de-fan-yi-kong-zhi.html">TransPaste本地-AI-翻译工具新版本升级后支持更多细粒度的翻译控制 (1)</a></li><li><a href="./tag/tui.html">TUI (1)</a></li><li><a href="./tag/tui-jian-yi-kuan-markdownde-kua-ping-tai-chi-xian-bian-ji-qi-zhi-chi-sui-shi-yu-lan.html">推荐一款MarkDown的跨平台离线编辑器支持随时预览 (1)</a></li><li><a href="./tag/tuna.html">TUNA (1)</a></li><li><a href="./tag/turing.html">Turing (12)</a></li><li><a href="./tag/tutorial.html">tutorial (2)</a></li><li><a href="./tag/uav.html">UAV (1)</a></li><li><a href="./tag/ubuntu.html">Ubuntu (4)</a></li><li><a href="./tag/ubuntu-shou-dong-an-zhuang-ollama-0171-lai-yun-xing-qwen3535b-a3b-de-xiang-xi-zhi-nan.html">Ubuntu-手动安装-Ollama-0171-来运行-qwen3535b-a3b-的详细指南 (1)</a></li><li><a href="./tag/ui.html">UI (1)</a></li><li><a href="./tag/ukf.html">UKF (1)</a></li><li><a href="./tag/university.html">university (14)</a></li><li><a href="./tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="./tag/ustc.html">USTC (1)</a></li><li><a href="./tag/ventoy.html">Ventoy (1)</a></li><li><a href="./tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="./tag/vibe-coding-fen-wei-bian-cheng-an-li-tong-guo-dui-hua-shi-xian-ke-yong-de-kuai-su-cha-biao-gong-ju.html">Vibe-Coding-氛围编程案例-通过对话实现可用的快速查表工具 (1)</a></li><li><a href="./tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="./tag/video.html">video (2)</a></li><li><a href="./tag/vidtogif-yi-ge-jian-dan-gao-xiao-de-shi-pin-zhuan-gif-gong-ju.html">VidToGif-一个简单高效的视频转-GIF-工具 (1)</a></li><li><a href="./tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="./tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="./tag/virtualization.html">Virtualization (1)</a></li><li><a href="./tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./tag/vispy.html">VisPy (1)</a></li><li><a href="./tag/visualization.html">Visualization (8)</a></li><li><a href="./tag/vm.html">VM (1)</a></li><li><a href="./tag/vmwarexu-ni-ji-yun-xing-macosunlcokrecoveryosoc4vm-shi-xian-ti-gong-bai-du-yun-pan-xia-zai.html">VMware虚拟机运行macOSunlcokrecoveryosOC4VM-实现提供百度云盘下载 (1)</a></li><li><a href="./tag/void-moxingdi-cheng-ben-fang-an-yong-rx580xian-qia-ben-di-yun-xing-qwen359bmo-xing-da-zao-lei-cursorti-yan.html">Void-MoXing低成本方案用RX580显卡本地运行qwen359B模型打造类Cursor体验 (1)</a></li><li><a href="./tag/vtk.html">VTK (1)</a></li><li><a href="./tag/web.html">Web (1)</a></li><li><a href="./tag/wen-ben-shou-ji.html">文本收集 (1)</a></li><li><a href="./tag/wen-dang-he-cha.html">文档核查 (1)</a></li><li><a href="./tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="./tag/windows.html">Windows (4)</a></li><li><a href="./tag/windows-xi-tong-xia-cong-qing-hua-da-xue-tuna-jing-xiang-an-zhuang-miniconda3-wan-zheng-zhi-nan.html">Windows-系统下从清华大学-TUNA-镜像安装-Miniconda3-完整指南 (1)</a></li><li><a href="./tag/windows11.html">Windows11 (1)</a></li><li><a href="./tag/wingetguigei-windows-bao-guan-li-qi-jia-ge-tu-xing-jie-mian.html">WinGetGUI给-Windows-包管理器加个图形界面 (1)</a></li><li><a href="./tag/winogrande.html">WinoGrande (1)</a></li><li><a href="./tag/workflow.html">workflow (1)</a></li><li><a href="./tag/xcode.html">Xcode (1)</a></li><li><a href="./tag/xia-zai.html">下载 (1)</a></li><li><a href="./tag/xian-jiao-hui-zai-rang-ta-zuo-da-mo-xing-ding-zhi-hua-li-cpthe-sftdao-di-zai-gan-shi-yao.html">先教会再让它做大模型定制化里CPT和SFT到底在干什么 (1)</a></li><li><a href="./tag/xiang-sheng.html">相声 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-er-hui-jiu-suan-shi-sun-wu-kong-shang-da-xue-ye-de-yong-gong.html">小猴子学编程第二回就算是孙悟空上大学也得用功 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-san-hui-shi-yi-zhi-pa-zai-na-zi-yuan-zi-ai-huan-shi-gan-jin-zhun-bei-qu-xin-fu-ben.html">小猴子学编程第三回是一直趴在那自怨自艾还是赶紧准备去新副本 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-si-hui-chong-zhi-bu-hui-rang-ni-bian-qiang-xue-xi-cai-hui.html">小猴子学编程第四回充值不会让你变强学习才会 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-yi-hui-na-pa-shi-sun-wu-kong-ye-xu-yao-xue-xi.html">小猴子学编程第一回哪怕是孙悟空也需要学习 (1)</a></li><li><a href="./tag/xiao-mo-xing.html">小模型 (1)</a></li><li><a href="./tag/xiao-mo-xing-ping-ce.html">小模型评测 (2)</a></li><li><a href="./tag/xiao-you.html">校友 (1)</a></li><li><a href="./tag/xiexie-ba-markdown-zhuan-cheng-wei-xin-gong-zhong-hao-ge-shi-wang-ye-de-xiao-gong-ju.html">Xie写把-Markdown-转成微信公众号格式网页的小工具 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-markdown-shu-xue-gong-shi-zhi-nan.html">新手向的-Markdown-数学公式指南 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-ruan-kao-gao-ji-jia-gou-shi-wan-quan-bei-kao-zhi-nan.html">新手向的软考高级架构师完全备考指南 (1)</a></li><li><a href="./tag/xing-neng-shi-ce.html">性能实测 (1)</a></li><li><a href="./tag/xiu-liao-transpastede-4ge-bug.html">修了TransPaste的4个bug (1)</a></li><li><a href="./tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="./tag/xue-xi-lu-de-qian-shi-jin-sheng-cong-quan-ju-dan-yi-dao-zhu-ceng-ding-zhi.html">学习率的前世今生从全局单一到逐层定制 (1)</a></li><li><a href="./tag/xue-zhu-lun-wen-zhong-chang-jian-yan-jiu-fang-fa-zong-shu-ji-jian-dan-ju-li.html">学术论文中常见研究方法综述及简单举例 (1)</a></li><li><a href="./tag/xue-zhu-yan-jiu-zhi-chi-gong-ju-fen-lei-yu-wen-xian-huo-qu-fang-fa.html">学术研究支持工具分类与文献获取方法 (1)</a></li><li><a href="./tag/yi-xue-chang-jing-yong-duo-mo-tai-da-mo-xing-you-ke-neng-wan-quan-bu-kao-pu-si-tan-fu-da-xue-li-fei-fei-tuan-dui-xin-yan-jiu-jie-kai-duo-mo-tai-aide-hai-shi-shen-lou-xiao-ying.html">医学场景用多模态大模型有可能完全不靠谱斯坦福大学李飞飞团队新研究揭开多模态AI的海市蜃楼效应 (1)</a></li><li><a href="./tag/yi-zhi-tiny-fastboot-scriptdao-macosban-ben-gei-motorola-g100guo-xing-ban-ben-xt2533-4shua-ru-g6.html">移植Tiny-Fastboot-Script到macOS版本给Motorola-G100国行版本XT2533-4刷入G6 (1)</a></li><li><a href="./tag/yin-pin.html">音频 (1)</a></li><li><a href="./tag/ying-pan.html">硬盘 (1)</a></li><li><a href="./tag/yong-wan-quan-kai-yuan-mian-fei-de-ben-di-mo-xing-lai-dui-shi-pin-zhong-de-yin-pin-jin-xing-jiang-zao.html">用完全开源免费的本地模型来对视频中的音频进行降噪 (1)</a></li><li><a href="./tag/you-xi-shi-zen-yao-yun-xing-de-ru-guo-zhi-zhi-dao-chong-zhi-shi-ji-shang-bing-bu-yi-ding-neng-bian-qiang.html">游戏是怎么运行的如果只知道充值实际上并不一定能变强 (1)</a></li><li><a href="./tag/zhe-ji-tian-wo-chuan-yue-liao-shi-jian.html">这几天我穿越了时间 (1)</a></li><li><a href="./tag/zhe-xue.html">哲学 (1)</a></li><li><a href="./tag/zhen-dui-da-mo-xing-he-zhi-neng-ti-xin-shou-kai-fa-zhe-de-linuxhuan-jing-pei-zhi-zhi-nan.html">针对大模型和智能体新手开发者的Linux环境配置指南 (1)</a></li><li><a href="./tag/zhi-ce-flops-huan-bu-gou-si-ge-jing-dian-cpu-ce-shi-ji-zhun.html">只测-FLOPS-还不够四个经典-CPU-测试基准 (1)</a></li><li><a href="./tag/zhi-neng-ti.html">智能体 (1)</a></li><li><a href="./tag/zhi-shi-wai-zhi.html">知识外置 (1)</a></li><li><a href="./tag/zhi-zhen-yue-jie-cyu-yan-gei-ni-de-zi-you-yi-ji-tou-tou-mai-de-lei.html">指针越界C语言给你的自由以及偷偷埋的雷 (1)</a></li><li><a href="./tag/zhong-xin-shen-shi-si-wei-lian-wei-bi-shi-zhen-si-wei-yi-pian-icml-2026-lun-wen-de-lun-zheng-yu-qi-shi.html">重新审视-思维链未必是真思维-一篇ICML-2026-论文的论证与启示 (1)</a></li><li><a href="./tag/zhuang-ji.html">装机 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skills-he-ji-geng-xin-cong-6-ge-ji-neng-dao-22-ge-yi-ji-bi-xu-cheng-ren-de-wen-ti.html">自用的-OpenCode-Skills-合集更新从-6-个技能到-22-个以及必须承认的问题 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skillzai-ci-geng-xin-22ge-skillszhong-xin-da-mo-liao-yi-bian-shun-lu-jie-jue-liao-opencodedao-zhi-zheng-ge-tu-xing-jie-mian-beng-kui.html">自用的OpenCode-Skill再次更新22个skills重新打磨了一遍顺路解决了OpenCode导致整个图形界面崩溃 (1)</a></li><li><a href="./tag/zluda-he-macos-shang-de-cuda-jian-rong-meng-xiang.html">ZLUDA-和-macOS-上的-CUDA-兼容梦想 (1)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="./index.html" data-i18n="blog">博客</a> › <a href="category/math.html">Math</a> › 精读经典-图灵机的可计算数按类举例
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >精读经典-图灵机的可计算数按类举例</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep" data-i18n="post_in">发布于</span>
+        <abbr class="date" title="2026-02-24T10:20:00+08:00"> 
+            <a href="./archive/2026/Feb/index.html">Tue 24 February 2026 </a>
+        </abbr>
+        <span class="meta-prep"> | <span data-i18n="tags_label">标签</span></span>
+                <a class="tag-badge" href="./tag/turing.html">Turing</a>
+                <a class="tag-badge" href="./tag/computability.html">Computability</a>
+                <a class="tag-badge" href="./tag/algorithm.html">Algorithm</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <p>今天这段依然出自艾伦·图灵（Alan Turing）1936年发表的经典论文《论可计算数及其在判定问题上的应用》（Alan Turing, <em>On Computable Numbers, with an Application to the Entscheidungsproblem</em>, 1936），具体是文章的第十章。</p>
+<p>本章图灵建立了可计算函数的完整理论框架，证明了可计算性在复合、递归等操作下封闭，并通过可计算收敛性证明了 <span class="arithmatex">\(\pi\)</span>、<span class="arithmatex">\(e\)</span> 及大量经典函数的可计算性，为可计算分析学科奠定了基础。核心创新在于将序列结构编码、形式系统推理与机器计算三种视角统一，揭示了计算的内在统一性。</p>
+<hr>
+<h1><strong>原文</strong></h1>
+<h2>10. Examples of large classes of numbers which are computable.</h2>
+<p>It will be useful to begin with definitions of a computable function of an integral variable and of a computable variable, etc. There are many equivalent ways of defining a computable function of an integral variable. The simplest is, possibly, as follows. If <span class="arithmatex">\(\gamma\)</span> is a computable sequence in which 0 appears infinitely often, and <span class="arithmatex">\(n\)</span> is an integer, then let us define <span class="arithmatex">\(\xi(\gamma, n)\)</span> to be the number of figures 1 between the <span class="arithmatex">\(n\)</span>-th and the <span class="arithmatex">\((n+1)\)</span>-th figure 0 in <span class="arithmatex">\(\gamma\)</span>. Then <span class="arithmatex">\(\phi(n)\)</span> is computable if, for all <span class="arithmatex">\(n\)</span> and some <span class="arithmatex">\(\gamma\)</span>, <span class="arithmatex">\(\phi(n) = \xi(\gamma, n)\)</span>. An equivalent definition is this. Let <span class="arithmatex">\(H(x, y)\)</span> mean <span class="arithmatex">\(\phi(x) = y\)</span>. Then, if we can find a contradiction-free axiom <span class="arithmatex">\(\mathfrak{A}_\phi\)</span>, such that <span class="arithmatex">\(\mathfrak{A}_\phi \to P\)</span>, and if for each integer <span class="arithmatex">\(n\)</span> there exists an integer <span class="arithmatex">\(N\)</span>, such that
+$$ \mathfrak{A}<em>\phi \&amp; F^{(N)} \to H(u^{(n)}, u^{(\phi(n))}), $$
+and such that, if <span class="arithmatex">\(m \neq \phi(n)\)</span>, then, for some <span class="arithmatex">\(N'\)</span>,
+$$ \mathfrak{A}</em>\phi \&amp; F^{(N')} \to (\neg H(u^{(n)}, u^{(m)})), $$
+then <span class="arithmatex">\(\phi\)</span> may be said to be a computable function.</p>
+<p>We cannot define general computable functions of a real variable, since there is no general method of describing a real number, but we can define a computable function of a computable variable. If <span class="arithmatex">\(n\)</span> is satisfactory, let <span class="arithmatex">\(\gamma_n\)</span> be the number computed by <span class="arithmatex">\(\mathfrak{A}(n)\)</span>, and let
+$$ \alpha_n = \tan(\pi(\gamma_n - \frac{1}{2})) $$
+unless <span class="arithmatex">\(\gamma_n = 0\)</span> or <span class="arithmatex">\(\gamma_n = 1\)</span>, in either of which cases <span class="arithmatex">\(\alpha_n = 0\)</span>. Then, as <span class="arithmatex">\(n\)</span> runs through the satisfactory numbers, <span class="arithmatex">\(\alpha_n\)</span> runs through the computable numbers. Now let <span class="arithmatex">\(g(n)\)</span> be a computable function which can be shown to be such that for any satisfactory argument its value is satisfactory. Then the function <span class="arithmatex">\(f\)</span>, defined by <span class="arithmatex">\(f(\alpha_n) = \alpha_{g(n)}\)</span>, is a computable function and all computable functions of a computable variable are expressible in this form.</p>
+<p>Similar definitions may be given of computable functions of several variables, computable-valued functions of an integral variable, etc.</p>
+<p>I shall enunciate a number of theorems about computability, but I shall prove only (ii) and a theorem similar to (iii).</p>
+<p>(i) A computable function of a computable function of an integral or computable variable is computable.</p>
+<p>(ii) Any function of an integral variable defined recursively in terms of computable functions is computable. I.e. if <span class="arithmatex">\(\phi(m, n)\)</span> is computable, and <span class="arithmatex">\(r\)</span> is some integer, then <span class="arithmatex">\(\psi(n)\)</span> is computable, where
+$$ \psi(0) = r, $$
+$$ \psi(n) = \phi(n, \psi(n-1)). $$</p>
+<p>(iii) If <span class="arithmatex">\(f(m, n)\)</span> is a computable function of two integral variables, then <span class="arithmatex">\(\phi(n, n)\)</span> is a computable function of <span class="arithmatex">\(n\)</span>.</p>
+<p>(iv) If <span class="arithmatex">\(f(n)\)</span> is a computable function whose value is always 0 or 1, then the sequence whose <span class="arithmatex">\(n\)</span>-th figure is <span class="arithmatex">\(f(n)\)</span> is computable.</p>
+<p>Dedekind's theorem does not hold in the ordinary form if we replace "real" throughout by "computable". But it holds in the following form:</p>
+<p>(v) If <span class="arithmatex">\(G(a)\)</span> is a propositional function of the computable numbers and
+$$ (a) \quad (\exists \alpha)(\exists \beta)[G(\alpha) \&amp; (\neg G(\beta))], $$
+$$ (b) \quad G(a) \&amp; (\neg G(\beta)) \to (a &lt; \beta), $$
+and there is a general process for determining the truth value of <span class="arithmatex">\(G(a)\)</span>, then there is a computable number <span class="arithmatex">\(\xi\)</span> such that
+$$ G(a) \to a &lt; \xi, $$
+$$ \neg G(a) \to \xi \leq a, $$
+$$ G(a) \to a \leq \xi. $$
+In other words, the theorem holds for any section of the computables such that there is a general process for determining to which class a given number belongs.</p>
+<p>Owing to this restriction of Dedekind's theorem, we cannot say that a computable bounded increasing sequence of computable numbers has a computable limit. This may possibly be understood by considering a sequence such as
+$$ -1, -\frac{1}{2}, -\frac{1}{4}, -\frac{1}{8}, -\frac{1}{16}, \dots $$</p>
+<p>On the other hand, (v) enables us to prove</p>
+<p>(vi) If <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(\beta\)</span> are computable and <span class="arithmatex">\(a &lt; \beta\)</span> and <span class="arithmatex">\(\phi(a) &lt; 0 &lt; \phi(\beta)\)</span>, where <span class="arithmatex">\(\phi(x)\)</span> is a computable increasing continuous function, then there is a unique computable number <span class="arithmatex">\(\gamma\)</span> satisfying <span class="arithmatex">\(a &lt; \gamma &lt; \beta\)</span> and <span class="arithmatex">\(\phi(\gamma) = 0\)</span>.</p>
+<p><strong>Computable convergence.</strong></p>
+<p>We shall say that a sequence <span class="arithmatex">\(\beta_n\)</span> of computable numbers converges computably if there is a computable integral valued function <span class="arithmatex">\(N(\epsilon)\)</span> of the computable variable <span class="arithmatex">\(\epsilon\)</span>, such that we can show that, if <span class="arithmatex">\(\epsilon &gt; 0\)</span> and <span class="arithmatex">\(n &gt; N(\epsilon)\)</span>, then <span class="arithmatex">\(|\beta_n - \beta_\infty| &lt; \epsilon\)</span>.</p>
+<p>We can then show that</p>
+<p>(vii) A power series whose coefficients form a computable sequence of computable numbers is computably convergent at all computable points in the interior of its interval of convergence.</p>
+<p>(viii) The limit of a computably convergent sequence is computable.</p>
+<p>And with the obvious definition of "uniformly computably convergent":</p>
+<p>(ix) The limit of a uniformly computably convergent computable sequence of computable functions is a computable function. Hence</p>
+<p>(x) The sum of a power series whose coefficients form a computable sequence is a computable function in the interior of its interval of convergence.</p>
+<p>From (vii) and <span class="arithmatex">\(\pi = 4(1 - \frac{1}{3} + \frac{1}{5} - \dots)\)</span> we deduce that <span class="arithmatex">\(\pi\)</span> is computable.
+From <span class="arithmatex">\(e = 1 + 1 + \frac{1}{2!} + \frac{1}{3!} + \dots\)</span> we deduce that <span class="arithmatex">\(e\)</span> is computable.
+From (vi) we deduce that all real algebraic numbers are computable.
+From (vi) and (x) we deduce that the real zeros of the Bessel functions are computable.</p>
+<p><strong>Proof of (ii).</strong></p>
+<p>Let <span class="arithmatex">\(M(x, y)\)</span> mean "<span class="arithmatex">\(\psi(x) = y\)</span>", and let <span class="arithmatex">\(K(x, y, z)\)</span> mean "<span class="arithmatex">\(\phi(x, y) = z\)</span>". <span class="arithmatex">\(\mathfrak{A}_\psi\)</span> is the axiom for <span class="arithmatex">\(\phi(x, y)\)</span>. We take <span class="arithmatex">\(\mathfrak{A}_\psi\)</span> to be
+$$ \mathfrak{A}_\phi \&amp; P \&amp; (F(x, y) \to G(x, y)) \&amp; (G(y, z) \&amp; G(y, z') \to G(z, z')) $$
+$$ \&amp; [F^{(M)} \to M(u^{(M)}, u^{(M')}) \&amp; (F(M, u, z) \&amp; M(u, z, z) \to M(u^{(z)}, z)] $$
+$$ \&amp; [M(u, z) \&amp; G(z, t) \Rightarrow G(t, z) \to (\neg M(u, z))]. $$</p>
+<p>I shall not give the proof of consistency of <span class="arithmatex">\(\mathfrak{A}_\psi\)</span>. Such a proof may be constructed by the methods used in Hilbert and Bernays, <em>Grundlagen der Mathematik</em> (Berlin, 1934), p. 209 et seq. The consistency is also clear from the meaning.</p>
+<p>Suppose that, for some <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(N\)</span>, we have shown
+$$ \mathfrak{A}<em>\psi \&amp; F^{(N)} \to M(u^{(n-1)}, u^{(m-1)}), $$
+then, for some <span class="arithmatex">\(M\)</span>,
+$$ \mathfrak{A}</em>\psi \&amp; F^{(M)} \to G(u^{(n-1)}, u^{(m-1)}, u^{(m(n-1))}) $$
+$$ \mathfrak{A}<em>\psi \&amp; F^{(M')} \to F(u^{(n-1)}, u^{(m(n-1))}, u^{(m)}) \&amp; M(u^{(m(n-1))}, u^{(m-1)}) $$
+$$ \&amp; K(u^{(m)}, u^{(m-1)}, u^{(m)}) $$
+$$ \mathfrak{A}</em>\psi \&amp; F^{(M')} \to M(u^{(m)}, u^{(m)}). $$
+Hence
+$$ \mathfrak{A}_\psi \&amp; F^{(M')} \to M(u^{(m)}, u^{(m)}). $$
+Also</p>
+<p>Hence for each <span class="arithmatex">\(m\)</span> some formula of the form
+$$ \mathfrak{A}<em>\psi \&amp; F^{(M)} \to M(u^{(m)}, u^{(m)}) $$
+is provable. Also, if <span class="arithmatex">\(M' \geq M\)</span> and <span class="arithmatex">\(M' \geq m\)</span> and <span class="arithmatex">\(\psi(n)\)</span>, then
+$$ \mathfrak{A}</em>\psi \&amp; F^{(M')} \to G(u^{(m)}, u^{(m')}, u^{(m)}) \to G(u^{(m')}, u^{(m')}) $$
+and
+$$ \mathfrak{A}<em>\psi \&amp; F^{(M')} \to [(G(u^{(m)}, u^{(m')}) \to G(u^{(m')}, u^{(m)})) $$
+$$ \&amp; H(u^{(m')}, u^{(m-1)}, u^{(m')}) $$
+$$ \to (\neg(M(u^{(m')}, u^{(m)})))]. $$
+Hence
+$$ \mathfrak{A}</em>\psi \&amp; F^{(M')} \to (\neg M(u^{(m')}, u^{(m)})). $$</p>
+<p>The conditions of our second definition of a computable function are therefore satisfied. Consequently <span class="arithmatex">\(\psi\)</span> is a computable function.</p>
+<p><strong>Proof of a modified form of (iii).</strong></p>
+<p>Suppose that we are given a machine <span class="arithmatex">\(\mathfrak{N}\)</span>, which, starting with a tape bearing on it <span class="arithmatex">\(\varepsilon\)</span> followed by a sequence of any number of letters "F" on <span class="arithmatex">\(F\)</span>-squares and in the <span class="arithmatex">\(m\)</span>-configuration <span class="arithmatex">\(b\)</span>, will compute a sequence <span class="arithmatex">\(\gamma_n\)</span> depending on the number <span class="arithmatex">\(n\)</span> of letters "F". If <span class="arithmatex">\(M_n\)</span> is the <span class="arithmatex">\(n\)</span>-th figure of <span class="arithmatex">\(\gamma_n\)</span>, then the sequence whose <span class="arithmatex">\(n\)</span>-th figure is <span class="arithmatex">\(M_n\)</span> is computable.</p>
+<p>We suppose that the table for <span class="arithmatex">\(\mathfrak{U}\)</span> has been written out in such a way that in each line only one operation appears in the operations column. We also suppose that <span class="arithmatex">\(\Xi\)</span>, <span class="arithmatex">\(\Theta\)</span>, <span class="arithmatex">\(\overline{0}\)</span>, and <span class="arithmatex">\(\overline{1}\)</span> do not occur in the table, and we replace <span class="arithmatex">\(\circ\)</span> throughout by <span class="arithmatex">\(\Theta\)</span>, <span class="arithmatex">\(0\)</span> by <span class="arithmatex">\(\overline{0}\)</span>, and <span class="arithmatex">\(1\)</span> by <span class="arithmatex">\(\overline{1}\)</span>. Further substitutions are then made. Any line of form</p>
+<div class="arithmatex">\[
+\begin{array}{cccc}
+\mathfrak{U} &amp; a &amp; P\overline{0} &amp; \mathfrak{B}
+\end{array}
+\]</div>
+<p>we replace by</p>
+<div class="arithmatex">\[
+\begin{array}{cccc}
+\mathfrak{U} &amp; a &amp; P\overline{0} &amp; \mathrm{re}(\mathfrak{B}, u, h, k)
+\end{array}
+\]</div>
+<p>and any line of the form</p>
+<div class="arithmatex">\[
+\begin{array}{cccc}
+\mathfrak{U} &amp; a &amp; P\overline{1} &amp; \mathfrak{B}
+\end{array}
+\]</div>
+<p>by</p>
+<div class="arithmatex">\[
+\begin{array}{cccc}
+\mathfrak{U} &amp; a &amp; P\overline{1} &amp; \mathrm{re}(\mathfrak{B}, v, h, k)
+\end{array}
+\]</div>
+<p>and we add to the table the following lines:</p>
+<div class="arithmatex">\[
+\begin{array}{ccc}
+u &amp; &amp; \mathrm{pe}(u_1, 0) \\
+u_1 &amp; R, Pk, R, P\Theta, R, P\Theta &amp; u_2 \\
+u_2 &amp; &amp; \mathrm{re}(u_3, u_2, k, h) \\
+u_3 &amp; &amp; \mathrm{pe}(u_2, F)
+\end{array}
+\]</div>
+<p>and similar lines with <span class="arithmatex">\(v\)</span> for <span class="arithmatex">\(u\)</span> and <span class="arithmatex">\(1\)</span> for <span class="arithmatex">\(0\)</span> together with the following line</p>
+<div class="arithmatex">\[
+\begin{array}{ccc}
+c &amp; R, P\Xi, R, Ph &amp; b.
+\end{array}
+\]</div>
+<p>We then have the table for the machine <span class="arithmatex">\(\mathfrak{U}'\)</span> which computes <span class="arithmatex">\(\beta\)</span>.<br>
+The initial <span class="arithmatex">\(m\)</span>-configuration is <span class="arithmatex">\(c\)</span>, and the initial scanned symbol is the second <span class="arithmatex">\(a\)</span>.</p>
+<hr>
+<h1><strong>翻译</strong></h1>
+<h2>10. 可计算数按类举例</h2>
+<p>首先，有必要定义整数变量的可计算函数和可计算变量等。定义整数变量的可计算函数有许多等价的方法。最简单的可能是如下定义：如果 <span class="arithmatex">\(\gamma\)</span> 是一个可计算序列，其中0无限次经常出现，且 <span class="arithmatex">\(n\)</span> 是一个整数，那么令 <span class="arithmatex">\(\xi(\gamma, n)\)</span> 为 <span class="arithmatex">\(\gamma\)</span> 中第 <span class="arithmatex">\(n\)</span> 个和第 <span class="arithmatex">\((n+1)\)</span> 个0之间1的个数。那么如果对于所有 <span class="arithmatex">\(n\)</span> 和某些 <span class="arithmatex">\(\gamma\)</span>，<span class="arithmatex">\(\phi(n) = \xi(\gamma, n)\)</span>，则 <span class="arithmatex">\(\phi(n)\)</span> 是可计算的。一个等价的定义是：令 <span class="arithmatex">\(H(x, y)\)</span> 表示 <span class="arithmatex">\(\phi(x) = y\)</span>。那么，如果我们能找到一个相容的公理 <span class="arithmatex">\(\mathfrak{A}_\phi\)</span>，使得 <span class="arithmatex">\(\mathfrak{A}_\phi \to P\)</span>，且对于每个整数 <span class="arithmatex">\(n\)</span> 存在整数 <span class="arithmatex">\(N\)</span>，使得</p>
+<div class="arithmatex">\[ \mathfrak{A}_\phi \&amp; F^{(N)} \to H(u^{(n)}, u^{(\phi(n))}), \]</div>
+<p>而且，如果 <span class="arithmatex">\(m \neq \phi(n)\)</span>，则对于某个 <span class="arithmatex">\(N'\)</span>，</p>
+<div class="arithmatex">\[ \mathfrak{A}_\phi \&amp; F^{(N')} \to (\neg H(u^{(n)}, u^{(m)})), \]</div>
+<p>则可以说 <span class="arithmatex">\(\phi\)</span> 是一个可计算函数。</p>
+<p>我们无法定义实变量的一般可计算函数，因为没有描述实数的一般方法，但我们可以定义可计算变量的可计算函数。如果 <span class="arithmatex">\(n\)</span> 是满意数，令 <span class="arithmatex">\(\gamma_n\)</span> 为 <span class="arithmatex">\(\mathfrak{A}(n)\)</span> 计算出的数，并令</p>
+<div class="arithmatex">\[ \alpha_n = \tan(\pi(\gamma_n - \frac{1}{2})) \]</div>
+<p>但 <span class="arithmatex">\(\gamma_n = 0\)</span> 或 <span class="arithmatex">\(\gamma_n = 1\)</span> 这两种情形除外，此时 <span class="arithmatex">\(\alpha_n = 0\)</span>。当 <span class="arithmatex">\(n\)</span> 遍历所有满意数时，<span class="arithmatex">\(\alpha_n\)</span> 遍历所有可计算数。现设 <span class="arithmatex">\(g(n)\)</span> 为一可计算函数，且可证明：对其任意满意参数，函数值亦为满意数。则由 <span class="arithmatex">\(f(\alpha_n) = \alpha_{g(n)}\)</span> 定义的函数 <span class="arithmatex">\(f\)</span> 是可计算函数，且可计算变量的所有可计算函数皆可表示为此种形式。</p>
+<p>对于多变量可计算函数、整数变量的可计算值函数等，也可以给出类似定义。</p>
+<p>本文将阐述一些关于可计算性的定理，但只证明(ii)和一个类似于(iii)的定理。</p>
+<p>(i) 整数或可计算变量的可计算函数的可计算函数是可计算的。</p>
+<p>(ii) 以可计算函数递归定义的整数变量的任何函数都是可计算的。即如果 <span class="arithmatex">\(\phi(m, n)\)</span> 是可计算的，且 <span class="arithmatex">\(r\)</span> 是某个整数，则 <span class="arithmatex">\(\psi(n)\)</span> 是可计算的，其中
+$$ \psi(0) = r, $$
+$$ \psi(n) = \phi(n, \psi(n-1)). $$</p>
+<p>(iii) 如果 <span class="arithmatex">\(f(m, n)\)</span> 是有两个整数变量的可计算函数，则 <span class="arithmatex">\(\phi(n, n)\)</span> 是 <span class="arithmatex">\(n\)</span> 的可计算函数。</p>
+<p>(iv) 如果 <span class="arithmatex">\(f(n)\)</span> 是一个值总是0或1的可计算函数，则第 <span class="arithmatex">\(n\)</span> 位数字为 <span class="arithmatex">\(f(n)\)</span> 的序列是可计算的。</p>
+<p>如果我们将"实数"替换为"可计算数"，戴德金定理在通常形式下不成立。但它以以下形式成立：</p>
+<p>(v) 如果 <span class="arithmatex">\(G(a)\)</span> 是可计算数的命题函数，且
+$$ (a) \quad (\exists \alpha)(\exists \beta)[G(\alpha) \&amp; (\neg G(\beta))], $$
+$$ (b) \quad G(a) \&amp; (\neg G(\beta)) \to (a &lt; \beta), $$</p>
+<p>且存在确定 <span class="arithmatex">\(G(a)\)</span> 真值的一般过程，则存在一个可计算数 <span class="arithmatex">\(\xi\)</span> 使得</p>
+<div class="arithmatex">\[ G(a) \to a &lt; \xi, $$
+$$ \neg G(a) \to \xi \leq a, $$
+$$ G(a) \to a \leq \xi. \]</div>
+<p>换句话说，该定理对可计算数的任何分割都成立，只要存在确定给定数属于哪个类的一般过程。</p>
+<p>由于戴德金定理的这个限制，我们不能说可计算数的有界递增可计算序列具有可计算极限。这可以通过考虑如下序列来理解：</p>
+<div class="arithmatex">\[ -1, -\frac{1}{2}, -\frac{1}{4}, -\frac{1}{8}, -\frac{1}{16}, \dots \]</div>
+<p>另一方面，(v)使我们能够证明</p>
+<p>(vi) 如果 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(\beta\)</span> 是可计算的且 <span class="arithmatex">\(a &lt; \beta\)</span> 且 <span class="arithmatex">\(\phi(a) &lt; 0 &lt; \phi(\beta)\)</span>，其中 <span class="arithmatex">\(\phi(x)\)</span> 是可计算的递增连续函数，则存在唯一的可计算数 <span class="arithmatex">\(\gamma\)</span> 满足 <span class="arithmatex">\(a &lt; \gamma &lt; \beta\)</span> 且 <span class="arithmatex">\(\phi(\gamma) = 0\)</span>。</p>
+<p><strong>可计算收敛性。</strong></p>
+<p>我们说可计算数的序列 <span class="arithmatex">\(\beta_n\)</span> 可计算收敛，如果存在可计算变量 <span class="arithmatex">\(\epsilon\)</span> 的可计算整数值函数 <span class="arithmatex">\(N(\epsilon)\)</span>，使得我们可以证明，如果 <span class="arithmatex">\(\epsilon &gt; 0\)</span> 且 <span class="arithmatex">\(n &gt; N(\epsilon)\)</span>，则 <span class="arithmatex">\(|\beta_n - \beta_\infty| &lt; \epsilon\)</span>。</p>
+<p>然后我们可以证明</p>
+<p>(vii) 系数形成可计算数的可计算序列的幂级数在其收敛区间的内部所有可计算点处可计算收敛。</p>
+<p>(viii) 可计算收敛序列的极限是可计算的。</p>
+<p>以及明显定义的"一致可计算收敛"：</p>
+<p>(ix) 可计算函数的一致可计算收敛可计算序列的极限是可计算函数。因此</p>
+<p>(x) 系数形成可计算序列的幂级数的和在其收敛区间的内部是可计算函数。</p>
+<p>从(vii)和 <span class="arithmatex">\(\pi = 4(1 - \frac{1}{3} + \frac{1}{5} - \dots)\)</span> 我们推导出 <span class="arithmatex">\(\pi\)</span> 是可计算的。
+从 <span class="arithmatex">\(e = 1 + 1 + \frac{1}{2!} + \frac{1}{3!} + \dots\)</span> 我们推导出 <span class="arithmatex">\(e\)</span> 是可计算的。
+从(vi)我们推导出所有实代数数都是可计算的。
+从(vi)和(x)我们推导出贝塞尔函数的实零点是可计算的。</p>
+<p><strong>(ii)的证明。</strong></p>
+<p>令 <span class="arithmatex">\(M(x, y)\)</span> 表示"<span class="arithmatex">\(\psi(x) = y\)</span>"，令 <span class="arithmatex">\(K(x, y, z)\)</span> 表示"<span class="arithmatex">\(\phi(x, y) = z\)</span>"。<span class="arithmatex">\(\mathfrak{A}_\psi\)</span> 是 <span class="arithmatex">\(\phi(x, y)\)</span> 的公理。我们取 <span class="arithmatex">\(\mathfrak{A}_\psi\)</span> 为
+$$ \mathfrak{A}_\phi \&amp; P \&amp; (F(x, y) \to G(x, y)) \&amp; (G(y, z) \&amp; G(y, z') \to G(z, z')) $$
+$$ \&amp; [F^{(M)} \to M(u^{(M)}, u^{(M')}) \&amp; (F(M, u, z) \&amp; M(u, z, z) \to M(u^{(z)}, z)] $$
+$$ \&amp; [M(u, z) \&amp; G(z, t) \Rightarrow G(t, z) \to (\neg M(u, z))]. $$</p>
+<p>我不会给出 <span class="arithmatex">\(\mathfrak{A}_\psi\)</span> 的一致性证明。这样的证明可以用希尔伯特和贝尔奈斯《数学基础》(柏林，1934年，第209页及以后)中使用的方法构造。从意义上来说一致性也很清楚。</p>
+<p>假设对于某些 <span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(N\)</span>，我们已经证明了
+$$ \mathfrak{A}<em>\psi \&amp; F^{(N)} \to M(u^{(n-1)}, u^{(m-1)}), $$
+那么，对于某个 <span class="arithmatex">\(M\)</span>，
+$$ \mathfrak{A}</em>\psi \&amp; F^{(M)} \to G(u^{(n-1)}, u^{(m-1)}, u^{(m(n-1))}) $$
+$$ \mathfrak{A}<em>\psi \&amp; F^{(M')} \to F(u^{(n-1)}, u^{(m(n-1))}, u^{(m)}) \&amp; M(u^{(m(n-1))}, u^{(m-1)}) $$
+$$ \&amp; K(u^{(m)}, u^{(m-1)}, u^{(m)}) $$
+$$ \mathfrak{A}</em>\psi \&amp; F^{(M')} \to M(u^{(m)}, u^{(m)}). $$
+因此
+$$ \mathfrak{A}_\psi \&amp; F^{(M')} \to M(u^{(m)}, u^{(m)}). $$
+同样</p>
+<p>因此对于每个 <span class="arithmatex">\(m\)</span>，某些形式为
+$$ \mathfrak{A}<em>\psi \&amp; F^{(M)} \to M(u^{(m)}, u^{(m)}) $$
+的公式是可证明的。此外，如果 <span class="arithmatex">\(M' \geq M\)</span> 且 <span class="arithmatex">\(M' \geq m\)</span> 且 <span class="arithmatex">\(\psi(n)\)</span>，则
+$$ \mathfrak{A}</em>\psi \&amp; F^{(M')} \to G(u^{(m)}, u^{(m')}, u^{(m)}) \to G(u^{(m')}, u^{(m')}) $$
+且
+$$ \mathfrak{A}<em>\psi \&amp; F^{(M')} \to [(G(u^{(m)}, u^{(m')}) \to G(u^{(m')}, u^{(m)})) $$
+$$ \&amp; H(u^{(m')}, u^{(m-1)}, u^{(m')}) $$
+$$ \to (\neg(M(u^{(m')}, u^{(m)})))]. $$
+因此
+$$ \mathfrak{A}</em>\psi \&amp; F^{(M')} \to (\neg M(u^{(m')}, u^{(m)})). $$</p>
+<p>因此满足了我们可计算函数第二个定义的条件。因此 <span class="arithmatex">\(\psi\)</span> 是一个可计算函数。</p>
+<p><strong>(iii)修改形式的证明。</strong></p>
+<p>假设给我们一台机器 <span class="arithmatex">\(\mathfrak{N}\)</span>，它从带有 <span class="arithmatex">\(\varepsilon\)</span> 的磁带开始，后面跟着任意数量的字母"F"在 <span class="arithmatex">\(F\)</span> 方格上，且处于 <span class="arithmatex">\(m\)</span> 配置 <span class="arithmatex">\(b\)</span> 中，将计算依赖于字母"F"数量 <span class="arithmatex">\(n\)</span> 的序列 <span class="arithmatex">\(\gamma_n\)</span>。如果 <span class="arithmatex">\(M_n\)</span> 是 <span class="arithmatex">\(\gamma_n\)</span> 的第 <span class="arithmatex">\(n\)</span> 个数字，则第 <span class="arithmatex">\(n\)</span> 个数字为 <span class="arithmatex">\(M_n\)</span> 的序列是可计算的。</p>
+<p>我们假设 <span class="arithmatex">\(\mathfrak{N}\)</span> 的表格已经写出，但在此表格中字母 <span class="arithmatex">\(u, v, w, x, y, z\)</span> 不出现。我们也假设 <span class="arithmatex">\(\mathfrak{N}\)</span> 有一个最终配置 <span class="arithmatex">\(c\)</span>，且在此配置中机器正在扫描空白方格且不执行任何操作。我们将所有地方的 <span class="arithmatex">\(c\)</span> 替换为 <span class="arithmatex">\(q\)</span> 并添加一个新的配置 <span class="arithmatex">\(c\)</span>。<span class="arithmatex">\(\mathfrak{N}\)</span> 表格中的任何形式为</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">配置</th>
+<th style="text-align: center;">符号</th>
+<th style="text-align: center;">操作</th>
+<th style="text-align: center;">最终配置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(A\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\sigma\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(P\sigma', R\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(B\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>的行被替换为</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(A\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\sigma\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(P\sigma', R, Px, R, P\theta, R, P\theta\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(B\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>并且我们在表格中添加以下行：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(c\)</span></td>
+<td style="text-align: center;">任意</td>
+<td style="text-align: center;"><span class="arithmatex">\(R, Px, R, P\theta\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(c\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(c_1\)</span></td>
+<td style="text-align: center;">任意</td>
+<td style="text-align: center;"><span class="arithmatex">\(R, Px, R, P\theta\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(c_1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">...</td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(c_{n-1}\)</span></td>
+<td style="text-align: center;">任意</td>
+<td style="text-align: center;"><span class="arithmatex">\(R, Px, R, P\theta\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(c_{n-1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>以及用 <span class="arithmatex">\(u\)</span> 替换 <span class="arithmatex">\(x\)</span> 和用1替换 <span class="arithmatex">\(\theta\)</span> 的类似行，再加上以下行</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(c_n\)</span></td>
+<td style="text-align: center;">任意</td>
+<td style="text-align: center;"><span class="arithmatex">\(R, Px, R, P1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(c\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>这样我们就得到了计算 <span class="arithmatex">\(\beta\)</span> 的机器 <span class="arithmatex">\(\mathfrak{U}'\)</span> 的表格。其初始 <span class="arithmatex">\(m\)</span> 配置为 <span class="arithmatex">\(c\)</span>，初始扫描符号为第二个 <span class="arithmatex">\(a\)</span>。</p>
+<hr>
+<h1><strong>逐段解析</strong></h1>
+<h2>一、可计算函数的两种等价定义</h2>
+<p>图灵在本章开篇给出了整数变量可计算函数的两种定义。初看之下，这两种定义似乎毫不相干，但图灵证明了它们的等价性。理解这两种定义的等价性，对于深入把握可计算性的本质至关重要。</p>
+<p><strong>第一种定义基于序列编码。</strong></p>
+<p>设想有一条无限延伸的纸带，上面写着一串由0和1组成的序列。假设这个序列是可计算的，也就是说，存在一台图灵机能够逐位输出这个序列。进一步假设序列中0出现的次数是无限的。现在我们定义一个函数 <span class="arithmatex">\(\phi\)</span>，它的第 <span class="arithmatex">\(n\)</span> 个函数值等于序列中第 <span class="arithmatex">\(n\)</span> 个0与第 <span class="arithmatex">\((n+1)\)</span> 个0之间1的个数。</p>
+<p>举一个具体的例子。假设可计算序列为
+$<span class="arithmatex">\(\gamma = 10110101110...\)</span>$</p>
+<p>在这个序列中，我们标记出每个0的位置：
+$<span class="arithmatex">\(1\underline{0}11\underline{0}1\underline{0}111\underline{0}...\)</span>$</p>
+<p>现在数一数相邻两个0之间有多少个1：
+- 第1个0与第2个0之间有2个1，所以 <span class="arithmatex">\(\phi(1) = 2\)</span>
+- 第2个0与第3个0之间有1个1，所以 <span class="arithmatex">\(\phi(2) = 1\)</span>
+- 第3个0与第4个0之间有3个1，所以 <span class="arithmatex">\(\phi(3) = 3\)</span></p>
+<p>这个定义的精妙之处在于，它将函数值"编码"在序列的结构中。只要图灵机能生成这个序列，我们就能从中提取出任意一点的函数值。</p>
+<p><strong>这里蕴含着一个深刻的思想：通过在二进制序列的结构中编码额外信息，可以从中提取出更高阶的信息。</strong></p>
+<p>表面上看，一条由0和1组成的序列似乎只携带了最基本的信息——每个位置是0还是1。然而图灵的编码方式揭示了一个事实：序列的内部结构本身可以编码更丰富的内容。在这个例子中，函数值并不是直接写在序列的某个位置上，而是隐藏在序列的"间隔结构"中——两个相邻的0之间有多少个1，这个数字本身就是一条额外信息。</p>
+<p>这种编码方式可以类比为现代数据压缩技术。在Huffman编码中，字符的频率信息被编码到变长码字的结构中；在游程编码中，连续相同字符的个数被直接记录。图灵的编码与之类似，但更进一步：它不是将已知的函数值存储起来，而是展示了如何将函数的可计算性与序列的可计算性等同起来。换句话说，一个函数是可计算的，当且仅当它的值可以被编码到一个可计算序列的结构中。</p>
+<p>更一般地说，这种"结构编码"思想暗示了计算的不同层次。在第一层，我们有原始的符号序列。在第二层，我们从序列的结构中提取出函数值。如果愿意，我们还可以继续深入：从函数值序列的结构中，再提取出更高阶的函数。这种层次化的信息提取，与后来发展出的"计算复杂性"和"信息论"有着深刻的联系。</p>
+<p><strong>第二种定义基于形式系统。</strong></p>
+<p>这个定义更加抽象，但它揭示了可计算性与数理逻辑之间的深刻联系。图灵的思路是，如果一个函数是可计算的，那么必定存在一套形式化的公理系统，能够从公理出发，通过逻辑推理，证明函数在每一点的取值。</p>
+<p>具体来说，设 <span class="arithmatex">\(H(x,y)\)</span> 是一个谓词，其含义为"<span class="arithmatex">\(\phi(x) = y\)</span>"。图灵声称，函数 <span class="arithmatex">\(\phi\)</span> 可计算当且仅当存在一套一致公理 <span class="arithmatex">\(\mathfrak{A}_\phi\)</span>，满足两个条件。第一，对于任意整数 <span class="arithmatex">\(n\)</span>，能够从公理推出 <span class="arithmatex">\(H(n, \phi(n))\)</span>，也就是正确断言函数值。第二，对于任意 <span class="arithmatex">\(m \neq \phi(n)\)</span>，能够推出 <span class="arithmatex">\(\neg H(n, m)\)</span>，也就是排除所有错误的函数值。</p>
+<p>这种定义方式与希尔伯特纲领的精神一脉相承。希尔伯特曾设想，数学真理应当能够通过有限步骤的形式推理来确证。图灵的定义暗示，可计算性同样具有这种形式化特征。当然，哥德尔的不完备性定理已经表明希尔伯特的宏大计划无法完全实现，而图灵的定义恰恰利用了形式系统的这一特性来刻画可计算性。</p>
+<p>这两种定义的等价性并非显而易见。第一种定义是构造性的，直接给出了从序列到函数的转换方法。第二种定义则是描述性的，诉诸形式系统的推理能力。图灵证明它们等价的关键在于展示了如何从一种视角转换到另一种视角，这种转换本身就蕴含着深刻的数学洞察。</p>
+<h2>二、可计算变量的可计算函数</h2>
+<p>定义了整数变量的可计算函数后，图灵自然地想要扩展到实变量。然而这里出现了一个根本性的困难：实数无法一般性地描述。绝大多数实数是不可计算的，也就是说，不存在任何有限的方法能完整地刻画它们。既然无法"描述"一个任意的实数，自然也就无法定义以任意实数为输入的函数。</p>
+<p>图灵的解决方案是引入"可计算变量"的概念。既然实数不可处理，那就只处理那些可计算的实数。具体做法是，每个可计算数都用一个"满意数"来编号。回忆前面的定义，满意数是那些能够正确编码一台图灵机的自然数。给定一个满意数 <span class="arithmatex">\(n\)</span>，机器 <span class="arithmatex">\(\mathfrak{A}(n)\)</span> 就能计算出一个可计算数 <span class="arithmatex">\(\gamma_n\)</span>。</p>
+<p>但这带来一个技术问题：可计算数是 <span class="arithmatex">\((0,1)\)</span> 区间的实数，而我们希望定义的函数可能以任意实数为变量。图灵巧妙地运用了三角函数来解决这个问题。</p>
+<p><strong>三角映射的构造与直观</strong></p>
+<p>图灵使用的变换是
+$<span class="arithmatex">\(\alpha_n = \tan\left(\pi\left(\gamma_n - \frac{1}{2}\right)\right)\)</span>$</p>
+<p>让我们仔细分析这个变换是如何工作的。首先，<span class="arithmatex">\(\gamma_n\)</span> 是一个介于0和1之间的可计算数。当 <span class="arithmatex">\(\gamma_n\)</span> 取值 <span class="arithmatex">\(\frac{1}{2}\)</span> 时，括号内的值正好是0，于是 <span class="arithmatex">\(\alpha_n = \tan(0) = 0\)</span>。这给出了一个自然的"原点"。</p>
+<p>当 <span class="arithmatex">\(\gamma_n\)</span> 从 <span class="arithmatex">\(\frac{1}{2}\)</span> 向0趋近时，<span class="arithmatex">\(\pi(\gamma_n - \frac{1}{2})\)</span> 从0向 <span class="arithmatex">\(-\frac{\pi}{2}\)</span> 趋近。注意 <span class="arithmatex">\(\tan(x)\)</span> 在 <span class="arithmatex">\(x\)</span> 趋近于 <span class="arithmatex">\(-\frac{\pi}{2}\)</span> 时趋向负无穷。因此，当 <span class="arithmatex">\(\gamma_n\)</span> 趋近于0时，<span class="arithmatex">\(\alpha_n\)</span> 趋近于负无穷。</p>
+<p>类似地，当 <span class="arithmatex">\(\gamma_n\)</span> 从 <span class="arithmatex">\(\frac{1}{2}\)</span> 向1趋近时，<span class="arithmatex">\(\pi(\gamma_n - \frac{1}{2})\)</span> 从0向 <span class="arithmatex">\(\frac{\pi}{2}\)</span> 趋近，而 <span class="arithmatex">\(\tan(x)\)</span> 在 <span class="arithmatex">\(x\)</span> 趋近于 <span class="arithmatex">\(\frac{\pi}{2}\)</span> 时趋向正无穷。因此，当 <span class="arithmatex">\(\gamma_n\)</span> 趋近于1时，<span class="arithmatex">\(\alpha_n\)</span> 趋近于正无穷。</p>
+<p>举几个具体的数值例子：
+- 若 <span class="arithmatex">\(\gamma_n = \frac{1}{2}\)</span>，则 <span class="arithmatex">\(\alpha_n = \tan(0) = 0\)</span>
+- 若 <span class="arithmatex">\(\gamma_n = \frac{1}{4}\)</span>，则 <span class="arithmatex">\(\alpha_n = \tan(-\frac{\pi}{4}) = -1\)</span>
+- 若 <span class="arithmatex">\(\gamma_n = \frac{3}{4}\)</span>，则 <span class="arithmatex">\(\alpha_n = \tan(\frac{\pi}{4}) = 1\)</span>
+- 若 <span class="arithmatex">\(\gamma_n = \frac{1}{6}\)</span>，则 <span class="arithmatex">\(\alpha_n = \tan(-\frac{\pi}{3}) = -\sqrt{3} \approx -1.732\)</span>
+- 若 <span class="arithmatex">\(\gamma_n = \frac{5}{6}\)</span>，则 <span class="arithmatex">\(\alpha_n = \tan(\frac{\pi}{3}) = \sqrt{3} \approx 1.732\)</span></p>
+<p>这个变换的关键性质是它建立了一个双射：<span class="arithmatex">\((0,1)\)</span> 区间内的每个可计算数都唯一对应一个实数轴上的可计算数，反之亦然。而且，这个变换本身是可计算的——给定 <span class="arithmatex">\(\gamma_n\)</span> 的任意精度近似，我们都能计算出 <span class="arithmatex">\(\alpha_n\)</span> 的相应精度近似。</p>
+<p><strong>可计算函数的定义</strong></p>
+<p>现在，如何定义一个以可计算数为变量的可计算函数呢？图灵的方法是，通过操作"索引"来间接操作实数。设 <span class="arithmatex">\(g(n)\)</span> 是一个整数到整数的可计算函数，它将满意数映射到满意数。那么函数
+$<span class="arithmatex">\(f(\alpha_n) = \alpha_{g(n)}\)</span>$</p>
+<p>就定义了一个可计算变量的可计算函数。这种定义方式类似于在计算机程序中通过指针或引用来操作数据——我们不直接操作数据本身，而是操作指向数据的地址。</p>
+<h2>三、十项定理概览</h2>
+<p>图灵列举了十条关于可计算性的定理，构成了一个完整的理论框架。</p>
+<p>定理至比较直观。定理说的是可计算函数的复合仍然是可计算的。定理涉及递归定义，证明了递归不会突破可计算性的边界。定理处理对角线情况，预示了后来的对角线引理。定理建立了可计算集合与可计算函数的联系。</p>
+<p>定理是戴德金定理的可计算版本。经典戴德金分割定理断言实数的每个分割都确定一个实数，但在可计算世界中，还需要额外条件：必须存在算法判断一个数属于分割的哪一边。这个限制揭示了可计算分析与经典分析的本质区别——存在性不等于可构造性。定理是可计算版本的中间值定理，其重要应用是证明了所有实代数数都是可计算的。</p>
+<h2>四、可计算收敛性与重要常数的可计算性</h2>
+<p>定理至涉及可计算收敛性，这是本章最重要的内容之一。</p>
+<p><strong>什么是可计算收敛？</strong></p>
+<p>一个序列收敛，我们知道它的极限存在。但可计算收敛要求更多：我们不仅要知道序列收敛，还要知道它收敛得有多快，而且这个"收敛速度"本身必须是可计算的。</p>
+<p>形式化地说，序列 <span class="arithmatex">\(\beta_n\)</span> 可计算收敛，意味着存在一个可计算函数 <span class="arithmatex">\(N(\epsilon)\)</span>，告诉我们：为了达到精度 <span class="arithmatex">\(\epsilon\)</span>，只需要计算序列的前 <span class="arithmatex">\(N(\epsilon)\)</span> 项就够了。换句话说，只要 <span class="arithmatex">\(n &gt; N(\epsilon)\)</span>，就有 <span class="arithmatex">\(|\beta_n - \beta_\infty| &lt; \epsilon\)</span>。</p>
+<p>这个要求看起来技术性很强，但它的含义是深刻的。经典分析中，许多存在性证明只告诉我们极限存在，却无法告诉我们如何找到它。可计算收敛则要求我们有一个"有效的停止准则"：计算多少项之后，我们就可以确信结果已经达到了所需的精度。</p>
+<p><strong>圆周率 <span class="arithmatex">\(\pi\)</span> 是可计算的</strong></p>
+<p>图灵从定理出发，证明了圆周率 <span class="arithmatex">\(\pi\)</span> 是可计算的。证明的关键是莱布尼茨级数：
+$<span class="arithmatex">\(\pi = 4\left(1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} - \cdots\right)\)</span>$</p>
+<p>这个级数收敛较慢，但我们可以精确控制其收敛速度。级数的通项是 <span class="arithmatex">\((-1)^n \frac{1}{2n+1}\)</span>，系数构成可计算序列。更重要的是，这是一个交错级数，其误差不超过第一个被舍去的项的绝对值。因此，要计算 <span class="arithmatex">\(\pi\)</span> 到精度 <span class="arithmatex">\(\epsilon\)</span>，只需要取前 <span class="arithmatex">\(N\)</span> 项使得 <span class="arithmatex">\(\frac{4}{2N+1} &lt; \epsilon\)</span>，即 <span class="arithmatex">\(N &gt; \frac{2}{\epsilon} - \frac{1}{2}\)</span>。</p>
+<p>这意味着收敛速度的函数 <span class="arithmatex">\(N(\epsilon) = \lceil \frac{2}{\epsilon} \rceil\)</span> 是可计算的。给定任意精度要求，我们都能有效确定需要计算多少项。因此 <span class="arithmatex">\(\pi\)</span> 是可计算数。</p>
+<p>当然，实际计算 <span class="arithmatex">\(\pi\)</span> 时我们会使用收敛更快的公式，比如马青公式或其他级数。但图灵的论证不需要最优算法，只需要证明存在某种有效的计算方法。</p>
+<p><strong>马青公式与更高效的 <span class="arithmatex">\(\pi\)</span> 计算方法</strong></p>
+<p>莱布尼茨级数虽然形式优美，但收敛速度确实太慢了。要计算 <span class="arithmatex">\(\pi\)</span> 到小数点后 <span class="arithmatex">\(d\)</span> 位，大约需要 <span class="arithmatex">\(10^d\)</span> 项。这在实际计算中显然不可行。</p>
+<p>1706年，英国数学家约翰·马青发现了一个重要的公式，后人称之为马青公式：
+$<span class="arithmatex">\(\frac{\pi}{4} = 4\arctan\frac{1}{5} - \arctan\frac{1}{239}\)</span>$</p>
+<p>这个公式的精妙之处在于，它将 <span class="arithmatex">\(\pi\)</span> 表示为两个反正切函数的线性组合。而反正切函数可以用泰勒级数展开：
+$<span class="arithmatex">\(\arctan x = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \cdots\)</span>$</p>
+<p>当 <span class="arithmatex">\(x\)</span> 较小时，这个级数收敛得非常快。在马青公式中，<span class="arithmatex">\(\frac{1}{5}\)</span> 和 <span class="arithmatex">\(\frac{1}{239}\)</span> 都是很小的数，因此两个级数都快速收敛。具体来说，计算 <span class="arithmatex">\(\arctan\frac{1}{5}\)</span> 时，每增加一项大约贡献 <span class="arithmatex">\(\frac{1}{5}\)</span> 倍的精度；计算 <span class="arithmatex">\(\arctan\frac{1}{239}\)</span> 时，每项贡献大约 <span class="arithmatex">\(\frac{1}{239}\)</span> 倍的精度。相比之下，莱布尼茨级数的各项贡献以 <span class="arithmatex">\(\frac{1}{2n+1}\)</span> 的速度递减，收敛慢得多。</p>
+<p>举一个具体的数值例子。用马青公式计算 <span class="arithmatex">\(\pi\)</span> 到10位小数，只需要计算每个级数的前几项：
+- <span class="arithmatex">\(\arctan\frac{1}{5}\)</span> 取前8项：<span class="arithmatex">\(0.1973955598...\)</span>
+- <span class="arithmatex">\(\arctan\frac{1}{239}\)</span> 取前3项：<span class="arithmatex">\(0.0041840760...\)</span>
+- 代入马青公式：<span class="arithmatex">\(\frac{\pi}{4} = 4 \times 0.1973955598 - 0.0041840760 = 0.7853981634...\)</span>
+- 于是 <span class="arithmatex">\(\pi \approx 3.1415926536...\)</span></p>
+<p>这个结果与 <span class="arithmatex">\(\pi\)</span> 的真值吻合到第10位。</p>
+<p>马青公式的另一个优势是，它可以进一步推广。高斯发现了更一般的公式：
+$<span class="arithmatex">\(\frac{\pi}{4} = 12\arctan\frac{1}{18} + 8\arctan\frac{1}{57} - 5\arctan\frac{1}{239}\)</span>$</p>
+<p>现代计算机计算 <span class="arithmatex">\(\pi\)</span> 时，通常使用一类称为"查德诺夫斯基算法"的方法，其收敛速度是二次的，即每迭代一次，有效位数大约翻倍。这类算法可以在很短时间内计算出 <span class="arithmatex">\(\pi\)</span> 的数十万亿位。</p>
+<p>但无论使用哪种方法，核心思想都是一样的：找到一个由可计算系数组成的级数，证明其收敛速度可计算，从而断言 <span class="arithmatex">\(\pi\)</span> 是可计算数。图灵的莱布尼茨级数论证是最简单的一种，虽然不是最实用的，但它完整地展示了可计算性证明的核心逻辑。</p>
+<p><strong>自然对数底 <span class="arithmatex">\(e\)</span> 是可计算的</strong></p>
+<p>图灵同样证明了自然对数底 <span class="arithmatex">\(e\)</span> 是可计算的。证明使用 <span class="arithmatex">\(e\)</span> 的级数定义：
+$<span class="arithmatex">\(e = \sum_{k=0}^{\infty} \frac{1}{k!} = 1 + 1 + \frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \cdots\)</span>$</p>
+<p>这个级数的通项是 <span class="arithmatex">\(\frac{1}{k!}\)</span>，系数构成可计算序列。为了确定收敛速度，我们注意到这个级数的余项满足：
+$<span class="arithmatex">\(\sum_{k=n+1}^{\infty} \frac{1}{k!} &lt; \frac{1}{n \cdot n!}\)</span>$</p>
+<p>因此，要计算 <span class="arithmatex">\(e\)</span> 到精度 <span class="arithmatex">\(\epsilon\)</span>，只需要取前 <span class="arithmatex">\(N\)</span> 项使得 <span class="arithmatex">\(\frac{1}{N \cdot N!} &lt; \epsilon\)</span>。由于阶乘增长极快，这个条件很容易满足，而且我们可以有效计算出最小的 <span class="arithmatex">\(N\)</span>。</p>
+<p><strong>幂级数与经典函数的可计算性</strong></p>
+<p>定理至将上述思想推广到幂级数。图灵证明，如果一个幂级数的系数构成可计算序列，那么在其收敛区间的内部，这个幂级数定义的是一个可计算函数。</p>
+<p>这一结果的推论是巨大的。三角函数 <span class="arithmatex">\(\sin x\)</span>、<span class="arithmatex">\(\cos x\)</span>，指数函数 <span class="arithmatex">\(e^x\)</span>，双曲函数 <span class="arithmatex">\(\sinh x\)</span>、<span class="arithmatex">\(\cosh x\)</span>，对数函数 <span class="arithmatex">\(\ln(1+x)\)</span>，乃至贝塞尔函数等特殊函数，都可以用幂级数定义。由于它们的系数构成可计算序列，且收敛区间是可确定的，因此这些经典函数都是可计算函数。</p>
+<p>更进一步，贝塞尔函数的实零点也是可计算的。这是因为贝塞尔函数是连续函数，我们可以用二分法在其零点附近逼近。由于贝塞尔函数的值可以通过幂级数有效计算，这个逼近过程是可计算的。</p>
+<p><strong>为什么这些结果重要？</strong></p>
+<p>图灵在这一章不仅定义了什么是可计算的，更重要的是证明了数学中绝大多数"有用的"对象——从基本的 <span class="arithmatex">\(\pi\)</span> 和 <span class="arithmatex">\(e\)</span>，到三角函数、指数函数，再到代数数、超越数——都是可计算的。这极大地增强了人们对计算模型的信心。如果图灵机连 <span class="arithmatex">\(\pi\)</span> 都无法计算，那它作为通用计算模型就会受到质疑。但图灵证明了，我们日常用到的几乎所有数学对象都在可计算的范围之内。</p>
+<p>当然，不可计算数确实存在，图灵在前面的章节已经通过対角线论证证明了这一点。但那些不可计算数在我们的常规数学实践中很少出现。我们日常遇到的数，几乎都是可计算的。这揭示了可计算性理论的一个重要特点：它界定了计算的边界，但这个边界在我们的日常经验中是难以触及的。</p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep" data-i18n="category_label">分类</span>:
+        <abbr class="category">
+            <a href="./category/math.html">Math</a>
+        </abbr>
+       </footer>
+    
+</section>
+
+<section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
+    <script src="https://giscus.app/client.js"
+        data-repo="cycleuser/cycleuser.github.io"
+        data-repo-id="R_kgDOL4NKYA"
+        data-category="General"
+        data-category-id="DIC_kwDOL4NKYM4DBK3X"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    function update() {
+        var t = giscusTheme(getTheme());
+        var s = document.querySelector('script[src*="giscus"]');
+        if (s) s.setAttribute('data-theme', t);
+        sendTheme(t);
+    }
+    // 初始设置
+    var s = document.querySelector('script[src*="giscus"]');
+    if (s) s.setAttribute('data-theme', giscusTheme(getTheme()));
+    // 监听明暗切换
+    new MutationObserver(function() { update(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    // 重试几次确保 iframe 加载完成
+    var tries = 0;
+    var timer = setInterval(function() {
+        if (document.querySelector('iframe.giscus-frame')) { sendTheme(giscusTheme(getTheme())); clearInterval(timer); }
+        if (++tries > 20) clearInterval(timer);
+    }, 500);
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

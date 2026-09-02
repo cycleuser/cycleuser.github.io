@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect x="0" y="0" width="600" height="400" fill="#ffffff"/>
+  <rect x="30" y="30" width="540" height="340" fill="none" stroke="#000000" stroke-width="3"/>
+  <rect x="36" y="36" width="528" height="328" fill="none" stroke="#000000" stroke-width="1"/>
+
+  <!-- 左侧：投石机 -->
+  <!-- 底座 -->
+  <path d="M 50 310 L 60 280 L 120 280 L 130 310 Z" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 支柱 -->
+  <line x1="65" y1="280" x2="80" y2="240" stroke="#000000" stroke-width="2.5"/>
+  <line x1="115" y1="280" x2="100" y2="240" stroke="#000000" stroke-width="2.5"/>
+  <!-- 横轴 -->
+  <line x1="75" y1="240" x2="105" y2="240" stroke="#000000" stroke-width="3"/>
+  <!-- 抛臂 -->
+  <line x1="90" y1="240" x2="90" y2="190" stroke="#000000" stroke-width="3"/>
+  <line x1="90" y1="240" x2="90" y2="280" stroke="#000000" stroke-width="3"/>
+  <!-- 抛臂顶端石弹 -->
+  <circle cx="90" cy="185" r="12" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 绳索 -->
+  <line x1="90" y1="275" x2="60" y2="250" stroke="#000000" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <!-- 轮子 -->
+  <circle cx="60" cy="315" r="10" fill="none" stroke="#000000" stroke-width="2"/>
+  <circle cx="120" cy="315" r="10" fill="none" stroke="#000000" stroke-width="2"/>
+
+  <!-- 弹道线 -->
+  <path d="M 90 180 Q 160 120 220 100" fill="none" stroke="#000000" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+  <!-- 小孙悟空在投石机旁操作 -->
+  <circle cx="150" cy="345" r="24" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <path d="M 128 332 Q 150 322 172 332" fill="none" stroke="#000000" stroke-width="3"/>
+  <circle cx="142" cy="343" r="3.5" fill="#000000"/>
+  <circle cx="158" cy="343" r="3.5" fill="#000000"/>
+  <path d="M 144 356 Q 150 359 156 356" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <path d="M 132 368 Q 150 370 168 368 L 168 390 Q 150 392 132 390 Z" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <line x1="132" y1="372" x2="120" y2="340" stroke="#000000" stroke-width="2.5"/>
+
+  <!-- 中间大箭头 -->
+  <path d="M 240 200 L 360 200" stroke="#000000" stroke-width="4"/>
+  <path d="M 345 188 L 360 200 L 345 212" fill="none" stroke="#000000" stroke-width="4"/>
+  <text x="270" y="185" font-family="serif" font-size="14" fill="#000000">范式跃迁</text>
+  <text x="268" y="225" font-family="serif" font-size="11" fill="#000000" opacity="0.6">不是优化，是换赛道</text>
+
+  <!-- 右侧：核爆蘑菇云 -->
+  <!-- 蘑菇云顶 -->
+  <path d="M 440 80 Q 410 100 420 130 Q 400 140 420 160 Q 430 170 450 165 Q 470 170 480 160 Q 500 140 480 130 Q 490 100 460 80 Z" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 茎 -->
+  <path d="M 435 165 Q 440 200 445 220 L 455 220 Q 460 200 465 165" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 基座云 -->
+  <ellipse cx="450" cy="230" rx="40" ry="12" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <!-- 射线 -->
+  <line x1="430" y1="60" x2="425" y2="40" stroke="#000000" stroke-width="2"/>
+  <line x1="450" y1="55" x2="450" y2="35" stroke="#000000" stroke-width="2"/>
+  <line x1="470" y1="60" x2="475" y2="40" stroke="#000000" stroke-width="2"/>
+  <!-- 地面 -->
+  <line x1="390" y1="250" x2="530" y2="250" stroke="#000000" stroke-width="3"/>
+
+  <!-- 小孙悟空在右侧，敬畏/害怕 -->
+  <circle cx="520" cy="320" r="26" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <path d="M 496 308 Q 520 296 544 308" fill="none" stroke="#000000" stroke-width="3"/>
+  <circle cx="512" cy="318" r="5" fill="none" stroke="#000000" stroke-width="2"/>
+  <circle cx="528" cy="318" r="5" fill="none" stroke="#000000" stroke-width="2"/>
+  <circle cx="512" cy="318" r="2.5" fill="#000000"/>
+  <circle cx="528" cy="318" r="2.5" fill="#000000"/>
+  <!-- 惊吓嘴巴 -->
+  <ellipse cx="520" cy="335" rx="4" ry="6" fill="none" stroke="#000000" stroke-width="2"/>
+  <!-- 汗滴 -->
+  <path d="M 498 302 Q 496 296 494 302 Q 496 306 498 302" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <path d="M 500 345 Q 520 348 540 345 L 540 375 Q 520 377 500 375 Z" fill="none" stroke="#000000" stroke-width="2.5"/>
+  <line x1="500" y1="350" x2="490" y2="335" stroke="#000000" stroke-width="2.5"/>
+
+  <!-- 标题 -->
+  <text x="55" y="22" font-family="serif" font-size="13" fill="#000000">叁 · 从投石机到核武器</text>
+</svg>

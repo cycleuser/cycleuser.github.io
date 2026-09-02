@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CycleUser - Software</title><link href="/" rel="alternate"></link><link href="/feeds/software.atom.xml" rel="self"></link><id>/</id><updated>2019-05-02T10:57:29+08:00</updated><entry><title>Elle Numerical Simulation Platform Installation Guide on Ubuntu 18.04</title><link href="/elle-numerical-simulation-platform-installation-guide-on-ubuntu-1804.html" rel="alternate"></link><published>2019-05-02T10:57:29+08:00</published><updated>2019-05-02T10:57:29+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2019-05-02:/elle-numerical-simulation-platform-installation-guide-on-ubuntu-1804.html</id><summary type="html">&lt;p&gt;The original installation guide on http://elle.ws/installation only works on Ubuntu 16.04, and does not work well on Ubuntu 18.04. So there come this guide.&lt;/p&gt;
+&lt;h2&gt;Install Dependicies&lt;/h2&gt;
+&lt;h4&gt;Open terminal and run:&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt install gfortran gcc mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev libgtk2.0-0 zlibc zlib1g make build-essential xorg-dev …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;The original installation guide on http://elle.ws/installation only works on Ubuntu 16.04, and does not work well on Ubuntu 18.04. So there come this guide.&lt;/p&gt;
+&lt;h2&gt;Install Dependicies&lt;/h2&gt;
+&lt;h4&gt;Open terminal and run:&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt install gfortran gcc mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev libgtk2.0-0 zlibc zlib1g make build-essential xorg-dev libmotif-common libmotif-dev xutils-dev libgtk2.0-dev cvs xutils libx11-dev libxt-dev libxpm-dev x11proto-print-dev x11proto-xext-dev libxext-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice that the original version use &lt;code&gt;libmotif4&lt;/code&gt;, which has been replaced by &lt;code&gt;libmotif-common&lt;/code&gt; in Ubuntu 18.04.&lt;/p&gt;
+&lt;h4&gt;Then run:&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt-get install  libgsl-dev libgsl23 libgslcblas0  libgsl-dbg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice that the original version use &lt;code&gt;libgsl2&lt;/code&gt;, which has been replaced by &lt;code&gt;libgsl23 libgslcblas0  libgsl-dbg&lt;/code&gt; in Ubuntu 18.04.&lt;/p&gt;
+&lt;h2&gt;wxWidgets 2.8.12&lt;/h2&gt;
+&lt;h4&gt;Download wxWidgets&lt;/h4&gt;
+&lt;p&gt;Notice that only 2.8.12 works for elle！&lt;/p&gt;
+&lt;p&gt;Visit http://www.wxwidgets.org/downloads/ to download wxWidgets-2.8.12.zip&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wget https://github.com/wxWidgets/wxWidgets/releases/download/v2.8.12/wxWidgets-2.8.12.zip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;Install wxWidgets&lt;/h4&gt;
+&lt;p&gt;Here comes a trick! &lt;code&gt;wxgtk2.8 doesn't compile with the new gcc, needs -std=gnu++98&lt;/code&gt;, so we need to add &lt;code&gt;export CFLAGS=-std=c99 CXXFLAGS=-std=c++98&lt;/code&gt; in the terminal firstly and then configure it by running &lt;code&gt;./configure --prefix=/usr&lt;/code&gt;.&lt;/p&gt;
+&lt;h5&gt;ref: https://bugs.alpinelinux.org/issues/6361 and https://forums.wxwidgets.org/viewtopic.php?t=43118&lt;/h5&gt;
+&lt;p&gt;Once the wxWidgets 2.8.12 downloaded, decompress the zip file, and cd into the directory in terminal then type:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;CFLAGS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;-std&lt;span class="o"&gt;=&lt;/span&gt;c99 &lt;span class="nv"&gt;CXXFLAGS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;-std&lt;span class="o"&gt;=&lt;/span&gt;c++98
+./configure --prefix&lt;span class="o"&gt;=&lt;/span&gt;/usr
+make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Clone and Install ELLE&lt;/h2&gt;
+&lt;h4&gt;Clone the elle-git&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /home/
+git clone https://git.code.sf.net/p/elle/git elle-git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then the &lt;code&gt;elle-git&lt;/code&gt; folder which contains &lt;code&gt;elle&lt;/code&gt; folder will be downloaded.
+Here we put the &lt;code&gt;elle&lt;/code&gt; folder to your &lt;code&gt;/home/&lt;/code&gt; location. Of course you can change it into another location, but you will need to modify following commands to setting up the &lt;code&gt;PATH&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Then cd into the &lt;code&gt;elle-git&lt;/code&gt; folder, and copy the whole &lt;code&gt;elle&lt;/code&gt; folder to &lt;code&gt;/home/&lt;/code&gt; and become &lt;code&gt;/home/elle&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; elle-git 
+cp -R elle /home/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we have everything we need at &lt;code&gt;/home/elle&lt;/code&gt; folder.&lt;/p&gt;
+&lt;h4&gt;Install elle&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /home/elle
+./install.sh wx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If no errors, the installation of &lt;code&gt;elle&lt;/code&gt; succeeded!
+Then set up the &lt;code&gt;PATH&lt;/code&gt; by running following commands in terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;:/home/elle/elle/binwx
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/lib:/usr/lib:/usr/local/lib
+&lt;span class="nv"&gt;ELLEPATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home/elle/elle/binwx
+&lt;span class="nb"&gt;export&lt;/span&gt; PATH LD_LIBRARY_PATH ELLEPATH
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The original installation guide use &lt;code&gt;/home/your_user/elle&lt;/code&gt;, here we put it at &lt;code&gt;/home/elle&lt;/code&gt; instead.
+&lt;code&gt;your_user&lt;/code&gt; here means the user location of your system.
+For example, my user name is &lt;code&gt;fred&lt;/code&gt;, then I can use &lt;code&gt;/home/fred/elle&lt;/code&gt; instead of &lt;code&gt;/home/elle&lt;/code&gt;, which requires me to copy the &lt;code&gt;elle&lt;/code&gt; folder, which is contained in the cloned &lt;code&gt;elle-git&lt;/code&gt; folder, to &lt;code&gt;/home/fred/elle&lt;/code&gt; instead of &lt;code&gt;/home/elle&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you donnot get a clue about the path or folder, that is OK. Just follow my codes above and put it to &lt;code&gt;/home/elle&lt;/code&gt;.&lt;/p&gt;
+&lt;h4&gt;Test installed elle&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /home/elle/bin
+./showelle
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If the gui shows up, it works!&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;elle&lt;/code&gt; files under &lt;code&gt;elle\examples&lt;/code&gt; might work, but those under &lt;code&gt;elle-git\experiments&lt;/code&gt; may give you a &lt;code&gt;Segmentation fault (core dumped)&lt;/code&gt; error. I donnot know why because this &lt;code&gt;elle&lt;/code&gt; is not written by me, and there seems not to be any detailed documents available on their &lt;a href="elle.ws"&gt;elle.ws&lt;/a&gt; website. Go ask them for help please.&lt;/p&gt;</content><category term="Software"></category></entry><entry><title>数值模拟平台软件 Elle 安装指南 Ubuntu 18.04</title><link href="/shu-zhi-mo-ni-ping-tai-ruan-jian-elle-an-zhuang-zhi-nan-ubuntu-1804.html" rel="alternate"></link><published>2019-05-02T10:57:29+08:00</published><updated>2019-05-02T10:57:29+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2019-05-02:/shu-zhi-mo-ni-ping-tai-ruan-jian-elle-an-zhuang-zhi-nan-ubuntu-1804.html</id><summary type="html">&lt;p&gt;在 http://elle.ws/installation 的原版安装指南只适用于 Ubuntu 16.04, 不适合 Ubuntu 18.04.&lt;/p&gt;
+&lt;h2&gt;安装依赖包&lt;/h2&gt;
+&lt;h4&gt;打开终端输入:&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt install gfortran gcc mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev libgtk2.0-0 zlibc zlib1g make build-essential xorg-dev libmotif-common libmotif-dev xutils-dev libgtk2.0-dev cvs xutils libx11-dev libxt-dev libxpm-dev x11proto-print-dev x11proto-xext-dev libxext-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;原版安装指南中使用的 &lt;code&gt;libmotif4&lt;/code&gt; 仅用于 Ubuntu 16.04，现在在 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;在 http://elle.ws/installation 的原版安装指南只适用于 Ubuntu 16.04, 不适合 Ubuntu 18.04.&lt;/p&gt;
+&lt;h2&gt;安装依赖包&lt;/h2&gt;
+&lt;h4&gt;打开终端输入:&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt install gfortran gcc mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev libgtk2.0-0 zlibc zlib1g make build-essential xorg-dev libmotif-common libmotif-dev xutils-dev libgtk2.0-dev cvs xutils libx11-dev libxt-dev libxpm-dev x11proto-print-dev x11proto-xext-dev libxext-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;原版安装指南中使用的 &lt;code&gt;libmotif4&lt;/code&gt; 仅用于 Ubuntu 16.04，现在在 Ubuntu 18.04 下要用 &lt;code&gt;libmotif-common&lt;/code&gt; 替代.&lt;/p&gt;
+&lt;h4&gt;然后运行:&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;sudo apt-get install  libgsl-dev libgsl23 libgslcblas0  libgsl-dbg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;原版安装指南中使用的 &lt;code&gt;libgsl2&lt;/code&gt; 仅用于 Ubuntu 16.04，现在在 Ubuntu 18.04 下要用  &lt;code&gt;libgsl23 libgslcblas0  libgsl-dbg&lt;/code&gt; 替代.&lt;/p&gt;
+&lt;h2&gt;安装wxWidgets 2.8.12&lt;/h2&gt;
+&lt;h4&gt;下载 旧版本的 wxWidgets&lt;/h4&gt;
+&lt;p&gt;只能用很古老的旧版本 2.8.12！&lt;/p&gt;
+&lt;p&gt;访问 http://www.wxwidgets.org/downloads/ 下载 wxWidgets-2.8.12.zip&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;wget https://github.com/wxWidgets/wxWidgets/releases/download/v2.8.12/wxWidgets-2.8.12.zip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;安装 wxWidgets&lt;/h4&gt;
+&lt;p&gt;这里一定要注意! &lt;code&gt;wxgtk2.8 根本不能兼容最新的标准, 需要使用上世纪的标准才行 -std=gnu++98&lt;/code&gt;, 所以要先运行 &lt;code&gt;export CFLAGS=-std=c99 CXXFLAGS=-std=c++98&lt;/code&gt;， 然后运行 &lt;code&gt;./configure --prefix=/usr&lt;/code&gt;.&lt;/p&gt;
+&lt;h5&gt;上述信息参考: https://bugs.alpinelinux.org/issues/6361 and https://forums.wxwidgets.org/viewtopic.php?t=43118&lt;/h5&gt;
+&lt;p&gt;下载完毕了解压缩，cd 命令进入到 wxWidgets-2.8.12 目录，然后依次运行下面的命令来安装:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;CFLAGS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;-std&lt;span class="o"&gt;=&lt;/span&gt;c99 &lt;span class="nv"&gt;CXXFLAGS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;-std&lt;span class="o"&gt;=&lt;/span&gt;c++98
+./configure --prefix&lt;span class="o"&gt;=&lt;/span&gt;/usr
+make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;安装 ELLE&lt;/h2&gt;
+&lt;h4&gt;先克隆 elle-git&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /home/
+git clone https://git.code.sf.net/p/elle/git elle-git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;这里的&lt;code&gt;elle-git&lt;/code&gt; 目录包含了一个 &lt;code&gt;elle&lt;/code&gt; 目录，这个 &lt;code&gt;elle&lt;/code&gt; 目录才是最关键的。
+这里我把 &lt;code&gt;elle&lt;/code&gt; 目录就放进 &lt;code&gt;/home/&lt;/code&gt; 位置了，这样后面就不用折腾什么用户名了。原版指南里面是把这个文件夹放进个人目录，可是这样就要每次要求用户根据自己个人目录的不同来调整后面的命令，对一问三不知的小白来说不是闹呢么？&lt;/p&gt;
+&lt;p&gt;所以这里就 cd 进入 &lt;code&gt;elle-git&lt;/code&gt; 目录, 然后复制整个 &lt;code&gt;elle&lt;/code&gt; 目录到 &lt;code&gt;/home/&lt;/code&gt;，于是就有了 &lt;code&gt;/home/elle&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; elle-git 
+cp -R elle /home/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;要安装用的东西就都在 &lt;code&gt;/home/elle&lt;/code&gt; 目录内了.&lt;/p&gt;
+&lt;h4&gt;终于开始安装了&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /home/elle
+./install.sh wx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;没报错的话就说明安装成功了。然后还要设置环境变量 &lt;code&gt;PATH&lt;/code&gt;，在终端中运行下面的命令:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;:/home/elle/elle/binwx
+&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/lib:/usr/lib:/usr/local/lib
+&lt;span class="nv"&gt;ELLEPATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/home/elle/elle/binwx
+&lt;span class="nb"&gt;export&lt;/span&gt; PATH LD_LIBRARY_PATH ELLEPATH
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;官网文档说让你用 &lt;code&gt;/home/your_user/elle&lt;/code&gt;,而这里我们直接就用了 &lt;code&gt;/home/elle&lt;/code&gt; .
+&lt;code&gt;your_user&lt;/code&gt; 意思是你自己系统上面的家目录的用户名，比如我的用户名是 &lt;code&gt;fred&lt;/code&gt;, 那么就要使用 &lt;code&gt;/home/fred/elle&lt;/code&gt; 而不是 &lt;code&gt;/home/elle&lt;/code&gt;, 这也就需要之前的步骤中把&lt;code&gt;elle&lt;/code&gt; 目录复制到 &lt;code&gt;/home/fred/elle&lt;/code&gt; 而不是 &lt;code&gt;/home/elle&lt;/code&gt;。你自己要是搞得清楚用户目录和环境变量设置，完全可以随意设置。&lt;/p&gt;
+&lt;p&gt;你要是纯小白搞不懂什么家目录，就按照上文中的命令，使用 &lt;code&gt;/home/elle&lt;/code&gt; 吧。&lt;/p&gt;
+&lt;h4&gt;测试安装好的 elle&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /home/elle/bin
+./showelle
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;如果图形界面出现了，就是安装好了。
+不过可能会出现很多问题，比如 &lt;code&gt;elle&lt;/code&gt; 目录下的 &lt;code&gt;elle\examples&lt;/code&gt; 中的一些 &lt;code&gt;elle&lt;/code&gt;格式文件就可以运行，而 &lt;code&gt;elle-git\experiments&lt;/code&gt; 下的打开可能就会出现 &lt;code&gt;Segmentation fault (core dumped)&lt;/code&gt; 的报错。这你别问我，这软件也不是我开发的，官网也没发现详细的说明手册，自己想办法去吧。&lt;/p&gt;</content><category term="Software"></category></entry><entry><title>跨平台的开源视频和图像编辑软件</title><link href="/kua-ping-tai-de-kai-yuan-shi-pin-he-tu-xiang-bian-ji-ruan-jian.html" rel="alternate"></link><published>2017-09-05T08:20:00+08:00</published><updated>2017-09-05T08:20:00+08:00</updated><author><name>CycleUsyer</name></author><id>tag:None,2017-09-05:/kua-ping-tai-de-kai-yuan-shi-pin-he-tu-xiang-bian-ji-ruan-jian.html</id><summary type="html">&lt;p&gt;&lt;img alt="" src="img/OSPhotoVideo/Adobe.png"&gt;
+首先要表明一下立场，我并不是那种敌视商业软件的开源斗士。此外，作为一个外行菜鸟，我购买了图中这些来自 Adobe 的正版软件，这也许能算是一种佐证了。这笔开销虽然可能并不算很高，但对于一个月只有 1500 补助的穷学生来说，是需要相当大的勇气的。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="img/OSPhotoVideo/Tools.png"&gt;
+除此以外，我还会经常用到一些免费软件和开源软件。如下图所示这些，都是日常必不可少的工具。然而其中有的软件是有平台限制的，比如渣果公司提供的 iMovie、Garageband、照片，这几个就是 Mac OS 独有的，在 Windows 平台上或许对应的是 Movie Maker、Sibelius、Lightroom，或者也可以用 Corel Videostudio （ 会声会影）来对应 iMovie。HitFilm 是在 D4Darious 的安利下安装的，还没怎么尝试。DaVinci 是调色和简单编辑的一个备选方案，也没怎么用。实际上我现在更偏爱的还是其中几个跨平台的开源软件：Audacity、Blender …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="" src="img/OSPhotoVideo/Adobe.png"&gt;
+首先要表明一下立场，我并不是那种敌视商业软件的开源斗士。此外，作为一个外行菜鸟，我购买了图中这些来自 Adobe 的正版软件，这也许能算是一种佐证了。这笔开销虽然可能并不算很高，但对于一个月只有 1500 补助的穷学生来说，是需要相当大的勇气的。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="img/OSPhotoVideo/Tools.png"&gt;
+除此以外，我还会经常用到一些免费软件和开源软件。如下图所示这些，都是日常必不可少的工具。然而其中有的软件是有平台限制的，比如渣果公司提供的 iMovie、Garageband、照片，这几个就是 Mac OS 独有的，在 Windows 平台上或许对应的是 Movie Maker、Sibelius、Lightroom，或者也可以用 Corel Videostudio （ 会声会影）来对应 iMovie。HitFilm 是在 D4Darious 的安利下安装的，还没怎么尝试。DaVinci 是调色和简单编辑的一个备选方案，也没怎么用。实际上我现在更偏爱的还是其中几个跨平台的开源软件：Audacity、Blender、ShotCut。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="img/OSPhotoVideo/Audacity.png"&gt;
+想当年买不起 Audition，在网上搜到了 Audacity，惊为天人。功能完善，足够我所需要的声音录制、多轨叠加同步、音调调整等日常需求，开源软件，免费试用，还提供了非常一致的跨平台体验，支持 Windows、Linux、Mac OS。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="img/OSPhotoVideo/Blender.png"&gt;
+听说 Blender，是在奥运那一年看到一个开源电影作品 Big Buck Bunny，那时候就下载安装体验了一把，不过一去十来年了，也还是入门状态。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="img/OSPhotoVideo/ShotCut.png"&gt;
+说来惭愧，我这人见识短浅，昨天才在搜索 QT 相关的内容的时候，才了解到 ShotCut 这个开源项目，一个跨平台的视频编辑工具，简单体验了一下，相当惊艳。&lt;/p&gt;
+&lt;p&gt;上面这三个开源软件，都是跨平台的，支持主流三大系统。另外这三者都提供了相当完善的国际化语言支持，有非常完整的中文界面。&lt;/p&gt;
+&lt;p&gt;除此以外，我偶尔还会使用 gimp、inkscape 之类的开源软件，不过主要是在 Linux 系统的机器上，在 Mac OS 和 Windows 系统上，还是 Photoshop 和 Illustrator 更方便一些。&lt;/p&gt;</content><category term="Software"></category><category term="Camera"></category><category term="Video"></category><category term="Photo"></category><category term="Software"></category></entry></feed>

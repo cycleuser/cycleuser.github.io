@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<title>LUX to EV by CycleUser</title>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta charset="utf-8">
+</head>
+<body>
+
+<p style="font:normal 100% Arial,sans-serif;font-size:1.6rem;">LUX</p>
+
+<input id="lux input"  style="font:normal 100% Arial,sans-serif;font-size:1.4rem;">
+
+<button  style="font:normal 100% Arial,sans-serif;font-size:1.2rem;" type="button" onclick="lux2ev()">Submit LUX</button>
+
+<p  style="font:normal 100% Arial,sans-serif;font-size:1.4rem;" id="EV Show"></p>
+
+<p style="font:normal 100% Arial,sans-serif;font-size:1.4rem;">ISO</p>
+<input id="ISO input"  style="font:normal 100% Arial,sans-serif;font-size:1.4rem;">
+
+<button  style="font:normal 100% Arial,sans-serif;font-size:1.2rem;" type="button" onclick="ev2settings()">Submit ISO</button>
+
+<p  style="font:normal 100% Arial,sans-serif;font-size:1.4rem;" id="Shutter Show"></p>
+
+
+<script>
+
+var EV;
+
+
+function lux2ev() {
+    var LUX;
+    // 获取 id="lux input" 的值
+    LUX = document.getElementById("lux input").value;
+    if (LUX > 0) {
+        //   EV=log2(F*F/S/ISO*100)
+        EV = Math.round(2+ Math.log2(LUX/10));
+    } else {
+        EV = "Wrong Value"
+    }
+    document.getElementById("EV Show").innerHTML = "EV = " + EV ;
+}
+
+function ev2settings() {
+
+    document.getElementById("Shutter Show").innerHTML = "";
+    var ISO, Aperture, Shutter;
+    Aperture =[1,1.2,1.4,2,2.8,3.5,4,5.6,6.3,7.1,8,9,10,11,16,22,32];
+    // 获取 id="ISO input" 的值
+    ISO = document.getElementById("ISO input").value;
+    if (ISO > 0) {
+        //   EV=log2(F*F/S/ISO*100)
+        for (var i=0;i<Aperture.length;i++){
+            var F = Aperture[i], Speed;
+            Shutter = F*F/Math.pow(2,EV)*100/ISO;
+            if (Shutter<=1){
+               power = Math.round(Math.log2(1/Shutter));
+               Speed ="1/"+ Math.pow(2, power);
+            }  else{
+                Speed = Math.round(Shutter);
+            }
+            var ShowSpace = document.getElementById("Shutter Show");
+            var a = document.createElement ('a');
+            ShowSpace.appendChild(a);
+            a.innerHTML = ("F/"+F+ " &nbsp &nbsp &nbsp &nbsp  "+ Speed+"   <br>");
+            }
+
+    } else {
+        Shutter = "Wrong Value";
+    }
+
+    // document.getElementById("Shutter Show").innerHTML = "Shutter = 1/" + Math.round(1/Shutter) ;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894037367471530"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9894037367471530">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=19' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="./index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li class="active"><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li class="active"><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li class="active"><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li><li class="active"><a href="./2048游戏.html" data-i18n="2048">2048</a></li><li class="active"><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li><li class="active"><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li class="has-sub"><a href="./categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="./category/academic.html">Academic (3)</a></li><li><a href="./category/ai.html">AI (6)</a></li><li><a href="./category/c.html">C (16)</a></li><li><a href="./category/camera.html">Camera (15)</a></li><li><a href="./category/chromebook.html">ChromeBook (2)</a></li><li><a href="./category/cuda.html">CUDA (1)</a></li><li><a href="./category/design.html">Design (1)</a></li><li><a href="./category/diy.html">DIY (1)</a></li><li><a href="./category/duke.html">Duke (1)</a></li><li><a href="./category/education.html">Education (21)</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./category/hackintosh.html">Hackintosh (7)</a></li><li><a href="./category/java.html">Java (1)</a></li><li><a href="./category/linux.html">Linux (4)</a></li><li><a href="./category/llm.html">LLM (55)</a></li><li><a href="./category/ltfs.html">LTFS (1)</a></li><li><a href="./category/mac.html">Mac (3)</a></li><li><a href="./category/math.html">Math (30)</a></li><li><a href="./category/ml.html">ML (4)</a></li><li><a href="./category/modeling.html">Modeling (9)</a></li><li><a href="./category/nas.html">NAS (1)</a></li><li><a href="./category/nix.html">Nix (1)</a></li><li><a href="./category/photography.html">Photography (1)</a></li><li><a href="./category/programming.html">Programming (12)</a></li><li><a href="./category/pve.html">PVE (1)</a></li><li><a href="./category/python.html">Python (26)</a></li><li><a href="./category/qgis.html">QGIS (3)</a></li><li><a href="./category/qt.html">QT (1)</a></li><li><a href="./category/raspbian.html">Raspbian (1)</a></li><li><a href="./category/science.html">Science (2)</a></li><li><a href="./category/sdr.html">SDR (2)</a></li><li><a href="./category/software.html">Software (3)</a></li><li><a href="./category/story.html">Story (68)</a></li><li><a href="./category/sui-bi.html">随笔 (2)</a></li><li><a href="./category/tool.html">Tool (49)</a></li><li><a href="./category/tools.html">Tools (2)</a></li><li><a href="./category/virtualization.html">Virtualization (1)</a></li><li><a href="./category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./category/windows.html">Windows (1)</a></li><li><a href="./category/work.html">Work (24)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="./tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="./tag/7900xtx.html">7900XTX (3)</a></li><li><a href="./tag/9bmo-xing.html">9B模型 (1)</a></li><li><a href="./tag/abbreviations.html">abbreviations (1)</a></li><li><a href="./tag/academic.html">academic (1)</a></li><li><a href="./tag/adamw.html">AdamW (1)</a></li><li><a href="./tag/advice.html">advice (1)</a></li><li><a href="./tag/aerodynamics.html">aerodynamics (3)</a></li><li><a href="./tag/agent.html">Agent (3)</a></li><li><a href="./tag/ai.html">AI (31)</a></li><li><a href="./tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="./tag/aigc.html">AIGC (1)</a></li><li><a href="./tag/ailun-li.html">AI伦理 (1)</a></li><li><a href="./tag/airfoil.html">airfoil (1)</a></li><li><a href="./tag/algorithm.html">Algorithm (12)</a></li><li><a href="./tag/amd.html">AMD (1)</a></li><li><a href="./tag/anime.html">anime (1)</a></li><li><a href="./tag/arc.html">ARC (1)</a></li><li><a href="./tag/architecture.html">Architecture (3)</a></li><li><a href="./tag/arithmetic.html">arithmetic (1)</a></li><li><a href="./tag/attitude.html">Attitude (2)</a></li><li><a href="./tag/bayesian.html">Bayesian (2)</a></li><li><a href="./tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="./tag/beginner.html">Beginner (3)</a></li><li><a href="./tag/ben-di-bu-shu.html">本地部署 (5)</a></li><li><a href="./tag/ben-di-bu-shu-bing-yun-xing-omnicoder-9bde-su-du-zhi-mi-moxing-vs-ollama.html">本地部署并运行omnicoder-9b的速度之谜MoXing-vs-Ollama (1)</a></li><li><a href="./tag/ben-di-mo-xing.html">本地模型 (3)</a></li><li><a href="./tag/bfcl.html">BFCL (4)</a></li><li><a href="./tag/bi-ye-lun-wen.html">毕业论文 (1)</a></li><li><a href="./tag/bian-cheng.html">编程 (1)</a></li><li><a href="./tag/binary.html">binary (1)</a></li><li><a href="./tag/bing-fei-gu-yi-wei-shi-yao-wo-geng-duo-yong-ming-ling-xing-gong-ju-er-bu-shi-gui.html">并非故意-为什么我更多用命令行工具而不是GUI (1)</a></li><li><a href="./tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="./tag/book.html">Book (10)</a></li><li><a href="./tag/brent.html">Brent (1)</a></li><li><a href="./tag/bullshit.html">bullshit (1)</a></li><li><a href="./tag/c.html">C (10)</a></li><li><a href="./tag/camera.html">Camera (23)</a></li><li><a href="./tag/career.html">career (1)</a></li><li><a href="./tag/causation.html">Causation (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-da-mo-xing-omnicoder-9b-jian-ce-moxing-vs-ollama-dui-bi.html">超强的本地大模型-OmniCoder-9B-简测MoXing-vs-Ollama-对比 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-xiao-mo-xing-omnicoder-9bde-an-zhuang-yu-shi-yong-zhi-nan.html">超强的本地小模型OmniCoder-9B的安装与使用指南 (1)</a></li><li><a href="./tag/chao-xiao-mo-xing.html">超小模型 (1)</a></li><li><a href="./tag/chat.html">Chat (1)</a></li><li><a href="./tag/chatgpt.html">ChatGPT (1)</a></li><li><a href="./tag/cheng-chang.html">成长 (1)</a></li><li><a href="./tag/chouchou-pdflun-wen-zhong-ming-ming-gong-ju-sheng-ji-liao-zhe-ci-zhuan-men-you-hua-liao-zhong-wen-lun-wen-zhi-chi.html">Chou瞅-PDF论文重命名工具升级了这次专门优化了中文论文支持 (1)</a></li><li><a href="./tag/chouchou-yi-ge-pythonxiao-gong-ju-rang-ni-de-lun-wen-pdfwen-jian-ming-bu-zai-shi-luan-ma.html">Chou瞅一个Python小工具让你的论文PDF文件名不再是乱码 (1)</a></li><li><a href="./tag/chromebook.html">ChromeBook (2)</a></li><li><a href="./tag/cli.html">CLI (1)</a></li><li><a href="./tag/code.html">Code (2)</a></li><li><a href="./tag/code-generation.html">Code Generation (6)</a></li><li><a href="./tag/coding.html">Coding (1)</a></li><li><a href="./tag/cognition.html">Cognition (1)</a></li><li><a href="./tag/comics.html">comics (1)</a></li><li><a href="./tag/communicate.html">Communicate (6)</a></li><li><a href="./tag/communication.html">communication (3)</a></li><li><a href="./tag/comparison.html">comparison (1)</a></li><li><a href="./tag/computability.html">Computability (12)</a></li><li><a href="./tag/computer.html">computer (3)</a></li><li><a href="./tag/conda.html">Conda (2)</a></li><li><a href="./tag/conda-forge.html">conda-forge (1)</a></li><li><a href="./tag/configback-kua-ping-tai-kai-fa-pei-zhi-wen-jian-de-wu-tong-bei-fen-qian-yi-guan-li-gong-ju.html">ConfigBack-跨平台开发配置文件的无痛备份迁移管理工具 (1)</a></li><li><a href="./tag/cong-shu-zu-dao-fu-za-shu-ju-cyu-yan-shi-zen-yao-yi-bu-bu-bian-fu-za-de.html">从数组到复杂数据C语言是怎么一步步变复杂的 (1)</a></li><li><a href="./tag/copytalker-kua-yue-yu-yan-zhang-ai-de-jin-shi-shi-yu-yin-fan-yi.html">CopyTalker-跨越语言障碍的近实时语音翻译 (1)</a></li><li><a href="./tag/correlation.html">Correlation (1)</a></li><li><a href="./tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="./tag/cs.html">CS (1)</a></li><li><a href="./tag/cuda.html">CUDA (6)</a></li><li><a href="./tag/culture.html">culture (1)</a></li><li><a href="./tag/cursor.html">Cursor (1)</a></li><li><a href="./tag/cyu-yan-fu-xi-quan-gong-lue-yi-wen-chi-tou-suo-you-zhi-shi-dian.html">C语言复习全攻略-一文吃透所有知识点 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-numc-yi-ge-numpy-feng-ge-de-c-yu-yan-ku.html">C语言基础教程NumC-一个-NumPy-风格的-C-语言库 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shi-xian-lei-si-dong-tai-lei-xing-dui-yong-hu-shu-ru-jie-xi-bing-qie-xuan-ze-he-gua-de-shu-ju-lei-xing.html">C语言基础教程-实现类似动态类型对用户输入解析并且选择合适的数据类型 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shu-zu-xing-zhuang-50xing-200000lie-vs-200000xing-50lie-tong-yang-de-shu-ju-bu-tong-de-xing-neng.html">C语言基础教程数组形状-50行200000列-vs-200000行50列-同样的数据不同的性能 (1)</a></li><li><a href="./tag/da-gong.html">打工 (1)</a></li><li><a href="./tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="./tag/da-xue-sheng-huo.html">大学生活 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing.html">大语言模型 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing-li-mian-de-tokende-han-yi-he-yuan-liu.html">大语言模型里面的token的含义和源流 (1)</a></li><li><a href="./tag/dai-ma-neng-li.html">代码能力 (1)</a></li><li><a href="./tag/dan-jing-du-fu-dian-shu-de-fen-bian-lu-wei-shi-yao-zai-ji-suan-ji-li-1000-mo-he-1000-mo-jia-001-ke-neng-shi-yi-yang-de.html">单精度浮点数的分辨率为什么在计算机里-1000-万和-1000-万加-001-可能是一样的 (1)</a></li><li><a href="./tag/dan-yi-zhi-ze-yuan-ze-xie-hao-pythonhan-shu-de-di-yi-bu.html">单一职责原则写好Python函数的第一步 (1)</a></li><li><a href="./tag/data.html">Data (3)</a></li><li><a href="./tag/data-science.html">Data Science (2)</a></li><li><a href="./tag/database.html">Database (1)</a></li><li><a href="./tag/datewise-photo-organizer-ji-yu-ri-qi-shi-jian-jin-xing-tu-pian-zu-zhi-he-lu-jing-guan-li-de-she-ying-fu-zhu-gong-ju-ruan-jian.html">Datewise-Photo-Organizer-基于日期时间进行图片组织和路径管理的摄影辅助工具软件 (1)</a></li><li><a href="./tag/decision-making.html">decision-making (1)</a></li><li><a href="./tag/design.html">Design (1)</a></li><li><a href="./tag/dian-che-nan-ti-han-shang-de-zhi-jia-hui-zai-shi-gu-qian-tu-ran-tui-chu-yao.html">电车难题厂商的智驾会在事故前突然退出么 (1)</a></li><li><a href="./tag/dimension.html">dimension (1)</a></li><li><a href="./tag/discuss.html">Discuss (7)</a></li><li><a href="./tag/disease.html">Disease (1)</a></li><li><a href="./tag/diy.html">DIY (1)</a></li><li><a href="./tag/download.html">Download (1)</a></li><li><a href="./tag/earth-science.html">Earth Science (1)</a></li><li><a href="./tag/education.html">Education (15)</a></li><li><a href="./tag/efficiency.html">efficiency (1)</a></li><li><a href="./tag/ekf.html">EKF (1)</a></li><li><a href="./tag/emotion.html">emotion (1)</a></li><li><a href="./tag/engineering.html">Engineering (1)</a></li><li><a href="./tag/environment.html">Environment (1)</a></li><li><a href="./tag/er-ji.html">耳机 (1)</a></li><li><a href="./tag/er-jin-zhi.html">二进制 (1)</a></li><li><a href="./tag/ertinger-ting-yi-ge-jian-dan-de-yin-pin-jiang-zao-gong-ju.html">ErTing耳听一个简单的音频降噪工具 (1)</a></li><li><a href="./tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="./tag/fa-lan-ke-fu.html">法兰克福 (1)</a></li><li><a href="./tag/family.html">family (1)</a></li><li><a href="./tag/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">FanFu凡赴-把-Ollama-的-GGUF-模型转成-HuggingFace-格式纯好玩 (1)</a></li><li><a href="./tag/fang-fa-bi-gui-mo-geng-zhong-yao-agenticqwenyu-needlede-xiao-mo-xing-zhi-neng-ti-ying-yong-tan-suo.html">方法比规模更重要AgenticQwen与Needle的小模型智能体应用探索 (1)</a></li><li><a href="./tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="./tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="./tag/filtering.html">Filtering (6)</a></li><li><a href="./tag/folderlensyi-ge-pyside6shi-xian-de-jian-dan-wen-jian-guan-li-qi-kai-fa-shi-li.html">FolderLens一个PySide6实现的简单文件管理器开发实例 (1)</a></li><li><a href="./tag/fractal.html">fractal (1)</a></li><li><a href="./tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="./tag/freshman.html">freshman (5)</a></li><li><a href="./tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="./tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./tag/function-calling.html">function calling (1)</a></li><li><a href="./tag/game.html">Game (2)</a></li><li><a href="./tag/gametheory.html">GameTheory (1)</a></li><li><a href="./tag/gangdan-de-zhi-shi-ku-shi-zen-yao-lian-cheng-de.html">GangDan-的知识库是怎么炼成的 (1)</a></li><li><a href="./tag/gangdan-geng-xin-ke-yong-zai-xian-mo-xing-cong-xie-zong-shu-dao-xie-wan-zheng-wen-zhang.html">GangDan-更新可用在线模型从写综述到写完整文章 (1)</a></li><li><a href="./tag/gangdan-wu-yue-zhong-de-ji-zhong-geng-xin-jing-zhun-xuan-wen-zhi-shi-ku-fen-xi-xue-xi-mo-kuai-quan-mian-xiu-fu.html">GangDan-五月中的集中更新精准选文知识库分析学习模块全面修复 (1)</a></li><li><a href="./tag/gangdan-you-geng-xin-liao-yi-bo-cong-kai-fa-zhu-shou-zhuan-xing-wei-zhi-shi-guan-li-yu-jiao-xue-fu-zhu-gong-ju.html">GangDan-又更新了一波从开发助手转型为知识管理与教学辅助工具 (1)</a></li><li><a href="./tag/gangdangang-dan-sheng-ji-kai-yuan-ben-di-zhi-shi-ku-zhi-chi-ben-di-mo-xing-he-zai-xian-mo-xing-de-shen-du-yan-jiu-zhu-shou.html">GangDan纲担升级开源本地知识库-支持本地模型和在线模型的深度研究助手 (1)</a></li><li><a href="./tag/gangdangang-dan-zhong-gou-ji-hu-zhong-zuo-liao-yi-bian.html">GangDan纲担重构-几乎重做了一遍 (1)</a></li><li><a href="./tag/gangdanji-xu-geng-xin-xian-zai-neng-zhi-jie-shang-chuan-cajgou-jian-zhi-shi-ku-liao.html">GangDan继续更新现在能直接上传CAJ构建知识库了 (1)</a></li><li><a href="./tag/gangdanzhi-shi-ku-dao-chu-gai-jin-ke-yi-zhi-jie-dao-chu-xia-zai-hao-de-wen-zhang-yuan-wen-liao.html">GangDan知识库导出改进-可以直接导出下载好的文章原文了 (1)</a></li><li><a href="./tag/gao-xiao-jiao-shi-jian-yi-da-yi-kai-xue-yao-you-dian-nao-huan-yao-an-zhuang-opencodeshi-yong-zhi-neng-ti.html">高校教师建议大一开学要有电脑还要安装OpenCode使用智能体 (1)</a></li><li><a href="./tag/gei-xin-shou-shi-xian-yi-wei-shu-zu-de-liang-chong-si-lu-chuan-tong-cyu-yan-vs-numcku.html">给新手实现一维数组的两种思路传统C语言-vs-NumC库 (1)</a></li><li><a href="./tag/gemma4.html">Gemma4 (1)</a></li><li><a href="./tag/general-education.html">general-education (1)</a></li><li><a href="./tag/geojstool-di-qiu-hua-xue-fen-xi-gong-ju-wang-ye-ban-de-geopytool.html">GeoJsTool-地球化学分析工具-网页版的GeoPyTool (1)</a></li><li><a href="./tag/geology.html">Geology (4)</a></li><li><a href="./tag/geometry.html">geometry (1)</a></li><li><a href="./tag/geopython.html">GeoPython (1)</a></li><li><a href="./tag/gguf.html">GGUF (2)</a></li><li><a href="./tag/gis.html">GIS (3)</a></li><li><a href="./tag/glm.html">GLM (1)</a></li><li><a href="./tag/glumpy.html">GlumPy (2)</a></li><li><a href="./tag/golden-section.html">Golden Section (1)</a></li><li><a href="./tag/gong-ju-diao-yong.html">工具调用 (2)</a></li><li><a href="./tag/google-de-turboquant-suan-fa-ru-he-rang-aigeng-sheng-nei-cun-gao-ding-xiang-liang-liang-hua-nan-ti.html">Google-的-TurboQuant-算法如何让AI更省内存搞定向量量化难题 (1)</a></li><li><a href="./tag/gpt-35.html">GPT-3.5 (3)</a></li><li><a href="./tag/gpt-4o.html">GPT-4o (1)</a></li><li><a href="./tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="./tag/graduate-school.html">graduate-school (1)</a></li><li><a href="./tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="./tag/granite4.html">granite4 (1)</a></li><li><a href="./tag/gsm8k.html">GSM8K (2)</a></li><li><a href="./tag/gu-ge-turboquant-lun-wen-zhong-yi-ji-yu-jin-zui-you-niu-qu-lu-de-gao-su-zai-xian-xiang-liang-liang-hua-suan-fa.html">谷歌-TurboQuant-论文中译基于近最优扭曲率的高速在线向量量化算法 (1)</a></li><li><a href="./tag/guan-xi-xing-shu-ju-ku.html">关系型数据库 (1)</a></li><li><a href="./tag/guide.html">Guide (1)</a></li><li><a href="./tag/hack.html">Hack (2)</a></li><li><a href="./tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="./tag/hadoop.html">Hadoop (2)</a></li><li><a href="./tag/hardware.html">Hardware (2)</a></li><li><a href="./tag/hate.html">Hate (1)</a></li><li><a href="./tag/hbase.html">HBase (1)</a></li><li><a href="./tag/heibancong-markdownzhuan-chu-ppthuan-deng-pian.html">HeiBan从Markdown转出PPT幻灯片 (1)</a></li><li><a href="./tag/heibanhei-ban-jiang-markdownzhuan-huan-cheng-htmllai-dang-jiang-yi.html">HeiBan黑板-将Markdown转换成HTML来当讲义 (1)</a></li><li><a href="./tag/hellaswag.html">HellaSwag (2)</a></li><li><a href="./tag/hermes.html">Hermes (1)</a></li><li><a href="./tag/heroism.html">heroism (1)</a></li><li><a href="./tag/history.html">History (6)</a></li><li><a href="./tag/huan-jue.html">幻觉 (1)</a></li><li><a href="./tag/huan-wei-si-kao-he-ni-chou-sha.html">换位思考和你瞅啥 (1)</a></li><li><a href="./tag/huan-yi-ge-ba-wang-ye-zhuan-huan-cheng-markdownde-python-xiao-gong-ju.html">Huan-一个把网页转换成-Markdown的Python-小工具 (1)</a></li><li><a href="./tag/hui-yi.html">回忆 (1)</a></li><li><a href="./tag/humaneval.html">HumanEval (2)</a></li><li><a href="./tag/ide.html">IDE (2)</a></li><li><a href="./tag/imbalance.html">Imbalance (1)</a></li><li><a href="./tag/imu.html">IMU (1)</a></li><li><a href="./tag/jacobian.html">Jacobian (1)</a></li><li><a href="./tag/java-ji-chu-yu-fa-5fen-zhong-ru-men.html">Java-基础语法5分钟入门 (1)</a></li><li><a href="./tag/ji-chu-zhi-shi-chu-ji-tong-ji-gai-nian-de-jian-dan-jie-shao.html">基础知识初级统计概念的简单介绍 (1)</a></li><li><a href="./tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="./tag/ji-nian.html">纪念 (1)</a></li><li><a href="./tag/ji-suan-ji.html">计算机 (1)</a></li><li><a href="./tag/ji-suan-ji-zu-cheng.html">计算机组成 (1)</a></li><li><a href="./tag/ji-yu-ben-di-mo-xing-de-bian-cheng-xue-xi-fu-zhu-huan-jing-da-jian-wan-zheng-zhi-nan.html">基于本地模型的编程学习辅助环境搭建完整指南 (1)</a></li><li><a href="./tag/ji-yu-tunade-virtualbox-yu-ubuntu-xu-ni-ji-bu-shu-zhi-nan.html">基于TUNA的-VirtualBox-与-Ubuntu-虚拟机部署指南 (1)</a></li><li><a href="./tag/jian-dan-shuo-shuo-pythonli-mian-de-han-shu-shi-di-yi-gong-min-first-class-citizen.html">简单说说Python里面的函数是第一公民First-Class-Citizen (1)</a></li><li><a href="./tag/jie-zhu-pythonlai-li-jie-zi-gua-ying-xin-pu-sen-ji-fen-yuan-li-shi-xian-yu-dong-tai-ke-shi-hua.html">借助Python来理解自适应辛普森积分原理实现与动态可视化 (1)</a></li><li><a href="./tag/jing-xiang.html">镜像 (1)</a></li><li><a href="./tag/jiu-wen-gao-bie-guo-qu-gao-bie-ke-xue-wang.html">旧文告别过去告别科学网 (1)</a></li><li><a href="./tag/jixingji-xing-dang-agent-dui-hua-chao-chu-shang-xia-wen-xian-zhi-zuo-liao-yi-ge-lei-si-xu-ni-ji-re-qian-yi-cao-lu-fang-an.html">JiXing记行-当-Agent-对话超出上下文限制做了一个类似虚拟机热迁移草率方案 (1)</a></li><li><a href="./tag/job.html">Job (1)</a></li><li><a href="./tag/job-hunting.html">job-hunting (1)</a></li><li><a href="./tag/junck.html">Junck (3)</a></li><li><a href="./tag/kalman.html">Kalman (1)</a></li><li><a href="./tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="./tag/kao-yan-qu-mei-chu-shi-yu-fu-shi.html">考研祛魅初试与复试 (1)</a></li><li><a href="./tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="./tag/kivy.html">Kivy (3)</a></li><li><a href="./tag/kuan-biao.html">宽表 (1)</a></li><li><a href="./tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="./tag/language.html">Language (1)</a></li><li><a href="./tag/learn.html">Learn (4)</a></li><li><a href="./tag/learning.html">Learning (10)</a></li><li><a href="./tag/lens.html">Lens (19)</a></li><li><a href="./tag/lesson.html">Lesson (1)</a></li><li><a href="./tag/lfm.html">LFM (1)</a></li><li><a href="./tag/lfm25.html">lfm2.5 (1)</a></li><li><a href="./tag/li-yong-chao-qiang-de-xiao-mo-xing-omnicoder-9b-shi-shi-turboquant-liang-hua-kv-cache-2-bit-tiao-zhan-fp1.html">利用超强的小模型-OmniCoder-9B-试试-TurboQuant-量化-KV-Cache-2-bit-挑战-FP1 (1)</a></li><li><a href="./tag/li-yong-pythonshi-xian-de-yu-ben-di-da-mo-xing-jiao-hu-de-posix-jian-rong-ceng.html">利用Python实现的与本地大模型交互的POSIX-兼容层 (1)</a></li><li><a href="./tag/liang-hua.html">量化 (3)</a></li><li><a href="./tag/liaoliao-rang-ben-di-da-yu-yan-mo-xing-ai-bang-ni-liao-tian-de-kai-yuan-gong-ju.html">Liao聊-让本地大语言模型-AI-帮你聊天的开源工具 (1)</a></li><li><a href="./tag/library.html">Library (1)</a></li><li><a href="./tag/life.html">life (16)</a></li><li><a href="./tag/lift.html">lift (1)</a></li><li><a href="./tag/linux.html">Linux (9)</a></li><li><a href="./tag/liquid-ai.html">Liquid AI (1)</a></li><li><a href="./tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="./tag/llamacpp.html">llama.cpp (3)</a></li><li><a href="./tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="./tag/llm.html">LLM (7)</a></li><li><a href="./tag/ltfs.html">LTFS (1)</a></li><li><a href="./tag/lto.html">LTO (1)</a></li><li><a href="./tag/mac.html">Mac (11)</a></li><li><a href="./tag/macbook-air-m4.html">MacBook Air M4 (2)</a></li><li><a href="./tag/macos.html">macOS (1)</a></li><li><a href="./tag/markdown.html">Markdown (1)</a></li><li><a href="./tag/materials.html">Materials (1)</a></li><li><a href="./tag/math.html">Math (3)</a></li><li><a href="./tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="./tag/mathematics.html">mathematics (1)</a></li><li><a href="./tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="./tag/maturity.html">maturity (1)</a></li><li><a href="./tag/mayavi.html">MayaVi (1)</a></li><li><a href="./tag/mechanics.html">Mechanics (1)</a></li><li><a href="./tag/memory.html">Memory (4)</a></li><li><a href="./tag/methodology.html">Methodology (1)</a></li><li><a href="./tag/mian-dui-wu-mai-ni-shi-wu-neng-wei-li-huan-shi-xiu-shou-pang-guan.html">面对雾霾你是无能为力还是袖手旁观 (1)</a></li><li><a href="./tag/mian-xiang-dui-xiang-bian-cheng-ru-men-yong-wu-xia-jiao-se-li-jie-python-zhong-de-lei.html">面向对象编程入门用武侠角色理解-Python-中的类 (1)</a></li><li><a href="./tag/microscope.html">Microscope (2)</a></li><li><a href="./tag/mindset.html">mindset (2)</a></li><li><a href="./tag/miniconda3.html">Miniconda3 (1)</a></li><li><a href="./tag/ml.html">ML (4)</a></li><li><a href="./tag/mlx.html">mlx (1)</a></li><li><a href="./tag/mmlu.html">MMLU (2)</a></li><li><a href="./tag/mo-xing-ping-ce.html">模型评测 (1)</a></li><li><a href="./tag/mobile.html">Mobile (1)</a></li><li><a href="./tag/moe.html">MoE (1)</a></li><li><a href="./tag/moon.html">Moon (1)</a></li><li><a href="./tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="./tag/moving-average.html">Moving Average (1)</a></li><li><a href="./tag/moxing.html">moxing (1)</a></li><li><a href="./tag/moxing-he-ollama-dui-bi-cong-omnicoder-9bdao-geng-duo-mo-xing.html">MoXing-和-Ollama-对比从omnicoder-9b到更多模型 (1)</a></li><li><a href="./tag/moxing-su-du-zui-gao-da-dao-ollamade-201-tong-mo-xing-tong-ying-jian-de-shi-ce-dui-bi-omnicoder-2-9b-de-q4_k_m.html">MoXing-速度最高达到-Ollama的-201-同模型同硬件的实测对比OmniCoder-2-9B-的-Q4_K_M (1)</a></li><li><a href="./tag/moxing-wu-yue-geng-xin-suan-shi-lai-liao-ge-da-sao-chu.html">MoXing-五月更新算是来了个大扫除 (1)</a></li><li><a href="./tag/moxing-zhu-li-la-ji-lao-yong-bai-yuan-chao-lian-jie-xian-qia-ben-di-yun-xing-omnicoder-2-9bmo-xing-jie-guo-ye-zhi-you-shi-ji-ge-tokenss.html">MoXing-助力垃圾佬用百元超廉价显卡本地运行omnicoder-2-9b模型结果也只有十几个tokenss (1)</a></li><li><a href="./tag/moxingdi-yu-suan-chang-jing-yong-rx580xian-qia-qing-song-yun-xing-qwen35-9b-q4_k_mmo-xing.html">MoXing低预算场景用RX580显卡轻松运行Qwen35-9b-q4_k_m模型 (1)</a></li><li><a href="./tag/moxingsheng-ji-tong-shi-yun-xing-duo-ge-mo-xing-shi-li.html">MoXing升级同时运行多个模型实例 (1)</a></li><li><a href="./tag/moxingxin-sheng-ji-zhi-jie-duo-she-ollama-bu-fen-mo-xing-ti-su-50.html">MoXing新升级直接夺舍-Ollama-部分模型提速-50 (1)</a></li><li><a href="./tag/mtp.html">MTP (1)</a></li><li><a href="./tag/muon.html">Muon (1)</a></li><li><a href="./tag/n8n.html">n8n (1)</a></li><li><a href="./tag/nas.html">NAS (1)</a></li><li><a href="./tag/nemotron.html">Nemotron (1)</a></li><li><a href="./tag/network.html">Network (1)</a></li><li><a href="./tag/ni-de-dian-nao-mei-miao-neng-zuo-duo-shao-ci-fu-dian-yun-suan-flops-de-gu-shi.html">你的电脑每秒能做多少次浮点运算FLOPS-的故事 (1)</a></li><li><a href="./tag/niu-dun-fa-qiu-jie-guo-cheng-de-pythonshi-xian-ji-qi-xiang-jie.html">牛顿法求解过程的Python实现及其详解 (1)</a></li><li><a href="./tag/nixos.html">NixOS (1)</a></li><li><a href="./tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="./tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="./tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="./tag/nosql.html">NoSQL (1)</a></li><li><a href="./tag/numpy.html">NumPy (1)</a></li><li><a href="./tag/nuoyi-geng-xin-xin-zeng-zai-xian-zhuan-huan-yin-qing-mei-xian-qia-ye-bu-pa-chang-wen-dang-ye-bu-na-yao-tou-teng.html">NuoYi-更新新增在线转换引擎没显卡也不怕长文档也不那么头疼 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-geng-xin-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju-shao-wei-sheng-yi-dian-xian-cun-liao.html">NuoYi-挪移更新-离线的-PDFDOCX-转-Markdown-工具稍微省一点显存了 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-yi-ge-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju.html">NuoYi-挪移-一个离线的-PDFDOCX-转-Markdown-工具 (1)</a></li><li><a href="./tag/nvidia.html">Nvidia (1)</a></li><li><a href="./tag/ocr.html">OCR (1)</a></li><li><a href="./tag/ollama.html">Ollama (20)</a></li><li><a href="./tag/ollamaaidgei-ni-guan-li-ben-di-da-mo-xing-pei-ge-de-li-zhu-shou.html">OllamaAid给你管理本地大模型配个得力助手 (1)</a></li><li><a href="./tag/ollamageng-xin-suo-you-ben-di-mo-xing.html">Ollama更新所有本地模型 (1)</a></li><li><a href="./tag/ollamaqian-ru-mo-xing-xuan-xing-zhi-nan-zhu-liu-mo-xing-shen-du-dui-bi.html">Ollama嵌入模型选型指南-主流模型深度对比 (1)</a></li><li><a href="./tag/omlx.html">omlx (1)</a></li><li><a href="./tag/opc.html">OPC (1)</a></li><li><a href="./tag/opencl.html">OpenCL (1)</a></li><li><a href="./tag/opencode.html">opencode (11)</a></li><li><a href="./tag/opencode-jin-jie-zhi-ji-neng-chuang-zuo-chai-jie-miao-shu-dian-xing-ren-wu-hou-yan-zheng-shi-xian-zai-zuo-cheng-ke-fu-yong-de-ji-neng.html">OpenCode-进阶之技能创作拆解描述典型任务后验证实现再做成可复用的技能 (1)</a></li><li><a href="./tag/opencode-skillsfen-xiang-yi-tao-zi-ji-luan-xie-de-huan-suan-shi-yong-de-ai-bian-ma-ji-neng-ku.html">OpenCode-Skills分享一套自己乱写的还算实用的-AI-编码技能库 (1)</a></li><li><a href="./tag/openlaoke-geng-xin-ben-di-gguf-mo-xing-ling-api-fei-yong-pao-qi-lai.html">OpenLaoKe-更新本地-GGUF-模型零-API-费用跑起来 (1)</a></li><li><a href="./tag/openlaokelao-ke-yi-ge-ming-ling-xing-aizhu-shou.html">OpenLaoKe唠嗑一个命令行AI助手 (1)</a></li><li><a href="./tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="./tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="./tag/optimization.html">Optimization (2)</a></li><li><a href="./tag/os.html">os (1)</a></li><li><a href="./tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="./tag/parenting.html">Parenting (1)</a></li><li><a href="./tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="./tag/path.html">PATH (1)</a></li><li><a href="./tag/pdfjie-xi.html">PDF解析 (1)</a></li><li><a href="./tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="./tag/performance.html">Performance (1)</a></li><li><a href="./tag/phd.html">PHD (2)</a></li><li><a href="./tag/philosophy.html">philosophy (2)</a></li><li><a href="./tag/photo.html">Photo (23)</a></li><li><a href="./tag/photography.html">Photography (2)</a></li><li><a href="./tag/physics.html">Physics (3)</a></li><li><a href="./tag/ping-ce.html">评测 (1)</a></li><li><a href="./tag/poem.html">Poem (2)</a></li><li><a href="./tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="./tag/programming.html">Programming (11)</a></li><li><a href="./tag/prompt.html">Prompt (1)</a></li><li><a href="./tag/psychology.html">Psychology (1)</a></li><li><a href="./tag/pve.html">PVE (2)</a></li><li><a href="./tag/pyenv.html">Pyenv (2)</a></li><li><a href="./tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="./tag/python.html">Python (70)</a></li><li><a href="./tag/python-ji-chu-yu-fa-5fen-zhong-ru-men.html">Python-基础语法5分钟入门 (1)</a></li><li><a href="./tag/qemu.html">QEMU (1)</a></li><li><a href="./tag/qgis.html">QGIS (3)</a></li><li><a href="./tag/qt.html">QT (1)</a></li><li><a href="./tag/qu-shen-cha.html">去审查 (1)</a></li><li><a href="./tag/qwen3.html">Qwen3 (10)</a></li><li><a href="./tag/qwen35.html">qwen3.5 (1)</a></li><li><a href="./tag/qwen36.html">Qwen3.6 (3)</a></li><li><a href="./tag/qwen38.html">Qwen3.8 (4)</a></li><li><a href="./tag/radio.html">Radio (2)</a></li><li><a href="./tag/rag.html">RAG (1)</a></li><li><a href="./tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="./tag/raspbian.html">Raspbian (1)</a></li><li><a href="./tag/reading.html">reading (2)</a></li><li><a href="./tag/reflection.html">reflection (4)</a></li><li><a href="./tag/remote.html">Remote (1)</a></li><li><a href="./tag/research.html">Research (3)</a></li><li><a href="./tag/resume.html">resume (1)</a></li><li><a href="./tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="./tag/ri-chang-sheng-huo.html">日常生活 (1)</a></li><li><a href="./tag/rotation.html">Rotation (1)</a></li><li><a href="./tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="./tag/rtx-4070.html">RTX 4070 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-jia-gou-shi-zhuan-ye-ying-yu-gao-pin-ci-hui-biao.html">软考高级系统架构设计师知识精要-架构师专业英语高频词汇表 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-ce-shi-yu-yun-xing-wei-hu.html">软考高级系统架构设计师知识精要-软件测试与运行维护 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-gong-cheng-yu-kai-fa-fang-fa.html">软考高级系统架构设计师知识精要-软件工程与开发方法 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-jia-gou-she-ji-yu-ping-gu.html">软考高级系统架构设计师知识精要-软件架构设计与评估 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-an-quan-yu-qu-kuai-lian-ji-zhu.html">软考高级系统架构设计师知识精要-系统安全与区块链技术 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-jian-mo-yu-umlshe-ji.html">软考高级系统架构设计师知识精要-系统建模与UML设计 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xi-xi-tong-yu-qi-ye-xin-xi-hua.html">软考高级系统架构设计师知识精要-信息系统与企业信息化 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xing-ji-zhu-yu-ji-chu-she-shi.html">软考高级系统架构设计师知识精要-新兴技术与基础设施 (1)</a></li><li><a href="./tag/rust.html">Rust (1)</a></li><li><a href="./tag/rustyu-yan-cheng-xu-she-ji-ji-chu-di-san-zhang-fu-he-shu-ju-lei-xing-yu-xun-huan.html">Rust语言程序设计基础第三章复合数据类型与循环 (1)</a></li><li><a href="./tag/rx590.html">RX590 (1)</a></li><li><a href="./tag/sandbox.html">SandBox (1)</a></li><li><a href="./tag/scholar.html">Scholar (2)</a></li><li><a href="./tag/school.html">School (3)</a></li><li><a href="./tag/science.html">Science (3)</a></li><li><a href="./tag/search.html">Search (1)</a></li><li><a href="./tag/self-study.html">Self-Study (1)</a></li><li><a href="./tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="./tag/server.html">Server (1)</a></li><li><a href="./tag/shang-ye-xin-xi.html">商业信息 (1)</a></li><li><a href="./tag/sheng-cheng-su-du.html">生成速度 (1)</a></li><li><a href="./tag/shi-jie-yi-liu-da-xue-shuo-shuo-er-yi-huan-shi-zhen-de-qu-zuo.html">世界一流大学说说而已还是真的去做 (1)</a></li><li><a href="./tag/shi-yong-llama-factory-cong-modelscope-xia-zai-mo-xing-bing-wei-diao.html">使用-LLaMA-Factory-从-ModelScope-下载模型并微调 (1)</a></li><li><a href="./tag/shi-yong-ollamakuai-su-bu-shu-bing-yun-xing-zui-xin-de-qwen3-30b-a3b-2507mo-xing.html">使用ollama快速部署并运行最新的qwen3-30b-a3b-2507模型 (1)</a></li><li><a href="./tag/shit.html">Shit (1)</a></li><li><a href="./tag/shu-ju-an-quan.html">数据安全 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-0zhang-cyu-yan-pythonde-di-ceng-shi-jiao.html">数据结构与算法基础-第0章-C语言Python的底层视角 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-1zhang-suan-fa-ji-chu-yu-fu-za-du-fen-xi.html">数据结构与算法基础-第1章-算法基础与复杂度分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-2zhang-xian-xing-shu-ju-jie-gou.html">数据结构与算法基础-第2章-线性数据结构 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-4zhang-tu-lun-ji-chu.html">数据结构与算法基础-第4章-图论基础 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-5zhang-pai-xu-suan-fa.html">数据结构与算法基础-第5章-排序算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-6zhang-sou-suo-suan-fa.html">数据结构与算法基础-第6章-搜索算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-7zhang-dong-tai-gui-hua.html">数据结构与算法基础-第7章-动态规划 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-8zhang-gao-ji-suan-fa.html">数据结构与算法基础-第8章-高级算法 (1)</a></li><li><a href="./tag/shu-ju-ke-shi-hua.html">数据可视化 (1)</a></li><li><a href="./tag/shu-ju-ku.html">数据库 (1)</a></li><li><a href="./tag/shu-ju-lei-xing.html">数据类型 (1)</a></li><li><a href="./tag/shu-zhi-ji-fen-man-tan-ru-he-rang-yong-pythonqiu-ji-fen.html">数值积分漫谈如何让用Python求积分 (1)</a></li><li><a href="./tag/shui-ke-xing-cun-zhi-nan-ru-guo-ni-bei-po-yao-qu-ting-ni-bu-xi-huan-de-ke-cheng-gai-zen-yao-ban.html">水课幸存指南-如果你被迫要去听你不喜欢的课程该怎么办 (1)</a></li><li><a href="./tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="./tag/signal-processing.html">Signal Processing (3)</a></li><li><a href="./tag/skill.html">skill (3)</a></li><li><a href="./tag/smollm2.html">smollm2 (1)</a></li><li><a href="./tag/software.html">Software (1)</a></li><li><a href="./tag/sou-suo.html">搜索 (1)</a></li><li><a href="./tag/sports.html">sports (1)</a></li><li><a href="./tag/sql.html">SQL (1)</a></li><li><a href="./tag/state-space.html">State Space (1)</a></li><li><a href="./tag/statistics.html">Statistics (1)</a></li><li><a href="./tag/story.html">Story (50)</a></li><li><a href="./tag/sui-bi.html">随笔 (1)</a></li><li><a href="./tag/t-bench.html">τ-bench (1)</a></li><li><a href="./tag/tape.html">Tape (1)</a></li><li><a href="./tag/telescope.html">Telescope (1)</a></li><li><a href="./tag/terminal.html">Terminal (1)</a></li><li><a href="./tag/textbook.html">textbook (1)</a></li><li><a href="./tag/thinking.html">Thinking (7)</a></li><li><a href="./tag/ti-xing-fa-qiu-ji-fen-de-pythonshi-xian.html">梯形法求积分的Python实现 (1)</a></li><li><a href="./tag/tian-biao.html">填表 (1)</a></li><li><a href="./tag/time-series.html">Time Series (1)</a></li><li><a href="./tag/tokenzi-you-yong-moxingzai-7900xtx-24gxian-qia-shang-ben-di-yun-xing-qwen36-27bmo-xing-gei-opencodeyong-lai-wen-dang-bian.html">Token自由-用MoXing在7900xtx-24G显卡上本地运行Qwen36-27B模型给OpenCode用来文档编 (1)</a></li><li><a href="./tag/tong-ji-xue.html">统计学 (1)</a></li><li><a href="./tag/tong-men-xiang-can-bai-yuan-xian-qia-de-ben-di-mo-xing-da-zhan-rx580-16g-2048sp-vs-rx590-8g-2304sp.html">同门相残-百元显卡的本地模型大战RX580-16G-2048SP-VS-RX590-8G-2304SP (1)</a></li><li><a href="./tag/tong-nian.html">童年 (1)</a></li><li><a href="./tag/tong-xue.html">同学 (1)</a></li><li><a href="./tag/tool.html">Tool (8)</a></li><li><a href="./tag/tool-calling.html">tool calling (3)</a></li><li><a href="./tag/toolbench.html">ToolBench (1)</a></li><li><a href="./tag/tools.html">Tools (10)</a></li><li><a href="./tag/traffic.html">Traffic (1)</a></li><li><a href="./tag/translate.html">Translate (2)</a></li><li><a href="./tag/translation.html">Translation (1)</a></li><li><a href="./tag/transpaste-sheng-ji-yi-ge-jian-tie-ban-fan-yi-gong-ju-de-zi-wo-xiu-yang.html">TransPaste-升级一个剪贴板翻译工具的自我修养 (1)</a></li><li><a href="./tag/transpaste-yi-kuan-ji-yu-ben-di-da-yu-yan-mo-xing-de-qing-liang-ji-jian-tie-ban-fan-yi-gong-ju.html">TransPaste-一款基于本地大语言模型的轻量级剪贴板翻译工具 (1)</a></li><li><a href="./tag/transpasteben-di-ai-fan-yi-gong-ju-xin-ban-ben-sheng-ji-hou-zhi-chi-geng-duo-xi-li-du-de-fan-yi-kong-zhi.html">TransPaste本地-AI-翻译工具新版本升级后支持更多细粒度的翻译控制 (1)</a></li><li><a href="./tag/tui.html">TUI (1)</a></li><li><a href="./tag/tui-jian-yi-kuan-markdownde-kua-ping-tai-chi-xian-bian-ji-qi-zhi-chi-sui-shi-yu-lan.html">推荐一款MarkDown的跨平台离线编辑器支持随时预览 (1)</a></li><li><a href="./tag/tuna.html">TUNA (1)</a></li><li><a href="./tag/turing.html">Turing (12)</a></li><li><a href="./tag/tutorial.html">tutorial (2)</a></li><li><a href="./tag/uav.html">UAV (1)</a></li><li><a href="./tag/ubuntu.html">Ubuntu (4)</a></li><li><a href="./tag/ubuntu-shou-dong-an-zhuang-ollama-0171-lai-yun-xing-qwen3535b-a3b-de-xiang-xi-zhi-nan.html">Ubuntu-手动安装-Ollama-0171-来运行-qwen3535b-a3b-的详细指南 (1)</a></li><li><a href="./tag/ui.html">UI (1)</a></li><li><a href="./tag/ukf.html">UKF (1)</a></li><li><a href="./tag/university.html">university (14)</a></li><li><a href="./tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="./tag/ustc.html">USTC (1)</a></li><li><a href="./tag/ventoy.html">Ventoy (1)</a></li><li><a href="./tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="./tag/vibe-coding-fen-wei-bian-cheng-an-li-tong-guo-dui-hua-shi-xian-ke-yong-de-kuai-su-cha-biao-gong-ju.html">Vibe-Coding-氛围编程案例-通过对话实现可用的快速查表工具 (1)</a></li><li><a href="./tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="./tag/video.html">video (2)</a></li><li><a href="./tag/vidtogif-yi-ge-jian-dan-gao-xiao-de-shi-pin-zhuan-gif-gong-ju.html">VidToGif-一个简单高效的视频转-GIF-工具 (1)</a></li><li><a href="./tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="./tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="./tag/virtualization.html">Virtualization (1)</a></li><li><a href="./tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./tag/vispy.html">VisPy (1)</a></li><li><a href="./tag/visualization.html">Visualization (8)</a></li><li><a href="./tag/vm.html">VM (1)</a></li><li><a href="./tag/vmwarexu-ni-ji-yun-xing-macosunlcokrecoveryosoc4vm-shi-xian-ti-gong-bai-du-yun-pan-xia-zai.html">VMware虚拟机运行macOSunlcokrecoveryosOC4VM-实现提供百度云盘下载 (1)</a></li><li><a href="./tag/void-moxingdi-cheng-ben-fang-an-yong-rx580xian-qia-ben-di-yun-xing-qwen359bmo-xing-da-zao-lei-cursorti-yan.html">Void-MoXing低成本方案用RX580显卡本地运行qwen359B模型打造类Cursor体验 (1)</a></li><li><a href="./tag/vtk.html">VTK (1)</a></li><li><a href="./tag/web.html">Web (1)</a></li><li><a href="./tag/wen-ben-shou-ji.html">文本收集 (1)</a></li><li><a href="./tag/wen-dang-he-cha.html">文档核查 (1)</a></li><li><a href="./tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="./tag/windows.html">Windows (4)</a></li><li><a href="./tag/windows-xi-tong-xia-cong-qing-hua-da-xue-tuna-jing-xiang-an-zhuang-miniconda3-wan-zheng-zhi-nan.html">Windows-系统下从清华大学-TUNA-镜像安装-Miniconda3-完整指南 (1)</a></li><li><a href="./tag/windows11.html">Windows11 (1)</a></li><li><a href="./tag/wingetguigei-windows-bao-guan-li-qi-jia-ge-tu-xing-jie-mian.html">WinGetGUI给-Windows-包管理器加个图形界面 (1)</a></li><li><a href="./tag/winogrande.html">WinoGrande (1)</a></li><li><a href="./tag/workflow.html">workflow (1)</a></li><li><a href="./tag/xcode.html">Xcode (1)</a></li><li><a href="./tag/xia-zai.html">下载 (1)</a></li><li><a href="./tag/xian-jiao-hui-zai-rang-ta-zuo-da-mo-xing-ding-zhi-hua-li-cpthe-sftdao-di-zai-gan-shi-yao.html">先教会再让它做大模型定制化里CPT和SFT到底在干什么 (1)</a></li><li><a href="./tag/xiang-sheng.html">相声 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-er-hui-jiu-suan-shi-sun-wu-kong-shang-da-xue-ye-de-yong-gong.html">小猴子学编程第二回就算是孙悟空上大学也得用功 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-san-hui-shi-yi-zhi-pa-zai-na-zi-yuan-zi-ai-huan-shi-gan-jin-zhun-bei-qu-xin-fu-ben.html">小猴子学编程第三回是一直趴在那自怨自艾还是赶紧准备去新副本 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-si-hui-chong-zhi-bu-hui-rang-ni-bian-qiang-xue-xi-cai-hui.html">小猴子学编程第四回充值不会让你变强学习才会 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-yi-hui-na-pa-shi-sun-wu-kong-ye-xu-yao-xue-xi.html">小猴子学编程第一回哪怕是孙悟空也需要学习 (1)</a></li><li><a href="./tag/xiao-mo-xing.html">小模型 (1)</a></li><li><a href="./tag/xiao-mo-xing-ping-ce.html">小模型评测 (2)</a></li><li><a href="./tag/xiao-you.html">校友 (1)</a></li><li><a href="./tag/xiexie-ba-markdown-zhuan-cheng-wei-xin-gong-zhong-hao-ge-shi-wang-ye-de-xiao-gong-ju.html">Xie写把-Markdown-转成微信公众号格式网页的小工具 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-markdown-shu-xue-gong-shi-zhi-nan.html">新手向的-Markdown-数学公式指南 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-ruan-kao-gao-ji-jia-gou-shi-wan-quan-bei-kao-zhi-nan.html">新手向的软考高级架构师完全备考指南 (1)</a></li><li><a href="./tag/xing-neng-shi-ce.html">性能实测 (1)</a></li><li><a href="./tag/xiu-liao-transpastede-4ge-bug.html">修了TransPaste的4个bug (1)</a></li><li><a href="./tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="./tag/xue-xi-lu-de-qian-shi-jin-sheng-cong-quan-ju-dan-yi-dao-zhu-ceng-ding-zhi.html">学习率的前世今生从全局单一到逐层定制 (1)</a></li><li><a href="./tag/xue-zhu-lun-wen-zhong-chang-jian-yan-jiu-fang-fa-zong-shu-ji-jian-dan-ju-li.html">学术论文中常见研究方法综述及简单举例 (1)</a></li><li><a href="./tag/xue-zhu-yan-jiu-zhi-chi-gong-ju-fen-lei-yu-wen-xian-huo-qu-fang-fa.html">学术研究支持工具分类与文献获取方法 (1)</a></li><li><a href="./tag/yi-xue-chang-jing-yong-duo-mo-tai-da-mo-xing-you-ke-neng-wan-quan-bu-kao-pu-si-tan-fu-da-xue-li-fei-fei-tuan-dui-xin-yan-jiu-jie-kai-duo-mo-tai-aide-hai-shi-shen-lou-xiao-ying.html">医学场景用多模态大模型有可能完全不靠谱斯坦福大学李飞飞团队新研究揭开多模态AI的海市蜃楼效应 (1)</a></li><li><a href="./tag/yi-zhi-tiny-fastboot-scriptdao-macosban-ben-gei-motorola-g100guo-xing-ban-ben-xt2533-4shua-ru-g6.html">移植Tiny-Fastboot-Script到macOS版本给Motorola-G100国行版本XT2533-4刷入G6 (1)</a></li><li><a href="./tag/yin-pin.html">音频 (1)</a></li><li><a href="./tag/ying-pan.html">硬盘 (1)</a></li><li><a href="./tag/yong-wan-quan-kai-yuan-mian-fei-de-ben-di-mo-xing-lai-dui-shi-pin-zhong-de-yin-pin-jin-xing-jiang-zao.html">用完全开源免费的本地模型来对视频中的音频进行降噪 (1)</a></li><li><a href="./tag/you-xi-shi-zen-yao-yun-xing-de-ru-guo-zhi-zhi-dao-chong-zhi-shi-ji-shang-bing-bu-yi-ding-neng-bian-qiang.html">游戏是怎么运行的如果只知道充值实际上并不一定能变强 (1)</a></li><li><a href="./tag/zhe-ji-tian-wo-chuan-yue-liao-shi-jian.html">这几天我穿越了时间 (1)</a></li><li><a href="./tag/zhe-xue.html">哲学 (1)</a></li><li><a href="./tag/zhen-dui-da-mo-xing-he-zhi-neng-ti-xin-shou-kai-fa-zhe-de-linuxhuan-jing-pei-zhi-zhi-nan.html">针对大模型和智能体新手开发者的Linux环境配置指南 (1)</a></li><li><a href="./tag/zhi-ce-flops-huan-bu-gou-si-ge-jing-dian-cpu-ce-shi-ji-zhun.html">只测-FLOPS-还不够四个经典-CPU-测试基准 (1)</a></li><li><a href="./tag/zhi-neng-ti.html">智能体 (1)</a></li><li><a href="./tag/zhi-shi-wai-zhi.html">知识外置 (1)</a></li><li><a href="./tag/zhi-zhen-yue-jie-cyu-yan-gei-ni-de-zi-you-yi-ji-tou-tou-mai-de-lei.html">指针越界C语言给你的自由以及偷偷埋的雷 (1)</a></li><li><a href="./tag/zhong-xin-shen-shi-si-wei-lian-wei-bi-shi-zhen-si-wei-yi-pian-icml-2026-lun-wen-de-lun-zheng-yu-qi-shi.html">重新审视-思维链未必是真思维-一篇ICML-2026-论文的论证与启示 (1)</a></li><li><a href="./tag/zhuang-ji.html">装机 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skills-he-ji-geng-xin-cong-6-ge-ji-neng-dao-22-ge-yi-ji-bi-xu-cheng-ren-de-wen-ti.html">自用的-OpenCode-Skills-合集更新从-6-个技能到-22-个以及必须承认的问题 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skillzai-ci-geng-xin-22ge-skillszhong-xin-da-mo-liao-yi-bian-shun-lu-jie-jue-liao-opencodedao-zhi-zheng-ge-tu-xing-jie-mian-beng-kui.html">自用的OpenCode-Skill再次更新22个skills重新打磨了一遍顺路解决了OpenCode导致整个图形界面崩溃 (1)</a></li><li><a href="./tag/zluda-he-macos-shang-de-cuda-jian-rong-meng-xiang.html">ZLUDA-和-macOS-上的-CUDA-兼容梦想 (1)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="./index.html" data-i18n="blog">博客</a> › <a href="category/work.html">Work</a> › 软考高级系统架构设计师知识精要-架构师专业英语高频词汇表
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >软考高级系统架构设计师知识精要-架构师专业英语高频词汇表</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep" data-i18n="post_in">发布于</span>
+        <abbr class="date" title="2026-03-04T20:00:00+08:00"> 
+            <a href="./archive/2026/Mar/index.html">Wed 04 March 2026 </a>
+        </abbr>
+        <span class="meta-prep"> | <span data-i18n="tags_label">标签</span></span>
+                <a class="tag-badge" href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-jia-gou-shi-zhuan-ye-ying-yu-gao-pin-ci-hui-biao.html">软考高级系统架构设计师知识精要-架构师专业英语高频词汇表</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <h1>架构师专业英语高频词汇表</h1>
+<p>软考高级系统架构设计师的考试里面，会有一篇英文阅读理解的题目，一共是五个空，单选题，共有五分，这个这么多年来都比较稳定，下面的这个表格是粗略整理出来，供大家参考。</p>
+<table>
+<thead>
+<tr>
+<th>单词 (Word)</th>
+<th>架构师语境释义</th>
+<th>举例 (Example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DFD</td>
+<td>数据流图，结构化分析工具，描述数据流向。</td>
+<td><em>Data flow in the system.</em> (系统中的数据流向)</td>
+</tr>
+<tr>
+<td>ERD</td>
+<td>实体关系图，数据库建模工具，描述实体间关系。</td>
+<td><em>One-to-many relationship.</em> (一对多关系)</td>
+</tr>
+<tr>
+<td>map</td>
+<td>映射，如对象关系映射 (ORM) 或地址映射。</td>
+<td><em>Map object to table.</em> (将对象映射到表)</td>
+</tr>
+<tr>
+<td>MVC</td>
+<td>模型-视图-控制器，经典分层架构模式。</td>
+<td><em>Separate view from logic.</em> (将视图与逻辑分离)</td>
+</tr>
+<tr>
+<td>tier</td>
+<td>层 (物理)，物理部署层级，如三层架构。</td>
+<td><em>Three-tier architecture.</em> (三层架构)</td>
+</tr>
+<tr>
+<td>view</td>
+<td>视图，数据库虚拟表或架构视角 (4+1)。</td>
+<td><em>Database read-only view.</em> (数据库只读视图)</td>
+</tr>
+<tr>
+<td>actor</td>
+<td>参与者，用例图交互方，人或外部系统。</td>
+<td><em>User triggers the system.</em> (用户触发系统)</td>
+</tr>
+<tr>
+<td>audit</td>
+<td>审计，记录操作日志，满足合规性要求。</td>
+<td><em>Compliance audit logs.</em> (合规性审计日志)</td>
+</tr>
+<tr>
+<td>cable</td>
+<td>电缆，物理传输介质，涉及布线和带宽。</td>
+<td><em>Fiber optic cable.</em> (光纤电缆)</td>
+</tr>
+<tr>
+<td>field</td>
+<td>字段/领域，表列或业务领域 (DDD)。</td>
+<td><em>Unique index on field.</em> (字段上的唯一索引)</td>
+</tr>
+<tr>
+<td>issue</td>
+<td>问题/发射，缺陷追踪或CPU指令发射。</td>
+<td><em>Track bugs in Jira.</em> (在Jira中追踪Bug)</td>
+</tr>
+<tr>
+<td>layer</td>
+<td>层 (逻辑)，代码逻辑分层，如业务逻辑层。</td>
+<td><em>Business logic layer.</em> (业务逻辑层)</td>
+</tr>
+<tr>
+<td>logic</td>
+<td>逻辑，业务规则或程序处理流程。</td>
+<td><em>Core business logic.</em> (核心业务逻辑)</td>
+</tr>
+<tr>
+<td>model</td>
+<td>模型，现实世界的抽象，如领域模型。</td>
+<td><em>Domain object model.</em> (领域对象模型)</td>
+</tr>
+<tr>
+<td>phase</td>
+<td>阶段，生命周期特定时期，如需求分析阶段。</td>
+<td><em>Requirement analysis phase.</em> (需求分析阶段)</td>
+</tr>
+<tr>
+<td>query</td>
+<td>查询，数据检索指令，性能优化重点。</td>
+<td><em>Optimize SQL query.</em> (优化SQL查询)</td>
+</tr>
+<tr>
+<td>RDBMS</td>
+<td>关系数据库，基于二维表，支持事务ACID。</td>
+<td><em>Data consistency first.</em> (数据一致性优先)</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>范围，项目边界或变量作用域。</td>
+<td><em>Out of project scope.</em> (超出项目范围)</td>
+</tr>
+<tr>
+<td>unify</td>
+<td>统一，标准或过程统一，如统一过程RUP。</td>
+<td><em>Unified identity auth.</em> (统一身份认证)</td>
+</tr>
+<tr>
+<td>access</td>
+<td>访问/存取，资源读写及权限控制 (Access Control)。</td>
+<td><em>Access control list.</em> (访问控制列表)</td>
+</tr>
+<tr>
+<td>assign</td>
+<td>分配，资源调度或任务指派。</td>
+<td><em>Assign task to node.</em> (分配任务到节点)</td>
+</tr>
+<tr>
+<td>backup</td>
+<td>备份，数据副本，容灾关键策略。</td>
+<td><em>Daily incremental backup.</em> (每日增量备份)</td>
+</tr>
+<tr>
+<td>define</td>
+<td>定义，明确接口、术语或需求边界。</td>
+<td><em>Define API contract.</em> (定义API契约)</td>
+</tr>
+<tr>
+<td>deploy</td>
+<td>部署，发布软件至生产环境运行。</td>
+<td><em>Automated deployment pipeline.</em> (自动化部署流水线)</td>
+</tr>
+<tr>
+<td>design</td>
+<td>设计，将需求转化为系统结构的创造过程。</td>
+<td><em>Design patterns applied.</em> (应用设计模式)</td>
+</tr>
+<tr>
+<td>detail</td>
+<td>细节，详细设计关注的具体实现逻辑。</td>
+<td><em>Detailed design doc.</em> (详细设计文档)</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>领域，业务知识边界 (DDD核心)。</td>
+<td><em>Core business domain.</em> (核心业务领域)</td>
+</tr>
+<tr>
+<td>embody</td>
+<td>体现，设计原则在架构中的具体落实。</td>
+<td><em>Embody design principles.</em> (体现设计原则)</td>
+</tr>
+<tr>
+<td>entity</td>
+<td>实体，具有唯一标识的持久化对象。</td>
+<td><em>Persistent data entity.</em> (持久化数据实体)</td>
+</tr>
+<tr>
+<td>expand</td>
+<td>扩展，系统扩容，Scale Up/Out。</td>
+<td><em>Scale out the cluster.</em> (横向扩展集群)</td>
+</tr>
+<tr>
+<td>fusion</td>
+<td>融合，多源数据整合分析。</td>
+<td><em>Multi-sensor data fusion.</em> (多传感器数据融合)</td>
+</tr>
+<tr>
+<td>layout</td>
+<td>布局，物理拓扑或UI排版结构。</td>
+<td><em>Network topology layout.</em> (网络拓扑布局)</td>
+</tr>
+<tr>
+<td>method</td>
+<td>方法，对象行为或开发方法学。</td>
+<td><em>Agile development method.</em> (敏捷开发方法)</td>
+</tr>
+<tr>
+<td>module</td>
+<td>模块，独立功能单元，高内聚低耦合。</td>
+<td><em>Modular system design.</em> (模块化系统设计)</td>
+</tr>
+<tr>
+<td>orient</td>
+<td>面向，设计思想方向，如OO/SOA/AOP。</td>
+<td><em>Service-oriented arch.</em> (面向服务架构)</td>
+</tr>
+<tr>
+<td>record</td>
+<td>记录，数据库行或日志条目。</td>
+<td><em>Audit log record.</em> (审计日志记录)</td>
+</tr>
+<tr>
+<td>refine</td>
+<td>精化，逐步完善需求或设计 (逐步求精)。</td>
+<td><em>Refine domain model.</em> (精化领域模型)</td>
+</tr>
+<tr>
+<td>relate</td>
+<td>关联，建立事物联系，关系数据库核心。</td>
+<td><em>Relate tables via key.</em> (通过键关联表)</td>
+</tr>
+<tr>
+<td>safety</td>
+<td>安全(功能)，防伤害能力，区别于信息安全。</td>
+<td><em>Safety-critical system.</em> (安全攸关系统)</td>
+</tr>
+<tr>
+<td>schema</td>
+<td>模式，数据库结构定义或XML约束。</td>
+<td><em>Database schema design.</em> (数据库模式设计)</td>
+</tr>
+<tr>
+<td>static</td>
+<td>静态，编译期确定或运行时不变的资源。</td>
+<td><em>Static resource CDN.</em> (静态资源CDN)</td>
+</tr>
+<tr>
+<td>subset</td>
+<td>子集，集合的一部分，如测试用例子集。</td>
+<td><em>Test case subset.</em> (测试用例子集)</td>
+</tr>
+<tr>
+<td>vendor</td>
+<td>供应商，第三方厂商，需防锁定风险。</td>
+<td><em>Avoid vendor lock-in.</em> (避免供应商锁定)</td>
+</tr>
+<tr>
+<td>analyst</td>
+<td>分析师，需求与系统分析专业人员。</td>
+<td><em>System analyst role.</em> (系统分析师角色)</td>
+</tr>
+<tr>
+<td>analyze</td>
+<td>分析，研究问题本质，如需求分析。</td>
+<td><em>Analyze performance bottleneck.</em> (分析性能瓶颈)</td>
+</tr>
+<tr>
+<td>augment</td>
+<td>增强，功能扩充，如RAG检索增强。</td>
+<td><em>Augmented reality tech.</em> (增强现实技术)</td>
+</tr>
+<tr>
+<td>browser</td>
+<td>浏览器，B/S架构客户端，运行前端逻辑。</td>
+<td><em>Run in web browser.</em> (在浏览器运行)</td>
+</tr>
+<tr>
+<td>command</td>
+<td>命令，命令模式或CLI指令。</td>
+<td><em>Execute shell command.</em> (执行Shell命令)</td>
+</tr>
+<tr>
+<td>compute</td>
+<td>计算，数据处理，如云计算/边缘计算。</td>
+<td><em>Edge computing node.</em> (边缘计算节点)</td>
+</tr>
+<tr>
+<td>concern</td>
+<td>关注点，设计考量点，如关注点分离。</td>
+<td><em>Separation of concerns.</em> (关注点分离)</td>
+</tr>
+<tr>
+<td>connect</td>
+<td>连接，建立通信，如数据库连接池。</td>
+<td><em>Database connection pool.</em> (数据库连接池)</td>
+</tr>
+<tr>
+<td>contain</td>
+<td>包含，容器化技术基础 (Docker)。</td>
+<td><em>Run in container.</em> (在容器中运行)</td>
+</tr>
+<tr>
+<td>convert</td>
+<td>转换，数据格式变换 (ETL)。</td>
+<td><em>Convert format to JSON.</em> (转换格式为JSON)</td>
+</tr>
+<tr>
+<td>develop</td>
+<td>开发，构建软件，如DevOps/敏捷。</td>
+<td><em>Test-driven development.</em> (测试驱动开发)</td>
+</tr>
+<tr>
+<td>dynamic</td>
+<td>动态，运行时确定，如动态代理/绑定。</td>
+<td><em>Dynamic proxy mechanism.</em> (动态代理机制)</td>
+</tr>
+<tr>
+<td>element</td>
+<td>元素，系统构成单位，如UML模型元素。</td>
+<td><em>UML model element.</em> (UML模型元素)</td>
+</tr>
+<tr>
+<td>execute</td>
+<td>执行，运行指令或程序。</td>
+<td><em>Execute transactions.</em> (执行事务)</td>
+</tr>
+<tr>
+<td>general</td>
+<td>通用，非专用，如泛化/继承关系。</td>
+<td><em>General purpose interface.</em> (通用目的接口)</td>
+</tr>
+<tr>
+<td>involve</td>
+<td>涉及，干系人参与需求过程。</td>
+<td><em>Involve stakeholders.</em> (让干系人参与)</td>
+</tr>
+<tr>
+<td>manager</td>
+<td>管理器，资源协调组件，如事务管理器。</td>
+<td><em>Transaction manager.</em> (事务管理器)</td>
+</tr>
+<tr>
+<td>mapping</td>
+<td>映射，地址或数据映射 (Mybatis)。</td>
+<td><em>Data field mapping.</em> (数据字段映射)</td>
+</tr>
+<tr>
+<td>message</td>
+<td>消息，异步通信载体 (MQ)。</td>
+<td><em>Async message queue.</em> (异步消息队列)</td>
+</tr>
+<tr>
+<td>modular</td>
+<td>模块化，降低复杂度的设计手段 (OSGi)。</td>
+<td><em>Highly modular code.</em> (高度模块化代码)</td>
+</tr>
+<tr>
+<td>operate</td>
+<td>运维/操作，DevOps强调开发运维协作。</td>
+<td><em>DevOps collaboration.</em> (开发运维协作)</td>
+</tr>
+<tr>
+<td>outdate</td>
+<td>过时，技术陈旧，遗留系统重构。</td>
+<td><em>Legacy system outdated.</em> (遗留系统过时)</td>
+</tr>
+<tr>
+<td>overall</td>
+<td>总体，宏观视角，如总体架构设计。</td>
+<td><em>Overall system arch.</em> (总体系统架构)</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td>模式，通用解决方案 (设计/架构模式)。</td>
+<td><em>Publish-subscribe pattern.</em> (发布-订阅模式)</td>
+</tr>
+<tr>
+<td>primary</td>
+<td>主要，主键或主节点 (Master)。</td>
+<td><em>Primary database node.</em> (主数据库节点)</td>
+</tr>
+<tr>
+<td>process</td>
+<td>进程/过程，OS调度单位或改进流程 (CMMI)。</td>
+<td><em>Process context switch.</em> (进程上下文切换)</td>
+</tr>
+<tr>
+<td>propose</td>
+<td>提议，提出架构方案或RFP。</td>
+<td><em>Propose microservices.</em> (提议微服务)</td>
+</tr>
+<tr>
+<td>provide</td>
+<td>提供，服务提供者 (Provider)。</td>
+<td><em>Provide auth service.</em> (提供认证服务)</td>
+</tr>
+<tr>
+<td>purpose</td>
+<td>目的，系统建设目标。</td>
+<td><em>System design purpose.</em> (系统设计目的)</td>
+</tr>
+<tr>
+<td>quality</td>
+<td>质量，质量属性 (性能/可靠性等)。</td>
+<td><em>Quality attribute trade-off.</em> (质量属性权衡)</td>
+</tr>
+<tr>
+<td>require</td>
+<td>需求，功能/非功能需求工程。</td>
+<td><em>Functional requirement.</em> (功能性需求)</td>
+</tr>
+<tr>
+<td>segment</td>
+<td>分段，网段划分或内存分段。</td>
+<td><em>Network segment isolation.</em> (网段隔离)</td>
+</tr>
+<tr>
+<td>specify</td>
+<td>规定，详细定义规格 (Specification)。</td>
+<td><em>Specify API details.</em> (规定API细节)</td>
+</tr>
+<tr>
+<td>storage</td>
+<td>存储，SAN/NAS或对象存储。</td>
+<td><em>Distributed storage.</em> (分布式存储)</td>
+</tr>
+<tr>
+<td>unified</td>
+<td>统一，标准统一 (UML/UP)。</td>
+<td><em>Unified modeling language.</em> (统一建模语言)</td>
+</tr>
+<tr>
+<td>utilize</td>
+<td>利用，资源利用率优化。</td>
+<td><em>Utilize hardware resource.</em> (利用硬件资源)</td>
+</tr>
+<tr>
+<td>advocate</td>
+<td>提倡，技术推广或敏捷宣言支持。</td>
+<td><em>Advocate agile values.</em> (提倡敏捷价值观)</td>
+</tr>
+<tr>
+<td>allocate</td>
+<td>分配，动态内存或资源分配。</td>
+<td><em>Allocate memory block.</em> (分配内存块)</td>
+</tr>
+<tr>
+<td>analysis</td>
+<td>分析，可行性或需求分析。</td>
+<td><em>Cost-benefit analysis.</em> (成本效益分析)</td>
+</tr>
+<tr>
+<td>artifact</td>
+<td>制品，开发产物 (文档/代码/包)。</td>
+<td><em>Build artifact jar.</em> (构建制品JAR)</td>
+</tr>
+<tr>
+<td>capacity</td>
+<td>容量，系统最大负载规划。</td>
+<td><em>System capacity planning.</em> (系统容量规划)</td>
+</tr>
+<tr>
+<td>category</td>
+<td>类别，数据分类分级。</td>
+<td><em>Data security category.</em> (数据安全类别)</td>
+</tr>
+<tr>
+<td>database</td>
+<td>数据库，DBMS，数据持久化系统。</td>
+<td><em>Distributed database.</em> (分布式数据库)</td>
+</tr>
+<tr>
+<td>decision</td>
+<td>决策，架构选型与权衡 (ADR)。</td>
+<td><em>Architectural decision.</em> (架构决策)</td>
+</tr>
+<tr>
+<td>detailed</td>
+<td>详细，详细设计阶段。</td>
+<td><em>Detailed design phase.</em> (详细设计阶段)</td>
+</tr>
+<tr>
+<td>dialogue</td>
+<td>对话，人机交互或对话系统。</td>
+<td><em>Human-machine dialogue.</em> (人机对话)</td>
+</tr>
+<tr>
+<td>document</td>
+<td>文档，需求/设计/API文档。</td>
+<td><em>Software documentation.</em> (软件文档)</td>
+</tr>
+<tr>
+<td>evaluate</td>
+<td>评估，架构评估 (ATAM) 或性能评估。</td>
+<td><em>Evaluate architecture.</em> (评估架构)</td>
+</tr>
+<tr>
+<td>facility</td>
+<td>设施，云基础设施 (IaaS)。</td>
+<td><em>Cloud infrastructure.</em> (云基础设施)</td>
+</tr>
+<tr>
+<td>function</td>
+<td>功能，系统核心业务能力。</td>
+<td><em>Core system function.</em> (核心系统功能)</td>
+</tr>
+<tr>
+<td>identify</td>
+<td>识别，身份识别或风险识别。</td>
+<td><em>Identify user identity.</em> (识别用户身份)</td>
+</tr>
+<tr>
+<td>internal</td>
+<td>内部，内部接口或错误。</td>
+<td><em>Internal server error.</em> (内部服务器错误)</td>
+</tr>
+<tr>
+<td>intranet</td>
+<td>内联网，企业内部私有网络。</td>
+<td><em>Corporate intranet.</em> (企业内联网)</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>元数据，描述数据的数据 (Hive)。</td>
+<td><em>Manage data metadata.</em> (管理数据元数据)</td>
+</tr>
+<tr>
+<td>modeling</td>
+<td>建模，抽象业务或系统 (UML)。</td>
+<td><em>Domain modeling.</em> (领域建模)</td>
+</tr>
+<tr>
+<td>organize</td>
+<td>组织，代码结构或计算机组成。</td>
+<td><em>Organize code structure.</em> (组织代码结构)</td>
+</tr>
+<tr>
+<td>original</td>
+<td>原始，原始需求或数据。</td>
+<td><em>Original requirement.</em> (原始需求)</td>
+</tr>
+<tr>
+<td>physical</td>
+<td>物理，物理层或部署视图。</td>
+<td><em>Physical deployment view.</em> (物理部署视图)</td>
+</tr>
+<tr>
+<td>position</td>
+<td>位置，定位或地理位置 (LBS)。</td>
+<td><em>Global positioning system.</em> (全球定位系统)</td>
+</tr>
+<tr>
+<td>property</td>
+<td>属性，类属性或事务属性 (ACID)。</td>
+<td><em>Transaction properties.</em> (事务属性)</td>
+</tr>
+<tr>
+<td>proposal</td>
+<td>提案，项目建议书或RFP。</td>
+<td><em>Technical proposal.</em> (技术提案)</td>
+</tr>
+<tr>
+<td>response</td>
+<td>响应，响应时间 (RT) 指标。</td>
+<td><em>Low response time.</em> (低响应时间)</td>
+</tr>
+<tr>
+<td>retrieve</td>
+<td>检索，信息查询与提取。</td>
+<td><em>Retrieve information.</em> (检索信息)</td>
+</tr>
+<tr>
+<td>schedule</td>
+<td>调度，CPU调度或项目进度。</td>
+<td><em>Process scheduler.</em> (进程调度器)</td>
+</tr>
+<tr>
+<td>security</td>
+<td>安全，信息安全 (CIA三要素)。</td>
+<td><em>Information security.</em> (信息安全)</td>
+</tr>
+<tr>
+<td>semantic</td>
+<td>语义，语义网或版本控制。</td>
+<td><em>Semantic versioning.</em> (语义化版本控制)</td>
+</tr>
+<tr>
+<td>specific</td>
+<td>特定，领域特定语言 (DSL)。</td>
+<td><em>Domain specific language.</em> (领域特定语言)</td>
+</tr>
+<tr>
+<td>standard</td>
+<td>标准，ISO/IEEE或API标准。</td>
+<td><em>Follow API standards.</em> (遵循API标准)</td>
+</tr>
+<tr>
+<td>topology</td>
+<td>拓扑，网络或服务调用结构。</td>
+<td><em>Microservice topology.</em> (微服务拓扑)</td>
+</tr>
+<tr>
+<td>ultimate</td>
+<td>最终，架构演进目标。</td>
+<td><em>Ultimate business goal.</em> (最终业务目标)</td>
+</tr>
+<tr>
+<td>use case</td>
+<td>用例，用户交互场景 (UML)。</td>
+<td><em>Use case diagram.</em> (用例图)</td>
+</tr>
+<tr>
+<td>attribute</td>
+<td>属性，实体特性 (E-R图)。</td>
+<td><em>Entity attribute.</em> (实体属性)</td>
+</tr>
+<tr>
+<td>component</td>
+<td>构件，可复用物理单元 (CBSE)。</td>
+<td><em>Reusable component.</em> (可复用构件)</td>
+</tr>
+<tr>
+<td>connector</td>
+<td>连接件，ADL中构件交互元素。</td>
+<td><em>Component connector.</em> (构件连接件)</td>
+</tr>
+<tr>
+<td>construct</td>
+<td>构造，编码与构建过程。</td>
+<td><em>Software construction.</em> (软件构造)</td>
+</tr>
+<tr>
+<td>decompose</td>
+<td>分解，WBS或微服务拆分。</td>
+<td><em>Decompose monolith.</em> (分解单体)</td>
+</tr>
+<tr>
+<td>establish</td>
+<td>建立，建立连接 (TCP握手)。</td>
+<td><em>Establish connection.</em> (建立连接)</td>
+</tr>
+<tr>
+<td>expansion</td>
+<td>扩展，功能扩展或系统扩容。</td>
+<td><em>System expansion.</em> (系统扩展)</td>
+</tr>
+<tr>
+<td>framework</td>
+<td>框架，半成品骨架 (Spring)。</td>
+<td><em>Application framework.</em> (应用框架)</td>
+</tr>
+<tr>
+<td>guideline</td>
+<td>指南，设计或代码规范。</td>
+<td><em>Coding guidelines.</em> (编码指南)</td>
+</tr>
+<tr>
+<td>immediate</td>
+<td>立即，立即寻址或消费。</td>
+<td><em>Immediate addressing.</em> (立即寻址)</td>
+</tr>
+<tr>
+<td>implement</td>
+<td>实现，设计转代码 (Implementation)。</td>
+<td><em>Implement interface.</em> (实现接口)</td>
+</tr>
+<tr>
+<td>initially</td>
+<td>最初，项目启动阶段。</td>
+<td><em>Initial project phase.</em> (项目初始阶段)</td>
+</tr>
+<tr>
+<td>integrity</td>
+<td>完整性，数据准确无误 (CIA)。</td>
+<td><em>Data integrity check.</em> (数据完整性检查)</td>
+</tr>
+<tr>
+<td>interface</td>
+<td>接口，API契约或交互规范。</td>
+<td><em>RESTful interface.</em> (RESTful接口)</td>
+</tr>
+<tr>
+<td>iterative</td>
+<td>迭代，敏捷开发模式。</td>
+<td><em>Iterative development.</em> (迭代开发)</td>
+</tr>
+<tr>
+<td>mechanism</td>
+<td>机制，功能实现原理 (GC)。</td>
+<td><em>Garbage collection mech.</em> (垃圾回收机制)</td>
+</tr>
+<tr>
+<td>objective</td>
+<td>目标，业务或设计目标。</td>
+<td><em>Business objective.</em> (业务目标)</td>
+</tr>
+<tr>
+<td>optimized</td>
+<td>优化，代码或查询性能提升。</td>
+<td><em>Optimized algorithm.</em> (优化后的算法)</td>
+</tr>
+<tr>
+<td>potential</td>
+<td>潜在，潜在风险或问题。</td>
+<td><em>Potential security risk.</em> (潜在安全风险)</td>
+</tr>
+<tr>
+<td>principle</td>
+<td>原则，设计原则 (SOLID/DRY)。</td>
+<td><em>Design principles.</em> (设计原则)</td>
+</tr>
+<tr>
+<td>procedure</td>
+<td>过程，RPC或存储过程。</td>
+<td><em>Remote procedure call.</em> (远程过程调用)</td>
+</tr>
+<tr>
+<td>processor</td>
+<td>处理器，多核CPU或处理组件。</td>
+<td><em>Multi-core processor.</em> (多核处理器)</td>
+</tr>
+<tr>
+<td>prototype</td>
+<td>原型，快速验证需求模型。</td>
+<td><em>UI prototype design.</em> (UI原型设计)</td>
+</tr>
+<tr>
+<td>reconcile</td>
+<td>调和，对账或一致性修复。</td>
+<td><em>Data reconciliation.</em> (数据对账)</td>
+</tr>
+<tr>
+<td>represent</td>
+<td>表示，资源表现形式 (REST)。</td>
+<td><em>JSON representation.</em> (JSON表示)</td>
+</tr>
+<tr>
+<td>subsystem</td>
+<td>子系统，独立的大型模块。</td>
+<td><em>Payment subsystem.</em> (支付子系统)</td>
+</tr>
+<tr>
+<td>accomplish</td>
+<td>完成，实现功能或任务。</td>
+<td><em>Task accomplished.</em> (任务完成)</td>
+</tr>
+<tr>
+<td>collection</td>
+<td>集合，数据容器 (List/Set)。</td>
+<td><em>Java collection framework.</em> (Java集合框架)</td>
+</tr>
+<tr>
+<td>complexity</td>
+<td>复杂性，时间/空间复杂度。</td>
+<td><em>Reduce complexity.</em> (降低复杂性)</td>
+</tr>
+<tr>
+<td>connection</td>
+<td>连接，数据库或网络连接。</td>
+<td><em>Close connection.</em> (关闭连接)</td>
+</tr>
+<tr>
+<td>constitute</td>
+<td>构成，组件构成系统。</td>
+<td><em>Constitute the system.</em> (构成系统)</td>
+</tr>
+<tr>
+<td>constraint</td>
+<td>约束，成本/进度/技术限制。</td>
+<td><em>Budget constraint.</em> (预算约束)</td>
+</tr>
+<tr>
+<td>consultant</td>
+<td>顾问，外部技术专家。</td>
+<td><em>Security consultant.</em> (安全顾问)</td>
+</tr>
+<tr>
+<td>coordinate</td>
+<td>协调，分布式服务协调 (ZK)。</td>
+<td><em>Service coordination.</em> (服务协调)</td>
+</tr>
+<tr>
+<td>data layer</td>
+<td>数据层，DAL，负责持久化。</td>
+<td><em>Data access layer.</em> (数据访问层)</td>
+</tr>
+<tr>
+<td>deployment</td>
+<td>部署，软硬件映射 (UML)。</td>
+<td><em>Deployment diagram.</em> (部署图)</td>
+</tr>
+<tr>
+<td>distribute</td>
+<td>分发，CDN内容分发。</td>
+<td><em>Content delivery.</em> (内容分发)</td>
+</tr>
+<tr>
+<td>electronic</td>
+<td>电子，电子商务或支付。</td>
+<td><em>Electronic commerce.</em> (电子商务)</td>
+</tr>
+<tr>
+<td>enterprise</td>
+<td>企业，EAI或ESB集成。</td>
+<td><em>Enterprise service bus.</em> (企业服务总线)</td>
+</tr>
+<tr>
+<td>extraction</td>
+<td>提取，ETL数据抽取。</td>
+<td><em>Data extraction.</em> (数据提取)</td>
+</tr>
+<tr>
+<td>Fat client</td>
+<td>胖客户端，C/S架构重端。</td>
+<td><em>Fat client logic.</em> (胖客户端逻辑)</td>
+</tr>
+<tr>
+<td>functional</td>
+<td>功能，功能需求或编程。</td>
+<td><em>Functional testing.</em> (功能测试)</td>
+</tr>
+<tr>
+<td>management</td>
+<td>管理，配置或项目管理。</td>
+<td><em>Configuration mgmt.</em> (配置管理)</td>
+</tr>
+<tr>
+<td>manipulate</td>
+<td>操作，DML数据增删改。</td>
+<td><em>Manipulate data.</em> (操作数据)</td>
+</tr>
+<tr>
+<td>reevaluate</td>
+<td>重估，需求变更后评估。</td>
+<td><em>Reevaluate risk.</em> (重新评估风险)</td>
+</tr>
+<tr>
+<td>reflection</td>
+<td>反射，运行时类型检查 (Java)。</td>
+<td><em>Use reflection API.</em> (使用反射API)</td>
+</tr>
+<tr>
+<td>technology</td>
+<td>技术，技术栈选型。</td>
+<td><em>Technology stack.</em> (技术栈)</td>
+</tr>
+<tr>
+<td>validation</td>
+<td>确认，做正确的事 (需求)。</td>
+<td><em>Input validation.</em> (输入确认)</td>
+</tr>
+<tr>
+<td>vocabulary</td>
+<td>词汇，数据字典或统一语言。</td>
+<td><em>Controlled vocabulary.</em> (受控词表)</td>
+</tr>
+<tr>
+<td>application</td>
+<td>应用，应用服务器或软件。</td>
+<td><em>Web application.</em> (Web应用)</td>
+</tr>
+<tr>
+<td>concurrency</td>
+<td>并发，多线程或锁机制。</td>
+<td><em>High concurrency.</em> (高并发)</td>
+</tr>
+<tr>
+<td>conjunction</td>
+<td>结合，技术融合。</td>
+<td><em>In conjunction with AI.</em> (与AI结合)</td>
+</tr>
+<tr>
+<td>deliverable</td>
+<td>交付物，阶段性产出。</td>
+<td><em>Project deliverables.</em> (项目交付物)</td>
+</tr>
+<tr>
+<td>development</td>
+<td>开发，SDLC全生命周期。</td>
+<td><em>Software development.</em> (软件开发)</td>
+</tr>
+<tr>
+<td>distributed</td>
+<td>分布式，跨节点系统协同。</td>
+<td><em>Distributed system.</em> (分布式系统)</td>
+</tr>
+<tr>
+<td>feasibility</td>
+<td>可行性，技术/经济分析。</td>
+<td><em>Feasibility study.</em> (可行性研究)</td>
+</tr>
+<tr>
+<td>foreign key</td>
+<td>外键，表关联约束。</td>
+<td><em>Foreign key constraint.</em> (外键约束)</td>
+</tr>
+<tr>
+<td>fundamental</td>
+<td>基础，CAP/BASE等理论。</td>
+<td><em>Fundamental theory.</em> (基础理论)</td>
+</tr>
+<tr>
+<td>information</td>
+<td>信息，信息系统或安全。</td>
+<td><em>Information system.</em> (信息系统)</td>
+</tr>
+<tr>
+<td>instruction</td>
+<td>指令，CPU机器码。</td>
+<td><em>CPU instruction set.</em> (CPU指令集)</td>
+</tr>
+<tr>
+<td>intentional</td>
+<td>意图，主动攻击意图。</td>
+<td><em>Intentional attack.</em> (意图攻击)</td>
+</tr>
+<tr>
+<td>interaction</td>
+<td>交互，对象间时序通信。</td>
+<td><em>Interaction diagram.</em> (交互图)</td>
+</tr>
+<tr>
+<td>interactive</td>
+<td>交互式，即时反馈系统。</td>
+<td><em>Interactive UI.</em> (交互式界面)</td>
+</tr>
+<tr>
+<td>normal form</td>
+<td>范式，数据库去冗余 (3NF)。</td>
+<td><em>Third normal form.</em> (第三范式)</td>
+</tr>
+<tr>
+<td>operational</td>
+<td>运维，运行环境或操作库。</td>
+<td><em>Operational database.</em> (操作型数据库)</td>
+</tr>
+<tr>
+<td>persistence</td>
+<td>持久化，数据存入磁盘。</td>
+<td><em>Data persistence.</em> (数据持久化)</td>
+</tr>
+<tr>
+<td>primary key</td>
+<td>主键，记录唯一标识。</td>
+<td><em>Table primary key.</em> (表主键)</td>
+</tr>
+<tr>
+<td>progression</td>
+<td>演进，架构逐步迭代。</td>
+<td><em>Arch progression.</em> (架构演进)</td>
+</tr>
+<tr>
+<td>referential</td>
+<td>参照，完整性约束。</td>
+<td><em>Referential integrity.</em> (参照完整性)</td>
+</tr>
+<tr>
+<td>reliability</td>
+<td>可靠性，无故障运行能力。</td>
+<td><em>High reliability.</em> (高可靠性)</td>
+</tr>
+<tr>
+<td>replication</td>
+<td>复制，数据副本/主从。</td>
+<td><em>Master-slave replication.</em> (主从复制)</td>
+</tr>
+<tr>
+<td>requirement</td>
+<td>需求，功能/非功能规格。</td>
+<td><em>Requirement analysis.</em> (需求分析)</td>
+</tr>
+<tr>
+<td>synchronize</td>
+<td>同步，线程安全或数据一致。</td>
+<td><em>Synchronize threads.</em> (同步线程)</td>
+</tr>
+<tr>
+<td>Thin client</td>
+<td>瘦客户端，B/S架构轻端。</td>
+<td><em>Thin client app.</em> (瘦客户端应用)</td>
+</tr>
+<tr>
+<td>transaction</td>
+<td>事务，ACID逻辑单元。</td>
+<td><em>Database transaction.</em> (数据库事务)</td>
+</tr>
+<tr>
+<td>workstation</td>
+<td>工作站，高性能计算终端。</td>
+<td><em>Graphics workstation.</em> (图形工作站)</td>
+</tr>
+<tr>
+<td>adjunct term</td>
+<td>附语，标准中的辅助术语。</td>
+<td><em>Adjunct terminology.</em> (附加术语)</td>
+</tr>
+<tr>
+<td>architecture</td>
+<td>架构，系统整体结构。</td>
+<td><em>System architecture.</em> (系统架构)</td>
+</tr>
+<tr>
+<td>construction</td>
+<td>构造，编码实现阶段。</td>
+<td><em>Code construction.</em> (代码构造)</td>
+</tr>
+<tr>
+<td>hierarchical</td>
+<td>层次，树状结构 (DNS)。</td>
+<td><em>Hierarchical model.</em> (层次模型)</td>
+</tr>
+<tr>
+<td>interpretive</td>
+<td>解释型，运行时翻译 (Python)。</td>
+<td><em>Interpretive language.</em> (解释型语言)</td>
+</tr>
+<tr>
+<td>optimization</td>
+<td>优化，性能/查询调优。</td>
+<td><em>Performance optimization.</em> (性能优化)</td>
+</tr>
+<tr>
+<td>partitioning</td>
+<td>分区，分库分表策略。</td>
+<td><em>Data partitioning.</em> (数据分区)</td>
+</tr>
+<tr>
+<td>product-line</td>
+<td>产品线，复用核心资产。</td>
+<td><em>Software product line.</em> (软件产品线)</td>
+</tr>
+<tr>
+<td>Cloud platform</td>
+<td>云平台，PaaS服务环境。</td>
+<td><em>Cloud platform service.</em> (云平台服务)</td>
+</tr>
+<tr>
+<td>Cluster system</td>
+<td>集群，高可用/负载均衡组。</td>
+<td><em>High availability cluster.</em> (高可用集群)</td>
+</tr>
+<tr>
+<td>data structure</td>
+<td>数据结构，数据组织方式。</td>
+<td><em>Tree data structure.</em> (树状数据结构)</td>
+</tr>
+<tr>
+<td>decomposition</td>
+<td>分解，任务或架构拆解。</td>
+<td><em>Functional decomposition.</em> (功能分解)</td>
+</tr>
+<tr>
+<td>nonfunctional</td>
+<td>非功能，性能/安全等NFR。</td>
+<td><em>Non-functional req.</em> (非功能需求)</td>
+</tr>
+<tr>
+<td>normalization</td>
+<td>规范化，数据库范式化设计。</td>
+<td><em>Database normalization.</em> (数据库规范化)</td>
+</tr>
+<tr>
+<td>notation form</td>
+<td>标记法，UML/ER图形符号。</td>
+<td><em>UML notation.</em> (UML标记法)</td>
+</tr>
+<tr>
+<td>specification</td>
+<td>规格，API或需求说明书。</td>
+<td><em>API specification.</em> (API规格说明)</td>
+</tr>
+<tr>
+<td>data dictionary</td>
+<td>字典，元数据集合。</td>
+<td><em>System data dictionary.</em> (系统数据字典)</td>
+</tr>
+<tr>
+<td>data redundancy</td>
+<td>冗余，重复存储 (反范式)。</td>
+<td><em>Reduce redundancy.</em> (减少冗余)</td>
+</tr>
+<tr>
+<td>implementation</td>
+<td>实现，代码落地。</td>
+<td><em>Reference implementation.</em> (参考实现)</td>
+</tr>
+<tr>
+<td>infrastructure</td>
+<td>基建，IaaS (计算/存储/网络)。</td>
+<td><em>IT infrastructure.</em> (IT基础设施)</td>
+</tr>
+<tr>
+<td>maintainability</td>
+<td>可维护，易修易改性。</td>
+<td><em>Code maintainability.</em> (代码可维护性)</td>
+</tr>
+<tr>
+<td>reconstruction</td>
+<td>重构，改善内部结构。</td>
+<td><em>System reconstruction.</em> (系统重构)</td>
+</tr>
+<tr>
+<td>representation</td>
+<td>表现，资源格式 (REST)。</td>
+<td><em>Resource representation.</em> (资源表现)</td>
+</tr>
+<tr>
+<td>data manipulation</td>
+<td>操纵，DML数据处理。</td>
+<td><em>Data manipulation.</em> (数据操纵)</td>
+</tr>
+<tr>
+<td>multidimensional</td>
+<td>多维，OLAP数据分析。</td>
+<td><em>Multidimensional view.</em> (多维视图)</td>
+</tr>
+<tr>
+<td>Data flow diagram</td>
+<td>数据流图，DFD，结构化分析。</td>
+<td><em>Draw data flow diagram.</em> (绘制数据流图)</td>
+</tr>
+<tr>
+<td>Pipes and Filters</td>
+<td>管道过滤器，数据流处理架构。</td>
+<td><em>Pipes and filters style.</em> (管道过滤器风格)</td>
+</tr>
+<tr>
+<td>reverse engineering</td>
+<td>逆向，反推设计或源码。</td>
+<td><em>Reverse engineering.</em> (逆向工程)</td>
+</tr>
+<tr>
+<td>horizontal replication</td>
+<td>水平复制，横向扩展副本。</td>
+<td><em>Horizontal replication.</em> (水平复制)</td>
+</tr>
+<tr>
+<td>vertical partitioning</td>
+<td>垂直分区，列式拆分。</td>
+<td><em>Vertical partitioning.</em> (垂直分区)</td>
+</tr>
+<tr>
+<td>Model-View-Controller</td>
+<td>MVC，UI分层架构。</td>
+<td><em>MVC design pattern.</em> (MVC设计模式)</td>
+</tr>
+<tr>
+<td>Central Processing Unit</td>
+<td>CPU，中央处理器。</td>
+<td><em>CPU bound task.</em> (CPU密集型任务)</td>
+</tr>
+<tr>
+<td>entity-relationship diagram</td>
+<td>ERD，实体关系图。</td>
+<td><em>Draw ER diagram.</em> (绘制ER图)</td>
+</tr>
+<tr>
+<td>Relational Database Management System</td>
+<td>RDBMS，关系数据库系统。</td>
+<td><em>Oracle RDBMS.</em> (Oracle关系数据库)</td>
+</tr>
+</tbody>
+</table>
+<p>接下来是一篇短文，基本涵盖了上面提到的所有词汇，供读者参考。</p>
+<h1>System Architecture Design: From Requirement Analysis to Maintenance （系统架构设计：从需求分析到运维）</h1>
+<p>Software development is a complex process that transforms abstract requirements into a robust system. This article explores the fundamental stages of the lifecycle, using standard terminology relevant to a system architect.</p>
+<p>软件开发是一个将抽象需求转化为健壮系统的复杂过程，本文使用与系统架构师相关的标准术语，探讨生命周期的基础阶段。</p>
+<h1>1. Requirement Engineering &amp; Analysis (需求工程与分析)</h1>
+<p>The project typically begins with a proposal and a feasibility study to determine if the business objective can be met within the constraint of budget and time. The analyst engages in a dialogue with stakeholders to identify the scope. Both functional and nonfunctional requirements, such as reliability and security, must be defined.</p>
+<p>项目通常始于提案和可行性研究，以确定是否能在预算和时间的约束内达成业务目标，分析师与干系人展开对话以识别范围，必须定义功能和非功能需求，例如可靠性和安全，</p>
+<p>To avoid ambiguity, a detailed specification document is produced. Modeling tools and UML notation form are employed to visualize the system. A use case diagram depicts the interaction between an actor and the system, while a Data Flow Diagram (DFD) illustrates how information moves. Additionally, a prototype might be created to validate requirements with the user.</p>
+<p>为了避免歧义，需生成详细的规格文档，采用建模工具和UML标记法来可视化系统。用例图描绘了参与者与系统之间的交互，而数据流图（DFD）阐明了信息如何流动。此外，可能需要创建原型以便与用户确认需求。</p>
+<h1>2. Architecture &amp; High-Level Design (架构与高层设计)</h1>
+<p>Architecture represents the overall structure. The architect must evaluate different patterns to reach a design decision. For a web application, the Model-View-Controller (MVC) pattern is commonly adopted to separate the view, logic, and data. Conversely, a Pipes and Filters style might be utilized for data-intensive tasks.</p>
+<p>架构代表了总体结构。架构师必须评估不同的模式以做出设计决策，对于 Web 应用，通常采用模型-视图-控制器（MVC）模式来分离视图、逻辑和数据。相反，对于数据密集型任务，可能会利用管道过滤器风格。</p>
+<p>A hierarchical approach is frequently applied, organizing the system into a presentation layer, business logic layer, and data layer. To reduce complexity, the system is decomposed into subsystems and modules. In a distributed environment, a cluster of servers or a Cloud platform may be deployed. Middleware, such as a message queue, facilitates the coordination of services.</p>
+<p>通常采用层次化方法，将系统组织为表现层、业务逻辑层和数据层，为了降低复杂性，系统被分解为子系统和模块，在分布式环境中，可以部署服务器集群或云平台，像消息队列这样的中间件有助于服务的协调，</p>
+<h1>3. Detailed Design &amp; Database (详细设计与数据库)</h1>
+<p>In the detailed design phase, components are refined, and interfaces and connectors are defined to ensure high cohesion and low coupling.</p>
+<p>在详细设计阶段，需精化构件并定义接口和连接件，以确保高内聚和低耦合。</p>
+<p>Data persistence is managed by a Database, typically a Relational Database Management System (RDBMS). The schema is designed using an Entity-Relationship Diagram (ERD) to define entities, attributes, and relationships. Primary keys and foreign keys are specified. To maintain integrity and reduce data redundancy, normalization rules (such as 3rd Normal Form) are applied.</p>
+<p>数据持久化由数据库管理，通常是关系数据库管理系统（RDBMS）。模式通过实体关系图（ERD）进行设计，以定义实体、属性和关系。需规定主键和外键，为了保持完整性并减少数据冗余，应应用规范化规则（如第三范式）。</p>
+<p>Database operations are executed as transactions. Concurrency must be handled to synchronize access. For performance enhancement, indexing, partitioning, or replication strategies may be employed.</p>
+<p>数据库操作作为事务执行。必须处理并发以同步访问。为了提升性能，可以采用索引、分区或复制策略。</p>
+<h1>4. Implementation, Deployment &amp; Maintenance (实现、部署与运维)</h1>
+<p>During construction, developers implement the logic using a programming language, utilizing frameworks and libraries. The resulting code is either compiled or interpretive.</p>
+<p>在构造期间，开发人员利用框架和库，使用编程语言实现逻辑。生成的代码是编译型的或解释型的。</p>
+<p>The system is deployed to the infrastructure, often using virtualization or containers. Security is critical; logs must be audited and access controlled. In the operational phase, the system is monitored, issues are handled, and backups are performed. Performance is also optimized. Occasionally, reverse engineering is performed on outdated systems for reconstruction.</p>
+<p>系统被部署到基础设施，通常使用虚拟化或容器。安全至关重要；必须审计日志并控制访问，在运维阶段，需监控系统，处理问题，并执行备份，同时也要优化性能。有时，需对过时系统执行逆向工程以进行重构，</p>
+<p>This iterative progression ensures the deliverable provides substantial value to the enterprise.</p>
+<p>这种迭代演进确保交付物能为企业提供实质价值。</p>
+<p>预览时标签不可点</p>
+<p>二手架构师杂谈 · 目录</p>
+<h1>二手架构师杂谈</h1>
+<p>上一篇软考高级系统架构设计师知识精要-新兴技术与基础设施下一篇新手向的软考高级架构师完全备考指南</p>
+<p>Close</p>
+<p>更多</p>
+<h1></h1>
+<p>搜索「」网络结果</p>
+<p>Close</p>
+<p><strong>调整当前正文文字大小</strong></p>
+<p>更多</p>
+<p>100%</p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep" data-i18n="category_label">分类</span>:
+        <abbr class="category">
+            <a href="./category/work.html">Work</a>
+        </abbr>
+       </footer>
+    
+</section>
+
+<section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
+    <script src="https://giscus.app/client.js"
+        data-repo="cycleuser/cycleuser.github.io"
+        data-repo-id="R_kgDOL4NKYA"
+        data-category="General"
+        data-category-id="DIC_kwDOL4NKYM4DBK3X"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    function update() {
+        var t = giscusTheme(getTheme());
+        var s = document.querySelector('script[src*="giscus"]');
+        if (s) s.setAttribute('data-theme', t);
+        sendTheme(t);
+    }
+    // 初始设置
+    var s = document.querySelector('script[src*="giscus"]');
+    if (s) s.setAttribute('data-theme', giscusTheme(getTheme()));
+    // 监听明暗切换
+    new MutationObserver(function() { update(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    // 重试几次确保 iframe 加载完成
+    var tries = 0;
+    var timer = setInterval(function() {
+        if (document.querySelector('iframe.giscus-frame')) { sendTheme(giscusTheme(getTheme())); clearInterval(timer); }
+        if (++tries > 20) clearInterval(timer);
+    }, 500);
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

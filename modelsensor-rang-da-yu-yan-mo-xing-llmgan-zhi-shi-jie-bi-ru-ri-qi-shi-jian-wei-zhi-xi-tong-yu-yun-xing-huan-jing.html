@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=1' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=1' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=1' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+                <h1><img src="./theme/image/default-logo.png" width="300" height="100" alt="CycleUser" />
+                CycleUser</h1>
+        </div> <!-- /#logo-->
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="https://blog.cycleuser.org">Homepage</a></li><li class="active"><a href="https://blog.cycleuser.org/categories.html">Categories</a></li><li class="active"><a href="https://blog.cycleuser.org/tags.html">Tags</a></li><li class="active"><a href="https://blog.cycleuser.org/archives.html">Archives</a></li><li class="active"><a href="https://blog.cycleuser.org/about.html">About</a></li></ul>
+        </nav><!-- /#menu -->
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-620" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href=".">Blog</a> ›<a href="category/llm.html">LLM</a> ›ModelSensor 让大语言模型（LLM）“感知世界”-比如日期、时间、位置、系统与运行环境
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >ModelSensor 让大语言模型（LLM）“感知世界”-比如日期、时间、位置、系统与运行环境</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep">Post in</span>
+        <abbr class="date" title="2025-08-18T12:20:00+08:00"> 
+            <a href="./archive/2025/8月/index.html">周一 18 八月 2025 </a>
+        </abbr>
+        <span class="meta-prep"> |Tags</span>
+                <a class="tag-badge" href="./tag/qwen3.html">Qwen3</a>
+                <a class="tag-badge" href="./tag/ollama.html">Ollama</a>
+                <a class="tag-badge" href="./tag/ai.html">AI</a>
+                <a class="tag-badge" href="./tag/gpt-oss.html">GPT-OSS</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <p>现在本地部署的大模型，有可能有一个问题，就是经常是是“真空中的模型”，不具备当前环境的“感知”，很难用于回答与本机与当下相关的问题。
+针对这种问题，几个月前写了一个小工具<a href="https://github.com/cycleuser/ModelSensor">ModelSensor</a>，可以在本地收集日期、时间、位置（可选）、系统与运行环境等上下文，以结构化格式注入到提示词中，帮助 LLM 更好地理解当前环境并给出更贴近实际的回答，就算是一定程度的让大语言模型（LLM）“感知世界”了。</p>
+<h3>问题现状</h3>
+<p>目前的LLM 模型无法感知当前环境，只能通过外部数据源（如 API）获取，所以有时候问他日期，他就会很呆呆了。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/refs/heads/main/img/ModelSensor/Qwen3-20250818112033.png"></p>
+<p>Ollama下直接调用gpt-oss:20b，得到了一次正确的日期，但是星期不对。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/refs/heads/main/img/ModelSensor/GPT-OSS_20250818112111.png"></p>
+<p>千问官方群的群友说这可能是“oss在系统提示词之上还有更高级别的openai prompt”，大概就是ollama调用的时候传递了基本信息。</p>
+<p>这其实和我之前的思路类似，可以获取系统信息并传递给ollama之类的模型。</p>
+<h3>思路设计</h3>
+<p>ModelSensor 的思路挺简单的，基本流程如下：</p>
+<p>1) 采集：从本地获取系统时间、时区、硬件、资源使用、网络与（可选）位置等上下文<br>
+2) 组织：将数据整理为 JSON 或 Markdown（简版 brief / 全量 full）<br>
+3) 注入：将上下文作为“系统上下文”插入到提示词中一并发送给 LLM<br>
+4) 受控：通过参数控制采集范围、格式与隐私（如是否启用位置）  </p>
+<p>具体获取的信息包括：</p>
+<ul>
+<li>时间与时区：当前时间、UTC、星期、格式化时间戳  </li>
+<li>系统与运行环境：OS、平台、Python 版本、工作目录、虚拟环境  </li>
+<li>资源状态：CPU 使用率、内存、磁盘  </li>
+<li>网络信息：网卡、默认网关、连接状态  </li>
+<li>位置（可选）：基于 IP 的国家/城市/经纬度（默认关闭，需显式开启）  </li>
+</ul>
+<p>注意哈，上面除了网络位置之外，其余的信息都是本地获取，所有采集均在本地完成；除非启用位置解析，否则不会进行外部传输。</p>
+<h3>安装运行</h3>
+<p>安装很简单，直接pip即可安装：</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>modelsensor
+</code></pre></div>
+
+<p>Python下可以通过以下方式获取系统时间、时区、位置等信息，然后通过 <code>to_json</code> 方法将数据转换为 JSON 格式：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">modelsensor</span> <span class="kn">import</span> <span class="n">ModelSensor</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">ModelSensor</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">collect_all_data</span><span class="p">(</span><span class="n">include_location</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># 位置默认关闭</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;brief&quot;</span><span class="p">))</span>
+</code></pre></div>
+
+<p>得到的输出是类似下面这样：</p>
+<div class="highlight"><pre><span></span><code><span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;time&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;date&quot;</span>:<span class="w"> </span><span class="s2">&quot;2025-08-18&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;time&quot;</span>:<span class="w"> </span><span class="s2">&quot;11:32:01&quot;</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<p>还有更简单的<code>to_dict()</code>方法:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">modelsensor</span> <span class="kn">import</span> <span class="n">ModelSensor</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">ModelSensor</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">collect_all_data</span><span class="p">(</span><span class="n">include_location</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># 位置默认关闭</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;brief&quot;</span><span class="p">))</span><span class="err">```</span>
+
+<span class="n">得到的输出是类似下面这样</span><span class="err">：</span>
+<span class="err">```</span><span class="n">bash</span>
+<span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;2025-08-18&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;11:37:06&#39;</span><span class="p">}}</span>
+</code></pre></div>
+
+<p>与 Ollama 集成也很简单，只需要在调用 Ollama 的时候传递 <code>system_context</code> 参数即可，如下：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ollama</span>
+<span class="kn">from</span> <span class="nn">modelsensor</span> <span class="kn">import</span> <span class="n">ModelSensor</span>
+<span class="c1"># Get system information</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">ModelSensor</span><span class="p">()</span>
+<span class="n">system_context</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">include_location</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Create enhanced prompt</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">System Context:</span>
+<span class="si">{</span><span class="n">system_context</span><span class="si">}</span>
+<span class="s2">   ...:</span>
+<span class="s2">User Question: 今天几号?</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="c1"># Send to Ollama</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">ollama</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">&#39;qwen3:0.6b&#39;</span><span class="p">,</span> <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;role&#39;</span><span class="p">:</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="n">prompt</span><span class="p">}</span>
+<span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">][</span><span class="s1">&#39;content&#39;</span><span class="p">])</span>
+</code></pre></div>
+
+<p>得到的输出是类似下面这样：</p>
+<div class="highlight"><pre><span></span><code>&lt;think&gt;
+好的，用户问“今天几号？”，我需要根据系统提供的上下文来回答。系统里的时间是2025年8月18日，11:33:18，所以今天应该是2025年8月18日。不过要确认一下用户问的是当前日期，还是系统设定的日期。不过根据提供的上下文，时间是明确的，所以应该直接回答今天是2025年8月18日。另外，用户可能想知道今天的日期，所以需要简洁明了地回复，不需要多余的解释。确保回答准确无误，符合系统提供的信息。
+&lt;/think&gt;
+
+今天是2025年8月18日。
+</code></pre></div>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep">Category:</span>
+        <abbr class="category">
+            <a href="./category/llm.html">LLM</a>
+        </abbr>
+       </footer>
+    
+</section>
+
+
+        </section><!-- #content -->
+        <section id="widgets" class="grid col-300 fit" >
+            <!--
+            <section id="widget-search" class="widget-wrapper widget_search">
+
+                <form id="searchform" action="https://www.google.com/search" method="get">
+                    <input id="q" class="field" type="text" placeholder="Search Blog" name="q" ></input>
+                    <input id="ie" name="ie" type="hidden" value="utf-8" ></input>
+                    <input id="oe" name="oe" type="hidden" value="utf-8" ></input>
+                    <input id="channel" name="channel" type="hidden" value="suggest" ></input>
+                    <input id="searchsubmit" class="submit" type="submit" value="">
+                </form>
+            </section>
+            -->
+            <section id="widget-category" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Category
+                </div>
+                <ul><li><a href="./category/camera.html">Camera</a></li><li><a href="./category/chromebook.html">ChromeBook</a></li><li><a href="./category/diy.html">DIY</a></li><li><a href="./category/duke.html">Duke</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu</a></li><li><a href="./category/hackintosh.html">Hackintosh</a></li><li><a href="./category/linux.html">Linux</a></li><li><a href="./category/llm.html">LLM</a></li><li><a href="./category/mac.html">Mac</a></li><li><a href="./category/nas.html">NAS</a></li><li><a href="./category/photography.html">Photography</a></li><li><a href="./category/python.html">Python</a></li><li><a href="./category/qgis.html">QGIS</a></li><li><a href="./category/qt.html">QT</a></li><li><a href="./category/raspbian.html">Raspbian</a></li><li><a href="./category/sdr.html">SDR</a></li><li><a href="./category/software.html">Software</a></li><li><a href="./category/story.html">Story</a></li><li><a href="./category/virtualization.html">Virtualization</a></li><li><a href="./category/windows.html">Windows</a></li><li><a href="./category/work.html">Work</a></li></ul>
+            </section>
+
+            <section id="widget-tagcloud" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Tagcloud
+                </div>
+                <div>
+                        <span><a href="./tag/translation.html">Translation</a></span>
+                        <span><a href="./tag/rtl-sdr.html">RTL-SDR</a></span>
+                        <span><a href="./tag/learning.html">Learning</a></span>
+                        <span><a href="./tag/gis.html">GIS</a></span>
+                        <span><a href="./tag/glumpy.html">GlumPy</a></span>
+                        <span><a href="./tag/mountblade.html">Mount&Blade</a></span>
+                        <span><a href="./tag/ai.html">AI</a></span>
+                        <span><a href="./tag/lens.html">Lens</a></span>
+                        <span><a href="./tag/lan-ya.html">蓝牙</a></span>
+                        <span><a href="./tag/translate.html">Translate</a></span>
+                        <span><a href="./tag/ollama.html">Ollama</a></span>
+                        <span><a href="./tag/virtualbox.html">VirtualBox</a></span>
+                        <span><a href="./tag/hate.html">Hate</a></span>
+                        <span><a href="./tag/junck.html">Junck</a></span>
+                        <span><a href="./tag/radio.html">Radio</a></span>
+                        <span><a href="./tag/telescope.html">Telescope</a></span>
+                        <span><a href="./tag/gpt-oss.html">GPT-OSS</a></span>
+                        <span><a href="./tag/phd.html">PHD</a></span>
+                        <span><a href="./tag/communicate.html">Communicate</a></span>
+                        <span><a href="./tag/linux.html">Linux</a></span>
+                        <span><a href="./tag/pyenv.html">Pyenv</a></span>
+                        <span><a href="./tag/nas.html">NAS</a></span>
+                        <span><a href="./tag/shit.html">Shit</a></span>
+                        <span><a href="./tag/moon.html">Moon</a></span>
+                        <span><a href="./tag/hack.html">Hack</a></span>
+                        <span><a href="./tag/memory.html">Memory</a></span>
+                        <span><a href="./tag/chat.html">Chat</a></span>
+                        <span><a href="./tag/qemu.html">QEMU</a></span>
+                        <span><a href="./tag/software.html">Software</a></span>
+                        <span><a href="./tag/mac.html">Mac</a></span>
+                        <span><a href="./tag/hadoop.html">Hadoop</a></span>
+                        <span><a href="./tag/fuckzhihu.html">FuckZhihu</a></span>
+                        <span><a href="./tag/server.html">Server</a></span>
+                        <span><a href="./tag/qwen3.html">Qwen3</a></span>
+                        <span><a href="./tag/data.html">Data</a></span>
+                        <span><a href="./tag/game.html">Game</a></span>
+                        <span><a href="./tag/geology.html">Geology</a></span>
+                        <span><a href="./tag/cuda.html">CUDA</a></span>
+                        <span><a href="./tag/library.html">Library</a></span>
+                        <span><a href="./tag/diy.html">DIY</a></span>
+                        <span><a href="./tag/python.html">Python</a></span>
+                        <span><a href="./tag/ide.html">IDE</a></span>
+                        <span><a href="./tag/disease.html">Disease</a></span>
+                        <span><a href="./tag/photo.html">Photo</a></span>
+                        <span><a href="./tag/fckzhihu.html">FckZhiHu</a></span>
+                        <span><a href="./tag/chromebook.html">ChromeBook</a></span>
+                        <span><a href="./tag/er-ji.html">耳机</a></span>
+                        <span><a href="./tag/university.html">University</a></span>
+                        <span><a href="./tag/tool.html">Tool</a></span>
+                        <span><a href="./tag/download.html">Download</a></span>
+                        <span><a href="./tag/xcode.html">Xcode</a></span>
+                        <span><a href="./tag/pyopencl.html">PyOpenCL</a></span>
+                        <span><a href="./tag/mayavi.html">MayaVi</a></span>
+                        <span><a href="./tag/lesson.html">Lesson</a></span>
+                        <span><a href="./tag/kivy.html">Kivy</a></span>
+                        <span><a href="./tag/poem.html">Poem</a></span>
+                        <span><a href="./tag/photography.html">Photography</a></span>
+                        <span><a href="./tag/code-generation.html">Code Generation</a></span>
+                        <span><a href="./tag/hardware.html">Hardware</a></span>
+                        <span><a href="./tag/programming.html">Programming</a></span>
+                        <span><a href="./tag/vispy.html">VisPy</a></span>
+                        <span><a href="./tag/life.html">Life</a></span>
+                        <span><a href="./tag/hbase.html">HBase</a></span>
+                        <span><a href="./tag/macos.html">macOS</a></span>
+                        <span><a href="./tag/conda.html">Conda</a></span>
+                        <span><a href="./tag/raspberrypi.html">RaspberryPi</a></span>
+                        <span><a href="./tag/vtk.html">VTK</a></span>
+                        <span><a href="./tag/microscope.html">Microscope</a></span>
+                        <span><a href="./tag/yin-pin.html">音频</a></span>
+                        <span><a href="./tag/visualization.html">Visualization</a></span>
+                        <span><a href="./tag/virtualization.html">Virtualization</a></span>
+                        <span><a href="./tag/story.html">Story</a></span>
+                        <span><a href="./tag/fuckchunwan.html">FuckChunWan</a></span>
+                        <span><a href="./tag/scholar.html">Scholar</a></span>
+                        <span><a href="./tag/science.html">Science</a></span>
+                        <span><a href="./tag/geopython.html">GeoPython</a></span>
+                        <span><a href="./tag/cursor.html">Cursor</a></span>
+                        <span><a href="./tag/video.html">Video</a></span>
+                        <span><a href="./tag/book.html">Book</a></span>
+                        <span><a href="./tag/qt.html">QT</a></span>
+                        <span><a href="./tag/discuss.html">Discuss</a></span>
+                        <span><a href="./tag/raspbian.html">Raspbian</a></span>
+                        <span><a href="./tag/qgis.html">QGIS</a></span>
+                        <span><a href="./tag/camera.html">Camera</a></span>
+                        <span><a href="./tag/hackintosh.html">Hackintosh</a></span>
+                        <span><a href="./tag/opencl.html">OpenCL</a></span>
+                        <span><a href="./tag/windows11.html">Windows11</a></span>
+                </div>
+            </section>
+
+
+            <section id="widget-links" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    Links
+                </div>
+                <ul><li><a href="https://chinageology.com">ChinaGeology</a></li><li><a href="http://doc.geopython.com/">GeoPython</a></li><li><a href="https://fanzheng.org">Fan</a></li><li><a href="http://o00o.site">FlagPlus</a></li><li><a href="http://blog.cosli.top">CosLi</a></li><li><a href="http://akagi201.org">Akagi201</a></li><li><a href="http://xuanwo.org/">XuanWo</a></li><li><a href="https://blog.daftme.com">4Orange</a></li><li><a href="http://blog.riverrun.xyz/">River</a></li><li><a href="https://www.logcg.com">LogCG Blog</a></li><li><a href="http://guolao.me/">GuoLao</a></li></ul>
+            </section>
+            
+        </section><!-- widgets -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+</body>
+</html>

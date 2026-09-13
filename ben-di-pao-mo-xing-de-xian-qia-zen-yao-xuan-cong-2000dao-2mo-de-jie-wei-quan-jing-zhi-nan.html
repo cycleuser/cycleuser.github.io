@@ -115,7 +115,7 @@
     <div class="post-entry markdown-body">
         <h1>本地跑模型的显卡怎么选？从 2000 到 2 万的价位全景指南</h1>
 <blockquote>
-<p>前面两篇分别聊了 24G/32G 怎么选、以及本地部署到底值不值得。这一篇把"显卡本身"摊开：本地跑模型到底有哪些卡能选？按预算怎么排？本文只用一个统一的尺子——跑社区最主流的 Qwen 27B（以及少量 35B MoE）的真实速度——把 2000 元到 2 万元的各种路线全部标出来，并给出每一档适合谁。所有数字都来自抡锤者（lcz.me）论坛的真实装机实测，出处编号见文末。</p>
+<p>前面两篇分别聊了 24G/32G 怎么选、以及本地部署到底值不值得。这一篇把"显卡本身"摊开：本地跑模型到底有哪些卡能选？按预算怎么排？本文只用一个统一的尺子——跑社区最主流的 Qwen 27B（以及少量 35B MoE）的真实速度——把 2000 元的入门卡到几万元的 AI 小主机这些路线全部标出来，并给出每一档适合谁。速度数字都是从论坛实测信息中总结出来的，出处编号见文末；价格行情则是 2026 年 9 月 13 日在淘宝、闲鱼上检索到的实际挂牌价，仅供参考。</p>
 </blockquote>
 <h2>先说四个选卡的前提</h2>
 <p>在罗列显卡之前，有四件事必须先讲清楚，否则下面的数字你会看不懂：</p>
@@ -123,8 +123,94 @@
 <li><strong>跑 27B 是社区统一的"尺子"。</strong> 目前本地部署最主流的模型是 Qwen3.6 / 3.8-27B（Q4 量化约 16-17GB），论坛几乎所有显卡实测都拿它当基准[6]。比它小的是 14B 及以下，比它大的是 35B-A3B（MoE）、120B 级大模型。</li>
 <li><strong>同一张卡速度能差一倍，关键看三样：投机解码（MTP/DFlash/EAGLE）开不开、上下文开多大、思考链开几档</strong>[6]。下面标注的速度都尽量注明条件。</li>
 <li><strong>显存容量 &gt; 速度。</strong> 显存不够直接"跑不起来"，速度只是快慢问题。选卡第一件事是算清楚你的目标模型量化后多大、要开多少上下文[3]。</li>
-<li><strong>价格是浮动的。</strong> 二手市场（3090、7900XTX、2080Ti 魔改）价格波动很大，以下价格为 2026 年中论坛常见区间，仅供参考[1][9]。</li>
+<li><strong>价格是浮动的。</strong> 二手市场（3090、7900XTX、2080Ti 魔改）价格波动很大，以下价格为 <strong>2026 年 9 月 13 日</strong>查到的大致区间。<strong>价格随时可能变化，甚至几天一个价，入手前请务必到淘宝、闲鱼等平台查一下当时的实际成交价，不要照搬本文数字。</strong>[1][9]</li>
 </ol>
+<h2>先看行情：各卡价格速查（2026 年 9 月 13 日）</h2>
+<p>在展开各档位之前，先把当天在淘宝（新卡/拆机）和闲鱼（二手个人）上检索到的价格列出来，方便对照。同一型号价差极大，主要看成色、是否魔改、有无保修、是不是拆机/矿卡。</p>
+<table>
+<thead>
+<tr>
+<th>显卡</th>
+<th>淘宝（新卡 / 拆机）</th>
+<th>闲鱼（二手个人）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RTX 3060 12G</td>
+<td>2100-3500（典型 2700）</td>
+<td>1600-2200（典型 1950）</td>
+</tr>
+<tr>
+<td>Tesla P40 24G</td>
+<td>1269-1280</td>
+<td>1200-1400</td>
+</tr>
+<tr>
+<td>2080Ti 22G 魔改</td>
+<td>2600-2800</td>
+<td>2500-2600</td>
+</tr>
+<tr>
+<td>RTX 5060Ti 16G</td>
+<td>3600-4900</td>
+<td>基本无整卡</td>
+</tr>
+<tr>
+<td>RTX 3090 24G</td>
+<td>拆机 3600-5100；公版新 8400-8600</td>
+<td>7300-8800（典型 7600-8000）</td>
+</tr>
+<tr>
+<td>RX 7900XTX 24G</td>
+<td>新卡 5400-8700</td>
+<td>4800-6400（典型 5000-5600）</td>
+</tr>
+<tr>
+<td>Radeon AI PRO R9700 32G</td>
+<td>新卡 6400-8000（工控/炒价 11500+）</td>
+<td>仅见工程样品</td>
+</tr>
+<tr>
+<td>RTX 4080S 32G 魔改</td>
+<td>9000-15000</td>
+<td>基本无整卡</td>
+</tr>
+<tr>
+<td>4090D 48G 魔改</td>
+<td>20000-26000</td>
+<td>多为扩容服务，非整卡</td>
+</tr>
+<tr>
+<td>RTX 5090 32G</td>
+<td>新卡 28000-48500</td>
+<td>二手 5090D 23400-23500</td>
+</tr>
+<tr>
+<td>RTX PRO 6000</td>
+<td>41438（PRO 6000D 84G）</td>
+<td>无</td>
+</tr>
+<tr>
+<td>MI210 64G</td>
+<td>拆机 4000 / 全新 18500</td>
+<td>3999-4000</td>
+</tr>
+<tr>
+<td>NVIDIA DGX Spark（GB10 整机）</td>
+<td>22959-44800（典型 33000-36000）</td>
+<td>基本无整机挂单</td>
+</tr>
+<tr>
+<td>AMD AI Max+ 395（Strix Halo 整机）</td>
+<td>12499-28999（典型 16000-18000）</td>
+<td>多为 CPU 散片/定金，非整机</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>这张表能看出两个关键信号：<strong>一是二手 3090 已经明显涨价</strong>，闲鱼个人卡普遍 7600-8000 元，和当年 4500-5500 元的行情完全是两回事；<strong>二是 7900XTX 二手反而比 3090 便宜</strong>（4800-6400），单卡速度还更快，差距只剩在 A 卡生态上。下面各档位的取舍都会围绕这两点重新说明。</p>
+</blockquote>
 <h2>第零档：入门试水（2000 元以内）</h2>
 <p>预算极低、只想先感受"本地模型"是什么感觉，不想一上来花大钱。</p>
 <table>
@@ -157,51 +243,61 @@
 <blockquote>
 <p>论坛里对洋垃圾（P40、V100、CMP170HX）的主流态度：<strong>不是不能玩，而是"买来跑推理都算踩坑"</strong>——显存数字好看，但每一步都在跟驱动、散热、平台兼容搏斗，调试成本远超省下的钱[12]。真想稳定大显存，社区验证过的路还是正常卡或 3090 双卡。</p>
 </blockquote>
-<h2>第一档：丐版双卡（3000-6000 元）——低预算的性价比之王</h2>
+<h2>第一档：丐版双卡（4000-8000 元）——低预算的性价比之王</h2>
 <p>这一档是论坛讨论最热烈的地方，核心思路是"用两张便宜的 N 卡凑显存"。</p>
-<p><strong>双 RTX 3060 12G（约 3000 元）</strong>
-论坛名帖"最丐 Qwen3.6-27b"，两张 3060 总价约 3000 元，实测 27B Q4：<strong>MTP 开 43-50 t/s、关闭 MTP 31-36 t/s，prefill 稳定 600 t/s 上下</strong>。结论是"速度极其稳定、GPU 占用率长时间 100%，CUDA 就是成熟"[1]。双 16G 的 4060Ti/5060Ti 效果更好。</p>
-<p><strong>双 RTX 2080Ti 22G 魔改（约 4500-5500 元）</strong>
+<p><strong>双 RTX 3060 12G（约 4000 元）</strong>
+论坛名帖"最丐 Qwen3.6-27b"，两张 3060 合计约 4000 元（二手 3060 12G 闲鱼约 1900-2200 元/张），实测 27B Q4：<strong>MTP 开 43-50 t/s、关闭 MTP 31-36 t/s，prefill 稳定 600 t/s 上下</strong>。结论是"速度极其稳定、GPU 占用率长时间 100%，CUDA 就是成熟"[1]。双 16G 的 4060Ti/5060Ti 效果更好。</p>
+<p><strong>双 RTX 2080Ti 22G 魔改（约 5000-5300 元）</strong>
 魔改 22G 的 2080Ti 是另一条路。双卡实测 27B：<strong>decode 60-82 t/s、prefill 约 1000 t/s</strong>（llama.cpp TP）[11][17]。也有单卡 TP2 跑 27B-FP8 的实测，decode 60-106 t/s、prefill 1100-1300 t/s[17]。2080Ti 有 NVLink，双卡通信比纯 PCIe 好。缺点是魔改卡有翻车风险、无官方保修。</p>
-<p><strong>双 RTX 5060Ti 16G（约 6000 元）</strong>
-Blackwell 新卡，两卡合计 32GB。实测 vLLM TP 模式 35-78 t/s、LM Studio 实际 26-50 t/s[7]。新卡有保修、能效好，但价格比二手 3090 组合贵。论坛观点："双 16G 卡虽然性价比下降，但 CUDA 发挥稳定，效果更好"[1]。</p>
-<p><strong>这一档小结：</strong> 双 N 卡是社区公认最省心的丐版路线。但要注意——<strong>双卡跑单模型要走 TP/张量并行，速度不是 2 倍，约 1.3-1.5 倍</strong>，且 PCIe 通信有开销；跨卡调度在写代码这类频繁交互场景延迟明显[1][4]。</p>
-<h2>第二档：24G 单卡主力（4000-7000 元）——最主流的选择</h2>
+<p><strong>双 RTX 5060Ti 16G（约 7200-8000 元）</strong>
+Blackwell 新卡，两卡合计 32GB。实测 vLLM TP 模式 35-78 t/s、LM Studio 实际 26-50 t/s[7]。新卡有保修、能效好，但价格已接近单张二手 3090。论坛观点："双 16G 卡虽然性价比下降，但 CUDA 发挥稳定，效果更好"[1]。</p>
+<p><strong>这一档小结：</strong> 双 N 卡是社区公认最省心的丐版路线。按 9 月 13 日的行情，双 3060 合计约 4000 元，仍是最便宜的双卡入坑方案；双 2080Ti 22G 约 5000-5300 元；但双 5060Ti 已经要 7200-8000 元，接近一张二手 3090，"极致便宜"的标签主要留给前两个组合。另外要注意——<strong>双卡跑单模型要走 TP/张量并行，速度不是 2 倍，约 1.3-1.5 倍</strong>，且 PCIe 通信有开销；跨卡调度在写代码这类频繁交互场景延迟明显[1][4]。</p>
+<h2>第二档：24G 单卡主力（5000-8000 元）——最主流的选择</h2>
 <p>如果只想插一张卡、不想折腾双卡，这一档是绝对主流。</p>
-<p><strong>二手 RTX 3090 24G（约 4500-5500 元）</strong>
-CUDA 生态 + 24G，本地跑 27B 的"最省心单卡"。实测 27B：<strong>MTP 开约 55-70 t/s、168K 上下文稳定，思考态 45-60 t/s</strong>[6]。论坛大量"3090 24G 单卡"实战帖，工具调用、长上下文都验证充分[6]。注意：二手卡水深，且 3090 功耗高（350W）。</p>
-<p><strong>RX 7900XTX 24G（二手 4000-4700 元 / 新卡 6500-7800 元）</strong>
-24G 大带宽卡，游戏旗舰定位。实测 27B Q4：<strong>不开投机约 39 t/s，Vulkan+MTP 后 51-73 t/s</strong>（工具调用 73.4 t/s），prefill 约 587 t/s[8][9]。速度是 24G 档里最能打的，但 A 卡要吃 ROCm/Vulkan 生态的折腾成本[9]。<strong>7900XTX 近期涨价明显</strong>（新卡从 7299 涨到 7799），性价比在下降[14]。</p>
+<p><strong>二手 RTX 3090 24G（闲鱼个人卡约 7600-8000 元 / 淘宝拆机 3600-5100 元）</strong>
+CUDA 生态 + 24G，本地跑 27B 的"最省心单卡"。实测 27B：<strong>MTP 开约 55-70 t/s、168K 上下文稳定，思考态 45-60 t/s</strong>[6]。论坛大量"3090 24G 单卡"实战帖，工具调用、长上下文都验证充分[6]。<strong>但要提醒一句，3090 这一年涨得很凶</strong>：闲鱼个人自用卡普遍报到 7600-8000 元，淘宝上 3600-5100 元的便宜货基本是拆机/矿卡，水深，功耗也高（350W）[6]。</p>
+<p><strong>RX 7900XTX 24G（二手约 4800-6400 元 / 新卡 6500-8000 元）</strong>
+24G 大带宽卡，游戏旗舰定位。实测 27B Q4：<strong>不开投机约 39 t/s，Vulkan+MTP 后 51-73 t/s</strong>（工具调用 73.4 t/s），prefill 约 587 t/s[8][9]。速度是 24G 档里最能打的，但 A 卡要吃 ROCm/Vulkan 生态的折腾成本[9]。<strong>这里出现了一个"价格倒挂"</strong>：7900XTX 二手已经比 3090 便宜（4800-6400 对 7600-8000），单卡速度还更快，唯一的门槛就是 A 卡生态[9][14]。</p>
 <p><strong>这一档怎么选：</strong>
-- 想要省心、驱动稳定、双卡扩展潜力 → <strong>3090</strong>
-- 想要单卡最高速度、且愿意折腾 A 卡 → <strong>7900XTX</strong></p>
-<h2>第三档：32G 大显存（7000-10000 元）——面向长上下文与更高精度</h2>
+- 想要省心、驱动稳定、双卡扩展潜力 → <strong>3090</strong>（但二手已涨到 7600-8000，预算要留够）
+- 想要单卡最高速度、且愿意折腾 A 卡 → <strong>7900XTX</strong>（二手 4800-6400，如今反而更划算）</p>
+<h2>第三档：32G 大显存（6500-13500 元）——面向长上下文与更高精度</h2>
 <p>显存上到 32G，意味着 27B 能开 Q6/Q8 高精度、或 128K-256K 长上下文，还能跑 35B-A3B 这类 MoE。</p>
-<p><strong>Radeon AI PRO R9700 32G（全新 7000-8000 元）</strong>
+<p><strong>Radeon AI PRO R9700 32G（全新 6500-8000 元）</strong>
 RDNA4 新卡，32G 大显存。实测 27B Q4：<strong>约 27.6 t/s（不开投机）、MTP 优化后 35-50 t/s</strong>[15][16]；vLLM 特调（MXFP4+DFlash2）下 prefill 能到 2000-3300 t/s、decode 思考态 40/编程 70-80 t/s[5]。速度不如 7900XTX，但<strong>胜在 32G 大显存 + 新卡保修 + ROCm 支持比 RDNA3 更好</strong>——长上下文、高精度量化、ComfyUI 视频是它的主场[9][15]。</p>
-<p><strong>RTX 4080S 32G 魔改版（约 8500-9000 元）</strong>
+<p><strong>RTX 4080S 32G 魔改版（约 9000-13500 元）</strong>
 N 卡 32G 的魔改路线。实测 llama.cpp + MTP：<strong>decode 中位约 89 t/s（不开投机仅 31）、冷 prefill 约 1900 t/s，307K 统一上下文池</strong>——32G 卡里相当能打[13]。与 R9700 价格接近，"N 卡生态 + 32G"是它最大的卖点，但魔改卡无官方保修，看运气[13]。</p>
 <p><strong>这一档怎么选：</strong>
 - 要 N 卡生态 + 32G + 高速度 → 4080S 32G 魔改（接受无保修风险）
 - 要新卡保修 + 32G + A 卡生态能忍 → R9700（A 卡生态当前最强 4 代）</p>
-<h2>第四档：48G 高端（15000-25000 元）——为"更大模型"铺路</h2>
+<h2>第四档：48G 高端（15000-26000 元）——为"更大模型"铺路</h2>
 <p>上了 48G，27B 只是热身，真正的价值是能跑更大模型、开更长上下文、或跑 ComfyUI 视频生成不打架。</p>
-<p><strong>双 RTX 3090 NVLink（约 9000-13000 元）</strong>
-论坛验证最充分的高端方案。双 3090 + NVLink 实测 27B：<strong>vLLM + AWQ-INT4 + MTP 工具调用 130 t/s、262K 上下文全开</strong>[10]；SGLang 版常规对话 88 t/s、中文散文 178 t/s[18]；半年实测 4 用户并发饱和 258 t/s[3]。48G 显存让 27B 开满上下文毫无压力，还能给多用户/多 Agent 用。</p>
-<p><strong>4090D 48G 魔改（约 20000-22000 元）</strong>
+<p><strong>双 RTX 3090 NVLink（约 15000-16000 元）</strong>
+论坛验证最充分的高端方案。双 3090 + NVLink 实测 27B：<strong>vLLM + AWQ-INT4 + MTP 工具调用 130 t/s、262K 上下文全开</strong>[10]；SGLang 版常规对话 88 t/s、中文散文 178 t/s[18]；半年实测 4 用户并发饱和 258 t/s[3]。48G 显存让 27B 开满上下文毫无压力，还能给多用户/多 Agent 用。<strong>不过双 3090 也跟着涨价</strong>：按闲鱼单张 7600-8000 元算，两张加 NVLink 桥就是 15000-16000 元，仍比 4090D 48G 单卡（20000-26000）便宜，但"性价比最高"已经要打个折扣[6][10]。</p>
+<p><strong>4090D 48G 魔改（约 20000-26000 元）</strong>
 单卡 48G。实测 27B W4A16-AWQ + SGLang + DFlash2：<strong>平均 110 tok/s</strong>[4]；FP8 版本 63-76 t/s。单卡 48G 意味着不用双卡、没有跨卡开销，部署最省心，但魔改卡贵且无官方保修[4]。</p>
 <p><strong>这一档怎么选：</strong>
-- 预算敏感、能接受双卡折腾 → 双 3090（性价比高、可扩展）
+- 预算敏感、能接受双卡折腾 → 双 3090（价格较低、可扩展）
 - 不想折腾、要单卡省心 → 4090D 48G 魔改</p>
-<h2>第五档：旗舰与专业卡（2.5 万元以上）——追求极致或有特殊需求</h2>
+<h2>第五档：旗舰与专业卡（2.8 万元以上）——追求极致或有特殊需求</h2>
 <p><strong>RTX 5090 32G</strong>
-当前消费级最强。实测 27B：<strong>NVFP4 单请求 decode 中位 143 tok/s、MTP 结构化输出 219.8 t/s，prefill 8000+ t/s</strong>；3 并发满载每路 146 t/s[19][20]。约 2.5-3 万元级别。适合预算无上限、追求"本地接近在线体感"的人。</p>
+当前消费级最强。实测 27B：<strong>NVFP4 单请求 decode 中位 143 tok/s、MTP 结构化输出 219.8 t/s，prefill 8000+ t/s</strong>；3 并发满载每路 146 t/s[19][20]。新卡约 2.8-4.5 万元，二手 5090D 约 2.3-2.4 万元。适合预算无上限、追求"本地接近在线体感"的人。</p>
 <p><strong>RTX PRO 5000/6000（48G+，专业卡）</strong>
-48G 起步、有 ECC 与专业驱动。论坛实测 RTX PRO 5000 48G 跑 27B 约 55-65 t/s 量级。适合企业/生产力场景，价格昂贵（PRO 6000 现货约 10 万，更多人选择卖掉换 3 张 R9700）[21]。</p>
+48G 起步、有 ECC 与专业驱动。论坛实测 RTX PRO 5000 48G 跑 27B 约 55-65 t/s 量级。适合企业/生产力场景，价格昂贵（PRO 6000 现货约 4-10 万，更多人选择卖掉换 3 张 R9700）[21]。</p>
 <p><strong>MI210 64G / A100 / L20（数据中心卡）</strong>
 论坛对 MI210 的态度很鲜明：<strong>"入手就是退役期，生态走到末期，社区主流支持 CDNA3/RDNA3"</strong>，除非 SR-IOV 等特殊需求，否则不推荐[14]。A100 40G、L20 96G 同理——买新不买旧，软件支持永远优先给新架构。</p>
 <p><strong>Mac 统一内存路线（M4/M5 系列）</strong>
 Mac Studio M5 Ultra 256G 能跑 170GB 级别的 DeepSeek-V4 开源模型（几十 t/s）[22]。适合需要超大统一内存、且生态（MLX）能接受的用户；但"统一内存并非万能"，跑大模型性价比不如同价位 PC[23]。</p>
+<h2>另一条路：AI 小主机（DGX Spark / AI Max 395）</h2>
+<p>除了插显卡，这几年还多了一条"统一内存小主机"的路线：CPU 与 GPU 共享一整块大内存，显存不再是瓶颈，代价是内存带宽普遍偏低。论坛最近讨论最多的就是 NVIDIA DGX Spark 和 AMD Ryzen AI Max+ 395 这两台，值得单独说。</p>
+<p><strong>NVIDIA DGX Spark（GB10，淘宝约 2.3-4.5 万元，典型 3.3-3.6 万；闲鱼基本无整机挂单）</strong>
+128GB LPDDR5X 统一内存、6144 CUDA 核心（48 SM）、带宽约 273-300 GB/s[24]。容量能装下 140B 级量化模型，但论坛的共识是<strong>它先撞的是带宽墙，而不是 128G 这个容量数字</strong>：27B Q4 激活约 15GB，理论上限也就 18 tok/s 左右，140B 级 MoE 更只有几 tok/s[24]。实测层面，单机跑 Qwen3.8-27B（SGLang + NVFP4 + DSpark）能到 34-38 tok/s，数学 43.6、代码 34 tok/s，但 prefill 不到 1000，冷启动要等 20-30 秒[25]；4 台 DGX Spark 组 TP=4 跑 DeepSeek-V4.1-Flash，单条工作流 40-60 tok/s、三条 50-100 tok/s、prefill 2500-3000 tok/s[26]；3 台就能装下 748B 的 V4.1-Flash 权重[27]。整体评价是"低功耗、安静、CUDA 原生，但单机跑大模型确实拉垮，更适合组集群"[25]，论坛里也有专门提醒"新手不要碰 DGX Spark"[28]。</p>
+<p><strong>AMD Ryzen AI Max+ 395（Strix Halo，淘宝约 1.25-2.9 万元，典型 1.6-1.8 万；闲鱼多为 CPU 散片或定金，整机仍看淘宝）</strong>
+集成 Radeon 8060S（40 CU / 2560 SP），128GB 统一内存，带宽约 215-260 GB/s[29]。它的性能上限比 Spark 更低，但价格便宜一大截。早期实测 Qwen3.6-27B：Q4_K_M 约 10-12 tok/s、Q8 约 7.5、BF16 只有 4.3 tok/s，prefill 要几分钟，当时的评价是"跑 Agent 会慢到吐血"[30]。转折出现在 2026 年 9 月，社区给 Strix Halo 做了一批定制优化（halogen-flash-server、ROCmFP4 + MTP、HaloGen），Qwen3.8-27B 的 decode 能到 40 tok/s 上下、prefill 突破 1000，长上下文曲线也不怎么掉[31][32][33]，一下把它的性价比拉了起来。整机品牌有 FEVM FAEX1、极摩客 EVO-X2、铭凡 MS-S1 MAX、零刻 GTR9 Pro 等，淘宝价从 1.25 万一路到 2.2 万不等[29]。</p>
+<p><strong>这两台怎么选：</strong>
+- 要 CUDA 生态、能接受单机慢或愿意组集群 → <strong>DGX Spark</strong>（单机 3.3-3.6 万，集群才有意义）
+- 要便宜、能折腾 Linux/ROCm、主要跑 27B → <strong>AI Max 395 小主机</strong>（1.6-1.8 万，优化后速度可用）
+- 要更大统一内存、且接受苹果生态 → <strong>Mac Studio</strong>（见上一档，256G 可跑 170GB 级模型）</p>
 <h2>总对比表</h2>
 <p>以下是各价位主流方案的集中对比（基准模型：Qwen 27B Q4，速度区间取决于投机解码/引擎/上下文，请以条件为准）：</p>
 <table>
@@ -220,7 +316,7 @@ Mac Studio M5 Ultra 256G 能跑 170GB 级别的 DeepSeek-V4 开源模型（几�
 <tr>
 <td>P40 24G 洋垃圾</td>
 <td>24G</td>
-<td>&lt;2000</td>
+<td>~1200-1400</td>
 <td>35B-A3B 45-60 t/s[2]</td>
 <td>便宜、显存大</td>
 <td>折腾门槛极高</td>
@@ -229,7 +325,7 @@ Mac Studio M5 Ultra 256G 能跑 170GB 级别的 DeepSeek-V4 开源模型（几�
 <tr>
 <td>双 3060 12G</td>
 <td>24G</td>
-<td>~3000</td>
+<td>~4000</td>
 <td>43-50 t/s[1]</td>
 <td>极致便宜、CUDA 稳定</td>
 <td>双卡通信、无扩展</td>
@@ -238,7 +334,7 @@ Mac Studio M5 Ultra 256G 能跑 170GB 级别的 DeepSeek-V4 开源模型（几�
 <tr>
 <td>双 2080Ti 22G</td>
 <td>44G</td>
-<td>~5000</td>
+<td>~5000-5300</td>
 <td>60-82 t/s[11][17]</td>
 <td>NVLink、大显存</td>
 <td>魔改翻车风险</td>
@@ -247,7 +343,7 @@ Mac Studio M5 Ultra 256G 能跑 170GB 级别的 DeepSeek-V4 开源模型（几�
 <tr>
 <td>双 5060Ti 16G</td>
 <td>32G</td>
-<td>~6000</td>
+<td>~7200-8000</td>
 <td>35-78 t/s[7]</td>
 <td>新卡有保修</td>
 <td>比 3090 组合贵</td>
@@ -256,7 +352,7 @@ Mac Studio M5 Ultra 256G 能跑 170GB 级别的 DeepSeek-V4 开源模型（几�
 <tr>
 <td>二手 3090 24G</td>
 <td>24G</td>
-<td>~4500-5500</td>
+<td>~5000-8000</td>
 <td>55-70 t/s[6]</td>
 <td>最省心单卡、CUDA</td>
 <td>二手水深、功耗高</td>
@@ -265,7 +361,7 @@ Mac Studio M5 Ultra 256G 能跑 170GB 级别的 DeepSeek-V4 开源模型（几�
 <tr>
 <td>7900XTX 24G</td>
 <td>24G</td>
-<td>二手4000-4700</td>
+<td>二手4800-6000</td>
 <td>39-73 t/s[8][9]</td>
 <td>24G 里速度王</td>
 <td>A 卡生态折腾</td>
@@ -274,7 +370,7 @@ Mac Studio M5 Ultra 256G 能跑 170GB 级别的 DeepSeek-V4 开源模型（几�
 <tr>
 <td>R9700 32G</td>
 <td>32G</td>
-<td>7000-8000</td>
+<td>6500-8000</td>
 <td>27-50 t/s[15][16]</td>
 <td>32G+新卡保修</td>
 <td>速度一般</td>
@@ -283,7 +379,7 @@ Mac Studio M5 Ultra 256G 能跑 170GB 级别的 DeepSeek-V4 开源模型（几�
 <tr>
 <td>4080S 32G 魔改</td>
 <td>32G</td>
-<td>8500-9000</td>
+<td>9000-13500</td>
 <td>约 89 t/s[13]</td>
 <td>N 卡生态+32G</td>
 <td>魔改无保修</td>
@@ -292,16 +388,16 @@ Mac Studio M5 Ultra 256G 能跑 170GB 级别的 DeepSeek-V4 开源模型（几�
 <tr>
 <td>双 3090 NVLink</td>
 <td>48G</td>
-<td>9000-13000</td>
+<td>15000-16000</td>
 <td>108-178 t/s[3][10][18]</td>
-<td>性价比最高的 48G</td>
+<td>48G 里价格较低</td>
 <td>双卡折腾</td>
 <td>想上 48G 的玩家</td>
 </tr>
 <tr>
 <td>4090D 48G 魔改</td>
 <td>48G</td>
-<td>~20000-22000</td>
+<td>~20000-26000</td>
 <td>110 t/s[4]</td>
 <td>单卡 48G 省心</td>
 <td>贵、无保修</td>
@@ -310,7 +406,7 @@ Mac Studio M5 Ultra 256G 能跑 170GB 级别的 DeepSeek-V4 开源模型（几�
 <tr>
 <td>RTX 5090 32G</td>
 <td>32G</td>
-<td>25000+</td>
+<td>28000-45000</td>
 <td>143-220 t/s[19][20]</td>
 <td>消费级最强</td>
 <td>极贵</td>
@@ -319,7 +415,7 @@ Mac Studio M5 Ultra 256G 能跑 170GB 级别的 DeepSeek-V4 开源模型（几�
 <tr>
 <td>RTX PRO 5000 48G</td>
 <td>48G</td>
-<td>高价</td>
+<td>4 万+</td>
 <td>55-65 t/s</td>
 <td>专业卡 ECC</td>
 <td>极贵</td>
@@ -334,21 +430,39 @@ Mac Studio M5 Ultra 256G 能跑 170GB 级别的 DeepSeek-V4 开源模型（几�
 <td>贵、生态窄</td>
 <td>特殊大模型需求</td>
 </tr>
+<tr>
+<td>DGX Spark GB10</td>
+<td>128G 统一</td>
+<td>3.3-3.6 万</td>
+<td>27B 34-38 t/s[25]</td>
+<td>CUDA、可组集群</td>
+<td>带宽低、单机慢</td>
+<td>要 CUDA 的集群玩家</td>
+</tr>
+<tr>
+<td>AI Max 395 小主机</td>
+<td>128G 统一</td>
+<td>1.6-1.8 万</td>
+<td>27B 约 40 t/s[31]</td>
+<td>便宜、统一内存</td>
+<td>带宽最低、要折腾</td>
+<td>预算有限的折腾党</td>
+</tr>
 </tbody>
 </table>
 <blockquote>
-<p>价格均为 2026 年中的常见区间，二手市场波动大；"27B 实测速度"以论坛最常见配置为准，同一配置因投机解码与上下文设置会有明显差异，横向比较仅供参考，务必回原文看测法。</p>
+<p>价格均为 2026 年 9 月 13 日在淘宝、闲鱼检索到的大致区间，<strong>价格随时会变，建议随时关注淘宝、闲鱼上的实际行情，以购买当天的成交价为准</strong>；"27B 实测速度"以论坛最常见配置为准，同一配置因投机解码与上下文设置会有明显差异，横向比较仅供参考，务必回原文看测法。</p>
 </blockquote>
 <h2>三句话总结</h2>
 <ol>
-<li><strong>预算 3000-6000 → 双 3060 / 双 2080Ti / 双 5060Ti</strong>，双 N 卡是低预算路线的性价比之王，前提是你接受折腾双卡；</li>
-<li><strong>预算 4500-7000 只想插一张卡 → 3090（省心）或 7900XTX（最快）</strong>，这是最主流、抄作业帖最多的一档；</li>
+<li><strong>预算 4000-8000 → 双 3060 / 双 2080Ti / 双 5060Ti</strong>，双 N 卡是低预算路线的性价比之王，前提是你接受折腾双卡；</li>
+<li><strong>预算 5000-8000 只想插一张卡 → 3090（省心）或 7900XTX（最快）</strong>，这是最主流、抄作业帖最多的一档；</li>
 <li><strong>想要长上下文/高精度/更大的模型 → 加钱上 32G（R9700 或 4080S 32G），再往上 48G（双 3090 性价比最高）</strong>。</li>
 </ol>
 <p>买卡没有标准答案，只有"你的预算 × 你要跑的模型 × 你愿意折腾多少"。量力而行，先跑起来，比什么都重要。</p>
 <hr>
 <h2>参考来源</h2>
-<p>本文全部实测数据来自抡锤者（lcz.me）论坛会员的真实装机分享，原帖链接均可点击核对测法：</p>
+<p>本文全部实测数据来自论坛会员的真实装机分享，原帖链接均可点击核对测法：</p>
 <ol>
 <li><a href="https://lcz.me/topic/328/328/双卡指南-最丐-qwen3.6-27b-3000-元双-rtx-3060-50t-s">(双卡指南) 最丐 Qwen3.6-27b - 3000 元双 RTX 3060 - 50t/s</a> — https://lcz.me/topic/328/328/双卡指南-最丐-qwen3.6-27b-3000-元双-rtx-3060-50t-s（TID:328）</li>
 <li><a href="https://lcz.me/topic/493/493/双卡缝合怪-x99平台-p40-2080ti的本地生产力平台">双卡缝合怪 X99 平台 P40+2080Ti 的本地生产力平台</a> — https://lcz.me/topic/493/493/双卡缝合怪-x99平台-p40-2080ti的本地生产力平台（TID:493）</li>
@@ -373,6 +487,16 @@ Mac Studio M5 Ultra 256G 能跑 170GB 级别的 DeepSeek-V4 开源模型（几�
 <li><a href="https://lcz.me/topic/435/435/rtx-pro6000-现货价格-10w-该不该卖-换-3-张-r9700">RTX PRO6000 现货价格 10w，该不该卖，换 3 张 r9700</a> — https://lcz.me/topic/435/435/rtx-pro6000-现货价格-10w-该不该卖-换-3-张-r9700（TID:435）</li>
 <li><a href="https://lcz.me/topic/1448/1448/deepseek-v4-flash-vision-exp-开源了-现在有跑本地的量化版本吗">DeepSeek-V4-Flash-Vision-Exp 开源了，现在有跑本地的量化版本吗</a> — https://lcz.me/topic/1448/1448/deepseek-v4-flash-vision-exp-开源了-现在有跑本地的量化版本吗（TID:1448）</li>
 <li><a href="https://lcz.me/topic/1357/1357/m5-max-ultral-ai性能强悍-苹果-amd-英伟达ai小主机ai性能全面分析-潜力很大但统一内存并非万能">M5 Max/Ultra AI 性能强悍？苹果、AMD、英伟达 AI 小主机 AI 性能全面分析（潜力很大但统一内存并非万能）</a> — https://lcz.me/topic/1357/1357/m5-max-ultral-ai性能强悍-苹果-amd-英伟达ai小主机ai性能全面分析-潜力很大但统一内存并非万能（TID:1357）</li>
+<li><a href="https://lcz.me/topic/1657">想聽聽各路大神對RTX Spark的看法</a> — https://lcz.me/topic/1657（TID:1657）</li>
+<li><a href="https://lcz.me/topic/1188">DGX单机也有春天——Qwen3.8-27B at 34-38 tok/s on DGX Spark (GB10)</a> — https://lcz.me/topic/1188（TID:1188）</li>
+<li><a href="https://lcz.me/topic/1658">Deepseek v4.1 flash, 4台DGX spark GB10, TP=4</a> — https://lcz.me/topic/1658（TID:1658）</li>
+<li><a href="https://lcz.me/topic/1611">DeepSeek V4.1 Flash 552B权重翻倍，DGX Spark 3台可以装下权重</a> — https://lcz.me/topic/1611（TID:1611）</li>
+<li><a href="https://lcz.me/topic/27">新手不要碰DGX Spark（重要事情说三遍）</a> — https://lcz.me/topic/27（TID:27）</li>
+<li><a href="https://lcz.me/topic/143">分享：4090/48G, R9700/32G, AI Max 395 (8060S) 跑大语言模型的实测数据</a> — https://lcz.me/topic/143（TID:143）</li>
+<li><a href="https://lcz.me/topic/713">请问有没有人可以帮助提供 AMD AI MAX 395 跑Qwen3.6-27B的速度情况？</a> — https://lcz.me/topic/713（TID:713）</li>
+<li><a href="https://lcz.me/topic/1609">Aimax 395的定制qwen 3.8 flash，prefill突破1000了，decode 40-50</a> — https://lcz.me/topic/1609（TID:1609）</li>
+<li><a href="https://lcz.me/topic/1576">ROCm FP4以 AI Max+ 395測試 對比Q4進步不小</a> — https://lcz.me/topic/1576（TID:1576）</li>
+<li><a href="https://lcz.me/topic/1659">Halogen Flash Server配置與實測(AI Max+ 395 w Qwen 3.8 Flash Next)</a> — https://lcz.me/topic/1659（TID:1659）</li>
 </ol>
     </div><!-- /.entry-content -->
     <footer class="post-meta">

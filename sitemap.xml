@@ -5,30 +5,44 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.cycleuser.org/</loc>
-<lastmod>2026-10-02T17:04:33-00:00</lastmod>
+<lastmod>2026-10-03T22:50:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>https://blog.cycleuser.org/archives.html</loc>
-<lastmod>2026-10-02T17:04:33-00:00</lastmod>
+<lastmod>2026-10-03T22:50:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>https://blog.cycleuser.org/tags.html</loc>
-<lastmod>2026-10-02T17:04:33-00:00</lastmod>
+<lastmod>2026-10-03T22:50:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
 
 <url>
 <loc>https://blog.cycleuser.org/categories.html</loc>
-<lastmod>2026-10-02T17:04:33-00:00</lastmod>
+<lastmod>2026-10-03T22:50:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/dui-ren-bu-dui-shi-shi-da-xue-sheng-ting-jiang-zuo-ti-gao-xue-xi-xiao-lu-de-bi-bei-zhi-hui.html</loc>
+<lastmod>2026-10-03T12:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/local-llm-deployment.html</loc>
+<lastmod>2026-10-03T10:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -3050,7 +3064,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.cycleuser.org/category/llm.html</loc>
-<lastmod>2026-10-02T22:10:00+08:06</lastmod>
+<lastmod>2026-10-03T10:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -3176,7 +3190,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.cycleuser.org/category/story.html</loc>
-<lastmod>2026-09-29T00:00:00+08:06</lastmod>
+<lastmod>2026-10-03T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -3226,6 +3240,111 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://blog.cycleuser.org/category/work.html</loc>
 <lastmod>2026-05-05T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/da-xue.html</loc>
+<lastmod>2026-10-03T12:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/jiang-zuo.html</loc>
+<lastmod>2026-10-03T12:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/xue-xi.html</loc>
+<lastmod>2026-10-03T12:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/xue-zhu.html</loc>
+<lastmod>2026-10-03T12:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/sui-bi.html</loc>
+<lastmod>2026-10-03T12:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/ben-di-bu-shu.html</loc>
+<lastmod>2026-10-03T10:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/da-mo-xing.html</loc>
+<lastmod>2026-10-03T10:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/qian-wen.html</loc>
+<lastmod>2026-10-03T10:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/qwen.html</loc>
+<lastmod>2026-10-03T10:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/xian-qia.html</loc>
+<lastmod>2026-10-03T10:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/xian-cun.html</loc>
+<lastmod>2026-10-03T10:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/moe.html</loc>
+<lastmod>2026-10-03T10:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/deepseek.html</loc>
+<lastmod>2026-10-03T10:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/chi-xian.html</loc>
+<lastmod>2026-10-03T10:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://blog.cycleuser.org/tag/cheng-ben.html</loc>
+<lastmod>2026-10-03T10:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>
@@ -3378,13 +3497,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://blog.cycleuser.org/tag/moe.html</loc>
-<lastmod>2026-10-02T22:10:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
 <loc>https://blog.cycleuser.org/tag/tong-yi-nei-cun.html</loc>
 <lastmod>2026-10-02T22:10:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -3421,13 +3533,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.cycleuser.org/tag/kv-cache.html</loc>
-<lastmod>2026-10-01T00:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://blog.cycleuser.org/tag/xian-cun.html</loc>
 <lastmod>2026-10-01T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
@@ -3589,13 +3694,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.cycleuser.org/tag/shi-pin-sheng-cheng.html</loc>
-<lastmod>2026-09-23T00:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://blog.cycleuser.org/tag/xian-qia.html</loc>
 <lastmod>2026-09-23T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
@@ -3826,13 +3924,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://blog.cycleuser.org/tag/qwen.html</loc>
-<lastmod>2026-09-19T07:30:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
 <loc>https://blog.cycleuser.org/tag/liquidai.html</loc>
 <lastmod>2026-09-19T07:30:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -3910,13 +4001,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://blog.cycleuser.org/tag/da-xue.html</loc>
-<lastmod>2026-09-18T15:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
 <loc>https://blog.cycleuser.org/tag/yan-jiu-sheng.html</loc>
 <lastmod>2026-09-18T15:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -3925,13 +4009,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.cycleuser.org/tag/shi-sheng-guan-xi.html</loc>
-<lastmod>2026-09-18T15:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://blog.cycleuser.org/tag/sui-bi.html</loc>
 <lastmod>2026-09-18T15:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
@@ -4274,13 +4351,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://blog.cycleuser.org/tag/deepseek.html</loc>
-<lastmod>2026-09-09T14:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
 <loc>https://blog.cycleuser.org/tag/ying-yong-chang-jing.html</loc>
 <lastmod>2026-09-09T14:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -4387,13 +4457,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.cycleuser.org/tag/wai-yu.html</loc>
-<lastmod>2026-09-02T00:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://blog.cycleuser.org/tag/xue-xi.html</loc>
 <lastmod>2026-09-02T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
@@ -4681,13 +4744,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.cycleuser.org/tag/winogrande.html</loc>
-<lastmod>2026-08-19T10:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://blog.cycleuser.org/tag/ben-di-bu-shu.html</loc>
 <lastmod>2026-08-19T10:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
@@ -7642,7 +7698,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.cycleuser.org/author/cycleusyer.html</loc>
-<lastmod>2026-10-03T00:00:00+08:06</lastmod>
+<lastmod>2026-10-03T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.8</priority>
 </url>

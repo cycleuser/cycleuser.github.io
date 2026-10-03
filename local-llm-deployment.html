@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894037367471530"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9894037367471530">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=19' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+
+<body id="index" class="blog">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="./index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li class="active"><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li class="active"><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li class="active"><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li><li class="active"><a href="./2048游戏.html" data-i18n="2048">2048</a></li><li class="active"><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li><li class="active"><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li class="has-sub"><a href="./categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="./category/academic.html">Academic (3)</a></li><li><a href="./category/ai.html">AI (6)</a></li><li><a href="./category/c.html">C (16)</a></li><li><a href="./category/camera.html">Camera (15)</a></li><li><a href="./category/chromebook.html">ChromeBook (2)</a></li><li><a href="./category/cuda.html">CUDA (1)</a></li><li><a href="./category/design.html">Design (1)</a></li><li><a href="./category/diy.html">DIY (1)</a></li><li><a href="./category/duke.html">Duke (1)</a></li><li><a href="./category/education.html">Education (23)</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./category/hackintosh.html">Hackintosh (7)</a></li><li><a href="./category/java.html">Java (1)</a></li><li><a href="./category/linux.html">Linux (4)</a></li><li><a href="./category/llm.html">LLM (65)</a></li><li><a href="./category/ltfs.html">LTFS (1)</a></li><li><a href="./category/mac.html">Mac (3)</a></li><li><a href="./category/math.html">Math (32)</a></li><li><a href="./category/ml.html">ML (4)</a></li><li><a href="./category/modeling.html">Modeling (10)</a></li><li><a href="./category/nas.html">NAS (1)</a></li><li><a href="./category/nix.html">Nix (1)</a></li><li><a href="./category/photography.html">Photography (1)</a></li><li><a href="./category/programming.html">Programming (13)</a></li><li><a href="./category/pve.html">PVE (1)</a></li><li><a href="./category/python.html">Python (27)</a></li><li><a href="./category/qgis.html">QGIS (3)</a></li><li><a href="./category/qt.html">QT (1)</a></li><li><a href="./category/raspbian.html">Raspbian (1)</a></li><li><a href="./category/science.html">Science (2)</a></li><li><a href="./category/sdr.html">SDR (2)</a></li><li><a href="./category/software.html">Software (3)</a></li><li><a href="./category/story.html">Story (71)</a></li><li><a href="./category/sui-bi.html">随笔 (8)</a></li><li><a href="./category/tool.html">Tool (57)</a></li><li><a href="./category/tools.html">Tools (2)</a></li><li><a href="./category/virtualization.html">Virtualization (1)</a></li><li><a href="./category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./category/windows.html">Windows (1)</a></li><li><a href="./category/work.html">Work (24)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="./tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="./tag/16gxian-cun.html">16G显存 (1)</a></li><li><a href="./tag/2080ti.html">2080Ti (1)</a></li><li><a href="./tag/24g.html">24G (1)</a></li><li><a href="./tag/3090.html">3090 (1)</a></li><li><a href="./tag/32g.html">32G (1)</a></li><li><a href="./tag/3dda-yin.html">3D打印 (1)</a></li><li><a href="./tag/4060ti.html">4060Ti (1)</a></li><li><a href="./tag/4090.html">4090 (1)</a></li><li><a href="./tag/5060ti.html">5060Ti (2)</a></li><li><a href="./tag/5070ti.html">5070Ti (1)</a></li><li><a href="./tag/5090.html">5090 (1)</a></li><li><a href="./tag/7900xtx.html">7900XTX (5)</a></li><li><a href="./tag/8gxian-cun.html">8G显存 (1)</a></li><li><a href="./tag/9bmo-xing.html">9B模型 (1)</a></li><li><a href="./tag/abbreviations.html">abbreviations (1)</a></li><li><a href="./tag/academic.html">academic (1)</a></li><li><a href="./tag/adamw.html">AdamW (1)</a></li><li><a href="./tag/advice.html">advice (1)</a></li><li><a href="./tag/aerodynamics.html">aerodynamics (3)</a></li><li><a href="./tag/agent.html">Agent (3)</a></li><li><a href="./tag/ai.html">AI (37)</a></li><li><a href="./tag/ai-max-395.html">AI Max 395 (1)</a></li><li><a href="./tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="./tag/aigc.html">AIGC (1)</a></li><li><a href="./tag/ailun-li.html">AI伦理 (1)</a></li><li><a href="./tag/airfoil.html">airfoil (1)</a></li><li><a href="./tag/algorithm.html">Algorithm (12)</a></li><li><a href="./tag/amd.html">AMD (2)</a></li><li><a href="./tag/anime.html">anime (1)</a></li><li><a href="./tag/arc.html">ARC (1)</a></li><li><a href="./tag/architecture.html">Architecture (3)</a></li><li><a href="./tag/arithmetic.html">arithmetic (1)</a></li><li><a href="./tag/attitude.html">Attitude (2)</a></li><li><a href="./tag/bayesian.html">Bayesian (2)</a></li><li><a href="./tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="./tag/beginner.html">Beginner (3)</a></li><li><a href="./tag/ben-di-bu-shu.html">本地部署 (6)</a></li><li><a href="./tag/ben-di-bu-shu-bing-yun-xing-omnicoder-9bde-su-du-zhi-mi-moxing-vs-ollama.html">本地部署并运行omnicoder-9b的速度之谜MoXing-vs-Ollama (1)</a></li><li><a href="./tag/ben-di-mo-xing.html">本地模型 (14)</a></li><li><a href="./tag/ben-di-vszai-xian.html">本地vs在线 (1)</a></li><li><a href="./tag/bfcl.html">BFCL (4)</a></li><li><a href="./tag/bi-yao-xing.html">必要性 (1)</a></li><li><a href="./tag/bi-ye-lun-wen.html">毕业论文 (1)</a></li><li><a href="./tag/bian-cheng.html">编程 (1)</a></li><li><a href="./tag/bian-cheng-huan-jing.html">编程环境 (1)</a></li><li><a href="./tag/bian-cheng-zhu-shou.html">编程助手 (1)</a></li><li><a href="./tag/bianque.html">BianQue (1)</a></li><li><a href="./tag/binary.html">binary (1)</a></li><li><a href="./tag/bing-fei-gu-yi-wei-shi-yao-wo-geng-duo-yong-ming-ling-xing-gong-ju-er-bu-shi-gui.html">并非故意-为什么我更多用命令行工具而不是GUI (1)</a></li><li><a href="./tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="./tag/book.html">Book (10)</a></li><li><a href="./tag/brent.html">Brent (1)</a></li><li><a href="./tag/bullshit.html">bullshit (1)</a></li><li><a href="./tag/c.html">C (10)</a></li><li><a href="./tag/camera.html">Camera (23)</a></li><li><a href="./tag/can-shu-hua-jian-mo.html">参数化建模 (1)</a></li><li><a href="./tag/career.html">career (1)</a></li><li><a href="./tag/causation.html">Causation (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-da-mo-xing-omnicoder-9b-jian-ce-moxing-vs-ollama-dui-bi.html">超强的本地大模型-OmniCoder-9B-简测MoXing-vs-Ollama-对比 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-xiao-mo-xing-omnicoder-9bde-an-zhuang-yu-shi-yong-zhi-nan.html">超强的本地小模型OmniCoder-9B的安装与使用指南 (1)</a></li><li><a href="./tag/chao-xiao-mo-xing.html">超小模型 (1)</a></li><li><a href="./tag/chat.html">Chat (1)</a></li><li><a href="./tag/chatgpt.html">ChatGPT (1)</a></li><li><a href="./tag/cheng-ben.html">成本 (1)</a></li><li><a href="./tag/cheng-chang.html">成长 (2)</a></li><li><a href="./tag/chi-xian.html">离线 (1)</a></li><li><a href="./tag/chouchou-pdflun-wen-zhong-ming-ming-gong-ju-sheng-ji-liao-zhe-ci-zhuan-men-you-hua-liao-zhong-wen-lun-wen-zhi-chi.html">Chou瞅-PDF论文重命名工具升级了这次专门优化了中文论文支持 (1)</a></li><li><a href="./tag/chouchou-yi-ge-pythonxiao-gong-ju-rang-ni-de-lun-wen-pdfwen-jian-ming-bu-zai-shi-luan-ma.html">Chou瞅一个Python小工具让你的论文PDF文件名不再是乱码 (1)</a></li><li><a href="./tag/chromebook.html">ChromeBook (2)</a></li><li><a href="./tag/chuan-re.html">传热 (1)</a></li><li><a href="./tag/cli.html">CLI (1)</a></li><li><a href="./tag/code.html">Code (2)</a></li><li><a href="./tag/code-generation.html">Code Generation (6)</a></li><li><a href="./tag/coding.html">Coding (1)</a></li><li><a href="./tag/cognition.html">Cognition (1)</a></li><li><a href="./tag/comics.html">comics (1)</a></li><li><a href="./tag/communicate.html">Communicate (6)</a></li><li><a href="./tag/communication.html">communication (3)</a></li><li><a href="./tag/comparison.html">comparison (1)</a></li><li><a href="./tag/computability.html">Computability (12)</a></li><li><a href="./tag/computer.html">computer (3)</a></li><li><a href="./tag/conda.html">Conda (2)</a></li><li><a href="./tag/conda-forge.html">conda-forge (1)</a></li><li><a href="./tag/configback-kua-ping-tai-kai-fa-pei-zhi-wen-jian-de-wu-tong-bei-fen-qian-yi-guan-li-gong-ju.html">ConfigBack-跨平台开发配置文件的无痛备份迁移管理工具 (1)</a></li><li><a href="./tag/cong-shu-zu-dao-fu-za-shu-ju-cyu-yan-shi-zen-yao-yi-bu-bu-bian-fu-za-de.html">从数组到复杂数据C语言是怎么一步步变复杂的 (1)</a></li><li><a href="./tag/copytalker-kua-yue-yu-yan-zhang-ai-de-jin-shi-shi-yu-yin-fan-yi.html">CopyTalker-跨越语言障碍的近实时语音翻译 (1)</a></li><li><a href="./tag/correlation.html">Correlation (1)</a></li><li><a href="./tag/cpu.html">CPU (1)</a></li><li><a href="./tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="./tag/cs.html">CS (1)</a></li><li><a href="./tag/csv.html">csv (1)</a></li><li><a href="./tag/cuda.html">CUDA (7)</a></li><li><a href="./tag/culture.html">culture (1)</a></li><li><a href="./tag/cursor.html">Cursor (1)</a></li><li><a href="./tag/cyu-yan-fu-xi-quan-gong-lue-yi-wen-chi-tou-suo-you-zhi-shi-dian.html">C语言复习全攻略-一文吃透所有知识点 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-numc-yi-ge-numpy-feng-ge-de-c-yu-yan-ku.html">C语言基础教程NumC-一个-NumPy-风格的-C-语言库 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shi-xian-lei-si-dong-tai-lei-xing-dui-yong-hu-shu-ru-jie-xi-bing-qie-xuan-ze-he-gua-de-shu-ju-lei-xing.html">C语言基础教程-实现类似动态类型对用户输入解析并且选择合适的数据类型 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shu-zu-xing-zhuang-50xing-200000lie-vs-200000xing-50lie-tong-yang-de-shu-ju-bu-tong-de-xing-neng.html">C语言基础教程数组形状-50行200000列-vs-200000行50列-同样的数据不同的性能 (1)</a></li><li><a href="./tag/da-gong.html">打工 (1)</a></li><li><a href="./tag/da-mo-xing.html">大模型 (1)</a></li><li><a href="./tag/da-xue.html">大学 (3)</a></li><li><a href="./tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="./tag/da-xue-sheng-huo.html">大学生活 (1)</a></li><li><a href="./tag/da-yi.html">大一 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing.html">大语言模型 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing-li-mian-de-tokende-han-yi-he-yuan-liu.html">大语言模型里面的token的含义和源流 (1)</a></li><li><a href="./tag/dai-ma-neng-li.html">代码能力 (1)</a></li><li><a href="./tag/dan-jing-du-fu-dian-shu-de-fen-bian-lu-wei-shi-yao-zai-ji-suan-ji-li-1000-mo-he-1000-mo-jia-001-ke-neng-shi-yi-yang-de.html">单精度浮点数的分辨率为什么在计算机里-1000-万和-1000-万加-001-可能是一样的 (1)</a></li><li><a href="./tag/dan-yi-zhi-ze-yuan-ze-xie-hao-pythonhan-shu-de-di-yi-bu.html">单一职责原则写好Python函数的第一步 (1)</a></li><li><a href="./tag/data.html">Data (3)</a></li><li><a href="./tag/data-science.html">Data Science (2)</a></li><li><a href="./tag/database.html">Database (1)</a></li><li><a href="./tag/datewise-photo-organizer-ji-yu-ri-qi-shi-jian-jin-xing-tu-pian-zu-zhi-he-lu-jing-guan-li-de-she-ying-fu-zhu-gong-ju-ruan-jian.html">Datewise-Photo-Organizer-基于日期时间进行图片组织和路径管理的摄影辅助工具软件 (1)</a></li><li><a href="./tag/decision-making.html">decision-making (1)</a></li><li><a href="./tag/decode.html">decode (1)</a></li><li><a href="./tag/deepseek.html">DeepSeek (2)</a></li><li><a href="./tag/design.html">Design (1)</a></li><li><a href="./tag/dian-che-nan-ti-han-shang-de-zhi-jia-hui-zai-shi-gu-qian-tu-ran-tui-chu-yao.html">电车难题厂商的智驾会在事故前突然退出么 (1)</a></li><li><a href="./tag/dian-yuan.html">电源 (1)</a></li><li><a href="./tag/dimension.html">dimension (1)</a></li><li><a href="./tag/discuss.html">Discuss (7)</a></li><li><a href="./tag/disease.html">Disease (1)</a></li><li><a href="./tag/diy.html">DIY (1)</a></li><li><a href="./tag/download.html">Download (1)</a></li><li><a href="./tag/earth-science.html">Earth Science (1)</a></li><li><a href="./tag/education.html">Education (16)</a></li><li><a href="./tag/efficiency.html">efficiency (1)</a></li><li><a href="./tag/ekf.html">EKF (1)</a></li><li><a href="./tag/emotion.html">emotion (1)</a></li><li><a href="./tag/engineering.html">Engineering (1)</a></li><li><a href="./tag/environment.html">Environment (1)</a></li><li><a href="./tag/er-ji.html">耳机 (1)</a></li><li><a href="./tag/er-jin-zhi.html">二进制 (1)</a></li><li><a href="./tag/er-shou.html">二手 (1)</a></li><li><a href="./tag/ertinger-ting-yi-ge-jian-dan-de-yin-pin-jiang-zao-gong-ju.html">ErTing耳听一个简单的音频降噪工具 (1)</a></li><li><a href="./tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="./tag/fa-lan-ke-fu.html">法兰克福 (1)</a></li><li><a href="./tag/family.html">family (1)</a></li><li><a href="./tag/fan-si.html">反思 (1)</a></li><li><a href="./tag/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">FanFu凡赴-把-Ollama-的-GGUF-模型转成-HuggingFace-格式纯好玩 (1)</a></li><li><a href="./tag/fang-fa-bi-gui-mo-geng-zhong-yao-agenticqwenyu-needlede-xiao-mo-xing-zhi-neng-ti-ying-yong-tan-suo.html">方法比规模更重要AgenticQwen与Needle的小模型智能体应用探索 (1)</a></li><li><a href="./tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="./tag/fengtang.html">FengTang (1)</a></li><li><a href="./tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="./tag/filtering.html">Filtering (6)</a></li><li><a href="./tag/folderlensyi-ge-pyside6shi-xian-de-jian-dan-wen-jian-guan-li-qi-kai-fa-shi-li.html">FolderLens一个PySide6实现的简单文件管理器开发实例 (1)</a></li><li><a href="./tag/fractal.html">fractal (1)</a></li><li><a href="./tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="./tag/freshman.html">freshman (5)</a></li><li><a href="./tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="./tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./tag/function-calling.html">function calling (1)</a></li><li><a href="./tag/gai-lu-lun.html">概率论 (1)</a></li><li><a href="./tag/game.html">Game (2)</a></li><li><a href="./tag/gametheory.html">GameTheory (1)</a></li><li><a href="./tag/gangdan-de-zhi-shi-ku-shi-zen-yao-lian-cheng-de.html">GangDan-的知识库是怎么炼成的 (1)</a></li><li><a href="./tag/gangdan-geng-xin-ke-yong-zai-xian-mo-xing-cong-xie-zong-shu-dao-xie-wan-zheng-wen-zhang.html">GangDan-更新可用在线模型从写综述到写完整文章 (1)</a></li><li><a href="./tag/gangdan-wu-yue-zhong-de-ji-zhong-geng-xin-jing-zhun-xuan-wen-zhi-shi-ku-fen-xi-xue-xi-mo-kuai-quan-mian-xiu-fu.html">GangDan-五月中的集中更新精准选文知识库分析学习模块全面修复 (1)</a></li><li><a href="./tag/gangdan-you-geng-xin-liao-yi-bo-cong-kai-fa-zhu-shou-zhuan-xing-wei-zhi-shi-guan-li-yu-jiao-xue-fu-zhu-gong-ju.html">GangDan-又更新了一波从开发助手转型为知识管理与教学辅助工具 (1)</a></li><li><a href="./tag/gangdangang-dan-sheng-ji-kai-yuan-ben-di-zhi-shi-ku-zhi-chi-ben-di-mo-xing-he-zai-xian-mo-xing-de-shen-du-yan-jiu-zhu-shou.html">GangDan纲担升级开源本地知识库-支持本地模型和在线模型的深度研究助手 (1)</a></li><li><a href="./tag/gangdangang-dan-zhong-gou-ji-hu-zhong-zuo-liao-yi-bian.html">GangDan纲担重构-几乎重做了一遍 (1)</a></li><li><a href="./tag/gangdanji-xu-geng-xin-xian-zai-neng-zhi-jie-shang-chuan-cajgou-jian-zhi-shi-ku-liao.html">GangDan继续更新现在能直接上传CAJ构建知识库了 (1)</a></li><li><a href="./tag/gangdanzhi-shi-ku-dao-chu-gai-jin-ke-yi-zhi-jie-dao-chu-xia-zai-hao-de-wen-zhang-yuan-wen-liao.html">GangDan知识库导出改进-可以直接导出下载好的文章原文了 (1)</a></li><li><a href="./tag/gao-si-fen-bu.html">高斯分布 (1)</a></li><li><a href="./tag/gao-xiao-jiao-shi-jian-yi-da-yi-kai-xue-yao-you-dian-nao-huan-yao-an-zhuang-opencodeshi-yong-zhi-neng-ti.html">高校教师建议大一开学要有电脑还要安装OpenCode使用智能体 (1)</a></li><li><a href="./tag/ge-shi.html">格式 (1)</a></li><li><a href="./tag/gei-xin-shou-shi-xian-yi-wei-shu-zu-de-liang-chong-si-lu-chuan-tong-cyu-yan-vs-numcku.html">给新手实现一维数组的两种思路传统C语言-vs-NumC库 (1)</a></li><li><a href="./tag/gemma4.html">Gemma4 (1)</a></li><li><a href="./tag/general-education.html">general-education (1)</a></li><li><a href="./tag/geojstool-di-qiu-hua-xue-fen-xi-gong-ju-wang-ye-ban-de-geopytool.html">GeoJsTool-地球化学分析工具-网页版的GeoPyTool (1)</a></li><li><a href="./tag/geology.html">Geology (4)</a></li><li><a href="./tag/geometry.html">geometry (1)</a></li><li><a href="./tag/geopython.html">GeoPython (1)</a></li><li><a href="./tag/gfx1151.html">gfx1151 (1)</a></li><li><a href="./tag/gguf.html">GGUF (2)</a></li><li><a href="./tag/gis.html">GIS (3)</a></li><li><a href="./tag/glm.html">GLM (1)</a></li><li><a href="./tag/glumpy.html">GlumPy (2)</a></li><li><a href="./tag/golden-section.html">Golden Section (1)</a></li><li><a href="./tag/gong-ju.html">工具 (1)</a></li><li><a href="./tag/gong-ju-diao-yong.html">工具调用 (4)</a></li><li><a href="./tag/gong-zuo-zhan.html">工作站 (1)</a></li><li><a href="./tag/google-de-turboquant-suan-fa-ru-he-rang-aigeng-sheng-nei-cun-gao-ding-xiang-liang-liang-hua-nan-ti.html">Google-的-TurboQuant-算法如何让AI更省内存搞定向量量化难题 (1)</a></li><li><a href="./tag/gpt-35.html">GPT-3.5 (3)</a></li><li><a href="./tag/gpt-4o.html">GPT-4o (1)</a></li><li><a href="./tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="./tag/graduate-school.html">graduate-school (1)</a></li><li><a href="./tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="./tag/granite4.html">granite4 (1)</a></li><li><a href="./tag/gsm8k.html">GSM8K (2)</a></li><li><a href="./tag/gu-ge.html">谷歌 (1)</a></li><li><a href="./tag/gu-ge-turboquant-lun-wen-zhong-yi-ji-yu-jin-zui-you-niu-qu-lu-de-gao-su-zai-xian-xiang-liang-liang-hua-suan-fa.html">谷歌-TurboQuant-论文中译基于近最优扭曲率的高速在线向量量化算法 (1)</a></li><li><a href="./tag/guan-xi-xing-shu-ju-ku.html">关系型数据库 (1)</a></li><li><a href="./tag/guide.html">Guide (1)</a></li><li><a href="./tag/hack.html">Hack (2)</a></li><li><a href="./tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="./tag/hadoop.html">Hadoop (2)</a></li><li><a href="./tag/halogen.html">halogen (1)</a></li><li><a href="./tag/hardware.html">Hardware (2)</a></li><li><a href="./tag/hate.html">Hate (1)</a></li><li><a href="./tag/hbase.html">HBase (1)</a></li><li><a href="./tag/heibancong-markdownzhuan-chu-ppthuan-deng-pian.html">HeiBan从Markdown转出PPT幻灯片 (1)</a></li><li><a href="./tag/heibanhei-ban-jiang-markdownzhuan-huan-cheng-htmllai-dang-jiang-yi.html">HeiBan黑板-将Markdown转换成HTML来当讲义 (1)</a></li><li><a href="./tag/hellaswag.html">HellaSwag (2)</a></li><li><a href="./tag/hermes.html">Hermes (1)</a></li><li><a href="./tag/heroism.html">heroism (1)</a></li><li><a href="./tag/history.html">History (6)</a></li><li><a href="./tag/huan-jue.html">幻觉 (1)</a></li><li><a href="./tag/huan-wei-si-kao-he-ni-chou-sha.html">换位思考和你瞅啥 (1)</a></li><li><a href="./tag/huan-yi-ge-ba-wang-ye-zhuan-huan-cheng-markdownde-python-xiao-gong-ju.html">Huan-一个把网页转换成-Markdown的Python-小工具 (1)</a></li><li><a href="./tag/hui-yi.html">回忆 (3)</a></li><li><a href="./tag/humaneval.html">HumanEval (2)</a></li><li><a href="./tag/hypothesis-testing.html">hypothesis-testing (1)</a></li><li><a href="./tag/ide.html">IDE (2)</a></li><li><a href="./tag/imbalance.html">Imbalance (1)</a></li><li><a href="./tag/imu.html">IMU (1)</a></li><li><a href="./tag/jacobian.html">Jacobian (1)</a></li><li><a href="./tag/java-ji-chu-yu-fa-5fen-zhong-ru-men.html">Java-基础语法5分钟入门 (1)</a></li><li><a href="./tag/ji-chu-zhi-shi-chu-ji-tong-ji-gai-nian-de-jian-dan-jie-shao.html">基础知识初级统计概念的简单介绍 (1)</a></li><li><a href="./tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="./tag/ji-nian.html">纪念 (1)</a></li><li><a href="./tag/ji-shi-ben.html">记事本 (1)</a></li><li><a href="./tag/ji-suan-ji.html">计算机 (1)</a></li><li><a href="./tag/ji-suan-ji-zu-cheng.html">计算机组成 (1)</a></li><li><a href="./tag/ji-yu-ben-di-mo-xing-de-bian-cheng-xue-xi-fu-zhu-huan-jing-da-jian-wan-zheng-zhi-nan.html">基于本地模型的编程学习辅助环境搭建完整指南 (1)</a></li><li><a href="./tag/ji-yu-tunade-virtualbox-yu-ubuntu-xu-ni-ji-bu-shu-zhi-nan.html">基于TUNA的-VirtualBox-与-Ubuntu-虚拟机部署指南 (1)</a></li><li><a href="./tag/jia-qi.html">假期 (1)</a></li><li><a href="./tag/jia-she-jian-yan.html">假设检验 (1)</a></li><li><a href="./tag/jian-dan-shuo-shuo-pythonli-mian-de-han-shu-shi-di-yi-gong-min-first-class-citizen.html">简单说说Python里面的函数是第一公民First-Class-Citizen (1)</a></li><li><a href="./tag/jian-yi.html">建议 (1)</a></li><li><a href="./tag/jiang-zuo.html">讲座 (1)</a></li><li><a href="./tag/jiao-shi-jie.html">教师节 (1)</a></li><li><a href="./tag/jiao-xue.html">教学 (2)</a></li><li><a href="./tag/jiao-yu.html">教育 (6)</a></li><li><a href="./tag/jie-wei.html">价位 (1)</a></li><li><a href="./tag/jie-zhu-pythonlai-li-jie-zi-gua-ying-xin-pu-sen-ji-fen-yuan-li-shi-xian-yu-dong-tai-ke-shi-hua.html">借助Python来理解自适应辛普森积分原理实现与动态可视化 (1)</a></li><li><a href="./tag/jing-xiang.html">镜像 (1)</a></li><li><a href="./tag/jiu-wen-gao-bie-guo-qu-gao-bie-ke-xue-wang.html">旧文告别过去告别科学网 (1)</a></li><li><a href="./tag/jixingji-xing-dang-agent-dui-hua-chao-chu-shang-xia-wen-xian-zhi-zuo-liao-yi-ge-lei-si-xu-ni-ji-re-qian-yi-cao-lu-fang-an.html">JiXing记行-当-Agent-对话超出上下文限制做了一个类似虚拟机热迁移草率方案 (1)</a></li><li><a href="./tag/job.html">Job (1)</a></li><li><a href="./tag/job-hunting.html">job-hunting (1)</a></li><li><a href="./tag/json.html">json (1)</a></li><li><a href="./tag/jsonl.html">jsonl (1)</a></li><li><a href="./tag/junck.html">Junck (3)</a></li><li><a href="./tag/kalman.html">Kalman (1)</a></li><li><a href="./tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="./tag/kao-yan-qu-mei-chu-shi-yu-fu-shi.html">考研祛魅初试与复试 (1)</a></li><li><a href="./tag/ke-biao.html">课表 (1)</a></li><li><a href="./tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="./tag/kivy.html">Kivy (3)</a></li><li><a href="./tag/kiwix.html">Kiwix (1)</a></li><li><a href="./tag/kuan-biao.html">宽表 (1)</a></li><li><a href="./tag/kv-cache.html">KV cache (1)</a></li><li><a href="./tag/kvhuan-cun.html">KV缓存 (1)</a></li><li><a href="./tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="./tag/language.html">Language (1)</a></li><li><a href="./tag/lao-deng-chang-tan.html">老登常谈 (1)</a></li><li><a href="./tag/learn.html">Learn (4)</a></li><li><a href="./tag/learning.html">Learning (10)</a></li><li><a href="./tag/lens.html">Lens (19)</a></li><li><a href="./tag/lesson.html">Lesson (1)</a></li><li><a href="./tag/lfm.html">LFM (1)</a></li><li><a href="./tag/lfm25.html">lfm2.5 (1)</a></li><li><a href="./tag/li-xing-dui-bi.html">理性对比 (5)</a></li><li><a href="./tag/li-xing-xuan-gou.html">理性选购 (1)</a></li><li><a href="./tag/li-yong-chao-qiang-de-xiao-mo-xing-omnicoder-9b-shi-shi-turboquant-liang-hua-kv-cache-2-bit-tiao-zhan-fp1.html">利用超强的小模型-OmniCoder-9B-试试-TurboQuant-量化-KV-Cache-2-bit-挑战-FP1 (1)</a></li><li><a href="./tag/li-yong-pythonshi-xian-de-yu-ben-di-da-mo-xing-jiao-hu-de-posix-jian-rong-ceng.html">利用Python实现的与本地大模型交互的POSIX-兼容层 (1)</a></li><li><a href="./tag/liang-hua.html">量化 (5)</a></li><li><a href="./tag/liaoliao-rang-ben-di-da-yu-yan-mo-xing-ai-bang-ni-liao-tian-de-kai-yuan-gong-ju.html">Liao聊-让本地大语言模型-AI-帮你聊天的开源工具 (1)</a></li><li><a href="./tag/library.html">Library (1)</a></li><li><a href="./tag/life.html">life (16)</a></li><li><a href="./tag/lift.html">lift (1)</a></li><li><a href="./tag/linux.html">Linux (9)</a></li><li><a href="./tag/liquid-ai.html">Liquid AI (1)</a></li><li><a href="./tag/liquidai.html">LiquidAI (1)</a></li><li><a href="./tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="./tag/llamacpp.html">llama.cpp (4)</a></li><li><a href="./tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="./tag/llm.html">LLM (13)</a></li><li><a href="./tag/ltfs.html">LTFS (1)</a></li><li><a href="./tag/lto.html">LTO (1)</a></li><li><a href="./tag/mac.html">Mac (11)</a></li><li><a href="./tag/macbook.html">MacBook (1)</a></li><li><a href="./tag/macbook-air-m4.html">MacBook Air M4 (2)</a></li><li><a href="./tag/macos.html">macOS (1)</a></li><li><a href="./tag/markdown.html">Markdown (1)</a></li><li><a href="./tag/materials.html">Materials (1)</a></li><li><a href="./tag/math.html">Math (5)</a></li><li><a href="./tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="./tag/mathematics.html">mathematics (1)</a></li><li><a href="./tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="./tag/maturity.html">maturity (1)</a></li><li><a href="./tag/mayavi.html">MayaVi (1)</a></li><li><a href="./tag/md.html">md (1)</a></li><li><a href="./tag/mechanics.html">Mechanics (1)</a></li><li><a href="./tag/memory.html">Memory (4)</a></li><li><a href="./tag/methodology.html">Methodology (1)</a></li><li><a href="./tag/mian-dui-wu-mai-ni-shi-wu-neng-wei-li-huan-shi-xiu-shou-pang-guan.html">面对雾霾你是无能为力还是袖手旁观 (1)</a></li><li><a href="./tag/mian-xiang-dui-xiang-bian-cheng-ru-men-yong-wu-xia-jiao-se-li-jie-python-zhong-de-lei.html">面向对象编程入门用武侠角色理解-Python-中的类 (1)</a></li><li><a href="./tag/microscope.html">Microscope (2)</a></li><li><a href="./tag/mindset.html">mindset (2)</a></li><li><a href="./tag/ming-ling-xing.html">命令行 (1)</a></li><li><a href="./tag/miniconda3.html">Miniconda3 (1)</a></li><li><a href="./tag/ml.html">ML (4)</a></li><li><a href="./tag/mlx.html">mlx (1)</a></li><li><a href="./tag/mmlu.html">MMLU (2)</a></li><li><a href="./tag/mo-ni.html">模拟 (1)</a></li><li><a href="./tag/mo-xing-ping-ce.html">模型评测 (1)</a></li><li><a href="./tag/mo-xing-xuan-ze.html">模型选择 (2)</a></li><li><a href="./tag/mobile.html">Mobile (1)</a></li><li><a href="./tag/moe.html">MoE (5)</a></li><li><a href="./tag/moon.html">Moon (1)</a></li><li><a href="./tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="./tag/moving-average.html">Moving Average (1)</a></li><li><a href="./tag/moxing.html">moxing (1)</a></li><li><a href="./tag/moxing-he-ollama-dui-bi-cong-omnicoder-9bdao-geng-duo-mo-xing.html">MoXing-和-Ollama-对比从omnicoder-9b到更多模型 (1)</a></li><li><a href="./tag/moxing-su-du-zui-gao-da-dao-ollamade-201-tong-mo-xing-tong-ying-jian-de-shi-ce-dui-bi-omnicoder-2-9b-de-q4_k_m.html">MoXing-速度最高达到-Ollama的-201-同模型同硬件的实测对比OmniCoder-2-9B-的-Q4_K_M (1)</a></li><li><a href="./tag/moxing-wu-yue-geng-xin-suan-shi-lai-liao-ge-da-sao-chu.html">MoXing-五月更新算是来了个大扫除 (1)</a></li><li><a href="./tag/moxing-zhu-li-la-ji-lao-yong-bai-yuan-chao-lian-jie-xian-qia-ben-di-yun-xing-omnicoder-2-9bmo-xing-jie-guo-ye-zhi-you-shi-ji-ge-tokenss.html">MoXing-助力垃圾佬用百元超廉价显卡本地运行omnicoder-2-9b模型结果也只有十几个tokenss (1)</a></li><li><a href="./tag/moxingdi-yu-suan-chang-jing-yong-rx580xian-qia-qing-song-yun-xing-qwen35-9b-q4_k_mmo-xing.html">MoXing低预算场景用RX580显卡轻松运行Qwen35-9b-q4_k_m模型 (1)</a></li><li><a href="./tag/moxingsheng-ji-tong-shi-yun-xing-duo-ge-mo-xing-shi-li.html">MoXing升级同时运行多个模型实例 (1)</a></li><li><a href="./tag/moxingxin-sheng-ji-zhi-jie-duo-she-ollama-bu-fen-mo-xing-ti-su-50.html">MoXing新升级直接夺舍-Ollama-部分模型提速-50 (1)</a></li><li><a href="./tag/mtp.html">MTP (1)</a></li><li><a href="./tag/muon.html">Muon (1)</a></li><li><a href="./tag/n-cpu-moe.html">n-cpu-moe (1)</a></li><li><a href="./tag/n8n.html">n8n (1)</a></li><li><a href="./tag/nas.html">NAS (1)</a></li><li><a href="./tag/nei-cun.html">内存 (2)</a></li><li><a href="./tag/nemotron.html">Nemotron (1)</a></li><li><a href="./tag/network.html">Network (1)</a></li><li><a href="./tag/ni-de-dian-nao-mei-miao-neng-zuo-duo-shao-ci-fu-dian-yun-suan-flops-de-gu-shi.html">你的电脑每秒能做多少次浮点运算FLOPS-的故事 (1)</a></li><li><a href="./tag/niu-dun-fa-qiu-jie-guo-cheng-de-pythonshi-xian-ji-qi-xiang-jie.html">牛顿法求解过程的Python实现及其详解 (1)</a></li><li><a href="./tag/nixos.html">NixOS (1)</a></li><li><a href="./tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="./tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="./tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="./tag/nosql.html">NoSQL (1)</a></li><li><a href="./tag/numpy.html">NumPy (2)</a></li><li><a href="./tag/nuoyi-geng-xin-xin-zeng-zai-xian-zhuan-huan-yin-qing-mei-xian-qia-ye-bu-pa-chang-wen-dang-ye-bu-na-yao-tou-teng.html">NuoYi-更新新增在线转换引擎没显卡也不怕长文档也不那么头疼 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-geng-xin-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju-shao-wei-sheng-yi-dian-xian-cun-liao.html">NuoYi-挪移更新-离线的-PDFDOCX-转-Markdown-工具稍微省一点显存了 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-yi-ge-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju.html">NuoYi-挪移-一个离线的-PDFDOCX-转-Markdown-工具 (1)</a></li><li><a href="./tag/nvidia.html">Nvidia (1)</a></li><li><a href="./tag/ocr.html">OCR (1)</a></li><li><a href="./tag/ollama.html">Ollama (22)</a></li><li><a href="./tag/ollamaaidgei-ni-guan-li-ben-di-da-mo-xing-pei-ge-de-li-zhu-shou.html">OllamaAid给你管理本地大模型配个得力助手 (1)</a></li><li><a href="./tag/ollamageng-xin-suo-you-ben-di-mo-xing.html">Ollama更新所有本地模型 (1)</a></li><li><a href="./tag/ollamaqian-ru-mo-xing-xuan-xing-zhi-nan-zhu-liu-mo-xing-shen-du-dui-bi.html">Ollama嵌入模型选型指南-主流模型深度对比 (1)</a></li><li><a href="./tag/omlx.html">omlx (1)</a></li><li><a href="./tag/opc.html">OPC (1)</a></li><li><a href="./tag/opencl.html">OpenCL (1)</a></li><li><a href="./tag/opencode.html">opencode (15)</a></li><li><a href="./tag/opencode-jin-jie-zhi-ji-neng-chuang-zuo-chai-jie-miao-shu-dian-xing-ren-wu-hou-yan-zheng-shi-xian-zai-zuo-cheng-ke-fu-yong-de-ji-neng.html">OpenCode-进阶之技能创作拆解描述典型任务后验证实现再做成可复用的技能 (1)</a></li><li><a href="./tag/opencode-skillsfen-xiang-yi-tao-zi-ji-luan-xie-de-huan-suan-shi-yong-de-ai-bian-ma-ji-neng-ku.html">OpenCode-Skills分享一套自己乱写的还算实用的-AI-编码技能库 (1)</a></li><li><a href="./tag/openlaoke.html">OpenLaoKe (1)</a></li><li><a href="./tag/openlaoke-geng-xin-ben-di-gguf-mo-xing-ling-api-fei-yong-pao-qi-lai.html">OpenLaoKe-更新本地-GGUF-模型零-API-费用跑起来 (1)</a></li><li><a href="./tag/openlaokelao-ke-yi-ge-ming-ling-xing-aizhu-shou.html">OpenLaoKe唠嗑一个命令行AI助手 (1)</a></li><li><a href="./tag/openscad.html">OpenSCAD (1)</a></li><li><a href="./tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="./tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="./tag/optimization.html">Optimization (2)</a></li><li><a href="./tag/os.html">os (1)</a></li><li><a href="./tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="./tag/pandas.html">pandas (1)</a></li><li><a href="./tag/pao-mo.html">泡沫 (1)</a></li><li><a href="./tag/parenting.html">Parenting (1)</a></li><li><a href="./tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="./tag/path.html">PATH (1)</a></li><li><a href="./tag/pdfjie-xi.html">PDF解析 (1)</a></li><li><a href="./tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="./tag/performance.html">Performance (1)</a></li><li><a href="./tag/phd.html">PHD (2)</a></li><li><a href="./tag/philosophy.html">philosophy (2)</a></li><li><a href="./tag/photo.html">Photo (23)</a></li><li><a href="./tag/photography.html">Photography (2)</a></li><li><a href="./tag/physics.html">Physics (3)</a></li><li><a href="./tag/pi.html">pi (3)</a></li><li><a href="./tag/pi-agent.html">pi agent (1)</a></li><li><a href="./tag/ping-ce.html">评测 (1)</a></li><li><a href="./tag/poem.html">Poem (2)</a></li><li><a href="./tag/powershell.html">PowerShell (1)</a></li><li><a href="./tag/prefill.html">prefill (1)</a></li><li><a href="./tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="./tag/programming.html">Programming (11)</a></li><li><a href="./tag/prompt.html">Prompt (1)</a></li><li><a href="./tag/psychology.html">Psychology (1)</a></li><li><a href="./tag/pve.html">PVE (2)</a></li><li><a href="./tag/pyenv.html">Pyenv (2)</a></li><li><a href="./tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="./tag/pyside6.html">PySide6 (1)</a></li><li><a href="./tag/python.html">Python (76)</a></li><li><a href="./tag/python-ji-chu-yu-fa-5fen-zhong-ru-men.html">Python-基础语法5分钟入门 (1)</a></li><li><a href="./tag/qemu.html">QEMU (1)</a></li><li><a href="./tag/qgis.html">QGIS (3)</a></li><li><a href="./tag/qian-wen.html">千问 (1)</a></li><li><a href="./tag/qt.html">QT (1)</a></li><li><a href="./tag/qu-shen-cha.html">去审查 (1)</a></li><li><a href="./tag/qwen.html">Qwen (6)</a></li><li><a href="./tag/qwen3.html">Qwen3 (10)</a></li><li><a href="./tag/qwen35.html">qwen3.5 (1)</a></li><li><a href="./tag/qwen36.html">Qwen3.6 (3)</a></li><li><a href="./tag/qwen38.html">Qwen3.8 (4)</a></li><li><a href="./tag/qwen38-flash-next.html">Qwen3.8-Flash-Next (1)</a></li><li><a href="./tag/r9700.html">R9700 (2)</a></li><li><a href="./tag/radio.html">Radio (2)</a></li><li><a href="./tag/rag.html">RAG (1)</a></li><li><a href="./tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="./tag/raspbian.html">Raspbian (1)</a></li><li><a href="./tag/re-fu-she.html">热辐射 (1)</a></li><li><a href="./tag/reading.html">reading (2)</a></li><li><a href="./tag/reflection.html">reflection (4)</a></li><li><a href="./tag/remote.html">Remote (1)</a></li><li><a href="./tag/research.html">Research (3)</a></li><li><a href="./tag/resume.html">resume (1)</a></li><li><a href="./tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="./tag/ri-chang-sheng-huo.html">日常生活 (1)</a></li><li><a href="./tag/rotation.html">Rotation (1)</a></li><li><a href="./tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="./tag/rtx-4070.html">RTX 4070 (1)</a></li><li><a href="./tag/rtx2060.html">RTX2060 (1)</a></li><li><a href="./tag/rtx3070.html">RTX3070 (1)</a></li><li><a href="./tag/rtx4060.html">RTX4060 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-jia-gou-shi-zhuan-ye-ying-yu-gao-pin-ci-hui-biao.html">软考高级系统架构设计师知识精要-架构师专业英语高频词汇表 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-ce-shi-yu-yun-xing-wei-hu.html">软考高级系统架构设计师知识精要-软件测试与运行维护 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-gong-cheng-yu-kai-fa-fang-fa.html">软考高级系统架构设计师知识精要-软件工程与开发方法 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-jia-gou-she-ji-yu-ping-gu.html">软考高级系统架构设计师知识精要-软件架构设计与评估 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-an-quan-yu-qu-kuai-lian-ji-zhu.html">软考高级系统架构设计师知识精要-系统安全与区块链技术 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-jian-mo-yu-umlshe-ji.html">软考高级系统架构设计师知识精要-系统建模与UML设计 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xi-xi-tong-yu-qi-ye-xin-xi-hua.html">软考高级系统架构设计师知识精要-信息系统与企业信息化 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xing-ji-zhu-yu-ji-chu-she-shi.html">软考高级系统架构设计师知识精要-新兴技术与基础设施 (1)</a></li><li><a href="./tag/rust.html">Rust (1)</a></li><li><a href="./tag/rustyu-yan-cheng-xu-she-ji-ji-chu-di-san-zhang-fu-he-shu-ju-lei-xing-yu-xun-huan.html">Rust语言程序设计基础第三章复合数据类型与循环 (1)</a></li><li><a href="./tag/rx590.html">RX590 (1)</a></li><li><a href="./tag/rx6800xt.html">RX6800XT (1)</a></li><li><a href="./tag/sandbox.html">SandBox (1)</a></li><li><a href="./tag/scholar.html">Scholar (2)</a></li><li><a href="./tag/school.html">School (3)</a></li><li><a href="./tag/science.html">Science (3)</a></li><li><a href="./tag/search.html">Search (1)</a></li><li><a href="./tag/self-study.html">Self-Study (1)</a></li><li><a href="./tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="./tag/server.html">Server (1)</a></li><li><a href="./tag/shang-xia-wen-guan-li.html">上下文管理 (1)</a></li><li><a href="./tag/shang-ye-xin-xi.html">商业信息 (1)</a></li><li><a href="./tag/shao-di.html">哨笛 (1)</a></li><li><a href="./tag/sheng-cheng-su-du.html">生成速度 (1)</a></li><li><a href="./tag/sheng-huo.html">生活 (1)</a></li><li><a href="./tag/shi-jie-yi-liu-da-xue-shuo-shuo-er-yi-huan-shi-zhen-de-qu-zuo.html">世界一流大学说说而已还是真的去做 (1)</a></li><li><a href="./tag/shi-pin-sheng-cheng.html">视频生成 (1)</a></li><li><a href="./tag/shi-sheng-guan-xi.html">师生关系 (1)</a></li><li><a href="./tag/shi-yong-llama-factory-cong-modelscope-xia-zai-mo-xing-bing-wei-diao.html">使用-LLaMA-Factory-从-ModelScope-下载模型并微调 (1)</a></li><li><a href="./tag/shi-yong-ollamakuai-su-bu-shu-bing-yun-xing-zui-xin-de-qwen3-30b-a3b-2507mo-xing.html">使用ollama快速部署并运行最新的qwen3-30b-a3b-2507模型 (1)</a></li><li><a href="./tag/shit.html">Shit (1)</a></li><li><a href="./tag/shu-ju-an-quan.html">数据安全 (1)</a></li><li><a href="./tag/shu-ju-fen-xi.html">数据分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-0zhang-cyu-yan-pythonde-di-ceng-shi-jiao.html">数据结构与算法基础-第0章-C语言Python的底层视角 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-1zhang-suan-fa-ji-chu-yu-fu-za-du-fen-xi.html">数据结构与算法基础-第1章-算法基础与复杂度分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-2zhang-xian-xing-shu-ju-jie-gou.html">数据结构与算法基础-第2章-线性数据结构 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-4zhang-tu-lun-ji-chu.html">数据结构与算法基础-第4章-图论基础 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-5zhang-pai-xu-suan-fa.html">数据结构与算法基础-第5章-排序算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-6zhang-sou-suo-suan-fa.html">数据结构与算法基础-第6章-搜索算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-7zhang-dong-tai-gui-hua.html">数据结构与算法基础-第7章-动态规划 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-8zhang-gao-ji-suan-fa.html">数据结构与算法基础-第8章-高级算法 (1)</a></li><li><a href="./tag/shu-ju-ke-shi-hua.html">数据可视化 (1)</a></li><li><a href="./tag/shu-ju-ke-xue.html">数据科学 (1)</a></li><li><a href="./tag/shu-ju-ku.html">数据库 (1)</a></li><li><a href="./tag/shu-ju-lei-xing.html">数据类型 (1)</a></li><li><a href="./tag/shu-ju-zhong-xin.html">数据中心 (1)</a></li><li><a href="./tag/shu-xue.html">数学 (1)</a></li><li><a href="./tag/shu-xue-jian-mo.html">数学建模 (2)</a></li><li><a href="./tag/shu-zhi-ji-fen-man-tan-ru-he-rang-yong-pythonqiu-ji-fen.html">数值积分漫谈如何让用Python求积分 (1)</a></li><li><a href="./tag/shuang-yu.html">双语 (1)</a></li><li><a href="./tag/shui-ke-xing-cun-zhi-nan-ru-guo-ni-bei-po-yao-qu-ting-ni-bu-xi-huan-de-ke-cheng-gai-zen-yao-ban.html">水课幸存指南-如果你被迫要去听你不喜欢的课程该怎么办 (1)</a></li><li><a href="./tag/si-kao.html">思考 (1)</a></li><li><a href="./tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="./tag/signal-processing.html">Signal Processing (3)</a></li><li><a href="./tag/skill.html">skill (3)</a></li><li><a href="./tag/smollm2.html">smollm2 (1)</a></li><li><a href="./tag/software.html">Software (1)</a></li><li><a href="./tag/sou-suo.html">搜索 (1)</a></li><li><a href="./tag/spacex.html">SpaceX (1)</a></li><li><a href="./tag/sports.html">sports (1)</a></li><li><a href="./tag/sql.html">SQL (1)</a></li><li><a href="./tag/state-space.html">State Space (1)</a></li><li><a href="./tag/statistics.html">Statistics (3)</a></li><li><a href="./tag/story.html">Story (51)</a></li><li><a href="./tag/strata.html">Strata (1)</a></li><li><a href="./tag/strix-halo.html">Strix Halo (1)</a></li><li><a href="./tag/sui-bi.html">随笔 (7)</a></li><li><a href="./tag/t-bench.html">τ-bench (1)</a></li><li><a href="./tag/tai-kong.html">太空 (1)</a></li><li><a href="./tag/tape.html">Tape (1)</a></li><li><a href="./tag/telescope.html">Telescope (1)</a></li><li><a href="./tag/terminal.html">Terminal (1)</a></li><li><a href="./tag/textbook.html">textbook (1)</a></li><li><a href="./tag/thinking.html">Thinking (8)</a></li><li><a href="./tag/ti-xing-fa-qiu-ji-fen-de-pythonshi-xian.html">梯形法求积分的Python实现 (1)</a></li><li><a href="./tag/tian-biao.html">填表 (1)</a></li><li><a href="./tag/time-series.html">Time Series (1)</a></li><li><a href="./tag/ting-shuo-du-xie.html">听说读写 (1)</a></li><li><a href="./tag/tokenzi-you-yong-moxingzai-7900xtx-24gxian-qia-shang-ben-di-yun-xing-qwen36-27bmo-xing-gei-opencodeyong-lai-wen-dang-bian.html">Token自由-用MoXing在7900xtx-24G显卡上本地运行Qwen36-27B模型给OpenCode用来文档编 (1)</a></li><li><a href="./tag/toml.html">toml (1)</a></li><li><a href="./tag/tong-ji-xue.html">统计学 (2)</a></li><li><a href="./tag/tong-men-xiang-can-bai-yuan-xian-qia-de-ben-di-mo-xing-da-zhan-rx580-16g-2048sp-vs-rx590-8g-2304sp.html">同门相残-百元显卡的本地模型大战RX580-16G-2048SP-VS-RX590-8G-2304SP (1)</a></li><li><a href="./tag/tong-nian.html">童年 (1)</a></li><li><a href="./tag/tong-xue.html">同学 (1)</a></li><li><a href="./tag/tong-yi-nei-cun.html">统一内存 (1)</a></li><li><a href="./tag/tool.html">Tool (8)</a></li><li><a href="./tag/tool-calling.html">tool calling (3)</a></li><li><a href="./tag/toolbench.html">ToolBench (1)</a></li><li><a href="./tag/tools.html">Tools (10)</a></li><li><a href="./tag/tou-ji-jie-ma.html">投机解码 (1)</a></li><li><a href="./tag/tpu.html">TPU (1)</a></li><li><a href="./tag/traffic.html">Traffic (1)</a></li><li><a href="./tag/translate.html">Translate (2)</a></li><li><a href="./tag/translation.html">Translation (1)</a></li><li><a href="./tag/transpaste-sheng-ji-yi-ge-jian-tie-ban-fan-yi-gong-ju-de-zi-wo-xiu-yang.html">TransPaste-升级一个剪贴板翻译工具的自我修养 (1)</a></li><li><a href="./tag/transpaste-yi-kuan-ji-yu-ben-di-da-yu-yan-mo-xing-de-qing-liang-ji-jian-tie-ban-fan-yi-gong-ju.html">TransPaste-一款基于本地大语言模型的轻量级剪贴板翻译工具 (1)</a></li><li><a href="./tag/transpasteben-di-ai-fan-yi-gong-ju-xin-ban-ben-sheng-ji-hou-zhi-chi-geng-duo-xi-li-du-de-fan-yi-kong-zhi.html">TransPaste本地-AI-翻译工具新版本升级后支持更多细粒度的翻译控制 (1)</a></li><li><a href="./tag/trimesh.html">trimesh (1)</a></li><li><a href="./tag/tui.html">TUI (1)</a></li><li><a href="./tag/tui-jian-yi-kuan-markdownde-kua-ping-tai-chi-xian-bian-ji-qi-zhi-chi-sui-shi-yu-lan.html">推荐一款MarkDown的跨平台离线编辑器支持随时预览 (1)</a></li><li><a href="./tag/tui-li.html">推理 (1)</a></li><li><a href="./tag/tui-li-yin-qing.html">推理引擎 (1)</a></li><li><a href="./tag/tuna.html">TUNA (1)</a></li><li><a href="./tag/turing.html">Turing (12)</a></li><li><a href="./tag/tutorial.html">tutorial (2)</a></li><li><a href="./tag/txt.html">txt (1)</a></li><li><a href="./tag/uav.html">UAV (1)</a></li><li><a href="./tag/ubuntu.html">Ubuntu (4)</a></li><li><a href="./tag/ubuntu-shou-dong-an-zhuang-ollama-0171-lai-yun-xing-qwen3535b-a3b-de-xiang-xi-zhi-nan.html">Ubuntu-手动安装-Ollama-0171-来运行-qwen3535b-a3b-的详细指南 (1)</a></li><li><a href="./tag/ui.html">UI (1)</a></li><li><a href="./tag/ukf.html">UKF (1)</a></li><li><a href="./tag/university.html">university (14)</a></li><li><a href="./tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="./tag/ustc.html">USTC (1)</a></li><li><a href="./tag/ventoy.html">Ventoy (1)</a></li><li><a href="./tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="./tag/vibe-coding-fen-wei-bian-cheng-an-li-tong-guo-dui-hua-shi-xian-ke-yong-de-kuai-su-cha-biao-gong-ju.html">Vibe-Coding-氛围编程案例-通过对话实现可用的快速查表工具 (1)</a></li><li><a href="./tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="./tag/video.html">video (2)</a></li><li><a href="./tag/vidtogif-yi-ge-jian-dan-gao-xiao-de-shi-pin-zhuan-gif-gong-ju.html">VidToGif-一个简单高效的视频转-GIF-工具 (1)</a></li><li><a href="./tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="./tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="./tag/virtualization.html">Virtualization (1)</a></li><li><a href="./tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./tag/vispy.html">VisPy (1)</a></li><li><a href="./tag/visualization.html">Visualization (8)</a></li><li><a href="./tag/vm.html">VM (1)</a></li><li><a href="./tag/vmwarexu-ni-ji-yun-xing-macosunlcokrecoveryosoc4vm-shi-xian-ti-gong-bai-du-yun-pan-xia-zai.html">VMware虚拟机运行macOSunlcokrecoveryosOC4VM-实现提供百度云盘下载 (1)</a></li><li><a href="./tag/void-moxingdi-cheng-ben-fang-an-yong-rx580xian-qia-ben-di-yun-xing-qwen359bmo-xing-da-zao-lei-cursorti-yan.html">Void-MoXing低成本方案用RX580显卡本地运行qwen359B模型打造类Cursor体验 (1)</a></li><li><a href="./tag/vscode.html">VSCode (1)</a></li><li><a href="./tag/vtk.html">VTK (1)</a></li><li><a href="./tag/wai-yu.html">外语 (1)</a></li><li><a href="./tag/web.html">Web (1)</a></li><li><a href="./tag/wen-ben.html">文本 (2)</a></li><li><a href="./tag/wen-ben-shou-ji.html">文本收集 (1)</a></li><li><a href="./tag/wen-dang-he-cha.html">文档核查 (1)</a></li><li><a href="./tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="./tag/windows.html">Windows (5)</a></li><li><a href="./tag/windows-xi-tong-xia-cong-qing-hua-da-xue-tuna-jing-xiang-an-zhuang-miniconda3-wan-zheng-zhi-nan.html">Windows-系统下从清华大学-TUNA-镜像安装-Miniconda3-完整指南 (1)</a></li><li><a href="./tag/windows11.html">Windows11 (1)</a></li><li><a href="./tag/wingetguigei-windows-bao-guan-li-qi-jia-ge-tu-xing-jie-mian.html">WinGetGUI给-Windows-包管理器加个图形界面 (1)</a></li><li><a href="./tag/winogrande.html">WinoGrande (1)</a></li><li><a href="./tag/workflow.html">workflow (1)</a></li><li><a href="./tag/wu-chai-li-lun.html">误差理论 (1)</a></li><li><a href="./tag/x99.html">X99 (1)</a></li><li><a href="./tag/xcode.html">Xcode (1)</a></li><li><a href="./tag/xia-zai.html">下载 (1)</a></li><li><a href="./tag/xian-cun.html">显存 (4)</a></li><li><a href="./tag/xian-jiao-hui-zai-rang-ta-zuo-da-mo-xing-ding-zhi-hua-li-cpthe-sftdao-di-zai-gan-shi-yao.html">先教会再让它做大模型定制化里CPT和SFT到底在干什么 (1)</a></li><li><a href="./tag/xian-qia.html">显卡 (3)</a></li><li><a href="./tag/xian-qia-xuan-gou.html">显卡选购 (2)</a></li><li><a href="./tag/xiang-sheng.html">相声 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-er-hui-jiu-suan-shi-sun-wu-kong-shang-da-xue-ye-de-yong-gong.html">小猴子学编程第二回就算是孙悟空上大学也得用功 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-san-hui-shi-yi-zhi-pa-zai-na-zi-yuan-zi-ai-huan-shi-gan-jin-zhun-bei-qu-xin-fu-ben.html">小猴子学编程第三回是一直趴在那自怨自艾还是赶紧准备去新副本 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-si-hui-chong-zhi-bu-hui-rang-ni-bian-qiang-xue-xi-cai-hui.html">小猴子学编程第四回充值不会让你变强学习才会 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-yi-hui-na-pa-shi-sun-wu-kong-ye-xu-yao-xue-xi.html">小猴子学编程第一回哪怕是孙悟空也需要学习 (1)</a></li><li><a href="./tag/xiao-mo-xing.html">小模型 (3)</a></li><li><a href="./tag/xiao-mo-xing-ping-ce.html">小模型评测 (2)</a></li><li><a href="./tag/xiao-you.html">校友 (1)</a></li><li><a href="./tag/xiexie-ba-markdown-zhuan-cheng-wei-xin-gong-zhong-hao-ge-shi-wang-ye-de-xiao-gong-ju.html">Xie写把-Markdown-转成微信公众号格式网页的小工具 (1)</a></li><li><a href="./tag/xin-shou.html">新手 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-markdown-shu-xue-gong-shi-zhi-nan.html">新手向的-Markdown-数学公式指南 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-ruan-kao-gao-ji-jia-gou-shi-wan-quan-bei-kao-zhi-nan.html">新手向的软考高级架构师完全备考指南 (1)</a></li><li><a href="./tag/xing-neng-shi-ce.html">性能实测 (1)</a></li><li><a href="./tag/xiu-liao-transpastede-4ge-bug.html">修了TransPaste的4个bug (1)</a></li><li><a href="./tag/xu-xu-tu-zhi.html">徐徐图之 (1)</a></li><li><a href="./tag/xue-xi.html">学习 (2)</a></li><li><a href="./tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="./tag/xue-xi-lu-de-qian-shi-jin-sheng-cong-quan-ju-dan-yi-dao-zhu-ceng-ding-zhi.html">学习率的前世今生从全局单一到逐层定制 (1)</a></li><li><a href="./tag/xue-xi-lu-xian.html">学习路线 (1)</a></li><li><a href="./tag/xue-xi-zi-yuan.html">学习资源 (1)</a></li><li><a href="./tag/xue-zhu.html">学术 (1)</a></li><li><a href="./tag/xue-zhu-lun-wen-zhong-chang-jian-yan-jiu-fang-fa-zong-shu-ji-jian-dan-ju-li.html">学术论文中常见研究方法综述及简单举例 (1)</a></li><li><a href="./tag/xue-zhu-yan-jiu-zhi-chi-gong-ju-fen-lei-yu-wen-xian-huo-qu-fang-fa.html">学术研究支持工具分类与文献获取方法 (1)</a></li><li><a href="./tag/ya-suo.html">压缩 (1)</a></li><li><a href="./tag/yaml.html">yaml (1)</a></li><li><a href="./tag/yan-ji.html">验机 (1)</a></li><li><a href="./tag/yan-jiu-sheng.html">研究生 (1)</a></li><li><a href="./tag/yang-la-ji.html">洋垃圾 (2)</a></li><li><a href="./tag/yi-xue-chang-jing-yong-duo-mo-tai-da-mo-xing-you-ke-neng-wan-quan-bu-kao-pu-si-tan-fu-da-xue-li-fei-fei-tuan-dui-xin-yan-jiu-jie-kai-duo-mo-tai-aide-hai-shi-shen-lou-xiao-ying.html">医学场景用多模态大模型有可能完全不靠谱斯坦福大学李飞飞团队新研究揭开多模态AI的海市蜃楼效应 (1)</a></li><li><a href="./tag/yi-zhi-tiny-fastboot-scriptdao-macosban-ben-gei-motorola-g100guo-xing-ban-ben-xt2533-4shua-ru-g6.html">移植Tiny-Fastboot-Script到macOS版本给Motorola-G100国行版本XT2533-4刷入G6 (1)</a></li><li><a href="./tag/yin-pin.html">音频 (1)</a></li><li><a href="./tag/ying-jian.html">硬件 (1)</a></li><li><a href="./tag/ying-pan.html">硬盘 (2)</a></li><li><a href="./tag/ying-yong-chang-jing.html">应用场景 (1)</a></li><li><a href="./tag/ying-yu.html">英语 (1)</a></li><li><a href="./tag/yong-wan-quan-kai-yuan-mian-fei-de-ben-di-mo-xing-lai-dui-shi-pin-zhong-de-yin-pin-jin-xing-jiang-zao.html">用完全开源免费的本地模型来对视频中的音频进行降噪 (1)</a></li><li><a href="./tag/you-jian.html">邮件 (1)</a></li><li><a href="./tag/you-xi.html">游戏 (1)</a></li><li><a href="./tag/you-xi-shi-zen-yao-yun-xing-de-ru-guo-zhi-zhi-dao-chong-zhi-shi-ji-shang-bing-bu-yi-ding-neng-bian-qiang.html">游戏是怎么运行的如果只知道充值实际上并不一定能变强 (1)</a></li><li><a href="./tag/yu-er.html">育儿 (1)</a></li><li><a href="./tag/yu-suan.html">预算 (1)</a></li><li><a href="./tag/yuan-cheng.html">远程 (1)</a></li><li><a href="./tag/zai-xian-api.html">在线API (1)</a></li><li><a href="./tag/zhe-ji-tian-wo-chuan-yue-liao-shi-jian.html">这几天我穿越了时间 (1)</a></li><li><a href="./tag/zhe-xue.html">哲学 (1)</a></li><li><a href="./tag/zhen-dui-da-mo-xing-he-zhi-neng-ti-xin-shou-kai-fa-zhe-de-linuxhuan-jing-pei-zhi-zhi-nan.html">针对大模型和智能体新手开发者的Linux环境配置指南 (1)</a></li><li><a href="./tag/zheng-tai-fen-bu.html">正态分布 (1)</a></li><li><a href="./tag/zhi-ce-flops-huan-bu-gou-si-ge-jing-dian-cpu-ce-shi-ji-zhun.html">只测-FLOPS-还不够四个经典-CPU-测试基准 (1)</a></li><li><a href="./tag/zhi-neng-ti.html">智能体 (5)</a></li><li><a href="./tag/zhi-shi-ku.html">知识库 (1)</a></li><li><a href="./tag/zhi-shi-wai-zhi.html">知识外置 (1)</a></li><li><a href="./tag/zhi-zhen-yue-jie-cyu-yan-gei-ni-de-zi-you-yi-ji-tou-tou-mai-de-lei.html">指针越界C语言给你的自由以及偷偷埋的雷 (1)</a></li><li><a href="./tag/zhong-duan.html">终端 (2)</a></li><li><a href="./tag/zhong-xin-ji-xian-ding-li.html">中心极限定理 (1)</a></li><li><a href="./tag/zhong-xin-shen-shi-si-wei-lian-wei-bi-shi-zhen-si-wei-yi-pian-icml-2026-lun-wen-de-lun-zheng-yu-qi-shi.html">重新审视-思维链未必是真思维-一篇ICML-2026-论文的论证与启示 (1)</a></li><li><a href="./tag/zhu-ban.html">主板 (1)</a></li><li><a href="./tag/zhuang-ji.html">装机 (1)</a></li><li><a href="./tag/zhuang-ji-pei-zhi.html">装机配置 (1)</a></li><li><a href="./tag/zi-dong-hua.html">自动化 (1)</a></li><li><a href="./tag/zi-xue-zhi-nan.html">自学指南 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skills-he-ji-geng-xin-cong-6-ge-ji-neng-dao-22-ge-yi-ji-bi-xu-cheng-ren-de-wen-ti.html">自用的-OpenCode-Skills-合集更新从-6-个技能到-22-个以及必须承认的问题 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skillzai-ci-geng-xin-22ge-skillszhong-xin-da-mo-liao-yi-bian-shun-lu-jie-jue-liao-opencodedao-zhi-zheng-ge-tu-xing-jie-mian-beng-kui.html">自用的OpenCode-Skill再次更新22个skills重新打磨了一遍顺路解决了OpenCode导致整个图形界面崩溃 (1)</a></li><li><a href="./tag/zim.html">ZIM (1)</a></li><li><a href="./tag/zluda-he-macos-shang-de-cuda-jian-rong-meng-xiang.html">ZLUDA-和-macOS-上的-CUDA-兼容梦想 (1)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="./index.html" data-i18n="blog">博客</a> › <a href="category/llm.html">LLM</a> › 大模型已成日常刚需：当在线服务存在不稳定性，我们或许该考虑本地部署的时机、路线与成本
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry">
+    <header>
+    <h2 class="post-title" >大模型已成日常刚需：当在线服务存在不稳定性，我们或许该考虑本地部署的时机、路线与成本</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep" data-i18n="post_in">发布于</span>
+        <abbr class="date" title="2026-10-03T10:00:00+08:00"> 
+            <a href="./archive/2026/Oct/index.html">Sat 03 October 2026 </a>
+        </abbr>
+        <span class="meta-prep"> | <span data-i18n="tags_label">标签</span></span>
+                <a class="tag-badge" href="./tag/ben-di-bu-shu.html">本地部署</a>
+                <a class="tag-badge" href="./tag/da-mo-xing.html">大模型</a>
+                <a class="tag-badge" href="./tag/qian-wen.html">千问</a>
+                <a class="tag-badge" href="./tag/qwen.html">Qwen</a>
+                <a class="tag-badge" href="./tag/xian-qia.html">显卡</a>
+                <a class="tag-badge" href="./tag/xian-cun.html">显存</a>
+                <a class="tag-badge" href="./tag/moe.html">MoE</a>
+                <a class="tag-badge" href="./tag/deepseek.html">DeepSeek</a>
+                <a class="tag-badge" href="./tag/chi-xian.html">离线</a>
+                <a class="tag-badge" href="./tag/cheng-ben.html">成本</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <p>当做地球科学的同学也开始关心模型的价格，大概说明大模型已经成了很多人日常工作的一部分。而这段时间在线服务接连中断的报道说明，这种依赖的可用性并不掌握在自己手里。这篇以我这段时间重度使用的Qwen3.8-Flash-Next为例，聊一下本地部署的两条代表性的路线，以及当前的大致成本。</p>
+<h2>大模型正在成为越来越多人的日常刚需</h2>
+<p>前些天有一位大学时期的同学问我，最近用模型是不是成本挺高的，他感觉有一段时间以来，几家在线服务商好像都涨价了。</p>
+<p>这位同学是做地球科学研究的，日常工作跟数据科学关系不大。连他这样背景的人，都开始关注模型的价格了，这大概能说明一个趋势：很多人的日常工作和生活已经离不开大模型了。大模型成了很多人的常用工具，某种程度上已经成了类似基础设施的东西。很多人已经习惯了它，甚至没法想象没有它的日子——就像很多人习惯了微信和支付宝这样的在线支付一样，一旦深度绑定，再想抽身就不那么容易了。</p>
+<p>既然习惯到了这种程度，那么有一个问题就值得想一想：如果有一天离开了在线服务，我们是不是就什么都做不了了？打个比方，现在的经济活动很依赖在线支付，要是没有了在线支付，很多东西都会受影响；同样地，要是没有了在线大模型，或者在线大模型涨价了、服务不稳定了，我们该怎么办？</p>
+<h2>在线大模型的可用性与价格，都不掌握在自己手里</h2>
+<p>要回答这个问题，先得看看在线大模型是不是真的存在不稳定和涨价的情况。答案是，这方面的公开报道并不少，而且不是哪一家的问题。</p>
+<p>先看时间线。2026 年 3 月底，DeepSeek 在 3 月 29 日晚出现一次持续约 12 小时的宕机，3 月 31 日下午又一次中断约 1 小时 [1][2][3]；当时抖音豆包公开评价说，DeepSeek 的频繁故障是「爆发式增长下的必经阶段」，并且自己也承认，大模型推理对算力消耗巨大、硬件供应链紧张制约了扩容速度 [4]。这段话从同行的角度，说出了行业共同的处境。4 月，Anthropic 旗下的 Claude 在半个月内出现了 7 次服务中断，4 月 16 日那次故障前后持续近 3 小时，高峰期有超过 6000 名用户同时提交报错；按照官方状态页的数据，截至 4 月 8 日的 90 天里，Claude API 的正常运行率只有 98.95%，明显低于企业级标准的 99.99% [5]。到了 7 月 25 日，轮到 OpenAI：ChatGPT、API、Codex 全线瘫痪，故障持续超过 8 个小时，没有任何预警，官方状态页只确认错误率升高、不给恢复时间 [6]；钛媒体的统计说，OpenAI 每一年都会发生重大事故，但从未公开披露过根本原因 [6]。9 月 3 日则是规模更大的一次：ChatGPT、Claude、Grok 在相同时段集体宕机，持续约 3 小时 40 分，谷歌 Gemini 和微软 Copilot 也收到大量中断报告，AI 编程工具 Cursor 因为依赖这三家的接口被一并波及 [7][6]。再看同年 5 月 DeepSeek 的情况，也就是开头同学提问时我查证的那批报道：5 月 8 日新版本上线流量激增，网页端和 API 整体停摆了几个小时；5 月 24 日大规模宕机，官方状态页红色告警持续一整夜，抢修了十几个小时 [8]；5 月 28 日上午 10 点 21 分网页和 API 同时不可用，10 点 50 分恢复，前后约 29 分钟，是当月第五次、年内第 18 次性能异常 [9][10][11]。</p>
+<p>把这些报道汇总成一张表，各个平台的记录大致如下：</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>服务方</th>
+<th>事件</th>
+<th>影响与持续</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-04-01 至 04-16</td>
+<td>Anthropic（Claude / Claude Code / API）</td>
+<td>半个月 7 次中断；16 日故障近 3 小时，6000+ 用户报错</td>
+<td>90 天正常运行率 98.95%，低于 99.99% 的企业标准</td>
+<td>[2]</td>
+</tr>
+<tr>
+<td>2026-03-29 至 03-31</td>
+<td>DeepSeek</td>
+<td>29 日晚宕机约 12 小时；31 日午后再度中断约 1 小时</td>
+<td>两日两次，网页与 API 均受影响</td>
+<td>[12][3]</td>
+</tr>
+<tr>
+<td>2026-05-08</td>
+<td>DeepSeek</td>
+<td>新版上线流量激增，网页与 API 全线停摆</td>
+<td>数小时</td>
+<td>[9]</td>
+</tr>
+<tr>
+<td>2026-05-24</td>
+<td>DeepSeek</td>
+<td>大规模宕机，网页端与 App 全部无法访问</td>
+<td>约 13 小时</td>
+<td>[8]</td>
+</tr>
+<tr>
+<td>2026-05-28</td>
+<td>DeepSeek</td>
+<td>网页与 API 同时不可用，提示「服务器繁忙」</td>
+<td>约 29 分钟；年内第 18 次异常</td>
+<td>[9][10][11]</td>
+</tr>
+<tr>
+<td>2026-07-25</td>
+<td>OpenAI（ChatGPT / API / Codex / Sora）</td>
+<td>全球性宕机，全线瘫痪，无预警</td>
+<td>超过 8 小时，覆盖北美、欧洲、亚洲主要市场</td>
+<td>[6]</td>
+</tr>
+<tr>
+<td>2026-09-03</td>
+<td>OpenAI / Anthropic / xAI</td>
+<td>集体宕机，Gemini、Copilot 收到大量中断报告，Cursor 被波及</td>
+<td>约 3 小时 40 分</td>
+<td>[7][6][13]</td>
+</tr>
+</tbody>
+</table>
+<p>这份时间线里有两个细节，比表中任何单独一次故障本身更值得琢磨。一是 9 月 3 日的集体中断：ChatGPT、Claude、Grok 三家在同一个时段一起出问题，不是巧合——业内人士的分析指向微软 Azure、Cloudflare 这类多家大模型公司共享的云算力基础设施 [7]。也就是说，各家在线大模型虽然彼此是竞争关系，底层却可能建在同一批云设施上；故障的时候可能会一起故障，用户想靠「换一家服务」来避开，未必躲得开。二是 3 月底豆包的那次表态：当 DeepSeek 因频繁故障受到批评时，抖音豆包公开说这是「爆发式增长下的必经阶段」，并且自己也承认，大模型推理对算力消耗巨大、硬件供应链紧张制约了扩容速度 [4]。竞争对手承认整个行业都在面对同样的算力缺口，这比任何局外人的批评都更能说明问题。</p>
+<p>至于涨价，同学的感觉也不是错觉：免费的服务在收紧、付费的额度在变贵，而且这背后有一层更硬的逻辑。时代周报引用的数据显示，2026 年 5 月中旬那一周，全球大模型总调用量攀升到 28.9 万亿 token，其中中国大模型占 9.22 万亿、环比增长接近 20%；与互联网产品「边际成本趋近于零」的经典模式不同，大模型每一次对话都要消耗实实在在的算力，用户越活跃，成本越刚性 [11]。业内因此有一个共识：单纯靠免费获客的 C 端模式很难持久 [11]——涨价与服务收紧，大概就是这个判断在现实中的样子。</p>
+<p>我自己前几天也遇到一次突然中断，正好是在工作过程中，手上正在进行的步骤就停在那里，只能等。原因方面，业内人士的分析是，用户规模增长过快，服务器算力扩张难以匹配激增的流量需求 [14]，这个缺口恐怕短期内补不上。</p>
+<p>这些事实摆在一起，结论就比较清楚了：在线大模型的可用性与价格，两样都不掌握在自己手里。所以大概从两三周前开始，我做事的时候基本都以本地大模型为主了。</p>
+<h2>千问 3.8 Flash Next 的规格：125B 参数、全量权重需要上百 G 显存</h2>
+<p>我用的是千问 3.8 Flash Next（Qwen3.8-Flash-Next），先介绍一下这个模型大概是什么规格。</p>
+<p>它是一个 125B 参数的模型，也就是总参数量一千二百五十亿（模型主页见文末 [15]）。不过它不是稠密模型，而是混合专家（mixture of experts，MoE）模型：模型里有 24576 个专家网络，模型每处理一个词元（token），只从这里面选择激活 10 个专家参与计算 [2]。这个机制对部署的意义在于，虽然全部权重都要驻留在存储里，但每次推理实际参与的参数只有一小部分，计算的开销主要由被激活的那部分专家决定。</p>
+<p>对本地部署来说，关键数字是显存需求。这个模型如果按 16 位精度存放，权重就需要大约 250GB 显存；按 8 位是大约 125GB；按常见的 4 位量化，也要大约 62GB——再加上上下文占用的键值缓存，一张普通的 24G 显卡无论怎么样都放不下整个模型，必须想办法把权重分散到显存、内存、磁盘这些不同的存储层级里去。</p>
+<h2>两条路线：一台高性能机器跑多个模型，或多台设备合跑一个模型</h2>
+<p>要把这样的模型在本地跑起来，现在有两个比较有代表性的方向。</p>
+<p>第一个方向，是把一台机器上的显存和统一内存尽量全部利用起来，分给几个大模型同时运行。这一类里 Halogen 是个典型：它由 Peonist 开发，专门为某一款统一内存芯片平台编写，每个 kernel 都只为这一块 GPU 和一个模型家族优化，不追求通用，也没有回退路径 [12]。这类平台的特点是统一内存大，某些配置可以达到 128GB [12]，Halogen 把这部分尽量利用起来，本地就可以同时放置多个模型。适合的场景大概是：存储、内存、显存都不紧张，同时对速度或者并行有一定要求。</p>
+<p>第二个方向，是把所有可以使用的设备放到一起，运行一个模型。Strata 是这一类里的代表：开源，MIT 许可，底层使用 llama.cpp / ggml 那一套 [2]。具体说，它把最常用的专家放在显卡显存里，全部专家放在系统内存里，处理器同时计算其余部分，SSD 上再放一张大的查找表 [2]。这样一来，显存的缺口就由内存来补。仓库的实测机器是一张 12G 显存的显卡加 64GB 内存 [2]；对内存的要求写得很明白：最少 32GB 也能跑，但只能装下砍掉一半专家的 Coder 专用版，64GB 才能把所有尺寸都跑全 [2]。要是有两三张卡，还可以一起分担同一个模型 [2]。</p>
+<p>这两个方向并不冲突，往后看，大概也会是本地部署的两个主流方向。</p>
+<p>前者是机器规格高，同时运行几个模型；后者是设备比较分散，合起来运行一个大的。</p>
+<p>选哪一种，主要看你手头的硬件和要处理的事情。</p>
+<h2>12G 显存加 64GB 内存的实测速度：这个配置已经能够流畅运行</h2>
+<p>第二个方向，现在已经可以在具体设备上运行了。</p>
+<p>12G 以上显存的设备，用 Strata 就可以流畅运行千问 3.8 Flash Next。Strata 项目上实测的是一张 12G 显存的显卡加 64GB 内存的机器，在 Q2_0 量化下可以达到 94 tokens/s [4]；24G 显存的显卡大约 100 到 140 tokens/s [2]。作为参照，我前几篇实测文章里那些跑本地模型的机器，日常对话能稳定用的一般在十几到二十几个 tokens/s；这个速度已经明显高出一截，日常对话、工具调用这类场景完全够用，跟不少在线服务比也不处于下风。</p>
+<p>这里显存和内存要配合着看：12G 显存只是下限，权重里放不进显存的那部分靠内存装着，所以想把这个尺寸跑全，内存应当以 64GB 为宜——仓库对硬件要求的原话是「64GB 运行所有尺寸」，32GB 只能装下砍掉一半专家的 Coder 版 [4]。</p>
+<p>再往后，8G 显存的设备应该也可以运行对应的 MoE 模型，比如 35B-A3B 这种：总参数量 35B，每个词元（token）只激活约 3B 的参数，4 位量化下权重约 20GB [4]，其中放不进 8G 显存的部分要靠内存装着，所以内存同样不能省，参照上面 12G 显存配 64GB 内存的比例，8G 显存的机器至少应当 32GB 起步、最好也是 64GB——这一条是按 Strata「内存多少决定能装哪个尺寸」的规则推的，它文档里没有直接写 8G 的组合，真要上手就以实际测试为准。
+MoE 在这种场合其实正好帮了本地部署的忙：每次前向计算只激活少数专家，推理时需要读取的参数量比同等总参数的稠密模型低，几台设备合在一起运行，速度反而可能有所提高。</p>
+<h2>本地模型的合理定位：工具调用、信息检索与代码翻译</h2>
+<p>本地大模型的能力，未必有在线旗舰模型那么强，不过这更多是定位的问题。</p>
+<p>对于能力有限的模型，比较推荐的用法是：让人掌握方向，让模型执行细节。把需求分析、方案设计这类决定成败的环节留在人这一侧；交给模型的工作，则尽量是边界清楚、步骤明确的任务——工具调用、信息检索，以及代码翻译：思路由人讲清楚，每一步怎么做由人交代明白，模型照着写出来。</p>
+<p>这种分工的好处有两个。一是模型的能力要求降低了，本地模型够用；二是过程可控——模型没有被要求去推测需求、做设计，它自行发挥的空间被压到了最小，产出的不确定性也就随之降低。用能力较弱的模型做事，关键就是不让它失控：不要让它猜，而让它照做。</p>
+<p>反过来，如果让本地模型自己去推测需求、设计架构，那它确实还有明显差距。这不是本地模型的独有问题，能力越强的模型在这种失控模式下不确定性越大；只是在本地模型这里，更应当从一开始就避开这种用法。</p>
+<h2>从 kiwix 的离线归档习惯说起：本地部署是一份备份</h2>
+<p>这个习惯可以交代一下来历。开头提到的那位同学是学地球科学的，我也是——我读的博士就是地球科学方向。做这一行经常要出野外，一进山区可能就没有信号了，如果路线深入，甚至要到没有网络覆盖的无人区。但野外的很多时候又需要查资料、查文档：地层划分的规范、岩石矿物的鉴定特征、前人的区域地质报告，这些都不会因为你进了无人区就不再需要。所以很早就接触到了 kiwix 以及它对应的 ZIM 格式——一种把整个网站打包成单文件、可以完全离线检索的归档格式，维基百科、 Stack Exchange、不少文档站都有现成的 ZIM 包可以下载。硬盘里存了一批离线维基和文档，到现在还保持这个习惯。</p>
+<p>平时这些归档可能看不出什么用处，等到需要断开网络、或者无法访问外部服务的时候，就知道有用了。</p>
+<p>大模型大概也是类似的情况。习惯了有问题就问模型的人，如果某一天网络中断、服务关闭或者账号出了问题，再想做事就缺少了一个环节。在本地部署一个大模型，相当于给自己的工作方式留一个备用的选项：能力未必是最好的，但是它随时都在。对野外或者没有网络的环境来说，这一份「随时都在」可能不只是备用，而是唯一能用的那份。</p>
+<h2>成本估算：一万出头有机会起步，常见的组合在两万上下，几万的也有对应选项</h2>
+<p>新的本地推理框架逐渐流行之后，把有一定能力的大模型在本地流畅运行，成本门槛比过去低了不少。但具体要花多少钱，得按路线分开算，而且得按现在的行情算——这一轮硬件的价格一直在往上走。</p>
+<p><strong>统一内存小主机</strong>：这是走 Halogen 路线最直接的一台整机，CPU 与 GPU 共享一块 128GB 的统一内存，不需要再单独配显卡 [16]。价格方面，以搭载 128GB 统一内存的整机来算是，媒体评测期在 1.5 万元上下，现在普遍涨到 2 万元左右，部分机型到 2.6 万 [17]；入门的 64G 内存版本，行情价也从前一年的 1.07 万元左右涨到了 1.5 万元上下，一年涨了 4300 元 [18]。不过对跑本文讨论的这类 125B 模型来说，64G 内存装不下 4 位量化后的全部权重（约 62GB），真正可用的是 128GB 内存的版本 [4]——所以说现在这类小主机的实际入手价位就是两万上下：比之前涨了近一倍，但按它承载的能力算，还可以接受。</p>
+<p><strong>CUDA 生态的统一内存个人工作站</strong>：统一内存同为 128GB。英国创世版官价已从 3999 美元上调到 4699 美元，国内整机从「3 万出头」涨到了接近 4 万 [17]。单机跑大模型的论坛评价并不高——带宽偏低、单机偏弱，它的设计用法本来就是几台互联组一个小集群。它的价值要按集群来算账：本地跑 DeepSeek 上一代的 V4 Flash（总参 284B），两台 128GB 机器合计 256GB 统一内存正好装下权重 [19]；而今年 9 月开源的 V4.1 Flash 尺寸翻上去了，总参 748B、开源权重实测约 510GB，其中 MoE 与主模型权重约 306GB 必须驻留在内存里、另有约 204GB 的 Engram 知识权重可以下沉到 SSD [19]。按每台 128GB、扣除约 20 多 GB 的系统与框架开销来算，两台合计约 230GB 余量，装不下这 306GB 的核心权重；三台合计 384GB，扣掉开销后约 360GB，装下核心权重还有约 54GB 留给长上下文与多会话——所以跑 V4.1 Flash 要三台起，单条生成 40 到 60 tokens/s、prefill 2500 到 3000 tokens/s [19]。买台数按「将来想跑到哪一代」来定：两台这一档对应的是 V4 Flash，三台对应 V4.1 Flash，而这类工作站官方支持四台互联，这个规模内互联效率不打折扣 [19]。但是成本实在是太高了。</p>
+<p><strong>24G 或 32G 显存的显卡 + DDR4 ECC 服务器平台 + 拆机大内存</strong>：这是 Strata 支持、走「多台设备合跑一个模型」路线里性价比比较突出的组合 [4]。显卡一侧，24G 显存这一档可选面比较广，预算充裕一些可以上 32G 显存的高端卡 [20]。以 24G 这一档为例，二手价在我 9 月初写显卡行情那篇时查到的是 4800 到 6400 元、典型 5000 到 5600 元 [20]；最近这轮行情上来之后，成色好的二手普遍涨到了八九千。32G 显存这一档的价格也在同一条曲线上：上个月还是 1.1 万出头，现在已经报到了 1.4 万左右 [20]——也就是选 32G 这一步的溢价本身，一个月内就抬高了约三千元。内存与平台一侧，不买全新 DDR5：一是贵，二是有带宽上的顾虑——DDR4 的频率原本就低于 DDR5，而本文这类 MoE 推理恰恰是访存受限的负载（前文算过 8G 显存也要靠内存装专家，生成速度基本由内存带宽决定），消费级主板常见的双通道四条内存对这种负载可能就不够了，往往要上四通道甚至八通道才能把带宽喂足；而多通道、大内存、带纠错，这些恰好就是服务器平台的属性。所以用 DDR4 ECC 服务器平台（带纠错内存的服务器主板）加拆机的 ECC 内存条便宜得多——这一轮涨价的源头是 AI 数据中心在抢内存产能，主要厂商把先进产能转去做 HBM 和 DDR5，DDR4 与 DDR3 的产线缩到原来的四分之一左右，但存量市场仍在换新和扩容 [21]；64GB DDR5 RDIMM 服务器条的合约价半年翻倍，而 DDR4 的拆机 ECC 条虽然也涨，仍有现货流通、价格低一个档 [21][22]。整机算下来，显卡 6000 到 9000、服务器平台加内存 3000 到 5000、机箱电源等若干，24G 卡配置大约 1 万到 1.5 万元可以起步；若上 32G 显存这一档，仅显卡一项就比 24G 档高出五千到七千元，整机要按两万三左右的预算来打算。这一路的代价也要说清楚，而且要想在前面：服务器平台是多通道加多核的设计，功耗高，满载电费不少；噪音也大——机架式的风扇是按机房环境设计的，放书房或者卧室里，那声音跟台式机完全不是一个量级，长期放在自己每天活动的房间里，使用体验是实实在在要考虑的问题（真要用，建议放在阳台、储物间，或者干脆是隔层的机房）。</p>
+<p>汇总一下当前行情：</p>
+<table>
+<thead>
+<tr>
+<th>方案</th>
+<th>路线</th>
+<th>当前价位（2026 年 10 月行情）</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24G 显存显卡 + DDR4 ECC 服务器平台 + 拆机 ECC 大内存</td>
+<td>Strata 合跑一个模型</td>
+<td>约 1 万-1.5 万起步</td>
+<td>性价比路线，A 卡生态需折腾，二手行情浮动大 [4][20][21][22]</td>
+</tr>
+<tr>
+<td>32G 显存显卡 + 服务器平台大内存</td>
+<td>Strata 合跑一个模型</td>
+<td>约 2.3 万（32G 档已从 1.1 万涨至 1.4 万）</td>
+<td>显存更大，长上下文与更高精度有空间；显卡单月涨约三千 [20]</td>
+</tr>
+<tr>
+<td>统一内存小主机（128GB 统一内存）</td>
+<td>Halogen 一机多模型</td>
+<td>约 2 万（部分机型 2.6 万）</td>
+<td>不用单独配显卡，一年从 1.07 万涨到现在 [18][17]</td>
+</tr>
+<tr>
+<td>CUDA 生态的统一内存工作站</td>
+<td>Halogen 一机多模型（CUDA）</td>
+<td>3 万多，接近 4 万</td>
+<td>官价 3999→4699 美元；单机速度一般，组集群才有意义 [17]</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="跑千问 3.8 Flash Next 的配置对照：整机价格、生成速度与显存容量（气泡面积 = 显存；数据来源见参考文献 [4][20][22]）" src="images/qwen38-price-speed.png"></p>
+<p>上图中横轴是整机价格（2026 年 10 月行情），纵轴是跑千问 3.8 Flash Next 的生成速度，气泡面积代表显存或统一内存的容量，颜色越偏红价格越高。几个配置的位置值得留意：12G 与 22G 显存的两档在起步区，速度 90 tokens/s 上下，是入门最低的两档；两个 24G 档落在主流区，速度更高、价格也只贵了一截，是图上「价格 - 速度」性价比最好的区域；32G 显存档价格上一大步（2 万+），买它图的不是速度，是把权重多装一些在显存里换长上下文与更高精度的余量；最右侧两台 128G 统一内存整机气泡最大、价格最贵，速度按各自带宽折算（一台 256GB/s、另一台 273GB/s）在 60 到 70 tokens/s 一档，其中 256GB/s 那台略慢一点——没有独显那一路快，但靠统一内存不用拼装、开箱即整台。要快而省钱，24G 显卡这一档是最优区域；要省心且内存大，统一内存整机是另一个方向的答案。</p>
+<p>也就是说，一万出头有机会起步，比较舒服的配置在两万上下，预算到几万可以买到 CUDA 生态的整机或者多卡平台。在线大模型是按月付费、价格还在上行的流动成本，本地硬件是一次性的固定支出；前者随用量与调价浮动，后者配置一次之后就不再受调价影响。</p>
+<h2>开支随用量分摊：某些任务只有本地跑得起</h2>
+<p>换个角度算，这一两万的硬件支出用来支付在线服务，也许够用好几年。所以本地部署的意义不是「省钱」，至少不光是省钱——它的意义是：有了本地模型，在线模型就从「唯一的依靠」变成了「可选的补充」，不再是谁涨价、谁断服都没有替代品的那种局面。</p>
+<p>所以，单看一次性的投入，一两万不算便宜，但有的场景，可能只有本地模型来做才比较划算，不过只要使用的时间足够长、用量足够大，这笔钱是可以慢慢分摊的，说到底就是规模效应。比如批量整理知识库，又或者是涉及到不便联网的数据（地学领域常有这种情况）。</p>
+<p>前一段时间，我想对自己积累下来的所有代码做一次处理：先从中提炼技能，顺路整理成知识库。这件事用在线大模型来跑，结果是花了将近 700 美元才做完。之后我还打算把所有的参考文献也用类似的方法处理一遍——这件事用在线模型恐怕就很不现实了：太贵，光预印本网站就有几万篇文章，就算单篇的处理费用比代码那次低很多，乘上几万篇也是一笔相当可观的支出。</p>
+<p>这种规模大、重复性高的整理工作，可能正是本地大模型的用武之地。机器购置一次，之后运行多少次都不会再产生按量的费用，用得越多，单次成本就越低。私有知识库这类事情，或许本来就比较适合在自己的机器上运行。</p>
+<p>经过这几周的过渡，我现在日常的所有任务——工具调用、信息检索、代码翻译——全部都用本地模型了。在线服务我可能还会用，只是作为备选了，用哪一家的、用多少、什么时候用，现在就很灵活了。</p>
+<h2>参考文献</h2>
+<ol>
+<li>中华网：《DeepSeek上次崩还是1天前 服务再度异常引发关注》　<a href="https://news.china.com/socialgd/10000169/20260401/49374515.html">https://news.china.com/socialgd/10000169/20260401/49374515.html</a>（2026-03-31，「服务器繁忙」报错；3 月 29 至 30 日近 12 小时中断的回顾）</li>
+<li>DoNews：《DeepSeek一日内两次服务中断，3月31日宕机一小时后恢复》　<a href="https://www.donews.com/news/detail/4/6492239.html">https://www.donews.com/news/detail/4/6492239.html</a>（2026-03-31 17:02 异常、18:05 恢复，约 1 小时）</li>
+<li>游侠网：《豆包点评DeepSeek频繁宕机 爆发式增长下的必经阶段》　<a href="https://www.ali213.net/news/html/2026-3/1004159.html">https://www.ali213.net/news/html/2026-3/1004159.html</a>（2026-03-30，大模型推理算力消耗巨大、硬件供应链紧张制约扩容速度）</li>
+<li>Strata 开源项目仓库与文档（多档消费级显卡的实测速度、混合专家激活机制、显存与内存与处理器协同的分层放置、最小内存要求）　<a href="https://github.com/Niko1221/Strata">https://github.com/Niko1221/Strata</a></li>
+<li>快科技（转自凤凰网科技）：《半个月崩7次！估值3800亿AI顶流算力告急：6000人集体哀嚎》　<a href="https://tech.ifeng.com/c/8sMu5IZFGPt">https://tech.ifeng.com/c/8sMu5IZFGPt</a>（2026-04-16，Anthropic 半月 7 次中断明细、90 天正常运行率 98.95% 对企业级 99.99%）</li>
+<li>DoNews：《美国主流AI服务集体宕机：ChatGPT、Claude、Grok等均异常》　<a href="https://www.donews.com/news/detail/4/6697106.html">https://www.donews.com/news/detail/4/6697106.html</a>（2026-09-03/04，持续约 3 小时 40 分，编程工具因依赖三家接口被波及）</li>
+<li>东方财富网（转自21世纪经济报道）：《黑色星期四！GPT、Claude、Grok出现历史级集体宕机》　<a href="https://finance.eastmoney.com/a/202609043864546436.html">https://finance.eastmoney.com/a/202609043864546436.html</a>（2026-09-03/04，三家公司状态页确认；业内指多家公司共享的云基础设施可能是原因；Downdetector 故障报告：OpenAI 超 1.2 万份、另两家约千份）</li>
+<li>36氪：《DeepSeek史诗级宕机13小时，一夜崩上热搜，网页版更新》　<a href="https://36kr.com/p/3746701577372168">https://36kr.com/p/3746701577372168</a>（2026-05-24，网页端与 App 全部无法访问、官方状态页红色告警、抢修一整夜）</li>
+<li>快科技：《本月第四次！DeepSeek又崩了约半小时 现已修复》　<a href="https://m.mydrivers.com/newsview/1125563.html">https://m.mydrivers.com/newsview/1125563.html</a>（2026-05-28，10 时 21 分起中断、10 时 50 分恢复，约 29 分钟）</li>
+<li>澎湃新闻：《DeepSeek崩了》　<a href="https://baijiahao.baidu.com/s?id=1866419420998691474">https://baijiahao.baidu.com/s?id=1866419420998691474</a>（2026-05-28，用户在社交平台的反馈与官方状态页信息）</li>
+<li>东方财富网（来源：时代周报）：《DeepSeek又崩了，年内18次异常，大模型C端免费模式走到十字路口》　<a href="https://finance.eastmoney.com/a/202605283753063011.html">https://finance.eastmoney.com/a/202605283753063011.html</a>（2026 年内第 18 次部分性能异常；OpenRouter 数据：全球周调用 28.9 万亿 token、中国 9.22 万亿、免费模式难持久）</li>
+<li>北方网：《DeepSeek恢复服务！豆包：频繁崩溃是成长代价》　<a href="http://it.enorth.com.cn/system/2026/03/30/059272852.shtml">http://it.enorth.com.cn/system/2026/03/30/059272852.shtml</a>（2026-03-30，同行评价频繁故障为「爆发式增长下的必经阶段」）</li>
+<li>钛媒体：《Codex也断了：OpenAI三线齐崩，Agent时代的宕机账单怎么算》《OpenAI全球宕机8小时未完：当9亿人的AI依赖成为单点故障》　<a href="https://www.tmtpost.com/agent/ai-article/19383">https://www.tmtpost.com/agent/ai-article/19383</a>（2026-07-25，对话、API、编程工具全线瘫痪超 8 小时、无预警）</li>
+<li>东方财富网：《DeepSeek为何总是"崩"？》　<a href="https://finance.eastmoney.com/a/202605293753451713.html">https://finance.eastmoney.com/a/202605293753451713.html</a>（业内人士归因：用户规模增长过快，服务器算力扩张难以匹配激增的流量需求）</li>
+<li>千问 3.8 Flash Next 模型主页　<a href="https://huggingface.co/Qwen/Qwen3.8-Flash-Next">https://huggingface.co/Qwen/Qwen3.8-Flash-Next</a></li>
+<li>Halogen 开源项目仓库（面向统一内存芯片平台，文档给出长文本预填充速度等指标）　<a href="https://github.com/peonist-ai/halogen-flash-server">https://github.com/peonist-ai/halogen-flash-server</a></li>
+<li>什么值得买：一篇本地 AI 小型主机与个人 AI 工作站涨价的追踪帖　<a href="https://post.smzdm.com/p/awwr2xlk/">https://post.smzdm.com/p/awwr2xlk/</a>（2026-08-16；记录相关设备一年内价格上行幅度，归因于 AI 数据中心争抢内存与 HBM 产能）</li>
+<li>什么值得买：一篇统一内存小主机一年价格变化的追踪帖　<a href="https://post.smzdm.com/p/aqrmepek/">https://post.smzdm.com/p/aqrmepek/</a>（2026 年 9 月；从去年 1.4 万元涨到 2.2 万元且缺货）</li>
+<li>抡锤者论坛：关于某超大混合专家模型开源权重与多机部署的一篇帖子　<a href="https://lcz.me/topic/1611">https://lcz.me/topic/1611</a>（2026-09-11；权重分层构成、机台数与部署可行性、单条与并发生成速度）</li>
+<li>本文作者此前的文章：《本地跑模型的显卡怎么选？从2000到2万的价位全景指南》　<a href="https://mp.weixin.qq.com/s/MPnQmPaWOy_RMt29gJ-a7w?token=379900131&amp;lang=zh_CN">https://mp.weixin.qq.com/s/MPnQmPaWOy_RMt29gJ-a7w?token=379900131&amp;lang=zh_CN</a>（2026-09-13 行情）</li>
+<li>什么值得买：一篇服务器内存价格半年变化的追踪帖　<a href="https://post.smzdm.com/p/ae6vk73z/">https://post.smzdm.com/p/ae6vk73z/</a>（2026-09-19；服务器内存合约价半年翻倍、交期大幅拉长）</li>
+<li>什么值得买：一篇旧代内存价格变动的追踪帖　<a href="https://post.smzdm.com/p/al3xg7mg/">https://post.smzdm.com/p/al3xg7mg/</a>（2026-08-23；旧代拆机服务器内存仍有现货流通、比新一代便宜）</li>
+</ol>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep" data-i18n="category_label">分类</span>:
+        <abbr class="category">
+            <a href="./category/llm.html">LLM</a>
+        </abbr>
+       </footer>
+    
+</section>
+
+<section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
+    <script src="https://giscus.app/client.js"
+        data-repo="cycleuser/cycleuser.github.io"
+        data-repo-id="R_kgDOL4NKYA"
+        data-category="General"
+        data-category-id="DIC_kwDOL4NKYM4DBK3X"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    function update() {
+        var t = giscusTheme(getTheme());
+        var s = document.querySelector('script[src*="giscus"]');
+        if (s) s.setAttribute('data-theme', t);
+        sendTheme(t);
+    }
+    // 初始设置
+    var s = document.querySelector('script[src*="giscus"]');
+    if (s) s.setAttribute('data-theme', giscusTheme(getTheme()));
+    // 监听明暗切换
+    new MutationObserver(function() { update(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    // 重试几次确保 iframe 加载完成
+    var tries = 0;
+    var timer = setInterval(function() {
+        if (document.querySelector('iframe.giscus-frame')) { sendTheme(giscusTheme(getTheme())); clearInterval(timer); }
+        if (++tries > 20) clearInterval(timer);
+    }, 500);
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+</body>
+</html>

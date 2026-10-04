@@ -131,6 +131,14 @@
         }
         .overlay.show { display: flex; }
         .overlay .msg { font-size: 32px; font-weight: 800; color: #776e65; }
+        .overlay .btns { display: flex; gap: 10px; }
+        .overlay .btns .btn { flex: 0 0 auto; padding: 10px 22px; }
+        .toast {
+            position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(12px);
+            background: rgba(119,110,101,.96); color: #fff; padding: 10px 18px; border-radius: 22px;
+            font-size: 14px; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 50;
+        }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
         .tip { margin-top: 12px; text-align: center; color: #999; font-size: 12px; line-height: 1.7; }
         .tip b { color: #776e65; }
     </style>
@@ -153,12 +161,16 @@
         <div class="grid" id="grid"></div>
         <div class="overlay" id="overlay">
             <div class="msg" id="ovMsg"></div>
-            <button class="btn green" onclick="newGame()">再来一局</button>
+            <div class="btns">
+                <button class="btn green" id="ovContinue" onclick="continueGame()">继续玩</button>
+                <button class="btn" id="ovNew" onclick="newGame()">重新开始</button>
+            </div>
         </div>
+        <div class="toast" id="toast"></div>
     </div>
     <div class="tip">
         <b>方向键 / WASD</b> 或 <b>滑动屏幕</b> 移动方块<br>
-        <b>撤回</b> 可回到上一步，随时随地反悔
+        <b>撤回</b> 可回到上一步；<b>达成 2048 后可继续玩</b>
     </div>
 </div>
 <script>
@@ -170,12 +182,17 @@
     var history = [];       // 撤回栈
     var MAX_UNDO = 20;      // 最多撤回步数
     var canMove = true;
+    var won = false;
 
     var gridEl = document.getElementById('grid');
     var scoreEl = document.getElementById('score');
     var bestEl = document.getElementById('best');
     var overlay = document.getElementById('overlay');
     var ovMsg = document.getElementById('ovMsg');
+    var ovContinue = document.getElementById('ovContinue');
+    var ovNew = document.getElementById('ovNew');
+    var toastEl = document.getElementById('toast');
+    var toastTimer = null;
 
     bestEl.textContent = best;
 
@@ -295,12 +312,11 @@
             score += gain.score;
             updateScore();
             render();
-            if (hasWon()) {
-                overlay.classList.add('show');
-                ovMsg.textContent = '🎉 你赢了！';
+            if (!won && hasWon()) {
+                won = true;
+                showOverlay('🎉 达成 2048！可以继续挑战更高分', true);
             } else if (!canAnyMove()) {
-                overlay.classList.add('show');
-                ovMsg.textContent = '😵 没有可移动的了';
+                showOverlay('😵 没有可移动的了', false);
             }
         } else {
             history.pop(); // 没变化不占撤回
@@ -314,6 +330,23 @@
         return false;
     }
 
+    function showOverlay(msg, isWin) {
+        ovMsg.textContent = msg;
+        if (ovContinue) ovContinue.style.display = isWin ? '' : 'none';
+        if (ovNew) ovNew.textContent = isWin ? '重新开始' : '再来一局';
+        overlay.classList.add('show');
+    }
+    function continueGame() {
+        overlay.classList.remove('show');
+        if (!canAnyMove()) showOverlay('😵 没有可移动的了', false);
+    }
+    function showToast(msg) {
+        if (!toastEl) return;
+        toastEl.textContent = msg;
+        toastEl.classList.add('show');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 1200);
+    }
     function undo() {
         if (history.length === 0 || overlay.classList.contains('show')) return;
         var prev = history.pop();
@@ -327,6 +360,7 @@
         grid = empty();
         score = 0;
         history = [];
+        won = false;
         overlay.classList.remove('show');
         addRandom();
         addRandom();
@@ -375,16 +409,7 @@
             grid = saved;
         }
         var names = ['← 左', '→ 右', '↑ 上', '↓ 下'];
-        if (bestDir >= 0) {
-            ovMsg.style.background = 'transparent';
-            ovMsg.textContent = '建议：' + names[bestDir];
-            overlay.classList.add('show');
-            setTimeout(function () { overlay.classList.remove('show'); }, 900);
-        } else {
-            ovMsg.textContent = '没有可移动的方向';
-            overlay.classList.add('show');
-            setTimeout(function () { overlay.classList.remove('show'); }, 900);
-        }
+        showToast(bestDir >= 0 ? ('建议：' + names[bestDir]) : '没有可移动的方向');
     }
 
     // 键盘
@@ -423,6 +448,7 @@
     window.newGame = newGame;
     window.undo = undo;
     window.autoHint = autoHint;
+    window.continueGame = continueGame;
 
     newGame();
 })();

@@ -15,6 +15,11 @@
     <meta property="og:description" content="大胖哥 大胖哥 先说清楚，这里说的"提问的智慧"不是当年那篇经典文章。 当年那篇讲的是，遇到系统报错、软件闪退、代码报 bug …">
     <meta property="og:url" content="https://blog.cycleuser.org/question-wisdom.html">
     <meta name="twitter:card" content="summary">
+    <link rel="alternate" type="application/atom+xml" title="CycleUser Atom" href="./feeds/all.atom.xml">
+    <link rel="alternate" type="application/rss+xml" title="CycleUser RSS" href="./feeds/all.rss.xml">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"\u9ad8\u6821\u6559\u5e08\u5efa\u8bae\u5927\u5b66\u65b0\u751f\u5148\u638c\u63e1\u300c\u63d0\u95ee\u7684\u667a\u6167\u300d","datePublished":"2026-07-22T00:00:00+08:00","dateModified":"2026-07-22T00:00:00+08:00","author":{"@type":"Person","name":"CycleUser"},"publisher":{"@type":"Organization","name":"CycleUser"},"mainEntityOfPage":"https://blog.cycleuser.org/question-wisdom.html","description":"\u5927\u80d6\u54e5 \u5927\u80d6\u54e5 \u5148\u8bf4\u6e05\u695a\uff0c\u8fd9\u91cc\u8bf4\u7684\"\u63d0\u95ee\u7684\u667a\u6167\"\u4e0d\u662f\u5f53\u5e74\u90a3\u7bc7\u7ecf\u5178\u6587\u7ae0\u3002 \u5f53\u5e74\u90a3\u7bc7\u8bb2\u7684\u662f\uff0c\u9047\u5230\u7cfb\u7edf\u62a5\u9519\u3001\u8f6f\u4ef6\u95ea\u9000\u3001\u4ee3\u7801\u62a5 bug \u2026","keywords":["education", "communication", "AI", "freshman", "university"]}
+    </script>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preconnect" href="https://giscus.app" crossorigin>
     <meta name="color-scheme" content="light dark">
@@ -64,6 +69,8 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
+    <link href="https://blog.cycleuser.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="CycleUser Full Atom Feed" />
+    <link href="https://blog.cycleuser.org/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="CycleUser Full RSS Feed" />
 </head>
 
 <body id="index" class="blog">
@@ -74,7 +81,7 @@
             <a href="./index.html" class="site-name-link">CycleUser</a>
         </div>
         <nav id="menu" class="main-nav" aria-label="Primary">
-            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="has-sub"><a href="javascript:void(0)" data-i18n="工具">工具</a>
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./search.html" data-i18n="搜索">搜索</a></li><li class="has-sub"><a href="javascript:void(0)" data-i18n="工具">工具</a>
                     <ul><li><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li><a href="./model-radar.html" data-i18n="模型雷达">模型雷达</a></li><li><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li></ul>
                 </li><li class="has-sub"><a href="javascript:void(0)" data-i18n="游戏">游戏</a>
                     <ul><li><a href="./2048游戏.html" data-i18n="2048">2048</a></li><li><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li></ul>
@@ -249,21 +256,48 @@
 </section>
 
 <section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
-    <script src="https://giscus.app/client.js"
-        data-repo="cycleuser/cycleuser.github.io"
-        data-repo-id="R_kgDOL4NKYA"
-        data-category="General"
-        data-category-id="DIC_kwDOL4NKYM4DBK3X"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="light"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-    </script>
+    <div id="giscus-slot"></div>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    var sec = document.getElementById('giscus-comments'); if (!sec) return;
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) { var f = document.querySelector('iframe.giscus-frame'); if (f) f.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app'); }
+    var loaded = false;
+    function loadGiscus() {
+        if (loaded) return; loaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://giscus.app/client.js'; s.async = true; s.crossOrigin = 'anonymous';
+        s.setAttribute('data-repo', 'cycleuser/cycleuser.github.io');
+        s.setAttribute('data-repo-id', 'R_kgDOL4NKYA');
+        s.setAttribute('data-category', 'General');
+        s.setAttribute('data-category-id', 'DIC_kwDOL4NKYM4DBK3X');
+        s.setAttribute('data-mapping', 'pathname');
+        s.setAttribute('data-strict', '0');
+        s.setAttribute('data-reactions-enabled', '1');
+        s.setAttribute('data-emit-metadata', '0');
+        s.setAttribute('data-input-position', 'bottom');
+        s.setAttribute('data-theme', giscusTheme(getTheme()));
+        s.setAttribute('data-lang', 'zh-CN');
+        document.getElementById('giscus-slot').appendChild(s);
+        new MutationObserver(function() {
+            var t = giscusTheme(getTheme()); s.setAttribute('data-theme', t); sendTheme(t);
+        }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    }
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function(es) {
+            es.forEach(function(e) { if (e.isIntersecting) { loadGiscus(); io.disconnect(); } });
+        }, { rootMargin: '400px' });
+        io.observe(sec);
+    } else { loadGiscus(); }
+})();
+</script>
     <noscript>
         <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
             请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
@@ -305,7 +339,7 @@
             <div class="grid col-540"></div>
             <div class="grid col-380 fit" >
                 <ul class="social-icons">
-                    <!-- TO BE CONTINUED -->
+                    <li><a href="./feeds/all.atom.xml" title="RSS" aria-label="RSS" target="_blank" rel="noopener">📡 RSS</a></li>
                 </ul>
             </div>
         </div>
@@ -362,6 +396,32 @@
   })();
 </script>
 <script>
+  /* 下拉菜单键盘可达 */
+  (function () {
+    var subs = document.querySelectorAll('.menu li.has-sub');
+    Array.prototype.forEach.call(subs, function (li) {
+      var a = li.querySelector(':scope > a'); if (!a) return;
+      a.setAttribute('aria-haspopup', 'true'); a.setAttribute('aria-expanded', 'false');
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var open = li.classList.toggle('open');
+        a.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      li.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { li.classList.remove('open'); a.setAttribute('aria-expanded', 'false'); a.focus(); }
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest || !e.target.closest('.menu li.has-sub')) {
+        Array.prototype.forEach.call(document.querySelectorAll('.menu li.has-sub.open'), function (li) {
+          li.classList.remove('open');
+          var a = li.querySelector(':scope > a'); if (a) a.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  })();
+</script>
+<script>
   /* 中英文切换 */
   (function () {
     var DICT = {
@@ -380,6 +440,7 @@
       "工具":       { zh: "工具", en: "Tools" },
       "游戏":       { zh: "游戏", en: "Games" },
       "模型雷达":    { zh: "模型雷达", en: "Model Radar" },
+      "搜索":       { zh: "搜索", en: "Search" },
       "2048":      { zh: "2048", en: "2048" },
       /* 通用 UI */
       "timeline":     { zh: "时间线", en: "Timeline" },

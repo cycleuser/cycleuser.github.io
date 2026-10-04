@@ -7,6 +7,16 @@
     <title>CycleUser</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="起因很简单。我在 Ollama 上跑着 huihui_ai/qwen3.5-abliterated:0.8B 和 huihui_ai/lfm2.5-abliterated:latest 这两个模型，觉得挺有意思，就想着能不能把它们转成 HuggingFace 的 safetensors 格式。没别 …">
+    <link rel="canonical" href="https://blog.cycleuser.org/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">
+    <meta property="og:site_name" content="CycleUser">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="FanFu（凡赴 ）：把 Ollama 的 GGUF 模型转成 HuggingFace 格式，纯好玩">
+    <meta property="og:description" content="起因很简单。我在 Ollama 上跑着 huihui_ai/qwen3.5-abliterated:0.8B 和 huihui_ai/lfm2.5-abliterated:latest 这两个模型，觉得挺有意思，就想着能不能把它们转成 HuggingFace 的 safetensors 格式。没别 …">
+    <meta property="og:url" content="https://blog.cycleuser.org/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://giscus.app" crossorigin>
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
@@ -42,9 +52,9 @@
         } catch (e) {}
       })();
     </script>
-    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=19' type="text/css" media="all" />
-    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=19' type="text/css" media="all" />
-    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=19' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=20' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=20' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=20' type="text/css" media="all" />
     <script>
     var _hmt = _hmt || [];
     (function() {
@@ -57,6 +67,7 @@
 </head>
 
 <body id="index" class="blog">
+<a class="skip-link" href="#content">跳到正文 / Skip to content</a>
 <div id="container" class="hfeed">
     <header id="header" >
         <div id="logo" role="banner">
@@ -465,5 +476,6 @@ print(f&quot;Conversion: {result.success}&quot;)
     });
   });
 </script>
+<script defer src="./theme/js/enhance.js?v=20"></script>
 </body>
 </html>

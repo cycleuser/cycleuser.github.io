@@ -3716,3 +3716,56 @@ html[data-theme='dark'] .menu li.has-sub > ul { box-shadow: 0 6px 20px rgba(0,0,
 }
 .taxonomy-list li a:hover { border-color: var(--accent); color: var(--accent); }
 .taxonomy-list .tax-count { color: var(--text-muted); font-size: 12px; }
+
+/* =========================================================
+   UX 增强层（目录 / 代码复制 / 图放大 / 进度 / 返回顶部 / 可访问性）
+   ========================================================= */
+:root { --border-muted: #efedec; }
+html[data-theme='dark'] { --border-muted: #2f3850; }
+html { scroll-behavior: smooth; }
+:where(h1,h2,h3,h4,h5,h6,[id]) { scroll-margin-top: 88px; }
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 2000;
+  background: var(--surface); color: var(--text); padding: 8px 14px;
+  border: 1px solid var(--border); border-radius: 0 0 8px 8px;
+}
+.skip-link:focus { left: 8px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+#read-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--accent); z-index: 2000; transition: width .1s linear; }
+#to-top {
+  position: fixed; right: 18px; bottom: 18px; width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 18px;
+  cursor: pointer; display: none; z-index: 1500; box-shadow: 0 4px 14px rgba(0,0,0,.15);
+}
+#to-top.show { display: block; }
+#to-top:hover { color: var(--accent); border-color: var(--accent); }
+/* 目录 */
+.toc { background: var(--elev-1); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; margin: 0 0 24px; }
+.toc-title { font-weight: 700; font-size: 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; color: var(--text); }
+.toc ol { margin: 10px 0 0; padding-left: 18px; font-size: 13.5px; line-height: 1.75; }
+.toc li.toc-h3 { margin-left: 12px; list-style: circle; }
+.toc a { color: var(--text-muted); text-decoration: none; }
+.toc a:hover { color: var(--accent); text-decoration: underline; }
+.toc a.active { color: var(--accent); font-weight: 600; }
+.toc.collapsed ol { display: none; }
+/* 代码复制 */
+.post-entry pre { position: relative; }
+.copy-btn {
+  position: absolute; top: 6px; right: 6px; font-size: 11px; padding: 3px 8px;
+  border: 1px solid var(--border); border-radius: 6px; background: var(--surface);
+  color: var(--text-muted); cursor: pointer; opacity: 0; transition: opacity .15s;
+}
+.post-entry pre:hover .copy-btn, .copy-btn:focus { opacity: 1; }
+.copy-btn.done { color: var(--accent); border-color: var(--accent); }
+/* 宽表格可横向滚动 */
+.scroll-x { overflow-x: auto; margin: 1.2em 0; }
+.scroll-x table { margin: 0; }
+/* 图片放大 */
+.post-entry img { cursor: zoom-in; }
+#lb { position: fixed; inset: 0; background: rgba(0,0,0,.85); display: none; align-items: center; justify-content: center; z-index: 3000; padding: 20px; cursor: zoom-out; }
+#lb.show { display: flex; }
+#lb img { max-width: 100%; max-height: 100%; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+@media print { #to-top, #read-progress, .toc, .copy-btn, .skip-link { display: none !important; } }

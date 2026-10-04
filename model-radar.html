@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>模型雷达 · LLM Model Radar</title>
+<style>
+  :root{
+    --ink:#232A31; --accent:#2C4A78; --sec:#74849B;
+    --bg:#FBFAF7; --panel:#fff; --card:#EBEFF6; --line:#D8DEE9;
+    --ok:#2E6E6B; --warn:#B08A3E; --bad:#B0492F; --desc:#4a5560;
+  }
+  [data-theme="dark"]{
+    --ink:#E6EAF0; --accent:#8FB4E8; --sec:#8C9AAE;
+    --bg:#161A20; --panel:#1D222B; --card:#242B36; --line:#333B48;
+    --ok:#63B7B2; --warn:#D6AE5C; --bad:#E0846A; --desc:#A9B4C2;
+  }
+  *{box-sizing:border-box}
+  html,body{background:var(--bg)}
+  body{margin:0;color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent)}
+  header{max-width:1280px;margin:0 auto;padding:28px 22px 4px;position:relative}
+  h1{margin:0 0 6px;font-size:29px;letter-spacing:.3px}
+  h1 span{color:var(--accent)}
+  .sub{color:var(--sec);font-size:13px;margin-bottom:18px;max-width:1000px}
+  .bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  input[type=search]{flex:1 1 300px;min-width:180px;padding:12px 14px;font-size:16px;
+    border:1.5px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);outline:none}
+  input[type=search]:focus{border-color:var(--accent)}
+  button{cursor:pointer;font-size:14px;padding:11px 16px;border-radius:10px;border:0;
+    background:var(--accent);color:#fff;font-weight:600}
+  [data-theme="dark"] button{color:#10151b}
+  button.ghost{background:var(--panel);color:var(--accent);border:1.5px solid var(--line);font-weight:500}
+  button.mini{padding:6px 11px;font-size:12.5px;font-weight:500}
+  button:disabled{opacity:.5;cursor:default}
+  .theme{margin-left:auto}
+  .chips{margin:12px 0 2px;display:flex;gap:8px;flex-wrap:wrap}
+  .chip{font-size:13px;padding:5px 12px;border-radius:999px;background:var(--panel);
+    border:1px solid var(--line);color:var(--sec);cursor:pointer;user-select:none}
+  .chip:hover{border-color:var(--accent);color:var(--accent)}
+  .chip.def{border-color:var(--accent);color:var(--accent);font-weight:600}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  [data-theme="dark"] .chip.on{color:#10151b}
+  .opts{max-width:1280px;margin:8px auto 0;padding:0 22px;display:flex;gap:14px;flex-wrap:wrap;
+    font-size:13px;color:var(--sec);align-items:center}
+  .opts label{display:flex;gap:6px;align-items:center;cursor:pointer}
+  .opts input[type=text]{padding:6px 9px;border:1px solid var(--line);border-radius:7px;
+    font-size:12px;width:300px;background:var(--panel);color:var(--ink)}
+  main{max-width:1280px;margin:0 auto;padding:12px 22px 130px}
+  .status{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--sec);margin:8px 0 12px;align-items:center}
+  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--sec);margin-right:5px}
+  .dot.on{background:var(--ok)} .dot.err{background:var(--bad)} .dot.load{background:var(--warn)}
+  .toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:2px 0 14px;
+    padding:10px 12px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+  .toolbar select,.toolbar input[type=number]{background:var(--panel);color:var(--ink);border:1px solid var(--line);
+    border-radius:8px;padding:7px 10px;font-size:13px}
+  .toolbar .grp{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .toolbar .lbl{font-size:12px;color:var(--sec)}
+  .count{font-size:13px;color:var(--sec);margin-left:auto}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px 15px 13px;
+    display:flex;flex-direction:column;gap:9px;position:relative}
+  .card h3{margin:0;font-size:16.5px;line-height:1.35;word-break:break-word;padding-right:26px}
+  .badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:6px;background:var(--card);
+    color:var(--accent);font-weight:600;margin-right:6px;vertical-align:middle}
+  .badge.ev{background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok)}
+  .cmp{position:absolute;top:13px;right:13px;width:18px;height:18px;cursor:pointer;accent-color:var(--accent)}
+  .desc{font-size:13px;color:var(--desc);margin:0}
+  .facts{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:13px;margin:0}
+  .facts dt{color:var(--sec)} .facts dd{margin:0;color:var(--ink);word-break:break-word}
+  .tags{display:flex;gap:6px;flex-wrap:wrap}
+  .tag{font-size:11px;color:var(--sec);background:var(--card);border-radius:6px;padding:2px 7px}
+  .tag.fn{color:var(--accent);font-weight:600}
+  .dev{font-size:12px;color:var(--sec);border-top:1px dashed var(--line);padding-top:8px}
+  .dev b{color:var(--ink)} .fit{color:var(--ok);font-weight:600}
+  .dev details{margin-top:5px}
+  .dev summary{cursor:pointer;color:var(--accent);font-size:12px}
+  .evals{font-size:12px;color:var(--sec);border-top:1px dashed var(--line);padding-top:8px}
+  .evals b{color:var(--ok)}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+  .link{font-size:12px;word-break:break-all}
+  .bench-links{display:flex;gap:6px;flex-wrap:wrap}
+  .bench-links a{font-size:11px;padding:2px 8px;border-radius:6px;background:var(--card);text-decoration:none}
+  .muted{color:var(--sec);font-size:13.5px;padding:26px 0;text-align:center}
+  .views{display:flex;gap:0;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .views button{background:var(--panel);color:var(--sec);border:0;border-radius:0;padding:7px 12px;font-size:13px;font-weight:500}
+  .views button+button{border-left:1px solid var(--line)}
+  .views button.on{background:var(--accent);color:#fff}
+  [data-theme="dark"] .views button.on{color:#10151b}
+  .colpick{position:relative;font-size:12px;color:var(--sec)}
+  .colpick summary{cursor:pointer;padding:6px 12px;border:1px solid var(--line);border-radius:8px;list-style:none;user-select:none}
+  .colpick summary::-webkit-details-marker{display:none}
+  .colpick[open]{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:0 10px 10px}
+  .colpick label{display:inline-flex;gap:4px;align-items:center;background:var(--card);border-radius:6px;
+    padding:2px 8px;cursor:pointer;margin:2px;color:var(--ink)}
+  details.raw{margin-top:2px}
+  details.raw summary{cursor:pointer;color:var(--accent);font-size:12px}
+  details.raw pre{max-height:220px;overflow:auto;background:var(--card);border-radius:8px;padding:8px;font-size:11px;
+    white-space:pre-wrap;word-break:break-all;margin:6px 0 0}
+  .list-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+  table.list{border-collapse:collapse;width:100%;font-size:13px}
+  table.list th,table.list td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  table.list thead th{position:sticky;top:0;background:var(--card);color:var(--accent);font-weight:600;
+    white-space:nowrap;cursor:pointer;user-select:none}
+  table.list th.sorted::after{content:" \25BE"}
+  table.list tbody tr:hover{background:var(--card)}
+  table.list td.name{min-width:200px;font-weight:600;word-break:break-word}
+  table.list td.link{max-width:230px;word-break:break-all;font-size:12px;color:var(--sec)}
+  .mini-badge{display:inline-block;font-size:11px;padding:1px 7px;border-radius:6px;background:var(--card);color:var(--accent);font-weight:600}
+  .compact .row{display:flex;gap:10px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line);background:var(--panel);font-size:13px}
+  .compact .row:nth-child(odd){background:var(--bg)}
+  .compact .row:hover{background:var(--card)}
+  .compact .nm{font-weight:600;min-width:200px;flex:1 1 200px;word-break:break-word}
+  .compact .meta{color:var(--sec);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  /* 显存视图 */
+  table.mem{border-collapse:collapse;width:100%;font-size:12.5px;white-space:nowrap}
+  table.mem th,table.mem td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+  table.mem th:first-child,table.mem td:first-child{text-align:left;position:sticky;left:0;background:var(--panel);z-index:1}
+  table.mem thead th{background:var(--card);color:var(--accent);position:sticky;top:0}
+  table.mem thead th:first-child{z-index:2}
+  table.mem td.fitcell{color:var(--ok);font-weight:600}
+  .devbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:0 0 10px;font-size:13px}
+  .devbar select,.devbar input[type=search]{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:13px}
+  .devbar input[type=search]{flex:1 1 200px}
+  .devcard{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px;font-size:14px;flex-wrap:wrap}
+  .badge.warn{background:color-mix(in srgb,var(--warn) 22%,transparent);color:var(--warn)}
+  tr.incomplete td{opacity:.55;font-style:italic}
+  #cmp-bar{position:fixed;left:0;right:0;bottom:0;background:var(--panel);border-top:1px solid var(--line);
+    padding:10px 22px;display:none;z-index:20;box-shadow:0 -6px 18px rgba(0,0,0,.08)}
+  #cmp-bar .wrap{max-width:1280px;margin:0 auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  #cmp-bar b{font-size:14px}
+  .cmp-wrap{overflow-x:auto;margin-top:16px}
+  table.cmp{border-collapse:collapse;width:100%;font-size:13px;background:var(--panel)}
+  table.cmp th,table.cmp td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  table.cmp th{background:var(--card);color:var(--accent);font-weight:600;white-space:nowrap}
+  table.cmp td:first-child{color:var(--sec);white-space:nowrap}
+  .help{font-size:12px;color:var(--sec);margin-top:6px;line-height:1.7}
+  .help code{background:var(--card);padding:1px 5px;border-radius:5px}
+  details.note{font-size:12px;color:var(--sec);margin-top:6px}
+  details.note summary{cursor:pointer}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+  .list thead th.tdrag{cursor:grab}
+  .list thead th.tdrag:active{cursor:grabbing}
+  .list thead th.dragging{opacity:.4}
+  .list thead th.sorted.asc::after{content:""}
+  @media(max-width:760px){
+    header{padding:20px 14px 4px} main{padding:10px 14px 120px}
+    h1{font-size:24px} .sub{font-size:12px}
+    .bar button,.bar select{font-size:13px;padding:9px 12px}
+    .toolbar{gap:8px} .views{overflow-x:auto;max-width:100%}
+    .grid{grid-template-columns:1fr} table.list,table.mem{font-size:12px}
+    .opts{gap:10px} .colpick[open]{position:absolute;z-index:30;background:var(--panel)}
+  }
+  .controls{max-width:1280px;margin:10px auto 0;padding:8px 22px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .controls select{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:13px}
+  .controls .grp{display:flex;gap:6px;align-items:center}
+  .controls .lbl{font-size:12px;color:var(--sec)}
+  .filters-btn{background:var(--panel);color:var(--accent);border:1.5px solid var(--line);font-weight:500}
+  .filters-btn.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+  .fcount{display:inline-block;min-width:16px;padding:0 5px;border-radius:8px;background:var(--accent);color:#fff;font-size:11px;line-height:16px;text-align:center}
+  .fcount:empty{display:none}
+  .filter-panel{max-width:1280px;margin:8px auto 0;padding:14px 22px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+  .filter-panel[hidden]{display:none}
+  .fgroup{margin-bottom:12px}
+  .fgroup h4{margin:0 0 6px;font-size:12px;color:var(--sec);font-weight:700;letter-spacing:.2px}
+  .frow{display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:13px}
+  .frow label{display:inline-flex;gap:6px;align-items:center}
+  .frow select,.frow input[type=text]{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:6px 9px;font-size:12px}
+  .frow input[type=text]{width:280px}
+  .fseg{display:inline-flex;gap:6px;flex-wrap:wrap}
+  .fp-actions{display:flex;gap:8px;justify-content:flex-end;border-top:1px solid var(--line);padding-top:10px}
+  .activefilters{max-width:1280px;margin:8px auto 0;padding:0 22px;display:flex;gap:8px;flex-wrap:wrap}
+  .activefilters:empty{display:none}
+  .activefilters .chip{cursor:pointer}
+  .activefilters .chip .x{opacity:.65;margin-left:5px}
+  .infoline{max-width:1280px;margin:6px auto 0;padding:0 22px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--sec)}
+  details.note.inline{font-size:12px;color:var(--sec)}
+  details.note.inline summary{cursor:pointer;color:var(--accent)}
+  details.note.inline .help{max-width:1020px}
+  .moremenu{position:relative;font-size:13px}
+  .moremenu summary{cursor:pointer;padding:8px 12px;border:1.5px solid var(--line);border-radius:9px;list-style:none;color:var(--accent);background:var(--panel)}
+  .moremenu summary::-webkit-details-marker{display:none}
+  .moremenu .menu{position:absolute;right:0;top:112%;z-index:30;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px;min-width:160px;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+  @media(max-width:760px){ .controls,.filter-panel,.activefilters,.infoline{padding-left:14px;padding-right:14px} .frow input[type=text]{width:100%} }
+  .warnbar{max-width:1280px;margin:10px auto 0;padding:10px 14px;border-radius:10px;background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--warn);font-size:12.5px}
+  .warnbar[hidden]{display:none}
+  .bloglink{font-size:13px;font-weight:400;color:var(--sec);text-decoration:none;vertical-align:middle;margin-left:8px}
+  .bloglink:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<header>
+  <h1><span data-i18n="模型">模型</span><span data-i18n="雷达">雷达</span> <a class="bloglink" href="https://blog.cycleuser.org" target="_blank" rel="noopener">↩ CycleUser 博客</a></h1>
+  <div class="sub" data-i18n="实时检索模型：名称、厂商、规模、激活量、类型、功能、许可、上下文、开源与否、性能评测，以及各精度显存。数据来自公开来源（Hugging Face、OpenRouter、models.dev、GitHub、ModelScope、Ollama 与开源基准），默认只显示所选列数据齐全的模型。">实时检索模型：名称、厂商、规模、激活量、类型、功能、许可、上下文、开源与否、性能评测，以及各精度显存。数据来自公开来源（Hugging Face、OpenRouter、models.dev、GitHub、ModelScope、Ollama 与开源基准），默认只显示所选列数据齐全的模型。</div>
+  <div class="bar">
+    <input id="q" type="search" placeholder="留空显示全部；或输入 qwen、llama、deepseek、gpt、moe、embedding、diffusion 等关键词" data-i18n-ph="留空显示全部；或输入 qwen、llama、deepseek、gpt、moe、embedding、diffusion 等关键词" autocomplete="off">
+    <button id="go" data-i18n="检索">检索</button>
+    <button id="refresh" class="ghost" title="重新抓取一次数据" data-i18n="刷新">刷新</button>
+    <button id="share" class="ghost" data-i18n="分享链接">分享链接</button>
+    <select id="lang" class="ghost" title="语言 / Language" style="background:var(--panel);color:var(--ink);border:1.5px solid var(--line);border-radius:10px;padding:10px 8px;font-size:13px"></select>
+    <button id="theme" class="ghost theme" title="切换深浅色">☾ 深色</button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div id="filewarn" class="warnbar" hidden></div>
+</header>
+
+<div class="controls" id="toolbar" style="display:none">
+  <div class="grp"><span class="lbl" data-i18n="视图">视图</span>
+    <span class="views">
+      <button data-view="card" class="on" data-i18n="卡片">卡片</button>
+      <button data-view="list" data-i18n="列表">列表</button>
+      <button data-view="rank" data-i18n="排行">排行</button>
+      <button data-view="compact" data-i18n="紧凑">紧凑</button>
+      <button data-view="mem" data-i18n="显存">显存</button>
+      <button data-view="dev" data-i18n="设备">设备</button>
+    </span>
+  </div>
+  <div class="grp"><span class="lbl" data-i18n="排序">排序</span>
+    <select id="sort">
+      <option value="rel" data-i18n="相关度">相关度</option>
+      <option value="score" data-i18n="综合评测 ↓">综合评测 ↓</option>
+      <option value="params-desc" data-i18n="参数量 ↓">参数量 ↓</option>
+      <option value="params-asc" data-i18n="参数量 ↑">参数量 ↑</option>
+      <option value="downloads" data-i18n="下载 ↓">下载 ↓</option>
+      <option value="likes" data-i18n="点赞 ↓">点赞 ↓</option>
+      <option value="stars" data-i18n="星标 ↓">星标 ↓</option>
+      <option value="context" data-i18n="上下文 ↓">上下文 ↓</option>
+      <option value="created" data-i18n="创建时间 ↓">创建时间 ↓</option>
+      <option value="updated" data-i18n="更新时间 ↓">更新时间 ↓</option>
+    </select>
+  </div>
+  <button id="filtersBtn" class="ghost filters-btn" aria-expanded="false" aria-controls="filterPanel">
+    <span data-i18n="筛选">筛选</span> <span class="fcount" id="fcount"></span>
+  </button>
+  <details class="colpick" id="colpick">
+    <summary data-i18n="列">列</summary>
+    <div style="margin-top:6px"><span class="lbl" data-i18n="字段">字段</span> <span id="col-fields"></span></div>
+    <div style="margin-top:6px"><span class="lbl" data-i18n="显存精度">显存精度</span> <span id="col-precs"></span></div>
+    <div style="margin-top:8px"><button class="mini ghost" id="col-reset" data-i18n="重置为默认">重置为默认</button></div>
+  </details>
+  <details class="moremenu" id="moremenu">
+    <summary data-i18n="更多">更多</summary>
+    <div class="menu">
+      <button class="mini ghost" id="exp-json" data-i18n="导出 JSON">导出 JSON</button>
+      <button class="mini ghost" id="exp-csv" data-i18n="导出 CSV">导出 CSV</button>
+      <button class="mini ghost" id="exp-snap" data-i18n="导出快照">导出快照</button>
+      <button class="mini ghost" id="imp-snap" data-i18n="导入快照">导入快照</button>
+      <input type="file" id="imp-file" accept="application/json" style="display:none">
+      <button class="mini ghost" id="cmp-clear" data-i18n="取消对比">取消对比</button>
+    </div>
+  </details>
+  <span class="count" id="count" role="status" aria-live="polite"></span>
+</div>
+
+<section class="filter-panel" id="filterPanel" hidden>
+  <div class="fgroup"><h4 data-i18n="数据源">数据源</h4>
+    <div class="frow">
+      <label><input type="checkbox" id="s-hf" checked> Hugging Face</label>
+      <label><input type="checkbox" id="s-or" checked> OpenRouter</label>
+      <label><input type="checkbox" id="s-md"> models.dev</label>
+      <label><input type="checkbox" id="s-gh" checked> GitHub</label>
+      <label><input type="checkbox" id="s-ms"> ModelScope</label>
+      <label><input type="checkbox" id="s-ol"> Ollama</label>
+      <label><input type="checkbox" id="s-ev" checked> <span data-i18n="评测（LiveBench）">评测（LiveBench）</span></label>
+      <label title="补全每个模型的评测、上下文与 KV 架构（较慢）"><input type="checkbox" id="deep" checked> <span data-i18n="深度补全">深度补全</span></label>
+    </div>
+  </div>
+  <div class="fgroup"><h4 data-i18n="筛选">筛选</h4>
+    <div class="frow">
+      <label title="只显示所选列都有数据的模型"><input type="checkbox" id="req" checked> <span data-i18n="仅显示数据完整">仅显示数据完整</span></label>
+      <span class="lbl" data-i18n="开源">开源</span><span class="fseg" id="f-os"></span>
+      <label><span class="lbl" data-i18n="厂商">厂商</span> <select id="maker"><option value="" data-i18n="全部厂商">全部厂商</option></select></label>
+      <label><span class="lbl" data-i18n="可用显存">可用显存</span> <select id="fit">
+        <option value="" data-i18n="不限">不限</option><option value="8">≤8GB</option><option value="12">≤12GB</option>
+        <option value="16">≤16GB</option><option value="24">≤24GB</option><option value="32">≤32GB</option>
+        <option value="48">≤48GB</option><option value="64">≤64GB</option><option value="96">≤96GB</option><option value="128">≤128GB</option>
+      </select></label>
+    </div>
+  </div>
+  <div class="fgroup"><h4 data-i18n="来源">来源</h4><div class="frow" id="f-src"></div></div>
+  <div class="fgroup"><h4 data-i18n="功能">功能</h4><div class="frow" id="f-fn"></div></div>
+  <div class="fgroup"><h4 data-i18n="设置">设置</h4>
+    <div class="frow">
+      <label><span class="lbl" data-i18n="代理">代理</span> <input type="text" id="proxy" placeholder="可留空自动尝试；或填 https://你的代理/?url=" data-i18n-ph="可留空自动尝试；或填 https://你的代理/?url="></label>
+      <label><span class="lbl" data-i18n="自动刷新">自动刷新</span> <select id="auto"><option value="0" data-i18n="关">关</option><option value="60" data-i18n="60 秒">60 秒</option><option value="300" data-i18n="5 分钟">5 分钟</option><option value="900" data-i18n="15 分钟">15 分钟</option></select></label>
+      <span class="lbl" style="opacity:.8">ModelScope / Ollama 无跨域头，需代理</span>
+    </div>
+    <details class="note" style="margin-top:8px"><summary>ModelScope / Ollama 需要代理？点开看说明与一键代码</summary>
+      <div class="help">
+        这两个站点不返回跨域头，浏览器直连会被拦（公共代理目前多不可用）。可部署一个自己的 Cloudflare Worker 作转发，然后把地址填到上面的「代理」里（形如 <code>https://你的worker.workers.dev/?url=</code>）。<br>
+        Worker 代码（转发任意方法/请求体，含 PUT）：<br>
+        <textarea readonly style="width:100%;height:150px;font-size:11px;margin-top:6px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px">export default { async fetch(req){ const u=new URL(req.url); const target=u.searchParams.get("url"); if(!target) return new Response("need ?url=",{status:400}); const init={ method:req.method, headers:{"content-type":req.headers.get("content-type")||"application/json"} }; if(req.method!=="GET"&&req.method!=="HEAD") init.body=await req.text(); const r=await fetch(target,init); return new Response(r.body,{ status:r.status, headers:{"access-control-allow-origin":"*","content-type":r.headers.get("content-type")||"application/json"} }); } };</textarea>
+      </div>
+    </details>
+    </div>
+  </div>
+  <div class="fp-actions">
+    <button class="mini ghost" id="filtersReset" data-i18n="清除全部筛选">清除全部筛选</button>
+    <button class="mini ghost" id="prefsReset" data-i18n="恢复默认设置">恢复默认设置</button>
+    <button class="mini" id="filtersClose" data-i18n="完成">完成</button>
+  </div>
+</section>
+
+<div class="activefilters" id="activeFilters"></div>
+<div class="infoline">
+  <span id="upd" class="lbl"></span><span id="srcinfo" class="lbl"></span>
+  <span class="bench-links" id="bench-links"></span>
+  <details class="note inline"><summary data-i18n="指标与数据来源说明">指标与数据来源说明</summary>
+    <div class="help">
+      <b>综合评测</b>取 LiveBench / Hugging Face 评测均值（均来自公开数据源）。<br>
+      <b>设备</b>视图为开源基准（llama.cpp，Llama 3 系列）的预填/生成 t/s，按设备分组；无基准的设备仅列公开规格。<br>
+      <b>显存</b>按参数量×各精度每权重字节估算（未计 KV 缓存）。默认「仅显示数据完整」= 勾选的列都有数据才显示。<br>
+      <b>KV</b>按 HF config.json 架构计算（层数×KV头数×head_dim×2×2字节）：<b>KV/token</b> 每 token 增量，<b>KV@上下文</b> 跑满上下文时的 KV，<b>Q4+KV@上下文</b> 为总显存。
+    </div>
+  </details>
+</div>
+
+<main>
+  <div class="status" id="status" aria-live="polite"></div>
+  <div id="results" class="grid"></div>
+  <div id="empty" class="muted">正在加载…</div>
+  <div id="compare-area"></div>
+</main>
+
+<div id="cmp-bar"><div class="wrap">
+  <b id="cmp-n">已选 0 个</b>
+  <button class="mini" id="cmp-show" data-i18n="并排对比">并排对比</button>
+  <button class="mini ghost" id="cmp-clearn" data-i18n="清空选择">清空选择</button>
+  <span class="lstyle" style="color:var(--sec);font-size:12px" data-i18n="勾选卡片/行左侧方框加入对比">勾选卡片/行左侧方框加入对比</span>
+</div></div>
+
+<script id="dev-snap">const DEV_SNAP={"devices":[{"key":"3070","name":"NVIDIA RTX 3070","mem":8,"bw":448,"bench":true},{"key":"3080Ti","name":"NVIDIA RTX 3080 Ti","mem":12,"bw":912,"bench":true},{"key":"3080","name":"NVIDIA RTX 3080","mem":10,"bw":760,"bench":true},{"key":"3090x2","name":"2× NVIDIA RTX 3090","mem":48,"bw":936,"bench":true},{"key":"3090x4","name":"4× NVIDIA RTX 3090","mem":96,"bw":936,"bench":true},{"key":"3090x6","name":"6× NVIDIA RTX 3090","mem":144,"bw":936,"bench":true},{"key":"3090","name":"NVIDIA RTX 3090","mem":24,"bw":936,"bench":true},{"key":"4070Ti","name":"NVIDIA RTX 4070 Ti","mem":12,"bw":504,"bench":true},{"key":"4080","name":"NVIDIA RTX 4080","mem":16,"bw":717,"bench":true},{"key":"4090x2","name":"2× NVIDIA RTX 4090","mem":48,"bw":1008,"bench":true},{"key":"4090x4","name":"4× NVIDIA RTX 4090","mem":96,"bw":1008,"bench":true},{"key":"4090x8","name":"8× NVIDIA RTX 4090","mem":192,"bw":1008,"bench":true},{"key":"4090","name":"NVIDIA RTX 4090","mem":24,"bw":1008,"bench":true},{"key":"4000_Adax4","name":"4× NVIDIA RTX 4000 Ada","mem":80,"bw":360,"bench":true},{"key":"4000_Ada","name":"NVIDIA RTX 4000 Ada","mem":20,"bw":360,"bench":true},{"key":"5000_Adax4","name":"4× NVIDIA RTX 5000 Ada","mem":128,"bw":576,"bench":true},{"key":"5000_Ada","name":"NVIDIA RTX 5000 Ada","mem":32,"bw":576,"bench":true},{"key":"6000_Adax4","name":"4× NVIDIA RTX 6000 Ada","mem":192,"bw":960,"bench":true},{"key":"6000_Ada","name":"NVIDIA RTX 6000 Ada","mem":48,"bw":960,"bench":true},{"key":"A100_PCIex4","name":"4× NVIDIA A100 PCIe 40GB","mem":160,"bw":1555,"bench":true},{"key":"A100_PCIe","name":"NVIDIA A100 PCIe 40GB","mem":40,"bw":1555,"bench":true},{"key":"A100_SXMx4","name":"4× NVIDIA A100 SXM 80GB","mem":320,"bw":2039,"bench":true},{"key":"A100_SXM","name":"NVIDIA A100 SXM 80GB","mem":80,"bw":2039,"bench":true},{"key":"A40x4","name":"4× NVIDIA A40 48GB","mem":192,"bw":696,"bench":true},{"key":"A40","name":"NVIDIA A40 48GB","mem":48,"bw":696,"bench":true},{"key":"A6000x4","name":"4× NVIDIA A6000 48GB","mem":192,"bw":768,"bench":true},{"key":"A6000","name":"NVIDIA A6000 48GB","mem":48,"bw":768,"bench":true},{"key":"H100_PCIex4","name":"4× NVIDIA H100 PCIe 80GB","mem":320,"bw":2035,"bench":true},{"key":"H100_PCIe","name":"NVIDIA H100 PCIe 80GB","mem":80,"bw":2035,"bench":true},{"key":"L40Sx4","name":"4× NVIDIA L40S 48GB","mem":192,"bw":864,"bench":true},{"key":"L40S","name":"NVIDIA L40S 48GB","mem":48,"bw":864,"bench":true},{"key":"amd_max395","name":"AMD Ryzen AI Max+ 395 (Radeon 8060S) 128GB","mem":128,"bw":256,"bench":false},{"key":"amd_7900xtx","name":"AMD Radeon RX 7900 XTX 24GB","mem":24,"bw":960,"bench":false},{"key":"amd_7900xt","name":"AMD Radeon RX 7900 XT 20GB","mem":20,"bw":800,"bench":false},{"key":"amd_r9700","name":"AMD Radeon AI PRO R9700 32GB","mem":32,"bw":640,"bench":false},{"key":"amd_9070xt","name":"AMD Radeon RX 9070 XT 16GB","mem":16,"bw":645,"bench":false},{"key":"amd_7800xt","name":"AMD Radeon RX 7800 XT 16GB","mem":16,"bw":624,"bench":false},{"key":"amd_6900xt","name":"AMD Radeon RX 6900 XT 16GB","mem":16,"bw":512,"bench":false},{"key":"amd_6800xt","name":"AMD Radeon RX 6800 XT 16GB","mem":16,"bw":512,"bench":false},{"key":"amd_6700xt","name":"AMD Radeon RX 6700 XT 12GB","mem":12,"bw":384,"bench":false},{"key":"amd_6600","name":"AMD Radeon RX 6600 8GB","mem":8,"bw":224,"bench":false},{"key":"nv_4060","name":"NVIDIA GeForce RTX 4060 8GB","mem":8,"bw":272,"bench":false},{"key":"nv_4060ti16","name":"NVIDIA GeForce RTX 4060 Ti 16GB","mem":16,"bw":288,"bench":false},{"key":"nv_4070","name":"NVIDIA GeForce RTX 4070 12GB","mem":12,"bw":504,"bench":false},{"key":"nv_4070s","name":"NVIDIA GeForce RTX 4070 Super 12GB","mem":12,"bw":504,"bench":false},{"key":"nv_2080ti22","name":"NVIDIA GeForce RTX 2080 Ti 22GB (改显存)","mem":22,"bw":616,"bench":false},{"key":"nv_3060","name":"NVIDIA GeForce RTX 3060 12GB","mem":12,"bw":360,"bench":false},{"key":"nv_5070","name":"NVIDIA GeForce RTX 5070 12GB","mem":12,"bw":672,"bench":false},{"key":"nv_5070ti","name":"NVIDIA GeForce RTX 5070 Ti 16GB","mem":16,"bw":896,"bench":false},{"key":"nv_5080","name":"NVIDIA GeForce RTX 5080 16GB","mem":16,"bw":960,"bench":false},{"key":"nv_5090","name":"NVIDIA GeForce RTX 5090 32GB","mem":32,"bw":1792,"bench":false},{"key":"nv_rtxa6000","name":"NVIDIA RTX A6000 48GB","mem":48,"bw":768,"bench":false},{"key":"nv_p40","name":"NVIDIA Tesla P40 24GB","mem":24,"bw":346,"bench":false},{"key":"nv_p100","name":"NVIDIA Tesla P100 16GB","mem":16,"bw":732,"bench":false},{"key":"intel_a770","name":"Intel Arc A770 16GB","mem":16,"bw":560,"bench":false},{"key":"intel_b580","name":"Intel Arc B580 12GB","mem":12,"bw":456,"bench":false},{"key":"ap_m4pro64","name":"Apple MacBook Pro M4 Pro 64GB","mem":64,"bw":273,"bench":false},{"key":"ap_m4max128","name":"Apple M4 Max 128GB","mem":128,"bw":546,"bench":false}],"bench":[["3070","llama 8B","Q4_K_M",8.0,2402.5,72.8],["3080Ti","llama 8B","Q4_K_M",8.0,3690.3,110.6],["3080","llama 8B","Q4_K_M",8.0,3728.9,109.6],["3090x2","llama 8B","Q4_K_M",8.0,3336.4,111.7],["3090x2","llama 8B","F16",8.0,4122.7,47.7],["3090x2","llama 70B","Q4_K_M",70.0,357.3,16.6],["3090x4","llama 8B","Q4_K_M",8.0,3742.7,108.7],["3090x4","llama 8B","F16",8.0,4608.4,47.1],["3090x4","llama 70B","Q4_K_M",70.0,300.8,17.1],["3090x6","llama 8B","Q4_K_M",8.0,3360.0,104.2],["3090x6","llama 8B","F16",8.0,3876.0,46.2],["3090x6","llama 70B","Q4_K_M",70.0,456.9,17.1],["3090x6","llama 70B","F16",70.0,579.0,5.8],["3090","llama 8B","Q4_K_M",8.0,4030.4,115.4],["3090","llama 8B","F16",8.0,4444.6,47.4],["4070Ti","llama 8B","Q4_K_M",8.0,3936.3,83.5],["4080","llama 8B","Q4_K_M",8.0,5389.7,108.2],["4080","llama 8B","F16",8.0,7247.0,40.6],["4090x2","llama 8B","Q4_K_M",8.0,7003.5,124.7],["4090x2","llama 8B","F16",8.0,9177.9,53.6],["4090x2","llama 70B","Q4_K_M",70.0,839.4,19.2],["4090x4","llama 8B","Q4_K_M",8.0,6749.0,120.3],["4090x4","llama 8B","F16",8.0,8750.6,53.1],["4090x4","llama 70B","Q4_K_M",70.0,834.7,19.0],["4090x8","llama 8B","Q4_K_M",8.0,6172.1,118.1],["4090x8","llama 8B","F16",8.0,7889.3,52.5],["4090x8","llama 70B","Q4_K_M",70.0,813.0,18.9],["4090x8","llama 70B","F16",70.0,1183.9,6.5],["4090","llama 8B","Q4_K_M",8.0,7139.0,130.6],["4090","llama 8B","F16",8.0,9382.0,54.8],["4000_Adax4","llama 8B","Q4_K_M",8.0,2413.1,56.6],["4000_Adax4","llama 8B","F16",8.0,3220.2,20.6],["4000_Adax4","llama 70B","Q4_K_M",70.0,282.3,7.4],["4000_Ada","llama 8B","Q4_K_M",8.0,2451.9,59.1],["4000_Ada","llama 8B","F16",8.0,3121.7,20.9],["5000_Adax4","llama 8B","Q4_K_M",8.0,4671.3,84.1],["5000_Adax4","llama 8B","F16",8.0,2428.0,32.1],["5000_Adax4","llama 70B","Q4_K_M",70.0,502.4,11.5],["5000_Ada","llama 8B","Q4_K_M",8.0,4761.1,91.4],["5000_Ada","llama 8B","F16",8.0,6160.6,32.8],["6000_Adax4","llama 8B","Q4_K_M",8.0,6640.9,121.2],["6000_Adax4","llama 8B","F16",8.0,8953.3,50.6],["6000_Adax4","llama 70B","Q4_K_M",70.0,656.6,18.1],["6000_Adax4","llama 70B","F16",70.0,864.1,6.1],["6000_Ada","llama 8B","Q4_K_M",8.0,5791.7,133.4],["6000_Ada","llama 8B","F16",8.0,6663.1,52.3],["6000_Ada","llama 70B","Q4_K_M",70.0,566.0,18.5],["A100_PCIex4","llama 8B","Q4_K_M",8.0,6076.6,119.3],["A100_PCIex4","llama 8B","F16",8.0,8088.8,51.6],["A100_PCIex4","llama 70B","Q4_K_M",70.0,771.3,22.9],["A100_PCIex4","llama 70B","F16",70.0,1172.1,7.4],["A100_PCIe","llama 8B","Q4_K_M",8.0,5981.0,140.6],["A100_PCIe","llama 8B","F16",8.0,7741.3,54.8],["A100_PCIe","llama 70B","Q4_K_M",70.0,744.1,22.3],["A100_SXMx4","llama 8B","Q4_K_M",8.0,4850.9,99.7],["A100_SXMx4","llama 8B","F16",8.0,626.8,45.5],["A100_SXMx4","llama 70B","Q4_K_M",70.0,468.9,19.9],["A100_SXMx4","llama 70B","F16",70.0,1233.3,7.0],["A100_SXM","llama 8B","Q4_K_M",8.0,5947.6,135.0],["A100_SXM","llama 8B","F16",8.0,603.8,53.5],["A100_SXM","llama 70B","Q4_K_M",70.0,817.6,24.6],["A40x4","llama 8B","Q4_K_M",8.0,3321.3,85.9],["A40x4","llama 8B","F16",8.0,4144.9,33.6],["A40x4","llama 70B","Q4_K_M",70.0,236.9,12.0],["A40x4","llama 70B","F16",70.0,610.5,4.0],["A40","llama 8B","Q4_K_M",8.0,3325.0,91.3],["A40","llama 8B","F16",8.0,4203.8,34.3],["A40","llama 70B","Q4_K_M",70.0,209.4,11.6],["A6000x4","llama 8B","Q4_K_M",8.0,3713.0,96.5],["A6000x4","llama 8B","F16",8.0,4508.6,39.3],["A6000x4","llama 70B","Q4_K_M",70.0,496.1,14.4],["A6000x4","llama 70B","F16",70.0,510.3,4.8],["A6000","llama 8B","Q4_K_M",8.0,3780.6,105.4],["A6000","llama 8B","F16",8.0,4511.0,40.7],["A6000","llama 70B","Q4_K_M",70.0,482.2,14.7],["L40Sx4","llama 8B","Q4_K_M",8.0,6125.7,107.5],["L40Sx4","llama 8B","F16",8.0,2211.4,42.7],["L40Sx4","llama 70B","Q4_K_M",70.0,591.0,15.1],["L40Sx4","llama 70B","F16",70.0,1042.1,5.0],["L40S","llama 8B","Q4_K_M",8.0,6035.2,115.5],["L40S","llama 8B","F16",8.0,2253.9,43.7],["L40S","llama 70B","Q4_K_M",70.0,673.6,15.5]]};</script>
+
+<script id="i18n">
+/* 多语言词典：以中文为键，英语兜底。默认跟随浏览器语言。 */
+const LANGS=[["zh","中文"],["en","English"],["ja","日本語"],["fr","Français"],["ru","Русский"],["de","Deutsch"],["it","Italiano"],["es","Español"],["pt","Português"],["ko","한국어"]];
+const I18N={
+en:{
+ "模型":"Model","雷达":"Radar",
+ 
+ "留空显示全部；或输入 qwen、llama、deepseek、gpt、moe、embedding、diffusion 等关键词":"Leave empty to show all; or type qwen, llama, deepseek, gpt, moe, embedding, diffusion…",
+ "检索":"Search","刷新":"Refresh","分享链接":"Share link","切换深浅色":"Toggle theme","深色":"Dark","浅色":"Light",
+ "评测（LiveBench）":"Evals (LiveBench)","代理":"Proxy","可留空自动尝试；或填 https://你的代理/?url=":"Empty = auto-try; or your proxy prefix e.g. https://your-proxy/?url=",
+ "自动刷新":"Auto refresh","关":"Off","60 秒":"60s","5 分钟":"5 min","15 分钟":"15 min",
+ "ModelScope / Ollama 需要代理？点开看说明":"ModelScope / Ollama need a proxy? Click for details",
+ "这两个站点不返回跨域头，浏览器直连会被拦。可留空让页面自动尝试公共代理；若都失败，填一个你自己的转发代理前缀（如":"These two sites send no CORS headers, so direct browser calls are blocked. Leave empty to auto-try public proxies; if all fail, enter your own forwarding proxy prefix (e.g.",
+ "数据导出：工具栏可导出当前视图 JSON/CSV，或导出/导入完整快照；页面也会把最近一次结果存到浏览器本地。":"Export: the toolbar can export the current view as JSON/CSV, or export/import a full snapshot; the last result is also cached locally.",
+ "指标与数据来源说明":"Metrics & data sources",
+ "综合评测":"Overall score","相关度":"Relevance","参数量 ↓":"Params ↓","参数量 ↑":"Params ↑","下载 ↓":"Downloads ↓","点赞 ↓":"Likes ↓","星标 ↓":"Stars ↓","上下文 ↓":"Context ↓","创建时间 ↓":"Created ↓","更新时间 ↓":"Updated ↓","智力Intelligence ↓":"Intelligence ↓",
+ "视图":"View","卡片":"Cards","列表":"List","排行":"Ranking","紧凑":"Compact","显存":"VRAM","设备":"Devices",
+ "来源":"Source","功能":"Features","开源":"Open-source","闭源":"Closed","全部":"All","厂商":"Vendor","全部厂商":"All vendors",
+ "可用显存":"Available VRAM","不限":"Any","最低智力":"Min intelligence",
+ "列":"Columns","字段":"Fields","显存精度":"Precision","重置为默认":"Reset to default","仅显示数据完整":"Only complete data",
+ "导出 JSON":"Export JSON","导出 CSV":"Export CSV","导出快照":"Export snapshot","导入快照":"Import snapshot","取消对比":"Clear compare",
+ "个结果":"results","条数据不全":"incomplete hidden","（未输入关键词，显示热门/最新）":" (no keyword: trending/latest)","设备实测数据":"Device measurements",
+ "已选 0 个":"0 selected","已选":"Selected","深度补全":"Deep enrich","加入对比":"Add to compare","并排对比":"Compare","清空选择":"Clear selection","勾选卡片/行左侧方框加入对比":"Tick the checkbox to compare",
+ "参数量":"Params","激活量":"Active","类型":"Type","上下文":"Context","许可":"License","下载":"Downloads","点赞":"Likes","星标":"Stars","趋势":"Trending","价格":"Price","创建时间":"Created","更新时间":"Updated","链接":"Link",
+ "KV@上下文":"KV@ctx",
+ "运行设备：未知参数量，无法估算":"Device: unknown params, cannot estimate","量化仓库，按原模型规模估算":"quantized repo, estimated from base model size","各精度显存":"VRAM per precision","激活约":"active ~","稠密":"dense","MoE":"MoE","KV 缓存（FP16）：":"KV cache (FP16): ","评测":"Evals","榜单":"Leaderboards","原始数据":"Raw data",
+ "名称":"Name","显存Q4/Q8/FP16":"VRAM Q4/Q8/FP16","智力Intelligence":"Intelligence","τ²-bench":"τ²-bench","GAIA":"GAIA","GDPval":"GDPval",
+ "权重":"weights","KV/token":"KV/token","Q4+KV@上下文":"Q4+KV@ctx","Q4最低显存":"Min VRAM (Q4)","Q4 显存":"Q4 VRAM",
+ "模型":"Model","量化":"Quant","引擎":"Engine",
+ "解码 tok/s":"Decode tok/s","预填 tok/s":"Prefill tok/s","TTFT(s)":"TTFT(s)","实测内存GB":"Measured mem GB","解码8k":"Decode 8k","解码32k":"Decode 32k","TTFT32k":"TTFT32k","磁盘GB":"Disk GB","智力":"Intelligence",
+ "已测":"measured","个（模型×量化）":"models (model×quant)","在该设备已测模型里搜索…":"Search models measured on this device…",
+ "推理":"Reasoning","工具调用":"Tool use","结构化输出":"Structured output","附件":"Attachments","多模态":"Multimodal","代码":"Code","嵌入":"Embedding","重排":"Rerank","图像生成":"Image gen","可量化本地跑":"Local-quantizable","开放权重":"Open weights","其他":"Other","代码仓库":"Repository",
+ "失败":"failed","超时，可能需要代理":"timeout, proxy may be needed","请求失败，可能需要代理":"request failed, proxy may be needed","返回异常":"bad response","解析为空（可能被代理拦截）":"empty parse (proxy blocked?)",
+ "正在抓取…":"Loading…","暂无数据，检查网络/代理后刷新。":"No data. Check network/proxy and refresh.","当前筛选没有结果。":"No results for current filters.","正在加载…":"Loading…",
+ "最后更新：":"Updated: ","缓存：":"Cached: ","正在刷新…":"refreshing…","已导入快照：":"Snapshot imported: ","分享链接已复制：":"Share link copied: ","复制分享链接：":"Copy link: ","快照解析失败：":"Snapshot parse failed: ",
+ "隐藏":"hidden","项目":"Field","数据导出":"Export"
+},
+ja:{
+ "模型":"モデル","雷达":"レーダー","检索":"検索","刷新":"更新","分享链接":"リンク共有","切换深浅色":"テーマ切替","深色":"ダーク","浅色":"ライト",
+ "留空显示全部；或输入 qwen、llama、deepseek、gpt、moe、embedding、diffusion 等关键词":"空欄で全表示。qwen, llama, deepseek, gpt, moe, embedding, diffusion など",
+ "评测（LiveBench）":"評価（LiveBench）","代理":"プロキシ","自动刷新":"自動更新","关":"オフ","60 秒":"60 秒","5 分钟":"5 分","15 分钟":"15 分",
+ "排序":"並び替え","综合评测":"総合スコア","相关度":"関連度","参数量 ↓":"パラメータ ↓","参数量 ↑":"パラメータ ↑","下载 ↓":"DL ↓","点赞 ↓":"いいね ↓","星标 ↓":"スター ↓","上下文 ↓":"コンテキスト ↓","创建时间 ↓":"作成日 ↓","更新时间 ↓":"更新日 ↓",
+ "视图":"表示","卡片":"カード","列表":"リスト","排行":"ランキング","紧凑":"コンパクト","显存":"VRAM","设备":"デバイス",
+ "来源":"ソース","功能":"機能","开源":"オープン","闭源":"非公開","全部":"すべて","厂商":"ベンダー","全部厂商":"全ベンダー",
+ "可用显存":"利用可能VRAM","不限":"指定なし","最低智力":"最低知能",
+ "列":"列","字段":"項目","显存精度":"精度","重置为默认":"既定に戻す","仅显示数据完整":"完全なデータのみ",
+ "导出 JSON":"JSON出力","导出 CSV":"CSV出力","导出快照":"スナップショット出力","导入快照":"スナップショット読込","取消对比":"比較解除",
+ "个结果":"件","条数据不全":"件を非表示","设备实测数据":"デバイス実測データ","已选 0 个":"0 件選択","已选":"選択中","并排对比":"比較","清空选择":"選択解除",
+ "参数量":"パラメータ","激活量":"アクティブ","类型":"種類","上下文":"コンテキスト","许可":"ライセンス","下载":"DL","点赞":"いいね","星标":"スター","趋势":"トレンド","价格":"価格","创建时间":"作成日","更新时间":"更新日","链接":"リンク","KV@上下文":"KV@ctx",
+ "运行设备：未知参数量，无法估算":"デバイス：パラメータ不明で見積不可","量化仓库，按原模型规模估算":"量子化リポジトリ、元サイズで推定","各精度显存":"精度別VRAM","激活约":"アクティブ約","稠密":"密","评测":"評価","榜单":"リーダーボード","原始数据":"生データ",
+ "名称":"名前","权重":"重み","KV/token":"KV/token","Q4+KV@上下文":"Q4+KV@ctx","Q4最低显存":"最小VRAM(Q4)","Q4 显存":"Q4 VRAM","模型":"モデル","量化":"量子化","引擎":"エンジン",
+ "解码 tok/s":"デコード tok/s","预填 tok/s":"プリフィル tok/s","实测内存GB":"実測メモリGB","解码8k":"デコード8k","解码32k":"デコード32k","磁盘GB":"ディスクGB","智力":"知能",
+ "已测":"実測","在该设备已测模型里搜索…":"このデバイスの実測モデルを検索…",
+ "推理":"推論","工具调用":"ツール使用","结构化输出":"構造化出力","附件":"添付","多模态":"マルチモーダル","代码":"コード","嵌入":"埋め込み","重排":"再ランク","图像生成":"画像生成","可量化本地跑":"ローカル量子化可","开放权重":"オープン重み","其他":"その他","代码仓库":"リポジトリ",
+ "失败":"失敗","超时，可能需要代理":"タイムアウト（プロキシ要）","请求失败，可能需要代理":"失敗（プロキシ要）","正在抓取…":"読込中…","暂无数据，检查网络/代理后刷新。":"データなし。回線/プロキシを確認。","当前筛选没有结果。":"該当なし。","正在加载…":"読込中…",
+ "最后更新：":"更新: ","缓存：":"キャッシュ: ","正在刷新…":"更新中…"
+},
+fr:{
+ "模型":"Modèle","雷达":"Radar","检索":"Rechercher","刷新":"Actualiser","分享链接":"Partager","切换深浅色":"Thème","深色":"Sombre","浅色":"Clair",
+ "留空显示全部；或输入 qwen、llama、deepseek、gpt、moe、embedding、diffusion 等关键词":"Vide = tout afficher ; ou qwen, llama, deepseek, gpt, moe, embedding, diffusion…",
+ "评测（LiveBench）":"Évals (LiveBench)","代理":"Proxy","自动刷新":"Auto-actualisation","关":"Off","60 秒":"60 s","5 分钟":"5 min","15 分钟":"15 min",
+ "排序":"Tri","综合评测":"Score global","相关度":"Pertinence","参数量 ↓":"Paramètres ↓","参数量 ↑":"Paramètres ↑","下载 ↓":"Téléch. ↓","点赞 ↓":"J'aime ↓","星标 ↓":"Étoiles ↓","上下文 ↓":"Contexte ↓","创建时间 ↓":"Création ↓","更新时间 ↓":"Mise à jour ↓",
+ "视图":"Vue","卡片":"Cartes","列表":"Liste","排行":"Classement","紧凑":"Compact","显存":"VRAM","设备":"Appareils",
+ "来源":"Source","功能":"Fonctions","开源":"Open source","闭源":"Fermé","全部":"Tout","厂商":"Éditeur","全部厂商":"Tous les éditeurs",
+ "可用显存":"VRAM dispo","不限":"Illimité","最低智力":"Intelligence min",
+ "列":"Colonnes","字段":"Champs","显存精度":"Précision","重置为默认":"Réinitialiser","仅显示数据完整":"Données complètes",
+ "导出 JSON":"Exporter JSON","导出 CSV":"Exporter CSV","导出快照":"Exporter instantané","导入快照":"Importer instantané","取消对比":"Effacer comparaison",
+ "个结果":"résultats","条数据不全":"incomplets masqués","设备实测数据":"Mesures d'appareils","已选 0 个":"0 sélectionné","已选":"Sélection","并排对比":"Comparer","清空选择":"Effacer la sélection",
+ "参数量":"Paramètres","激活量":"Actifs","类型":"Type","上下文":"Contexte","许可":"Licence","下载":"Téléchargements","点赞":"J'aime","星标":"Étoiles","趋势":"Tendance","价格":"Prix","创建时间":"Création","更新时间":"Mise à jour","链接":"Lien","KV@上下文":"KV@ctx",
+ "运行设备：未知参数量，无法估算":"Appareil : paramètres inconnus","量化仓库，按原模型规模估算":"dépôt quantifié, estimé du modèle de base","各精度显存":"VRAM par précision","激活约":"actifs ~","稠密":"dense","评测":"Évals","榜单":"Classements","原始数据":"Données brutes",
+ "名称":"Nom","权重":"poids","Q4最低显存":"VRAM min (Q4)","Q4 显存":"VRAM Q4","模型":"Modèle","量化":"Quant","引擎":"Moteur",
+ "解码 tok/s":"Décodage tok/s","预填 tok/s":"Pré-remplissage tok/s","实测内存GB":"Mém. mesurée Go","磁盘GB":"Disque Go","智力":"Intelligence",
+ "已测":"mesurés","在该设备已测模型里搜索…":"Rechercher les modèles mesurés…",
+ "推理":"Raisonnement","工具调用":"Outils","结构化输出":"Sortie structurée","附件":"Pièces jointes","多模态":"Multimodal","代码":"Code","嵌入":"Embedding","重排":"Rerank","图像生成":"Génération d'images","可量化本地跑":"Quantifiable en local","开放权重":"Poids ouverts","其他":"Autre","代码仓库":"Dépôt",
+ "失败":"échec","超时，可能需要代理":"délai, proxy requis","请求失败，可能需要代理":"échec, proxy requis","正在抓取…":"Chargement…","暂无数据，检查网络/代理后刷新。":"Aucune donnée. Vérifiez réseau/proxy.","当前筛选没有结果。":"Aucun résultat.","正在加载…":"Chargement…",
+ "最后更新：":"Mis à jour : ","缓存：":"Cache : ","正在刷新…":"actualisation…"
+},
+ru:{
+ "模型":"Модель","雷达":"Радар","检索":"Поиск","刷新":"Обновить","分享链接":"Поделиться","切换深浅色":"Тема","深色":"Тёмная","浅色":"Светлая",
+ "留空显示全部；或输入 qwen、llama、deepseek、gpt、moe、embedding、diffusion 等关键词":"Пусто — показать всё; или qwen, llama, deepseek, gpt, moe, embedding, diffusion…",
+ "评测（LiveBench）":"Оценки (LiveBench)","代理":"Прокси","自动刷新":"Автообновление","关":"Выкл","60 秒":"60 с","5 分钟":"5 мин","15 分钟":"15 мин",
+ "排序":"Сортировка","综合评测":"Общий балл","相关度":"Релевантность","参数量 ↓":"Параметры ↓","参数量 ↑":"Параметры ↑","下载 ↓":"Загрузки ↓","点赞 ↓":"Лайки ↓","星标 ↓":"Звёзды ↓","上下文 ↓":"Контекст ↓","创建时间 ↓":"Создано ↓","更新时间 ↓":"Обновлено ↓",
+ "视图":"Вид","卡片":"Карточки","列表":"Список","排行":"Рейтинг","紧凑":"Компакт","显存":"VRAM","设备":"Устройства",
+ "来源":"Источник","功能":"Функции","开源":"Открытый","闭源":"Закрытый","全部":"Все","厂商":"Вендор","全部厂商":"Все вендоры",
+ "可用显存":"Доступная VRAM","不限":"Любая","最低智力":"Мин. интеллект",
+ "列":"Столбцы","字段":"Поля","显存精度":"Точность","重置为默认":"Сбросить","仅显示数据完整":"Только полные данные",
+ "导出 JSON":"Экспорт JSON","导出 CSV":"Экспорт CSV","导出快照":"Экспорт снимка","导入快照":"Импорт снимка","取消对比":"Очистить сравнение",
+ "个结果":"результатов","条数据不全":"неполных скрыто","设备实测数据":"Измерения устройств","已选 0 个":"выбрано 0","已选":"Выбрано","并排对比":"Сравнить","清空选择":"Очистить выбор",
+ "参数量":"Параметры","激活量":"Активные","类型":"Тип","上下文":"Контекст","许可":"Лицензия","下载":"Загрузки","点赞":"Лайки","星标":"Звёзды","趋势":"Тренд","价格":"Цена","创建时间":"Создано","更新时间":"Обновлено","链接":"Ссылка",
+ "运行设备：未知参数量，无法估算":"Устройство: параметры неизвестны","量化仓库，按原模型规模估算":"квантованный репозиторий, оценка по базовой модели","各精度显存":"VRAM по точности","激活约":"активных ~","稠密":"плотная","评测":"Оценки","榜单":"Рейтинги","原始数据":"Исходные данные",
+ "名称":"Название","权重":"веса","Q4最低显存":"Мин. VRAM (Q4)","模型":"Модель","量化":"Квант","引擎":"Движок",
+ "解码 tok/s":"Декод tok/s","预填 tok/s":"Префилл tok/s","实测内存GB":"Память ГБ","磁盘GB":"Диск ГБ","智力":"Интеллект",
+ "已测":"измерено","在该设备已测模型里搜索…":"Поиск измеренных моделей…",
+ "推理":"Рассуждение","工具调用":"Инструменты","结构化输出":"Структ. вывод","附件":"Вложения","多模态":"Мультимодальность","代码":"Код","嵌入":"Эмбеддинг","重排":"Реранкинг","图像生成":"Генерация изображений","可量化本地跑":"Локальная квантизация","开放权重":"Открытые веса","其他":"Другое","代码仓库":"Репозиторий",
+ "失败":"ошибка","超时，可能需要代理":"таймаут, нужен прокси","请求失败，可能需要代理":"сбой, нужен прокси","正在抓取…":"Загрузка…","暂无数据，检查网络/代理后刷新。":"Нет данных. Проверьте сеть/прокси.","当前筛选没有结果。":"Нет результатов.","正在加载…":"Загрузка…",
+ "最后更新：":"Обновлено: ","缓存：":"Кэш: ","正在刷新…":"обновление…"
+},
+de:{
+ "模型":"Modell","雷达":"Radar","检索":"Suchen","刷新":"Aktualisieren","分享链接":"Link teilen","切换深浅色":"Theme","深色":"Dunkel","浅色":"Hell",
+ "留空显示全部；或输入 qwen、llama、deepseek、gpt、moe、embedding、diffusion 等关键词":"Leer = alle; oder qwen, llama, deepseek, gpt, moe, embedding, diffusion…",
+ "评测（LiveBench）":"Evals (LiveBench)","代理":"Proxy","自动刷新":"Auto-Aktualisierung","关":"Aus","60 秒":"60 s","5 分钟":"5 Min","15 分钟":"15 Min",
+ "排序":"Sortierung","综合评测":"Gesamtwert","相关度":"Relevanz","参数量 ↓":"Parameter ↓","参数量 ↑":"Parameter ↑","下载 ↓":"Downloads ↓","点赞 ↓":"Likes ↓","星标 ↓":"Sterne ↓","上下文 ↓":"Kontext ↓","创建时间 ↓":"Erstellt ↓","更新时间 ↓":"Aktualisiert ↓",
+ "视图":"Ansicht","卡片":"Karten","列表":"Liste","排行":"Rangliste","紧凑":"Kompakt","显存":"VRAM","设备":"Geräte",
+ "来源":"Quelle","功能":"Funktionen","开源":"Open Source","闭源":"Geschlossen","全部":"Alle","厂商":"Hersteller","全部厂商":"Alle Hersteller",
+ "可用显存":"Verfügbarer VRAM","不限":"Beliebig","最低智力":"Min. Intelligenz",
+ "列":"Spalten","字段":"Felder","显存精度":"Präzision","重置为默认":"Zurücksetzen","仅显示数据完整":"Nur vollständige Daten",
+ "导出 JSON":"JSON exportieren","导出 CSV":"CSV exportieren","导出快照":"Snapshot exportieren","导入快照":"Snapshot importieren","取消对比":"Vergleich leeren",
+ "个结果":"Ergebnisse","条数据不全":"unvollständig ausgeblendet","设备实测数据":"Gerätemessungen","已选 0 个":"0 gewählt","已选":"Ausgewählt","并排对比":"Vergleichen","清空选择":"Auswahl leeren",
+ "参数量":"Parameter","激活量":"Aktiv","类型":"Typ","上下文":"Kontext","许可":"Lizenz","下载":"Downloads","点赞":"Likes","星标":"Sterne","趋势":"Trend","价格":"Preis","创建时间":"Erstellt","更新时间":"Aktualisiert","链接":"Link",
+ "运行设备：未知参数量，无法估算":"Gerät: Parameter unbekannt","量化仓库，按原模型规模估算":"quantisiertes Repo, aus Basismodell geschätzt","各精度显存":"VRAM je Präzision","激活约":"aktiv ~","稠密":"dense","评测":"Evals","榜单":"Ranglisten","原始数据":"Rohdaten",
+ "名称":"Name","权重":"Gewichte","Q4最低显存":"Min. VRAM (Q4)","模型":"Modell","量化":"Quant","引擎":"Engine",
+ "解码 tok/s":"Dekodieren tok/s","预填 tok/s":"Prefill tok/s","实测内存GB":"Gemessener RAM GB","磁盘GB":"Disk GB","智力":"Intelligenz",
+ "已测":"gemessen","在该设备已测模型里搜索…":"Gemessene Modelle suchen…",
+ "推理":"Reasoning","工具调用":"Tool-Nutzung","结构化输出":"Strukturierte Ausgabe","附件":"Anhänge","多模态":"Multimodal","代码":"Code","嵌入":"Embedding","重排":"Rerank","图像生成":"Bildgenerierung","可量化本地跑":"Lokal quantisierbar","开放权重":"Offene Gewichte","其他":"Andere","代码仓库":"Repository",
+ "失败":"Fehler","超时，可能需要代理":"Timeout, Proxy nötig","请求失败，可能需要代理":"Fehler, Proxy nötig","正在抓取…":"Lädt…","暂无数据，检查网络/代理后刷新。":"Keine Daten. Netz/Proxy prüfen.","当前筛选没有结果。":"Keine Ergebnisse.","正在加载…":"Lädt…",
+ "最后更新：":"Aktualisiert: ","缓存：":"Cache: ","正在刷新…":"aktualisiere…"
+},
+it:{
+ "模型":"Modello","雷达":"Radar","检索":"Cerca","刷新":"Aggiorna","分享链接":"Condividi link","切换深浅色":"Tema","深色":"Scuro","浅色":"Chiaro",
+ "留空显示全部；或输入 qwen、llama、deepseek、gpt、moe、embedding、diffusion 等关键词":"Vuoto = tutti; oppure qwen, llama, deepseek, gpt, moe, embedding, diffusion…",
+ "评测（LiveBench）":"Valutazioni (LiveBench)","代理":"Proxy","自动刷新":"Auto-aggiorna","关":"Off","60 秒":"60 s","5 分钟":"5 min","15 分钟":"15 min",
+ "排序":"Ordina","综合评测":"Punteggio","相关度":"Rilevanza","参数量 ↓":"Parametri ↓","参数量 ↑":"Parametri ↑","下载 ↓":"Download ↓","点赞 ↓":"Mi piace ↓","星标 ↓":"Stelle ↓","上下文 ↓":"Contesto ↓","创建时间 ↓":"Creato ↓","更新时间 ↓":"Aggiornato ↓",
+ "视图":"Vista","卡片":"Schede","列表":"Elenco","排行":"Classifica","紧凑":"Compatto","显存":"VRAM","设备":"Dispositivi",
+ "来源":"Fonte","功能":"Funzioni","开源":"Open source","闭源":"Chiuso","全部":"Tutti","厂商":"Produttore","全部厂商":"Tutti i produttori",
+ "可用显存":"VRAM disponibile","不限":"Qualsiasi","最低智力":"Intelligenza min",
+ "列":"Colonne","字段":"Campi","显存精度":"Precisione","重置为默认":"Ripristina","仅显示数据完整":"Solo dati completi",
+ "导出 JSON":"Esporta JSON","导出 CSV":"Esporta CSV","导出快照":"Esporta snapshot","导入快照":"Importa snapshot","取消对比":"Annulla confronto",
+ "个结果":"risultati","条数据不全":"incompleti nascosti","设备实测数据":"Misure dispositivi","已选 0 个":"0 selezionati","已选":"Selezionati","并排对比":"Confronta","清空选择":"Pulisci selezione",
+ "参数量":"Parametri","激活量":"Attivi","类型":"Tipo","上下文":"Contesto","许可":"Licenza","下载":"Download","点赞":"Mi piace","星标":"Stelle","趋势":"Tendenza","价格":"Prezzo","创建时间":"Creato","更新时间":"Aggiornato","链接":"Link",
+ "运行设备：未知参数量，无法估算":"Dispositivo: parametri sconosciuti","量化仓库，按原模型规模估算":"repo quantizzato, stimato dal modello base","各精度显存":"VRAM per precisione","激活约":"attivi ~","稠密":"denso","评测":"Valutazioni","榜单":"Classifiche","原始数据":"Dati grezzi",
+ "名称":"Nome","权重":"pesi","Q4最低显存":"VRAM min (Q4)","模型":"Modello","量化":"Quant","引擎":"Motore",
+ "解码 tok/s":"Decodifica tok/s","预填 tok/s":"Prefill tok/s","实测内存GB":"Memoria misurata GB","磁盘GB":"Disco GB","智力":"Intelligenza",
+ "已测":"misurati","在该设备已测模型里搜索…":"Cerca modelli misurati…",
+ "推理":"Ragionamento","工具调用":"Uso strumenti","结构化输出":"Output strutturato","附件":"Allegati","多模态":"Multimodale","代码":"Codice","嵌入":"Embedding","重排":"Rerank","图像生成":"Generazione immagini","可量化本地跑":"Quantizzabile in locale","开放权重":"Pesi aperti","其他":"Altro","代码仓库":"Repository",
+ "失败":"errore","超时，可能需要代理":"timeout, serve proxy","请求失败，可能需要代理":"errore, serve proxy","正在抓取…":"Caricamento…","暂无数据，检查网络/代理后刷新。":"Nessun dato. Controlla rete/proxy.","当前筛选没有结果。":"Nessun risultato.","正在加载…":"Caricamento…",
+ "最后更新：":"Aggiornato: ","缓存：":"Cache: ","正在刷新…":"aggiornamento…"
+},
+es:{
+ "模型":"Modelo","雷达":"Radar","检索":"Buscar","刷新":"Actualizar","分享链接":"Compartir enlace","切换深浅色":"Tema","深色":"Oscuro","浅色":"Claro",
+ "留空显示全部；或输入 qwen、llama、deepseek、gpt、moe、embedding、diffusion 等关键词":"Vacío = todos; o qwen, llama, deepseek, gpt, moe, embedding, diffusion…",
+ "评测（LiveBench）":"Evaluaciones (LiveBench)","代理":"Proxy","自动刷新":"Auto-actualizar","关":"Off","60 秒":"60 s","5 分钟":"5 min","15 分钟":"15 min",
+ "排序":"Ordenar","综合评测":"Puntuación","相关度":"Relevancia","参数量 ↓":"Parámetros ↓","参数量 ↑":"Parámetros ↑","下载 ↓":"Descargas ↓","点赞 ↓":"Me gusta ↓","星标 ↓":"Estrellas ↓","上下文 ↓":"Contexto ↓","创建时间 ↓":"Creado ↓","更新时间 ↓":"Actualizado ↓",
+ "视图":"Vista","卡片":"Tarjetas","列表":"Lista","排行":"Clasificación","紧凑":"Compacto","显存":"VRAM","设备":"Dispositivos",
+ "来源":"Fuente","功能":"Funciones","开源":"Código abierto","闭源":"Cerrado","全部":"Todos","厂商":"Fabricante","全部厂商":"Todos",
+ "可用显存":"VRAM disponible","不限":"Cualquiera","最低智力":"Inteligencia mín",
+ "列":"Columnas","字段":"Campos","显存精度":"Precisión","重置为默认":"Restablecer","仅显示数据完整":"Solo datos completos",
+ "导出 JSON":"Exportar JSON","导出 CSV":"Exportar CSV","导出快照":"Exportar instantánea","导入快照":"Importar instantánea","取消对比":"Borrar comparación",
+ "个结果":"resultados","条数据不全":"incompletos ocultos","设备实测数据":"Mediciones de dispositivos","已选 0 个":"0 seleccionados","已选":"Seleccionados","并排对比":"Comparar","清空选择":"Limpiar selección",
+ "参数量":"Parámetros","激活量":"Activos","类型":"Tipo","上下文":"Contexto","许可":"Licencia","下载":"Descargas","点赞":"Me gusta","星标":"Estrellas","趋势":"Tendencia","价格":"Precio","创建时间":"Creado","更新时间":"Actualizado","链接":"Enlace",
+ "运行设备：未知参数量，无法估算":"Dispositivo: parámetros desconocidos","量化仓库，按原模型规模估算":"repo cuantizado, estimado del modelo base","各精度显存":"VRAM por precisión","激活约":"activos ~","稠密":"denso","评测":"Evaluaciones","榜单":"Rankings","原始数据":"Datos sin procesar",
+ "名称":"Nombre","权重":"pesos","Q4最低显存":"VRAM mín (Q4)","模型":"Modelo","量化":"Cuant","引擎":"Motor",
+ "解码 tok/s":"Decodificación tok/s","预填 tok/s":"Prefill tok/s","实测内存GB":"Memoria medida GB","磁盘GB":"Disco GB","智力":"Inteligencia",
+ "已测":"medidos","在该设备已测模型里搜索…":"Buscar modelos medidos…",
+ "推理":"Razonamiento","工具调用":"Uso de herramientas","结构化输出":"Salida estructurada","附件":"Adjuntos","多模态":"Multimodal","代码":"Código","嵌入":"Embedding","重排":"Rerank","图像生成":"Generación de imágenes","可量化本地跑":"Cuantizable local","开放权重":"Pesos abiertos","其他":"Otro","代码仓库":"Repositorio",
+ "失败":"fallo","超时，可能需要代理":"timeout, requiere proxy","请求失败，可能需要代理":"fallo, requiere proxy","正在抓取…":"Cargando…","暂无数据，检查网络/代理后刷新。":"Sin datos. Revisa red/proxy.","当前筛选没有结果。":"Sin resultados.","正在加载…":"Cargando…",
+ "最后更新：":"Actualizado: ","缓存：":"Caché: ","正在刷新…":"actualizando…"
+},
+pt:{
+ "模型":"Modelo","雷达":"Radar","检索":"Pesquisar","刷新":"Atualizar","分享链接":"Compartilhar link","切换深浅色":"Tema","深色":"Escuro","浅色":"Claro",
+ "留空显示全部；或输入 qwen、llama、deepseek、gpt、moe、embedding、diffusion 等关键词":"Vazio = todos; ou qwen, llama, deepseek, gpt, moe, embedding, diffusion…",
+ "评测（LiveBench）":"Avaliações (LiveBench)","代理":"Proxy","自动刷新":"Atualização automática","关":"Off","60 秒":"60 s","5 分钟":"5 min","15 分钟":"15 min",
+ "排序":"Ordenar","综合评测":"Pontuação","相关度":"Relevância","参数量 ↓":"Parâmetros ↓","参数量 ↑":"Parâmetros ↑","下载 ↓":"Downloads ↓","点赞 ↓":"Curtidas ↓","星标 ↓":"Estrelas ↓","上下文 ↓":"Contexto ↓","创建时间 ↓":"Criado ↓","更新时间 ↓":"Atualizado ↓",
+ "视图":"Visão","卡片":"Cartões","列表":"Lista","排行":"Ranking","紧凑":"Compacto","显存":"VRAM","设备":"Dispositivos",
+ "来源":"Fonte","功能":"Funções","开源":"Código aberto","闭源":"Fechado","全部":"Todos","厂商":"Fabricante","全部厂商":"Todos",
+ "可用显存":"VRAM disponível","不限":"Qualquer","最低智力":"Inteligência mín",
+ "列":"Colunas","字段":"Campos","显存精度":"Precisão","重置为默认":"Padrão","仅显示数据完整":"Só dados completos",
+ "导出 JSON":"Exportar JSON","导出 CSV":"Exportar CSV","导出快照":"Exportar snapshot","导入快照":"Importar snapshot","取消对比":"Limpar comparação",
+ "个结果":"resultados","条数据不全":"incompletos ocultos","设备实测数据":"Medições de dispositivos","已选 0 个":"0 selecionados","已选":"Selecionados","并排对比":"Comparar","清空选择":"Limpar seleção",
+ "参数量":"Parâmetros","激活量":"Ativos","类型":"Tipo","上下文":"Contexto","许可":"Licença","下载":"Downloads","点赞":"Curtidas","星标":"Estrelas","趋势":"Tendência","价格":"Preço","创建时间":"Criado","更新时间":"Atualizado","链接":"Link",
+ "运行设备：未知参数量，无法估算":"Dispositivo: parâmetros desconhecidos","量化仓库，按原模型规模估算":"repo quantizado, estimado pelo modelo base","各精度显存":"VRAM por precisão","激活约":"ativos ~","稠密":"denso","评测":"Avaliações","榜单":"Rankings","原始数据":"Dados brutos",
+ "名称":"Nome","权重":"pesos","Q4最低显存":"VRAM mín (Q4)","模型":"Modelo","量化":"Quant","引擎":"Motor",
+ "解码 tok/s":"Decodificação tok/s","预填 tok/s":"Prefill tok/s","实测内存GB":"Memória medida GB","磁盘GB":"Disco GB","智力":"Inteligência",
+ "已测":"medidos","在该设备已测模型里搜索…":"Pesquisar modelos medidos…",
+ "推理":"Raciocínio","工具调用":"Uso de ferramentas","结构化输出":"Saída estruturada","附件":"Anexos","多模态":"Multimodal","代码":"Código","嵌入":"Embedding","重排":"Rerank","图像生成":"Geração de imagens","可量化本地跑":"Quantizável local","开放权重":"Pesos abertos","其他":"Outro","代码仓库":"Repositório",
+ "失败":"falha","超时，可能需要代理":"timeout, precisa de proxy","请求失败，可能需要代理":"falha, precisa de proxy","正在抓取…":"Carregando…","暂无数据，检查网络/代理后刷新。":"Sem dados. Verifique rede/proxy.","当前筛选没有结果。":"Sem resultados.","正在加载…":"Carregando…",
+ "最后更新：":"Atualizado: ","缓存：":"Cache: ","正在刷新…":"atualizando…"
+},
+ko:{
+ "模型":"모델","雷达":"레이더","检索":"검색","刷新":"새로고침","分享链接":"링크 공유","切换深浅色":"테마","深色":"다크","浅色":"라이트",
+ "留空显示全部；或输入 qwen、llama、deepseek、gpt、moe、embedding、diffusion 等关键词":"비우면 전체 표시; 또는 qwen, llama, deepseek, gpt, moe, embedding, diffusion…",
+ "评测（LiveBench）":"평가 (LiveBench)","代理":"프록시","自动刷新":"자동 새로고침","关":"끔","60 秒":"60초","5 分钟":"5분","15 分钟":"15분",
+ "排序":"정렬","综合评测":"종합 점수","相关度":"관련도","参数量 ↓":"파라미터 ↓","参数量 ↑":"파라미터 ↑","下载 ↓":"다운로드 ↓","点赞 ↓":"좋아요 ↓","星标 ↓":"스타 ↓","上下文 ↓":"컨텍스트 ↓","创建时间 ↓":"생성 ↓","更新时间 ↓":"업데이트 ↓",
+ "视图":"보기","卡片":"카드","列表":"목록","排行":"순위","紧凑":"간단","显存":"VRAM","设备":"장치",
+ "来源":"출처","功能":"기능","开源":"오픈소스","闭源":"비공개","全部":"전체","厂商":"제조사","全部厂商":"모든 제조사",
+ "可用显存":"사용 가능 VRAM","不限":"제한 없음","最低智力":"최소 지능",
+ "列":"열","字段":"필드","显存精度":"정밀도","重置为默认":"기본값","仅显示数据完整":"완전한 데이터만",
+ "导出 JSON":"JSON 내보내기","导出 CSV":"CSV 내보내기","导出快照":"스냅샷 내보내기","导入快照":"스냅샷 가져오기","取消对比":"비교 해제",
+ "个结果":"개 결과","条数据不全":"개 불완전 숨김","设备实测数据":"장치 실측 데이터","已选 0 个":"0개 선택","已选":"선택","并排对比":"비교","清空选择":"선택 해제",
+ "参数量":"파라미터","激活量":"활성","类型":"유형","上下文":"컨텍스트","许可":"라이선스","下载":"다운로드","点赞":"좋아요","星标":"스타","趋势":"트렌드","价格":"가격","创建时间":"생성","更新时间":"업데이트","链接":"링크",
+ "运行设备：未知参数量，无法估算":"장치: 파라미터 미상","量化仓库，按原模型规模估算":"양자화 저장소, 원본 크기로 추정","各精度显存":"정밀도별 VRAM","激活约":"활성 ~","稠密":"밀집","评测":"평가","榜单":"리더보드","原始数据":"원본 데이터",
+ "名称":"이름","权重":"가중치","Q4最低显存":"최소 VRAM (Q4)","模型":"모델","量化":"양자화","引擎":"엔진",
+ "解码 tok/s":"디코드 tok/s","预填 tok/s":"프리필 tok/s","实测内存GB":"실측 메모리 GB","磁盘GB":"디스크 GB","智力":"지능",
+ "已测":"실측","在该设备已测模型里搜索…":"이 장치에서 실측된 모델 검색…",
+ "推理":"추론","工具调用":"도구 사용","结构化输出":"구조화 출력","附件":"첨부","多模态":"멀티모달","代码":"코드","嵌入":"임베딩","重排":"리랭크","图像生成":"이미지 생성","可量化本地跑":"로컬 양자화 가능","开放权重":"오픈 가중치","其他":"기타","代码仓库":"저장소",
+ "失败":"실패","超时，可能需要代理":"시간 초과, 프록시 필요","请求失败，可能需要代理":"실패, 프록시 필요","正在抓取…":"불러오는 중…","暂无数据，检查网络/代理后刷新。":"데이터 없음. 네트워크/프록시 확인.","当前筛选没有结果。":"결과 없음.","正在加载…":"불러오는 중…",
+ "最后更新：":"업데이트: ","缓存：":"캐시: ","正在刷新…":"새로고침 중…"
+}
+};const I18N_EXTRA={
+en:{"（未输入关键词，显示热门/最新）":" (no keyword: trending/latest)","设备实测数据":"Device measurements","隐藏":"hidden","条数据不全":"incomplete hidden","各精度显存":"VRAM per precision","激活约":"active ~","运行设备：未知参数量，无法估算":"Device: unknown params, cannot estimate","量化仓库，按原模型规模估算":"quantized repo, estimated from base model size","榜单":"Leaderboards","评测均值":"eval mean"},
+ja:{"（未输入关键词，显示热门/最新）":"（キーワードなし：人気/最新）","设备实测数据":"デバイス実測データ","隐藏":"非表示","条数据不全":"件が不完全","各精度显存":"精度別VRAM","激活约":"アクティブ約","运行设备：未知参数量，无法估算":"デバイス：パラメータ不明","量化仓库，按原模型规模估算":"量子化リポジトリ、元サイズで推定","榜单":"リーダーボード","评测均值":"評価平均"},
+fr:{"（未输入关键词，显示热门/最新）":" (sans mot-clé : tendance/nouveau)","设备实测数据":"Mesures d'appareils","隐藏":"masqués","条数据不全":"incomplets","各精度显存":"VRAM par précision","激活约":"actifs ~","运行设备：未知参数量，无法估算":"Appareil : paramètres inconnus","量化仓库，按原模型规模估算":"dépôt quantifié, estimé du modèle de base","榜单":"Classements","评测均值":"moyenne évals"},
+ru:{"（未输入关键词，显示热门/最新）":" (без слова: популярное/новое)","设备实测数据":"Измерения устройств","隐藏":"скрыто","条数据不全":"неполных","各精度显存":"VRAM по точности","激活约":"активных ~","运行设备：未知参数量，无法估算":"Устройство: параметры неизвестны","量化仓库，按原模型规模估算":"квантованный репозиторий, оценка по базовой модели","榜单":"Рейтинги","评测均值":"среднее оценок"},
+de:{"（未输入关键词，显示热门/最新）":" (kein Stichwort: Trend/Neu)","设备实测数据":"Gerätemessungen","隐藏":"ausgeblendet","条数据不全":"unvollständig","各精度显存":"VRAM je Präzision","激活约":"aktiv ~","运行设备：未知参数量，无法估算":"Gerät: Parameter unbekannt","量化仓库，按原模型规模估算":"quantisiertes Repo, aus Basismodell geschätzt","榜单":"Ranglisten","评测均值":"Eval-Mittel"},
+it:{"（未输入关键词，显示热门/最新）":" (senza parola chiave: tendenza/nuovi)","设备实测数据":"Misure dispositivi","隐藏":"nascosti","条数据不全":"incompleti","各精度显存":"VRAM per precisione","激活约":"attivi ~","运行设备：未知参数量，无法估算":"Dispositivo: parametri sconosciuti","量化仓库，按原模型规模估算":"repo quantizzato, stimato dal modello base","榜单":"Classifiche","评测均值":"media eval"},
+es:{"（未输入关键词，显示热门/最新）":" (sin palabra clave: tendencia/nuevo)","设备实测数据":"Mediciones de dispositivos","隐藏":"ocultos","条数据不全":"incompletos","各精度显存":"VRAM por precisión","激活约":"activos ~","运行设备：未知参数量，无法估算":"Dispositivo: parámetros desconocidos","量化仓库，按原模型规模估算":"repo cuantizado, estimado del modelo base","榜单":"Rankings","评测均值":"media evals"},
+pt:{"（未输入关键词，显示热门/最新）":" (sem palavra-chave: tendência/novos)","设备实测数据":"Medições de dispositivos","隐藏":"ocultos","条数据不全":"incompletos","各精度显存":"VRAM por precisão","激活约":"ativos ~","运行设备：未知参数量，无法估算":"Dispositivo: parâmetros desconhecidos","量化仓库，按原模型规模估算":"repo quantizado, estimado pelo modelo base","榜单":"Rankings","评测均值":"média evals"},
+ko:{"（未输入关键词，显示热门/最新）":" (키워드 없음: 인기/최신)","设备实测数据":"장치 실측 데이터","隐藏":"숨김","条数据不全":"불완전","各精度显存":"정밀도별 VRAM","激活约":"활성 ~","运行设备：未知参数量，无法估算":"장치: 파라미터 미상","量化仓库，按原模型规模估算":"양자화 저장소, 원본 크기로 추정","榜单":"리더보드","评测均值":"평가 평균"}
+};
+for(const l in I18N_EXTRA){ if(!I18N[l]) I18N[l]={}; Object.assign(I18N[l],I18N_EXTRA[l]); }
+
+
+Object.assign(I18N.ja,{"实时检索模型：名称、厂商、规模、激活量、类型、功能、许可、上下文、开源与否、性能评测，以及各精度显存。数据来自公开来源（Hugging Face、OpenRouter、models.dev、GitHub、ModelScope、Ollama 与开源基准），默认只显示所选列数据齐全的模型。":"モデルをリアルタイム検索：名前、ベンダー、規模、アクティブ、種類、機能、ライセンス、コンテキスト、オープン、評価、精度別VRAM。データは公開ソース。既定では選択列が揃ったモデルのみ表示。"});
+Object.assign(I18N.fr,{"实时检索模型：名称、厂商、规模、激活量、类型、功能、许可、上下文、开源与否、性能评测，以及各精度显存。数据来自公开来源（Hugging Face、OpenRouter、models.dev、GitHub、ModelScope、Ollama 与开源基准），默认只显示所选列数据齐全的模型。":"Recherchez des modèles en temps réel : nom, éditeur, taille, actifs, type, fonctions, licence, contexte, open source, benchmarks et VRAM par précision. Données de sources publiques. Par défaut, seuls les modèles complets pour les colonnes choisies sont affichés."});
+Object.assign(I18N.ru,{"实时检索模型：名称、厂商、规模、激活量、类型、功能、许可、上下文、开源与否、性能评测，以及各精度显存。数据来自公开来源（Hugging Face、OpenRouter、models.dev、GitHub、ModelScope、Ollama 与开源基准），默认只显示所选列数据齐全的模型。":"Поиск моделей в реальном времени: название, вендор, размер, активные, тип, функции, лицензия, контекст, открытость, бенчмарки и VRAM по точностям. Данные из открытых источников. По умолчанию только модели с полными данными по выбранным столбцам."});
+Object.assign(I18N.de,{"实时检索模型：名称、厂商、规模、激活量、类型、功能、许可、上下文、开源与否、性能评测，以及各精度显存。数据来自公开来源（Hugging Face、OpenRouter、models.dev、GitHub、ModelScope、Ollama 与开源基准），默认只显示所选列数据齐全的模型。":"Modelle in Echtzeit suchen: Name, Hersteller, Größe, aktive Parameter, Typ, Funktionen, Lizenz, Kontext, Open Source, Benchmarks und VRAM je Präzision. Daten aus öffentlichen Quellen. Standardmäßig nur Modelle mit vollständigen Daten der gewählten Spalten."});
+Object.assign(I18N.it,{"实时检索模型：名称、厂商、规模、激活量、类型、功能、许可、上下文、开源与否、性能评测，以及各精度显存。数据来自公开来源（Hugging Face、OpenRouter、models.dev、GitHub、ModelScope、Ollama 与开源基准），默认只显示所选列数据齐全的模型。":"Cerca modelli in tempo reale: nome, produttore, dimensione, attivi, tipo, funzioni, licenza, contesto, open source, benchmark e VRAM per precisione. Dati da fonti pubbliche. Per impostazione predefinita solo modelli completi per le colonne scelte."});
+Object.assign(I18N.es,{"实时检索模型：名称、厂商、规模、激活量、类型、功能、许可、上下文、开源与否、性能评测，以及各精度显存。数据来自公开来源（Hugging Face、OpenRouter、models.dev、GitHub、ModelScope、Ollama 与开源基准），默认只显示所选列数据齐全的模型。":"Busca modelos en tiempo real: nombre, fabricante, tamaño, activos, tipo, funciones, licencia, contexto, código abierto, benchmarks y VRAM por precisión. Datos de fuentes públicas. Por defecto solo modelos completos para las columnas elegidas."});
+Object.assign(I18N.pt,{"实时检索模型：名称、厂商、规模、激活量、类型、功能、许可、上下文、开源与否、性能评测，以及各精度显存。数据来自公开来源（Hugging Face、OpenRouter、models.dev、GitHub、ModelScope、Ollama 与开源基准），默认只显示所选列数据齐全的模型。":"Pesquise modelos em tempo real: nome, fabricante, tamanho, ativos, tipo, funções, licença, contexto, código aberto, benchmarks e VRAM por precisão. Dados de fontes públicas. Por padrão, só modelos completos nas colunas escolhidas."});
+Object.assign(I18N.ko,{"实时检索模型：名称、厂商、规模、激活量、类型、功能、许可、上下文、开源与否、性能评测，以及各精度显存。数据来自公开来源（Hugging Face、OpenRouter、models.dev、GitHub、ModelScope、Ollama 与开源基准），默认只显示所选列数据齐全的模型。":"실시간 모델 검색: 이름, 제조사, 규모, 활성, 유형, 기능, 라이선스, 컨텍스트, 오픈소스, 벤치마크, 정밀도별 VRAM. 데이터는 공개 출처. 기본적으로 선택한 열이 모두 있는 모델만 표시."});
+Object.assign(I18N.en,{"实时检索模型：名称、厂商、规模、激活量、类型、功能、许可、上下文、开源与否、性能评测，以及各精度显存。数据来自公开来源（Hugging Face、OpenRouter、models.dev、GitHub、ModelScope、Ollama 与开源基准），默认只显示所选列数据齐全的模型。":"Search models in real time: name, vendor, size, active params, type, features, license, context, open-source, benchmarks, and per-precision VRAM. Data from public sources; by default only models with complete data for the selected columns are shown.","有基准":"Benchmarked","基准":"Bench","暂无基准数据":"no benchmark","该设备暂无基准数据":"No benchmark data for this device","预填 t/s":"Prefill t/s","生成 t/s":"Generation t/s","数据":"Data","开源":"Open source","公开数据":"public data","内存":"Memory","带宽":"Bandwidth","搜索模型…":"Search models…","开源基准数据":"Open-source benchmarks","数据来自公开/开源来源":"Data from public/open sources"});
+Object.assign(I18N.en,{"公开参考":"Public references","TechPowerUp 规格":"TechPowerUp specs","llama.cpp 基准讨论":"llama.cpp benchmarks","有实测":"Measured","仅规格":"Specs only","内存":"Memory","带宽":"Bandwidth","规格来自厂商/公开资料":"Specs from vendor/public data","暂无实测模型数据":"No measured data","该设备暂无实测模型数据":"No measured model data for this device","模型":"Model"});
+Object.assign(I18N.en,{"恢复默认设置":"Reset settings","筛选":"Filters","更多":"More","设置":"Settings","完成":"Done","清除全部筛选":"Clear all filters","数据源":"Sources","强制显示":"Force show incomplete"});
+</script>
+<script>
+"use strict";
+/* ================= 配置 ================= */
+const HF="https://huggingface.co";
+// 精度：名称 -> 每权重字节（显存按权重估算，未计 KV 缓存）
+const PREC=[["FP32",4.0],["FP16/BF16",2.0],["Q8_0",1.06],["Q6_K",0.82],["Q5_K_M",0.72],["Q4_K_M",0.55],["IQ4_XS",0.50],["Q3_K_M",0.43],["Q2_K",0.35]];
+const VRAM=[6,8,12,16,24,32,48,64,96,128,192,256];
+const PROXY_LIST=["https://api.allorigins.win/raw?url=","https://api.codetabs.com/v1/proxy?quest="];
+const BENCH=[
+  ["LiveBench","https://livebench.ai/"],
+  ["OpenCompass","https://rank.opencompass.org.cn/home"],
+  ["HELM","https://crfm.stanford.edu/helm/"],
+  ["Open LLM Leaderboard","https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard"],
+  ["SWE-bench","https://www.swebench.com/"]
+];
+const SRC_META={
+  hf:{label:"Hugging Face",el:"s-hf",fn:fetchHF,proxy:false},
+  or:{label:"OpenRouter",el:"s-or",fn:fetchOR,proxy:false},
+  md:{label:"models.dev",el:"s-md",fn:fetchMD,proxy:false},
+  gh:{label:"GitHub",el:"s-gh",fn:fetchGH,proxy:false},
+  ms:{label:"ModelScope",el:"s-ms",fn:fetchMS,proxy:true},
+  ol:{label:"Ollama",el:"s-ol",fn:fetchOL,proxy:true}
+};
+const LS={theme:"mr.theme",prefs:"mr.prefs",recent:"mr.recent",proxyok:"mr.proxyok"};
+const PREF_V=3;
+
+/* ================= 工具 ================= */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=n=>n==null?"—":n>=1e6?(n/1e6).toFixed(1)+"M":n>=1e3?(n/1e3).toFixed(1)+"k":String(n);
+const normName=s=>String(s||"").toLowerCase().replace(/\s+/g,"");
+let LANG="zh";
+function detectLang(){ let l=(navigator.language||"zh").toLowerCase().split("-")[0]; if(l==="zh")return"zh"; return (typeof I18N!=="undefined"&&I18N[l])?l:"en"; }
+function t(s){ if(LANG==="zh")return s; const d=(typeof I18N!=="undefined"&&I18N[LANG])||{}; return d[s]||((typeof I18N!=="undefined"&&I18N.en&&I18N.en[s])||s); }
+function applyStatic(){
+  document.querySelectorAll("[data-i18n]").forEach(el=>{ const k=el.getAttribute&&el.getAttribute("data-i18n"); if(k) el.textContent=t(k); });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{ if(el.setAttribute){ const k=el.getAttribute&&el.getAttribute("data-i18n-ph"); if(k) el.setAttribute("placeholder",t(k)); } });
+}
+function setLang(l){ LANG=l; try{localStorage.setItem("mr.lang",l);}catch(e){} applyStatic(); const s=$("lang"); if(s)s.value=l; render(); renderChips(); setTheme(document.documentElement.dataset.theme||"light"); }
+const friendlyErr=e=>{ const m=String((e&&e.message)||e||""); if(/abort/i.test(m)) return "超时，可能需要代理";
+  if(/failed to fetch|networkerror|load failed/i.test(m)) return "请求失败，可能需要代理"; return m||"失败"; };
+
+let _proxyWorking=null;    // 记忆可用代理前缀
+function loadProxyOK(){ try{_proxyWorking=localStorage.getItem(LS.proxyok)||null;}catch(e){} }
+function saveProxyOK(p){ _proxyWorking=p; try{ localStorage.setItem(LS.proxyok,p||""); }catch(e){} }
+
+async function rawFetch(url,{method="GET",body=null,timeout=25000}={}){
+  const ctrl=new AbortController(); const t=setTimeout(()=>ctrl.abort(),timeout);
+  try{
+    const r=await fetch(url,{method,signal:ctrl.signal,headers:{"Accept":"application/json"},body});
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    return r;
+  } finally{ clearTimeout(t); }
+}
+// GET JSON：直连，或经代理（可自动尝试）
+async function jget(url,timeoutMs=25000,needProxy=false){
+  const custom=$("proxy").value.trim();
+  const cands = needProxy ? (custom?[custom]:PROXY_LIST.slice()) : [""];
+  if(needProxy&&_proxyWorking&&!cands.includes(_proxyWorking)&&!custom) cands.unshift(_proxyWorking);
+  let lastErr;
+  for(const p of cands){
+    const target=p?p+encodeURIComponent(url):url;
+    try{
+      const r=await rawFetch(target,{timeout:timeoutMs});
+      if(needProxy&&p) saveProxyOK(p);
+      return await r.json();
+    }catch(e){ lastErr=e; }
+  }
+  throw lastErr||new Error("请求失败");
+}
+// PUT JSON（ModelScope），同样支持代理
+async function jput(url,payload,timeoutMs=10000){
+  const custom=$("proxy").value.trim();
+  const cands=custom?[custom]:["",...PROXY_LIST];
+  let lastErr;
+  for(const p of cands){
+    const target=p?p+encodeURIComponent(url):url;
+    try{
+      const r=await rawFetch(target,{method:"PUT",body:JSON.stringify(payload),timeout:timeoutMs});
+      return await r.json();
+    }catch(e){ lastErr=e; }
+  }
+  throw lastErr||new Error("请求失败");
+}
+async function jtext(url,timeoutMs=25000){ const r=await rawFetch(url,{timeout:timeoutMs}); return await r.text(); }
+async function proxyText(url,timeoutMs=8000){
+  const custom=$("proxy").value.trim();
+  const cands=custom?[custom]:PROXY_LIST.slice();
+  if(!custom&&_proxyWorking&&!cands.includes(_proxyWorking))cands.unshift(_proxyWorking);
+  let lastErr;
+  for(const p of cands){ const target=p?p+encodeURIComponent(url):url;
+    try{ const r=await rawFetch(target,{timeout:timeoutMs}); if(p)saveProxyOK(p); return await r.text(); }
+    catch(e){ lastErr=e; } }
+  throw lastErr||new Error("请求失败");
+}
+
+/* ================= 归一化 ================= */
+function norm(o){
+  return Object.assign({
+    sourceKey:"",source:"",name:"",url:"",desc:"",params:null,active:null,moe:false,quant:false,
+    type:"",functions:[],tags:[],license:"",context:null,
+    downloads:null,likes:null,stars:null,trending:null,created:null,updated:null,pricing:"",
+    evalScore:null,evalInfo:null,open:null,raw:null
+  },o);
+}
+function deriveFuncs({tags=[],modality="",pipe="",md=null}){
+  const f=[]; const t=(tags.join(" ")+" "+modality+" "+pipe).toLowerCase();
+  if(md){ if(md.reasoning)f.push("推理"); if(md.tool_call)f.push("工具调用");
+    if(md.structured_output)f.push("结构化输出"); if(md.attachment)f.push("附件"); }
+  if(/reason|thinking|think/.test(t))f.push("推理");
+  if(/tool|function.?call/.test(t))f.push("工具调用");
+  if(/vision|visual|image|multimodal|audio|-vl|omni/.test(t))f.push("多模态");
+  if(/cod(e|er|ing)/.test(t))f.push("代码");
+  if(/embed/.test(t))f.push("嵌入");
+  if(/rerank/.test(t))f.push("重排");
+  if(/text-to-image|diffusion|image-generation/.test(t))f.push("图像生成");
+  if(/gguf|awq|gptq|quant/.test(t))f.push("可量化本地跑");
+  return [...new Set(f)];
+}
+function parseParamsFromName(name){
+  const s=String(name);
+  const am=s.match(/A(\d+(?:\.\d+)?)B\b/i),active=am?+am[1]:null;
+  let total=null;
+  const mx=s.match(/(\d+)\s*[xX]\s*(\d+(?:\.\d+)?)\s*B\b/);
+  if(mx) total=+mx[1]*+mx[2];
+  else { const m=s.match(/(\d+(?:\.\d+)?)\s*B\b/i); if(m) total=+m[1]; }
+  if(total==null&&active==null) return null;
+  return {total,active};
+}
+const isQuant=(id,lib,tags)=>{
+  const t=(tags||[]).filter(x=>!String(x).startsWith("base_model:"));
+  const s=(id||"")+" "+(lib||"")+" "+t.join(" ");
+  return /\b(gguf|awq|gptq|4bit|int4|nf4|w4a16|w8a8|fp8|nvfp4|mlx|exl2|quantized)\b/i.test(s)
+    || /(-gguf|-awq|-gptq|-4bit|-fp8|-nvfp4|-mlx|-exl2|int4|nf4)/i.test(id||"");
+};
+const mb=(paramsB,bytes)=>paramsB*bytes;
+const fmtP=x=>x==null?"—":(x>=1?x.toFixed(1)+"B":(x*1000).toFixed(0)+"M");
+const fmtSize=gb=>{ if(gb==null||!isFinite(gb))return"—"; if(gb>=1024)return (gb/1024).toFixed(2)+"TB";
+  if(gb>=1)return (gb>=10?gb.toFixed(0):gb.toFixed(1))+"GB"; return Math.max(1,Math.round(gb*1024))+"MB"; };
+const fmtBytes=b=>b==null?"—":(b>=1e9?(b/1e9).toFixed(2)+"GB":b>=1e6?(b/1e6).toFixed(0)+"MB":b>=1024?(b/1024).toFixed(0)+"KB":b+"B");
+const kvPerTok=o=>o.kv?(2*o.kv.l*o.kv.kh*o.kv.hd*2):null;          // FP16 K+V 每 token 字节
+const kvAtCtx=o=>{ const k=kvPerTok(o); return (k!=null&&o.context)?k*o.context:null; };
+function applyCfg(o,c){ if(!c||typeof c!=="object") return;
+  const L=c.num_hidden_layers||c.n_layer||c.n_layers, heads=c.num_attention_heads||c.n_head,
+    kvh=c.num_key_value_heads||heads, hs=c.hidden_size||c.n_embd,
+    hd=c.head_dim||(heads&&hs?Math.round(hs/heads):null);
+  if(L&&kvh&&hd) o.kv={l:L,kh:kvh,hd};
+  const ctx=c.max_position_embeddings||c.n_positions||c.seq_length||c.max_seq_len;
+  if(ctx&&!o.context) o.context=ctx;
+}
+const _cfgCache=new Map();
+function applyMini(o,m){ if(!m) return; if(m.kv) o.kv=m.kv; if(m.ctx&&!o.context) o.context=m.ctx; }
+async function loadHFConfig(o){ if(o.kv||o.sourceKey!=="hf") return;
+  const key="cfg:"+o.name;
+  if(_cfgCache.has(key)){ applyMini(o,_cfgCache.get(key)); return; }
+  try{ const c=await jget(`${HF}/${encodeURI(o.name)}/resolve/main/config.json`,20000); applyCfg(o,c);
+    _cfgCache.set(key,{kv:o.kv||null,ctx:o.context||null}); }catch(e){} }
+const fmtActive=o=>o.active==null?"—":fmtP(o.active)+(o.moe?"（"+t("MoE")+"）":"（"+t("稠密")+"）");
+
+// 从描述/文本里找参数量与激活量（如 “25B active ... 560B total”）
+function parseParamsFromText(t){
+  if(!t) return null;
+  const s=String(t);
+  let active=null,total=null;
+  let m=s.match(/(\d+(?:\.\d+)?)\s*B\s*active[^.]*?(\d+(?:\.\d+)?)\s*B\s*total/i)
+      ||s.match(/(\d+(?:\.\d+)?)\s*B\s*total[^.]*?(\d+(?:\.\d+)?)\s*B\s*active/i);
+  if(m){ active=+m[1]; total=+m[2]; }
+  if(total==null){ const t1=s.match(/(\d+(?:\.\d+)?)\s*B\s*(?:total\s*)?parameters/i)||s.match(/(\d+(?:\.\d+)?)\s*B\b[^.]{0,20}?(?:params|parameters|model)/i);
+    if(t1) total=+t1[1]; }
+  if(total==null&&active!=null) total=active;
+  if(total==null&&active==null) return null;
+  return {total,active};
+}
+// 统一补齐：名字 → 描述 → 标签；稠密模型激活=参数
+function finalize(o){
+  if(o.params==null||o.active==null){
+    const np=parseParamsFromName(o.name)||parseParamsFromText(o.desc)||parseParamsFromText((o.tags||[]).join(" "));
+    if(np){ if(o.params==null&&np.total) o.params=np.total; if(np.active){ o.moe=true; o.active=np.active; } }
+  }
+  if(o.params!=null&&o.active==null) o.active=o.params; // 稠密
+  return o;
+}
+
+/* ---- 列定义与默认可见性（默认只显示所有条目都有值的列） ---- */
+const COLDEFS=[
+  {k:"name",l:"名称",has:()=>true,get:o=>o.name},
+  {k:"source",l:"来源",has:()=>true,get:o=>o.source},
+  {k:"vendor",l:"厂商",has:()=>true,get:o=>vendor(o)},
+  {k:"params",l:"参数量",s:"params-desc",has:o=>o.params!=null,get:o=>fmtP(o.params)},
+  {k:"active",l:"激活量",has:o=>o.active!=null,get:o=>o.active==null?"":fmtP(o.active)+(o.moe?" MoE":"")},
+  {k:"type",l:"类型",has:o=>!!o.type,get:o=>o.type},
+  {k:"context",l:"上下文",s:"context",has:o=>o.context!=null,get:o=>o.context?fmt(o.context):""},
+  {k:"kv",l:"KV@上下文",has:o=>kvAtCtx(o)!=null,get:o=>{const b=kvAtCtx(o);return b==null?"":fmtBytes(b);}},
+  {k:"license",l:"许可",has:o=>!!o.license,get:o=>o.license},
+  {k:"open",l:"开源",has:o=>o.open!=null,get:o=>o.open==null?"":(o.open?"是":"否")},
+  {k:"functions",l:"功能",has:o=>o.functions.length>0,get:o=>o.functions.join("、")},
+  {k:"mem",l:"显存Q4/Q8/FP16",has:o=>o.params!=null,get:o=>{ if(!o.params)return""; const r=quantRows(o.params),g=n=>{const x=r.find(y=>y.name===n);return x?fmtSize(x.gb):"";}; return [g("Q4_K_M"),g("Q8_0"),g("FP16/BF16")].join(" / ");}},
+  {k:"downloads",l:"下载",s:"downloads",has:o=>o.downloads!=null,get:o=>o.downloads!=null?String(o.downloads):""},
+  {k:"likes",l:"点赞",has:o=>o.likes!=null,get:o=>o.likes!=null?String(o.likes):""},
+  {k:"stars",l:"星标",s:"stars",has:o=>o.stars!=null,get:o=>o.stars!=null?String(o.stars):""},
+  {k:"eval",l:"评测",has:o=>!!(lbMatch(o)||o.evalScore!=null),get:o=>{const lb=lbMatch(o);return lb?("LiveBench "+lb.avg.toFixed(2)):(o.evalScore!=null?"HF "+o.evalScore:"");}},
+  {k:"created",l:"创建时间",s:"created",has:o=>!!o.created,get:o=>o.created?String(o.created).slice(0,10):""},
+  {k:"updated",l:"更新时间",s:"updated",has:o=>!!o.updated,get:o=>o.updated?String(o.updated).slice(0,10):""},
+  {k:"link",l:"链接",has:()=>true,get:o=>o.url}
+];
+function defaultFields(){
+  const vis=new Set();
+  for(const d of COLDEFS){
+    if(d.k==="name"||d.k==="source"){ vis.add(d.k); continue; }
+    if(ALL.length&&ALL.every(o=>d.has(o))) vis.add(d.k);
+  }
+  return vis;
+}
+const fieldVis=()=>COL_FIELDS||defaultFields();
+function isComplete(o){ for(const k of fieldVis()){ const d=COLDEFS.find(c=>c.k===k); if(d&&!d.has(o)) return false; } return true; }
+/* 开源基准列索引 */
+const BIDX={key:0,model:1,quant:2,params:3,pp:4,tg:5};
+const PREC_DEF=["FP16/BF16","Q8_0","Q4_K_M"];
+const precVis=()=>COL_PRECS||new Set(PREC_DEF);
+
+/* ---- 厂商 / 评分 / 头像 / 条 ---- */
+const VENDORS=[
+  ["qwen","Qwen"],["tongyi","Qwen"],["deepseek","DeepSeek"],["llama","Meta"],["meta-llama","Meta"],
+  ["gemma","Google"],["gemini","Google"],["google","Google"],["paligemma","Google"],["mistral","Mistral"],["mixtral","Mistral"],
+  ["gpt","OpenAI"],["openai","OpenAI"],["whisper","OpenAI"],["claude","Anthropic"],["anthropic","Anthropic"],
+  ["phi","Microsoft"],["microsoft","Microsoft"],["nemotron","NVIDIA"],["nvidia","NVIDIA"],
+  ["internlm","InternLM"],["intern","InternLM"],["yi-","01.AI"],["glm","Zhipu"],["chatglm","Zhipu"],["baichuan","Baichuan"],
+  ["minimax","MiniMax"],["moonshot","Moonshot"],["kimi","Moonshot"],["step","StepFun"],["hunyuan","Tencent"],
+  ["ernie","Baidu"],["granite","IBM"],["olmo","AI2"],["command","Cohere"],["cohere","Cohere"],
+  ["falcon","TII"],["stable","Stability"],["llava","LLaVA"],["vicuna","LMSYS"],["zephyr","HuggingFace"],["smollm","HuggingFace"],
+  ["deepreinforce","DeepReinforce"],["poolside","Poolside"],["liquid","Liquid"],["xiaomi","Xiaomi"],["r0b0t","r0b0t"],["hcompany","H Company"],
+  ["bonsai","PrismML"],["prismml","PrismML"],["laguna","Poolside"]
+];
+function vendor(o){
+  const s=((o.name||"")+" "+(o.source||"")+" "+String(o.raw&&(o.raw.id||o.raw.full_name||o.raw.Name||o.raw.Path)||"")).toLowerCase();
+  for(const [k,v] of VENDORS){ if(s.includes(k)) return v; }
+  const auth=(o.name||"").split("/")[0]; return auth&&auth.length<20?auth:"其他";
+}
+function score(o){ const lb=lbMatch(o); if(lb) return +lb.avg.toFixed(1); if(o.evalScore!=null) return +(o.evalScore*100).toFixed(1); return null; }
+function bar(v){ if(v==null) return ""; const p=Math.max(0,Math.min(100,v)); return `<span class="bar"><i style="width:${p}%"></i></span>`; }
+function hashColor(s){ let h=0; for(const c of String(s)) h=(h*31+c.charCodeAt(0))%360; return `hsl(${h} 45% 42%)`; }
+function ava(v){ const ch=String(v||"?").trim()[0]||"?"; return `<span class="ava" style="background:${hashColor(v)}">${esc(ch.toUpperCase())}</span>`; }
+const q4fit=o=>{ const q=quantRows(o.params).find(x=>x.name==="Q4_K_M"); return q?q.gb+1.5:null; };
+
+/* ================= 数据源 ================= */
+async function fetchHF(q){
+  const base=(q
+      ? `${HF}/api/models?limit=24&search=${encodeURIComponent(q)}`
+      : `${HF}/api/models?limit=50&sort=trendingScore&direction=-1`)
+    +`&expand[]=safetensors&expand[]=config&expand[]=downloads&expand[]=trendingScore`
+    +`&expand[]=createdAt&expand[]=lastModified&expand[]=likes&expand[]=tags`
+    +`&expand[]=pipeline_tag&expand[]=library_name`;
+  const url=base;
+  const arr=await jget(url);
+  if(!Array.isArray(arr)) throw new Error("HF 返回异常");
+  return arr.map(m=>{
+    const tags=m.tags||[], cfg=m.config||{};
+    let params=m.safetensors&&m.safetensors.total?m.safetensors.total/1e9:null;
+    const q2=isQuant(m.id,m.library_name,tags), np=parseParamsFromName(m.id);
+    if(np&&np.total&&(q2||params==null)) params=np.total;
+    const ne=cfg.num_experts||cfg.n_routed_experts||cfg.num_local_experts||null;
+    const nt=cfg.num_experts_per_tok||null;
+    let active=null,moe=false;
+    if(np&&np.active){ moe=true; active=np.active; }
+    else if(ne&&nt&&params){ moe=true; active=params*nt/ne; }
+    const ctx=cfg.max_position_embeddings||(cfg.text_config||{}).max_position_embeddings||null;
+    const lic=(tags.find(t=>t.startsWith("license:"))||"").replace("license:","");
+    return norm({sourceKey:"hf",source:"Hugging Face",name:m.id,url:`${HF}/${m.id}`,
+      params,active,moe,quant:q2,type:m.pipeline_tag||cfg.model_type||"",tags,license:lic,
+      context:ctx,downloads:m.downloads,likes:m.likes,trending:m.trendingScore,created:m.createdAt,updated:m.lastModified,
+      open:true,
+      raw:{id:m.id,pipeline_tag:m.pipeline_tag,library_name:m.library_name,license:lic||null,
+        downloads:m.downloads,likes:m.likes,createdAt:m.createdAt||null,lastModified:m.lastModified||null,
+        params_total:(m.safetensors&&m.safetensors.total)||null,model_type:cfg.model_type||null,
+        max_position_embeddings:ctx||null,num_experts:ne,num_experts_per_tok:nt,tags:tags.slice(0,12)},
+      functions:deriveFuncs({tags,pipe:m.pipeline_tag||""})});
+  });
+}
+let _or=null;
+async function loadOR(){ if(_or)return _or; const d=await jget("https://openrouter.ai/api/v1/models",30000); _or=d.data||[]; return _or; }
+async function fetchOR(q){
+  const list=await loadOR(); let sel;
+  if(!q){ sel=[...list].sort((a,b)=>(b.created||0)-(a.created||0)).slice(0,60); }
+  else{ const ql=q.toLowerCase(); sel=list.filter(m=>(m.id+" "+(m.name||"")+" "+(m.description||"")).toLowerCase().includes(ql)).slice(0,24); }
+  return sel.map(m=>{
+    const a=m.architecture||{}, sp=m.supported_parameters||[];
+    const price=m.pricing?`in ${(+m.pricing.prompt*1e6||0).toFixed(2)} / out ${(+m.pricing.completion*1e6||0).toFixed(2)} $/M`:"";
+    return norm({sourceKey:"or",source:"OpenRouter",name:m.name||m.id,
+      url:"https://openrouter.ai/models/"+(m.canonical_slug||m.id),desc:m.description||"",
+      type:a.modality||"",context:m.context_length||null,pricing:price,
+      created:m.created?new Date(m.created*1000).toISOString():null,tags:sp.slice(0,8),
+      open:m.hugging_face_id?true:null,
+      raw:{id:m.id,canonical_slug:m.canonical_slug,hugging_face_id:m.hugging_face_id||null,
+        context_length:m.context_length,modality:a.modality,pricing:m.pricing,
+        supported_parameters:sp,knowledge_cutoff:m.knowledge_cutoff||null},
+      functions:deriveFuncs({modality:(a.modality||"")+" "+sp.join(" ")})});
+  });
+}
+let _md=null;
+async function loadMD(){
+  if(_md)return _md; const d=await jget("https://models.dev/api.json",60000); const flat=[];
+  for(const pid in d){ const p=d[pid]; if(!p.models)continue; for(const mid in p.models) flat.push({provider:p.name||pid,m:p.models[mid]}); }
+  _md=flat; return _md;
+}
+async function fetchMD(q){
+  const list=await loadMD(); let sel;
+  if(!q){ sel=[...list].sort((a,b)=>String(b.m.release_date||"").localeCompare(String(a.m.release_date||""))).slice(0,60); }
+  else{ const ql=q.toLowerCase(); sel=list.filter(x=>(x.m.id+" "+(x.m.name||"")+" "+(x.m.description||"")).toLowerCase().includes(ql)).slice(0,20); }
+  return sel.map(x=>{
+    const m=x.m, inp=(m.modalities&&m.modalities.input||[]).join("+"), out=(m.modalities&&m.modalities.output||[]).join("+");
+    const cost=m.cost?`in ${m.cost.input??"?"} / out ${m.cost.output??"?"} $/M`:"";
+    return norm({sourceKey:"md",source:"models.dev",name:(m.name||m.id)+" · "+x.provider,
+      url:"https://models.dev",desc:m.description||"",type:(inp&&out)?`${inp}→${out}`:"",
+      context:m.limit?m.limit.context:null,pricing:cost,tags:[m.family].filter(Boolean),
+      license:m.open_weights?"开放权重":"",created:m.release_date||null,updated:m.last_updated||null,open:!!m.open_weights,
+      raw:{id:m.id,provider:x.provider,family:m.family,open_weights:!!m.open_weights,
+        reasoning:!!m.reasoning,tool_call:!!m.tool_call,structured_output:!!m.structured_output,
+        modalities:m.modalities,limit:m.limit,cost:m.cost,release_date:m.release_date||null,last_updated:m.last_updated||null},
+      functions:deriveFuncs({md:m,modality:(inp+" "+out)})});
+  });
+}
+async function fetchGH(q){
+  const term=q?q+" model in:name,description":"llm";
+  const d=await jget(`https://api.github.com/search/repositories?q=${encodeURIComponent(term)}&sort=stars&order=desc&per_page=12`);
+  return (d.items||[]).map(x=>norm({sourceKey:"gh",source:"GitHub",name:x.full_name,url:x.html_url,
+    desc:x.description||"",type:"代码仓库",stars:x.stargazers_count,
+    tags:[x.language].filter(Boolean),license:x.license?x.license.spdx_id:"",created:x.created_at||null,updated:x.updated_at||null,
+    open:x.license?true:null,
+    raw:{full_name:x.full_name,description:x.description||null,stars:x.stargazers_count,
+      language:x.language||null,license:x.license?x.license.spdx_id:null,created_at:x.created_at||null,
+      updated_at:x.updated_at||null,pushed_at:x.pushed_at||null,topics:x.topics||[]}}));
+}
+async function fetchMS(q){
+  const payload={PageSize:q?24:50,PageNumber:1,SortBy:"Default",
+    Name:q||"",SingleCriterion:[],Criterion:[]};
+  const d=await jput("https://modelscope.cn/api/v1/dolphin/models",payload);
+  const arr=(((d||{}).Data||{}).Model||{}).Models||[];
+  if(!arr.length&&!d.Success) throw new Error(d.Message||"ModelScope 失败");
+  return arr.map(m=>{
+    const np=parseParamsFromName(m.Name);
+    const task=(m.Tasks&&m.Tasks[0]&&m.Tasks[0].Name)||"";
+    const desc=(typeof m.Description==="string"?m.Description:"").replace(/<[^>]+>/g,"").slice(0,200);
+    return norm({sourceKey:"ms",source:"ModelScope",name:(m.Path?m.Path+"/":"")+m.Name,
+      url:`https://modelscope.cn/models/${m.Path||""}/${m.Name}`,desc:desc||(m.ChineseName||""),
+      params:np&&np.total?np.total:null,moe:!!(np&&np.active),active:np&&np.active?np.active:null,
+      type:task,tags:(m.Tags||[]).slice(0,8),license:m.License||"",downloads:m.Downloads,stars:m.Stars,
+      created:m.CreatedTime?new Date(m.CreatedTime*1000).toISOString():null,
+      updated:m.LastUpdatedTime?new Date(m.LastUpdatedTime*1000).toISOString():null,open:!!m.License,
+      raw:{Name:m.Name,Path:m.Path,ChineseName:m.ChineseName||null,License:m.License||null,
+        Downloads:m.Downloads,Stars:m.Stars,Tasks:(m.Tasks||[]).map(t=>t.Name),
+        Tags:m.Tags||[],CreatedTime:m.CreatedTime||null,LastUpdatedTime:m.LastUpdatedTime||null,Architectures:m.Architectures||[]},
+      functions:deriveFuncs({tags:(m.Tags||[]).concat([task])})});
+  });
+}
+async function fetchOL(q){
+  const url=q?`https://ollama.com/search?q=${encodeURIComponent(q)}`:`https://ollama.com/library`;
+  const html=await proxyText(url);
+  const doc=new DOMParser().parseFromString(html,"text/html");
+  const out=[], seen=new Set();
+  doc.querySelectorAll('a[href^="/library/"]').forEach(a=>{
+    const href=a.getAttribute("href")||"";
+    const name=href.replace("/library/","").split("/")[0];
+    if(!name||seen.has(name))return; seen.add(name);
+    // 只取列表卡片（含标题或描述）
+    const h=a.querySelector("h2")||a.querySelector("h3");
+    const p=a.querySelector("p");
+    const badges=[...a.querySelectorAll("span")].map(s=>s.textContent.trim()).filter(Boolean);
+    const sizes=[...new Set(badges.filter(b=>/^\d+(\.\d+)?[bm]$/i.test(b)))];
+    const fns=badges.filter(b=>/^(vision|tools|thinking|embedding|cloud)$/i.test(b)).map(b=>b==="tools"?"工具调用":b==="thinking"?"推理":b);
+    const np=sizes.length?parseParamsFromName(sizes[0]):parseParamsFromName(name);
+    out.push(norm({sourceKey:"ol",source:"Ollama",name,
+      url:`https://ollama.com/library/${name}`,desc:p?p.textContent.trim():"",
+      params:np&&np.total?np.total:null,tags:sizes,open:true,
+      raw:{name,description:p?p.textContent.trim():null,badges:[...new Set(badges)],sizes},
+      functions:deriveFuncs({tags:fns.concat(sizes)})}));
+  });
+  if(out.length<3) throw new Error("Ollama 解析为空（可能被代理拦截）");
+  return out.slice(0,q?24:40);
+}
+
+/* ================= 评测 ================= */
+let _lb=null;
+async function loadLiveBench(){
+  if(_lb)return _lb;
+  const csv=await jtext("https://livebench.ai/table_2024_11_25.csv");
+  const lines=csv.split(/\r?\n/).filter(Boolean); if(lines.length<2){ _lb={}; return _lb; }
+  const head=lines[0].split(","); const out={};
+  for(let i=1;i<lines.length;i++){
+    const cells=lines[i].split(","); const name=cells[0]; const vals=cells.slice(1).map(Number).filter(v=>!isNaN(v));
+    if(!name||!vals.length)continue;
+    const avg=vals.reduce((a,b)=>a+b,0)/vals.length;
+    out[lbKey(name)]={name,avg,tasks:vals.length};
+  }
+  _lb=out; return _lb;
+}
+const lbKey=s=>String(s||"").toLowerCase().replace(/^[^/]*\//,"").replace(/[^a-z0-9.]/g,"").replace(/(instruct|chat|preview|latest|it|hf)$/g,"");
+const _evalCache=new Map();
+function applyEvalCache(o,m){ if(m&&m.s!=null){ o.evalScore=m.s; o.evalInfo=m.i; } }
+async function attachEval(o){
+  if(o.sourceKey!=="hf"||o.evalScore!=null) return;
+  const key="ev:"+o.name;
+  if(_evalCache.has(key)){ applyEvalCache(o,_evalCache.get(key)); return; }
+  try{
+    const d=await jget(`${HF}/api/models/${o.name}?expand[]=evalResults`,20000);
+    const er=d.evalResults||[];
+    if(er.length){ const vals=er.map(e=>e.data&&e.data.value).filter(v=>typeof v==="number");
+      if(vals.length){ o.evalScore=+(vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(3); o.evalInfo=vals.length+" 项"; } }
+    _evalCache.set(key,o.evalScore!=null?{s:o.evalScore,i:o.evalInfo}:{});
+  }catch(e){}
+}
+// 对缺参数的来源，保守地在 HF 反查（仅名字规范化后相同才采纳）
+async function enrichParams(o){
+  if(o.params!=null) return;
+  const short=(o.name||"").split("/").pop().replace(/[-_.]/g," ").slice(0,48).trim();
+  if(short.length<3) return;
+  try{
+    const arr=await jget(`${HF}/api/models?search=${encodeURIComponent(short)}&limit=1&expand[]=safetensors`,15000);
+    const m=arr&&arr[0];
+    if(m&&m.safetensors&&m.safetensors.total&&lbKey(m.id)===lbKey(o.name)){
+      o.params=+(m.safetensors.total/1e9); o.active=o.params;
+    }
+  }catch(e){}
+}
+function lbMatch(o){
+  if(!_lb) return null;
+  const k=lbKey(o.name);
+  if(_lb[k]) return _lb[k];
+  const short=lbKey((o.name||"").split("/").pop()||"");
+  return _lb[short]||null;
+}
+
+/* ================= 状态 ================= */
+let ALL=[],VIEW=[],SORT="rel",VIEW_MODE="card",LASTQ="",OS_FILTER="all",MAKER="",FIT="",REQUIRE_COMPLETE=true,DEEP=true,SORT_DIR=-1,COL_ORDER=null,
+  DEV="",DEV_SORT="tg",DEV_DIR=-1,DEV_Q="",
+  COL_FIELDS=null,COL_PRECS=null,FSEL=new Set(),FNSEL=new Set(),CMP=new Set(),STATE={},RUN=false,AUTOT=null;
+
+/* ================= 渲染 ================= */
+const quantCell=o=>{ const q=quantRows(o.params); return q.length?`<b>Q4</b> ${q.find(r=>r.name==="Q4_K_M").gb}GB · <b>Q8</b> ${q.find(r=>r.name==="Q8_0").gb}GB · <b>FP16</b> ${q.find(r=>r.name==="FP16/BF16").gb}GB`:"—"; };
+function quantRows(paramsB){
+  if(!paramsB||paramsB<=0)return [];
+  return PREC.map(([name,b])=>{ const gb=mb(paramsB,b); return {name,gb,min:VRAM.find(t=>t>=gb+1.5)||null}; });
+}
+function deviceHtml(o){
+  const kt=kvPerTok(o), ka=kvAtCtx(o);
+  const kvline=ka!=null?`<div class="dev">${t("KV 缓存（FP16）：")}${fmtBytes(kt)}/token，${fmt(o.context)} 上下文约 ${fmtBytes(ka)}${o.params?`；Q4 权重+KV 约 ${fmtSize((quantRows(o.params).find(r=>r.name==="Q4_K_M")||{gb:0}).gb+ka/1e9)}`:""}</div>`:"";
+  if(!o.params) return kvline||`<div class="dev">${t("运行设备：未知参数量，无法估算")}</div>`;
+  const rows=quantRows(o.params);
+  const pick=n=>rows.find(r=>r.name===n);
+  const pk=o.params>=1?o.params.toFixed(1)+"B":(o.params*1000).toFixed(0)+"M";
+  const moe=o.moe&&o.active?`（${t("MoE")}，${t("激活约")} ${o.active.toFixed(1)}B）`:"";
+  const qt=o.quant?`　<span style="color:var(--warn)">${t("量化仓库，按原模型规模估算")}</span>`:"";
+  const line=[pick("FP16/BF16"),pick("Q8_0"),pick("Q4_K_M")].filter(Boolean)
+    .map(r=>`<b>${r.name}</b> ${fmtSize(r.gb)} · <span class="fit">≥${r.min||"256+"}GB</span>`).join("　|　");
+  return `<div class="dev">约 ${pk}${moe}${qt}：${line}
+    <details><summary>${t("各精度显存")}（${rows.length}）</summary>${rows.map(r=>`${r.name} ${fmtSize(r.gb)}（≥${r.min||"256+"}GB）`).join("　")}</details></div>`+kvline;
+}
+function evalHtml(o){
+  const lb=lbMatch(o);
+  const parts=[];
+  if(lb) parts.push(`LiveBench <b>${lb.avg.toFixed(2)}</b>`);
+  if(o.evalScore!=null) parts.push(`${t("评测均值")} <b>${o.evalScore}</b>（${esc(o.evalInfo)}）`);
+  const links=BENCH.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join("");
+  return `<div class="evals">${parts.length?parts.join("　|　")+"<br>":"评测："}<span style="color:var(--sec)">${t("榜单")}</span> ${links}</div>`;
+}
+function card(o){
+  const fns=o.functions.map(f=>`<span class="tag fn">${esc(f)}</span>`).join("");
+  const tags=(o.tags||[]).slice(0,10).map(t=>`<span class="tag">${esc(t)}</span>`).join("");
+  const facts=[];
+  facts.push([t("参数量"),fmtP(o.params)]);
+  facts.push([t("激活量"),fmtActive(o)]);
+  if(o.type)facts.push([t("类型"),o.type]);
+  if(o.context)facts.push([t("上下文"),fmt(o.context)+" tokens"]);
+  if(o.license)facts.push([t("许可"),o.license]);
+  if(o.downloads!=null)facts.push([t("下载"),fmt(o.downloads)]);
+  if(o.likes!=null)facts.push([t("点赞"),fmt(o.likes)]);
+  if(o.stars!=null)facts.push([t("星标"),fmt(o.stars)]);
+  if(o.trending!=null)facts.push([t("趋势"),fmt(o.trending)]);
+  if(o.pricing)facts.push([t("价格"),o.pricing]);
+  if(o.created)facts.push([t("创建时间"),String(o.created).slice(0,10)]);
+  if(o.updated)facts.push([t("更新时间"),String(o.updated).slice(0,10)]);
+  const factsHtml=facts.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("");
+  const ck=CMP.has(normName(o.name))?"checked":"";
+  const ev=o.evalScore!=null||lbMatch(o)?`<span class="badge ev">评测</span>`:"";
+  const inc=isComplete(o)?"":`<span class="badge warn">${t("数据不全")}</span>`;
+  return `<div class="card${isComplete(o)?"":" incomplete"}" data-key="${esc(normName(o.name))}">
+    <input type="checkbox" class="cmp" aria-label="${t('加入对比')}" ${ck} title="加入对比">
+    <h3><span class="badge">${esc(o.source)}</span>${ev}${inc}${esc(o.name)}</h3>
+    ${o.desc?`<p class="desc">${esc(o.desc).slice(0,240)}</p>`:""}
+    ${factsHtml?`<dl class="facts">${factsHtml}</dl>`:""}
+    ${fns?`<div class="tags">${fns}</div>`:""}
+    ${deviceHtml(o)}
+    ${evalHtml(o)}
+    ${tags?`<div class="tags">${tags}</div>`:""}
+    ${o.raw?`<details class="raw"><summary>${t("原始数据")}</summary><pre>${esc(JSON.stringify(o.raw,null,1))}</pre></details>`:""}
+    <div class="foot"><a class="link" href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.url)}</a></div>
+  </div>`;
+}
+function colLabel(k){ const d=COLDEFS.find(x=>x.k===k); return d?d.l:k; }
+function colSortVal(o,k){
+  if(k&&k.startsWith("prec:")){ const n=k.slice(5); const r=quantRows(o.params).find(x=>x.name===n); return r?r.gb:null; }
+  switch(k){
+    case "name":return (o.name||"").toLowerCase();
+    case "source":return o.source||"";
+    case "vendor":return vendor(o);
+    case "params":return o.params;
+    case "active":return o.active;
+    case "type":return o.type||"";
+    case "context":return o.context;
+    case "kv":return kvAtCtx(o);
+    case "kvpt":return kvPerTok(o);
+    case "license":return o.license||"";
+    case "open":return o.open==null?null:(o.open?1:0);
+    case "functions":return o.functions.length;
+    case "mem":return o.params;
+    case "downloads":return o.downloads;
+    case "likes":return o.likes;
+    case "stars":return o.stars;
+    case "eval":return score(o);
+    case "created":return o.created?Date.parse(o.created):null;
+    case "updated":return o.updated?Date.parse(o.updated):null;
+    case "q4min":return q4fit(o);
+    case "tot":{ const q=quantRows(o.params).find(x=>x.name==="Q4_K_M"); const k=kvAtCtx(o); return (q&&k!=null)?q.gb+k/1e9:null; }
+    case "link":return o.url||"";
+    default:return null;
+  }
+}
+function renderList(){
+  const vis=fieldVis(), order=COL_ORDER||COLDEFS.map(d=>d.k);
+  const cols=order.map(k=>COLDEFS.find(d=>d.k===k)).filter(d=>d&&vis.has(d.k));
+  const arrow=k=>SORT===k?(SORT_DIR===1?" \u25B4":" \u25BE"):"";
+  let h=`<div class="list-wrap"><table class="list"><thead><tr><th></th>`
+    +cols.map(c=>`<th data-th="${c.k}" draggable="true" data-sortcol="${c.k}" class="thdrag${SORT===c.k?" sorted"+(SORT_DIR===1?" asc":""):""}" ${SORT===c.k?`aria-sort="${SORT_DIR===1?"ascending":"descending"}"`:""}>${t(c.l)}${arrow(c.k)}</th>`).join("")
+    +`</tr></thead><tbody>`;
+  h+=VIEW.map(o=>{ const k=normName(o.name), ck=CMP.has(k)?"checked":"";
+    let tds=`<td><input type="checkbox" class="cmp" aria-label="${t("加入对比")}" ${ck}></td>`;
+    for(const d of cols){
+      if(d.k==="name") tds+=`<td class="name">${esc(o.name)}</td>`;
+      else if(d.k==="source") tds+=`<td><span class="mini-badge">${esc(o.source)}</span></td>`;
+      else if(d.k==="link") tds+=`<td class="link"><a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.url)}</a></td>`;
+      else if(d.k==="open") tds+=`<td>${o.open==null?"—":(o.open?"\u662F":"\u5426")}</td>`;
+      else { const v=d.get(o); tds+=`<td>${v==null||v===""?"—":esc(v)}</td>`; }
+    }
+    return `<tr class="${isComplete(o)?"":"incomplete"}" data-key="${esc(k)}">${tds}</tr>`;
+  }).join("");
+  return h+"</tbody></table></div>";
+}
+function renderCompact(){
+  return `<div class="compact">`+VIEW.map(o=>{
+    const k=normName(o.name), ck=CMP.has(k)?"checked":"";
+    const parts=[];
+    if(o.params)parts.push(o.params.toFixed(1)+"B"+(o.active?` / 激活 ${o.active.toFixed(1)}B`:""));
+    if(o.type)parts.push(o.type);
+    if(o.context)parts.push(fmt(o.context)+" ctx");
+    if(o.license)parts.push(o.license);
+    if(o.functions.length)parts.push(o.functions.join("、"));
+    return `<div class="row" data-key="${esc(k)}">
+      <span><input type="checkbox" class="cmp" aria-label="${t('加入对比')}" ${ck}></span>
+      <span class="nm">${esc(o.name)} <span class="mini-badge">${esc(o.source)}</span></span>
+      <span class="meta">${esc(parts.join(" · "))}</span>
+      <a class="link" href="${esc(o.url)}" target="_blank" rel="noopener">打开</a>
+    </div>`;
+  }).join("")+`</div>`;
+}
+function renderMem(){
+  const ps=PREC.filter(([n])=>precVis().has(n));
+  let h=`<div class="list-wrap" style="max-height:70vh;overflow:auto"><table class="mem"><thead><tr><th data-sortcol="name">${t("名称")}</th><th data-sortcol="source">${t("来源")}</th><th data-sortcol="params">${t("参数量")}</th><th data-sortcol="active">${t("激活量")}</th><th data-sortcol="context">${t("上下文")}</th>`;
+  h+=ps.map(([n])=>`<th data-sortcol="prec:${esc(n)}">${n}${t("权重")}</th>`).join("");
+  h+=`<th data-sortcol="kvpt">${t("KV/token")}</th><th data-sortcol="kv">${t("KV@上下文")}</th><th data-sortcol="tot">${t("Q4+KV@上下文")}</th><th data-sortcol="q4min">${t("Q4最低显存")}</th></tr></thead><tbody>`;
+  h+=VIEW.map(o=>{
+    const rows=quantRows(o.params);
+    const gb=n=>{const r=rows.find(x=>x.name===n);return r?fmtSize(r.gb):"—";};
+    const q4=rows.find(x=>x.name==="Q4_K_M");
+    const kt=kvPerTok(o), ka=kvAtCtx(o);
+    const tot=(q4&&ka!=null)?fmtSize(q4.gb+ka/1e9):"—";
+    return `<tr><td><input type="checkbox" class="cmp" aria-label="${t('加入对比')}" ${CMP.has(normName(o.name))?"checked":""} style="margin-right:6px">${esc(o.name)}</td>`
+      +`<td style="text-align:left"><span class="mini-badge">${esc(o.source)}</span></td>`
+      +`<td>${fmtP(o.params)}</td><td>${fmtP(o.active)}${o.moe?" MoE":""}</td>`
+      +`<td>${o.context?fmt(o.context):"—"}</td>`
+      +ps.map(([n])=>`<td>${gb(n)}</td>`).join("")
+      +`<td>${fmtBytes(kt)}</td><td>${fmtBytes(ka)}</td><td>${tot}</td>`
+      +`<td class="fitcell">${q4?("≥"+(q4.min||"256+")+"GB"):"—"}</td></tr>`;
+  }).join("");
+  return h+"</tbody></table></div>";
+}
+function renderRank(){
+  let h=`<div class="list-wrap"><table class="list rank"><thead><tr>
+    <th>#</th><th></th><th data-sortcol="name">${t("模型")}</th><th data-sortcol="vendor">${t("厂商")}</th><th data-sortcol="score">${t("综合评测")}</th>
+    <th data-sortcol="params">${t("参数量")}</th><th data-sortcol="active">${t("激活量")}</th><th data-sortcol="context">${t("上下文")}</th>
+    <th data-sortcol="license">${t("许可")}</th><th data-sortcol="open">${t("开源")}</th><th data-sortcol="downloads">${t("下载")}</th><th data-sortcol="q4min">${t("Q4 显存")}</th><th>${t("链接")}</th></tr></thead><tbody>`;
+  h+=VIEW.map((o,i)=>{ const sc=score(o),q4=quantRows(o.params).find(x=>x.name==="Q4_K_M");
+    return `<tr class="${isComplete(o)?"":"incomplete"}" data-key="${esc(normName(o.name))}">
+      <td class="rankno">${i+1}</td>
+      <td><input type="checkbox" class="cmp" aria-label="${t("加入对比")}" ${CMP.has(normName(o.name))?"checked":""}></td>
+      <td class="name">${ava(vendor(o))} ${esc(o.name)}</td>
+      <td>${esc(vendor(o))}</td>
+      <td>${sc!=null?`<b>${sc.toFixed(1)}</b> ${bar(sc)}`:"—"}</td>
+      <td>${fmtP(o.params)}</td><td>${fmtP(o.active)}${o.moe?" MoE":""}</td>
+      <td>${o.context?fmt(o.context):"—"}</td><td>${esc(o.license||"—")}</td><td>${o.open==null?"—":(o.open?"是":"否")}</td>
+      <td>${o.downloads!=null?fmt(o.downloads):"—"}</td><td>${q4?fmtSize(q4.gb):"—"}</td>
+      <td class="link"><a href="${esc(o.url)}" target="_blank" rel="noopener">${t("链接")}</a></td></tr>`; }).join("");
+  return h+"</tbody></table></div>";
+}
+function renderActiveFilters(){
+  const items=[];
+  if(OS_FILTER!=="all") items.push(["os:"+OS_FILTER, OS_FILTER==="open"?t("开源"):t("闭源")]);
+  if(MAKER) items.push(["maker:"+MAKER, MAKER]);
+  if(FIT) items.push(["fit:"+FIT, "\u2264"+FIT+"GB"]);
+  FSEL.forEach(k=>items.push(["src:"+k, SRC_META[k]?SRC_META[k].label:k]));
+  FNSEL.forEach(f=>items.push(["fn:"+f, t(f)]));
+  if(!REQUIRE_COMPLETE) items.push(["req", t("强制显示")]);
+  const el=$("activeFilters"); if(el) el.innerHTML=items.map(([a,l])=>`<span class="chip on" data-act="${esc(a)}">${esc(l)}<span class="x">\u2715</span></span>`).join("");
+  const fc=$("fcount"); if(fc) fc.textContent=items.length?String(items.length):"";
+  const fb=$("filtersBtn"); if(fb) fb.classList.toggle("on",items.length>0);
+}
+function renderMakerFilter(){
+  const vs=[...new Set(ALL.map(vendor))].sort((a,b)=>a.localeCompare(b));
+  if(MAKER&&!vs.includes(MAKER)) MAKER=""; // 当前数据里没有该厂商则复位，避免空结果
+  $("maker").innerHTML=`<option value="">${t("全部厂商")}</option>`+vs.map(v=>`<option value="${esc(v)}"${MAKER===v?" selected":""}>${esc(v)} · ${ALL.filter(o=>vendor(o)===v).length}</option>`).join("");
+}
+function renderDev(){
+  const snap=(typeof DEV_SNAP!=="undefined"&&DEV_SNAP)||{devices:[],bench:[]};
+  const devs=snap.devices||[];
+  if(!DEV&&devs.length) DEV=devs[0].key;
+  const d=devs.find(x=>x.key===DEV)||{};
+  const withB=devs.filter(x=>x.bench), spec=devs.filter(x=>!x.bench);
+  const opt=x=>`<option value="${esc(x.key)}"${x.key===DEV?" selected":""}>${esc(x.name)}${x.mem?" · "+x.mem+"GB":""}${x.bench?"":" ("+t("仅规格")+")"}</option>`;
+  const devOpts=(withB.length?`<optgroup label="${t("有基准")}">`+withB.map(opt).join("")+`</optgroup>`:"")+(spec.length?`<optgroup label="${t("仅规格")}">`+spec.map(opt).join("")+`</optgroup>`:"");
+  const card=`<div class="devcard"><span class="ava" style="background:${hashColor(d.name||'')}">${esc((d.name||'?').trim()[0]||'?')}</span><b>${esc(d.name||"")}</b>${d.mem?` · ${t("内存")} ${d.mem}GB`:""}${d.bw?` · ${t("带宽")} ${d.bw}GB/s`:""}<span class="lbl">　${t("公开数据")}</span></div>`;
+  let rows=(snap.bench||[]).filter(b=>b[BIDX.key]===DEV); const total=rows.length;
+  let h=`<div class="devbar"><label class="lbl">${t("设备")} <select id="devsel">${devOpts}</select></label><input id="devq" type="search" placeholder="${t("搜索模型…")}" value="${esc(DEV_Q)}"><span class="lbl">${d.bench?`${t("基准")} ${rows.length}`:t("暂无基准数据")}</span></div>`+card;
+  if(!d.bench||!total){ h+=`<div class="muted">${t("该设备暂无基准数据")}</div>`; return h; }
+  if(DEV_Q){ const q=DEV_Q.toLowerCase(); rows=rows.filter(r=>String(r[BIDX.model]).toLowerCase().includes(q)); }
+  const si={pp:BIDX.pp,tg:BIDX.tg,params:BIDX.params,model:BIDX.model,quant:BIDX.quant}[DEV_SORT]; const dir=DEV_DIR||-1;
+  if(si!=null) rows=[...rows].sort((a,b)=>{ const va=a[si],vb=b[si]; if(va==null&&vb==null)return 0; if(va==null)return 1; if(vb==null)return -1; const c=(typeof va==="number"&&typeof vb==="number")?va-vb:String(va).localeCompare(String(vb)); return dir*c; });
+  h+=`<div class="list-wrap"><table class="list"><thead><tr><th>#</th><th data-dsort="model" class="${DEV_SORT==="model"?"sorted"+(DEV_DIR===1?" asc":""):""}">${t("模型")}${DEV_SORT==="model"?(DEV_DIR===1?" \u25B4":" \u25BE"):""}</th><th data-dsort="quant" class="${DEV_SORT==="quant"?"sorted"+(DEV_DIR===1?" asc":""):""}">${t("量化")}${DEV_SORT==="quant"?(DEV_DIR===1?" \u25B4":" \u25BE"):""}</th><th data-dsort="params" class="${DEV_SORT==="params"?"sorted"+(DEV_DIR===1?" asc":""):""}">${t("参数量")}${DEV_SORT==="params"?(DEV_DIR===1?" \u25B4":" \u25BE"):""}</th><th data-dsort="pp" class="${DEV_SORT==="pp"?"sorted"+(DEV_DIR===1?" asc":""):""}">${t("预填 t/s")}${DEV_SORT==="pp"?(DEV_DIR===1?" \u25B4":" \u25BE"):""}</th><th data-dsort="tg" class="${DEV_SORT==="tg"?"sorted"+(DEV_DIR===1?" asc":""):""}">${t("生成 t/s")}${DEV_SORT==="tg"?(DEV_DIR===1?" \u25B4":" \u25BE"):""}</th><th>${t("数据")}</th></tr></thead><tbody>`;
+  h+=rows.map((r,i)=>`<tr><td class="rankno">${i+1}</td><td class="name">${esc(r[BIDX.model])}</td><td>${esc(r[BIDX.quant])}</td><td>${r[BIDX.params]}B</td><td>${r[BIDX.pp]}</td><td>${r[BIDX.tg]}</td><td class="link"><a href="https://github.com/XiongjieDai/GPU-Benchmarks-on-LLM-Inference" target="_blank" rel="noopener">${t("开源")}</a></td></tr>`).join("");
+  return h+"</tbody></table></div>";
+}
+function renderColPicker(){
+  const fv=fieldVis(), pv=precVis();
+  $("col-fields").innerHTML=COLDEFS.map(d=>`<label><input type="checkbox" data-col="${d.k}" ${fv.has(d.k)?"checked":""}>${t(d.l)}</label>`).join("");
+  $("col-precs").innerHTML=PREC.map(([n])=>`<label><input type="checkbox" data-prec="${esc(n)}" ${pv.has(n)?"checked":""}>${esc(n)}</label>`).join("");
+}
+function updateSortSelect(){ const sel=$("sort"); if(!sel) return;
+  const prev=sel.querySelector&&sel.querySelector("option[data-custom]"); if(prev) prev.remove();
+  const known=["rel","score","params-desc","params-asc","downloads","likes","stars","context","created","updated"];
+  let val=SORT==="rel"?"rel":(SORT==="params"?(SORT_DIR===1?"params-asc":"params-desc"):SORT);
+  if(!known.includes(val)){ try{ const o=document.createElement("option"); o.value=SORT; o.setAttribute("data-custom","1"); o.textContent=colLabel(SORT)+(SORT_DIR===1?" UP":" DN"); sel.appendChild(o);}catch(e){} val=SORT; }
+  sel.value=val;
+}
+function sortBy(key){
+  if(!key) return;
+  if(SORT===key){ SORT_DIR=-(SORT_DIR||-1); } else { SORT=key; SORT_DIR=-1; }
+  updateSortSelect(); savePrefs(); render();
+}
+function reorderCol(a,b){ if(a===b) return;
+  const arr=(COL_ORDER||COLDEFS.map(d=>d.k)).slice();
+  const ia=arr.indexOf(a); if(ia<0) return; arr.splice(ia,1);
+  const ib=arr.indexOf(b); if(ib<0){ arr.push(a); } else { arr.splice(ib,0,a); }
+  COL_ORDER=arr; savePrefs(); render();
+}
+function uniqTags(pick){ const s=new Set(); ALL.forEach(o=>pick(o).forEach(t=>{if(t)s.add(t);})); return [...s].sort(); }
+function applySort(list){
+  if(!SORT||SORT==="rel") return list;
+  const dir=SORT_DIR||-1;
+  return [...list].sort((a,b)=>{ let va=colSortVal(a,SORT), vb=colSortVal(b,SORT);
+    if(va==null&&vb==null) return 0; if(va==null) return 1; if(vb==null) return -1;
+    const c=(typeof va==="number"&&typeof vb==="number")?va-vb:String(va).localeCompare(String(vb));
+    return dir*c; });
+}
+function render(){
+  const base=ALL.filter(o=>{
+    if(FSEL.size&&!FSEL.has(o.sourceKey))return false;
+    if(FNSEL.size&&!o.functions.some(f=>FNSEL.has(f)))return false;
+    if(OS_FILTER==="open"&&o.open!==true)return false;
+    if(OS_FILTER==="closed"&&o.open!==false)return false;
+    if(MAKER&&vendor(o)!==MAKER)return false;
+    if(FIT){ const f=q4fit(o); if(f==null||f>+FIT) return false; }
+    return true;
+  });
+  const shown=REQUIRE_COMPLETE?base.filter(isComplete):base;
+  const hidden=base.length-shown.length;
+  VIEW=applySort(shown);
+  const box=$("results");
+  if(VIEW_MODE==="dev"){ box.className=""; box.innerHTML=renderDev(); }
+  else{
+    box.className=VIEW_MODE==="card"?"grid":"";
+    box.innerHTML=VIEW_MODE==="card"?VIEW.map(card).join("")
+      :VIEW_MODE==="list"?renderList()
+      :VIEW_MODE==="compact"?renderCompact()
+      :VIEW_MODE==="rank"?renderRank()
+      :renderMem();
+  }
+  $("count").textContent=(VIEW_MODE==="dev"?t("开源基准数据")
+    :`${VIEW.length} / ${ALL.length} ${t("个结果")}`+(hidden>0?`，${t("隐藏")} ${hidden} ${t("条数据不全")}`:"")+(LASTQ?"":t("（未输入关键词，显示热门/最新）")));
+  $("empty").style.display=(VIEW_MODE==="dev"||VIEW.length)?"none":"";
+  if(VIEW_MODE!=="dev"&&!VIEW.length)$("empty").textContent=ALL.length?t("当前筛选没有结果。"):(RUN?t("正在抓取…"):(t("暂无数据，检查网络/代理后刷新。")+(location.protocol==="file:"?"（当前以 file:// 打开，部分浏览器会拦截跨域请求，建议用本地服务器打开，如 python3 -m http.server）":"")));
+  $("f-src").innerHTML=uniqTags(o=>[o.sourceKey]).map(k=>`<span class="chip ${FSEL.has(k)?"on":""}" data-fsrc="${k}">${esc(SRC_META[k]?SRC_META[k].label:k)}</span>`).join("");
+  $("f-fn").innerHTML=uniqTags(o=>o.functions).map(f=>`<span class="chip ${FNSEL.has(f)?"on":""}" data-ffn="${esc(f)}">${esc(f)}</span>`).join("");
+  const osN=ALL.filter(o=>o.open===true).length;
+  $("f-os").innerHTML=[["all",t("全部")],["open",`${t("开源")} ${osN}`],["closed",t("闭源")]]
+    .map(([k,l])=>`<span class="chip ${OS_FILTER===k?"on":""}" data-fos="${k}">${l}</span>`).join("");
+  renderColPicker();
+  renderMakerFilter();
+  renderActiveFilters();
+  try{ renderChips(); }catch(e){}
+  $("toolbar").style.display=ALL.length?"":"none";
+  renderCompareBar();
+}
+
+/* ================= 对比 ================= */
+const picked=()=>ALL.filter(o=>CMP.has(normName(o.name)));
+function renderCompareBar(){ const n=picked().length; $("cmp-bar").style.display=n?"block":"none"; $("cmp-n").textContent=`${t("已选")} ${n}`; }
+function renderCompareTable(){
+  const list=picked(); if(!list.length){ $("compare-area").innerHTML=""; return; }
+  const q=o=>quantRows(o.params);
+  const rows=o=>({ "来源":o.source,"参数量":fmtP(o.params),"激活量":fmtP(o.active)+(o.moe?"（MoE）":""),
+    "类型":o.type||"—","上下文":o.context?fmt(o.context):"—","许可":o.license||"—","价格":o.pricing||"—",
+    "功能":o.functions.join("、")||"—","显存 Q4 / Q8 / FP16":[fmtSize(r(o,"Q4_K_M")),fmtSize(r(o,"Q8_0")),fmtSize(r(o,"FP16/BF16"))].join(" / "),
+    "评测":(lbMatch(o)?("LiveBench "+lbMatch(o).avg.toFixed(2)):(o.evalScore!=null?"HF "+o.evalScore:"—")),"链接":o.url });
+  function r(o,n){ const x=q(o).find(y=>y.name===n); return x?x.gb:null; }
+  const cols=Object.keys(rows(list[0]));
+  let h=`<div class="cmp-wrap"><table class="cmp" aria-label="${t('加入对比')}"><thead><tr><th>项目</th>`
+    +list.map(o=>`<th>${esc(o.name)}<br><span style="font-weight:400;color:var(--sec)">${esc(o.source)}</span></th>`).join("")+`</tr></thead><tbody>`;
+  cols.forEach(c=>{ h+=`<tr><td>${esc(c)}</td>`+list.map(o=>{ const v=rows(o)[c];
+    return `<td>${c==="链接"?`<a href="${esc(v)}" target="_blank" rel="noopener">${esc(v)}</a>`:esc(v)}</td>`; }).join("")+`</tr>`; });
+  $("compare-area").innerHTML=h+"</tbody></table></div>";
+  $("compare-area").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+/* ================= 导出 / 快照 ================= */
+function exportRows(){
+  return VIEW.map(o=>({ 名称:o.name,来源:o.source,参数量:o.params!=null?fmtP(o.params):"",
+    激活量:o.active!=null?fmtP(o.active):"",类型:o.type,上下文:o.context||"",许可:o.license,
+    功能:o.functions.join("、"),
+    FP32:o.params?fmtSize(mb(o.params,4)):"",FP16_BF16:o.params?fmtSize(mb(o.params,2)):"",
+    Q8_0:o.params?fmtSize(mb(o.params,1.06)):"",Q6_K:o.params?fmtSize(mb(o.params,0.82)):"",
+    Q5_K_M:o.params?fmtSize(mb(o.params,0.72)):"",Q4_K_M:o.params?fmtSize(mb(o.params,0.55)):"",
+    IQ4_XS:o.params?fmtSize(mb(o.params,0.50)):"",Q3_K_M:o.params?fmtSize(mb(o.params,0.43)):"",
+    Q2_K:o.params?fmtSize(mb(o.params,0.35)):"",
+    下载:o.downloads||"",点赞:o.likes||"",星标:o.stars||"",价格:o.pricing,
+    开源:o.open==null?"":(o.open?"是":"否"),
+    评测:(()=>{const lb=lbMatch(o);return lb?("LiveBench "+lb.avg.toFixed(2)):(o.evalScore!=null?"HF "+o.evalScore:"");})(),
+    创建时间:o.created?String(o.created).slice(0,10):"",更新时间:o.updated?String(o.updated).slice(0,10):"",
+    链接:o.url,原始数据:o.raw?JSON.stringify(o.raw):"" }));
+}
+function download(name,text,type){ const b=new Blob([text],{type}); const a=document.createElement("a");
+  a.href=URL.createObjectURL(b); a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),3000); }
+function toCSV(rows){ if(!rows.length)return ""; const cols=Object.keys(rows[0]);
+  const cell=v=>{ let s=String(v==null?"":v); if(/^[=+\-@]/.test(s)) s="'"+s; return `"${s.replace(/"/g,'""')}"`; };
+  return [cols.join(","),...rows.map(r=>cols.map(c=>cell(r[c])).join(","))].join("\r\n"); }
+$("exp-json").addEventListener("click",()=>download(`models-view-${Date.now()}.json`,JSON.stringify(exportRows(),null,2),"application/json"));
+$("exp-csv").addEventListener("click",()=>download(`models-view-${Date.now()}.csv`,"\ufeff"+toCSV(exportRows()),"text/csv;charset=utf-8"));
+$("exp-snap").addEventListener("click",()=>download(`models-snapshot-${Date.now()}.json`,JSON.stringify({ts:Date.now(),q:LASTQ,items:ALL},null,2),"application/json"));
+$("imp-snap").addEventListener("click",()=>$("imp-file").click());
+$("imp-file").addEventListener("change",e=>{ const f=e.target.files[0]; if(!f)return; const r=new FileReader();
+  r.onload=()=>{ try{ const d=JSON.parse(r.result); ALL=d.items||d; LASTQ=d.q||""; $("q").value=LASTQ; render();
+    $("upd").textContent=t("已导入快照：")+(d.ts?new Date(d.ts).toLocaleString():ALL.length+" 条"); }catch(err){ alert("快照解析失败："+err.message); } };
+  r.readAsText(f); });
+
+/* ================= 检索 ================= */
+function renderStatus(){
+  $("status").innerHTML=["hf","or","md","gh","ms","ol"].map(k=>{ const s=SRC_META[k],st=STATE[k];
+    if(!st&&!$(s.el).checked)return "";
+    const cls=st==="load"?"load":st==="ok"?"on":st==="err"?"err":"";
+    const extra=st==="ok"?`（${STATE[k+"n"]}）`:st==="err"?(STATE[k+"err"]?`（${STATE[k+"err"].slice(0,28)}）`:"（"+t("失败")+"）"):st==="load"?"…":"";
+    return `<span><i class="dot ${cls}"></i>${s.label}${extra}</span>`; }).join("");
+}
+let _lbTried=false;
+async function search(){
+  const q=$("q").value.trim(); LASTQ=q;
+  if(RUN)return; RUN=true; $("go").disabled=true; $("refresh").disabled=true;
+  try{
+    let src=Object.entries(SRC_META).filter(([k,s])=>$(s.el).checked);
+    if(!src.length){ // 一个数据源都没勾时，回退到默认源，避免空白
+      ["hf","or","gh"].forEach(k=>$(SRC_META[k].el).checked=true); savePrefs();
+      src=Object.entries(SRC_META).filter(([k,s])=>$(s.el).checked);
+    }
+    $("results").innerHTML=""; $("empty").style.display="none";
+    STATE={}; src.forEach(([k])=>STATE[k]="load"); renderStatus();
+    if($("s-ev").checked&&!_lbTried){ _lbTried=true; loadLiveBench().catch(()=>{_lbTried=false;}); }
+
+    // 各源返回即渲染，慢的源（走代理）不阻塞先到的结果
+    FSEL.clear(); FNSEL.clear();
+    const byName=new Map();
+    const rich=o=>[o.params!=null,o.active!=null,o.context!=null,!!o.license,o.downloads!=null,o.likes!=null,o.stars!=null,!!o.created,!!o.updated,!!o.desc].filter(Boolean).length;
+    const merge=list=>{ (list||[]).forEach(o=>{ o=finalize(o);
+      const key=normName(o.name),prev=byName.get(key);
+      if(!prev||rich(o)>rich(prev)||(rich(o)===rich(prev)&&o.params!=null&&prev.params==null)) byName.set(key,o); });
+      ALL=[...byName.values()]; render(); };
+    await Promise.all(src.map(async([k,s])=>{
+      try{ const list=await s.fn(q); STATE[k]="ok"; STATE[k+"n"]=list.length; STATE[k+"data"]=list; merge(list); }
+      catch(e){ STATE[k]="err"; STATE[k+"data"]=[]; STATE[k+"err"]=friendlyErr(e); }
+      renderStatus();
+    }));
+    // 深度补全：评测 + 缺参数反查（有缓存则几乎瞬时）
+    if(DEEP){
+      const hf=ALL.filter(o=>o.sourceKey==="hf"&&o.evalScore==null).slice(0,12);
+      { let i=0; await Promise.all(Array.from({length:4},async()=>{ while(i<hf.length){ await attachEval(hf[i++]); } })); }
+      const need=ALL.filter(o=>o.params==null).slice(0,10);
+      for(const o of need){ await enrichParams(o); if(o.params!=null) finalize(o); }
+      render();
+      // 架构信息（上下文 / KV 缓存）
+      const hfq=ALL.filter(o=>o.sourceKey==="hf"&&(o.kv==null||o.context==null)).slice(0,30);
+      if(hfq.length){ let i=0; await Promise.all(Array.from({length:6},async()=>{ while(i<hfq.length){ await loadHFConfig(hfq[i++]); } })); render(); }
+    }
+    const ts=new Date(); $("upd").textContent=t("最后更新：")+ts.toLocaleString();
+    savePrefs(); if(q)remember(q);
+  } finally {
+    $("go").disabled=false; $("refresh").disabled=false; RUN=false;
+  }
+}
+
+/* ================= 偏好 / 缓存 / URL / 主题 ================= */
+function savePrefs(){
+  const p={hf:$("s-hf").checked,or:$("s-or").checked,md:$("s-md").checked,gh:$("s-gh").checked,
+    ms:$("s-ms").checked,ol:$("s-ol").checked,ev:$("s-ev").checked,
+    proxy:$("proxy").value,sort:SORT,view:VIEW_MODE,auto:$("auto").value,
+    os:OS_FILTER,colf:COL_FIELDS?[...COL_FIELDS]:null,colp:COL_PRECS?[...COL_PRECS]:null,
+    req:REQUIRE_COMPLETE,deep:DEEP,fit:FIT,colo:COL_ORDER,sortdir:SORT_DIR,theme:document.documentElement.dataset.theme||"",pv:PREF_V};
+  try{ localStorage.setItem(LS.prefs,JSON.stringify(p)); }catch(e){}
+}
+function loadPrefs(){
+  try{ const p=JSON.parse(localStorage.getItem(LS.prefs)||"{}");
+    // 数据源不再从偏好恢复：每次都用默认源，避免旧设置把 Hugging Face 关掉
+    if(p.proxy)$("proxy").value=p.proxy;
+    if(p.os)OS_FILTER=p.os;
+    if(p.req!=null){ REQUIRE_COMPLETE=!!p.req; $("req").checked=REQUIRE_COMPLETE; }
+    if(p.deep!=null){ DEEP=!!p.deep; $("deep").checked=DEEP; }
+    if(p.colo)COL_ORDER=p.colo; if(p.sortdir)SORT_DIR=p.sortdir;
+    if(p.fit!=null){ FIT=p.fit; $("fit").value=FIT; }
+    if(p.colf)COL_FIELDS=new Set(p.colf);
+    if(p.colp)COL_PRECS=new Set(p.colp);
+    if(p.sort){SORT=p.sort;$("sort").value=SORT;}
+    if(p.auto){$("auto").value=p.auto;}
+    if(p.view){VIEW_MODE=p.view;document.querySelectorAll(".views button").forEach(x=>x.classList.toggle("on",x.dataset.view===p.view));}
+  }catch(e){}
+}
+function remember(q){ try{ let r=JSON.parse(localStorage.getItem(LS.recent)||"[]"); r=[q,...r.filter(x=>x!==q)].slice(0,8);
+  localStorage.setItem(LS.recent,JSON.stringify(r)); renderChips(); }catch(e){} }
+function renderChips(){
+  let recent=[]; try{ recent=JSON.parse(localStorage.getItem(LS.recent)||"[]"); }catch(e){}
+  const vs=[...new Set((ALL||[]).map(vendor))].filter(v=>v&&v!=="其他").slice(0,10);
+  const chips=[...recent.map(r=>({q:r,recent:true})),...vs.map(v=>({q:v,recent:false}))]; const seen=new Set();
+  $("chips").innerHTML=chips.filter(c=>{const k=normName(c.q);if(seen.has(k))return false;seen.add(k);return true;})
+    .map(c=>`<span class="chip ${c.recent?"def":""}" data-q="${esc(c.q)}">${c.recent?"↻ ":""}${esc(c.q)}</span>`).join("");
+}
+function shareURL(){ const u=new URL(location.href); u.search="";
+  const q=($("q")&&$("q").value.trim())||""; if(q)u.searchParams.set("q",q);
+  const s=Object.entries(SRC_META).filter(([k,o])=>$(o.el).checked).map(([k])=>k).join(",");
+  u.searchParams.set("src",s); u.searchParams.set("share","1");
+  if(SORT!=="rel")u.searchParams.set("sort",SORT); if(VIEW_MODE!=="card")u.searchParams.set("view",VIEW_MODE);
+  if(OS_FILTER!=="all")u.searchParams.set("os",OS_FILTER); if(MAKER)u.searchParams.set("maker",MAKER);
+  if(FIT)u.searchParams.set("fit",FIT); if(!REQUIRE_COMPLETE)u.searchParams.set("req","0");
+  return u.toString(); }
+$("share").addEventListener("click",async()=>{ const url=shareURL();
+  try{ await navigator.clipboard.writeText(url); alert(t("分享链接已复制：")+"\n"+url); }catch(e){ prompt(t("复制分享链接："),url); } });
+function setTheme(th){ document.documentElement.dataset.theme=th; try{localStorage.setItem(LS.theme,th);}catch(e){}
+  $("theme").textContent=th==="dark"?("☀ "+t("浅色")):("☾ "+t("深色")); }
+function initTheme(){ let th=""; try{th=localStorage.getItem(LS.theme)||"";}catch(e){}
+  if(!th)th=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"; setTheme(th); }
+function toast(t){ $("upd").textContent=t; }
+
+/* ================= 交互 ================= */
+$("go").addEventListener("click",search);
+$("refresh").addEventListener("click",search);
+$("q").addEventListener("keydown",e=>{ if(e.key==="Enter")search(); });
+$("lang").addEventListener("change",e=>setLang(e.target.value));
+$("chips").addEventListener("click",e=>{ const c=e.target.closest(".chip"); if(!c)return; $("q").value=c.dataset.q; search(); });
+$("sort").addEventListener("change",e=>{ const v=e.target.value; if(v==="rel"){ SORT="rel"; } else if(v==="params-asc"){ SORT="params"; SORT_DIR=1; } else if(v==="params-desc"){ SORT="params"; SORT_DIR=-1; } else { SORT=v; SORT_DIR=-1; } render(); savePrefs(); });
+$("theme").addEventListener("click",()=>{ setTheme(document.documentElement.dataset.theme==="dark"?"light":"dark"); savePrefs(); });
+$("f-src").addEventListener("click",e=>{ const c=e.target.closest("[data-fsrc]"); if(!c)return; toggleSet(FSEL,c.dataset.fsrc); render(); });
+$("f-fn").addEventListener("click",e=>{ const c=e.target.closest("[data-ffn]"); if(!c)return; toggleSet(FNSEL,c.dataset.ffn); render(); });
+$("f-os").addEventListener("click",e=>{ const c=e.target.closest("[data-fos]"); if(!c)return; OS_FILTER=c.dataset.fos; savePrefs(); render(); });
+$("filtersBtn").addEventListener("click",()=>{ const pnl=$("filterPanel"); const willOpen=pnl.hidden; pnl.hidden=!willOpen; $("filtersBtn").setAttribute("aria-expanded",String(willOpen)); });
+$("filtersClose").addEventListener("click",()=>{ $("filterPanel").hidden=true; $("filtersBtn").setAttribute("aria-expanded","false"); });
+$("prefsReset").addEventListener("click",()=>{ try{ ["mr.prefs","mr.recent","mr.proxyok","mr.lang","mr.theme"].forEach(k=>localStorage.removeItem(k)); }catch(e){} location.replace(location.pathname); });
+$("filtersReset").addEventListener("click",()=>{ FSEL.clear(); FNSEL.clear(); OS_FILTER="all"; MAKER=""; FIT=""; REQUIRE_COMPLETE=true; $("req").checked=true; savePrefs(); render(); });
+$("activeFilters").addEventListener("click",e=>{ const c=e.target.closest("[data-act]"); if(!c)return; const a=c.dataset.act;
+  if(a.startsWith("os:")) OS_FILTER="all";
+  else if(a.startsWith("maker:")) MAKER="";
+  else if(a.startsWith("fit:")) FIT="";
+  else if(a.startsWith("src:")) FSEL.delete(a.slice(4));
+  else if(a.startsWith("fn:")) FNSEL.delete(a.slice(3));
+  else if(a==="req"){ REQUIRE_COMPLETE=true; $("req").checked=true; }
+  savePrefs(); render(); });
+$("maker").addEventListener("change",e=>{ MAKER=e.target.value; render(); });
+$("fit").addEventListener("change",e=>{ FIT=e.target.value; savePrefs(); render(); });
+$("colpick").addEventListener("change",e=>{
+  if(e.target.matches("[data-col]")){ COL_FIELDS=COL_FIELDS||defaultFields();
+    e.target.checked?COL_FIELDS.add(e.target.dataset.col):COL_FIELDS.delete(e.target.dataset.col); savePrefs(); render(); }
+  else if(e.target.matches("[data-prec]")){ COL_PRECS=COL_PRECS||new Set(PREC_DEF);
+    e.target.checked?COL_PRECS.add(e.target.dataset.prec):COL_PRECS.delete(e.target.dataset.prec); savePrefs(); render(); }
+});
+$("col-reset").addEventListener("click",e=>{ e.preventDefault(); COL_FIELDS=null; COL_PRECS=null; savePrefs(); render(); });
+const toggleSet=(s,v)=>s.has(v)?s.delete(v):s.add(v);
+$("results").addEventListener("change",e=>{
+  if(e.target.id==="devsel"){ DEV=e.target.value; render(); return; }
+  const cb=e.target.closest(".cmp"); if(!cb)return;
+  const key=e.target.closest("[data-key]").dataset.key; cb.checked?CMP.add(key):CMP.delete(key); renderCompareBar();
+});
+$("results").addEventListener("input",e=>{ if(e.target.id==="devq"){ DEV_Q=e.target.value; render();
+  const el=$("devq"); if(el&&el.setSelectionRange) try{ el.focus(); el.setSelectionRange(DEV_Q.length,DEV_Q.length); }catch(_){} } });
+$("results").addEventListener("click",e=>{
+  const dth=e.target.closest("th[data-dsort]"); if(dth){ const k=dth.dataset.dsort; if(DEV_SORT===k) DEV_DIR=-(DEV_DIR||-1); else { DEV_SORT=k; DEV_DIR=-1; } render(); return; }
+  const sc=e.target.closest("th[data-sortcol]"); if(sc){ sortBy(sc.dataset.sortcol); return; }
+});
+let DRAGK=null;
+$("results").addEventListener("dragstart",e=>{ const th=e.target.closest("th[data-th]"); if(th){ DRAGK=th.dataset.th; try{e.dataTransfer.effectAllowed="move"; e.dataTransfer.setData("text/plain",DRAGK);}catch(_){} } });
+$("results").addEventListener("dragover",e=>{ const th=e.target.closest("th[data-th]"); if(th&&DRAGK&&th.dataset.th!==DRAGK){ e.preventDefault(); } });
+$("results").addEventListener("drop",e=>{ const th=e.target.closest("th[data-th]"); if(th&&DRAGK){ e.preventDefault(); reorderCol(DRAGK,th.dataset.th); DRAGK=null; } });
+$("req").addEventListener("change",e=>{ REQUIRE_COMPLETE=e.target.checked; savePrefs(); render(); });
+$("deep").addEventListener("change",e=>{ DEEP=e.target.checked; savePrefs(); });
+$("s-ev").addEventListener("change",savePrefs);
+document.querySelector(".views").addEventListener("click",e=>{ const b=e.target.closest("[data-view]"); if(!b)return;
+  VIEW_MODE=b.dataset.view; document.querySelectorAll(".views button").forEach(x=>x.classList.toggle("on",x===b)); savePrefs(); render(); });
+$("cmp-show").addEventListener("click",renderCompareTable);
+$("cmp-clear").addEventListener("click",()=>{ CMP.clear(); render(); });
+$("cmp-clearn").addEventListener("click",()=>{ CMP.clear(); render(); });
+document.querySelectorAll("#s-hf,#s-or,#s-md,#s-gh,#s-ms,#s-ol,#s-ev,#proxy").forEach(el=>el.addEventListener("change",savePrefs));
+$("auto").addEventListener("change",()=>{ savePrefs(); setupAuto(); });
+function setupAuto(){ if(AUTOT)clearInterval(AUTOT); const s=+$("auto").value; if(s>0)AUTOT=setInterval(search,s*1000); }
+
+/* ================= 启动 ================= */
+LANG=(()=>{ try{ return localStorage.getItem("mr.lang")||detectLang(); }catch(e){ return detectLang(); } })();
+$("lang").innerHTML=(typeof LANGS!=="undefined"?LANGS:[]).map(([k,n])=>`<option value="${k}">${n}</option>`).join(""); $("lang").value=LANG;
+applyStatic();
+initTheme(); loadProxyOK(); loadPrefs(); renderChips();
+$("bench-links").innerHTML=BENCH.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join("");
+$("srcinfo").textContent="数据来自公开/开源来源";
+// 每次运行都实时抓取
+(function boot(){
+  const p=new URLSearchParams(location.search); const isShare=p.get("share")==="1";
+  if(p.get("sort")){ SORT=p.get("sort"); $("sort").value=SORT; }
+  if(p.get("view")){ VIEW_MODE=p.get("view"); document.querySelectorAll(".views button").forEach(x=>x.classList.toggle("on",x.dataset.view===VIEW_MODE)); }
+  if(isShare&&p.get("src")){ const set=new Set(p.get("src").split(",")); Object.entries(SRC_META).forEach(([k,s])=>$(s.el).checked=set.has(k)); }
+  if(isShare&&p.get("os")) OS_FILTER=p.get("os");
+  if(isShare&&p.get("maker")) MAKER=p.get("maker");
+  if(isShare&&p.get("fit")!=null){ FIT=p.get("fit"); $("fit").value=FIT; }
+  if(isShare&&p.get("req")==="0"){ REQUIRE_COMPLETE=false; $("req").checked=false; }
+  if(p.get("q")) $("q").value=p.get("q");
+  if(location.search){ try{ history.replaceState(null,"",location.pathname); }catch(e){} }
+  setupAuto();
+  if(location.protocol==="file:"){ const w=$("filewarn"); if(w){ w.hidden=false; w.textContent=(LANG==="zh"?"当前以 file:// 打开：部分浏览器会拦截跨域请求，建议用本地服务器打开（如 python3 -m http.server）。":"Opened via file://: some browsers block cross-origin requests; serve over http (e.g. python3 -m http.server)."); } }
+  search();
+})();
+</script>
+</body>
+</html>

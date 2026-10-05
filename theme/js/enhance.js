@@ -39,6 +39,7 @@
           h.id = id;
         }
         used[h.id] = 1;
+        var an = document.createElement('a'); an.className = 'h-anchor'; an.href = '#' + h.id; an.textContent = '#'; an.setAttribute('aria-label', '锚点'); h.appendChild(an);
       });
       var ol = document.createElement('ol');
       hs.forEach(function (h) {
@@ -88,4 +89,27 @@
   }
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
   top.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+
+  // 相关文章（按标签）
+  (function () {
+    var post = document.getElementById('post'); if (!post) return;
+    var tags = (post.getAttribute('data-tags') || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+    if (!tags.length) return;
+    var here = ''; try { here = decodeURIComponent(location.pathname.split('/').pop() || ''); } catch (e) {}
+    fetch('search.json').then(function (r) { return r.json(); }).then(function (docs) {
+      var scored = docs.map(function (d) {
+        if (d.u === here || !d.k) return null;
+        var dt = d.k.split('|'), n = 0;
+        tags.forEach(function (tg) { if (dt.indexOf(tg) >= 0) n++; });
+        return n > 0 ? { d: d, n: n } : null;
+      }).filter(Boolean).sort(function (a, b) { return b.n - a.n; }).slice(0, 5);
+      if (!scored.length) return;
+      var box = document.createElement('nav'); box.className = 'related'; box.setAttribute('aria-label', '相关文章');
+      var h = document.createElement('div'); h.className = 'related-title'; h.textContent = '相关文章'; box.appendChild(h);
+      var ul = document.createElement('ul');
+      scored.forEach(function (x) { var li = document.createElement('li'); var a = document.createElement('a'); a.href = x.d.u; a.textContent = x.d.t; li.appendChild(a); ul.appendChild(li); });
+      box.appendChild(ul);
+      if (post.parentNode) post.parentNode.insertBefore(box, post.nextSibling);
+    }).catch(function () {});
+  })();
 })();

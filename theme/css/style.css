@@ -3334,3 +3334,25 @@ html { scroll-behavior: smooth; }
 .s-sum { color: var(--text-muted); font-size: 13.5px; margin-top: 4px; }
 .social-icons a { color: var(--text-muted); text-decoration: none; }
 .social-icons a:hover { color: var(--accent); }
+
+/* 标题锚点 */
+.h-anchor { margin-left: 8px; color: var(--text-muted); text-decoration: none; font-weight: 400; opacity: 0; font-size: .8em; }
+h2:hover .h-anchor, h3:hover .h-anchor, .h-anchor:focus { opacity: 1; }
+.h-anchor:hover { color: var(--accent); }
+/* 上一篇/下一篇 */
+.post-nav { display: flex; gap: 12px; margin-top: 32px; }
+.post-nav a { flex: 1; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; text-decoration: none; color: var(--text); font-size: 14px; line-height: 1.5; }
+.post-nav a:hover { border-color: var(--accent); color: var(--accent); }
+.post-nav .pn-next { text-align: right; }
+.post-nav .pn-label { color: var(--text-muted); font-size: 12px; }
+@media (max-width: 560px) { .post-nav { flex-direction: column; } .post-nav .pn-next { text-align: left; } }
+/* 相关文章 */
+.related { margin-top: 28px; padding: 14px 16px; background: var(--elev-1); border: 1px solid var(--border); border-radius: 10px; }
+.related-title { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+.related ul { margin: 0; padding-left: 18px; }
+.related li { margin: 4px 0; }
+.related a { color: var(--link); text-decoration: none; }
+.related a:hover { color: var(--accent); text-decoration: underline; }
+/* 搜索结果键盘高亮 */
+.s-results li.active { background: var(--elev-1); }
+.s-results li.active a { color: var(--accent); }

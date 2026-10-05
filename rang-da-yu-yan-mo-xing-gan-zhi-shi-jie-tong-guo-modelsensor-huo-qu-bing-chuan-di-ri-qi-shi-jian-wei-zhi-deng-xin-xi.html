@@ -150,20 +150,20 @@
 </code></pre></div>
 
 <p>Python下可以通过以下方式获取系统时间、时区、位置等信息，然后通过 <code>to_json</code> 方法将数据转换为 JSON 格式：</p>
-<div class="highlight"><pre><span></span><code>from modelsensor import ModelSensorsensor = ModelSensor()data = sensor.collect_all_data(include_location=False)  # 位置默认关闭print(sensor.to_json(indent=2, mode=&quot;brief&quot;))
+<div class="highlight"><pre><span></span><code>from modelsensor import ModelSensorsensor = ModelSensor()data = sensor.collect_all_data(include_location=False)  # 位置默认关闭print(sensor.to_json(indent=2, mode="brief"))
 </code></pre></div>
 
 <p>得到的输出是类似下面这样：</p>
-<div class="highlight"><pre><span></span><code>{  &quot;time&quot;: {    &quot;date&quot;: &quot;2025-08-18&quot;,    &quot;time&quot;: &quot;11:32:01&quot;  }}
+<div class="highlight"><pre><span></span><code>{  "time": {    "date": "2025-08-18",    "time": "11:32:01"  }}
 </code></pre></div>
 
 <p>还有更简单的<code>to_dict()</code>方法:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">modelsensor</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelSensorsensor</span> <span class="o">=</span> <span class="n">ModelSensor</span><span class="p">()</span><span class="n">data</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">collect_all_data</span><span class="p">(</span><span class="n">include_location</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># 位置默认关闭print(sensor.to_dict(mode=&quot;brief&quot;))```</span>
-<span class="n">得到的输出是类似下面这样</span><span class="err">：```</span><span class="n">bash</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="s1">&#39;2025-08-18&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;11:37:06&#39;</span><span class="p">}}</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">modelsensor</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelSensorsensor</span> <span class="o">=</span> <span class="n">ModelSensor</span><span class="p">()</span><span class="n">data</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">collect_all_data</span><span class="p">(</span><span class="n">include_location</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># 位置默认关闭print(sensor.to_dict(mode="brief"))```</span>
+<span class="n">得到的输出是类似下面这样</span><span class="err">：```</span><span class="n">bash</span><span class="p">{</span><span class="s1">'time'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'date'</span><span class="p">:</span> <span class="s1">'2025-08-18'</span><span class="p">,</span> <span class="s1">'time'</span><span class="p">:</span> <span class="s1">'11:37:06'</span><span class="p">}}</span>
 </code></pre></div>
 
 <p>与 Ollama 集成也很简单，只需要在调用 Ollama 的时候传递 <code>system_context</code> 参数即可，如下：</p>
-<div class="highlight"><pre><span></span><code>import ollamafrom modelsensor import ModelSensor# Get system informationsensor = ModelSensor()system_context = sensor.to_json(include_location=True)# Create enhanced promptprompt = f&quot;&quot;&quot;System Context:{system_context}   ...:User Question: 今天几号?&quot;&quot;&quot;# Send to Ollamaresponse = ollama.chat(model=&#39;qwen3:0.6b&#39;, messages=[    {&#39;role&#39;: &#39;user&#39;, &#39;content&#39;: prompt}])print(response[&#39;message&#39;][&#39;content&#39;])
+<div class="highlight"><pre><span></span><code>import ollamafrom modelsensor import ModelSensor# Get system informationsensor = ModelSensor()system_context = sensor.to_json(include_location=True)# Create enhanced promptprompt = f"""System Context:{system_context}   ...:User Question: 今天几号?"""# Send to Ollamaresponse = ollama.chat(model='qwen3:0.6b', messages=[    {'role': 'user', 'content': prompt}])print(response['message']['content'])
 </code></pre></div>
 
 <p>得到的输出是类似下面这样：</p>

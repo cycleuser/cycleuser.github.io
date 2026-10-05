@@ -148,7 +148,7 @@
 <h2>一、先把模型弄下来</h2>
 <p>模型地址是 <a href="https://modelscope.cn/models/Qwen/Qwen3.8-27B">https://modelscope.cn/models/Qwen/Qwen3.8-27B</a>，下载直接走 ModelScope 是最省事的，用它的 SDK 就行。这里我下载的路径在 <code>C:/Users/frede/models/Qwen3.8-27B</code>，后面代码示范都是这个目录。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">modelscope</span><span class="w"> </span><span class="kn">import</span> <span class="n">snapshot_download</span>
-<span class="n">snapshot_download</span><span class="p">(</span><span class="s1">&#39;Qwen/Qwen3.8-27B&#39;</span><span class="p">,</span> <span class="n">local_dir</span><span class="o">=</span><span class="s1">&#39;C:/Users/frede/models/Qwen3.8-27B&#39;</span><span class="p">)</span>
+<span class="n">snapshot_download</span><span class="p">(</span><span class="s1">'Qwen/Qwen3.8-27B'</span><span class="p">,</span> <span class="n">local_dir</span><span class="o">=</span><span class="s1">'C:/Users/frede/models/Qwen3.8-27B'</span><span class="p">)</span>
 </code></pre></div>
 
 <p>原始权重是 18 个 safetensors 分片，总共 52G 左右，下了差不多四个小时。这里提醒一句，网络不稳的话别用多线程下载器硬抢，单线程流式反而稳，断了能接着续。</p>
@@ -250,7 +250,7 @@ llama-quantize<span class="w"> </span>--imatrix<span class="w"> </span>imatrix.g
 <h3>IQ1/IQ2 的一个坑</h3>
 <p>第一次做 IQ2 和 IQ1 的时候直接报错退出，提示缺少重要性矩阵。查了半天才发现根因：算 imatrix 的时候模型是普通模式跑的，MTP 那层（blk.64）根本没被执行过，所以 imatrix 里没有它的数据。而 IQ1、IQ2 这种极低比特量化是强制要求每个张量都有重要性数据的，没有就罢工。</p>
 <p>解法很简单，把 blk.64 单独指成 Q4_K，K 系量化不需要 imatrix：</p>
-<div class="highlight"><pre><span></span><code>llama-quantize<span class="w"> </span>--imatrix<span class="w"> </span>imatrix.gguf<span class="w"> </span>--tensor-type<span class="w"> </span><span class="s2">&quot;blk.64=Q4_K&quot;</span><span class="w"> </span>f16.gguf<span class="w"> </span>out-IQ1_S.gguf<span class="w"> </span>IQ1_S
+<div class="highlight"><pre><span></span><code>llama-quantize<span class="w"> </span>--imatrix<span class="w"> </span>imatrix.gguf<span class="w"> </span>--tensor-type<span class="w"> </span><span class="s2">"blk.64=Q4_K"</span><span class="w"> </span>f16.gguf<span class="w"> </span>out-IQ1_S.gguf<span class="w"> </span>IQ1_S
 </code></pre></div>
 
 <p>这样 MTP 层用 Q4_K 保真，主干用 IQ1_S 压缩，两不耽误。</p>
@@ -259,7 +259,7 @@ llama-quantize<span class="w"> </span>--imatrix<span class="w"> </span>imatrix.g
 <p>周总跟我说 Q8_0 在 7900XTX 上跑没问题。但我自己转换的纯 Q8_0 是 27 GiB，24G 的卡物理上就装不下。之前试过各种层拆分（-ngl 62、54、52）全都 Vulkan DeviceLost，只有 -ngl 50 勉强稳定但只剩 2.5 tok/s，没啥实用价值。</p>
 <p>所以我选择的做法是混合量化：注意力部分保 Q8_0，FFN 降到 Q6_K，词表嵌入压到 Q4_K，输出层给 Q6_K：</p>
 <div class="highlight"><pre><span></span><code>llama-quantize<span class="w"> </span>--token-embedding-type<span class="w"> </span>Q4_K<span class="w"> </span>--output-tensor-type<span class="w"> </span>Q6_K<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--tensor-type<span class="w"> </span><span class="s2">&quot;ffn_=Q6_K&quot;</span><span class="w"> </span>f16.gguf<span class="w"> </span>Q8SLIM.gguf<span class="w"> </span>Q8_0
+<span class="w">  </span>--tensor-type<span class="w"> </span><span class="s2">"ffn_=Q6_K"</span><span class="w"> </span>f16.gguf<span class="w"> </span>Q8SLIM.gguf<span class="w"> </span>Q8_0
 </code></pre></div>
 
 <p>出来 22.3 GiB（6.99 BPW），整卡装下还有富余。质量上注意力这种对精度最敏感的部分还是 Q8，FFN 这些大块头降一档，体感损失很小。实测 29.1 tok/s，两道验证题全对。这大概就是我这张 7900XTX 24G 卡上能跑的最高质量档。</p>

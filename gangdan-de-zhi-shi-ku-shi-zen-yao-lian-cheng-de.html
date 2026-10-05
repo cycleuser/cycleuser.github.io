@@ -160,7 +160,7 @@
 <p>ChromaDB 的用法很直接。每个文档来源创建一个独立的集合（collection），集合名就是来源名字。创建集合的时候指定使用余弦相似度作为距离度量，底层用的是 HNSW 索引。</p>
 <div class="highlight"><pre><span></span><code>collection = client.get_or_create_collection(  
     name=name,  
-    metadata={&quot;hnsw:space&quot;: &quot;cosine&quot;}  
+    metadata={"hnsw:space": "cosine"}  
 )
 </code></pre></div>
 

@@ -189,7 +189,7 @@ int b = 20     // 编译错误：缺少分号
 
 <p><strong>中文标点陷阱</strong></p>
 <p>代码中使用中文标点符号会导致编译错误和语法冲突！</p>
-<div class="highlight"><pre><span></span><code>int a＝10；   // 错误！&quot;＝&quot;和&quot;；&quot;是中文标点  
+<div class="highlight"><pre><span></span><code>int a＝10；   // 错误！"＝"和"；"是中文标点  
 int a=10;     // 正确的英文标点
 </code></pre></div>
 
@@ -249,7 +249,7 @@ int a=10;     // 正确的英文标点
 <span class="n">void</span><span class="w"> </span><span class="n">print_result</span><span class="p">(</span><span class="nb">int</span><span class="w"> </span><span class="n">r</span><span class="p">);</span><span class="w">  </span>
 
 <span class="c1">// 使用头文件：一次定义，处处包含  </span>
-#<span class="n">include</span><span class="w"> </span><span class="s">&quot;mylib.h&quot;</span><span class="w">  </span><span class="c1">// 所有声明都在头文件中</span>
+#<span class="n">include</span><span class="w"> </span><span class="s">"mylib.h"</span><span class="w">  </span><span class="c1">// 所有声明都在头文件中</span>
 </code></pre></div>
 
 <p>头文件的核心价值：</p>
@@ -364,7 +364,7 @@ Python（动态）：   a = 10           // 运行时才知道a是int
 <p><strong>未初始化变量</strong></p>
 <p>C语言中未初始化的局部变量包含不确定的垃圾值（不是0，不是空值，不是默认值）！</p>
 <div class="highlight"><pre><span></span><code>int a;           // a的值是不确定的垃圾值  
-printf(&quot;%d&quot;, a); // 可能输出任何值，这是未定义行为
+printf("%d", a); // 可能输出任何值，这是未定义行为
 </code></pre></div>
 
 <p>注意：全局变量会自动初始化为0，但局部变量不会！这是重要区别。</p>
@@ -548,11 +548,11 @@ sizeof(double) // 通常返回8
 <p>相比多个if-else的优势：代码清晰且可能有性能优势（编译器可优化为跳转表）。</p>
 <p>switch中忘记写break的后果：会继续执行下一个case（称为"穿透"）！</p>
 <div class="highlight"><pre><span></span><code><span class="nv">switch</span><span class="w"> </span><span class="ss">(</span><span class="nv">grade</span><span class="ss">)</span><span class="w"> </span>{<span class="w">  </span>
-<span class="w">    </span><span class="nv">case</span><span class="w"> </span><span class="s1">&#39;A&#39;</span>:<span class="w"> </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;优秀&quot;</span><span class="ss">)</span><span class="c1">; break;  // 有break  </span>
-<span class="w">    </span><span class="nv">case</span><span class="w"> </span><span class="s1">&#39;B&#39;</span>:<span class="w"> </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;良好&quot;</span><span class="ss">)</span><span class="c1">;          // 没有break，会继续执行case &#39;C&#39;  </span>
-<span class="w">    </span><span class="nv">case</span><span class="w"> </span><span class="s1">&#39;C&#39;</span>:<span class="w"> </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;中等&quot;</span><span class="ss">)</span><span class="c1">; break;  </span>
+<span class="w">    </span><span class="nv">case</span><span class="w"> </span><span class="s1">'A'</span>:<span class="w"> </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"优秀"</span><span class="ss">)</span><span class="c1">; break;  // 有break  </span>
+<span class="w">    </span><span class="nv">case</span><span class="w"> </span><span class="s1">'B'</span>:<span class="w"> </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"良好"</span><span class="ss">)</span><span class="c1">;          // 没有break，会继续执行case 'C'  </span>
+<span class="w">    </span><span class="nv">case</span><span class="w"> </span><span class="s1">'C'</span>:<span class="w"> </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"中等"</span><span class="ss">)</span><span class="c1">; break;  </span>
 }<span class="w">  </span>
-<span class="o">//</span><span class="w"> </span>如果<span class="nv">grade</span><span class="o">=</span><span class="s1">&#39;B&#39;</span>，输出<span class="s2">&quot;良好中等&quot;</span>——两个都打印了！
+<span class="o">//</span><span class="w"> </span>如果<span class="nv">grade</span><span class="o">=</span><span class="s1">'B'</span>，输出<span class="s2">"良好中等"</span>——两个都打印了！
 </code></pre></div>
 
 <p><strong>break vs continue</strong></p>
@@ -616,8 +616,8 @@ sizeof(double) // 通常返回8
 <p>当至少需要执行一次循环体时，do-while更合适，比如先获取用户输入再判断：</p>
 <div class="highlight"><pre><span></span><code><span class="nv">int</span><span class="w"> </span><span class="nv">n</span><span class="c1">;  </span>
 <span class="k">do</span><span class="w"> </span>{<span class="w">  </span>
-<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;请输入正整数：&quot;</span><span class="ss">)</span><span class="c1">;  </span>
-<span class="w">    </span><span class="nv">scanf</span><span class="ss">(</span><span class="s2">&quot;%d&quot;</span>,<span class="w"> </span><span class="o">&amp;</span><span class="nv">n</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"请输入正整数："</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">    </span><span class="nv">scanf</span><span class="ss">(</span><span class="s2">"%d"</span>,<span class="w"> </span><span class="o">&amp;</span><span class="nv">n</span><span class="ss">)</span><span class="c1">;  </span>
 }<span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="ss">(</span><span class="nv">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="ss">)</span><span class="c1">;  // 至少输入一次</span>
 </code></pre></div>
 
@@ -661,7 +661,7 @@ arr[10] = 99;  // 越界访问！可能崩溃、可能损坏数据、可能看
 <p>指针被称为C语言精髓，因为它提供了对内存的直接控制能力。</p>
 <div class="highlight"><pre><span></span><code>int a = 10;  
 int *p = &amp;a;    // p存储a的地址  
-printf(&quot;%d&quot;, *p);  // 输出10（解引用*p就是a）
+printf("%d", *p);  // 输出10（解引用*p就是a）
 </code></pre></div>
 
 <p>关键关系：<code>*p</code> 和 <code>a</code> 代表同一个变量！</p>
@@ -679,8 +679,8 @@ printf(&quot;%d&quot;, *p);  // 输出10（解引用*p就是a）
 
 <p><strong>字符串表示</strong></p>
 <p>C语言中字符串是以空字符 <code>\0</code> 结尾的字符数组：</p>
-<div class="highlight"><pre><span></span><code>char str[] = &quot;Hello&quot;;  // 实际存储：&#39;H&#39;,&#39;e&#39;,&#39;l&#39;,&#39;l&#39;,&#39;o&#39;,&#39;\0&#39;  
-// 5个可见字符，但占6个字节（含&#39;\0&#39;）
+<div class="highlight"><pre><span></span><code>char str[] = "Hello";  // 实际存储：'H','e','l','l','o','\0'  
+// 5个可见字符，但占6个字节（含'\0'）
 </code></pre></div>
 
 <p><strong>字符数组 vs 字符指针</strong></p>
@@ -710,11 +710,11 @@ printf(&quot;%d&quot;, *p);  // 输出10（解引用*p就是a）
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code>char str[] = &quot;Hello&quot;;  
-str[0] = &#39;h&#39;;    // 可以修改  
+<div class="highlight"><pre><span></span><code>char str[] = "Hello";  
+str[0] = 'h';    // 可以修改  
 
-char *p = &quot;Hello&quot;;  
-p[0] = &#39;h&#39;;      // 段错误！字符串常量不可修改
+char *p = "Hello";  
+p[0] = 'h';      // 段错误！字符串常量不可修改
 </code></pre></div>
 
 <p><strong>内存管理</strong></p>
@@ -742,9 +742,9 @@ p[0] = &#39;h&#39;;      // 段错误！字符串常量不可修改
 <span class="w">    </span><span class="err">float</span><span class="w"> </span><span class="err">score</span><span class="p">;</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">成绩</span><span class="w">  </span>
 <span class="p">}</span><span class="o">;</span><span class="w">  </span>
 
-<span class="nt">struct</span><span class="w"> </span><span class="nt">Student</span><span class="w"> </span><span class="nt">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="err">1001,</span><span class="w"> </span><span class="err">&quot;Zhang&quot;</span><span class="p">}</span><span class="o">;</span><span class="w">  </span>
-<span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;ID: %d\n&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">stu</span><span class="p">.</span><span class="nc">id</span><span class="o">);</span><span class="w">      </span><span class="o">//</span><span class="w"> </span><span class="nt">使用点运算符访问成员</span><span class="w">  </span>
-<span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;Name: %s\n&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">stu</span><span class="p">.</span><span class="nc">name</span><span class="o">);</span>
+<span class="nt">struct</span><span class="w"> </span><span class="nt">Student</span><span class="w"> </span><span class="nt">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="err">1001,</span><span class="w"> </span><span class="err">"Zhang"</span><span class="p">}</span><span class="o">;</span><span class="w">  </span>
+<span class="nt">printf</span><span class="o">(</span><span class="s2">"ID: %d\n"</span><span class="o">,</span><span class="w"> </span><span class="nt">stu</span><span class="p">.</span><span class="nc">id</span><span class="o">);</span><span class="w">      </span><span class="o">//</span><span class="w"> </span><span class="nt">使用点运算符访问成员</span><span class="w">  </span>
+<span class="nt">printf</span><span class="o">(</span><span class="s2">"Name: %s\n"</span><span class="o">,</span><span class="w"> </span><span class="nt">stu</span><span class="p">.</span><span class="nc">name</span><span class="o">);</span>
 </code></pre></div>
 
 <ul>
@@ -867,7 +867,7 @@ p2.x = 10;            // 修改p2不影响p1
 
 int a = 5;  
 change(a);  
-printf(&quot;%d&quot;, a);  // 输出5！a没有变！
+printf("%d", a);  // 输出5！a没有变！
 </code></pre></div>
 
 <p><strong>传地址调用</strong>（通过指针实现）：函数接收变量的地址，可以修改原变量</p>
@@ -877,7 +877,7 @@ printf(&quot;%d&quot;, a);  // 输出5！a没有变！
 
 int a = 5;  
 change(&amp;a);     // 传递a的地址  
-printf(&quot;%d&quot;, a);  // 输出100！a被修改了！
+printf("%d", a);  // 输出100！a被修改了！
 </code></pre></div>
 
 <p><strong>引用调用的优势</strong></p>
@@ -1021,10 +1021,10 @@ int* good_func() {
 <p><strong>斐波那契数列</strong></p>
 <p>每个数是前两个数之和：1, 1, 2, 3, 5, 8, 13, 21, ...</p>
 <div class="highlight"><pre><span></span><code><span class="nv">int</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>,<span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="c1">;  </span>
-<span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;%d %d &quot;</span>,<span class="w"> </span><span class="nv">a</span>,<span class="w"> </span><span class="nv">b</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="nv">printf</span><span class="ss">(</span><span class="s2">"%d %d "</span>,<span class="w"> </span><span class="nv">a</span>,<span class="w"> </span><span class="nv">b</span><span class="ss">)</span><span class="c1">;  </span>
 <span class="k">for</span><span class="ss">(</span><span class="nv">int</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="c1">; i &lt;= 8; i++) {  </span>
 <span class="w">    </span><span class="nv">int</span><span class="w"> </span><span class="k">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">b</span><span class="c1">;  </span>
-<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;%d &quot;</span>,<span class="w"> </span><span class="k">next</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"%d "</span>,<span class="w"> </span><span class="k">next</span><span class="ss">)</span><span class="c1">;  </span>
 <span class="w">    </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">b</span><span class="c1">;  </span>
 <span class="w">    </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">next</span><span class="c1">;  </span>
 }<span class="w">  </span>
@@ -1052,7 +1052,7 @@ int* good_func() {
 <p>筛选偶数：</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="p">(</span><span class="nc">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
 <span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">"%d "</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="err">}</span><span class="w">  </span>
 <span class="err">}</span>
 </code></pre></div>
@@ -1085,7 +1085,7 @@ int* good_func() {
 <li>关闭文件：<code>fclose()</code></li>
 </ol>
 <p><strong>fopen函数</strong></p>
-<div class="highlight"><pre><span></span><code>FILE *fp = fopen(&quot;data.txt&quot;, &quot;r&quot;);
+<div class="highlight"><pre><span></span><code>FILE *fp = fopen("data.txt", "r");
 </code></pre></div>
 
 <table>
@@ -1115,9 +1115,9 @@ int* good_func() {
 </tbody>
 </table>
 <p><strong>检查文件是否成功打开</strong></p>
-<div class="highlight"><pre><span></span><code>FILE *fp = fopen(&quot;data.txt&quot;, &quot;r&quot;);  
+<div class="highlight"><pre><span></span><code>FILE *fp = fopen("data.txt", "r");  
 if (fp == NULL) {  
-    printf(&quot;文件打开失败！\n&quot;);  
+    printf("文件打开失败！\n");  
     return -1;  
 }
 </code></pre></div>
@@ -1142,8 +1142,8 @@ if (fp == NULL) {
 <p>注意：不同操作系统使用不同的路径分隔符：Windows用 <code>\</code>，Linux/Mac用 <code>/</code></p>
 <p><strong>写入数据</strong></p>
 <p>向文件写入数据使用 fprintf 或 fwrite 函数：</p>
-<div class="highlight"><pre><span></span><code>FILE *fp = fopen(&quot;out.txt&quot;, &quot;w&quot;);  
-fprintf(fp, &quot;Hello World\n&quot;);  // 格式化写入  
+<div class="highlight"><pre><span></span><code>FILE *fp = fopen("out.txt", "w");  
+fprintf(fp, "Hello World\n");  // 格式化写入  
 fclose(fp);
 </code></pre></div>
 
@@ -1240,7 +1240,7 @@ fclose(fp);
 <p><strong>Python调用C库</strong></p>
 <p>使用ctypes模块：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nx">ctypes</span><span class="w">  </span>
-<span class="nx">lib</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">ctypes</span><span class="p">.</span><span class="nx">CDLL</span><span class="p">(</span><span class="s">&quot;./mylib.so&quot;</span><span class="p">)</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">加载动态库</span><span class="w">  </span>
+<span class="nx">lib</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">ctypes</span><span class="p">.</span><span class="nx">CDLL</span><span class="p">(</span><span class="s">"./mylib.so"</span><span class="p">)</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">加载动态库</span><span class="w">  </span>
 <span class="nx">lib</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">restype</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">ctypes</span><span class="p">.</span><span class="nx">c_int</span><span class="w">      </span><span class="err">#</span><span class="w"> </span><span class="nx">设置返回值类型</span><span class="w">  </span>
 <span class="nx">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">lib</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w">              </span><span class="err">#</span><span class="w"> </span><span class="nx">调用C函数</span>
 </code></pre></div>
@@ -1264,26 +1264,26 @@ fclose(fp);
 <h2>第15章 字符编码与加密</h2>
 <p><strong>ASCII编码</strong></p>
 <p>char本质上是8位整数，可以直接当整数用：</p>
-<div class="highlight"><pre><span></span><code><span class="nt">char</span><span class="w"> </span><span class="nt">ch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="o">;</span><span class="w">  </span>
-<span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;ASCII: %d&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">ch</span><span class="o">);</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="nt">输出65</span><span class="err">（</span><span class="s1">&#39;A&#39;</span><span class="nt">的ASCII值</span><span class="err">）</span><span class="w">  </span>
-<span class="nt">char</span><span class="w"> </span><span class="nt">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">65</span><span class="o">;</span><span class="w">              </span><span class="o">//</span><span class="w"> </span><span class="nt">等价于</span><span class="w"> </span><span class="nt">char</span><span class="w"> </span><span class="nt">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;A&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">char</span><span class="w"> </span><span class="nt">ch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'A'</span><span class="o">;</span><span class="w">  </span>
+<span class="nt">printf</span><span class="o">(</span><span class="s2">"ASCII: %d"</span><span class="o">,</span><span class="w"> </span><span class="nt">ch</span><span class="o">);</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="nt">输出65</span><span class="err">（</span><span class="s1">'A'</span><span class="nt">的ASCII值</span><span class="err">）</span><span class="w">  </span>
+<span class="nt">char</span><span class="w"> </span><span class="nt">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">65</span><span class="o">;</span><span class="w">              </span><span class="o">//</span><span class="w"> </span><span class="nt">等价于</span><span class="w"> </span><span class="nt">char</span><span class="w"> </span><span class="nt">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'A'</span>
 </code></pre></div>
 
 <p><strong>数字字符转整数</strong></p>
-<div class="highlight"><pre><span></span><code>char ch = &#39;5&#39;;  
-int num = ch - &#39;0&#39;;  // num = 5  
-// &#39;0&#39;=48, &#39;5&#39;=53, 53-48=5
+<div class="highlight"><pre><span></span><code>char ch = '5';  
+int num = ch - '0';  // num = 5  
+// '0'=48, '5'=53, 53-48=5
 </code></pre></div>
 
 <p><strong>大小写转换</strong></p>
 <p>利用ASCII码中大小写字母的固定偏移差：</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// 小写转大写  </span>
-<span class="k">if</span><span class="p">(</span><span class="n">ch</span><span class="w"> </span><span class="o">&gt;</span><span class="p">=</span><span class="w"> </span><span class="s">&#39;a&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">&lt;</span><span class="p">=</span><span class="w"> </span><span class="s">&#39;z&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">    </span><span class="n">ch</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s">&#39;a&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#39;A&#39;</span><span class="p">;</span><span class="w">  </span>
+<span class="k">if</span><span class="p">(</span><span class="n">ch</span><span class="w"> </span><span class="o">&gt;</span><span class="p">=</span><span class="w"> </span><span class="s">'a'</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">&lt;</span><span class="p">=</span><span class="w"> </span><span class="s">'z'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="n">ch</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s">'a'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">'A'</span><span class="p">;</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 <span class="c1">// 大写转小写  </span>
-<span class="k">if</span><span class="p">(</span><span class="n">ch</span><span class="w"> </span><span class="o">&gt;</span><span class="p">=</span><span class="w"> </span><span class="s">&#39;A&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">&lt;</span><span class="p">=</span><span class="w"> </span><span class="s">&#39;Z&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">    </span><span class="n">ch</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s">&#39;A&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#39;a&#39;</span><span class="p">;</span><span class="w">  </span>
+<span class="k">if</span><span class="p">(</span><span class="n">ch</span><span class="w"> </span><span class="o">&gt;</span><span class="p">=</span><span class="w"> </span><span class="s">'A'</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">&lt;</span><span class="p">=</span><span class="w"> </span><span class="s">'Z'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="n">ch</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ch</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s">'A'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">'a'</span><span class="p">;</span><span class="w">  </span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -1342,7 +1342,7 @@ int i = (int)f;   // i = 3（仍然截断！不是4）
 </code></pre></div>
 
 <p><strong>sizeof运算符</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;int size: %d bytes&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">sizeof</span><span class="o">(</span><span class="nt">int</span><span class="o">));</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="nt">通常输出4</span>
+<div class="highlight"><pre><span></span><code><span class="nt">printf</span><span class="o">(</span><span class="s2">"int size: %d bytes"</span><span class="o">,</span><span class="w"> </span><span class="nt">sizeof</span><span class="o">(</span><span class="nt">int</span><span class="o">));</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="nt">通常输出4</span>
 </code></pre></div>
 
 <p>sizeof返回数据类型或变量占用的字节数。</p>
@@ -1431,8 +1431,8 @@ int i = (int)f;   // i = 3（仍然截断！不是4）
 <span class="w">    </span><span class="err">int</span><span class="w"> </span><span class="err">id</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="err">char</span><span class="w"> </span><span class="err">name</span><span class="cp">[</span><span class="mi">51</span><span class="cp">]</span><span class="p">;</span><span class="w">  </span>
 <span class="p">}</span><span class="o">;</span><span class="w">  </span>
-<span class="nt">struct</span><span class="w"> </span><span class="nt">Student</span><span class="w"> </span><span class="nt">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="err">1001,</span><span class="w"> </span><span class="err">&quot;Zhang&quot;</span><span class="p">}</span><span class="o">;</span><span class="w">  </span>
-<span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;ID: %d\n&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">stu</span><span class="p">.</span><span class="nc">id</span><span class="o">);</span>
+<span class="nt">struct</span><span class="w"> </span><span class="nt">Student</span><span class="w"> </span><span class="nt">stu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="err">1001,</span><span class="w"> </span><span class="err">"Zhang"</span><span class="p">}</span><span class="o">;</span><span class="w">  </span>
+<span class="nt">printf</span><span class="o">(</span><span class="s2">"ID: %d\n"</span><span class="o">,</span><span class="w"> </span><span class="nt">stu</span><span class="p">.</span><span class="nc">id</span><span class="o">);</span>
 </code></pre></div>
 
 <p><strong>2. 指针传参交换两个值</strong></p>
@@ -1453,9 +1453,9 @@ swap(&amp;x, &amp;y);  // x变为10，y变为5
 </code></pre></div>
 
 <p><strong>4. 文件操作</strong></p>
-<div class="highlight"><pre><span></span><code>FILE *fp = fopen(&quot;data.txt&quot;, &quot;r&quot;);  
+<div class="highlight"><pre><span></span><code>FILE *fp = fopen("data.txt", "r");  
 if(fp == NULL) { return -1; }  
-fprintf(fp, &quot;Hello&quot;);  
+fprintf(fp, "Hello");  
 fclose(fp);
 </code></pre></div>
 
@@ -1471,7 +1471,7 @@ fclose(fp);
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nx">ctypes</span><span class="w">  </span>
-<span class="nx">lib</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">ctypes</span><span class="p">.</span><span class="nx">CDLL</span><span class="p">(</span><span class="s">&quot;./mylib.so&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="nx">lib</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">ctypes</span><span class="p">.</span><span class="nx">CDLL</span><span class="p">(</span><span class="s">"./mylib.so"</span><span class="p">)</span><span class="w">  </span>
 <span class="nx">lib</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">restype</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">ctypes</span><span class="p">.</span><span class="nx">c_int</span>
 </code></pre></div>
 

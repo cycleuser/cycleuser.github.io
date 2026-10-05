@@ -222,11 +222,11 @@ Device: CPU (cpu, unknown)
 <p>另外还可以在Python里面运行，以下是Python示例代码：</p>
 <div class="highlight"><pre><span></span><code><span class="nx">from</span><span class="w"> </span><span class="nx">openai</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="nx">OpenAI</span>
 
-<span class="nx">client</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">OpenAI</span><span class="p">(</span><span class="nx">base_url</span><span class="p">=</span><span class="s">&quot;http://localhost:8080/v1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">api_key</span><span class="p">=</span><span class="s">&quot;none&quot;</span><span class="p">)</span>
+<span class="nx">client</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">OpenAI</span><span class="p">(</span><span class="nx">base_url</span><span class="p">=</span><span class="s">"http://localhost:8080/v1"</span><span class="p">,</span><span class="w"> </span><span class="nx">api_key</span><span class="p">=</span><span class="s">"none"</span><span class="p">)</span>
 
 <span class="nx">response</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">chat</span><span class="p">.</span><span class="nx">completions</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
-<span class="w">    </span><span class="nx">model</span><span class="p">=</span><span class="s">&quot;llama&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">messages</span><span class="p">=[{</span><span class="s">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;用Python写一个快速排序算法&quot;</span><span class="p">}]</span>
+<span class="w">    </span><span class="nx">model</span><span class="p">=</span><span class="s">"llama"</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">messages</span><span class="p">=[{</span><span class="s">"role"</span><span class="p">:</span><span class="w"> </span><span class="s">"user"</span><span class="p">,</span><span class="w"> </span><span class="s">"content"</span><span class="p">:</span><span class="w"> </span><span class="s">"用Python写一个快速排序算法"</span><span class="p">}]</span>
 <span class="p">)</span>
 
 <span class="nx">print</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">message</span><span class="p">.</span><span class="nx">content</span><span class="p">)</span>

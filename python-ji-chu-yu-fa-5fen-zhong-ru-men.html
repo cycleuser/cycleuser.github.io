@@ -129,38 +129,38 @@
 <hr>
 <h2>1. 基本数据类型</h2>
 <p>Python 内置多种基本数据类型，如整数、浮点数、字符串和布尔值。</p>
-<div class="highlight"><pre><span></span><code><span class="nx">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span><span class="w">          </span><span class="err">#</span><span class="w"> </span><span class="nx">整数</span><span class="w"> </span><span class="nx">intb</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m m-Double">3.14</span><span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nx">浮点数</span><span class="w"> </span><span class="nx">floatc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="w">     </span><span class="err">#</span><span class="w"> </span><span class="nx">字符串</span><span class="w"> </span><span class="nx">strd</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">True</span><span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nx">布尔值</span><span class="w"> </span><span class="nx">boole</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">None</span><span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nx">空值</span><span class="w"> </span><span class="nx">NoneTypeprint</span><span class="p">(</span><span class="k">type</span><span class="p">(</span><span class="nx">a</span><span class="p">))</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="nx">输出</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;</span><span class="kd">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">int</span><span class="err">&#39;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nx">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span><span class="w">          </span><span class="err">#</span><span class="w"> </span><span class="nx">整数</span><span class="w"> </span><span class="nx">intb</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m m-Double">3.14</span><span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nx">浮点数</span><span class="w"> </span><span class="nx">floatc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">"Hello"</span><span class="w">     </span><span class="err">#</span><span class="w"> </span><span class="nx">字符串</span><span class="w"> </span><span class="nx">strd</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">True</span><span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nx">布尔值</span><span class="w"> </span><span class="nx">boole</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">None</span><span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nx">空值</span><span class="w"> </span><span class="nx">NoneTypeprint</span><span class="p">(</span><span class="k">type</span><span class="p">(</span><span class="nx">a</span><span class="p">))</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="nx">输出</span><span class="p">:</span><span class="w"> </span><span class="p">&lt;</span><span class="kd">class</span><span class="w"> </span><span class="err">'</span><span class="nx">int</span><span class="err">'</span><span class="p">&gt;</span>
 </code></pre></div>
 
 <hr>
 <h2>2. 容器类型：列表、元组、字典、集合</h2>
 <p>Python 提供四种常用容器类型，用于组织多个数据。</p>
-<div class="highlight"><pre><span></span><code>lst = [1, 2, 3]           # 列表，可变tup = (4, 5, 6)           # 元组，不可变dic = {&quot;name&quot;: &quot;Alice&quot;}   # 字典，键值对st = {7, 8, 9}            # 集合，无序且唯一print(lst[0], tup[1])     # 输出: 1 5
+<div class="highlight"><pre><span></span><code>lst = [1, 2, 3]           # 列表，可变tup = (4, 5, 6)           # 元组，不可变dic = {"name": "Alice"}   # 字典，键值对st = {7, 8, 9}            # 集合，无序且唯一print(lst[0], tup[1])     # 输出: 1 5
 </code></pre></div>
 
 <hr>
 <h2>3. 索引与切片</h2>
 <p>字符串、列表和元组支持通过索引访问元素，也可使用切片获取子序列。</p>
-<div class="highlight"><pre><span></span><code>s = &quot;Python&quot;nums = [10, 20, 30, 40]print(s[0])      # Pprint(nums[-1])  # 40（倒数第一个）print(s[1:4])    # yth（从索引1到3）print(nums[::2]) # [10, 30]（每隔一个）
+<div class="highlight"><pre><span></span><code>s = "Python"nums = [10, 20, 30, 40]print(s[0])      # Pprint(nums[-1])  # 40（倒数第一个）print(s[1:4])    # yth（从索引1到3）print(nums[::2]) # [10, 30]（每隔一个）
 </code></pre></div>
 
 <hr>
 <h2>4. 条件语句（if/elif/else）</h2>
 <p>根据条件执行不同代码块，是程序控制流的基础。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="nv">if</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>:<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;正数&quot;</span><span class="ss">)</span><span class="nv">elif</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span>:<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;零&quot;</span><span class="ss">)</span><span class="k">else</span>:<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;负数&quot;</span><span class="ss">)</span>#<span class="w"> </span>输出:<span class="w"> </span>正数
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="nv">if</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>:<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="s2">"正数"</span><span class="ss">)</span><span class="nv">elif</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span>:<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="s2">"零"</span><span class="ss">)</span><span class="k">else</span>:<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="s2">"负数"</span><span class="ss">)</span>#<span class="w"> </span>输出:<span class="w"> </span>正数
 </code></pre></div>
 
 <hr>
 <h2>5. 循环语句（for 和 while）</h2>
 <p><code>for</code> 用于遍历序列，<code>while</code> 在条件为真时重复执行。</p>
 <div class="highlight"><pre><span></span><code>#<span class="w"> </span><span class="k">for</span><span class="w"> </span>循环<span class="nv">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">range</span><span class="ss">(</span><span class="mi">3</span><span class="ss">)</span>:<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span><span class="w">  </span>#<span class="w"> </span>输出<span class="w"> </span><span class="mi">0</span>,<span class="w"> </span><span class="mi">1</span>,<span class="w"> </span><span class="mi">2</span>
-#<span class="w"> </span><span class="k">while</span><span class="w"> </span>循环<span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="nv">while</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span>:<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;Hi&quot;</span><span class="ss">)</span><span class="w">    </span><span class="nv">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+#<span class="w"> </span><span class="k">while</span><span class="w"> </span>循环<span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="nv">while</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span>:<span class="w">    </span><span class="nv">print</span><span class="ss">(</span><span class="s2">"Hi"</span><span class="ss">)</span><span class="w">    </span><span class="nv">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
 </code></pre></div>
 
 <hr>
 <h2>6. 函数定义与调用</h2>
 <p>使用 <code>def</code> 关键字定义函数，通过函数名加括号来调用。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">def</span><span class="w"> </span><span class="nv">greet</span><span class="ss">()</span>:<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;Hello, world!&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">def</span><span class="w"> </span><span class="nv">greet</span><span class="ss">()</span>:<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">"Hello, world!"</span>
 <span class="nv">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">greet</span><span class="ss">()</span><span class="nv">print</span><span class="ss">(</span><span class="nv">message</span><span class="ss">)</span><span class="w">  </span>#<span class="w"> </span><span class="nv">Hello</span>,<span class="w"> </span><span class="nv">world</span><span class="o">!</span>
 </code></pre></div>
 
@@ -188,7 +188,7 @@ low, high = min_max([1, 5, 3])print(low, high)  # 1 5
 <hr>
 <h2>10. 异常处理</h2>
 <p>使用 <code>try...except</code> 捕获并处理运行时错误，避免程序崩溃。</p>
-<div class="highlight"><pre><span></span><code>try:    result = 10 / 0except ZeroDivisionError:    print(&quot;不能除以零！&quot;)# 输出: 不能除以零！
+<div class="highlight"><pre><span></span><code>try:    result = 10 / 0except ZeroDivisionError:    print("不能除以零！")# 输出: 不能除以零！
 </code></pre></div>
 
 <hr>

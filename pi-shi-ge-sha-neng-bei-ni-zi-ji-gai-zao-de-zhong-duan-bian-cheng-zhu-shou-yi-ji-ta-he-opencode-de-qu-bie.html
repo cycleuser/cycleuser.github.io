@@ -235,7 +235,7 @@ pi
 <div class="highlight"><pre><span></span><code>pi<span class="w"> </span>-c<span class="w">                  </span><span class="c1"># 继续最近一次会话</span>
 pi<span class="w"> </span>-r<span class="w">                  </span><span class="c1"># 浏览挑一个历史会话</span>
 pi<span class="w"> </span>--no-session<span class="w">        </span><span class="c1"># 临时模式，不保存</span>
-pi<span class="w"> </span>--name<span class="w"> </span><span class="s2">&quot;my task&quot;</span><span class="w">    </span><span class="c1"># 起个名字</span>
+pi<span class="w"> </span>--name<span class="w"> </span><span class="s2">"my task"</span><span class="w">    </span><span class="c1"># 起个名字</span>
 pi<span class="w"> </span>--fork<span class="w"> </span>&lt;path<span class="p">|</span>id&gt;<span class="w">    </span><span class="c1"># 从某个会话分叉出来</span>
 </code></pre></div>
 
@@ -262,12 +262,12 @@ pi<span class="w"> </span>config<span class="w">        </span><span class="c1">
 <h2>除了交互模式，还能当积木用</h2>
 <p>pi 不只是个给人用的 TUI，它还有几种程序化的用法。</p>
 <p>比如打印模式，跑完就退，适合写脚本：</p>
-<div class="highlight"><pre><span></span><code>pi<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;总结一下这个代码库&quot;</span>
-cat<span class="w"> </span>README.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>pi<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;把这段文字总结一下&quot;</span>
+<div class="highlight"><pre><span></span><code>pi<span class="w"> </span>-p<span class="w"> </span><span class="s2">"总结一下这个代码库"</span>
+cat<span class="w"> </span>README.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>pi<span class="w"> </span>-p<span class="w"> </span><span class="s2">"把这段文字总结一下"</span>
 </code></pre></div>
 
 <p>再比如 JSON 模式，所有事件按 JSON 行输出，方便别的程序解析；还有 RPC 模式，走 stdin/stdout，给非 Node 的进程集成用。最后它本身就是个 SDK，可以在自己的 TypeScript 程序里直接把它嵌进去：</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createAgentSession</span><span class="p">,</span><span class="w"> </span><span class="nx">ModelRuntime</span><span class="p">,</span><span class="w"> </span><span class="nx">SessionManager</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@earendil-works/pi-coding-agent&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createAgentSession</span><span class="p">,</span><span class="w"> </span><span class="nx">ModelRuntime</span><span class="p">,</span><span class="w"> </span><span class="nx">SessionManager</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"@earendil-works/pi-coding-agent"</span><span class="p">;</span>
 </code></pre></div>
 
 <p>要让它遵守项目里的规矩，就在项目根目录放个 <code>AGENTS.md</code>（或者 <code>CLAUDE.md</code>），pi 启动会自动读。想整个换掉系统提示词，用 <code>.pi/SYSTEM.md</code>。</p>

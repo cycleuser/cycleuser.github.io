@@ -170,28 +170,28 @@
 </code></pre></div>
 
 <p>然后我们要创建一个 GLSL 程序，用来显示这个四边形。这就要我们先来写一个顶点（vertex）和一个片段着色器（fragment shader），这两个是要用来告诉 OpenGL 要绘制什么，以及如何绘制。目前你还不用纠结去理解这些名词概念和细节，但是要注意到一个重要的点，就是这些 OpenGL 程序都是文本形式的字符串（text strings）。</p>
-<div class="highlight"><pre><span></span><code><span class="n">vertex</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">vertex</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">         attribute vec2 position;</span>
 <span class="s2">         void main()</span>
 <span class="s2">         {</span>
 <span class="s2">             gl_Position = vec4(position, 0.0, 1.0);</span>
-<span class="s2">         } &quot;&quot;&quot;</span>
+<span class="s2">         } """</span>
 
-<span class="n">fragment</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="n">fragment</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">           uniform vec4 color;</span>
 <span class="s2">           void main() {</span>
 <span class="s2">               gl_FragColor = color;</span>
-<span class="s2">           } &quot;&quot;&quot;</span>
+<span class="s2">           } """</span>
 
 <span class="n">quad</span> <span class="o">=</span> <span class="n">gloo</span><span class="o">.</span><span class="n">Program</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">fragment</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div>
 
 <p>gloo 界面的一个好处就是可以直接上传使用非常直观易于人类理解的记号来表达的数据给 GPU（图形处理单元）。position 参数直接关联到了顶点着色器（vertex shader）的位置属性，而 color 参数则直接关联了片段着色器（fragment shader）中的颜色分布。</p>
-<div class="highlight"><pre><span></span><code><span class="n">quad</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span>
+<div class="highlight"><pre><span></span><code><span class="n">quad</span><span class="p">[</span><span class="s1">'position'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span>
                     <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">+</span><span class="mf">0.5</span><span class="p">),</span>
                     <span class="p">(</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span>
                     <span class="p">(</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">+</span><span class="mf">0.5</span><span class="p">)]</span>
-<span class="n">quad</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span>  <span class="c1"># 红色</span>
+<span class="n">quad</span><span class="p">[</span><span class="s1">'color'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span>  <span class="c1"># 红色</span>
 </code></pre></div>
 
 <p>最后，在 on_draw() 方法中通过 gl.GL_TRIANGLE_STRIP 来渲染这个四边形。代码如下所示：</p>
@@ -205,14 +205,14 @@
 
 <h2>生成动画</h2>
 <p>动画（animation）其实只是每个时间步长中对显示内容逐渐调整而实现的。我们还利用上面的四边形这个例子，让这个四边形随着时间而扩大和缩小。第一步需要在 on_draw() 函数中提供 dt 这个参数来跟踪记录时间，这个 dt 参数给出的是自从上次调用之后经过的时间。接下来我们首先要对顶点着色器的代码进行修改，使四边形的坐标随着时间变量的正弦值而变化。</p>
-<div class="highlight"><pre><span></span><code><span class="n">vertex</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">vertex</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">         uniform float time;</span>
 <span class="s2">         attribute vec2 position;</span>
 <span class="s2">         void main()</span>
 <span class="s2">         {</span>
 <span class="s2">             vec2 xy = vec2(sin(2.0*time));</span>
 <span class="s2">             gl_Position = vec4(position*(0.25 + 0.75*xy*xy), 0.0, 1.0);</span>
-<span class="s2">         } &quot;&quot;&quot;</span>
+<span class="s2">         } """</span>
 
 <span class="n">quad</span> <span class="o">=</span> <span class="n">gloo</span><span class="o">.</span><span class="n">Program</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">fragment</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div>
@@ -221,12 +221,12 @@
 <div class="highlight"><pre><span></span><code><span class="nd">@window</span><span class="o">.</span><span class="n">event</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">on_draw</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
     <span class="n">window</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-    <span class="n">quad</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span>
+    <span class="n">quad</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span>
     <span class="n">quad</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">gl</span><span class="o">.</span><span class="n">GL_TRIANGLE_STRIP</span><span class="p">)</span>
 
-<span class="n">quad</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="n">quad</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span>
-<span class="n">quad</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">quad</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">quad</span><span class="p">[</span><span class="s1">'color'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">quad</span><span class="p">[</span><span class="s1">'position'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </code></pre></div>
 

@@ -140,7 +140,7 @@
 <h2>上面的方法是安装最新版本，也可以安装一个稍微旧点的稳定版： 建议使用镜像源加速安装： <code>pip install LLaMAFactory -i https://pypi.tuna.tsinghua.edu.cn/simple</code></h2>
 <h2>二、取消所有代理设置（关键步骤）</h2>
 <p>由于某些系统或 shell 配置中可能残留代理设置（如 <code>socks://</code>），会导致 <code>httpx</code> 报错：</p>
-<div class="highlight"><pre><span></span><code><span class="nv">ValueError</span>:<span class="w"> </span><span class="nv">Unknown</span><span class="w"> </span><span class="nv">scheme</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">proxy</span><span class="w"> </span><span class="nv">URL</span><span class="w"> </span><span class="nv">URL</span><span class="ss">(</span><span class="s1">&#39;socks://127.0.0.1:7897/&#39;</span><span class="ss">)</span>
+<div class="highlight"><pre><span></span><code><span class="nv">ValueError</span>:<span class="w"> </span><span class="nv">Unknown</span><span class="w"> </span><span class="nv">scheme</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">proxy</span><span class="w"> </span><span class="nv">URL</span><span class="w"> </span><span class="nv">URL</span><span class="ss">(</span><span class="s1">'socks://127.0.0.1:7897/'</span><span class="ss">)</span>
 </code></pre></div>
 
 <p>为确保 Web UI 正常启动，请执行以下命令彻底清除所有代理环境变量：</p>
@@ -150,7 +150,7 @@
 
 <p>如果输出为空，说明代理已完全清除。
 否则，请检查 <code>~/.bashrc</code>、<code>~/.zshrc</code> 或 <code>~/.profile</code> 文件中是否有类似：</p>
-<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="n">all_proxy</span><span class="o">=</span><span class="s2">&quot;socks://127.0.0.1:7897&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="n">all_proxy</span><span class="o">=</span><span class="s2">"socks://127.0.0.1:7897"</span>
 </code></pre></div>
 
 <p>将其删除或改为正确的格式（如 <code>socks5://</code>），然后重新加载配置：</p>

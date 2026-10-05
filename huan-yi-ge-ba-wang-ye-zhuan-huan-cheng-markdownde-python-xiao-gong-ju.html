@@ -146,11 +146,11 @@ pip install -e .
 </code></pre></div>
 
 <p>建议额外安装 readability-lxml 来获得更好的正文提取质量：</p>
-<div class="highlight"><pre><span></span><code><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="ss">&quot;.[readability]&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="ss">".[readability]"</span>
 </code></pre></div>
 
 <p>如果目标网站用了大量 JavaScript 渲染，可以用浏览器后端：</p>
-<div class="highlight"><pre><span></span><code><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="ss">&quot;.[browser]&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="ss">".[browser]"</span>
 <span class="n">huan</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">geopytool</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="c1">--fetcher browser</span>
 </code></pre></div>
 
@@ -158,12 +158,12 @@ pip install -e .
 <div class="highlight"><pre><span></span><code><span class="n">from</span><span class="w"> </span><span class="n">huan</span><span class="w"> </span><span class="n">import</span><span class="w"> </span><span class="n">SiteCrawler</span>
 
 <span class="n">converter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SiteCrawler</span><span class="p">(</span>
-<span class="w">    </span><span class="n">start_url</span><span class="o">=</span><span class="s2">&quot;https://geopytool.com&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;./archive&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">start_url</span><span class="o">=</span><span class="s2">"https://geopytool.com"</span><span class="p">,</span>
+<span class="w">    </span><span class="n">output_dir</span><span class="o">=</span><span class="s2">"./archive"</span><span class="p">,</span>
 <span class="w">    </span><span class="n">max_pages</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-<span class="w">    </span><span class="n">fetcher_type</span><span class="o">=</span><span class="s2">&quot;browser&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">fetcher_type</span><span class="o">=</span><span class="s2">"browser"</span><span class="p">,</span>
 <span class="w">    </span><span class="n">download_images</span><span class="o">=</span><span class="n">True</span><span class="p">,</span>
-<span class="w">    </span><span class="n">extractor</span><span class="o">=</span><span class="s2">&quot;readability&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">extractor</span><span class="o">=</span><span class="s2">"readability"</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">converter</span><span class="o">.</span><span class="n">crawl</span><span class="p">()</span>
 </code></pre></div>

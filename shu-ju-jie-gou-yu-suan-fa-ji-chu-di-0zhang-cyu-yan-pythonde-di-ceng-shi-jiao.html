@@ -148,9 +148,9 @@
 <span class="w">    </span><span class="nb">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="nb">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;变量a: 值=%d, 地址=%p\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;变量b: 值=%d, 地址=%p\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;变量c: 值=%d, 地址=%p\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">c</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"变量a: 值=%d, 地址=%p\n"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"变量b: 值=%d, 地址=%p\n"</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"变量c: 值=%d, 地址=%p\n"</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">c</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span>
 <span class="p">}</span>
@@ -158,11 +158,11 @@
 
 <p>运行这段程序，你会看到每个变量都有一个不同的地址。在大多数系统中，int类型占4个字节，相邻变量的地址通常相差4。地址用十六进制表示，如<code>0x7fff5fbff8ac</code>。</p>
 <p>取地址运算符<code>&amp;</code>可以获取任何变量的地址。这与Python中的<code>id()</code>函数类似：</p>
-<div class="highlight"><pre><span></span><code># Python中查看对象的&quot;地址&quot;  
+<div class="highlight"><pre><span></span><code># Python中查看对象的"地址"  
 a = 10  
 b = 20  
-print(f&quot;a的id: {id(a)}&quot;)  
-print(f&quot;b的id: {id(b)}&quot;)
+print(f"a的id: {id(a)}")  
+print(f"b的id: {id(b)}")
 </code></pre></div>
 
 <p>Python的<code>id()</code>返回的是对象的标识符，在CPython实现中就是对象的内存地址。</p>
@@ -171,12 +171,12 @@ print(f&quot;b的id: {id(b)}&quot;)
 #<span class="n">include</span><span class="w"> </span><span class="o">&lt;</span><span class="n">stdio</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span><span class="w">  </span>
 
 <span class="nb">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;char:   %zu 字节\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sizeof</span><span class="p">(</span><span class="nb">char</span><span class="p">));</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;short:  %zu 字节\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sizeof</span><span class="p">(</span><span class="n">short</span><span class="p">));</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;int:    %zu 字节\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="p">));</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;long:   %zu 字节\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sizeof</span><span class="p">(</span><span class="n">long</span><span class="p">));</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;float:  %zu 字节\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sizeof</span><span class="p">(</span><span class="n">float</span><span class="p">));</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;double: %zu 字节\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sizeof</span><span class="p">(</span><span class="nb">double</span><span class="p">));</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"char:   %zu 字节\n"</span><span class="p">,</span><span class="w"> </span><span class="n">sizeof</span><span class="p">(</span><span class="nb">char</span><span class="p">));</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"short:  %zu 字节\n"</span><span class="p">,</span><span class="w"> </span><span class="n">sizeof</span><span class="p">(</span><span class="n">short</span><span class="p">));</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"int:    %zu 字节\n"</span><span class="p">,</span><span class="w"> </span><span class="n">sizeof</span><span class="p">(</span><span class="nb">int</span><span class="p">));</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"long:   %zu 字节\n"</span><span class="p">,</span><span class="w"> </span><span class="n">sizeof</span><span class="p">(</span><span class="n">long</span><span class="p">));</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"float:  %zu 字节\n"</span><span class="p">,</span><span class="w"> </span><span class="n">sizeof</span><span class="p">(</span><span class="n">float</span><span class="p">));</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"double: %zu 字节\n"</span><span class="p">,</span><span class="w"> </span><span class="n">sizeof</span><span class="p">(</span><span class="nb">double</span><span class="p">));</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span>
 <span class="p">}</span>
@@ -194,15 +194,15 @@ print(f&quot;b的id: {id(b)}&quot;)
 <span class="w">    </span><span class="nb">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="nb">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">num</span><span class="p">;</span><span class="w">    </span><span class="o">/*</span><span class="w"> </span><span class="n">ptr存储num的地址</span><span class="w"> </span><span class="o">*/</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;num的值: %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;num的地址: %p\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">num</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;ptr的值(存储的地址): %p\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)</span><span class="n">ptr</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;ptr指向的值: %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"num的值: %d\n"</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"num的地址: %p\n"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">num</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"ptr的值(存储的地址): %p\n"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)</span><span class="n">ptr</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"ptr指向的值: %d\n"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="o">/*</span><span class="w"> </span>通过指针修改值<span class="w"> </span><span class="o">*/</span><span class="w">  </span>
 <span class="w">    </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;\n通过指针修改后:\n&quot;</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;num的值: %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"\n通过指针修改后:\n"</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"num的值: %d\n"</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="n">return0</span><span class="p">;</span><span class="w">  </span>
 <span class="p">}</span>
@@ -239,15 +239,15 @@ print(a)        # [1, 2, 3, 4] - a也被修改了
 <span class="w">    </span><span class="nc">int</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">5</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="err">}</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="nc">int</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">;</span><span class="w">     </span><span class="cm">/* ptr指向arr[0] */</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;数组元素访问:\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">"数组元素访问:\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nc">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;  arr[%d] = %d, *(ptr + %d) = %d\n&quot;</span><span class="p">,</span><span class="w">   </span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">"  arr[%d] = %d, *(ptr + %d) = %d\n"</span><span class="p">,</span><span class="w">   </span>
 <span class="w">               </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">));</span><span class="w">  </span>
 <span class="w">    </span><span class="err">}</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;\n指针运算:\n&quot;</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;  arr的地址: %p\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)</span><span class="n">arr</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;  arr+1的地址: %p (增加了%d字节)\n&quot;</span><span class="p">,</span><span class="w">   </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">"\n指针运算:\n"</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">"  arr的地址: %p\n"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)</span><span class="n">arr</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">"  arr+1的地址: %p (增加了%d字节)\n"</span><span class="p">,</span><span class="w">   </span>
 <span class="w">           </span><span class="p">(</span><span class="n">void</span><span class="o">*</span><span class="p">)(</span><span class="n">arr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="nc">int</span><span class="p">)((</span><span class="nc">char</span><span class="o">*</span><span class="p">)(</span><span class="n">arr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="nc">char</span><span class="o">*</span><span class="p">)</span><span class="n">arr</span><span class="p">));</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="n">return0</span><span class="p">;</span><span class="w">  </span>
@@ -260,12 +260,12 @@ print(a)        # [1, 2, 3, 4] - a也被修改了
 #<span class="n">include</span><span class="w"> </span><span class="o">&lt;</span><span class="n">stdio</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span><span class="w">  </span>
 
 <span class="n">void</span><span class="w"> </span><span class="n">print_with_pointer</span><span class="p">(</span><span class="nb">int</span><span class="w"> </span><span class="o">*</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="nb">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;使用指针遍历: &quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"使用指针遍历: "</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nb">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">arr</span><span class="p">);</span><span class="w">    </span><span class="o">/*</span><span class="w"> </span>解引用<span class="w"> </span><span class="o">*/</span><span class="w">  </span>
+<span class="w">        </span><span class="nb">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">arr</span><span class="p">);</span><span class="w">    </span><span class="o">/*</span><span class="w"> </span>解引用<span class="w"> </span><span class="o">*/</span><span class="w">  </span>
 <span class="w">        </span><span class="n">arr</span><span class="o">++</span><span class="p">;</span><span class="w">                   </span><span class="o">/*</span><span class="w"> </span>移动到下一个元素<span class="w"> </span><span class="o">*/</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 
 <span class="nb">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
@@ -286,7 +286,7 @@ print(a)        # [1, 2, 3, 4] - a也被修改了
 <span class="w">    </span><span class="nc">int</span><span class="w"> </span><span class="o">*</span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nc">int</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sizeof</span><span class="p">(</span><span class="nc">int</span><span class="p">));</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;内存分配失败\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">"内存分配失败\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="n">return1</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="err">}</span><span class="w">  </span>
 <span class="w">      </span>
@@ -295,11 +295,11 @@ print(a)        # [1, 2, 3, 4] - a也被修改了
 <span class="w">        </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="err">}</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;动态数组内容: &quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">"动态数组内容: "</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nc">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">"%d "</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="err">}</span><span class="w">  </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">"\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="cm">/* 扩展数组 */</span><span class="w">  </span>
 <span class="w">    </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nc">int</span><span class="o">*</span><span class="p">)</span><span class="n">realloc</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sizeof</span><span class="p">(</span><span class="nc">int</span><span class="p">));</span><span class="w">  </span>
@@ -307,11 +307,11 @@ print(a)        # [1, 2, 3, 4] - a也被修改了
 <span class="w">        </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="err">}</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;扩展后内容: &quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">"扩展后内容: "</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nc">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">"%d "</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="err">}</span><span class="w">  </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">"\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="cm">/* 释放内存 */</span><span class="w">  </span>
 <span class="w">    </span><span class="k">free</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span><span class="w">  </span>
@@ -339,7 +339,7 @@ print(a)        # [1, 2, 3, 4] - a也被修改了
 <span class="nx">Node</span><span class="o">*</span><span class="w"> </span><span class="nx">create_node</span><span class="p">(</span><span class="nx">int</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">Node</span><span class="w"> </span><span class="o">*</span><span class="nx">new_node</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="nx">Node</span><span class="o">*</span><span class="p">)</span><span class="nx">malloc</span><span class="p">(</span><span class="nx">sizeof</span><span class="p">(</span><span class="nx">Node</span><span class="p">));</span><span class="w">  </span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">new_node</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;内存分配失败\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">printf</span><span class="p">(</span><span class="s">"内存分配失败\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="nx">returnNULL</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">new_node</span><span class="o">-&gt;</span><span class="nx">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">data</span><span class="p">;</span><span class="w">  </span>
@@ -360,20 +360,20 @@ print(a)        # [1, 2, 3, 4] - a也被修改了
 <span class="w">      </span>
 <span class="w">    </span><span class="cm">/* 遍历链表 */</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">Node</span><span class="w"> </span><span class="o">*</span><span class="nx">current</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">n1</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;链表内容: &quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"链表内容: "</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">current</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">current</span><span class="o">-&gt;</span><span class="nx">data</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span><span class="w"> </span><span class="nx">current</span><span class="o">-&gt;</span><span class="nx">data</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="nx">current</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">current</span><span class="o">-&gt;</span><span class="nx">next</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="cm">/* 打印节点信息 */</span><span class="w">  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;\n节点详细信息:\n&quot;</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;节点1: 地址=%p, 数据=%d, next=%p\n&quot;</span><span class="p">,</span><span class="w">   </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"\n节点详细信息:\n"</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"节点1: 地址=%p, 数据=%d, next=%p\n"</span><span class="p">,</span><span class="w">   </span>
 <span class="w">           </span><span class="p">(</span><span class="nx">void</span><span class="o">*</span><span class="p">)</span><span class="nx">n1</span><span class="p">,</span><span class="w"> </span><span class="nx">n1</span><span class="o">-&gt;</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">void</span><span class="o">*</span><span class="p">)</span><span class="nx">n1</span><span class="o">-&gt;</span><span class="nx">next</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;节点2: 地址=%p, 数据=%d, next=%p\n&quot;</span><span class="p">,</span><span class="w">   </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"节点2: 地址=%p, 数据=%d, next=%p\n"</span><span class="p">,</span><span class="w">   </span>
 <span class="w">           </span><span class="p">(</span><span class="nx">void</span><span class="o">*</span><span class="p">)</span><span class="nx">n2</span><span class="p">,</span><span class="w"> </span><span class="nx">n2</span><span class="o">-&gt;</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">void</span><span class="o">*</span><span class="p">)</span><span class="nx">n2</span><span class="o">-&gt;</span><span class="nx">next</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;节点3: 地址=%p, 数据=%d, next=%p\n&quot;</span><span class="p">,</span><span class="w">   </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"节点3: 地址=%p, 数据=%d, next=%p\n"</span><span class="p">,</span><span class="w">   </span>
 <span class="w">           </span><span class="p">(</span><span class="nx">void</span><span class="o">*</span><span class="p">)</span><span class="nx">n3</span><span class="p">,</span><span class="w"> </span><span class="nx">n3</span><span class="o">-&gt;</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">void</span><span class="o">*</span><span class="p">)</span><span class="nx">n3</span><span class="o">-&gt;</span><span class="nx">next</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="cm">/* 释放内存 */</span><span class="w">  </span>
@@ -487,12 +487,12 @@ print(a)        # [1, 2, 3, 4] - a也被修改了
 
 <span class="cm">/* 打印链表 */</span><span class="w">  </span>
 <span class="nx">void</span><span class="w"> </span><span class="nx">print_list</span><span class="p">(</span><span class="nx">Node</span><span class="w"> </span><span class="o">*</span><span class="nx">head</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;链表: &quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"链表: "</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">head</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;%d -&gt; &quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">head</span><span class="o">-&gt;</span><span class="nx">data</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">printf</span><span class="p">(</span><span class="s">"%d -&gt; "</span><span class="p">,</span><span class="w"> </span><span class="nx">head</span><span class="o">-&gt;</span><span class="nx">data</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="nx">head</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">head</span><span class="o">-&gt;</span><span class="nx">next</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;NULL\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"NULL\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 
 <span class="cm">/* 获取链表长度 */</span><span class="w">  </span>
@@ -518,26 +518,26 @@ print(a)        # [1, 2, 3, 4] - a也被修改了
 <span class="nx">int</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">Node</span><span class="w"> </span><span class="o">*</span><span class="nx">head</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">NULL</span><span class="p">;</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;=== 构建链表 ===\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"=== 构建链表 ===\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">insert_back</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">head</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">insert_back</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">head</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">insert_back</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">head</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">insert_front</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">head</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">print_list</span><span class="p">(</span><span class="nx">head</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;长度: %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">get_length</span><span class="p">(</span><span class="nx">head</span><span class="p">));</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"长度: %d\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">get_length</span><span class="p">(</span><span class="nx">head</span><span class="p">));</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;\n=== 在位置2插入15 ===\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"\n=== 在位置2插入15 ===\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">insert_at</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">head</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">print_list</span><span class="p">(</span><span class="nx">head</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;\n=== 删除值为20的节点 ===\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"\n=== 删除值为20的节点 ===\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">delete_node</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">head</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">print_list</span><span class="p">(</span><span class="nx">head</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;\n=== 查找节点 ===\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"\n=== 查找节点 ===\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">Node</span><span class="w"> </span><span class="o">*</span><span class="nx">found</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">search</span><span class="p">(</span><span class="nx">head</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">found</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;找到节点，值=%d，地址=%p\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">found</span><span class="o">-&gt;</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">void</span><span class="o">*</span><span class="p">)</span><span class="nx">found</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="nx">printf</span><span class="p">(</span><span class="s">"找到节点，值=%d，地址=%p\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">found</span><span class="o">-&gt;</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">void</span><span class="o">*</span><span class="p">)</span><span class="nx">found</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="nx">free_list</span><span class="p">(</span><span class="nx">head</span><span class="p">);</span><span class="w">  </span>
@@ -606,18 +606,18 @@ print(a)        # [1, 2, 3, 4] - a也被修改了
 
 <span class="o">/*</span><span class="w"> </span>正向遍历<span class="w"> </span><span class="o">*/</span><span class="w">  </span>
 <span class="n">void</span><span class="w"> </span><span class="nf">dlist_print_forward</span><span class="p">(</span><span class="n">DNode</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">    </span><span class="nf">printf</span><span class="p">(</span><span class="s">&quot;正向: &quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nf">printf</span><span class="p">(</span><span class="s">"正向: "</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="kr">while</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="nf">printf</span><span class="p">(</span><span class="s">&quot;%d &lt;-&gt; &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">head</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="nf">printf</span><span class="p">(</span><span class="s">"%d &lt;-&gt; "</span><span class="p">,</span><span class="w"> </span><span class="n">head</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="o">-&gt;</span><span class="kr">next</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<span class="w">    </span><span class="nf">printf</span><span class="p">(</span><span class="s">&quot;NULL\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nf">printf</span><span class="p">(</span><span class="s">"NULL\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 
 <span class="o">/*</span><span class="w"> </span>反向遍历<span class="w"> </span><span class="o">*/</span><span class="w">  </span>
 <span class="n">void</span><span class="w"> </span><span class="nf">dlist_print_backward</span><span class="p">(</span><span class="n">DNode</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="nf">printf</span><span class="p">(</span><span class="s">&quot;反向: NULL\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="nf">printf</span><span class="p">(</span><span class="s">"反向: NULL\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="kr">return</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
 <span class="w">      </span>
@@ -626,12 +626,12 @@ print(a)        # [1, 2, 3, 4] - a也被修改了
 <span class="w">        </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="o">-&gt;</span><span class="kr">next</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nf">printf</span><span class="p">(</span><span class="s">&quot;反向: &quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nf">printf</span><span class="p">(</span><span class="s">"反向: "</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="kr">while</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="nf">printf</span><span class="p">(</span><span class="s">&quot;%d &lt;-&gt; &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">head</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="nf">printf</span><span class="p">(</span><span class="s">"%d &lt;-&gt; "</span><span class="p">,</span><span class="w"> </span><span class="n">head</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="o">-&gt;</span><span class="n">prev</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<span class="w">    </span><span class="nf">printf</span><span class="p">(</span><span class="s">&quot;NULL\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nf">printf</span><span class="p">(</span><span class="s">"NULL\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 
 <span class="o">/*</span><span class="w"> </span>删除节点<span class="w"> </span><span class="o">*/</span><span class="w">  </span>
@@ -673,7 +673,7 @@ print(a)        # [1, 2, 3, 4] - a也被修改了
 <span class="n">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">    </span><span class="n">DNode</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">;</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nf">printf</span><span class="p">(</span><span class="s">&quot;=== 构建双向链表 ===\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nf">printf</span><span class="p">(</span><span class="s">"=== 构建双向链表 ===\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nf">dlist_insert_back</span><span class="p">(</span><span class="o">&amp;</span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nf">dlist_insert_back</span><span class="p">(</span><span class="o">&amp;</span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nf">dlist_insert_back</span><span class="p">(</span><span class="o">&amp;</span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="m">30</span><span class="p">);</span><span class="w">  </span>
@@ -682,7 +682,7 @@ print(a)        # [1, 2, 3, 4] - a也被修改了
 <span class="w">    </span><span class="nf">dlist_print_forward</span><span class="p">(</span><span class="n">head</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nf">dlist_print_backward</span><span class="p">(</span><span class="n">head</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nf">printf</span><span class="p">(</span><span class="s">&quot;\n=== 删除值为20的节点 ===\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nf">printf</span><span class="p">(</span><span class="s">"\n=== 删除值为20的节点 ===\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nf">dlist_delete</span><span class="p">(</span><span class="o">&amp;</span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nf">dlist_print_forward</span><span class="p">(</span><span class="n">head</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nf">dlist_print_backward</span><span class="p">(</span><span class="n">head</span><span class="p">);</span><span class="w">  </span>
@@ -760,9 +760,9 @@ print(a)        # [1, 2, 3, 4] - a也被修改了
     <span class="n">def</span> <span class="n">print_list</span>(<span class="nb">self</span>):  
         <span class="n">current</span> = <span class="nb">self</span>.<span class="nb">head</span>  
         <span class="k">while</span> <span class="n">current:</span>  
-            <span class="nb">print</span>(<span class="n">current</span>.<span class="n">data</span>, <span class="nb">end</span>=<span class="s">&#39; -&gt; &#39;</span>)  
+            <span class="nb">print</span>(<span class="n">current</span>.<span class="n">data</span>, <span class="nb">end</span>=<span class="s">' -&gt; '</span>)  
             <span class="n">current</span> = <span class="n">current</span>.<span class="nb">next</span>  
-        <span class="nb">print</span>(<span class="s">&#39;None&#39;</span>)  
+        <span class="nb">print</span>(<span class="s">'None'</span>)  
 
 <span class="c1"># 使用  </span>
 <span class="n">ll</span> = <span class="n">LinkedList</span>()  

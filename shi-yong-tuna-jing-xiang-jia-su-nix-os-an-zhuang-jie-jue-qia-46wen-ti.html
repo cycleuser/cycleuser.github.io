@@ -143,7 +143,7 @@
 </code></pre></div>
 
 <p>如下图所示：<img alt="NixOS TUNA" src="../images/82a6b938f9bade4c.png" title="null">也可以使用下面的脚本:</p>
-<div class="highlight"><pre><span></span><code>#!/bin/bash#!/bin/bashsudo cp /etc/nix/nix.conf /etc/nix/nix.conf.back &amp;&amp; \sudo rm /etc/nix/nix.conf &amp;&amp; \sudo sed -i &#39;s|https://cache.nixos.org|https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store|g&#39; /etc/nix/nix.conf.back &amp;&amp; \sudo cp /etc/nix/nix.conf.back /etc/nix/nix.confecho &quot;Nix mirror configuration updated.&quot;
+<div class="highlight"><pre><span></span><code>#!/bin/bash#!/bin/bashsudo cp /etc/nix/nix.conf /etc/nix/nix.conf.back &amp;&amp; \sudo rm /etc/nix/nix.conf &amp;&amp; \sudo sed -i 's|https://cache.nixos.org|https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store|g' /etc/nix/nix.conf.back &amp;&amp; \sudo cp /etc/nix/nix.conf.back /etc/nix/nix.confecho "Nix mirror configuration updated."
 </code></pre></div>
 
 <p>完成了上面的修改之后，再继续运行安装器，就不会卡在46%了。</p>

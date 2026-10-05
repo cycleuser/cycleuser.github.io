@@ -151,18 +151,18 @@
 </code></pre></div>
 
 <p>将你的数据文件（例如 <code>test.json</code>）放入该目录。数据格式应为标准指令微调格式，例如：</p>
-<div class="highlight"><pre><span></span><code>[  {    &quot;instruction&quot;: &quot;识别并解释给定列表中的两个科学理论：细胞理论和日心说。&quot;,    &quot;input&quot;: &quot;&quot;,    &quot;output&quot;: &quot;细胞理论是生物科学的一个理论……&quot;  }]
+<div class="highlight"><pre><span></span><code>[  {    "instruction": "识别并解释给定列表中的两个科学理论：细胞理论和日心说。",    "input": "",    "output": "细胞理论是生物科学的一个理论……"  }]
 </code></pre></div>
 
 <h3>编辑 dataset_info.json</h3>
 <p>在 <code>data/dataset_info.json</code> 中注册你的数据集。支持两种写法：</p>
 <h3>写法一（自动映射）：</h3>
-<div class="highlight"><pre><span></span><code>{  &quot;my_dataset&quot;: {    &quot;file_name&quot;: &quot;test.json&quot;  }}
+<div class="highlight"><pre><span></span><code>{  "my_dataset": {    "file_name": "test.json"  }}
 </code></pre></div>
 
 <p>此方式默认将 <code>"instruction"</code> 视为 prompt，<code>"output"</code> 视为 response。</p>
 <h3>写法二（显式指定列名）：</h3>
-<div class="highlight"><pre><span></span><code>{  &quot;my_dataset_explicit&quot;: {    &quot;file_name&quot;: &quot;test.json&quot;,    &quot;columns&quot;: {      &quot;prompt&quot;: &quot;instruction&quot;,      &quot;response&quot;: &quot;output&quot;    }  }}
+<div class="highlight"><pre><span></span><code>{  "my_dataset_explicit": {    "file_name": "test.json",    "columns": {      "prompt": "instruction",      "response": "output"    }  }}
 </code></pre></div>
 
 <p>保存后刷新 WebUI，即可在“数据集”下拉菜单中看到 <code>my_dataset</code>。</p>

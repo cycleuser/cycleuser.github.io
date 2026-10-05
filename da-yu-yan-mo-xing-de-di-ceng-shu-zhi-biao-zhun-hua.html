@@ -391,31 +391,31 @@
 <span class="n">import</span><span class="w"> </span><span class="n">platform</span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">Suppress</span><span class="w"> </span><span class="n">warnings</span>
-<span class="n">warnings</span><span class="p">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="p">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 
 <span class="err">#</span><span class="w"> </span><span class="k">Set</span><span class="w"> </span><span class="n">aesthetic</span><span class="w"> </span><span class="n">style</span>
-<span class="n">sns</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="ss">&quot;whitegrid&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="o">=</span><span class="ss">&quot;talk&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="ss">"whitegrid"</span><span class="p">,</span><span class="w"> </span><span class="n">context</span><span class="o">=</span><span class="ss">"talk"</span><span class="p">)</span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">Configure</span><span class="w"> </span><span class="n">fonts</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Chinese</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">correct</span><span class="w"> </span><span class="n">minus</span><span class="w"> </span><span class="nf">sign</span>
 <span class="k">system</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">platform</span><span class="p">.</span><span class="k">system</span><span class="p">()</span>
-<span class="k">if</span><span class="w"> </span><span class="k">system</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Windows&#39;</span><span class="err">:</span>
-<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="o">[</span><span class="n">&#39;font.sans-serif&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">&#39;Microsoft YaHei&#39;, &#39;SimHei&#39;, &#39;Arial&#39;</span><span class="o">]</span>
-<span class="n">elif</span><span class="w"> </span><span class="k">system</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Darwin&#39;</span><span class="err">:</span>
-<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="o">[</span><span class="n">&#39;font.sans-serif&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">&#39;Arial Unicode MS&#39;, &#39;PingFang SC&#39;</span><span class="o">]</span>
+<span class="k">if</span><span class="w"> </span><span class="k">system</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Windows'</span><span class="err">:</span>
+<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="o">[</span><span class="n">'font.sans-serif'</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">'Microsoft YaHei', 'SimHei', 'Arial'</span><span class="o">]</span>
+<span class="n">elif</span><span class="w"> </span><span class="k">system</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'Darwin'</span><span class="err">:</span>
+<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="o">[</span><span class="n">'font.sans-serif'</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">'Arial Unicode MS', 'PingFang SC'</span><span class="o">]</span>
 <span class="k">else</span><span class="err">:</span>
-<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="o">[</span><span class="n">&#39;font.sans-serif&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">&#39;WenQuanYi Micro Hei&#39;, &#39;DejaVu Sans&#39;</span><span class="o">]</span>
+<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="o">[</span><span class="n">'font.sans-serif'</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">'WenQuanYi Micro Hei', 'DejaVu Sans'</span><span class="o">]</span>
 
-<span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="o">[</span><span class="n">&#39;axes.unicode_minus&#39;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="err">#</span><span class="w"> </span><span class="k">Use</span><span class="w"> </span><span class="nf">ASCII</span><span class="w"> </span><span class="n">hyphen</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">minus</span><span class="w"> </span><span class="nf">sign</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="o">[</span><span class="n">'axes.unicode_minus'</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="err">#</span><span class="w"> </span><span class="k">Use</span><span class="w"> </span><span class="nf">ASCII</span><span class="w"> </span><span class="n">hyphen</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">minus</span><span class="w"> </span><span class="nf">sign</span>
 
 <span class="n">def</span><span class="w"> </span><span class="n">generate_visible_data</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="err">:</span>
-<span class="w">    </span><span class="ss">&quot;&quot;&quot;</span>
-<span class="ss">    Generate data that is &#39;badly behaved&#39; (skewed, outliers)</span>
+<span class="w">    </span><span class="ss">"""</span>
+<span class="ss">    Generate data that is 'badly behaved' (skewed, outliers)</span>
 <span class="ss">    but within a reasonable range (0-30) to be comparable with normalized data (-3 to 3).</span>
-<span class="ss">    &quot;&quot;&quot;</span>
+<span class="ss">    """</span>
 <span class="w">    </span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="mf">1.</span><span class="w"> </span><span class="nl">Base</span><span class="p">:</span><span class="w"> </span><span class="nf">Log</span><span class="o">-</span><span class="n">Normal</span><span class="w"> </span><span class="n">centered</span><span class="w"> </span><span class="n">around</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="p">(</span><span class="n">approx</span><span class="p">)</span>
 <span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">Mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">mu</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sigma</span><span class="o">^</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">~</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">let</span><span class="s1">&#39;s use mu=1.5, sigma=0.5 -&gt; exp(1.5+0.125) ~ 5.0</span>
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">~</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">let</span><span class="s1">'s use mu=1.5, sigma=0.5 -&gt; exp(1.5+0.125) ~ 5.0</span>
 <span class="s1">    data = np.random.lognormal(mean=1.5, sigma=0.5, size=(n_samples, n_features))</span>
 
 <span class="s1">    # 2. Add moderate outliers (e.g., values around 25-30)</span>
@@ -463,7 +463,7 @@
 <span class="s1">    return StandardScaler().fit_transform(X_transformed).flatten()</span>
 
 <span class="s1">def plot_points_comparison():</span>
-<span class="s1">    print(&quot;Generating data...&quot;)</span>
+<span class="s1">    print("Generating data...")</span>
 <span class="s1">    X = generate_visible_data()</span>
 <span class="s1">    feature_idx = 0# Plot distribution of Feature 0</span>
 
@@ -471,25 +471,25 @@
 <span class="s1">    plot_data = []</span>
 
 <span class="s1">    methods = [</span>
-<span class="s1">        (&quot;ORIGINAL DATA&quot;, lambda x: x),  # Original first</span>
-<span class="s1">        (&quot;Z-score (StandardScaler)&quot;, StandardScaler()),</span>
-<span class="s1">        (&quot;RobustScaler&quot;, RobustScaler()),</span>
-<span class="s1">        (&quot;Min-Max (0-1)&quot;, MinMaxScaler()),</span>
-<span class="s1">        (&quot;MaxAbs (-1 to 1)&quot;, MaxAbsScaler()),</span>
-<span class="s1">        (&quot;Layer Normalization&quot;, layer_norm),</span>
-<span class="s1">        (&quot;RMSNorm&quot;, rms_norm),</span>
-<span class="s1">        (&quot;Log-Centering&quot;, log_centering),</span>
-<span class="s1">        (&quot;CLR Transform&quot;, clr_transform),</span>
-<span class="s1">        (&quot;Quantile (Normal)&quot;, QuantileTransformer(output_distribution=&#39;</span><span class="n">normal</span><span class="s1">&#39;, random_state=42)),</span>
-<span class="s1">        (&quot;Decimal Scaling&quot;, decimal_scaling),</span>
-<span class="s1">        (&quot;Unit Vector (L2)&quot;, Normalizer()),</span>
-<span class="s1">        (&quot;ISOMAP (Manifold)&quot;, isomap_norm)</span>
+<span class="s1">        ("ORIGINAL DATA", lambda x: x),  # Original first</span>
+<span class="s1">        ("Z-score (StandardScaler)", StandardScaler()),</span>
+<span class="s1">        ("RobustScaler", RobustScaler()),</span>
+<span class="s1">        ("Min-Max (0-1)", MinMaxScaler()),</span>
+<span class="s1">        ("MaxAbs (-1 to 1)", MaxAbsScaler()),</span>
+<span class="s1">        ("Layer Normalization", layer_norm),</span>
+<span class="s1">        ("RMSNorm", rms_norm),</span>
+<span class="s1">        ("Log-Centering", log_centering),</span>
+<span class="s1">        ("CLR Transform", clr_transform),</span>
+<span class="s1">        ("Quantile (Normal)", QuantileTransformer(output_distribution='</span><span class="n">normal</span><span class="s1">', random_state=42)),</span>
+<span class="s1">        ("Decimal Scaling", decimal_scaling),</span>
+<span class="s1">        ("Unit Vector (L2)", Normalizer()),</span>
+<span class="s1">        ("ISOMAP (Manifold)", isomap_norm)</span>
 <span class="s1">    ]</span>
 
-<span class="s1">    print(&quot;Transforming data...&quot;)</span>
+<span class="s1">    print("Transforming data...")</span>
 <span class="s1">    for name, transformer in methods:</span>
 <span class="s1">        try:</span>
-<span class="s1">            if hasattr(transformer, &#39;</span><span class="n">fit_transform</span><span class="s1">&#39;):</span>
+<span class="s1">            if hasattr(transformer, '</span><span class="n">fit_transform</span><span class="s1">'):</span>
 <span class="s1">                X_new = transformer.fit_transform(X)</span>
 <span class="s1">            elif callable(transformer):</span>
 <span class="s1">                X_new = transformer(X)</span>
@@ -497,7 +497,7 @@
 <span class="s1">                X_new = transformer.transform(X)</span>
 
 <span class="s1">            # Extract data to plot</span>
-<span class="s1">            if name.startswith(&quot;ISOMAP&quot;):</span>
+<span class="s1">            if name.startswith("ISOMAP"):</span>
 <span class="s1">                data_points = X_new # Already flattened</span>
 <span class="s1">            elif X_new.ndim == 1:</span>
 <span class="s1">                data_points = X_new</span>
@@ -506,10 +506,10 @@
 
 <span class="s1">            # Store for DataFrame</span>
 <span class="s1">            for val in data_points:</span>
-<span class="s1">                plot_data.append({&#39;</span><span class="k">Method</span><span class="s1">&#39;: name, &#39;</span><span class="k">Value</span><span class="s1">&#39;: val})</span>
+<span class="s1">                plot_data.append({'</span><span class="k">Method</span><span class="s1">': name, '</span><span class="k">Value</span><span class="s1">': val})</span>
 
 <span class="s1">        except Exception as e:</span>
-<span class="s1">            print(f&quot;Error processing {name}: {e}&quot;)</span>
+<span class="s1">            print(f"Error processing {name}: {e}")</span>
 
 <span class="s1">    df = pd.DataFrame(plot_data)</span>
 
@@ -518,47 +518,47 @@
 
 <span class="s1">    # Use a high-contrast palette</span>
 <span class="s1">    # Assign specific color to ORIGINAL DATA (e.g., Red or Black)</span>
-<span class="s1">    palette = sns.color_palette(&quot;husl&quot;, len(methods))</span>
+<span class="s1">    palette = sns.color_palette("husl", len(methods))</span>
 <span class="s1">    palette[0] = (0.2, 0.2, 0.2) # Dark Grey/Black for Original</span>
 
-<span class="s1">    print(&quot;Plotting Strip Plot...&quot;)</span>
+<span class="s1">    print("Plotting Strip Plot...")</span>
 <span class="s1">    # 1. Strip Plot (Raw Points)</span>
-<span class="s1">    sns.stripplot(x=&quot;Value&quot;, y=&quot;Method&quot;, data=df,</span>
-<span class="s1">                  size=3, jitter=0.25, alpha=0.6, palette=palette, orient=&#39;</span><span class="n">h</span><span class="s1">&#39;, zorder=1)</span>
+<span class="s1">    sns.stripplot(x="Value", y="Method", data=df,</span>
+<span class="s1">                  size=3, jitter=0.25, alpha=0.6, palette=palette, orient='</span><span class="n">h</span><span class="s1">', zorder=1)</span>
 
-<span class="s1">    print(&quot;Plotting Box Plot...&quot;)</span>
+<span class="s1">    print("Plotting Box Plot...")</span>
 <span class="s1">    # 2. Box Plot (Summary) - Transparent with colored edges</span>
-<span class="s1">    # Note: seaborn boxplot doesn&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="s1">&#39;edgecolor&#39;</span><span class="w"> </span><span class="n">easily</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">hue</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="n">boxplot</span>
-<span class="w">    </span><span class="n">sns</span><span class="p">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="ss">&quot;Value&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="ss">&quot;Method&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+<span class="s1">    # Note: seaborn boxplot doesn'</span><span class="n">t</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="s1">'edgecolor'</span><span class="w"> </span><span class="n">easily</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">hue</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">standard</span><span class="w"> </span><span class="n">boxplot</span>
+<span class="w">    </span><span class="n">sns</span><span class="p">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="ss">"Value"</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="o">=</span><span class="ss">"Method"</span><span class="p">,</span><span class="w"> </span><span class="k">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
 <span class="w">                </span><span class="n">whis</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span><span class="w"> </span><span class="n">showfliers</span><span class="o">=</span><span class="k">False</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
 <span class="w">                </span><span class="n">boxprops</span><span class="o">=</span><span class="n">dict</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
-<span class="w">                </span><span class="n">palette</span><span class="o">=</span><span class="n">palette</span><span class="p">,</span><span class="w"> </span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">                </span><span class="n">palette</span><span class="o">=</span><span class="n">palette</span><span class="p">,</span><span class="w"> </span><span class="n">orient</span><span class="o">=</span><span class="s1">'h'</span><span class="p">,</span><span class="w"> </span><span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="k">Add</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">,</span><span class="w"> </span><span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span><span class="w"> </span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="k">Add</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">labels</span>
-<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="ss">&quot;Comparison of Normalization Methods: Distribution &amp; Range\n(Points = Samples | Box = IQR)&quot;</span><span class="p">,</span>
-<span class="w">              </span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="ss">&quot;Value Magnitude (SymLog Scale)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="ss">&quot;&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="ss">"Comparison of Normalization Methods: Distribution &amp; Range\n(Points = Samples | Box = IQR)"</span><span class="p">,</span>
+<span class="w">              </span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="n">fontweight</span><span class="o">=</span><span class="s1">'bold'</span><span class="p">,</span><span class="w"> </span><span class="k">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="ss">"Value Magnitude (SymLog Scale)"</span><span class="p">,</span><span class="w"> </span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="ss">""</span><span class="p">)</span>
 
 <span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="k">Use</span><span class="w"> </span><span class="n">SymLog</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="k">both</span><span class="w"> </span><span class="mi">0</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mi">0</span><span class="o">-</span><span class="mi">30</span><span class="w"> </span><span class="n">ranges</span><span class="w"> </span><span class="n">clearly</span>
-<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;symlog&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">linthresh</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">'symlog'</span><span class="p">,</span><span class="w"> </span><span class="n">linthresh</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 
 <span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">Customize</span><span class="w"> </span><span class="n">grid</span>
-<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">grid</span><span class="p">(</span><span class="k">True</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">grid</span><span class="p">(</span><span class="k">True</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="s1">'x'</span><span class="p">,</span><span class="w"> </span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="n">which</span><span class="o">=</span><span class="s1">'both'</span><span class="p">)</span>
 
 <span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">Remove</span><span class="w"> </span><span class="n">spines</span>
 <span class="w">    </span><span class="n">sns</span><span class="p">.</span><span class="n">despine</span><span class="p">(</span><span class="nf">left</span><span class="o">=</span><span class="k">True</span><span class="p">,</span><span class="w"> </span><span class="n">bottom</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>
 
 <span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
-<span class="w">    </span><span class="n">output_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;normalization_points_comparison.png&quot;</span>
-<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span><span class="w"> </span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;Saved to {output_file}&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">output_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">"normalization_points_comparison.png"</span>
+<span class="w">    </span><span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span><span class="w"> </span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">)</span>
+<span class="w">    </span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"Saved to {output_file}"</span><span class="p">)</span>
 
-<span class="k">if</span><span class="w"> </span><span class="n">__name__</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">&quot;__main__&quot;</span><span class="err">:</span>
+<span class="k">if</span><span class="w"> </span><span class="n">__name__</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="ss">"__main__"</span><span class="err">:</span>
 <span class="w">    </span><span class="n">plot_points_comparison</span><span class="p">()</span>
 </code></pre></div>
 

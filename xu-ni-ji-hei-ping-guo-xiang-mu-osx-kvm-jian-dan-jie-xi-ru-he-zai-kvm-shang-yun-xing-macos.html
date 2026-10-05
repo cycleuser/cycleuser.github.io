@@ -175,13 +175,13 @@
 <h2>3. <code>OpenCore-Boot.sh</code> 剖析</h2>
 <p>让我们逐段分析这个脚本是如何构建虚拟机的：</p>
 <h3>3.1 基础配置与 CPU 模拟</h3>
-<div class="highlight"><pre><span></span><code>MY_OPTIONS=&quot;+ssse3,+sse4.2,+popcnt,+avx,+aes,+xsave,+xsaveopt,check&quot;
+<div class="highlight"><pre><span></span><code>MY_OPTIONS="+ssse3,+sse4.2,+popcnt,+avx,+aes,+xsave,+xsaveopt,check"
 
 <span class="gh">#</span> ...
 
 args=(
-  -enable-kvm -m &quot;$ALLOCATED_RAM&quot;
-  -cpu Skylake-Client,-hle,-rtm,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,&quot;$MY_OPTIONS&quot;
+  -enable-kvm -m "$ALLOCATED_RAM"
+  -cpu Skylake-Client,-hle,-rtm,kvm=on,vendor=GenuineIntel,+invtsc,vmware-cpuid-freq=on,"$MY_OPTIONS"
   -machine q35
   # ...
 )
@@ -195,7 +195,7 @@ args=(
 <li><strong><code>-machine q35</code></strong>: 模拟 Intel Q35 芯片组，这是 macOS 支持较好的较新芯片组架构（相比 i440fx）。</li>
 </ul>
 <h3>3.2 模拟 Apple SMC (System Management Controller)</h3>
-<div class="highlight"><pre><span></span><code>-device isa-applesmc,osk=&quot;ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc&quot;
+<div class="highlight"><pre><span></span><code>-device isa-applesmc,osk="ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
 </code></pre></div>
 
 <ul>
@@ -203,8 +203,8 @@ args=(
 <li><strong>实现</strong>：QEMU 的 <code>isa-applesmc</code> 设备模拟了这个芯片，并直接传入了这段被硬编码的 OSK 密钥，从而通过 macOS 的正版验证。</li>
 </ul>
 <h3>3.3 固件 (UEFI)</h3>
-<div class="highlight"><pre><span></span><code>-drive if=pflash,format=raw,readonly=on,file=&quot;$REPO_PATH/$OVMF_DIR/OVMF_CODE_4M.fd&quot;
--drive if=pflash,format=raw,file=&quot;$REPO_PATH/$OVMF_DIR/OVMF_VARS-1920x1080.fd&quot;
+<div class="highlight"><pre><span></span><code>-drive if=pflash,format=raw,readonly=on,file="$REPO_PATH/$OVMF_DIR/OVMF_CODE_4M.fd"
+-drive if=pflash,format=raw,file="$REPO_PATH/$OVMF_DIR/OVMF_VARS-1920x1080.fd"
 </code></pre></div>
 
 <ul>
@@ -214,11 +214,11 @@ args=(
 </ul>
 <h3>3.4 存储与引导顺序</h3>
 <div class="highlight"><pre><span></span><code>-device ich9-ahci,id=sata
--drive id=OpenCoreBoot,if=none,snapshot=on,format=qcow2,file=&quot;$REPO_PATH/OpenCore/OpenCore.qcow2&quot;
+-drive id=OpenCoreBoot,if=none,snapshot=on,format=qcow2,file="$REPO_PATH/OpenCore/OpenCore.qcow2"
 -device ide-hd,bus=sata.2,drive=OpenCoreBoot
 -device ide-hd,bus=sata.3,drive=InstallMedia
--drive id=InstallMedia,if=none,file=&quot;$REPO_PATH/BaseSystem.img&quot;,format=raw
--drive id=MacHDD,if=none,file=&quot;$REPO_PATH/mac_hdd_ng.img&quot;,format=qcow2
+-drive id=InstallMedia,if=none,file="$REPO_PATH/BaseSystem.img",format=raw
+-drive id=MacHDD,if=none,file="$REPO_PATH/mac_hdd_ng.img",format=qcow2
 -device ide-hd,bus=sata.4,drive=MacHDD
 </code></pre></div>
 

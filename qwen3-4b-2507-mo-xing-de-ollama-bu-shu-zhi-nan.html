@@ -142,7 +142,7 @@
 <h2>性能评估</h2>
 <p>在 AMD 7950X + 128G DDR5 RAM + 4060 GPU 8GRAM 的配置的笔记本电脑上运行。</p>
 <p>推理模型的评估命令为：</p>
-<div class="highlight"><pre><span></span><code>ollama run hopephoto/Qwen3-4B-Thinking-2507_q8 &quot;请写一个Python函数来计算斐波那契数列&quot; --verbose
+<div class="highlight"><pre><span></span><code>ollama run hopephoto/Qwen3-4B-Thinking-2507_q8 "请写一个Python函数来计算斐波那契数列" --verbose
 </code></pre></div>
 
 <p>得到的性能评测结果为：</p>
@@ -150,7 +150,7 @@
 </code></pre></div>
 
 <p>指令模型的评估命令为：</p>
-<div class="highlight"><pre><span></span><code>ollama run hopephoto/Qwen3-4B-Instruct-2507_q8 &quot;请写一个Python函数来计算斐波那契数列&quot; --verbose
+<div class="highlight"><pre><span></span><code>ollama run hopephoto/Qwen3-4B-Instruct-2507_q8 "请写一个Python函数来计算斐波那契数列" --verbose
 </code></pre></div>
 
 <p>得到的性能评测结果为：</p>
@@ -179,8 +179,8 @@
 <p><code>C:\Users\用户名\.cache\modelscope\hub\models\qwen\Qwen3-4B-Instruct-2507</code></p>
 <h2>步骤三：转换模型格式</h2>
 <p>将 Hugging Face 格式转换为 GGUF 格式，注意将<code>用户名</code> 替换成实际的用户名。</p>
-<div class="highlight"><pre><span></span><code><span class="nx">python</span><span class="w"> </span><span class="nx">convert_hf_to_gguf</span><span class="p">.</span><span class="nx">py</span><span class="w"> </span><span class="s">&quot;C:\Users\用户名\.cache\modelscope\hub\models\qwen\Qwen3-4B-Thinking-2507&quot;</span><span class="w"> </span><span class="o">--</span><span class="nx">outfile</span><span class="w"> </span><span class="nx">models</span><span class="err">\</span><span class="nx">qwen3</span><span class="o">-</span><span class="mi">4</span><span class="nx">b</span><span class="o">-</span><span class="nx">thinking</span><span class="o">-</span><span class="mi">2507</span><span class="nx">_q8</span><span class="p">.</span><span class="nx">gguf</span><span class="w"> </span><span class="o">--</span><span class="nx">verbose</span><span class="w"> </span><span class="o">--</span><span class="nx">outtype</span><span class="w"> </span><span class="nx">q8_0</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="nx">推理模型</span>
-<span class="nx">python</span><span class="w"> </span><span class="nx">convert_hf_to_gguf</span><span class="p">.</span><span class="nx">py</span><span class="w"> </span><span class="s">&quot;C:\Users\用户名\.cache\modelscope\hub\models\qwen\Qwen3-4B-Instruct-2507&quot;</span><span class="w"> </span><span class="o">--</span><span class="nx">outfile</span><span class="w"> </span><span class="nx">models</span><span class="err">\</span><span class="nx">qwen3</span><span class="o">-</span><span class="mi">4</span><span class="nx">b</span><span class="o">-</span><span class="nx">instruct</span><span class="o">-</span><span class="mi">2507</span><span class="nx">_q8</span><span class="p">.</span><span class="nx">gguf</span><span class="w"> </span><span class="o">--</span><span class="nx">verbose</span><span class="w"> </span><span class="o">--</span><span class="nx">outtype</span><span class="w"> </span><span class="nx">q8_0</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="nx">指令模型</span>
+<div class="highlight"><pre><span></span><code><span class="nx">python</span><span class="w"> </span><span class="nx">convert_hf_to_gguf</span><span class="p">.</span><span class="nx">py</span><span class="w"> </span><span class="s">"C:\Users\用户名\.cache\modelscope\hub\models\qwen\Qwen3-4B-Thinking-2507"</span><span class="w"> </span><span class="o">--</span><span class="nx">outfile</span><span class="w"> </span><span class="nx">models</span><span class="err">\</span><span class="nx">qwen3</span><span class="o">-</span><span class="mi">4</span><span class="nx">b</span><span class="o">-</span><span class="nx">thinking</span><span class="o">-</span><span class="mi">2507</span><span class="nx">_q8</span><span class="p">.</span><span class="nx">gguf</span><span class="w"> </span><span class="o">--</span><span class="nx">verbose</span><span class="w"> </span><span class="o">--</span><span class="nx">outtype</span><span class="w"> </span><span class="nx">q8_0</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="nx">推理模型</span>
+<span class="nx">python</span><span class="w"> </span><span class="nx">convert_hf_to_gguf</span><span class="p">.</span><span class="nx">py</span><span class="w"> </span><span class="s">"C:\Users\用户名\.cache\modelscope\hub\models\qwen\Qwen3-4B-Instruct-2507"</span><span class="w"> </span><span class="o">--</span><span class="nx">outfile</span><span class="w"> </span><span class="nx">models</span><span class="err">\</span><span class="nx">qwen3</span><span class="o">-</span><span class="mi">4</span><span class="nx">b</span><span class="o">-</span><span class="nx">instruct</span><span class="o">-</span><span class="mi">2507</span><span class="nx">_q8</span><span class="p">.</span><span class="nx">gguf</span><span class="w"> </span><span class="o">--</span><span class="nx">verbose</span><span class="w"> </span><span class="o">--</span><span class="nx">outtype</span><span class="w"> </span><span class="nx">q8_0</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="nx">指令模型</span>
 </code></pre></div>
 
 <h3>参数说明</h3>
@@ -200,9 +200,9 @@
 <p>SYSTEM """你是Qwen，由阿里云开发的AI助手。你对用户的问题和请求总是有帮助、准确和诚实的。"""</p>
 <div class="highlight"><pre><span></span><code><span class="w">  </span><span class="n">创建配置文件</span><span class="w"> </span><span class="n n-Quoted">`Modelfile_qwen3_coder_instruct`</span><span class="n">用于指令模型：</span>
 <span class="w">  </span><span class="n n-Quoted">`</span><span class="n n-Quoted n-Quoted-Escape">``</span><span class="n n-Quoted">DockFROM models/qwen3-4b-instruct-2507_q8.gguf</span>
-<span class="n n-Quoted">TEMPLATE &quot;&quot;&quot;&lt;|im_start|&gt;system{{ .System }}&lt;|im_end|&gt;&lt;|im_start|&gt;user{{ .Prompt }}&lt;|im_end|&gt;&lt;|im_start|&gt;assistant&quot;&quot;&quot;</span>
-<span class="n n-Quoted">PARAMETER stop &quot;&lt;|im_end|&gt;&quot;PARAMETER stop &quot;&lt;|im_start|&gt;&quot;</span>
-<span class="n n-Quoted">SYSTEM &quot;&quot;&quot;你是Qwen，由阿里云开发的AI助手。你对用户的问题和请求总是有帮助、准确和诚实的。&quot;&quot;&quot;</span>
+<span class="n n-Quoted">TEMPLATE """&lt;|im_start|&gt;system{{ .System }}&lt;|im_end|&gt;&lt;|im_start|&gt;user{{ .Prompt }}&lt;|im_end|&gt;&lt;|im_start|&gt;assistant"""</span>
+<span class="n n-Quoted">PARAMETER stop "&lt;|im_end|&gt;"PARAMETER stop "&lt;|im_start|&gt;"</span>
+<span class="n n-Quoted">SYSTEM """你是Qwen，由阿里云开发的AI助手。你对用户的问题和请求总是有帮助、准确和诚实的。"""</span>
 </code></pre></div>
 
 <h3>配置说明</h3>
@@ -230,13 +230,13 @@
 
 <h2>使用示例</h2>
 <h3>代码生成示例</h3>
-<div class="highlight"><pre><span></span><code>ollama run Qwen3-4B-Thinking-2507_q8 &quot;请写一个Python函数来计算斐波那契数列&quot;
-ollama run Qwen3-4B-Instruct-2507_q8 &quot;请写一个Python函数来计算斐波那契数列&quot;
+<div class="highlight"><pre><span></span><code>ollama run Qwen3-4B-Thinking-2507_q8 "请写一个Python函数来计算斐波那契数列"
+ollama run Qwen3-4B-Instruct-2507_q8 "请写一个Python函数来计算斐波那契数列"
 </code></pre></div>
 
 <h3>代码解释示例</h3>
-<div class="highlight"><pre><span></span><code>ollama run Qwen3-4B-Thinking-2507_q8 &quot;解释这段代码的功能：def quicksort(arr): ...&quot;
-ollama run Qwen3-4B-Instruct-2507_q8 &quot;解释这段代码的功能：def quicksort(arr): ...&quot;
+<div class="highlight"><pre><span></span><code>ollama run Qwen3-4B-Thinking-2507_q8 "解释这段代码的功能：def quicksort(arr): ..."
+ollama run Qwen3-4B-Instruct-2507_q8 "解释这段代码的功能：def quicksort(arr): ..."
 </code></pre></div>
 
 <h2>故障排除</h2>

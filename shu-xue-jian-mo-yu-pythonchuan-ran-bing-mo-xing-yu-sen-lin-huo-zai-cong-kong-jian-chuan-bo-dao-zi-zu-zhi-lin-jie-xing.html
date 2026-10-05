@@ -178,9 +178,9 @@ ret = odeint(sir_model, y0, t, args=(N, beta, gamma))
 S, I, R = ret.T
 
 <span class="gh">#</span> 4. 可视化
-plt.plot(t, S/N, &#39;b&#39;, label=&#39;Susceptible&#39;)
-plt.plot(t, I/N, &#39;r&#39;, label=&#39;Infected&#39;)
-plt.plot(t, R/N, &#39;g&#39;, label=&#39;Recovered&#39;)
+plt.plot(t, S/N, 'b', label='Susceptible')
+plt.plot(t, I/N, 'r', label='Infected')
+plt.plot(t, R/N, 'g', label='Recovered')
 plt.legend()
 plt.show()
 </code></pre></div>
@@ -302,28 +302,28 @@ plt.show()
 <span class="err">#</span><span class="w"> </span><span class="o">==========================================</span>
 <span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">))</span>
 <span class="err">#</span><span class="w"> </span><span class="n">自定义颜色映射</span><span class="err">：</span><span class="mi">0</span><span class="o">-</span><span class="n">绿色</span><span class="err">，</span><span class="mi">1</span><span class="o">-</span><span class="n">红色</span><span class="err">，</span><span class="mi">2</span><span class="o">-</span><span class="n">灰色</span>
-<span class="n">cmap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListedColormap</span><span class="p">(</span><span class="o">[</span><span class="n">&#39;#2ecc71&#39;, &#39;#e74c3c&#39;, &#39;#95a5a6&#39;</span><span class="o">]</span><span class="p">)</span>
+<span class="n">cmap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListedColormap</span><span class="p">(</span><span class="o">[</span><span class="n">'#2ecc71', '#e74c3c', '#95a5a6'</span><span class="o">]</span><span class="p">)</span>
 <span class="n">mat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ax</span><span class="p">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="w"> </span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">vmax</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="p">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-<span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Spatial SIR Model\nBeta={BETA}, Gamma={GAMMA}&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">f</span><span class="s1">'Spatial SIR Model\nBeta={BETA}, Gamma={GAMMA}'</span><span class="p">,</span><span class="w"> </span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">添加图例</span>
 <span class="k">from</span><span class="w"> </span><span class="n">matplotlib</span><span class="p">.</span><span class="n">patches</span><span class="w"> </span><span class="n">import</span><span class="w"> </span><span class="n">Patch</span>
 <span class="n">legend_elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
-<span class="n">    Patch(facecolor=&#39;#2ecc71&#39;, label=&#39;Susceptible&#39;),</span>
-<span class="n">    Patch(facecolor=&#39;#e74c3c&#39;, label=&#39;Infected&#39;),</span>
-<span class="n">    Patch(facecolor=&#39;#95a5a6&#39;, label=&#39;Recovered&#39;)</span>
+<span class="n">    Patch(facecolor='#2ecc71', label='Susceptible'),</span>
+<span class="n">    Patch(facecolor='#e74c3c', label='Infected'),</span>
+<span class="n">    Patch(facecolor='#95a5a6', label='Recovered')</span>
 <span class="o">]</span>
-<span class="n">ax</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">legend_elements</span><span class="p">,</span><span class="w"> </span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="mf">1.1</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">legend_elements</span><span class="p">,</span><span class="w"> </span><span class="n">loc</span><span class="o">=</span><span class="s1">'upper right'</span><span class="p">,</span><span class="w"> </span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="mf">1.1</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">生成动画</span>
 <span class="n">ani</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="n">update_sir</span><span class="p">,</span><span class="w"> </span><span class="n">frames</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="k">interval</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="n">blit</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
-<span class="n">ani</span><span class="p">.</span><span class="k">save</span><span class="p">(</span><span class="s1">&#39;../images/04_sir_spatial.gif&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">writer</span><span class="o">=</span><span class="s1">&#39;pillow&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">fps</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ani</span><span class="p">.</span><span class="k">save</span><span class="p">(</span><span class="s1">'../images/04_sir_spatial.gif'</span><span class="p">,</span><span class="w"> </span><span class="n">writer</span><span class="o">=</span><span class="s1">'pillow'</span><span class="p">,</span><span class="w"> </span><span class="n">fps</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">plt</span><span class="p">.</span><span class="k">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="ss">&quot;SIR animation saved to ../images/04_sir_spatial.gif&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="ss">"SIR animation saved to ../images/04_sir_spatial.gif"</span><span class="p">)</span>
 </code></pre></div>
 
 <h3>4. 可视化结果</h3>
@@ -424,28 +424,28 @@ plt.show()
 <span class="err">#</span><span class="w"> </span><span class="o">==========================================</span>
 <span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">))</span>
 <span class="err">#</span><span class="w"> </span><span class="n">自定义颜色映射</span><span class="err">：</span><span class="mi">0</span><span class="o">-</span><span class="n">黑色</span><span class="err">，</span><span class="mi">1</span><span class="o">-</span><span class="n">绿色</span><span class="err">，</span><span class="mi">2</span><span class="o">-</span><span class="n">红色</span>
-<span class="n">cmap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListedColormap</span><span class="p">(</span><span class="o">[</span><span class="n">&#39;black&#39;, &#39;#2ecc71&#39;, &#39;#e74c3c&#39;</span><span class="o">]</span><span class="p">)</span>
+<span class="n">cmap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ListedColormap</span><span class="p">(</span><span class="o">[</span><span class="n">'black', '#2ecc71', '#e74c3c'</span><span class="o">]</span><span class="p">)</span>
 <span class="n">mat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ax</span><span class="p">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="w"> </span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">vmax</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="p">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-<span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Forest Fire Simulation\nGrowth P={GROWTH_PROB}, Lightning F={FIRE_PROB}&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">f</span><span class="s1">'Forest Fire Simulation\nGrowth P={GROWTH_PROB}, Lightning F={FIRE_PROB}'</span><span class="p">,</span><span class="w"> </span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">添加图例</span>
 <span class="k">from</span><span class="w"> </span><span class="n">matplotlib</span><span class="p">.</span><span class="n">patches</span><span class="w"> </span><span class="n">import</span><span class="w"> </span><span class="n">Patch</span>
 <span class="n">legend_elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
-<span class="n">    Patch(facecolor=&#39;black&#39;, label=&#39;Empty&#39;),</span>
-<span class="n">    Patch(facecolor=&#39;#2ecc71&#39;, label=&#39;Tree&#39;),</span>
-<span class="n">    Patch(facecolor=&#39;#e74c3c&#39;, label=&#39;Burning&#39;)</span>
+<span class="n">    Patch(facecolor='black', label='Empty'),</span>
+<span class="n">    Patch(facecolor='#2ecc71', label='Tree'),</span>
+<span class="n">    Patch(facecolor='#e74c3c', label='Burning')</span>
 <span class="o">]</span>
-<span class="n">ax</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">legend_elements</span><span class="p">,</span><span class="w"> </span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="mf">1.1</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">legend_elements</span><span class="p">,</span><span class="w"> </span><span class="n">loc</span><span class="o">=</span><span class="s1">'upper right'</span><span class="p">,</span><span class="w"> </span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="w"> </span><span class="mf">1.1</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">生成动画</span>
 <span class="n">ani</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="n">update_forest</span><span class="p">,</span><span class="w"> </span><span class="n">frames</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="k">interval</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="n">blit</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
-<span class="n">ani</span><span class="p">.</span><span class="k">save</span><span class="p">(</span><span class="s1">&#39;../images/04_forest_fire.gif&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">writer</span><span class="o">=</span><span class="s1">&#39;pillow&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">fps</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ani</span><span class="p">.</span><span class="k">save</span><span class="p">(</span><span class="s1">'../images/04_forest_fire.gif'</span><span class="p">,</span><span class="w"> </span><span class="n">writer</span><span class="o">=</span><span class="s1">'pillow'</span><span class="p">,</span><span class="w"> </span><span class="n">fps</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">plt</span><span class="p">.</span><span class="k">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="ss">&quot;Forest fire animation saved to ../images/04_forest_fire.gif&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="ss">"Forest fire animation saved to ../images/04_forest_fire.gif"</span><span class="p">)</span>
 </code></pre></div>
 
 <h3>4. 可视化结果与自组织临界性</h3>

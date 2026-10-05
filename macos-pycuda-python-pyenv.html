@@ -132,7 +132,7 @@
 <p>本文是针对PyCUDA的新手用户。此处特点是使用了Pyenv构建了多个工作环境，并且指导如何在各个不同的Python环境中安装PyCUDA。</p>
 <h4>安装Git和Pyenv</h4>
 <p>下载PyCUDA代码需要用Git，管理多版本的Python需要Pyenv，而这两个的安装就都需要用<a href="http://brew.sh/index_zh-cn.html">Brew</a> 了。在终端输入下面的命令就可以安装Brew了:</p>
-<div class="highlight"><pre><span></span><code>/usr/bin/ruby<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code>/usr/bin/ruby<span class="w"> </span>-e<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">"</span>
 </code></pre></div>
 
 <p>然后再接着在终端陆续输入下面两个命令来安装Git和Pyenv：</p>
@@ -192,9 +192,9 @@ sudo<span class="w"> </span>make<span class="w"> </span>install
 <span class="n">a_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
 <span class="n">a_doubled</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a_gpu</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original array:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"original array:"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a_gpu</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;doubled with gpuarray:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"doubled with gpuarray:"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a_doubled</span><span class="p">)</span>
 </code></pre></div>
 

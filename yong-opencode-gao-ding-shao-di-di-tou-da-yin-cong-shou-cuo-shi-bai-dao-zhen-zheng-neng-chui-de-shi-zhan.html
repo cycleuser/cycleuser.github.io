@@ -189,7 +189,7 @@
 <p>接下来要做的是母口锥形插口：开口放宽、往里收窄、楔紧。</p>
 <p>做法是让 opencode 用 OpenSCAD 对那个放大的 STL 做布尔运算：先把下端音孔临时封成一个实心圆柱，再用一个锥体减去，得到一个"开口大、往深处小"的锥孔。</p>
 <div class="highlight"><pre><span></span><code>difference() {
-  import(&quot;celtic_head_20mm.stl&quot;);
+  import("celtic_head_20mm.stl");
   translate([0,0,-29.7]) cylinder(h=17.5, r1=10.0, r2=9.0);  // 开口Ø20 收到 Ø18
 }
 </code></pre></div>

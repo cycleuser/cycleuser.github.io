@@ -165,7 +165,7 @@
 <h2>用 pi 来测</h2>
 <p>工具调用这种能力，光让模型"聊天"是测不出来的。必须有一个外壳把工具定义发给它、解析它的工具调用、真正去执行，才算数。我用的是 <a href="https://github.com/earendil-works/pi">pi</a>（Mario Zechner 写的极简终端 agent）。</p>
 <p>pi 的接法很简单：在 <code>~/.pi/agent/models.json</code> 里声明一个 OpenAI 兼容的提供方指向本机 Ollama，然后：</p>
-<div class="highlight"><pre><span></span><code>pi<span class="w"> </span>-p<span class="w"> </span>--provider<span class="w"> </span>ollama-local<span class="w"> </span>--model<span class="w"> </span>&lt;模型&gt;<span class="w"> </span><span class="s2">&quot;你的指令&quot;</span>
+<div class="highlight"><pre><span></span><code>pi<span class="w"> </span>-p<span class="w"> </span>--provider<span class="w"> </span>ollama-local<span class="w"> </span>--model<span class="w"> </span>&lt;模型&gt;<span class="w"> </span><span class="s2">"你的指令"</span>
 </code></pre></div>
 
 <p>为了测的干净，我把技能、扩展、上下文文件全关掉，只留最核心的 agent 循环和工具（<code>read</code>、<code>write</code>、<code>edit</code>、<code>bash</code> 等）。这样测出来的就是模型本身，而不是各种插件带来的加成。</p>
@@ -280,7 +280,7 @@
 <h2>真正有意思的是它们错在哪</h2>
 <p>跑完看生成的原始文件，失败方式非常集中，而且很"小模型"：</p>
 <p><strong>一、把换行写成了字面量 <code>\n</code>。</strong> 这是最典型的。模型在工具参数里放的不是真换行，而是反斜杠加字母 n 两个字符。LiquidAI 尤其容易这样，它写的 <code>fib.py</code> 整份文件就一行：</p>
-<div class="highlight"><pre><span></span><code>print(&quot;Fibonacci test&quot;)\n
+<div class="highlight"><pre><span></span><code>print("Fibonacci test")\n
 </code></pre></div>
 
 <p>拿去运行直接报 <code>SyntaxError: unexpected character after line continuation character</code>。注意这不是 pi 的错——外壳只是把模型要求的内容原样写进文件。是模型自己没分清"内容里的换行"和"转义后的文本"。四次 T3 里，LiquidAI 的两次全栽在这上面。</p>

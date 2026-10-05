@@ -165,16 +165,16 @@
 <p>•从 <strong>南京大学镜像</strong> 下载嵌入式 Python（国内高速）•启用 <code>site</code> 模块（解决 <code>No module named pip</code> 问题）•通过 <strong>清华 TUNA 镜像</strong> 安装 pip（加速下载）•配置永久 pip 镜像•生成完整绿色环境</p>
 <h3>📜 脚本：<code>setup-green-python.ps1</code></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># setup-green-python.ps1# 功能：一键创建绿色便携 Python 3.12.9 环境（Windows）</span>
-<span class="err">$</span><span class="n">Version</span> <span class="o">=</span> <span class="s2">&quot;3.12.9&quot;</span><span class="err">$</span><span class="n">WorkDir</span> <span class="o">=</span> <span class="s2">&quot;$env:USERPROFILE\Desktop\green-python-$Version&quot;</span>
-<span class="n">Write</span><span class="o">-</span><span class="n">Host</span> <span class="s2">&quot;🚀 开始构建绿色 Python 环境...&quot;</span> <span class="o">-</span><span class="n">ForegroundColor</span> <span class="n">CyanNew</span><span class="o">-</span><span class="n">Item</span> <span class="o">-</span><span class="n">ItemType</span> <span class="n">Directory</span> <span class="o">-</span><span class="n">Path</span> <span class="err">$</span><span class="n">WorkDir</span> <span class="o">-</span><span class="n">Force</span> <span class="o">|</span> <span class="n">Out</span><span class="o">-</span><span class="n">NullSet</span><span class="o">-</span><span class="n">Location</span> <span class="err">$</span><span class="n">WorkDir</span>
-<span class="c1"># 1. 从南京大学镜像下载嵌入式 Python$ZipUrl = &quot;https://mirrors.nju.edu.cn/python/$Version/python-$Version-embed-amd64.zip&quot;Write-Host &quot;📥 下载嵌入式 Python（来自 NJU 镜像）...&quot; -ForegroundColor Greencurl.exe -fsSLO $ZipUrl</span>
-<span class="c1"># 2. 解压Expand-Archive -Path &quot;python-$Version-embed-amd64.zip&quot; -DestinationPath . -Force</span>
-<span class="c1"># 3. 启用 site 模块（关键！）Set-Content -Path &quot;python312._pth&quot; -Value @&quot;python312.zip.</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">site</span><span class="s2">&quot;@ -Encoding Ascii</span>
-<span class="c1"># 4. 下载并安装 pip（使用清华源）Write-Host &quot;⚙️  安装 pip（使用清华 TUNA 镜像）...&quot; -ForegroundColor Yellow$env:PIP_INDEX_URL = &quot;https://pypi.tuna.tsinghua.edu.cn/simple&quot;curl.exe -fsSLO https://bootstrap.pypa.io/get-pip.py&amp; &quot;.\python.exe&quot; get-pip.py --no-warn-script-location --disable-pip-version-check</span>
-<span class="c1"># 5. 配置永久 pip 镜像New-Item -ItemType Directory -Path &quot;pip&quot; -Force | Out-Null@&quot;[global]index-url = https://pypi.tuna.tsinghua.edu.cn/simpletrusted-host = pypi.tuna.tsinghua.edu.cn&quot;@ | Out-File -FilePath &quot;pip\pip.ini&quot; -Encoding Ascii</span>
-<span class="c1"># 6. 清理Remove-Item &quot;python-$Version-embed-amd64.zip&quot;, &quot;get-pip.py&quot; -ErrorAction SilentlyContinue</span>
-<span class="c1"># 7. 验证if (&amp; &quot;.\python.exe&quot; -m pip --version 2&gt;$null) {    Write-Host &quot;✅ 绿色 Python 环境已就绪！&quot; -ForegroundColor Magenta    Write-Host &quot;📁 路径: $WorkDir&quot;    Write-Host &quot;💡 使用方式：&quot;    Write-Host &quot;   $WorkDir\python.exe your_script.py&quot;    Write-Host &quot;   $WorkDir\Scripts\pip.exe install package&quot;    Write-Host &quot;✨ 整个文件夹可复制到 U 盘或其他电脑直接使用！&quot; -ForegroundColor Green} else {    Write-Error &quot;❌ 配置失败！请检查 python312._pth 是否包含 &#39;import site&#39;&quot;}</span>
+<span class="err">$</span><span class="n">Version</span> <span class="o">=</span> <span class="s2">"3.12.9"</span><span class="err">$</span><span class="n">WorkDir</span> <span class="o">=</span> <span class="s2">"$env:USERPROFILE\Desktop\green-python-$Version"</span>
+<span class="n">Write</span><span class="o">-</span><span class="n">Host</span> <span class="s2">"🚀 开始构建绿色 Python 环境..."</span> <span class="o">-</span><span class="n">ForegroundColor</span> <span class="n">CyanNew</span><span class="o">-</span><span class="n">Item</span> <span class="o">-</span><span class="n">ItemType</span> <span class="n">Directory</span> <span class="o">-</span><span class="n">Path</span> <span class="err">$</span><span class="n">WorkDir</span> <span class="o">-</span><span class="n">Force</span> <span class="o">|</span> <span class="n">Out</span><span class="o">-</span><span class="n">NullSet</span><span class="o">-</span><span class="n">Location</span> <span class="err">$</span><span class="n">WorkDir</span>
+<span class="c1"># 1. 从南京大学镜像下载嵌入式 Python$ZipUrl = "https://mirrors.nju.edu.cn/python/$Version/python-$Version-embed-amd64.zip"Write-Host "📥 下载嵌入式 Python（来自 NJU 镜像）..." -ForegroundColor Greencurl.exe -fsSLO $ZipUrl</span>
+<span class="c1"># 2. 解压Expand-Archive -Path "python-$Version-embed-amd64.zip" -DestinationPath . -Force</span>
+<span class="c1"># 3. 启用 site 模块（关键！）Set-Content -Path "python312._pth" -Value @"python312.zip.</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">site</span><span class="s2">"@ -Encoding Ascii</span>
+<span class="c1"># 4. 下载并安装 pip（使用清华源）Write-Host "⚙️  安装 pip（使用清华 TUNA 镜像）..." -ForegroundColor Yellow$env:PIP_INDEX_URL = "https://pypi.tuna.tsinghua.edu.cn/simple"curl.exe -fsSLO https://bootstrap.pypa.io/get-pip.py&amp; ".\python.exe" get-pip.py --no-warn-script-location --disable-pip-version-check</span>
+<span class="c1"># 5. 配置永久 pip 镜像New-Item -ItemType Directory -Path "pip" -Force | Out-Null@"[global]index-url = https://pypi.tuna.tsinghua.edu.cn/simpletrusted-host = pypi.tuna.tsinghua.edu.cn"@ | Out-File -FilePath "pip\pip.ini" -Encoding Ascii</span>
+<span class="c1"># 6. 清理Remove-Item "python-$Version-embed-amd64.zip", "get-pip.py" -ErrorAction SilentlyContinue</span>
+<span class="c1"># 7. 验证if (&amp; ".\python.exe" -m pip --version 2&gt;$null) {    Write-Host "✅ 绿色 Python 环境已就绪！" -ForegroundColor Magenta    Write-Host "📁 路径: $WorkDir"    Write-Host "💡 使用方式："    Write-Host "   $WorkDir\python.exe your_script.py"    Write-Host "   $WorkDir\Scripts\pip.exe install package"    Write-Host "✨ 整个文件夹可复制到 U 盘或其他电脑直接使用！" -ForegroundColor Green} else {    Write-Error "❌ 配置失败！请检查 python312._pth 是否包含 'import site'"}</span>
 </code></pre></div>
 
 <h3>▶️ 使用步骤</h3>
@@ -186,7 +186,7 @@
 <h2>五、验证绿色环境</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># 进入目录cd $env:USERPROFILE\Desktop\green-python-3.12.9</span>
 <span class="c1"># 测试 pip.\python.exe -m pip --version</span>
-<span class="c1"># 安装并测试一个包.\python.exe -m pip install requests.\python.exe -c &quot;import requests; print(&#39;✅ 绿色 Python 工作正常！&#39;)&quot;</span>
+<span class="c1"># 安装并测试一个包.\python.exe -m pip install requests.\python.exe -c "import requests; print('✅ 绿色 Python 工作正常！')"</span>
 </code></pre></div>
 
 <hr>

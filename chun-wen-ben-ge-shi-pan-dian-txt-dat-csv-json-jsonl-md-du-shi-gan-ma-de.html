@@ -168,7 +168,7 @@
 <p><strong>第二个坑，Excel。</strong> 用 Excel 打开 UTF-8 编码的 csv，中文经常是乱码，因为它默认不认 UTF-8，除非你带上 BOM（一个隐藏在文件开头的 <code>EF BB BF</code> 三字节标记）。所以用 Python 写 csv 给 Excel 用户时，要特意用 <code>utf-8-sig</code> 编码：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;out.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8-sig&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"out.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8-sig"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>Excel 还有更出名的毛病：打开 csv 时自作聪明做类型转换。基因名 <code>SEPT1</code> 被它理解成 9 月 1 日，<code>MARCH1</code> 变成 3 月 1 日；长数字（比如银行卡号、经纬度）被显示成科学计数法，再保存回去，末尾几位就永久变成 0 了。这不是段子，2016 年《Genome Biology》上有一篇论文就因为这个把五分之一的基因名写错了，后来人类基因组织（HGNC）干脆在 2020 年把二十多个带这类前缀的基因符号改了名，就为了躲开 Excel。</p>
@@ -178,14 +178,14 @@
 <p><code>.json</code>，JavaScript Object Notation，现在已经是跨语言的结构化数据交换标准，网页 API 返回数据、各种配置文件、NoSQL 数据库，几乎都用它。</p>
 <p>长这样：</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CycleUser&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Geology&quot;</span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;city&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Beijing&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;zip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100083&quot;</span>
+<span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CycleUser"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Geology"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beijing"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100083"</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;active&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="nt">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -198,17 +198,17 @@
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <span class="c1"># 标准库足够日常使用</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s1">&#39;{&quot;name&quot;: &quot;张三&quot;, &quot;scores&quot;: [89, 73]}&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;scores&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>        <span class="c1"># 89</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s1">'{"name": "张三", "scores": [89, 73]}'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"scores"</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>        <span class="c1"># 89</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 </code></pre></div>
 
 <p>中文用户还要注意 <code>ensure_ascii=False</code> 这个参数，不加的话中文会被转成 <code>\u5f20\u4e09</code> 这种转义，文件大小翻好几倍，虽然合法但没法看。</p>
 <h2>jsonl：一行一条，为流式而生</h2>
 <p><code>.jsonl</code>，JSON Lines，有时也叫 <code>.ndjson</code>，就是把很多个 json 对象<strong>一行一个</strong>地排进同一个文件：</p>
-<div class="highlight"><pre><span></span><code>{&quot;name&quot;: &quot;张三&quot;, &quot;score&quot;: 89}
-{&quot;name&quot;: &quot;李四&quot;, &quot;score&quot;: 73}
-{&quot;name&quot;: &quot;王五&quot;, &quot;score&quot;: 91}
+<div class="highlight"><pre><span></span><code>{"name": "张三", "score": 89}
+{"name": "李四", "score": 73}
+{"name": "王五", "score": 91}
 </code></pre></div>
 
 <p>它和"一个巨大的 json 数组"的区别，初看不大，用起来天差地别。</p>
@@ -216,7 +216,7 @@
 <p>典型场景：日志系统、大模型训练数据的存放。你去看 Hugging Face 上很多数据集、看各家微调框架的输入格式，基本就是 jsonl：一行一条对话或一条样本。逐行处理意味着可以流式喂给训练管线，内存里永远只有当前这一条。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.jsonl&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"data.jsonl"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
         <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
@@ -224,7 +224,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="n">record</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
         <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;第 </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> 行解析失败，跳过&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"第 </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> 行解析失败，跳过"</span><span class="p">)</span>
             <span class="k">continue</span>
         <span class="c1"># 处理 record</span>
 </code></pre></div>
@@ -254,10 +254,10 @@
 <h2>toml：新一代配置标准</h2>
 <p><code>.toml</code>（Tom's Obvious, Minimal Language）是近几年崛起的配置格式，Python 官方把它定为项目元数据的标准，<code>pyproject.toml</code> 就是它：</p>
 <div class="highlight"><pre><span></span><code><span class="k">[project]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ds-holiday&quot;</span>
-<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
-<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.12&quot;</span>
-<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;numpy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;pandas&quot;</span><span class="p">]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ds-holiday"</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0.1.0"</span>
+<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"&gt;=3.12"</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"numpy"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pandas"</span><span class="p">]</span>
 </code></pre></div>
 
 <p>它跟 yaml 解决同一个问题，但思路相反：<strong>用显式的类型语法代替缩进</strong>。字符串带引号、日期是原生类型、布尔就是 <code>true/false</code>，没有 Norway problem，缩进错了顶多难看，不会改变语义。</p>

@@ -132,7 +132,7 @@
 <div class="highlight"><pre><span></span><code><span class="c1">// Hello.java</span>
 <span class="n">public</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n">Hello</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="n">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Hello, 水果世界!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="n">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Hello, 水果世界!"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -153,13 +153,13 @@ java Hello          # 运行：JVM 加载字节码，解释或 JIT 即时编译�
         int apples = 42;          // 整数 int：苹果个数
         double grapeWeight = 3.14;   // 双精度浮点数 double：葡萄重量（斤）
         float unitPrice = 8.5f;   // 单精度浮点数 float：单价（元/斤，加 f 后缀）
-        char grade = &#39;A&#39;;         // 单个字符 char：水果等级 A/B/C，用单引号
+        char grade = 'A';         // 单个字符 char：水果等级 A/B/C，用单引号
         boolean isFresh = true;   // 布尔值 boolean：水果是否新鲜，只能 true/false
         long stockCount = 100000L;   // 长整数 long：库存总量（要加 L 后缀）
 
         System.out.println(apples);        // 自动换行输出
         System.out.println(grapeWeight);
-        System.out.printf(&quot;%.1f\n&quot;, unitPrice);  // 格式化输出，保留一位
+        System.out.printf("%.1f\n", unitPrice);  // 格式化输出，保留一位
         System.out.println(isFresh);
         System.out.println(stockCount);    // 库存总量输出
     }
@@ -177,19 +177,19 @@ java Hello          # 运行：JVM 加载字节码，解释或 JIT 即时编译�
 <span class="n">public</span> <span class="k">class</span><span class="w"> </span><span class="nc">Demo</span> <span class="p">{</span>
     <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="o">//</span> <span class="n">数组</span><span class="err">：</span><span class="n">一排固定的水果架</span>
-        <span class="n">String</span><span class="p">[]</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;苹果&quot;</span><span class="p">,</span> <span class="s2">&quot;葡萄&quot;</span><span class="p">,</span> <span class="s2">&quot;香蕉&quot;</span><span class="p">,</span> <span class="s2">&quot;橙子&quot;</span><span class="p">};</span>
+        <span class="n">String</span><span class="p">[]</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"苹果"</span><span class="p">,</span> <span class="s2">"葡萄"</span><span class="p">,</span> <span class="s2">"香蕉"</span><span class="p">,</span> <span class="s2">"橙子"</span><span class="p">};</span>
         <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>          <span class="o">//</span> <span class="n">苹果</span>
         <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">fruits</span><span class="o">.</span><span class="n">length</span><span class="p">);</span>      <span class="o">//</span> <span class="mi">4</span><span class="err">，</span><span class="n">数组长度用</span> <span class="o">.</span><span class="n">length</span>
 
         <span class="o">//</span> <span class="n">ArrayList</span><span class="err">：</span><span class="n">可以随意增减的果篮</span>
         <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">basket</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-        <span class="n">basket</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;葡萄&quot;</span><span class="p">);</span>                     <span class="o">//</span> <span class="n">放进去</span>
-        <span class="n">basket</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;巨峰葡萄&quot;</span><span class="p">);</span>
-        <span class="n">basket</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;苹果&quot;</span><span class="p">);</span>
+        <span class="n">basket</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"葡萄"</span><span class="p">);</span>                     <span class="o">//</span> <span class="n">放进去</span>
+        <span class="n">basket</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"巨峰葡萄"</span><span class="p">);</span>
+        <span class="n">basket</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"苹果"</span><span class="p">);</span>
         <span class="n">basket</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>                       <span class="o">//</span> <span class="n">拿走第0个</span><span class="err">（</span><span class="n">葡萄</span><span class="err">）</span>
         <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">basket</span><span class="o">.</span><span class="n">size</span><span class="p">());</span>      <span class="o">//</span> <span class="mi">2</span>
         <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">basket</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>      <span class="o">//</span> <span class="n">巨峰葡萄</span>
-        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">basket</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;苹果&quot;</span><span class="p">));</span>  <span class="o">//</span> <span class="n">true</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">basket</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">"苹果"</span><span class="p">));</span>  <span class="o">//</span> <span class="n">true</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -202,19 +202,19 @@ java Hello          # 运行：JVM 加载字节码，解释或 JIT 即时编译�
 <p>Java 的字符串是 <code>String</code> 类对象，<strong>不可变</strong>（每次修改都会产生新对象）。就像水果的标签，贴上去就固定了。比较内容用 <code>.equals()</code> 而不是 <code>==</code>。</p>
 <div class="highlight"><pre><span></span><code>public class Demo {
     public static void main(String[] args) {
-        String fruit = &quot;巨峰葡萄&quot;;
+        String fruit = "巨峰葡萄";
         System.out.println(fruit.charAt(0));       // 巨，取第一个字符
         System.out.println(fruit.length());        // 4，长度
         System.out.println(fruit.substring(0, 2)); // 巨峰，切片 [0,2)
-        System.out.println(fruit.indexOf(&quot;葡萄&quot;)); // 2，查找子串位置
+        System.out.println(fruit.indexOf("葡萄")); // 2，查找子串位置
 
         // 拼接字符串：+ 或 concat
-        String dish = &quot;葡萄&quot; + &quot;汁&quot;;
+        String dish = "葡萄" + "汁";
         System.out.println(dish);                 // 葡萄汁
 
         // 比较内容必须用 equals，== 比较的是引用地址
-        String a = new String(&quot;苹果&quot;);
-        String b = new String(&quot;苹果&quot;);
+        String a = new String("苹果");
+        String b = new String("苹果");
         System.out.println(a == b);            // false（地址不同）
         System.out.println(a.equals(b));       // true（内容相同）
     }
@@ -231,22 +231,22 @@ java Hello          # 运行：JVM 加载字节码，解释或 JIT 即时编译�
 <span class="w">    </span><span class="nv">public</span><span class="w"> </span><span class="nv">static</span><span class="w"> </span><span class="nv">void</span><span class="w"> </span><span class="nv">main</span><span class="ss">(</span><span class="nv">String</span>[]<span class="w"> </span><span class="nv">args</span><span class="ss">)</span><span class="w"> </span>{
 <span class="w">        </span><span class="nv">int</span><span class="w"> </span><span class="nv">sweetness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="c1">;   // 水果甜度 0~10</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">sweetness</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">8</span><span class="ss">)</span><span class="w"> </span>{
-<span class="w">            </span><span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="s2">&quot;很甜&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">            </span><span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="s2">"很甜"</span><span class="ss">)</span><span class="c1">;</span>
 <span class="w">        </span>}<span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">sweetness</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">5</span><span class="ss">)</span><span class="w"> </span>{
-<span class="w">            </span><span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="s2">&quot;一般甜&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">            </span><span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="s2">"一般甜"</span><span class="ss">)</span><span class="c1">;</span>
 <span class="w">        </span>}<span class="w"> </span><span class="k">else</span><span class="w"> </span>{
-<span class="w">            </span><span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="s2">&quot;偏酸&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">            </span><span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="s2">"偏酸"</span><span class="ss">)</span><span class="c1">;</span>
 <span class="w">        </span>}
 <span class="w">    </span>}
 }
 </code></pre></div>
 
 <p>Java 也支持 <code>switch</code> 语句，<code>case</code> 后要加 <code>break</code> 防止穿透。就像按水果种类给不同价格（下面的片段省去了类的 <code>main</code> 框架，完整可运行版本见配套代码文件夹）：</p>
-<div class="highlight"><pre><span></span><code><span class="nt">String</span><span class="w"> </span><span class="nt">fruit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;葡萄&quot;</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">String</span><span class="w"> </span><span class="nt">fruit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"葡萄"</span><span class="o">;</span>
 <span class="nt">switch</span><span class="w"> </span><span class="o">(</span><span class="nt">fruit</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="err">case</span><span class="w"> </span><span class="err">&quot;苹果&quot;:</span><span class="w"> </span><span class="err">System.out.println(&quot;5元/斤&quot;)</span><span class="p">;</span><span class="w"> </span><span class="err">break</span><span class="p">;</span>
-<span class="w">    </span><span class="err">case</span><span class="w"> </span><span class="err">&quot;葡萄&quot;:</span><span class="w"> </span><span class="err">System.out.println(&quot;8元/斤&quot;)</span><span class="p">;</span><span class="w"> </span><span class="err">break</span><span class="p">;</span>
-<span class="w">    </span><span class="n">default</span><span class="p">:</span><span class="w"> </span><span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="nf">println</span><span class="p">(</span><span class="s2">&quot;时价&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="err">case</span><span class="w"> </span><span class="err">"苹果":</span><span class="w"> </span><span class="err">System.out.println("5元/斤")</span><span class="p">;</span><span class="w"> </span><span class="err">break</span><span class="p">;</span>
+<span class="w">    </span><span class="err">case</span><span class="w"> </span><span class="err">"葡萄":</span><span class="w"> </span><span class="err">System.out.println("8元/斤")</span><span class="p">;</span><span class="w"> </span><span class="err">break</span><span class="p">;</span>
+<span class="w">    </span><span class="n">default</span><span class="p">:</span><span class="w"> </span><span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="nf">println</span><span class="p">(</span><span class="s2">"时价"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -259,29 +259,29 @@ java Hello          # 运行：JVM 加载字节码，解释或 JIT 即时编译�
     <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="o">//</span> <span class="n">经典</span> <span class="k">for</span> <span class="n">循环</span><span class="err">：</span><span class="n">从第1个数到第3个水果</span>
         <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;水果&quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">"水果"</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s2">" "</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">();</span>
 
         <span class="o">//</span> <span class="k">while</span> <span class="n">循环</span><span class="err">：</span><span class="n">一直试吃</span><span class="err">，</span><span class="n">直到满意</span>
         <span class="nb">int</span> <span class="n">satisfied</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
         <span class="k">while</span> <span class="p">(</span><span class="n">satisfied</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;试吃 &quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">"试吃 "</span><span class="p">);</span>
             <span class="n">satisfied</span><span class="o">++</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">();</span>
 
         <span class="o">//</span> <span class="k">for</span><span class="o">-</span><span class="n">each</span> <span class="n">增强循环</span><span class="err">（</span><span class="n">类似</span> <span class="n">Python</span> <span class="n">的</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">list</span><span class="err">）</span>
-        <span class="n">String</span><span class="p">[]</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;苹果&quot;</span><span class="p">,</span> <span class="s2">&quot;葡萄&quot;</span><span class="p">,</span> <span class="s2">&quot;香蕉&quot;</span><span class="p">};</span>
+        <span class="n">String</span><span class="p">[]</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"苹果"</span><span class="p">,</span> <span class="s2">"葡萄"</span><span class="p">,</span> <span class="s2">"香蕉"</span><span class="p">};</span>
         <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">f</span> <span class="p">:</span> <span class="n">fruits</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">f</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">f</span> <span class="o">+</span> <span class="s2">" "</span><span class="p">);</span>
         <span class="p">}</span>
         <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">();</span>
 
         <span class="o">//</span> <span class="n">遍历</span> <span class="n">ArrayList</span> <span class="n">果篮</span>
         <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">basket</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-        <span class="n">basket</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;苹果&quot;</span><span class="p">);</span>
-        <span class="n">basket</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;巨峰葡萄&quot;</span><span class="p">);</span>
+        <span class="n">basket</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"苹果"</span><span class="p">);</span>
+        <span class="n">basket</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"巨峰葡萄"</span><span class="p">);</span>
         <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">f</span> <span class="p">:</span> <span class="n">basket</span><span class="p">)</span> <span class="p">{</span>
             <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
         <span class="p">}</span>
@@ -300,7 +300,7 @@ java Hello          # 运行：JVM 加载字节码，解释或 JIT 即时编译�
 
     // 没有返回值用 void，打印今日水果
     static void printTodayFruits() {
-        System.out.println(&quot;今日水果：苹果、葡萄、巨峰葡萄&quot;);
+        System.out.println("今日水果：苹果、葡萄、巨峰葡萄");
     }
 
     public static void main(String[] args) {
@@ -325,7 +325,7 @@ java Hello          # 运行：JVM 加载字节码，解释或 JIT 即时编译�
     <span class="p">}</span>
 
     <span class="n">static</span> <span class="n">void</span> <span class="n">addFruit</span><span class="p">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">basket</span><span class="p">)</span> <span class="p">{</span>  <span class="o">//</span> <span class="n">对象</span><span class="err">：</span><span class="n">引用传递</span>
-        <span class="n">basket</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;香蕉&quot;</span><span class="p">);</span>
+        <span class="n">basket</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"香蕉"</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
@@ -349,16 +349,16 @@ java Hello          # 运行：JVM 加载字节码，解释或 JIT 即时编译�
 <div class="highlight"><pre><span></span><code><span class="nv">public</span><span class="w"> </span><span class="nv">class</span><span class="w"> </span><span class="nv">Demo</span><span class="w"> </span>{
 <span class="w">    </span><span class="o">//</span><span class="w"> </span>两个方法同名，参数类型不同<span class="w"> </span>——<span class="w"> </span>方法重载
 <span class="w">    </span><span class="nv">static</span><span class="w"> </span><span class="nv">String</span><span class="w"> </span><span class="nv">makeJuice</span><span class="ss">(</span><span class="nv">String</span><span class="w"> </span><span class="nv">fruit</span><span class="ss">)</span><span class="w"> </span>{
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nv">fruit</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;汁&quot;</span><span class="c1">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nv">fruit</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">"汁"</span><span class="c1">;</span>
 <span class="w">    </span>}
 
 <span class="w">    </span><span class="nv">static</span><span class="w"> </span><span class="nv">String</span><span class="w"> </span><span class="nv">makeJuice</span><span class="ss">(</span><span class="nv">String</span><span class="w"> </span><span class="nv">fruit1</span>,<span class="w"> </span><span class="nv">String</span><span class="w"> </span><span class="nv">fruit2</span><span class="ss">)</span><span class="w"> </span>{
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nv">fruit1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">fruit2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;混合汁&quot;</span><span class="c1">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nv">fruit1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">fruit2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">"混合汁"</span><span class="c1">;</span>
 <span class="w">    </span>}
 
 <span class="w">    </span><span class="nv">public</span><span class="w"> </span><span class="nv">static</span><span class="w"> </span><span class="nv">void</span><span class="w"> </span><span class="nv">main</span><span class="ss">(</span><span class="nv">String</span>[]<span class="w"> </span><span class="nv">args</span><span class="ss">)</span><span class="w"> </span>{
-<span class="w">        </span><span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="nv">makeJuice</span><span class="ss">(</span><span class="s2">&quot;葡萄&quot;</span><span class="ss">))</span><span class="c1">;        // 葡萄汁</span>
-<span class="w">        </span><span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="nv">makeJuice</span><span class="ss">(</span><span class="s2">&quot;苹果&quot;</span>,<span class="w"> </span><span class="s2">&quot;香蕉&quot;</span><span class="ss">))</span><span class="c1">; // 苹果香蕉混合汁</span>
+<span class="w">        </span><span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="nv">makeJuice</span><span class="ss">(</span><span class="s2">"葡萄"</span><span class="ss">))</span><span class="c1">;        // 葡萄汁</span>
+<span class="w">        </span><span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="nv">makeJuice</span><span class="ss">(</span><span class="s2">"苹果"</span>,<span class="w"> </span><span class="s2">"香蕉"</span><span class="ss">))</span><span class="c1">; // 苹果香蕉混合汁</span>
 <span class="w">    </span>}
 }
 </code></pre></div>
@@ -375,9 +375,9 @@ java Hello          # 运行：JVM 加载字节码，解释或 JIT 即时编译�
 <span class="n">public</span> <span class="k">class</span><span class="w"> </span><span class="nc">Demo</span> <span class="p">{</span>
     <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">Scanner</span> <span class="n">scanner</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="o">.</span><span class="ow">in</span><span class="p">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;请问你要买什么水果？&quot;</span><span class="p">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">"请问你要买什么水果？"</span><span class="p">);</span>
         <span class="n">String</span> <span class="n">fruit</span> <span class="o">=</span> <span class="n">scanner</span><span class="o">.</span><span class="n">next</span><span class="p">();</span>
-        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;你选择了：&quot;</span> <span class="o">+</span> <span class="n">fruit</span><span class="p">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">"你选择了："</span> <span class="o">+</span> <span class="n">fruit</span><span class="p">);</span>
         <span class="n">scanner</span><span class="o">.</span><span class="n">close</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -397,9 +397,9 @@ java Hello          # 运行：JVM 加载字节码，解释或 JIT 即时编译�
             int perBasket = apples / baskets;   // 触发 ArithmeticException
             System.out.println(perBasket);
         } catch (ArithmeticException e) {      // 捕获算术异常
-            System.out.println(&quot;果篮不能为0！&quot;);
+            System.out.println("果篮不能为0！");
         } finally {
-            System.out.println(&quot;无论是否异常，分装流程都会结束&quot;);
+            System.out.println("无论是否异常，分装流程都会结束");
         }
     }
 }
@@ -415,8 +415,8 @@ java Hello          # 运行：JVM 加载字节码，解释或 JIT 即时编译�
 <div class="highlight"><pre><span></span><code><span class="n">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="n">Demo</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="nb nb-Type">String</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="o">//</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="err">创建对象：两个不同的葡萄对象</span>
-<span class="w">        </span><span class="n">Grape</span><span class="w"> </span><span class="n">grape1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">Grape</span><span class="p">(</span><span class="s2">&quot;巨峰葡萄&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
-<span class="w">        </span><span class="n">Grape</span><span class="w"> </span><span class="n">grape2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">Grape</span><span class="p">(</span><span class="s2">&quot;阳光玫瑰&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">35</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Grape</span><span class="w"> </span><span class="n">grape1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">Grape</span><span class="p">(</span><span class="s2">"巨峰葡萄"</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Grape</span><span class="w"> </span><span class="n">grape2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">Grape</span><span class="p">(</span><span class="s2">"阳光玫瑰"</span><span class="p">,</span><span class="w"> </span><span class="mi">35</span><span class="p">);</span>
 
 <span class="w">        </span><span class="o">//</span><span class="w"> </span><span class="err">调用对象的方法</span>
 <span class="w">        </span><span class="n">grape1</span><span class="o">.</span><span class="n">describe</span><span class="p">();</span>
@@ -436,7 +436,7 @@ java Hello          # 运行：JVM 加载字节码，解释或 JIT 即时编译�
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="n">public</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="w"> </span><span class="n">describe</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">variety</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;，每斤&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">this</span><span class="o">.</span><span class="n">price</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;元&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">variety</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">"，每斤"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">this</span><span class="o">.</span><span class="n">price</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">"元"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="n">public</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">getPrice</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -453,7 +453,7 @@ java Hello          # 运行：JVM 加载字节码，解释或 JIT 即时编译�
 <p><strong>封装</strong>是指把数据（成员变量）设为私有，通过公开的方法（getter/setter）来访问，从而保护数据不被随意修改。Java 用 <code>private</code> 关键字实现封装。就像水果的"生产日期"不能让人随便改，只能通过店铺登记。</p>
 <div class="highlight"><pre><span></span><code>public class Demo {
     public static void main(String[] args) {
-        Fruit orange = new Fruit(&quot;橙子&quot;, 10);
+        Fruit orange = new Fruit("橙子", 10);
         orange.raisePrice(2);                 // 涨价2元
         System.out.println(orange.getPrice());  // 12
         System.out.println(orange.setDiscount(-5));  // false，非法折扣
@@ -513,7 +513,7 @@ class Fruit {
 <span class="o">//</span><span class="w"> </span><span class="err">父类：水果</span>
 <span class="k">class</span><span class="w"> </span><span class="n">Fruit</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">public</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="w"> </span><span class="n">taste</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;水果的味道&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">"水果的味道"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -521,7 +521,7 @@ class Fruit {
 <span class="k">class</span><span class="w"> </span><span class="n">Grape</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="n">Fruit</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="err">@</span><span class="n">Override</span>
 <span class="w">    </span><span class="n">public</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="w"> </span><span class="n">taste</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;葡萄：酸甜多汁&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">"葡萄：酸甜多汁"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -529,7 +529,7 @@ class Fruit {
 <span class="k">class</span><span class="w"> </span><span class="n">KyohoGrape</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="n">Grape</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="err">@</span><span class="n">Override</span>
 <span class="w">    </span><span class="n">public</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="w"> </span><span class="n">taste</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;巨峰葡萄：个大、更甜&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">"巨峰葡萄：个大、更甜"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -557,7 +557,7 @@ class Fruit {
 <span class="kd">class</span><span class="w"> </span><span class="nx">Grape</span><span class="w"> </span><span class="nx">implements</span><span class="w"> </span><span class="nx">Edible</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="err">@</span><span class="nx">Override</span>
 <span class="w">    </span><span class="nx">public</span><span class="w"> </span><span class="nx">void</span><span class="w"> </span><span class="nx">howToEat</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s">&quot;葡萄：洗净直接吃&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s">"葡萄：洗净直接吃"</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

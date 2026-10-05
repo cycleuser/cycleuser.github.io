@@ -132,7 +132,7 @@
 <p>This post is a guide for newbie users of PyCUDA. We use Pyenv here and that means we can build different versions of working environments.</p>
 <h4>Install Git and Pyenv</h4>
 <p>In order to download the PyCUDA code, we need to install Git. In order to control multiple versions of Python and creat isolated environment for different projects, we need to use Pyenv. To install Pyenv, we need to install <a href="http://brew.sh/index_zh-cn.html">Brew</a> first by running this in terminal:</p>
-<div class="highlight"><pre><span></span><code>/usr/bin/ruby<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code>/usr/bin/ruby<span class="w"> </span>-e<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">"</span>
 </code></pre></div>
 
 <p>Then run the command below to install Pyenv.</p>
@@ -192,9 +192,9 @@ sudo<span class="w"> </span>make<span class="w"> </span>install
 <span class="n">a_gpu</span> <span class="o">=</span> <span class="n">gpuarray</span><span class="o">.</span><span class="n">to_gpu</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
 <span class="n">a_doubled</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a_gpu</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original array:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"original array:"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a_gpu</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;doubled with gpuarray:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"doubled with gpuarray:"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a_doubled</span><span class="p">)</span>
 </code></pre></div>
 

@@ -144,9 +144,9 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">arr</span><span class="w">  </span>
 
 <span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">64, 34, 25, 12, 22, 11, 90</span><span class="o">]</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;排序前: {data}&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"排序前: {data}"</span><span class="p">)</span><span class="w">  </span>
 <span class="n">sorted_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bubble_sort</span><span class="p">(</span><span class="k">data</span><span class="p">.</span><span class="n">copy</span><span class="p">())</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;排序后: {sorted_data}&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"排序后: {sorted_data}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>冒泡排序的时间复杂度为O(n²)，因为需要进行n轮遍历，每轮遍历最多需要比较n次。空间复杂度为O(1)，只需要一个临时变量用于交换。冒泡排序是稳定的排序算法，相同元素的相对位置不会改变。通过引入swapped标志，可以在数组已经有序时提前终止，优化算法效率。</p>
@@ -167,7 +167,7 @@
 
 <span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">64, 34, 25, 12, 22, 11, 90</span><span class="o">]</span><span class="w">  </span>
 <span class="n">sorted_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">selection_sort</span><span class="p">(</span><span class="k">data</span><span class="p">.</span><span class="n">copy</span><span class="p">())</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;选择排序结果: {sorted_data}&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"选择排序结果: {sorted_data}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>选择排序的时间复杂度为O(n²)，因为需要进行n轮选择，每轮选择需要比较n-i次。空间复杂度为O(1)，不需要额外的存储空间。选择排序是不稳定的排序算法，因为交换操作可能改变相同元素的相对位置。</p>
@@ -188,7 +188,7 @@
 
 <span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">64, 34, 25, 12, 22, 11, 90</span><span class="o">]</span><span class="w">  </span>
 <span class="n">sorted_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertion_sort</span><span class="p">(</span><span class="k">data</span><span class="p">.</span><span class="n">copy</span><span class="p">())</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;插入排序结果: {sorted_data}&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"插入排序结果: {sorted_data}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>插入排序的时间复杂度在最好情况下为O(n)，当数组已经有序时，只需要遍历一次数组。在最坏情况下为O(n²)，当数组逆序时，每个元素都需要移动到数组开头。平均情况下为O(n²)。插入排序是稳定的排序算法，因为相同元素不会被交换。插入排序对于小规模数据和基本有序的数据效率很高。</p>
@@ -225,7 +225,7 @@
 
 <span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">64, 34, 25, 12, 22, 11, 90</span><span class="o">]</span><span class="w">  </span>
 <span class="n">sorted_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">merge_sort</span><span class="p">(</span><span class="k">data</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;归并排序结果: {sorted_data}&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"归并排序结果: {sorted_data}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>归并排序的时间复杂度为O(n log n)，因为需要log n层递归，每层递归的合并操作需要O(n)时间。空间复杂度为O(n)，因为合并过程需要额外的数组存储结果。归并排序是稳定的排序算法，因为合并过程中相同元素的相对位置保持不变。</p>
@@ -266,7 +266,7 @@
 
 <span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">64, 34, 25, 12, 22, 11, 90</span><span class="o">]</span><span class="w">  </span>
 <span class="n">sorted_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quick_sort</span><span class="p">(</span><span class="k">data</span><span class="p">.</span><span class="n">copy</span><span class="p">())</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;快速排序结果: {sorted_data}&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"快速排序结果: {sorted_data}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>快速排序的平均时间复杂度为O(n log n)，最坏情况下为O(n²)。最坏情况发生在基准元素选择不当，每次只能排除一个元素时。通过随机选择基准元素或使用三数取中法，可以降低最坏情况出现的概率。原地版本的快速排序空间复杂度为O(log n)，因为需要递归栈空间。</p>
@@ -304,7 +304,7 @@
 
 <span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">64, 34, 25, 12, 22, 11, 90</span><span class="o">]</span><span class="w">  </span>
 <span class="n">sorted_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heap_sort</span><span class="p">(</span><span class="k">data</span><span class="p">.</span><span class="n">copy</span><span class="p">())</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;堆排序结果: {sorted_data}&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"堆排序结果: {sorted_data}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>堆排序的时间复杂度为O(n log n)，因为构建堆需要O(n)时间，每次调整堆需要O(log n)时间，总共需要调整n次。空间复杂度为O(1)，因为堆排序是原地排序算法。堆排序是不稳定的排序算法，因为堆调整过程可能改变相同元素的相对位置。</p>
@@ -387,20 +387,20 @@ def benchmark_sort<span class="p">(</span>sort_func<span class="p">,</span> dat
 
 <span class="ss">sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">]</span>  
 <span class="ss">algorithms</span> <span class="o">=</span> <span class="p">[</span>  
-    <span class="p">(</span><span class="err">&#39;冒泡排序&#39;</span><span class="p">,</span> bubble_sort<span class="p">),</span>  
-    <span class="p">(</span><span class="err">&#39;选择排序&#39;</span><span class="p">,</span> selection_sort<span class="p">),</span>  
-    <span class="p">(</span><span class="err">&#39;插入排序&#39;</span><span class="p">,</span> insertion_sort<span class="p">),</span>  
-    <span class="p">(</span><span class="err">&#39;归并排序&#39;</span><span class="p">,</span> merge_sort<span class="p">),</span>  
-    <span class="p">(</span><span class="err">&#39;快速排序&#39;</span><span class="p">,</span> quick_sort<span class="p">),</span>  
-    <span class="p">(</span><span class="err">&#39;堆排序&#39;</span><span class="p">,</span> heap_sort<span class="p">),</span>  
+    <span class="p">(</span><span class="err">'冒泡排序'</span><span class="p">,</span> bubble_sort<span class="p">),</span>  
+    <span class="p">(</span><span class="err">'选择排序'</span><span class="p">,</span> selection_sort<span class="p">),</span>  
+    <span class="p">(</span><span class="err">'插入排序'</span><span class="p">,</span> insertion_sort<span class="p">),</span>  
+    <span class="p">(</span><span class="err">'归并排序'</span><span class="p">,</span> merge_sort<span class="p">),</span>  
+    <span class="p">(</span><span class="err">'快速排序'</span><span class="p">,</span> quick_sort<span class="p">),</span>  
+    <span class="p">(</span><span class="err">'堆排序'</span><span class="p">,</span> heap_sort<span class="p">),</span>  
 <span class="p">]</span>  
 
 for size <span class="k">in</span> sizes<span class="p">:</span>  
     <span class="ss">data</span> <span class="o">=</span> <span class="p">[</span>random<span class="o">.</span>randint<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> for _ <span class="k">in</span> range<span class="p">(</span>size<span class="p">)]</span>  
-    print<span class="p">(</span>f<span class="s2">&quot;</span><span class="se">\n</span><span class="s2">数据规模: {size}&quot;</span><span class="p">)</span>  
+    print<span class="p">(</span>f<span class="s2">"</span><span class="se">\n</span><span class="s2">数据规模: {size}"</span><span class="p">)</span>  
     for name<span class="p">,</span> func <span class="k">in</span> algorithms<span class="p">:</span>  
         <span class="ss">time_ms</span> <span class="o">=</span> benchmark_sort<span class="p">(</span>func<span class="p">,</span> data<span class="p">)</span>  
-        print<span class="p">(</span>f<span class="s2">&quot;{name}: {time_ms:.2f} 毫秒&quot;</span><span class="p">)</span>
+        print<span class="p">(</span>f<span class="s2">"{name}: {time_ms:.2f} 毫秒"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>对于小规模数据，插入排序通常是最快的选择。对于大规模数据，快速排序和归并排序是最佳选择。如果要求稳定性，归并排序是唯一的选择。如果内存有限，堆排序是合适的选择。Python的内置排序函数sorted和list.sort使用Timsort算法，它是归并排序和插入排序的结合，性能非常优秀。</p>

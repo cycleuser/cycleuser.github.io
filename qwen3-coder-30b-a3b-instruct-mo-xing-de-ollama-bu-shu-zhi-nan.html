@@ -164,7 +164,7 @@
 <p>模型将下载到：<code>C:\Users\用户名\.cache\modelscope\hub\models\qwen\Qwen3-Coder-30B-A3B-Instruct</code></p>
 <h2>步骤三：转换模型格式</h2>
 <p>将 Hugging Face 格式转换为 GGUF 格式：</p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nx">python</span><span class="w"> </span><span class="nx">convert_hf_to_gguf</span><span class="p">.</span><span class="nx">py</span><span class="w"> </span><span class="s">&quot;C:\Users\HP\.cache\modelscope\hub\models\qwen\Qwen3-Coder-30B-A3B-Instruct&quot;</span><span class="o">--</span><span class="nx">outfile</span><span class="w"> </span><span class="nx">models</span><span class="err">\</span><span class="nx">qwen3</span><span class="o">-</span><span class="nx">coder</span><span class="o">-</span><span class="mi">30</span><span class="nx">b</span><span class="o">-</span><span class="nx">a3b</span><span class="o">-</span><span class="nx">instruct_q8</span><span class="p">.</span><span class="nx">gguf</span><span class="w"> </span><span class="o">--</span><span class="nx">verbose</span><span class="o">--</span><span class="nx">outtype</span><span class="w"> </span><span class="nx">q8_0</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nx">python</span><span class="w"> </span><span class="nx">convert_hf_to_gguf</span><span class="p">.</span><span class="nx">py</span><span class="w"> </span><span class="s">"C:\Users\HP\.cache\modelscope\hub\models\qwen\Qwen3-Coder-30B-A3B-Instruct"</span><span class="o">--</span><span class="nx">outfile</span><span class="w"> </span><span class="nx">models</span><span class="err">\</span><span class="nx">qwen3</span><span class="o">-</span><span class="nx">coder</span><span class="o">-</span><span class="mi">30</span><span class="nx">b</span><span class="o">-</span><span class="nx">a3b</span><span class="o">-</span><span class="nx">instruct_q8</span><span class="p">.</span><span class="nx">gguf</span><span class="w"> </span><span class="o">--</span><span class="nx">verbose</span><span class="o">--</span><span class="nx">outtype</span><span class="w"> </span><span class="nx">q8_0</span>
 </code></pre></div>
 
 <h3>参数说明</h3>
@@ -177,17 +177,17 @@
 <p>创建配置文件 <code>Modelfile_qwen3_coder</code>，文件内容如下所示（要注意文件名和路径与前面转换的匹配，比如一定注意都是qwen3-coder-30b-a3b-instruct_q8.gguf  这个文件哈）：</p>
 <div class="highlight"><pre><span></span><code><span class="x"> FROM models/qwen3-coder-30b-a3b-instruct_q8.gguf</span>
 
-<span class="x"> TEMPLATE &quot;&quot;&quot;&lt;|im_start|&gt;system</span>
+<span class="x"> TEMPLATE """&lt;|im_start|&gt;system</span>
 <span class="x"> </span><span class="cp">{{</span> <span class="nv">.System</span> <span class="cp">}}</span><span class="x">&lt;|im_end|&gt;</span>
 <span class="x"> &lt;|im_start|&gt;user</span>
 <span class="x"> </span><span class="cp">{{</span> <span class="nv">.Prompt</span> <span class="cp">}}</span><span class="x">&lt;|im_end|&gt;</span>
 <span class="x"> &lt;|im_start|&gt;assistant</span>
-<span class="x"> &quot;&quot;&quot;</span>
+<span class="x"> """</span>
 
-<span class="x"> PARAMETER stop &quot;&lt;|im_end|&gt;&quot;</span>
-<span class="x"> PARAMETER stop &quot;&lt;|im_start|&gt;&quot;</span>
+<span class="x"> PARAMETER stop "&lt;|im_end|&gt;"</span>
+<span class="x"> PARAMETER stop "&lt;|im_start|&gt;"</span>
 
-<span class="x"> SYSTEM &quot;&quot;&quot;你是Qwen，由阿里云开发的AI助手。你对用户的问题和请求总是有帮助、准确和诚实的。&quot;&quot;&quot;</span>
+<span class="x"> SYSTEM """你是Qwen，由阿里云开发的AI助手。你对用户的问题和请求总是有帮助、准确和诚实的。"""</span>
 </code></pre></div>
 
 <h3>配置说明</h3>
@@ -208,16 +208,16 @@
 
 <h2>使用示例</h2>
 <h3>代码生成示例</h3>
-<div class="highlight"><pre><span></span><code> ollama run qwen3-coder-30b-a3b-instruct_q8 &quot;请写一个Python函数来计算斐波那契数列&quot;
+<div class="highlight"><pre><span></span><code> ollama run qwen3-coder-30b-a3b-instruct_q8 "请写一个Python函数来计算斐波那契数列"
 </code></pre></div>
 
 <h3>代码解释示例</h3>
-<div class="highlight"><pre><span></span><code> ollama run qwen3-coder-30b-a3b-instruct_q8 &quot;解释这段代码的功能：def quicksort(arr): ...&quot;
+<div class="highlight"><pre><span></span><code> ollama run qwen3-coder-30b-a3b-instruct_q8 "解释这段代码的功能：def quicksort(arr): ..."
 </code></pre></div>
 
 <h2>性能评估</h2>
 <p>在 AMD 7950X + 128G DDR5 RAM + 4060 GPU 8GRAM 的配置的笔记本电脑上运行如下命令：</p>
-<div class="highlight"><pre><span></span><code> ollama run hopephoto/qwen3-coder-30b-a3b-instruct_q8 &quot;请写一个Python函数来计算斐波那契数列&quot;--verbose
+<div class="highlight"><pre><span></span><code> ollama run hopephoto/qwen3-coder-30b-a3b-instruct_q8 "请写一个Python函数来计算斐波那契数列"--verbose
 </code></pre></div>
 
 <p>得到的性能评测结果为：</p>

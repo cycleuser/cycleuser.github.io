@@ -210,14 +210,14 @@ ollama launch opencode --config
 <h3>方式二：手动配置</h3>
 <p>编辑 <code>~/.config/opencode/opencode.json</code>，注意这里面写的模型名称需与<code>ollama pull</code>命令完全一致：</p>
 <div class="highlight"><pre><span></span><code>{
-  &quot;$schema&quot;: &quot;https://opencode.ai/config.json&quot;,
-  &quot;provider&quot;: {
-    &quot;ollama&quot;: {
-      &quot;options&quot;: { &quot;baseURL&quot;: &quot;http://localhost:11434/v1&quot; },
-      &quot;models&quot;: {
-        &quot;lfm2.5-thinking&quot;: { &quot;name&quot;: &quot;lfm2.5-thinking&quot; },
-        &quot;qwen3:4b-instruct-2507&quot;: { &quot;name&quot;: &quot;qwen3:4b-instruct-2507&quot; },
-        &quot;qwen3.5:4b&quot;: { &quot;name&quot;: &quot;qwen3.5:4b&quot; }
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "ollama": {
+      "options": { "baseURL": "http://localhost:11434/v1" },
+      "models": {
+        "lfm2.5-thinking": { "name": "lfm2.5-thinking" },
+        "qwen3:4b-instruct-2507": { "name": "qwen3:4b-instruct-2507" },
+        "qwen3.5:4b": { "name": "qwen3.5:4b" }
       }
     }
   }

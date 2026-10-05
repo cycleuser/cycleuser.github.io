@@ -138,12 +138,12 @@
 <p>Tensor Count</p>
 <h2>实际跑一下看看</h2>
 <p>先拿 qwen3.5 试试水。在终端里直接问它 2+2 等于几：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ollama<span class="w"> </span>run<span class="w"> </span>huihui_ai/qwen3.5-abliterated:0.8B<span class="w"> </span><span class="s2">&quot;What is 2+2?&quot;</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ollama<span class="w"> </span>run<span class="w"> </span>huihui_ai/qwen3.5-abliterated:0.8B<span class="w"> </span><span class="s2">"What is 2+2?"</span>
 </code></pre></div>
 
 <p>模型会先输出一段 thinking 过程，然后给出答案：</p>
 <div class="highlight"><pre><span></span><code><span class="nx">Thinking</span><span class="w"> </span><span class="nx">Process</span><span class="p">:</span>
-<span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="o">**</span><span class="nx">Analyze</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">Request</span><span class="p">:</span><span class="o">**</span><span class="w"> </span><span class="nx">The</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nx">asking</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">simple</span><span class="p">,</span><span class="w"> </span><span class="nx">basic</span><span class="w"> </span><span class="nx">question</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;What is 2+2?&quot;</span>
+<span class="mi">1</span><span class="p">.</span><span class="w"> </span><span class="o">**</span><span class="nx">Analyze</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">Request</span><span class="p">:</span><span class="o">**</span><span class="w"> </span><span class="nx">The</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nx">asking</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">simple</span><span class="p">,</span><span class="w"> </span><span class="nx">basic</span><span class="w"> </span><span class="nx">question</span><span class="p">:</span><span class="w"> </span><span class="s">"What is 2+2?"</span>
 <span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="o">**</span><span class="nx">Identify</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">Mathematical</span><span class="w"> </span><span class="nx">Truth</span><span class="p">:</span><span class="o">**</span><span class="w"> </span><span class="nx">In</span><span class="w"> </span><span class="nx">mathematics</span><span class="p">,</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="nx">of</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="nx">simply</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span>
 <span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="o">**</span><span class="nx">Format</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">Output</span><span class="p">:</span><span class="o">**</span><span class="w"> </span><span class="nx">The</span><span class="w"> </span><span class="nx">answer</span><span class="w"> </span><span class="nx">should</span><span class="w"> </span><span class="nx">be</span><span class="w"> </span><span class="nx">direct</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nx">clear</span><span class="p">.</span>
 <span class="o">...</span><span class="nx">done</span><span class="w"> </span><span class="nx">thinking</span><span class="p">.</span>
@@ -151,12 +151,12 @@
 </code></pre></div>
 
 <p>再试试让它写个阶乘函数：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ollama<span class="w"> </span>run<span class="w"> </span>huihui_ai/qwen3.5-abliterated:0.8B<span class="w"> </span><span class="s2">&quot;Write a Python function to calculate factorial&quot;</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ollama<span class="w"> </span>run<span class="w"> </span>huihui_ai/qwen3.5-abliterated:0.8B<span class="w"> </span><span class="s2">"Write a Python function to calculate factorial"</span>
 </code></pre></div>
 
 <p>输出了一段完整的 Python 代码，包括错误处理和测试用例，质量还行。</p>
 <p>换 lfm2.5 试试同样的问题：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ollama<span class="w"> </span>run<span class="w"> </span>huihui_ai/lfm2.5-abliterated:latest<span class="w"> </span><span class="s2">&quot;What is the capital of France?&quot;</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ollama<span class="w"> </span>run<span class="w"> </span>huihui_ai/lfm2.5-abliterated:latest<span class="w"> </span><span class="s2">"What is the capital of France?"</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>Thinking...
@@ -166,7 +166,7 @@ hub for art, fashion, and cuisine.
 </code></pre></div>
 
 <p>让它写阶乘函数：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ollama<span class="w"> </span>run<span class="w"> </span>huihui_ai/lfm2.5-abliterated:latest<span class="w"> </span><span class="s2">&quot;Write a Python function to calculate factorial&quot;</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ollama<span class="w"> </span>run<span class="w"> </span>huihui_ai/lfm2.5-abliterated:latest<span class="w"> </span><span class="s2">"Write a Python function to calculate factorial"</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>def factorial(n):
@@ -226,8 +226,8 @@ tests/test_conversion_verification.py::TestLfm25Conversion::test_all_weights_mat
 <p>Python API 也很直接：</p>
 <div class="highlight"><pre><span></span><code>from fanfu import convert_gguf_to_hf, compare_weights
 
-result = convert_gguf_to_hf(&quot;model.gguf&quot;, &quot;hf_model/&quot;)
-print(f&quot;Conversion: {result.success}&quot;)
+result = convert_gguf_to_hf("model.gguf", "hf_model/")
+print(f"Conversion: {result.success}")
 </code></pre></div>
 
 <h2>最后</h2>

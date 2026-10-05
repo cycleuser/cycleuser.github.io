@@ -138,8 +138,8 @@ int main() {
     int *ptr = scores;        // 数组名自动变成指向首元素的指针  
     int *ptr2 = &amp;scores[0];   // 直接取第一个元素的地址  
       
-    printf(&quot;scores[0] = %d\n&quot;, <span class="gs">*ptr);     // 85  </span>
-<span class="gs">    printf(&quot;scores[1] = %d\n&quot;, *</span>(ptr+1)); // 90  
+    printf("scores[0] = %d\n", <span class="gs">*ptr);     // 85  </span>
+<span class="gs">    printf("scores[1] = %d\n", *</span>(ptr+1)); // 90  
       
     return 0;  
 }
@@ -155,12 +155,12 @@ int main() {
 <span class="w">    </span><span class="nv">int</span><span class="w"> </span><span class="nv">scores</span>[<span class="mi">5</span>]<span class="w"> </span><span class="o">=</span><span class="w"> </span>{<span class="mi">85</span>,<span class="w"> </span><span class="mi">90</span>,<span class="w"> </span><span class="mi">78</span>,<span class="w"> </span><span class="mi">92</span>,<span class="w"> </span><span class="mi">88</span>}<span class="c1">;  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span>越界了，但程序不会报错<span class="w">  </span>
-<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;scores[5] = %d\n&quot;</span>,<span class="w"> </span><span class="nv">scores</span>[<span class="mi">5</span>]<span class="ss">)</span><span class="c1">;   // 第6个元素？不存在  </span>
-<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;scores[10] = %d\n&quot;</span>,<span class="w"> </span><span class="nv">scores</span>[<span class="mi">10</span>]<span class="ss">)</span><span class="c1">; // 更远的地方？  </span>
+<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"scores[5] = %d\n"</span>,<span class="w"> </span><span class="nv">scores</span>[<span class="mi">5</span>]<span class="ss">)</span><span class="c1">;   // 第6个元素？不存在  </span>
+<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"scores[10] = %d\n"</span>,<span class="w"> </span><span class="nv">scores</span>[<span class="mi">10</span>]<span class="ss">)</span><span class="c1">; // 更远的地方？  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span>更危险的是写入<span class="w">  </span>
 <span class="w">    </span><span class="nv">scores</span>[<span class="mi">6</span>]<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">999</span><span class="c1">; // 写入不存在的元素  </span>
-<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;scores[2] = %d\n&quot;</span>,<span class="w"> </span><span class="nv">scores</span>[<span class="mi">2</span>]<span class="ss">)</span><span class="c1">;   // 可能被破坏了  </span>
+<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"scores[2] = %d\n"</span>,<span class="w"> </span><span class="nv">scores</span>[<span class="mi">2</span>]<span class="ss">)</span><span class="c1">;   // 可能被破坏了  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="nv">return0</span><span class="c1">;  </span>
 }
@@ -178,18 +178,18 @@ int main() {
 <span class="w">    </span><span class="err">let</span><span class="w"> </span><span class="err">scores</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="cp">[</span><span class="mi">85</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="mi">78</span><span class="p">,</span><span class="w"> </span><span class="mi">92</span><span class="p">,</span><span class="w"> </span><span class="mi">88</span><span class="cp">]</span><span class="p">;</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">用索引访问，越界会直接panic</span><span class="w">  </span>
-<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">println!(&quot;scores</span><span class="cp">[</span><span class="mi">5</span><span class="cp">]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">{</span><span class="p">}</span><span class="s2">&quot;, scores</span><span class="cp">[</span><span class="mi">5</span><span class="cp">]</span><span class="s2">);   </span>
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">println!("scores</span><span class="cp">[</span><span class="mi">5</span><span class="cp">]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">{</span><span class="p">}</span><span class="s2">", scores</span><span class="cp">[</span><span class="mi">5</span><span class="cp">]</span><span class="s2">);   </span>
 <span class="s2">    // 运行时报错，给出清晰的错误信息  </span>
 <span class="s2">      </span>
 <span class="s2">    // 用get()安全访问  </span>
 <span class="s2">    match scores.get(5) {  </span>
-<span class="s2">        Some(value) =&gt; println!(&quot;</span><span class="nt">scores</span><span class="cp">[</span><span class="mi">5</span><span class="cp">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span><span class="s2">&quot;, value),  </span>
-<span class="s2">        None =&gt; println!(&quot;</span><span class="nt">索引5越界了</span><span class="s2">&quot;),  </span>
+<span class="s2">        Some(value) =&gt; println!("</span><span class="nt">scores</span><span class="cp">[</span><span class="mi">5</span><span class="cp">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span><span class="s2">", value),  </span>
+<span class="s2">        None =&gt; println!("</span><span class="nt">索引5越界了</span><span class="s2">"),  </span>
 <span class="s2">    }  </span>
 <span class="s2">      </span>
 <span class="s2">    // 用迭代器遍历，编译期保证安全  </span>
 <span class="s2">    for score in &amp;scores {  </span>
-<span class="s2">        println!(&quot;</span><span class="nt">成绩</span><span class="o">:</span><span class="w"> </span><span class="p">{}</span><span class="err">&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">score</span><span class="o">);</span><span class="w">  </span>
+<span class="s2">        println!("</span><span class="nt">成绩</span><span class="o">:</span><span class="w"> </span><span class="p">{}</span><span class="err">"</span><span class="o">,</span><span class="w"> </span><span class="nt">score</span><span class="o">);</span><span class="w">  </span>
 <span class="w">    </span><span class="err">}</span><span class="w">  </span>
 <span class="err">}</span>
 </code></pre></div>

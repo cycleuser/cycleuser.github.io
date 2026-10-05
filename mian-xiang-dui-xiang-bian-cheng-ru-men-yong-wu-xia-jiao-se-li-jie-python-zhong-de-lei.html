@@ -133,9 +133,9 @@
 <hr>
 <h2>定义一个武侠角色类</h2>
 <p>下面用 Python 写一个简单的 <code>WuxiaRole</code> 类：</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">WuxiaRole:</span>    <span class="n">def</span> <span class="n">__init__</span>(<span class="nb">self</span>, <span class="nb">name</span>, <span class="n">neili</span>=<span class="mi">50</span>, <span class="n">hp</span>=<span class="mi">100</span>, <span class="n">attack</span>=<span class="mi">20</span>, <span class="n">defense</span>=<span class="mi">10</span>, <span class="n">skill</span>=<span class="s">&quot;普通攻击&quot;</span>):        <span class="c1"># 属性：角色的基本信息        self.name = name       # 姓名        self.neili = neili     # 内力        self.hp = hp           # 血量        self.attack = attack   # 攻击力        self.defense = defense # 防御力        self.skill = skill     # 必杀技名称</span>
-    <span class="n">def</span> <span class="n">practice</span>(<span class="nb">self</span>):        <span class="c1"># 行为：修炼武功，提升内力和攻击力        self.neili += 10        self.attack += 5        print(f&quot;{self.name}修炼成功！内力+10，攻击力+5&quot;)</span>
-    <span class="n">def</span> <span class="n">show_status</span>(<span class="nb">self</span>):        <span class="c1"># 行为：显示当前状态        print(f&quot;【{self.name}】血量:{self.hp} 内力:{self.neili} 攻击:{self.attack} 防御:{self.defense}&quot;)</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">WuxiaRole:</span>    <span class="n">def</span> <span class="n">__init__</span>(<span class="nb">self</span>, <span class="nb">name</span>, <span class="n">neili</span>=<span class="mi">50</span>, <span class="n">hp</span>=<span class="mi">100</span>, <span class="n">attack</span>=<span class="mi">20</span>, <span class="n">defense</span>=<span class="mi">10</span>, <span class="n">skill</span>=<span class="s">"普通攻击"</span>):        <span class="c1"># 属性：角色的基本信息        self.name = name       # 姓名        self.neili = neili     # 内力        self.hp = hp           # 血量        self.attack = attack   # 攻击力        self.defense = defense # 防御力        self.skill = skill     # 必杀技名称</span>
+    <span class="n">def</span> <span class="n">practice</span>(<span class="nb">self</span>):        <span class="c1"># 行为：修炼武功，提升内力和攻击力        self.neili += 10        self.attack += 5        print(f"{self.name}修炼成功！内力+10，攻击力+5")</span>
+    <span class="n">def</span> <span class="n">show_status</span>(<span class="nb">self</span>):        <span class="c1"># 行为：显示当前状态        print(f"【{self.name}】血量:{self.hp} 内力:{self.neili} 攻击:{self.attack} 防御:{self.defense}")</span>
 </code></pre></div>
 
 <h3>解释一下：</h3>
@@ -143,7 +143,7 @@
 <hr>
 <h2>创建具体角色：段誉和虚竹</h2>
 <p>现在可以用这个模板创建两个经典角色：</p>
-<div class="highlight"><pre><span></span><code>duanyu = WuxiaRole(&quot;段誉&quot;, neili=80, hp=120, attack=25, defense=15, skill=&quot;六脉神剑&quot;)xuzhu = WuxiaRole(&quot;虚竹&quot;, neili=90, hp=130, attack=22, defense=20, skill=&quot;天山折梅手&quot;)
+<div class="highlight"><pre><span></span><code>duanyu = WuxiaRole("段誉", neili=80, hp=120, attack=25, defense=15, skill="六脉神剑")xuzhu = WuxiaRole("虚竹", neili=90, hp=130, attack=22, defense=20, skill="天山折梅手")
 </code></pre></div>
 
 <p>他们各自拥有不同的初始数值，但都遵循同一个模板。</p>
@@ -159,17 +159,17 @@
 <h2>让角色对战：张三 vs 李四</h2>
 <p>接下来，定义一个独立的函数 <code>fight(role1, role2)</code>，让两个角色进行对战。规则很简单：</p>
 <p>•双方轮流攻击；•每次攻击造成的伤害 = 攻击方攻击力 - 防御方防御力（最低为1）；•血量降到0或以下就倒下；•先出手的是第一个传入的角色。</p>
-<div class="highlight"><pre><span></span><code>def fight(role1, role2):    print(f&quot;\n⚔️ 对战开始：{role1.name} vs {role2.name} ⚔️\n&quot;)
-    round_num = 1    while role1.hp &gt; 0 and role2.hp &gt; 0:        print(f&quot;--- 第 {round_num} 回合 ---&quot;)
-        # role1 攻击 role2        damage1 = max(1, role1.attack - role2.defense)        role2.hp -= damage1        print(f&quot;{role1.name} 使用 {role1.skill}，对 {role2.name} 造成 {damage1} 点伤害！&quot;)
-        if role2.hp &lt;= 0:            print(f&quot;\n🎉 {role1.name} 获胜！&quot;)            break
-        # role2 攻击 role1        damage2 = max(1, role2.attack - role1.defense)        role1.hp -= damage2        print(f&quot;{role2.name} 使用 {role2.skill}，对 {role1.name} 造成 {damage2} 点伤害！&quot;)
-        if role1.hp &lt;= 0:            print(f&quot;\n🎉 {role2.name} 获胜！&quot;)            break
+<div class="highlight"><pre><span></span><code>def fight(role1, role2):    print(f"\n⚔️ 对战开始：{role1.name} vs {role2.name} ⚔️\n")
+    round_num = 1    while role1.hp &gt; 0 and role2.hp &gt; 0:        print(f"--- 第 {round_num} 回合 ---")
+        # role1 攻击 role2        damage1 = max(1, role1.attack - role2.defense)        role2.hp -= damage1        print(f"{role1.name} 使用 {role1.skill}，对 {role2.name} 造成 {damage1} 点伤害！")
+        if role2.hp &lt;= 0:            print(f"\n🎉 {role1.name} 获胜！")            break
+        # role2 攻击 role1        damage2 = max(1, role2.attack - role1.defense)        role1.hp -= damage2        print(f"{role2.name} 使用 {role2.skill}，对 {role1.name} 造成 {damage2} 点伤害！")
+        if role1.hp &lt;= 0:            print(f"\n🎉 {role2.name} 获胜！")            break
         round_num += 1        print()  # 空一行，更清晰
 </code></pre></div>
 
 <p>现在创建两个新角色，并让他们打一场：</p>
-<div class="highlight"><pre><span></span><code>zhangsan = WuxiaRole(&quot;法外狂徒张三&quot;, neili=60, hp=110, attack=30, defense=8, skill=&quot;街头霸王拳&quot;)lisi = WuxiaRole(&quot;西装革履李四&quot;, neili=40, hp=90, attack=25, defense=12, skill=&quot;PPT暗器术&quot;)
+<div class="highlight"><pre><span></span><code>zhangsan = WuxiaRole("法外狂徒张三", neili=60, hp=110, attack=30, defense=8, skill="街头霸王拳")lisi = WuxiaRole("西装革履李四", neili=40, hp=90, attack=25, defense=12, skill="PPT暗器术")
 fight(zhangsan, lisi)
 </code></pre></div>
 

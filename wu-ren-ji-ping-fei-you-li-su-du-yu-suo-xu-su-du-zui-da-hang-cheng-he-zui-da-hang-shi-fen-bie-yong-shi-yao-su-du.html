@@ -214,24 +214,24 @@
 <span class="n">W</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">C_D0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mf">196.2</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.045</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">CL_from_V</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;平飞升力系数&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""平飞升力系数"""</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">W</span> <span class="o">/</span> <span class="p">(</span><span class="n">rho</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">V</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">CD</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;阻力系数&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""阻力系数"""</span>
     <span class="k">return</span> <span class="n">C_D0</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="n">val</span><span class="o">**</span><span class="mi">2</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">total_drag</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;总阻力&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""总阻力"""</span>
     <span class="n">c_l</span> <span class="o">=</span> <span class="n">CL_from_V</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
     <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">V</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">S</span> <span class="o">*</span> <span class="n">CD</span><span class="p">(</span><span class="n">c_l</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">power_required</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;需用功率 (propeller)&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""需用功率 (propeller)"""</span>
     <span class="k">return</span> <span class="n">total_drag</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="n">V</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">L_over_D</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;升阻比&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""升阻比"""</span>
     <span class="n">c_l</span> <span class="o">=</span> <span class="n">CL_from_V</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">c_l</span> <span class="o">/</span> <span class="n">CD</span><span class="p">(</span><span class="n">c_l</span><span class="p">)</span>
 
@@ -243,9 +243,9 @@
 <span class="n">V_min_drag</span> <span class="o">=</span> <span class="n">V_range</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="n">total_drag</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">V_range</span><span class="p">])]</span>
 <span class="n">V_min_power</span> <span class="o">=</span> <span class="n">V_range</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">([</span><span class="n">power_required</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">V_range</span><span class="p">])]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;失速速度: </span><span class="si">{</span><span class="n">V_stall</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;最大航程速度 (V_min_drag): </span><span class="si">{</span><span class="n">V_min_drag</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;最大航时速度 (V_min_power): </span><span class="si">{</span><span class="n">V_min_power</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"失速速度: </span><span class="si">{</span><span class="n">V_stall</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> m/s"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"最大航程速度 (V_min_drag): </span><span class="si">{</span><span class="n">V_min_drag</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> m/s"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"最大航时速度 (V_min_power): </span><span class="si">{</span><span class="n">V_min_power</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> m/s"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>输出结果:</p>

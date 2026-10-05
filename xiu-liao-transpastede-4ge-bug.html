@@ -133,7 +133,7 @@
 <p>有个同学安装后报了个错：<code>404 Client Error: Not Found for url: http://localhost:11434/api/generate/api/generate</code></p>
 <p>一眼看过去就知道怎么回事了。路径拼了两遍。</p>
 <p>代码里 <code>OLLAMA_API_URL</code> 写的是 <code>http://localhost:11434/api/generate</code>，然后第398行又做了个字符串拼接：</p>
-<div class="highlight"><pre><span></span><code>api_url = f&quot;{base_url}/api/generate&quot;
+<div class="highlight"><pre><span></span><code>api_url = f"{base_url}/api/generate"
 </code></pre></div>
 
 <p>结果就是 <code>/api/generate</code> 重复了两次。这种错误说低级也低级，但确实会发生。变量叫 <code>OLLAMA_API_URL</code>，名字本身就暗示这是个完整URL，后面的人自然会以为直接用就行，谁知道还要再拼一段。</p>
@@ -146,10 +146,10 @@
 
 <p>但 <code>pyproject.toml</code> 里版本号有一次给改成了硬编码的，和 <code>__init__.py</code> 对不上。改成了动态读取：</p>
 <div class="highlight"><pre><span></span><code><span class="k">[project]</span>
-<span class="na">dynamic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[&quot;version&quot;]</span>
+<span class="na">dynamic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">["version"]</span>
 
 <span class="k">[tool.setuptools.dynamic]</span>
-<span class="na">version = {attr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;transpaste.__version__&quot;</span><span class="na">}</span>
+<span class="na">version = {attr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"transpaste.__version__"</span><span class="na">}</span>
 </code></pre></div>
 
 <p>结果打包就炸了。</p>
@@ -161,7 +161,7 @@
 <p>第三个问题更隐蔽。</p>
 <p>翻译能用了，但复制内容到剪贴板后不会自动触发翻译，每次都要重新运行程序才行。</p>
 <p>看代码发现，macOS 有轮询回退机制，每500ms检查一次剪贴板变化。但 Windows 没有，只依赖 <code>dataChanged</code> 信号。</p>
-<div class="highlight"><pre><span></span><code>if sys.platform == &quot;darwin&quot;:
+<div class="highlight"><pre><span></span><code>if sys.platform == "darwin":
     # 只有macOS才有轮询
     self.poll_timer = QTimer(self)
     self.poll_timer.timeout.connect(self._poll_clipboard)

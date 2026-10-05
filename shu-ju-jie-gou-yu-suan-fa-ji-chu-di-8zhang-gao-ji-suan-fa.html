@@ -152,9 +152,9 @@
 <span class="n">ends</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">2, 4, 6, 7, 9, 9</span><span class="o">]</span><span class="w">  </span>
 
 <span class="k">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">activity_selection</span><span class="p">(</span><span class="n">starts</span><span class="p">,</span><span class="w"> </span><span class="n">ends</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="ss">&quot;选择的活动:&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="k">print</span><span class="p">(</span><span class="ss">"选择的活动:"</span><span class="p">)</span><span class="w">  </span>
 <span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="k">result</span><span class="p">)</span><span class="err">:</span><span class="w">  </span>
-<span class="w">    </span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;活动{i+1}: 开始时间{s}, 结束时间{e}&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"活动{i+1}: 开始时间{s}, 结束时间{e}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>活动选择问题是贪心算法的经典应用。给定一系列活动,每个活动有开始时间和结束时间,要求选择尽可能多的活动,使得它们不冲突。贪心策略是每次选择结束时间最早的活动,这样可以为后续活动留下最多的时间。</p>
@@ -182,7 +182,7 @@
 <span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="w">  </span>
 
 <span class="n">max_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fractional_knapsack</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span><span class="w"> </span><span class="k">values</span><span class="p">,</span><span class="w"> </span><span class="n">capacity</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;分数背包问题最大价值: {max_value}&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"分数背包问题最大价值: {max_value}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>分数背包问题允许物品分割,可以使用贪心算法求解。每次选择性价比最高的物品,优先装入背包。这与0-1背包问题不同,0-1背包问题需要动态规划求解。</p>
@@ -196,7 +196,7 @@
 <span class="w">    </span><span class="n">edges_in_mst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="n">edges_in_mst</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="err">:</span><span class="w">  </span>
-<span class="w">        </span><span class="n">min_weight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span><span class="w">  </span>
+<span class="w">        </span><span class="n">min_weight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">float</span><span class="p">(</span><span class="s1">'inf'</span><span class="p">)</span><span class="w">  </span>
 <span class="w">        </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w">  </span>
 <span class="w">          </span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="err">:</span><span class="w">  </span>
@@ -246,19 +246,19 @@
 <span class="n">def</span><span class="w"> </span><span class="n">print_queens_board</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span><span class="err">:</span><span class="w">  </span>
 <span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span><span class="w">  </span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="err">:</span><span class="w">  </span>
-<span class="w">        </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">  </span>
+<span class="w">        </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">''</span><span class="w">  </span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="err">:</span><span class="w">  </span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">solution</span><span class="o">[</span><span class="n">row</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nl">col</span><span class="p">:</span><span class="w">  </span>
-<span class="w">                </span><span class="n">line</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">&#39;Q &#39;</span><span class="w">  </span>
+<span class="w">                </span><span class="n">line</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">'Q '</span><span class="w">  </span>
 <span class="w">            </span><span class="k">else</span><span class="err">:</span><span class="w">  </span>
-<span class="w">                </span><span class="n">line</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">&#39;. &#39;</span><span class="w">  </span>
+<span class="w">                </span><span class="n">line</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">'. '</span><span class="w">  </span>
 <span class="w">        </span><span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="w">  </span>
 <span class="w">    </span><span class="k">print</span><span class="p">()</span><span class="w">  </span>
 
 <span class="n">solutions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n_queens</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;4皇后问题共有{len(solutions)}种解法:&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"4皇后问题共有{len(solutions)}种解法:"</span><span class="p">)</span><span class="w">  </span>
 <span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">sol</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">solutions</span><span class="o">[</span><span class="n">:2</span><span class="o">]</span><span class="p">)</span><span class="err">:</span><span class="w">  </span>
-<span class="w">    </span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;解法{i+1}:&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="w">    </span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"解法{i+1}:"</span><span class="p">)</span><span class="w">  </span>
 <span class="w">    </span><span class="n">print_queens_board</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
 </code></pre></div>
 
@@ -283,7 +283,7 @@
 <span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="w">  </span>
 
 <span class="n">solutions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">subset_sum</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;子集和问题: 从{nums}中选择元素和为{target}&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"子集和问题: 从{nums}中选择元素和为{target}"</span><span class="p">)</span><span class="w">  </span>
 <span class="k">for</span><span class="w"> </span><span class="n">sol</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">solutions</span><span class="p">:</span><span class="w">  </span>
 <span class="w">    </span><span class="k">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
 </code></pre></div>
@@ -321,7 +321,7 @@
 
 <span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">38, 27, 43, 3, 9, 82, 10</span><span class="o">]</span><span class="w">  </span>
 <span class="n">sorted_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">merge_sort_divide_conquer</span><span class="p">(</span><span class="k">data</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;归并排序: {sorted_data}&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"归并排序: {sorted_data}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>归并排序是分治算法的经典应用。它将数组分成两部分,分别排序,然后合并。归并排序的时间复杂度为O(n log n),因为需要log n层递归,每层合并需要O(n)时间。</p>
@@ -343,7 +343,7 @@
     return (z2 <span class="gs">* 10*</span>*(2*m)) + ((z1 - z2 - z0) <span class="gs">* 10*</span>*m) + z0  
 
 result = karatsuba_multiply(1234, 5678)  
-print(f&quot;Karatsuba乘法: 1234 × 5678 = {result}&quot;)
+print(f"Karatsuba乘法: 1234 × 5678 = {result}")
 </code></pre></div>
 
 <p>Karatsuba乘法使用分治思想加速大数乘法。传统乘法需要O(n²)次乘法运算,Karatsuba算法将其降低到O(n^log3)约O(n^1.585)。这在处理超大数乘法时效率提升显著。</p>
@@ -389,11 +389,11 @@ print(f&quot;Karatsuba乘法: 1234 × 5678 = {result}&quot;)
 <span class="w">      </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">positions</span><span class="w">  </span>
 
-<span class="nc">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;ABABDABACDABABCABAB&quot;</span><span class="w">  </span>
-<span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;ABABCABAB&quot;</span><span class="w">  </span>
+<span class="nc">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">"ABABDABACDABABCABAB"</span><span class="w">  </span>
+<span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">"ABABCABAB"</span><span class="w">  </span>
 
 <span class="n">positions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kmp_search</span><span class="p">(</span><span class="nc">text</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;在文本中找到模式&#39;{pattern}&#39;的位置: {positions}&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"在文本中找到模式'{pattern}'的位置: {positions}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p><img alt="" src="images/b4cba23614f42814.gif"></p>
@@ -446,10 +446,10 @@ print(f&quot;Karatsuba乘法: 1234 × 5678 = {result}&quot;)
 <span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span>
 
 <span class="n">mst</span><span class="p">,</span><span class="w"> </span><span class="n">weight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kruskal_mst</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="ss">&quot;最小生成树的边:&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="k">print</span><span class="p">(</span><span class="ss">"最小生成树的边:"</span><span class="p">)</span><span class="w">  </span>
 <span class="k">for</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">mst</span><span class="p">:</span><span class="w">  </span>
-<span class="w">    </span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;边({u}, {v}), 权重{w}&quot;</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;总权重: {weight}&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"边({u}, {v}), 权重{w}"</span><span class="p">)</span><span class="w">  </span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"总权重: {weight}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>Kruskal算法按边权从小到大依次选择边,使用并查集检测是否形成环。Prim算法从一个顶点开始,每次选择连接已选顶点和未选顶点的最小权边。两种算法的时间复杂度都是O(E log E)或O(E log V)。</p>
@@ -501,17 +501,17 @@ print(f&quot;Karatsuba乘法: 1234 × 5678 = {result}&quot;)
     <span class="nb">import</span> time  
       
     <span class="ss">problems</span> <span class="o">=</span> <span class="p">{</span>  
-        <span class="err">&#39;小规模排序&#39;</span><span class="p">:</span> <span class="p">(</span><span class="err">&#39;插入排序&#39;</span><span class="p">,</span> <span class="err">&#39;</span>O<span class="p">(</span>n²<span class="p">)</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;简单</span><span class="p">,</span><span class="err">稳定&#39;</span><span class="p">),</span>  
-        <span class="err">&#39;大规模排序&#39;</span><span class="p">:</span> <span class="p">(</span><span class="err">&#39;快速排序&#39;</span><span class="p">,</span> <span class="err">&#39;</span>O<span class="p">(</span>n log n<span class="p">)</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;高效</span><span class="p">,</span><span class="err">原地&#39;</span><span class="p">),</span>  
-        <span class="err">&#39;字符串搜索&#39;</span><span class="p">:</span> <span class="p">(</span><span class="err">&#39;</span>KMP算法&#39;<span class="p">,</span> <span class="err">&#39;</span>O<span class="p">(</span>n<span class="o">+</span>m<span class="p">)</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;避免重复比较&#39;</span><span class="p">),</span>  
-        <span class="err">&#39;最短路径&#39;</span><span class="p">:</span> <span class="p">(</span><span class="err">&#39;</span>Dijkstra&#39;<span class="p">,</span> <span class="err">&#39;</span>O<span class="p">(</span>E log V<span class="p">)</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;正权图最短路径&#39;</span><span class="p">),</span>  
-        <span class="err">&#39;连通分量&#39;</span><span class="p">:</span> <span class="p">(</span><span class="err">&#39;</span>DFS&#39;<span class="p">,</span> <span class="err">&#39;</span>O<span class="p">(</span>V<span class="o">+</span>E<span class="p">)</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;检测图连通性&#39;</span><span class="p">),</span>  
-        <span class="err">&#39;背包问题&#39;</span><span class="p">:</span> <span class="p">(</span><span class="err">&#39;动态规划&#39;</span><span class="p">,</span> <span class="err">&#39;</span>O<span class="p">(</span>n<span class="err">×</span>W<span class="p">)</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="mi">0-1</span><span class="err">背包最优解&#39;</span><span class="p">),</span>  
+        <span class="err">'小规模排序'</span><span class="p">:</span> <span class="p">(</span><span class="err">'插入排序'</span><span class="p">,</span> <span class="err">'</span>O<span class="p">(</span>n²<span class="p">)</span><span class="err">'</span><span class="p">,</span> <span class="err">'简单</span><span class="p">,</span><span class="err">稳定'</span><span class="p">),</span>  
+        <span class="err">'大规模排序'</span><span class="p">:</span> <span class="p">(</span><span class="err">'快速排序'</span><span class="p">,</span> <span class="err">'</span>O<span class="p">(</span>n log n<span class="p">)</span><span class="err">'</span><span class="p">,</span> <span class="err">'高效</span><span class="p">,</span><span class="err">原地'</span><span class="p">),</span>  
+        <span class="err">'字符串搜索'</span><span class="p">:</span> <span class="p">(</span><span class="err">'</span>KMP算法'<span class="p">,</span> <span class="err">'</span>O<span class="p">(</span>n<span class="o">+</span>m<span class="p">)</span><span class="err">'</span><span class="p">,</span> <span class="err">'避免重复比较'</span><span class="p">),</span>  
+        <span class="err">'最短路径'</span><span class="p">:</span> <span class="p">(</span><span class="err">'</span>Dijkstra'<span class="p">,</span> <span class="err">'</span>O<span class="p">(</span>E log V<span class="p">)</span><span class="err">'</span><span class="p">,</span> <span class="err">'正权图最短路径'</span><span class="p">),</span>  
+        <span class="err">'连通分量'</span><span class="p">:</span> <span class="p">(</span><span class="err">'</span>DFS'<span class="p">,</span> <span class="err">'</span>O<span class="p">(</span>V<span class="o">+</span>E<span class="p">)</span><span class="err">'</span><span class="p">,</span> <span class="err">'检测图连通性'</span><span class="p">),</span>  
+        <span class="err">'背包问题'</span><span class="p">:</span> <span class="p">(</span><span class="err">'动态规划'</span><span class="p">,</span> <span class="err">'</span>O<span class="p">(</span>n<span class="err">×</span>W<span class="p">)</span><span class="err">'</span><span class="p">,</span> <span class="err">'</span><span class="mi">0-1</span><span class="err">背包最优解'</span><span class="p">),</span>  
     <span class="p">}</span>  
       
-    print<span class="p">(</span><span class="s2">&quot;算法选择指南:&quot;</span><span class="p">)</span>  
+    print<span class="p">(</span><span class="s2">"算法选择指南:"</span><span class="p">)</span>  
     for problem<span class="p">,</span> <span class="p">(</span>algorithm<span class="p">,</span> complexity<span class="p">,</span> note<span class="p">)</span> <span class="k">in</span> problems<span class="o">.</span>items<span class="p">():</span>  
-        print<span class="p">(</span>f<span class="s2">&quot;{problem}: {algorithm} ({complexity}) - {note}&quot;</span><span class="p">)</span>  
+        print<span class="p">(</span>f<span class="s2">"{problem}: {algorithm} ({complexity}) - {note}"</span><span class="p">)</span>  
 
 algorithm_comparison<span class="p">()</span>
 </code></pre></div>

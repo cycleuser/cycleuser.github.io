@@ -161,7 +161,7 @@
 <h3>2. 汇总全部代码并统计行数</h3>
 <p>软著申请表中需填写“源程序量”（即总代码行数），这是重要字段。建议：</p>
 <div class="highlight"><pre><span></span><code><span class="gh">#</span> 在项目根目录执行（排除虚拟环境、__pycache__等）
-find . -name &quot;*.py&quot; -not -path &quot;./venv/*&quot; -not -path &quot;*/__pycache__/*&quot; | xargs wc -l
+find . -name "*.py" -not -path "./venv/*" -not -path "*/__pycache__/*" | xargs wc -l
 </code></pre></div>
 
 <p>将结果记录，并生成一份 <code>全部代码.md</code> 文件（非必需，但便于自查），内容为所有 <code>.py</code> 文件的拼接，确保格式统一、无敏感信息（如数据库密码）。</p>

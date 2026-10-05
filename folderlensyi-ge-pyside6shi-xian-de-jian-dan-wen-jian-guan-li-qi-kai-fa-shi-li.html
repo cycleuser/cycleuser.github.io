@@ -176,8 +176,8 @@ class SizeCalculatorSignals(QObject):
 <h3>3. 国际化支持</h3>
 <p>项目使用了Qt的翻译机制：</p>
 <div class="highlight"><pre><span></span><code># 所有界面文字都用translate包裹
-QCoreApplication.translate(&quot;FileTreeWidget&quot;, &quot;Name&quot;)
-QCoreApplication.translate(&quot;FolderLens&quot;, &quot;Open Path&quot;)
+QCoreApplication.translate("FileTreeWidget", "Name")
+QCoreApplication.translate("FolderLens", "Open Path")
 </code></pre></div>
 
 <p>配合<code>.ts</code>翻译文件和<code>.qm</code>编译后的二进制文件，实现了中英文切换。虽然对于小工具可能没必要，但作为学习材料，展示了完整的国际化流程。</p>
@@ -186,7 +186,7 @@ QCoreApplication.translate(&quot;FolderLens&quot;, &quot;Open Path&quot;)
 <div class="highlight"><pre><span></span><code>def _show_context_menu(self, position):
     menu = QMenu(self)
     open_action = menu.addAction(
-        QCoreApplication.translate(&quot;FileTreeWidget&quot;, &quot;Open&quot;))
+        QCoreApplication.translate("FileTreeWidget", "Open"))
     # ... 添加更多菜单项
     action = menu.exec(self.viewport().mapToGlobal(position))
 
@@ -196,10 +196,10 @@ QCoreApplication.translate(&quot;FolderLens&quot;, &quot;Open Path&quot;)
 
 <p>快捷键的处理也很直接：</p>
 <div class="highlight"><pre><span></span><code>shortcuts = {
-    &quot;Ctrl+C&quot;: self._copy_items,
-    &quot;Ctrl+X&quot;: self._cut_items,
-    &quot;Ctrl+V&quot;: self._paste_items,
-    &quot;Delete&quot;: self._delete_selected,
+    "Ctrl+C": self._copy_items,
+    "Ctrl+X": self._cut_items,
+    "Ctrl+V": self._paste_items,
+    "Delete": self._delete_selected,
 }
 for key, action in shortcuts.items():
     shortcut = QShortcut(QKeySequence(key), self)
@@ -213,7 +213,7 @@ for key, action in shortcuts.items():
 except Exception as e:
     QMessageBox.warning(
         self,
-        QCoreApplication.translate(&quot;FileTreeWidget&quot;, &quot;Error&quot;),
+        QCoreApplication.translate("FileTreeWidget", "Error"),
         str(e)
     )
 </code></pre></div>
@@ -262,7 +262,7 @@ except Exception as e:
 
 <h2>如何运行</h2>
 <div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">安装</span>
-<span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="ss">&quot;.[dev]&quot;</span>
+<span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="ss">".[dev]"</span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">运行</span>
 <span class="n">folderlens</span>

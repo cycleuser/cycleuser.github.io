@@ -233,7 +233,7 @@
 <div class="highlight"><pre><span></span><code>llama-cli \
   --hf-repo Tesslate/OmniCoder-9B-GGUF \
   --hf-file omnicoder-9b-q4_k_m.gguf \
-  -p &quot;Your prompt&quot; \
+  -p "Your prompt" \
   -c 8192
 </code></pre></div>
 
@@ -260,12 +260,12 @@
 <p>调用模型：</p>
 <div class="highlight"><pre><span></span><code><span class="nx">from</span><span class="w"> </span><span class="nx">openai</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="nx">OpenAI</span>
 
-<span class="nx">client</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">OpenAI</span><span class="p">(</span><span class="nx">base_url</span><span class="p">=</span><span class="s">&quot;http://localhost:8000/v1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">api_key</span><span class="p">=</span><span class="s">&quot;token&quot;</span><span class="p">)</span>
+<span class="nx">client</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">OpenAI</span><span class="p">(</span><span class="nx">base_url</span><span class="p">=</span><span class="s">"http://localhost:8000/v1"</span><span class="p">,</span><span class="w"> </span><span class="nx">api_key</span><span class="p">=</span><span class="s">"token"</span><span class="p">)</span>
 
 <span class="nx">resp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">chat</span><span class="p">.</span><span class="nx">completions</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
-<span class="w">    </span><span class="nx">model</span><span class="p">=</span><span class="s">&quot;Tesslate/OmniCoder-9B&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">model</span><span class="p">=</span><span class="s">"Tesslate/OmniCoder-9B"</span><span class="p">,</span>
 <span class="w">    </span><span class="nx">messages</span><span class="p">=[</span>
-<span class="w">        </span><span class="p">{</span><span class="s">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Explain the difference between a mutex and a semaphore.&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="s">"role"</span><span class="p">:</span><span class="w"> </span><span class="s">"user"</span><span class="p">,</span><span class="w"> </span><span class="s">"content"</span><span class="p">:</span><span class="w"> </span><span class="s">"Explain the difference between a mutex and a semaphore."</span><span class="p">},</span>
 <span class="w">    </span><span class="p">],</span>
 <span class="w">    </span><span class="nx">temperature</span><span class="p">=</span><span class="m m-Double">0.6</span><span class="p">,</span>
 <span class="p">)</span>

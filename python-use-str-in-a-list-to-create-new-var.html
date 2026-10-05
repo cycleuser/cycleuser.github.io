@@ -140,10 +140,10 @@
 <h2>用类实现</h2>
 <p>这两种方法是 <a href="http://blog.riverrun.xyz">River</a> 提供的。</p>
 <h3>方法1 静态类型</h3>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'r'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'m'</span><span class="p">]</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Test</span><span class="p">():</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'r'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'m'</span><span class="p">]):</span>
         <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
             <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="p">[])</span>
 
@@ -151,33 +151,33 @@
 </code></pre></div>
 
 <h3>方法2 动态类型</h3>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'r'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'m'</span><span class="p">]</span>
 
-<span class="n">MyClass</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;MyClass&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">})</span>
+<span class="n">MyClass</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">'MyClass'</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">})</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">MyClass</span><span class="p">()</span><span class="o">.</span><span class="n">r</span><span class="p">,</span>  <span class="n">MyClass</span><span class="p">()</span><span class="o">.</span><span class="n">e</span><span class="p">,</span><span class="n">MyClass</span><span class="p">()</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>   <span class="c1"># [] [] []</span>
 </code></pre></div>
 
 <h2>用字典</h2>
 <p>这种方法是 <a href="http://o00o.site/">FlagPlus</a> 提供的思路；</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'r'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'m'</span><span class="p">]</span>
 <span class="n">tmp</span><span class="o">=</span><span class="p">{}</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
     <span class="n">tmp</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">item</span><span class="p">:[]})</span>
 </code></pre></div>
 
 <p><a href="http://blog.riverrun.xyz">River</a> 给出了精简的建议:</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'r'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'m'</span><span class="p">]</span>
 <span class="n">m</span><span class="o">=</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">a</span><span class="p">})</span>
 </code></pre></div>
 
 <h2>用类加字典</h2>
 <p>这种方法是我基于 <a href="http://o00o.site/">FlagPlus</a> 提供的思路自己乱写的。</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'r'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'m'</span><span class="p">]</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Test2</span><span class="p">():</span>
     <span class="n">tmp</span><span class="o">=</span><span class="p">{}</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'r'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'m'</span><span class="p">]):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="o">=</span><span class="n">a</span>
         <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">:</span>
            <span class="bp">self</span><span class="o">.</span><span class="n">tmp</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">item</span><span class="p">:[]})</span>
@@ -187,13 +187,13 @@
 
 <h2>用 locals 来添加变量</h2>
 <p>这两种方法是 <a href="http://blog.riverrun.xyz">River</a> 提供的，用 globals 应该也可以。 <a href="http://blog.riverrun.xyz">River</a> 不推荐这种方法，因为这样可能污染 module 的命名空间。</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'r'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'m'</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">test</span><span class="p">:</span>
     <span class="nb">locals</span><span class="p">()[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 </code></pre></div>
 
 <p>用函数来封装一下：</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'r'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'m'</span><span class="p">]</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">mylist</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
@@ -204,9 +204,9 @@
 
 <h2>用 exec 直接将字符串来执行</h2>
 <p>这个思路来自 Kivy 群的 X_Tu，应该是最简单直接地解决了问题。</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'r'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'m'</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span> <span class="p">:</span>
-    <span class="n">exec</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="s1">&#39;=[]&#39;</span><span class="p">)</span>
+    <span class="n">exec</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="s1">'=[]'</span><span class="p">)</span>
 </code></pre></div>
 
 <p><a href="https://xuanwo.org">Xuanwo</a> 不推荐这样做，变量创建会造成性能开销，因为存在栈上而不是堆上。</p>

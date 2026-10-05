@@ -200,7 +200,7 @@
 <ol>
 <li>执行 Conda 初始化命令：</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="p">&amp;</span> <span class="s2">&quot;C:\Miniconda3\Scripts\conda.exe&quot;</span> <span class="n">init</span> <span class="n">powershell</span>
+<div class="highlight"><pre><span></span><code><span class="p">&amp;</span> <span class="s2">"C:\Miniconda3\Scripts\conda.exe"</span> <span class="n">init</span> <span class="n">powershell</span>
 </code></pre></div>
 
 <ol>
@@ -224,7 +224,7 @@
 </code></pre></div>
 
 <p>如果显示的配置中包含 <code>defaults</code> 频道，先删除该文件：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Remove-Item</span> <span class="s2">&quot;$env:USERPROFILE\.condarc&quot;</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
+<div class="highlight"><pre><span></span><code><span class="nb">Remove-Item</span> <span class="s2">"$env:USERPROFILE\.condarc"</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
 </code></pre></div>
 
 <p>然后重新生成并写入 USTC 镜像配置：</p>
@@ -232,14 +232,14 @@
 </code></pre></div>
 
 <p>这条命令会在 <code>%USERPROFILE%</code> 目录下生成 <code>.condarc</code> 文件。接下来手动写入完整配置：</p>
-<div class="highlight"><pre><span></span><code><span class="sh">@&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="sh">@'</span>
 <span class="sh">channels:</span>
 <span class="sh">  - nodefaults</span>
 <span class="sh">custom_channels:</span>
 <span class="sh">  conda-forge: https://mirrors.ustc.edu.cn/anaconda/cloud</span>
 <span class="sh">  bioconda: https://mirrors.ustc.edu.cn/anaconda/cloud</span>
 <span class="sh">show_channel_urls: true</span>
-<span class="sh">&#39;@</span> <span class="p">|</span> <span class="nb">Out-File</span> <span class="n">-FilePath</span> <span class="s2">&quot;$env:USERPROFILE\.condarc&quot;</span> <span class="n">-Encoding</span> <span class="n">utf8</span>
+<span class="sh">'@</span> <span class="p">|</span> <span class="nb">Out-File</span> <span class="n">-FilePath</span> <span class="s2">"$env:USERPROFILE\.condarc"</span> <span class="n">-Encoding</span> <span class="n">utf8</span>
 </code></pre></div>
 
 <p>写入完成后，清除索引缓存使配置生效：</p>
@@ -257,11 +257,11 @@
 <h3>配置 pip 镜像源</h3>
 <p>执行以下命令创建 pip 配置文件，使用 USTC 的 PyPI 镜像：</p>
 <div class="highlight"><pre><span></span><code><span class="n">mkdir</span> <span class="n">-Path</span> <span class="nv">$env:APPDATA</span><span class="p">\</span><span class="n">pip</span> <span class="n">-Force</span>
-<span class="sh">@&#39;</span>
+<span class="sh">@'</span>
 <span class="sh">[global]</span>
 <span class="sh">index-url = https://pypi.mirrors.ustc.edu.cn/simple</span>
 <span class="sh">trusted-host = pypi.mirrors.ustc.edu.cn</span>
-<span class="sh">&#39;@</span> <span class="p">|</span> <span class="nb">Out-File</span> <span class="n">-FilePath</span> <span class="nv">$env:APPDATA</span><span class="p">\</span><span class="n">pip</span><span class="p">\</span><span class="n">pip</span><span class="p">.</span><span class="n">ini</span> <span class="n">-Encoding</span> <span class="n">utf8</span>
+<span class="sh">'@</span> <span class="p">|</span> <span class="nb">Out-File</span> <span class="n">-FilePath</span> <span class="nv">$env:APPDATA</span><span class="p">\</span><span class="n">pip</span><span class="p">\</span><span class="n">pip</span><span class="p">.</span><span class="n">ini</span> <span class="n">-Encoding</span> <span class="n">utf8</span>
 </code></pre></div>
 
 <p>配置完成后，所有 <code>pip install</code> 命令将自动使用 USTC 的 PyPI 镜像，显著提升安装速度。</p>

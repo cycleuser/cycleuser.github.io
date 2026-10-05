@@ -135,15 +135,15 @@
 <div class="highlight"><pre><span></span><code><span class="c1">// 文件名：source_code/chapter_03_extracted/tuple.rs  </span>
 <span class="n">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">    </span><span class="c1">// 创建一个包含整数、浮点数和字符的元组  </span>
-<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">tup</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">i32</span><span class="p">,</span><span class="w"> </span><span class="n">f64</span><span class="p">,</span><span class="w"> </span><span class="nb">char</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="mf">6.4</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;A&#39;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">tup</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="n">i32</span><span class="p">,</span><span class="w"> </span><span class="n">f64</span><span class="p">,</span><span class="w"> </span><span class="nb">char</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="mf">6.4</span><span class="p">,</span><span class="w"> </span><span class="s">'A'</span><span class="p">);</span><span class="w">  </span>
 
 <span class="w">    </span><span class="c1">// 模式匹配解构（Destructuring）：将元组拆解为单独的变量  </span>
 <span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tup</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">&quot;x = {}, y = {}, z = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">"x = {}, y = {}, z = {}"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">);</span><span class="w">  </span>
 
 <span class="w">    </span><span class="c1">// 通过索引访问（点号语法）  </span>
 <span class="w">    </span><span class="c1">// 索引从 0 开始  </span>
-<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">&quot;tup.0 = {}, tup.1 = {}, tup.2 = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tup</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">tup</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">tup</span><span class="p">.</span><span class="mi">2</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">"tup.0 = {}, tup.1 = {}, tup.2 = {}"</span><span class="p">,</span><span class="w"> </span><span class="n">tup</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">tup</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">tup</span><span class="p">.</span><span class="mi">2</span><span class="p">);</span><span class="w">  </span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -159,16 +159,16 @@ tup.0<span class="w"> </span><span class="o">=</span><span class="w"> </span><sp
 <p>修改 <code>tuple.rs</code> 文件如下：</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// 文件名：source_code/chapter_03_extracted/tuple.rs (追加或修改)  </span>
 <span class="n">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">mut</span><span class="w"> </span><span class="n">mutable_tup</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;B&#39;</span><span class="p">);</span><span class="w">      </span>
-<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">&quot;修改前: ({}, {}, {})&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mutable_tup</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">mutable_tup</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">mutable_tup</span><span class="p">.</span><span class="mi">2</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">mut</span><span class="w"> </span><span class="n">mutable_tup</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14</span><span class="p">,</span><span class="w"> </span><span class="s">'B'</span><span class="p">);</span><span class="w">      </span>
+<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">"修改前: ({}, {}, {})"</span><span class="p">,</span><span class="w"> </span><span class="n">mutable_tup</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">mutable_tup</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">mutable_tup</span><span class="p">.</span><span class="mi">2</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="c1">// 修改特定位置的元素  </span>
 <span class="w">    </span><span class="n">mutable_tup</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="c1">// 甚至可以整体重新赋值（只要类型匹配）  </span>
-<span class="w">    </span><span class="n">mutable_tup</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="mf">2.71</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;C&#39;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">mutable_tup</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="mf">2.71</span><span class="p">,</span><span class="w"> </span><span class="s">'C'</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">&quot;修改后: ({}, {}, {})&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mutable_tup</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">mutable_tup</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">mutable_tup</span><span class="p">.</span><span class="mi">2</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">"修改后: ({}, {}, {})"</span><span class="p">,</span><span class="w"> </span><span class="n">mutable_tup</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">mutable_tup</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">mutable_tup</span><span class="p">.</span><span class="mi">2</span><span class="p">);</span><span class="w">  </span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -194,22 +194,22 @@ $<span class="w"> </span>./tuple<span class="w">  </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">另一种初始化语法</span><span class="err">：</span><span class="n">创建包含</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">个</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">的数组</span><span class="w"> </span><span class="o">[</span><span class="n">3, 3, 3, 3, 3</span><span class="o">]</span><span class="w">  </span>
 <span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">_zeros</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">3; 5</span><span class="o">]</span><span class="p">;</span><span class="w">   </span>
 
-<span class="w">    </span><span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="ss">&quot;原始数组: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">使用</span><span class="w"> </span><span class="err">{:</span><span class="vm">?</span><span class="err">}</span><span class="w"> </span><span class="n">进行调试打印</span><span class="w">  </span>
+<span class="w">    </span><span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="ss">"原始数组: {:?}"</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">使用</span><span class="w"> </span><span class="err">{:</span><span class="vm">?</span><span class="err">}</span><span class="w"> </span><span class="n">进行调试打印</span><span class="w">  </span>
 
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">索引访问</span><span class="w">  </span>
-<span class="w">    </span><span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="ss">&quot;arr[0] = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="ss">"arr[0] = {}"</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">);</span><span class="w">  </span>
 
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">修改元素</span><span class="w">  </span>
 <span class="w">    </span><span class="n">arr</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="ss">&quot;修改后: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="ss">"修改后: {:?}"</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">);</span><span class="w">  </span>
 
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">越界访问保护</span><span class="w">  </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">如果尝试访问</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">10</span><span class="o">]</span><span class="err">，</span><span class="n">Rust</span><span class="w"> </span><span class="n">会在编译时</span><span class="err">（</span><span class="n">如果索引是常量</span><span class="err">）</span><span class="n">或运行时</span><span class="w"> </span><span class="n">Panic</span><span class="err">，</span><span class="n">防止缓冲区溢出</span><span class="err">。</span><span class="w">  </span>
 <span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="nf">len</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
-<span class="w">        </span><span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="ss">&quot;arr[{}] = {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="ss">"arr[{}] = {}"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="err">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
-<span class="w">        </span><span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="ss">&quot;索引 {} 越界！长度是 {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="nf">len</span><span class="p">());</span><span class="w">  </span>
+<span class="w">        </span><span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="ss">"索引 {} 越界！长度是 {}"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="nf">len</span><span class="p">());</span><span class="w">  </span>
 <span class="w">    </span><span class="err">}</span><span class="w">  </span>
 <span class="err">}</span>
 </code></pre></div>
@@ -227,7 +227,7 @@ arr<span class="o">[</span><span class="m">0</span><span class="o">]</span><span
 <p>数组虽然固定长度，但我们可以通过切片来引用数组的一部分。切片是一个胖指针，包含指向数据的指针和长度。这与 Python 的切片 <code>arr[1:4]</code> 概念非常类似。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// 引用数组中索引 1 到 3 的元素（不包含 4），即 [20, 30, 40]  </span>
 <span class="n">let</span><span class="w"> </span><span class="n">slice</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="mi">4</span><span class="p">];</span><span class="w">   </span>
-<span class="n">println</span>!<span class="p">(</span><span class="s">&quot;切片: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">slice</span><span class="p">);</span>
+<span class="n">println</span>!<span class="p">(</span><span class="s">"切片: {:?}"</span><span class="p">,</span><span class="w"> </span><span class="n">slice</span><span class="p">);</span>
 </code></pre></div>
 
 <h3>数组与向量对比表</h3>
@@ -279,20 +279,20 @@ arr<span class="o">[</span><span class="m">0</span><span class="o">]</span><span
 <div class="highlight"><pre><span></span><code><span class="c1">// 文件名：source_code/chapter_03_extracted/string.rs  </span>
 <span class="n">fn</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">    </span><span class="c1">// String::from 创建一个堆分配的 String  </span>
-<span class="w">    </span><span class="n">letmut</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;你好&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">letmut</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">"你好"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="c1">// push_str 追加字符串  </span>
-<span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">push_str</span><span class="p">(</span><span class="s">&quot;，世界！&quot;</span><span class="p">);</span><span class="w">   </span>
+<span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">push_str</span><span class="p">(</span><span class="s">"，世界！"</span><span class="p">);</span><span class="w">   </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">&quot;完整字符串: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">"完整字符串: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w">  </span>
 
 <span class="w">    </span><span class="c1">// 字符串切片 &amp;str  </span>
 <span class="w">    </span><span class="c1">// 注意：Rust 字符串索引必须切在有效的 UTF-8 字符边界上  </span>
-<span class="w">    </span><span class="c1">// &quot;你好&quot; 占 6 个字节（每个汉字 3 字节）  </span>
+<span class="w">    </span><span class="c1">// "你好" 占 6 个字节（每个汉字 3 字节）  </span>
 <span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">hello</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="n">str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">[</span><span class="mf">0.</span><span class="p">.</span><span class="mi">6</span><span class="p">];</span><span class="w">   </span>
 <span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">world</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="n">str</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">[</span><span class="mf">9.</span><span class="p">.</span><span class="mi">18</span><span class="p">];</span><span class="w"> </span><span class="c1">// 这里的索引需要根据实际字节计算  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">&quot;切片: &#39;{}&#39; 和 &#39;{}&#39;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">hello</span><span class="p">,</span><span class="w"> </span><span class="n">world</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">"切片: '{}' 和 '{}'"</span><span class="p">,</span><span class="w"> </span><span class="n">hello</span><span class="p">,</span><span class="w"> </span><span class="n">world</span><span class="p">);</span><span class="w">  </span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -300,7 +300,7 @@ arr<span class="o">[</span><span class="m">0</span><span class="o">]</span><span
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>rustc<span class="w"> </span>string.rs<span class="w">  </span>
 $<span class="w"> </span>./string<span class="w">  </span>
 完整字符串:<span class="w"> </span>你好，世界！<span class="w">  </span>
-切片:<span class="w"> </span><span class="s1">&#39;你好&#39;</span><span class="w"> </span>和<span class="w"> </span><span class="s1">&#39;世界！&#39;</span>
+切片:<span class="w"> </span><span class="s1">'你好'</span><span class="w"> </span>和<span class="w"> </span><span class="s1">'世界！'</span>
 </code></pre></div>
 
 <hr>
@@ -316,7 +316,7 @@ $<span class="w"> </span>./string<span class="w">  </span>
             break counter * 2; // break 可以返回值  
         }  
     };  
-    println!(&quot;结果是：{}&quot;, result);  
+    println!("结果是：{}", result);  
 }
 </code></pre></div>
 
@@ -325,10 +325,10 @@ $<span class="w"> </span>./string<span class="w">  </span>
 <div class="highlight"><pre><span></span><code><span class="nv">fn</span><span class="w"> </span><span class="nv">main</span><span class="ss">()</span><span class="w"> </span>{<span class="w">  </span>
 <span class="w">    </span><span class="nv">let</span><span class="w"> </span><span class="nv">mut</span><span class="w"> </span><span class="nv">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="c1">;  </span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="nv">number</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span>{<span class="w">  </span>
-<span class="w">        </span><span class="nv">println</span><span class="o">!</span><span class="ss">(</span><span class="s2">&quot;{}!&quot;</span>,<span class="w"> </span><span class="nv">number</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">        </span><span class="nv">println</span><span class="o">!</span><span class="ss">(</span><span class="s2">"{}!"</span>,<span class="w"> </span><span class="nv">number</span><span class="ss">)</span><span class="c1">;  </span>
 <span class="w">        </span><span class="nv">number</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="c1">;  </span>
 <span class="w">    </span>}<span class="w">  </span>
-<span class="w">    </span><span class="nv">println</span><span class="o">!</span><span class="ss">(</span><span class="s2">&quot;发射！！！&quot;</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">    </span><span class="nv">println</span><span class="o">!</span><span class="ss">(</span><span class="s2">"发射！！！"</span><span class="ss">)</span><span class="c1">;  </span>
 }
 </code></pre></div>
 
@@ -340,20 +340,20 @@ $<span class="w"> </span>./string<span class="w">  </span>
 <span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">];</span><span class="w">  </span>
 
 <span class="w">    </span><span class="c1">// 使用 iter() 方法获取迭代器  </span>
-<span class="w">    </span><span class="nb">print</span>!<span class="p">(</span><span class="s">&quot;数组遍历: &quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">print</span>!<span class="p">(</span><span class="s">"数组遍历: "</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">iter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="nb">print</span>!<span class="p">(</span><span class="s">&quot;{} &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">element</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="nb">print</span>!<span class="p">(</span><span class="s">"{} "</span><span class="p">,</span><span class="w"> </span><span class="n">element</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
 <span class="w">    </span><span class="n">println</span>!<span class="p">();</span><span class="w">  </span>
 
 <span class="w">    </span><span class="c1">// 使用 Range (范围)  </span>
 <span class="w">    </span><span class="c1">// (1..4) 生成 1, 2, 3 (不包含 4)  </span>
 <span class="w">    </span><span class="c1">// rev() 方法用于反转序列  </span>
-<span class="w">    </span><span class="nb">print</span>!<span class="p">(</span><span class="s">&quot;倒计时: &quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">print</span>!<span class="p">(</span><span class="s">"倒计时: "</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="p">(</span><span class="mf">1.</span><span class="p">.</span><span class="mi">4</span><span class="p">).</span><span class="n">rev</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="nb">print</span>!<span class="p">(</span><span class="s">&quot;{} &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">number</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="nb">print</span>!<span class="p">(</span><span class="s">"{} "</span><span class="p">,</span><span class="w"> </span><span class="n">number</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
-<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">&quot;出发！&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">"出发！"</span><span class="p">);</span><span class="w">  </span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -375,14 +375,14 @@ $<span class="w"> </span>./loops<span class="w">  </span>
 <span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]];</span><span class="w">  </span>
 <span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[[</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]];</span><span class="w">  </span>
 
-<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">&quot;矩阵 A 第一行: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w">  </span>
-<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">&quot;矩阵 B 第二行: {:?}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">"矩阵 A 第一行: {:?}"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">"矩阵 B 第二行: {:?}"</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w">  </span>
 
 <span class="w">    </span><span class="c1">// 使用嵌套循环遍历矩阵  </span>
-<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">&quot;矩阵 A:&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">"矩阵 A:"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">iter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="n">iter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">            </span><span class="nb">print</span>!<span class="p">(</span><span class="s">&quot;{} &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span><span class="w">  </span>
+<span class="w">            </span><span class="nb">print</span>!<span class="p">(</span><span class="s">"{} "</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="p">}</span><span class="w">  </span>
 <span class="w">        </span><span class="n">println</span>!<span class="p">();</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
@@ -450,7 +450,7 @@ $<span class="w"> </span>./matrix<span class="w">  </span>
 <p>对于实现了 <code>Copy</code> trait 的类型（如整数、浮点数、布尔值、字符、以及仅包含 Copy 类型的元组/数组），赋值操作是位的复制。</p>
 <div class="highlight"><pre><span></span><code>let x = 5;  
 let y = x; // x 的值被完全复制给 y  
-println!(&quot;x = {}, y = {}&quot;, x, y); // x 仍然有效，因为它在栈上
+println!("x = {}, y = {}", x, y); // x 仍然有效，因为它在栈上
 </code></pre></div>
 
 <h3>3.6.4 堆上数据：Move 语义</h3>
@@ -461,22 +461,22 @@ println!(&quot;x = {}, y = {}&quot;, x, y); // x 仍然有效，因为它在栈
 <span class="w">    </span><span class="c1">// === Copy 语义 ===  </span>
 <span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">&quot;Copy: x={}, y={}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// 正常工作  </span>
+<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">"Copy: x={}, y={}"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// 正常工作  </span>
 
 <span class="w">    </span><span class="c1">// === Move 语义 ===  </span>
-<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">String</span><span class="p">::</span><span class="n">from</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">s1</span><span class="p">;</span><span class="w"> </span><span class="c1">// 所有权从 s1 移动到 s2  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="c1">// println!(&quot;{}&quot;, s1); // 编译错误！s1 已失效，禁止访问  </span>
-<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">&quot;Move: s2={}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 正确，s2 是新的所有者  </span>
+<span class="w">    </span><span class="c1">// println!("{}", s1); // 编译错误！s1 已失效，禁止访问  </span>
+<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">"Move: s2={}"</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 正确，s2 是新的所有者  </span>
 
 <span class="w">    </span><span class="c1">// === Clone (深拷贝) ===  </span>
 <span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">s2</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w"> </span><span class="c1">// 显式复制堆上的数据  </span>
-<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">&quot;Clone: s2={}, s3={}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">,</span><span class="w"> </span><span class="n">s3</span><span class="p">);</span><span class="w"> </span><span class="c1">// s2 和 s3 指向两块独立的堆内存  </span>
+<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">"Clone: s2={}, s3={}"</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">,</span><span class="w"> </span><span class="n">s3</span><span class="p">);</span><span class="w"> </span><span class="c1">// s2 和 s3 指向两块独立的堆内存  </span>
 
 <span class="w">    </span><span class="c1">// === 引用与借用 (Borrowing) ===  </span>
 <span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">calculate_length</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s3</span><span class="p">);</span><span class="w"> </span><span class="c1">// 传递引用，不转移所有权  </span>
-<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">&quot;&#39;{}&#39; 的长度是 {}。&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s3</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">println</span>!<span class="p">(</span><span class="s">"'{}' 的长度是 {}。"</span><span class="p">,</span><span class="w"> </span><span class="n">s3</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 
 <span class="n">fn</span><span class="w"> </span><span class="n">calculate_length</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
@@ -490,7 +490,7 @@ $<span class="w"> </span>./ownership<span class="w">  </span>
 Copy:<span class="w"> </span><span class="nv">x</span><span class="o">=</span><span class="m">5</span>,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">5</span><span class="w">  </span>
 Move:<span class="w"> </span><span class="nv">s2</span><span class="o">=</span>hello<span class="w">  </span>
 Clone:<span class="w"> </span><span class="nv">s2</span><span class="o">=</span>hello,<span class="w"> </span><span class="nv">s3</span><span class="o">=</span>hello<span class="w">  </span>
-<span class="s1">&#39;hello&#39;</span><span class="w"> </span>的长度是<span class="w"> </span><span class="m">5</span>。
+<span class="s1">'hello'</span><span class="w"> </span>的长度是<span class="w"> </span><span class="m">5</span>。
 </code></pre></div>
 
 <h3>3.6.5 借用规则 (The Borrow Checker)</h3>

@@ -158,7 +158,7 @@
 <span class="c1">// 1. 函数声明 (Declaration)  </span>
 <span class="c1">// 告诉编译器：有一个叫 calculate_unit_price 的函数  </span>
 <span class="c1">// 它需要两个数字（价格和容量），返回一个小数（单价）。  </span>
-<span class="c1">// 就像是给编译器一张&quot;名片&quot;。  </span>
+<span class="c1">// 就像是给编译器一张"名片"。  </span>
 <span class="nb">double</span><span class="w"> </span><span class="n">calculate_unit_price</span><span class="p">(</span><span class="nb">double</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="n">volume</span><span class="p">);</span><span class="w">  </span>
 
 <span class="c1">// 2. 函数调用 (Calling)  </span>
@@ -171,21 +171,21 @@
 <span class="w">    </span><span class="nb">double</span><span class="w"> </span><span class="n">price_b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">3.0</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="nb">int</span><span class="w"> </span><span class="n">volume_b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">500</span><span class="p">;</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;正在比较苏打水：\n&quot;</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;方案 A: %.1f 元 / %d 毫升\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">price_a</span><span class="p">,</span><span class="w"> </span><span class="n">volume_a</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;方案 B: %.1f 元 / %d 毫升\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">price_b</span><span class="p">,</span><span class="w"> </span><span class="n">volume_b</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"正在比较苏打水：\n"</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"方案 A: %.1f 元 / %d 毫升\n"</span><span class="p">,</span><span class="w"> </span><span class="n">price_a</span><span class="p">,</span><span class="w"> </span><span class="n">volume_a</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"方案 B: %.1f 元 / %d 毫升\n"</span><span class="p">,</span><span class="w"> </span><span class="n">price_b</span><span class="p">,</span><span class="w"> </span><span class="n">volume_b</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="c1">// 调用函数计算单价  </span>
 <span class="w">    </span><span class="nb">double</span><span class="w"> </span><span class="n">unit_price_a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">calculate_unit_price</span><span class="p">(</span><span class="n">price_a</span><span class="p">,</span><span class="w"> </span><span class="n">volume_a</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nb">double</span><span class="w"> </span><span class="n">unit_price_b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">calculate_unit_price</span><span class="p">(</span><span class="n">price_b</span><span class="p">,</span><span class="w"> </span><span class="n">volume_b</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;\n方案 A 单价: %.4f 元/毫升\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">unit_price_a</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;方案 B 单价: %.4f 元/毫升\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">unit_price_b</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"\n方案 A 单价: %.4f 元/毫升\n"</span><span class="p">,</span><span class="w"> </span><span class="n">unit_price_a</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"方案 B 单价: %.4f 元/毫升\n"</span><span class="p">,</span><span class="w"> </span><span class="n">unit_price_b</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">unit_price_b</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">unit_price_a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;结论：方案 B 更便宜！\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="nb">printf</span><span class="p">(</span><span class="s">"结论：方案 B 更便宜！\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;结论：方案 A 更便宜！\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="nb">printf</span><span class="p">(</span><span class="s">"结论：方案 A 更便宜！\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
 <span class="w">    </span><span class="n">return0</span><span class="p">;</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
@@ -248,9 +248,9 @@
 
 <span class="c1">// 演示：值传递 (Pass by Value)  </span>
 <span class="n">void</span><span class="w"> </span><span class="n">modify_value</span><span class="p">(</span><span class="nb">int</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;  [函数内] 接收到的值: %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"  [函数内] 接收到的值: %d\n"</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">999</span><span class="p">;</span><span class="w"> </span><span class="c1">// 修改的是局部变量 v (复印件)  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;  [函数内] 已将值修改为: %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"  [函数内] 已将值修改为: %d\n"</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 
 <span class="c1">// 演示：返回值 (Return Value)  </span>
@@ -261,19 +261,19 @@
 <span class="nb">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">    </span><span class="nb">int</span><span class="w"> </span><span class="n">my_num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;main函数里的原始数值: %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">my_num</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"main函数里的原始数值: %d\n"</span><span class="p">,</span><span class="w"> </span><span class="n">my_num</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="c1">// 1. 尝试修改  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;正在调用 modify_value...\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"正在调用 modify_value...\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="n">modify_value</span><span class="p">(</span><span class="n">my_num</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="c1">// my_num 不会变，因为传给函数的是复印件  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;回到 main 函数，数值依然是: %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">my_num</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"回到 main 函数，数值依然是: %d\n"</span><span class="p">,</span><span class="w"> </span><span class="n">my_num</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="c1">// 2. 接收返回值  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;正在调用 square (平方计算)...\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"正在调用 square (平方计算)...\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nb">int</span><span class="w"> </span><span class="n">sq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">square</span><span class="p">(</span><span class="n">my_num</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">&quot;%d 的平方是 %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">my_num</span><span class="p">,</span><span class="w"> </span><span class="n">sq</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">printf</span><span class="p">(</span><span class="s">"%d 的平方是 %d\n"</span><span class="p">,</span><span class="w"> </span><span class="n">my_num</span><span class="p">,</span><span class="w"> </span><span class="n">sq</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="n">return0</span><span class="p">;</span><span class="w">  </span>
 <span class="p">}</span>
@@ -311,19 +311,19 @@
 <span class="w">    </span><span class="nx">int</span><span class="w"> </span><span class="nx">house_a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">int</span><span class="w"> </span><span class="nx">house_b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;变量的值 (住在房间里的人):\n&quot;</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;house_a = %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">house_a</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;house_b = %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">house_b</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"变量的值 (住在房间里的人):\n"</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"house_a = %d\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">house_a</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"house_b = %d\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">house_b</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;\n变量的地址 (房间的门牌号):\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"\n变量的地址 (房间的门牌号):\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="c1">// &amp; 操作符用于获取变量的地址  </span>
 <span class="w">    </span><span class="c1">// %p 是打印地址的专用格式符  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;house_a 的地址: %p\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">house_a</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;house_b 的地址: %p\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">house_b</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"house_a 的地址: %p\n"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">house_a</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"house_b 的地址: %p\n"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">house_b</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;\n比喻总结:\n&quot;</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;数值 (100) 是住在房间里的客人。\n&quot;</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;地址 (%p) 是挂在门上的门牌号。\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">house_a</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"\n比喻总结:\n"</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"数值 (100) 是住在房间里的客人。\n"</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"地址 (%p) 是挂在门上的门牌号。\n"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">house_a</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="nx">return0</span><span class="p">;</span><span class="w">  </span>
 <span class="p">}</span>
@@ -365,22 +365,22 @@ house_b 的地址: 0000004476BEF74C
 <span class="c1">// 它代表：接收两个 int，返回一个 int 的函数  </span>
 <span class="nx">typedef</span><span class="w"> </span><span class="nx">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="nx">OperationFunc</span><span class="p">)(</span><span class="nx">int</span><span class="p">,</span><span class="w"> </span><span class="nx">int</span><span class="p">);</span><span class="w">  </span>
 
-<span class="c1">// 这是一个&quot;万能计算器&quot;函数  </span>
+<span class="c1">// 这是一个"万能计算器"函数  </span>
 <span class="c1">// 它的第三个参数是一个函数！  </span>
 <span class="c1">// 这意味着你可以把具体的计算逻辑传进来  </span>
 <span class="nx">void</span><span class="w"> </span><span class="nx">calculator</span><span class="p">(</span><span class="nx">int</span><span class="w"> </span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">int</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="nx">OperationFunc</span><span class="w"> </span><span class="nx">op</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">int</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">op</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// 调用传进来的函数  </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;计算器结果: %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"计算器结果: %d\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">);</span><span class="w">  </span>
 <span class="p">}</span><span class="w">  </span>
 
 <span class="nx">int</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">    </span><span class="nx">int</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;正在将 &#39;add&#39; (加法) 函数作为参数传递:\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"正在将 'add' (加法) 函数作为参数传递:\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="c1">// 把 add 函数像变量一样传进去  </span>
 <span class="w">    </span><span class="nx">calculator</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">add</span><span class="p">);</span><span class="w">   </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;\n正在将 &#39;sub&#39; (减法) 函数作为参数传递:\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="nx">printf</span><span class="p">(</span><span class="s">"\n正在将 'sub' (减法) 函数作为参数传递:\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="c1">// 把 sub 函数传进去  </span>
 <span class="w">    </span><span class="nx">calculator</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">sub</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
@@ -389,10 +389,10 @@ house_b 的地址: 0000004476BEF74C
 </code></pre></div>
 
 <h4>运行结果</h4>
-<div class="highlight"><pre><span></span><code>正在将 &#39;add&#39; (加法) 函数作为参数传递:  
+<div class="highlight"><pre><span></span><code>正在将 'add' (加法) 函数作为参数传递:  
 计算器结果: 15  
 
-正在将 &#39;sub&#39; (减法) 函数作为参数传递:  
+正在将 'sub' (减法) 函数作为参数传递:  
 计算器结果: 5
 </code></pre></div>
 
@@ -417,11 +417,11 @@ house_b 的地址: 0000004476BEF74C
 <span class="o">//</span><span class="w"> </span><span class="err">这个函数返回一个函数指针！</span><span class="w">  </span>
 <span class="o">//</span><span class="w"> </span><span class="err">根据输入的模式字符，决定返回加法函数还是乘法函数</span><span class="w">  </span>
 <span class="n">OperationFunc</span><span class="w"> </span><span class="n">get_operation</span><span class="p">(</span><span class="nb">char</span><span class="w"> </span><span class="n">mode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;+&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;  [选择器] 你选择了加法模式。</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'+'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s2">"  [选择器] 你选择了加法模式。</span><span class="se">\n</span><span class="s2">"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">add</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="err">返回加法函数的地址</span><span class="w">  </span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="n">elseif</span><span class="w"> </span><span class="p">(</span><span class="n">mode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;  [选择器] 你选择了乘法模式。</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="n">elseif</span><span class="w"> </span><span class="p">(</span><span class="n">mode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">'*'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s2">"  [选择器] 你选择了乘法模式。</span><span class="se">\n</span><span class="s2">"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">mul</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="err">返回乘法函数的地址</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
 <span class="w">    </span><span class="n">returnNULL</span><span class="p">;</span><span class="w">  </span>
@@ -429,9 +429,9 @@ house_b 的地址: 0000004476BEF74C
 
 <span class="nb nb-Type">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="nb">char</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;+&#39;</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="nb">char</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'+'</span><span class="p">;</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;正在请求操作模式 &#39;</span><span class="si">%c</span><span class="s2">&#39;...</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s2">"正在请求操作模式 '</span><span class="si">%c</span><span class="s2">'...</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="mf">1.</span><span class="w"> </span><span class="err">获取对应的函数</span><span class="w">  </span>
 <span class="w">    </span><span class="n">OperationFunc</span><span class="w"> </span><span class="n">my_func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_operation</span><span class="p">(</span><span class="n">mode</span><span class="p">);</span><span class="w">  </span>
@@ -439,14 +439,14 @@ house_b 的地址: 0000004476BEF74C
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="mf">2.</span><span class="w"> </span><span class="err">调用获取到的函数</span><span class="w">  </span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">my_func</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">        </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">  </span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;计算结果: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s2">"计算结果: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">正在请求操作模式 &#39;</span><span class="si">%c</span><span class="s2">&#39;...</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'*'</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">正在请求操作模式 '</span><span class="si">%c</span><span class="s2">'...</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="n">my_func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_operation</span><span class="p">(</span><span class="n">mode</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">my_func</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;计算结果: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">));</span><span class="w">  </span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s2">"计算结果: </span><span class="si">%d</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w"> </span><span class="n">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">));</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="n">return0</span><span class="p">;</span><span class="w">  </span>
@@ -454,11 +454,11 @@ house_b 的地址: 0000004476BEF74C
 </code></pre></div>
 
 <h4>运行结果</h4>
-<div class="highlight"><pre><span></span><code>正在请求操作模式 &#39;+&#39;...  
+<div class="highlight"><pre><span></span><code>正在请求操作模式 '+'...  
   [选择器] 你选择了加法模式。  
 计算结果: 13  
 
-正在请求操作模式 &#39;*&#39;...  
+正在请求操作模式 '*'...  
   [选择器] 你选择了乘法模式。  
 计算结果: 42
 </code></pre></div>

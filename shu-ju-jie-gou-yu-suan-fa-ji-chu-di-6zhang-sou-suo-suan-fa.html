@@ -146,7 +146,7 @@
 <span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">3, 7, 2, 9, 5, 1, 8, 4, 6</span><span class="o">]</span><span class="w">  </span>
 <span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w">  </span>
 <span class="k">index</span><span class="p">,</span><span class="w"> </span><span class="nf">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">linear_search_with_count</span><span class="p">(</span><span class="k">data</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;在位置{index}找到{target}, 比较次数: {count}&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"在位置{index}找到{target}, 比较次数: {count}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>线性搜索的时间复杂度为O(n)，在最坏情况下需要遍历所有n个元素。线性搜索的空间复杂度为O(1)，不需要额外的存储空间。线性搜索适用于小规模数据、无序数据以及只需要偶尔搜索的场景。</p>
@@ -191,7 +191,7 @@
 <span class="n">sorted_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">1, 2, 3, 4, 5, 6, 7, 8, 9</span><span class="o">]</span><span class="w">  </span>
 <span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="w">  </span>
 <span class="k">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binary_search</span><span class="p">(</span><span class="n">sorted_data</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;在有序数组的位置{index}找到{target}&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"在有序数组的位置{index}找到{target}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>二分搜索的时间复杂度为O(log n)，因为每次搜索范围缩小一半，最多需要log n次比较。空间复杂度在迭代版本中为O(1)，在递归版本中为O(log n)，因为需要递归栈空间。</p>
@@ -289,11 +289,11 @@
 <span class="w">                </span><span class="n">self</span><span class="p">.</span><span class="k">insert</span><span class="p">(</span><span class="n">item</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="p">)</span><span class="w">  </span>
 
 <span class="n">hash_table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SimpleHashTable</span><span class="p">()</span><span class="w">  </span>
-<span class="n">hash_table</span><span class="p">.</span><span class="k">insert</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w">  </span>
-<span class="n">hash_table</span><span class="p">.</span><span class="k">insert</span><span class="p">(</span><span class="s1">&#39;banana&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w">  </span>
-<span class="n">hash_table</span><span class="p">.</span><span class="k">insert</span><span class="p">(</span><span class="s1">&#39;cherry&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;apple的值: {hash_table.get(&#39;apple&#39;)}&quot;</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;banana的值: {hash_table.get(&#39;banana&#39;)}&quot;</span><span class="p">)</span>
+<span class="n">hash_table</span><span class="p">.</span><span class="k">insert</span><span class="p">(</span><span class="s1">'apple'</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w">  </span>
+<span class="n">hash_table</span><span class="p">.</span><span class="k">insert</span><span class="p">(</span><span class="s1">'banana'</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w">  </span>
+<span class="n">hash_table</span><span class="p">.</span><span class="k">insert</span><span class="p">(</span><span class="s1">'cherry'</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w">  </span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"apple的值: {hash_table.get('apple')}"</span><span class="p">)</span><span class="w">  </span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"banana的值: {hash_table.get('banana')}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>哈希表的性能在很大程度上取决于哈希函数的质量。Python内置的hash函数已经经过精心设计，可以满足大多数应用场景。对于自定义哈希函数，需要特别注意均匀性和避免哈希冲突。</p>
@@ -360,7 +360,7 @@
 <span class="w">        </span><span class="k">index</span><span class="p">,</span><span class="w"> </span><span class="k">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">find_slot</span><span class="p">(</span><span class="k">key</span><span class="p">)</span><span class="w">  </span>
 <span class="w">          </span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="err">:</span><span class="w">  </span>
-<span class="w">            </span><span class="n">raise</span><span class="w"> </span><span class="k">Exception</span><span class="p">(</span><span class="ss">&quot;哈希表已满&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="w">            </span><span class="n">raise</span><span class="w"> </span><span class="k">Exception</span><span class="p">(</span><span class="ss">"哈希表已满"</span><span class="p">)</span><span class="w">  </span>
 <span class="w">          </span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="k">found</span><span class="err">:</span><span class="w">  </span>
 <span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="k">values</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="w">  </span>
@@ -448,15 +448,15 @@
         <span class="k">return</span> <span class="n">node</span>.<span class="nb">key</span>  
 
 <span class="n">bst</span> = <span class="n">BinarySearchTree</span>()  
-<span class="n">bst</span>.<span class="n">insert</span>(<span class="mi">50</span>, <span class="s">&#39;A&#39;</span>)  
-<span class="n">bst</span>.<span class="n">insert</span>(<span class="mi">30</span>, <span class="s">&#39;B&#39;</span>)  
-<span class="n">bst</span>.<span class="n">insert</span>(<span class="mi">70</span>, <span class="s">&#39;C&#39;</span>)  
-<span class="n">bst</span>.<span class="n">insert</span>(<span class="mi">20</span>, <span class="s">&#39;D&#39;</span>)  
-<span class="n">bst</span>.<span class="n">insert</span>(<span class="mi">40</span>, <span class="s">&#39;E&#39;</span>)  
+<span class="n">bst</span>.<span class="n">insert</span>(<span class="mi">50</span>, <span class="s">'A'</span>)  
+<span class="n">bst</span>.<span class="n">insert</span>(<span class="mi">30</span>, <span class="s">'B'</span>)  
+<span class="n">bst</span>.<span class="n">insert</span>(<span class="mi">70</span>, <span class="s">'C'</span>)  
+<span class="n">bst</span>.<span class="n">insert</span>(<span class="mi">20</span>, <span class="s">'D'</span>)  
+<span class="n">bst</span>.<span class="n">insert</span>(<span class="mi">40</span>, <span class="s">'E'</span>)  
 
-<span class="nb">print</span>(<span class="nb">f</span><span class="s">&quot;搜索30: {bst.search(30)}&quot;</span>)  
-<span class="nb">print</span>(<span class="nb">f</span><span class="s">&quot;最小值: {bst.find_min()}&quot;</span>)  
-<span class="nb">print</span>(<span class="nb">f</span><span class="s">&quot;最大值: {bst.find_max()}&quot;</span>)
+<span class="nb">print</span>(<span class="nb">f</span><span class="s">"搜索30: {bst.search(30)}"</span>)  
+<span class="nb">print</span>(<span class="nb">f</span><span class="s">"最小值: {bst.find_min()}"</span>)  
+<span class="nb">print</span>(<span class="nb">f</span><span class="s">"最大值: {bst.find_max()}"</span>)
 </code></pre></div>
 
 <p><img alt="" src="images/283d70d29803e754.gif"></p>
@@ -525,8 +525,8 @@
 <span class="k">for</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">[</span><span class="n">3, 6, 7, 9, 12, 19, 17, 26, 21, 25</span><span class="o">]</span><span class="err">:</span><span class="w">  </span>
 <span class="w">    </span><span class="n">skip_list</span><span class="p">.</span><span class="k">insert</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="w">  </span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;搜索19: {skip_list.search(19)}&quot;</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;搜索20: {skip_list.search(20)}&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"搜索19: {skip_list.search(19)}"</span><span class="p">)</span><span class="w">  </span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"搜索20: {skip_list.search(20)}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p><img alt="" src="images/9d3d4c5ae60349d7.gif"></p>
@@ -553,14 +553,14 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">True</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">_hash</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="err">:</span><span class="w">  </span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">hashlib</span><span class="p">.</span><span class="n">md5</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{item}{i}&#39;</span><span class="p">.</span><span class="n">encode</span><span class="p">()).</span><span class="n">hexdigest</span><span class="p">(),</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w">  </span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">hashlib</span><span class="p">.</span><span class="n">md5</span><span class="p">(</span><span class="n">f</span><span class="s1">'{item}{i}'</span><span class="p">.</span><span class="n">encode</span><span class="p">()).</span><span class="n">hexdigest</span><span class="p">(),</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w">  </span>
 
 <span class="n">bloom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BloomFilter</span><span class="p">()</span><span class="w">  </span>
-<span class="n">bloom</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">)</span><span class="w">  </span>
-<span class="n">bloom</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="s1">&#39;banana&#39;</span><span class="p">)</span><span class="w">  </span>
+<span class="n">bloom</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="s1">'apple'</span><span class="p">)</span><span class="w">  </span>
+<span class="n">bloom</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="s1">'banana'</span><span class="p">)</span><span class="w">  </span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;&#39;apple&#39; 可能存在: {bloom.might_contain(&#39;apple&#39;)}&quot;</span><span class="p">)</span><span class="w">  </span>
-<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">&quot;&#39;orange&#39; 可能存在: {bloom.might_contain(&#39;orange&#39;)}&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"'apple' 可能存在: {bloom.might_contain('apple')}"</span><span class="p">)</span><span class="w">  </span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="ss">"'orange' 可能存在: {bloom.might_contain('orange')}"</span><span class="p">)</span>
 </code></pre></div>
 
 <p><img alt="" src="images/0f8722e388404a9d.gif"></p>

@@ -141,7 +141,7 @@
    │  对照
 分布（如果零假设成立，统计量本该落在哪里）
    │  算概率
-p 值（实际落点有多&quot;离谱&quot;）
+p 值（实际落点有多"离谱"）
    │  下结论
 拒绝 / 不拒绝零假设
 </code></pre></div>
@@ -190,8 +190,8 @@ p 值（实际落点有多&quot;离谱&quot;）
 <span class="n">experiment</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">78</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>   <span class="c1"># 实验组，平均 78</span>
 
 <span class="n">t_value</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">control</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t 值 = </span><span class="si">{</span><span class="n">t_value</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p 值 = </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"t 值 = </span><span class="si">{</span><span class="n">t_value</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"p 值 = </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>t 值 = 2.587
@@ -210,12 +210,12 @@ p 值 = 0.0139
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="c1"># 模拟 1000 个&quot;服从正态分布&quot;的身高数据</span>
+<span class="c1"># 模拟 1000 个"服从正态分布"的身高数据</span>
 <span class="n">heights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">172</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">heights</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#1f77b4&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;身高（cm）&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;频率密度&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;1000 个身高的直方图：中间多、两边少，接近钟形&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">heights</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"#1f77b4"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"身高（cm）"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"频率密度"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"1000 个身高的直方图：中间多、两边少，接近钟形"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>直方图的形状，就是我们常说的"分布的形状"。为什么统计检验这么在乎分布？因为——</p>
@@ -263,7 +263,7 @@ p 值 = 0.0139
 <span class="c1"># 备择假设 H1：两组均值不相等（μ1 ≠ μ2）</span>
 <span class="c1">#</span>
 <span class="c1"># t 检验做的事：在 H0 成立的前提下，算出现当前差异的概率（p 值）。</span>
-<span class="c1"># 若 p 值太小（比如 &lt; 0.05），说明&quot;H0 成立时不该出现这么大差异&quot;，</span>
+<span class="c1"># 若 p 值太小（比如 &lt; 0.05），说明"H0 成立时不该出现这么大差异"，</span>
 <span class="c1"># 于是我们拒绝 H0，认为差异显著。</span>
 </code></pre></div>
 
@@ -295,8 +295,8 @@ p 值 = 0.0139
 <span class="c1"># t = 2.5，自由度 18，算双尾 p 值</span>
 <span class="n">t_obs</span> <span class="o">=</span> <span class="mf">2.5</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">t_obs</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>    <span class="c1"># sf = survival function，即右尾面积；×2 是双尾</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t = </span><span class="si">{</span><span class="n">t_obs</span><span class="si">}</span><span class="s2">, p = </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p &lt; 0.05&quot;</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mf">0.05</span> <span class="k">else</span> <span class="s2">&quot;p &gt;= 0.05&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"t = </span><span class="si">{</span><span class="n">t_obs</span><span class="si">}</span><span class="s2">, p = </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"p &lt; 0.05"</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mf">0.05</span> <span class="k">else</span> <span class="s2">"p &gt;= 0.05"</span><span class="p">)</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>t = 2.5, p = 0.0223
@@ -323,8 +323,8 @@ p &lt; 0.05
 <span class="c1"># 前两个可以自由选，第三个被锁定</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span>
 <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">-</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;a=</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">, b=</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> 自由选择后，c 被锁死为 </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;自由度 = 3 - 1 = 2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"a=</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">, b=</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> 自由选择后，c 被锁死为 </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"自由度 = 3 - 1 = 2"</span><span class="p">)</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>a=8, b=12 自由选择后，c 被锁死为 10
@@ -382,7 +382,7 @@ p &lt; 0.05
 
 <span class="c1"># 同样落在 x=3 的位置，df 越小，尾部概率越大</span>
 <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;df=</span><span class="si">{</span><span class="n">df</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2">  P(X&gt;3) = </span><span class="si">{</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">df</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">   正态分布 P(X&gt;3) = </span><span class="si">{</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"df=</span><span class="si">{</span><span class="n">df</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2">  P(X&gt;3) = </span><span class="si">{</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">df</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">   正态分布 P(X&gt;3) = </span><span class="si">{</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>df=   1  P(X&gt;3) = 0.1024   正态分布 P(X&gt;3) = 0.0013
@@ -410,12 +410,12 @@ df=1000  P(X&gt;3) = 0.0014   正态分布 P(X&gt;3) = 0.0013
 <span class="n">mean_diff</span> <span class="o">=</span> <span class="n">experiment</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">control</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">pooled_sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">mean_diff</span> <span class="o">/</span> <span class="n">pooled_sd</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;均值差 = </span><span class="si">{</span><span class="n">mean_diff</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">，合并标准差 = </span><span class="si">{</span><span class="n">pooled_sd</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cohen&#39;s d = </span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"均值差 = </span><span class="si">{</span><span class="n">mean_diff</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">，合并标准差 = </span><span class="si">{</span><span class="n">pooled_sd</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Cohen's d = </span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>均值差 = 4.12，合并标准差 = 9.98
-Cohen&#39;s d = 0.413
+Cohen's d = 0.413
 </code></pre></div>
 
 <p>论文报告规范通常是：<strong>既要报 p 值（有没有差异），也要报效应量（差异有多大）</strong>。只报 p 值是外行做法。</p>
@@ -470,8 +470,8 @@ Cohen&#39;s d = 0.413
 <span class="n">observed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">114</span><span class="p">,</span> <span class="mi">27</span><span class="p">],</span>
                      <span class="p">[</span><span class="mi">863</span><span class="p">,</span> <span class="mi">945</span><span class="p">]])</span>
 <span class="n">chi2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2_contingency</span><span class="p">(</span><span class="n">observed</span><span class="p">,</span> <span class="n">correction</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;χ² = </span><span class="si">{</span><span class="n">chi2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, df = </span><span class="si">{</span><span class="n">dof</span><span class="si">}</span><span class="s2">, p = </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;期望频数：&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"χ² = </span><span class="si">{</span><span class="n">chi2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, df = </span><span class="si">{</span><span class="n">dof</span><span class="si">}</span><span class="s2">, p = </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"期望频数："</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">expected</span><span class="p">)</span>
 </code></pre></div>
 
@@ -541,9 +541,9 @@ Cohen&#39;s d = 0.413
 <span class="n">F</span> <span class="o">=</span> <span class="n">msb</span> <span class="o">/</span> <span class="n">msw</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">f_oneway</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span><span class="o">.</span><span class="n">pvalue</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SS组间=</span><span class="si">{</span><span class="n">ss_between</span><span class="si">}</span><span class="s2">, SS组内=</span><span class="si">{</span><span class="n">ss_within</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MSB=</span><span class="si">{</span><span class="n">msb</span><span class="si">}</span><span class="s2">, MSW=</span><span class="si">{</span><span class="n">msw</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;F = </span><span class="si">{</span><span class="n">F</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, p = </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SS组间=</span><span class="si">{</span><span class="n">ss_between</span><span class="si">}</span><span class="s2">, SS组内=</span><span class="si">{</span><span class="n">ss_within</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"MSB=</span><span class="si">{</span><span class="n">msb</span><span class="si">}</span><span class="s2">, MSW=</span><span class="si">{</span><span class="n">msw</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"F = </span><span class="si">{</span><span class="n">F</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, p = </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>SS组间=24.0, SS组内=24.0
@@ -591,10 +591,10 @@ F = 3.0, p = 0.1250
     <span class="n">_</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
         <span class="n">false_positives</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;1000 次&#39;无差异&#39;检验中，误报显著的次数：</span><span class="si">{</span><span class="n">false_positives</span><span class="si">}</span><span class="s2">（约等于 α × 1000）&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"1000 次'无差异'检验中，误报显著的次数：</span><span class="si">{</span><span class="n">false_positives</span><span class="si">}</span><span class="s2">（约等于 α × 1000）"</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="mf">1000</span><span class="w"> </span><span class="n">次</span><span class="err">&#39;</span><span class="n">无差异</span><span class="err">&#39;</span><span class="n">检验中</span><span class="err">，</span><span class="n">误报显著的次数</span><span class="err">：</span><span class="mf">52</span><span class="err">（</span><span class="n">约等于</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="mf">1000</span><span class="err">）</span>
+<div class="highlight"><pre><span></span><code><span class="mf">1000</span><span class="w"> </span><span class="n">次</span><span class="err">'</span><span class="n">无差异</span><span class="err">'</span><span class="n">检验中</span><span class="err">，</span><span class="n">误报显著的次数</span><span class="err">：</span><span class="mf">52</span><span class="err">（</span><span class="n">约等于</span><span class="w"> </span><span class="n">α</span><span class="w"> </span><span class="err">×</span><span class="w"> </span><span class="mf">1000</span><span class="err">）</span>
 </code></pre></div>
 
 <p>两组数据明明来自同一个总体（确实没有差异），但 1000 次检验里仍有约 52 次"误报显著"——这就是 5% 的第一类错误在真实发生。</p>
@@ -628,8 +628,8 @@ F = 3.0, p = 0.1250
 
 <span class="n">f</span><span class="p">,</span> <span class="n">p_anova</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">f_oneway</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>      <span class="c1"># ANOVA（假设正态）</span>
 <span class="n">h</span><span class="p">,</span> <span class="n">p_kw</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kruskal</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>          <span class="c1"># Kruskal-Wallis（非参数）</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ANOVA:          F=</span><span class="si">{</span><span class="n">f</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">p_anova</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kruskal-Wallis: H=</span><span class="si">{</span><span class="n">h</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">p_kw</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ANOVA:          F=</span><span class="si">{</span><span class="n">f</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">p_anova</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Kruskal-Wallis: H=</span><span class="si">{</span><span class="n">h</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">p_kw</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>ANOVA:          F=5.916, p=0.0038
@@ -650,7 +650,7 @@ Kruskal-Wallis: H=15.94, p=0.0003
     <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>   <span class="c1"># B 组</span>
     <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>   <span class="c1"># C 组</span>
 <span class="p">])</span>
-<span class="n">groups</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;A&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">"A"</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"B"</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"C"</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">pairwise_tukeyhsd</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </code></pre></div>

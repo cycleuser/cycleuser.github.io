@@ -254,16 +254,16 @@ nano<span class="w"> </span>/usr/local/hbase/conf/hbase-site.xml
 <div class="highlight"><pre><span></span><code><span class="c1"># 进入HBase shell</span>
 hbase<span class="w"> </span>shell
 
-<span class="c1"># 创建一个名为&#39;test_table&#39;的表，有一个名为&#39;test_family&#39;的列族</span>
-create<span class="w"> </span><span class="s1">&#39;test_table&#39;</span>,<span class="w"> </span><span class="s1">&#39;test_family&#39;</span>
+<span class="c1"># 创建一个名为'test_table'的表，有一个名为'test_family'的列族</span>
+create<span class="w"> </span><span class="s1">'test_table'</span>,<span class="w"> </span><span class="s1">'test_family'</span>
 
 <span class="c1"># 插入一些随机数据</span>
-put<span class="w"> </span><span class="s1">&#39;test_table&#39;</span>,<span class="w"> </span><span class="s1">&#39;row1&#39;</span>,<span class="w"> </span><span class="s1">&#39;test_family:col1&#39;</span>,<span class="w"> </span><span class="s1">&#39;value1&#39;</span>
-put<span class="w"> </span><span class="s1">&#39;test_table&#39;</span>,<span class="w"> </span><span class="s1">&#39;row2&#39;</span>,<span class="w"> </span><span class="s1">&#39;test_family:col2&#39;</span>,<span class="w"> </span><span class="s1">&#39;value2&#39;</span>
-put<span class="w"> </span><span class="s1">&#39;test_table&#39;</span>,<span class="w"> </span><span class="s1">&#39;row3&#39;</span>,<span class="w"> </span><span class="s1">&#39;test_family:col3&#39;</span>,<span class="w"> </span><span class="s1">&#39;value3&#39;</span>
+put<span class="w"> </span><span class="s1">'test_table'</span>,<span class="w"> </span><span class="s1">'row1'</span>,<span class="w"> </span><span class="s1">'test_family:col1'</span>,<span class="w"> </span><span class="s1">'value1'</span>
+put<span class="w"> </span><span class="s1">'test_table'</span>,<span class="w"> </span><span class="s1">'row2'</span>,<span class="w"> </span><span class="s1">'test_family:col2'</span>,<span class="w"> </span><span class="s1">'value2'</span>
+put<span class="w"> </span><span class="s1">'test_table'</span>,<span class="w"> </span><span class="s1">'row3'</span>,<span class="w"> </span><span class="s1">'test_family:col3'</span>,<span class="w"> </span><span class="s1">'value3'</span>
 
 <span class="c1"># 扫描并打印表中的所有数据</span>
-scan<span class="w"> </span><span class="s1">&#39;test_table&#39;</span>
+scan<span class="w"> </span><span class="s1">'test_table'</span>
 </code></pre></div>
 
 <h2>4.6. HBase操作的Python演示</h2>
@@ -287,54 +287,54 @@ pip<span class="w"> </span>install<span class="w"> </span>happybase<span class="
 <span class="kn">import</span><span class="w"> </span><span class="nn">happybase</span>
 
 <span class="c1"># 连接到 HBase</span>
-<span class="n">connection</span> <span class="o">=</span> <span class="n">happybase</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">9090</span><span class="p">)</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">happybase</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="mi">9090</span><span class="p">)</span>
 <span class="c1"># 获取表名列表</span>
 <span class="n">table_names</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">tables</span><span class="p">()</span>
 <span class="c1"># 解码表名</span>
-<span class="n">table_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">table_names</span><span class="p">]</span>
+<span class="n">table_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">table_names</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">table_names</span><span class="p">)</span>
 
 <span class="c1"># 从环境变量获取表名和列族</span>
-<span class="n">table_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;HBASE_TABLE_NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;score_info&#39;</span><span class="p">)</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'HBASE_TABLE_NAME'</span><span class="p">,</span> <span class="s1">'score_info'</span><span class="p">)</span>
 <span class="n">families</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">max_versions</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
-    <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">max_versions</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">block_cache_enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-    <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(),</span>  <span class="c1"># 使用默认值</span>
+    <span class="s1">'name'</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">max_versions</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+    <span class="s1">'score'</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">max_versions</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">block_cache_enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+    <span class="s1">'date'</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(),</span>  <span class="c1"># 使用默认值</span>
 <span class="p">}</span>
 <span class="c1"># 检查表是否存在</span>
 <span class="k">if</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="n">connection</span><span class="o">.</span><span class="n">tables</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Table </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> already exists.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Table </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> already exists."</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">connection</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">families</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Table </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> created.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Table </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> created."</span><span class="p">)</span>
 
 <span class="c1"># 获取表</span>
 <span class="n">table</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
 
 <span class="c1"># 插入数据</span>
-<span class="n">table</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;student1&#39;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="s1">&#39;name:full_name&#39;</span><span class="p">:</span> <span class="s2">&quot;Fred&quot;</span><span class="p">,</span>
-    <span class="s1">&#39;score:poltics&#39;</span><span class="p">:</span> <span class="s1">&#39;74&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;score:english&#39;</span><span class="p">:</span> <span class="s1">&#39;104&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;score:chinese&#39;</span><span class="p">:</span> <span class="s1">&#39;117&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;date:created&#39;</span><span class="p">:</span> <span class="s1">&#39;2024-01-09&#39;</span>
+<span class="n">table</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'student1'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">'name:full_name'</span><span class="p">:</span> <span class="s2">"Fred"</span><span class="p">,</span>
+    <span class="s1">'score:poltics'</span><span class="p">:</span> <span class="s1">'74'</span><span class="p">,</span>
+    <span class="s1">'score:english'</span><span class="p">:</span> <span class="s1">'104'</span><span class="p">,</span>
+    <span class="s1">'score:chinese'</span><span class="p">:</span> <span class="s1">'117'</span><span class="p">,</span>
+    <span class="s1">'date:created'</span><span class="p">:</span> <span class="s1">'2024-01-09'</span>
 <span class="p">})</span>
 
 <span class="c1"># 插入数据</span>
-<span class="n">table</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;student2&#39;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="s1">&#39;name:full_name&#39;</span><span class="p">:</span> <span class="s2">&quot;于同学&quot;</span><span class="p">,</span>
-    <span class="s1">&#39;score:政治&#39;</span><span class="p">:</span> <span class="s1">&#39;74&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;score:英语&#39;</span><span class="p">:</span> <span class="s1">&#39;104&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;score:语文&#39;</span><span class="p">:</span> <span class="s1">&#39;117&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;date:created&#39;</span><span class="p">:</span> <span class="s1">&#39;2024-01-09&#39;</span>
+<span class="n">table</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'student2'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s1">'name:full_name'</span><span class="p">:</span> <span class="s2">"于同学"</span><span class="p">,</span>
+    <span class="s1">'score:政治'</span><span class="p">:</span> <span class="s1">'74'</span><span class="p">,</span>
+    <span class="s1">'score:英语'</span><span class="p">:</span> <span class="s1">'104'</span><span class="p">,</span>
+    <span class="s1">'score:语文'</span><span class="p">:</span> <span class="s1">'117'</span><span class="p">,</span>
+    <span class="s1">'date:created'</span><span class="p">:</span> <span class="s1">'2024-01-09'</span>
 <span class="p">})</span>
 
 <span class="c1"># 查询数据</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="s1">&#39;student2&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="s1">'student2'</span><span class="p">)</span>
 
 <span class="c1"># 打印数据</span>
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">key</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 
 <p>请注意，这个示例假设 HBase Thrift 服务正在本地运行，并且监听的是默认的端口（9090）。如果 HBase Thrift 服务在其他地方运行，或者使用的是其他端口，需要在创建 <code>happybase.Connection</code> 时提供正确的主机名和端口号。</p>

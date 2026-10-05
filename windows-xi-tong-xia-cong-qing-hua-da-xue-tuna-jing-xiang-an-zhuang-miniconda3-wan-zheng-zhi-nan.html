@@ -164,7 +164,7 @@
 
 <p>输入 <code>Y</code> 并回车确认。</p>
 <p>3.执行 Conda 初始化命令：</p>
-<div class="highlight"><pre><span></span><code>&amp; &quot;C:\Miniconda3\Scripts\conda.exe&quot; init powershell
+<div class="highlight"><pre><span></span><code>&amp; "C:\Miniconda3\Scripts\conda.exe" init powershell
 </code></pre></div>
 
 <p>4.关闭当前 PowerShell 窗口，重新打开一个新的普通 PowerShell 窗口（无需管理员权限）。  5.验证初始化是否成功：</p>
@@ -183,7 +183,7 @@
 <p>上述命令会在用户目录下生成 <code>.condarc</code> 配置文件，后续所有 <code>conda install</code> 操作将优先从 TUNA 镜像下载。</p>
 <p><strong>配置 pip 镜像源</strong>：</p>
 <p>执行以下命令创建 pip 配置文件：</p>
-<div class="highlight"><pre><span></span><code><span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">Path</span><span class="w"> </span><span class="n">$env</span><span class="o">:</span><span class="n">APPDATA</span><span class="err">\</span><span class="n">pip</span><span class="w"> </span><span class="o">-</span><span class="n">Force</span><span class="s">@&quot;[global]index-url = https://pypi.tuna.tsinghua.edu.cn/simpletrusted-host = pypi.tuna.tsinghua.edu.cn&quot;</span><span class="p">@</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Out</span><span class="o">-</span><span class="n">File</span><span class="w"> </span><span class="o">-</span><span class="n">FilePath</span><span class="w"> </span><span class="n">$env</span><span class="o">:</span><span class="n">APPDATA</span><span class="err">\</span><span class="n">pip</span><span class="err">\</span><span class="n">pip</span><span class="p">.</span><span class="n">ini</span><span class="w"> </span><span class="o">-</span><span class="n">Encoding</span><span class="w"> </span><span class="n">utf8</span>
+<div class="highlight"><pre><span></span><code><span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">Path</span><span class="w"> </span><span class="n">$env</span><span class="o">:</span><span class="n">APPDATA</span><span class="err">\</span><span class="n">pip</span><span class="w"> </span><span class="o">-</span><span class="n">Force</span><span class="s">@"[global]index-url = https://pypi.tuna.tsinghua.edu.cn/simpletrusted-host = pypi.tuna.tsinghua.edu.cn"</span><span class="p">@</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Out</span><span class="o">-</span><span class="n">File</span><span class="w"> </span><span class="o">-</span><span class="n">FilePath</span><span class="w"> </span><span class="n">$env</span><span class="o">:</span><span class="n">APPDATA</span><span class="err">\</span><span class="n">pip</span><span class="err">\</span><span class="n">pip</span><span class="p">.</span><span class="n">ini</span><span class="w"> </span><span class="o">-</span><span class="n">Encoding</span><span class="w"> </span><span class="n">utf8</span>
 </code></pre></div>
 
 <p>配置完成后，所有 <code>pip install</code> 命令将自动使用清华 PyPI 镜像，显著提升安装速度。</p>

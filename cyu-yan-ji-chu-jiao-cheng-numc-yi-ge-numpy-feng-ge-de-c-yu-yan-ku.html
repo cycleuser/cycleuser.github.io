@@ -167,7 +167,7 @@ wget https://raw.githubusercontent.com/cycleuser/NumC/main/NumC.h
 
 <h3>引入项目</h3>
 <div class="highlight"><pre><span></span><code><span class="gh">#</span>define NC_IMPLEMENTATION  
-<span class="gh">#</span>include &quot;NumC.h&quot;
+<span class="gh">#</span>include "NumC.h"
 </code></pre></div>
 
 <p><strong>重要</strong>：你必须且只能在<strong>一个</strong>源文件中定义 <code>NC_IMPLEMENTATION</code>，然后包含 <code>NumC.h</code>。这会引入实现代码。在其他源文件中，只需使用 <code>#include "NumC.h"</code> 而不需要定义。</p>
@@ -176,7 +176,7 @@ wget https://raw.githubusercontent.com/cycleuser/NumC/main/NumC.h
 <h3>第一个程序</h3>
 <p>创建 <code>main.c</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="gh">#</span>define NC_IMPLEMENTATION  
-<span class="gh">#</span>include &quot;NumC.h&quot;  
+<span class="gh">#</span>include "NumC.h"  
 <span class="gh">#</span>include &lt;stdio.h&gt;  
 
 int main() {  
@@ -300,19 +300,19 @@ main.exe
 <div class="highlight"><pre><span></span><code><span class="nx">NCArray</span><span class="w"> </span><span class="o">*</span><span class="nx">arr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">NC_INT</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">);</span><span class="w">  </span>
 
 <span class="c1">// 数据类型名称  </span>
-<span class="nx">printf</span><span class="p">(</span><span class="s">&quot;dtype: %s\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">nc_dtype_name</span><span class="p">(</span><span class="nx">arr</span><span class="o">-&gt;</span><span class="nx">dtype</span><span class="p">));</span><span class="w">  </span><span class="c1">// &quot;uint8&quot;  </span>
+<span class="nx">printf</span><span class="p">(</span><span class="s">"dtype: %s\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">nc_dtype_name</span><span class="p">(</span><span class="nx">arr</span><span class="o">-&gt;</span><span class="nx">dtype</span><span class="p">));</span><span class="w">  </span><span class="c1">// "uint8"  </span>
 
 <span class="c1">// 维度数量  </span>
-<span class="nx">printf</span><span class="p">(</span><span class="s">&quot;ndim: %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">arr</span><span class="o">-&gt;</span><span class="nx">ndim</span><span class="p">);</span><span class="w">                    </span><span class="c1">// 1  </span>
+<span class="nx">printf</span><span class="p">(</span><span class="s">"ndim: %d\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">arr</span><span class="o">-&gt;</span><span class="nx">ndim</span><span class="p">);</span><span class="w">                    </span><span class="c1">// 1  </span>
 
 <span class="c1">// 形状（各维度大小的数组）  </span>
-<span class="nx">printf</span><span class="p">(</span><span class="s">&quot;shape: (%lld,)\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">arr</span><span class="o">-&gt;</span><span class="nx">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w">          </span><span class="c1">// (5,)  </span>
+<span class="nx">printf</span><span class="p">(</span><span class="s">"shape: (%lld,)\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">arr</span><span class="o">-&gt;</span><span class="nx">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w">          </span><span class="c1">// (5,)  </span>
 
 <span class="c1">// 元素总数  </span>
-<span class="nx">printf</span><span class="p">(</span><span class="s">&quot;size: %zu\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">nc_size</span><span class="p">(</span><span class="nx">arr</span><span class="p">));</span><span class="w">                </span><span class="c1">// 5  </span>
+<span class="nx">printf</span><span class="p">(</span><span class="s">"size: %zu\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">nc_size</span><span class="p">(</span><span class="nx">arr</span><span class="p">));</span><span class="w">                </span><span class="c1">// 5  </span>
 
 <span class="c1">// 每个元素的字节数  </span>
-<span class="nx">printf</span><span class="p">(</span><span class="s">&quot;itemsize: %zu\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">arr</span><span class="o">-&gt;</span><span class="nx">itemsize</span><span class="p">);</span><span class="w">           </span><span class="c1">// 1 (uint8)</span>
+<span class="nx">printf</span><span class="p">(</span><span class="s">"itemsize: %zu\n"</span><span class="p">,</span><span class="w"> </span><span class="nx">arr</span><span class="o">-&gt;</span><span class="nx">itemsize</span><span class="p">);</span><span class="w">           </span><span class="c1">// 1 (uint8)</span>
 </code></pre></div>
 
 <h3>访问元素</h3>
@@ -324,7 +324,7 @@ double val2 = nc_get_value_as_double(arr, 2); // 30.0
 
 // 遍历所有元素  
 for (size_t i = 0; i &lt; nc_size(arr); i++) {  
-    printf(&quot;arr[%zu] = %.0f\n&quot;, i, nc_get_value_as_double(arr, i));  
+    printf("arr[%zu] = %.0f\n", i, nc_get_value_as_double(arr, i));  
 }
 </code></pre></div>
 
@@ -373,10 +373,10 @@ NCArray *linspace = nc_linspace(0.0, 1.0, 5, true, NC_FLOAT64);
 <h3>矩阵属性</h3>
 <div class="highlight"><pre><span></span><code><span class="nt">NCArray</span><span class="w"> </span><span class="o">*</span><span class="nt">mat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">NC_INT2D</span><span class="o">(</span><span class="nt">2</span><span class="o">,</span><span class="w"> </span><span class="nt">3</span><span class="o">,</span><span class="w"> </span><span class="nt">1</span><span class="o">,</span><span class="w"> </span><span class="nt">2</span><span class="o">,</span><span class="w"> </span><span class="nt">3</span><span class="o">,</span><span class="w"> </span><span class="nt">4</span><span class="o">,</span><span class="w"> </span><span class="nt">5</span><span class="o">,</span><span class="w"> </span><span class="nt">6</span><span class="o">);</span><span class="w">  </span>
 
-<span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;行数: %lld\n&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">mat-</span><span class="o">&gt;</span><span class="nt">shape</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="o">);</span><span class="w">        </span><span class="o">//</span><span class="w"> </span><span class="nt">2</span><span class="w">  </span>
-<span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;列数: %lld\n&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">mat-</span><span class="o">&gt;</span><span class="nt">shape</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="o">);</span><span class="w">       </span><span class="o">//</span><span class="w"> </span><span class="nt">3</span><span class="w">  </span>
-<span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;总元素数: %zu\n&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">nc_size</span><span class="o">(</span><span class="nt">mat</span><span class="o">));</span><span class="w">     </span><span class="o">//</span><span class="w"> </span><span class="nt">6</span><span class="w">  </span>
-<span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;维度数: %d\n&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">mat-</span><span class="o">&gt;</span><span class="nt">ndim</span><span class="o">);</span><span class="w">           </span><span class="o">//</span><span class="w"> </span><span class="nt">2</span>
+<span class="nt">printf</span><span class="o">(</span><span class="s2">"行数: %lld\n"</span><span class="o">,</span><span class="w"> </span><span class="nt">mat-</span><span class="o">&gt;</span><span class="nt">shape</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="o">);</span><span class="w">        </span><span class="o">//</span><span class="w"> </span><span class="nt">2</span><span class="w">  </span>
+<span class="nt">printf</span><span class="o">(</span><span class="s2">"列数: %lld\n"</span><span class="o">,</span><span class="w"> </span><span class="nt">mat-</span><span class="o">&gt;</span><span class="nt">shape</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="o">);</span><span class="w">       </span><span class="o">//</span><span class="w"> </span><span class="nt">3</span><span class="w">  </span>
+<span class="nt">printf</span><span class="o">(</span><span class="s2">"总元素数: %zu\n"</span><span class="o">,</span><span class="w"> </span><span class="nt">nc_size</span><span class="o">(</span><span class="nt">mat</span><span class="o">));</span><span class="w">     </span><span class="o">//</span><span class="w"> </span><span class="nt">6</span><span class="w">  </span>
+<span class="nt">printf</span><span class="o">(</span><span class="s2">"维度数: %d\n"</span><span class="o">,</span><span class="w"> </span><span class="nt">mat-</span><span class="o">&gt;</span><span class="nt">ndim</span><span class="o">);</span><span class="w">           </span><span class="o">//</span><span class="w"> </span><span class="nt">2</span>
 </code></pre></div>
 
 <h3>访问二维元素</h3>

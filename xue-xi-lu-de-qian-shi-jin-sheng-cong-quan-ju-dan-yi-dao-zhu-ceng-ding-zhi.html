@@ -313,17 +313,17 @@ def cosine_lr(epoch, T, eta_min=1e-5, eta_max=0.01):
 <span class="n">import</span><span class="w"> </span><span class="n">torch</span>
 
 <span class="n">def</span><span class="w"> </span><span class="n">get_discriminative_lrs</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">base_lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="w"> </span><span class="n">decay_factor</span><span class="o">=</span><span class="mf">2.6</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Compute per-layer learning rates for discriminative fine-tuning.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        model: a model with L layers</span>
 <span class="sd">        base_lr: learning rate for the LAST layer</span>
-<span class="sd">        decay_factor: each lower layer&#39;s LR = upper layer&#39;s LR / decay_factor</span>
+<span class="sd">        decay_factor: each lower layer's LR = upper layer's LR / decay_factor</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        list of (param_group, lr) tuples</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 <span class="w">    </span><span class="n">layers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">children</span><span class="p">())</span><span class="w">  </span><span class="c1"># e.g., [layer1, layer2, layer3]</span>
 <span class="w">    </span><span class="n">num_layers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span>
 
@@ -332,8 +332,8 @@ def cosine_lr(epoch, T, eta_min=1e-5, eta_max=0.01):
 <span class="w">        </span><span class="c1"># Layer index: 0 = bottom (smallest LR), L-1 = top (largest LR)</span>
 <span class="w">        </span><span class="n">lr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">base_lr</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">decay_factor</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="p">(</span><span class="n">num_layers</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">))</span>
 <span class="w">        </span><span class="n">param_groups</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-<span class="w">            </span><span class="s1">&#39;params&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">layer</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span>
-<span class="w">            </span><span class="s1">&#39;lr&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">lr</span>
+<span class="w">            </span><span class="s1">'params'</span><span class="p">:</span><span class="w"> </span><span class="n">layer</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span>
+<span class="w">            </span><span class="s1">'lr'</span><span class="p">:</span><span class="w"> </span><span class="n">lr</span>
 <span class="w">        </span><span class="p">})</span>
 
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">param_groups</span>
@@ -361,7 +361,7 @@ def cosine_lr(epoch, T, eta_min=1e-5, eta_max=0.01):
 <span class="w">        </span><span class="bp">self</span><span class="o">.</span><span class="n">decay_factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decay_factor</span>
 
 <span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">get_param_groups</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Build parameter groups with discriminative learning rates.</span>
 
 <span class="sd">        Architecture (bottom to top):</span>
@@ -370,13 +370,13 @@ def cosine_lr(epoch, T, eta_min=1e-5, eta_max=0.01):
 <span class="sd">          - RNN layer 2:</span>
 <span class="sd">          - RNN layer 3:</span>
 <span class="sd">          - Classifier head:   largest LR (most task-specific)</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 <span class="w">        </span><span class="n">layer_names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="s1">&#39;embedding&#39;</span><span class="p">,</span><span class="w">       </span><span class="c1"># most general</span>
-<span class="w">            </span><span class="s1">&#39;rnn_layer_0&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="s1">&#39;rnn_layer_1&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="s1">&#39;rnn_layer_2&#39;</span><span class="p">,</span>
-<span class="w">            </span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span><span class="w">      </span><span class="c1"># most task-specific</span>
+<span class="w">            </span><span class="s1">'embedding'</span><span class="p">,</span><span class="w">       </span><span class="c1"># most general</span>
+<span class="w">            </span><span class="s1">'rnn_layer_0'</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">'rnn_layer_1'</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">'rnn_layer_2'</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">'classifier'</span><span class="p">,</span><span class="w">      </span><span class="c1"># most task-specific</span>
 <span class="w">        </span><span class="p">]</span>
 
 <span class="w">        </span><span class="n">param_groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
@@ -384,11 +384,11 @@ def cosine_lr(epoch, T, eta_min=1e-5, eta_max=0.01):
 <span class="w">            </span><span class="n">lr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">base_lr</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">decay_factor</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">layer_names</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">))</span>
 <span class="w">            </span><span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
 <span class="w">            </span><span class="n">param_groups</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-<span class="w">                </span><span class="s1">&#39;params&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="n">module</span><span class="o">.</span><span class="n">parameters</span><span class="p">()),</span>
-<span class="w">                </span><span class="s1">&#39;lr&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">lr</span><span class="p">,</span>
-<span class="w">                </span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+<span class="w">                </span><span class="s1">'params'</span><span class="p">:</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="n">module</span><span class="o">.</span><span class="n">parameters</span><span class="p">()),</span>
+<span class="w">                </span><span class="s1">'lr'</span><span class="p">:</span><span class="w"> </span><span class="n">lr</span><span class="p">,</span>
+<span class="w">                </span><span class="s1">'name'</span><span class="p">:</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
 <span class="w">            </span><span class="p">})</span>
-<span class="w">            </span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;  {name:20s} lr = {lr:.6f}&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">"  {name:20s} lr = {lr:.6f}"</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">param_groups</span>
 
@@ -485,7 +485,7 @@ def cosine_lr(epoch, T, eta_min=1e-5, eta_max=0.01):
 import matplotlib.pyplot as plt
 
 def slanted_triangular_lr(t, T, eta_max=0.01, cut_frac=0.1, ratio=32):
-    &quot;&quot;&quot;
+    """
     Slanted Triangular Learning Rate (STLR) schedule.
 
     Phase 1 (t &lt; cut): LR linearly increases from eta_max/ratio to eta_max
@@ -497,7 +497,7 @@ def slanted_triangular_lr(t, T, eta_max=0.01, cut_frac=0.1, ratio=32):
         eta_max: maximum learning rate
         cut_frac: fraction of iterations to increase LR
         ratio: how much smaller the min LR is vs max LR
-    &quot;&quot;&quot;
+    """
     cut = int(T <span class="gs">* cut_frac)</span>
 <span class="gs">    if cut == 0:</span>
 <span class="gs">        cut = 1</span>
@@ -515,11 +515,11 @@ iterations = np.arange(T)
 lrs = [slanted_triangular_lr(t, T) for t in iterations]
 
 plt.figure(figsize=(10, 4))
-plt.plot(iterations, lrs, linewidth=2, color=&#39;#2196F3&#39;)
-plt.xlabel(&#39;Training Iteration&#39;, fontsize=12)
-plt.ylabel(&#39;Learning Rate&#39;, fontsize=12)
-plt.title(&#39;Slanted Triangular Learning Rate&#39;, fontsize=14)
-plt.axvline(x=int(T*0.1), color=&#39;red&#39;, linestyle=&#39;--&#39;, alpha=0.5, label=&#39;cut point&#39;)
+plt.plot(iterations, lrs, linewidth=2, color='#2196F3')
+plt.xlabel('Training Iteration', fontsize=12)
+plt.ylabel('Learning Rate', fontsize=12)
+plt.title('Slanted Triangular Learning Rate', fontsize=14)
+plt.axvline(x=int(T*0.1), color='red', linestyle='--', alpha=0.5, label='cut point')
 plt.legend(fontsize=11)
 plt.tight_layout()
 plt.show()
@@ -574,7 +574,7 @@ plt.show()
 <span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">lr_max_per_layer</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">lr_max</span><span class="p">)</span>
 
 <span class="w">    </span><span class="n">def get_lr</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">layer_idx</span><span class="p">)</span><span class="o">:</span>
-<span class="w">        </span><span class="s2">&quot;</span><span class="se">&quot;&quot;</span><span class="s2">Get learning rate for layer `layer_idx` at iteration `t`.</span><span class="se">&quot;&quot;</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="s2">"</span><span class="se">""</span><span class="s2">Get learning rate for layer `layer_idx` at iteration `t`.</span><span class="se">""</span><span class="s2">"</span>
 <span class="w">        </span><span class="n">eta_max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">lr_max_per_layer</span><span class="err">[</span><span class="n">layer_idx</span><span class="err">]</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">slanted_triangular_lr</span><span class="p">(</span>
 <span class="w">            </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">T</span><span class="p">,</span>
@@ -594,7 +594,7 @@ plt.show()
 <span class="c1"># Print the learning rate ranges</span>
 <span class="k">for</span><span class="w"> </span><span class="n">i in range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">:</span>
 <span class="w">    </span><span class="n">lr_range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">scheduler</span><span class="p">.</span><span class="n">get_lr</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">scheduler</span><span class="p">.</span><span class="n">get_lr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">))</span>
-<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Layer {i+1}: LR range = [{min(lr_range):.6f}, {max(lr_range):.6f}]&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">f</span><span class="s2">"Layer {i+1}: LR range = [{min(lr_range):.6f}, {max(lr_range):.6f}]"</span><span class="p">)</span>
 
 <span class="c1"># Output:</span>
 <span class="c1"># Layer 1 (bottom): LR range ≈ [0.000046, 0.00148]  ← smallest</span>

@@ -213,14 +213,14 @@ pip<span class="w"> </span>install<span class="w"> </span>pyopencl-2018.2.2+cl12
 <span class="n">a_g</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">Buffer</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">mf</span><span class="o">.</span><span class="n">READ_ONLY</span> <span class="o">|</span> <span class="n">mf</span><span class="o">.</span><span class="n">COPY_HOST_PTR</span><span class="p">,</span> <span class="n">hostbuf</span><span class="o">=</span><span class="n">a_np</span><span class="p">)</span>
 <span class="n">b_g</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">Buffer</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">mf</span><span class="o">.</span><span class="n">READ_ONLY</span> <span class="o">|</span> <span class="n">mf</span><span class="o">.</span><span class="n">COPY_HOST_PTR</span><span class="p">,</span> <span class="n">hostbuf</span><span class="o">=</span><span class="n">b_np</span><span class="p">)</span>
 
-<span class="n">prg</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">Program</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="n">prg</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">Program</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s2">"""</span>
 <span class="s2">__kernel void sum(</span>
 <span class="s2">    __global const float *a_g, __global const float *b_g, __global float *res_g)</span>
 <span class="s2">{</span>
 <span class="s2">  int gid = get_global_id(0);</span>
 <span class="s2">  res_g[gid] = a_g[gid] + b_g[gid];</span>
 <span class="s2">}</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<span class="s2">"""</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
 
 <span class="n">res_g</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">Buffer</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">mf</span><span class="o">.</span><span class="n">WRITE_ONLY</span><span class="p">,</span> <span class="n">a_np</span><span class="o">.</span><span class="n">nbytes</span><span class="p">)</span>
 <span class="n">prg</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">a_np</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">a_g</span><span class="p">,</span> <span class="n">b_g</span><span class="p">,</span> <span class="n">res_g</span><span class="p">)</span>
@@ -236,11 +236,11 @@ pip<span class="w"> </span>install<span class="w"> </span>pyopencl-2018.2.2+cl12
 
 <p>如果你的机器上有多个支持OpenCL的设备,比如同时有核显和独显或者多块独显,就会遇到一个提问界面,询问你用哪个设备执行上述OpenCL操作.比如我就遇到了:</p>
 <div class="highlight"><pre><span></span><code>Choose<span class="w"> </span>platform:
-<span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span>&lt;pyopencl.Platform<span class="w"> </span><span class="s1">&#39;NVIDIA CUDA&#39;</span><span class="w"> </span>at<span class="w"> </span>0x184befb97a0&gt;
-<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>&lt;pyopencl.Platform<span class="w"> </span><span class="s1">&#39;Intel(R) OpenCL&#39;</span><span class="w"> </span>at<span class="w"> </span>0x184bf0fe500&gt;
+<span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span>&lt;pyopencl.Platform<span class="w"> </span><span class="s1">'NVIDIA CUDA'</span><span class="w"> </span>at<span class="w"> </span>0x184befb97a0&gt;
+<span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>&lt;pyopencl.Platform<span class="w"> </span><span class="s1">'Intel(R) OpenCL'</span><span class="w"> </span>at<span class="w"> </span>0x184bf0fe500&gt;
 Choice<span class="w"> </span><span class="o">[</span><span class="m">0</span><span class="o">]</span>:
 <span class="c1">#这里我输入了回车键就是直接用默认的设备0</span>
-Set<span class="w"> </span>the<span class="w"> </span>environment<span class="w"> </span>variable<span class="w"> </span><span class="nv">PYOPENCL_CTX</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="w"> </span>to<span class="w"> </span>avoid<span class="w"> </span>being<span class="w"> </span>asked<span class="w"> </span>again.
+Set<span class="w"> </span>the<span class="w"> </span>environment<span class="w"> </span>variable<span class="w"> </span><span class="nv">PYOPENCL_CTX</span><span class="o">=</span><span class="s1">''</span><span class="w"> </span>to<span class="w"> </span>avoid<span class="w"> </span>being<span class="w"> </span>asked<span class="w"> </span>again.
 <span class="o">[</span><span class="m">0</span>.<span class="w"> </span><span class="m">0</span>.<span class="w"> </span><span class="m">0</span>.<span class="w"> </span>...<span class="w"> </span><span class="m">0</span>.<span class="w"> </span><span class="m">0</span>.<span class="w"> </span><span class="m">0</span>.<span class="o">]</span>
 <span class="m">0</span>.0
 </code></pre></div>

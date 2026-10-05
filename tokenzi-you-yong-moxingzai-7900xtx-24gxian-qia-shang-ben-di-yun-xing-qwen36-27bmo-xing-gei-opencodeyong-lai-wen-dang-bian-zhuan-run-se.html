@@ -149,7 +149,7 @@
 
 <p>Qwen3.6-27B-Q5_K_M.gguf，这个模型文件有19G多一点，正好在24G显存上足够运行，比Q4的还要能强一点，速度也不比Q4慢多少，Q4大概能有35tokens/s，Q5有30tokens/s左右，也够用了。</p>
 <p>下载好之后，运行模型所用的命令是</p>
-<div class="highlight"><pre><span></span><code>moxing serve &#39;Qwen3.6-27B-Q5_K_M.gguf&#39;  -d gpu1 -b vulkan -c 131072
+<div class="highlight"><pre><span></span><code>moxing serve 'Qwen3.6-27B-Q5_K_M.gguf'  -d gpu1 -b vulkan -c 131072
 </code></pre></div>
 
 <p>这里的 -d gpu1 是指定所用显卡，gpu1就是我机器上的 7900xtx，需要通过 moxing devices 命令来判断你自己设备上的gpu序号:</p>

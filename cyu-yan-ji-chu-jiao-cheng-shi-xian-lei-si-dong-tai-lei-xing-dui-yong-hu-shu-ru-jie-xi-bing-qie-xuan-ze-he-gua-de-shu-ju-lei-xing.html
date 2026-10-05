@@ -141,66 +141,66 @@ void analyze_and_store_input() {
     int int_val;  
     char *endptr;  
 
-    printf(&quot;请输入一个数值（整数或小数，例如：100, -3.14, 0.5）：\n&quot;);  
+    printf("请输入一个数值（整数或小数，例如：100, -3.14, 0.5）：\n");  
     if (fgets(input, sizeof(input), stdin) == NULL) {  
-        printf(&quot;输入失败！\n&quot;);  
+        printf("输入失败！\n");  
         return;  
     }  
 
     // 去掉末尾换行符  
     size_t len = strlen(input);  
-    if (len &gt; 0 &amp;&amp; input[len - 1] == &#39;\n&#39;) {  
-        input[len - 1] = &#39;\0&#39;;  
+    if (len &gt; 0 &amp;&amp; input[len - 1] == '\n') {  
+        input[len - 1] = '\0';  
         len--;  
     }  
 
     // 尝试解析为 double  
     value = strtod(input, &amp;endptr);  
-    if (endptr == input || *endptr != &#39;\0&#39; &amp;&amp; *endptr != &#39; &#39; &amp;&amp; *endptr != &#39;\n&#39;) {  
-        printf(&quot;输入无效！请输入数字。程序终止。\n&quot;);  
+    if (endptr == input || *endptr != '\0' &amp;&amp; *endptr != ' ' &amp;&amp; *endptr != '\n') {  
+        printf("输入无效！请输入数字。程序终止。\n");  
         return;  
     }  
 
     // 判断是否溢出 32 位 int  
     if (value == (double)(int_val = (int)value)) {  
         if (value &gt;= INT_MIN &amp;&amp; value &lt;= INT_MAX) {  
-            printf(&quot;推荐类型：%s\n&quot;, &quot;int&quot;);  
-            printf(&quot;理由：\n&quot;);  
-            printf(&quot;  - 是整数\n&quot;);  
-            printf(&quot;  - 在 int 范围内\n&quot;);  
-            printf(&quot;  - 占用内存：4 字节\n&quot;);  
+            printf("推荐类型：%s\n", "int");  
+            printf("理由：\n");  
+            printf("  - 是整数\n");  
+            printf("  - 在 int 范围内\n");  
+            printf("  - 占用内存：4 字节\n");  
             // 存储到 int  
             int stored_val = (int)value;  
-            printf(&quot;存储值：%d\n&quot;, stored_val);  
+            printf("存储值：%d\n", stored_val);  
             return;  
         } else {  
-            printf(&quot;推荐类型：%s\n&quot;, &quot;double&quot;);  
-            printf(&quot;理由：\n&quot;);  
-            printf(&quot;  - 是整数但超出 int 范围，使用 double\n&quot;);  
-            printf(&quot;  - 占用内存：8 字节\n&quot;);  
+            printf("推荐类型：%s\n", "double");  
+            printf("理由：\n");  
+            printf("  - 是整数但超出 int 范围，使用 double\n");  
+            printf("  - 占用内存：8 字节\n");  
             double stored_val = value;  
-            printf(&quot;存储值：%.0f\n&quot;, stored_val);  
+            printf("存储值：%.0f\n", stored_val);  
             return;  
         }  
     } else {  
         // 非整数情况  
         if (fabs(value) &lt;= 3.4e38) {  
-            printf(&quot;推荐类型：%s\n&quot;, &quot;float&quot;);  
-            printf(&quot;理由：\n&quot;);  
-            printf(&quot;  - 是小数\n&quot;);  
-            printf(&quot;  - 精度需求一般，float 足够\n&quot;);  
-            printf(&quot;  - 占用内存：4 字节\n&quot;);  
+            printf("推荐类型：%s\n", "float");  
+            printf("理由：\n");  
+            printf("  - 是小数\n");  
+            printf("  - 精度需求一般，float 足够\n");  
+            printf("  - 占用内存：4 字节\n");  
             float stored_val = (float)value;  
-            printf(&quot;存储值：%.6f\n&quot;, stored_val);  
+            printf("存储值：%.6f\n", stored_val);  
             return;  
         } else {  
-            printf(&quot;推荐类型：%s\n&quot;, &quot;double&quot;);  
-            printf(&quot;理由：\n&quot;);  
-            printf(&quot;  - 是小数\n&quot;);  
-            printf(&quot;  - 超出 float 安全范围，使用 double\n&quot;);  
-            printf(&quot;  - 占用内存：8 字节\n&quot;);  
+            printf("推荐类型：%s\n", "double");  
+            printf("理由：\n");  
+            printf("  - 是小数\n");  
+            printf("  - 超出 float 安全范围，使用 double\n");  
+            printf("  - 占用内存：8 字节\n");  
             double stored_val = value;  
-            printf(&quot;存储值：%.15f\n&quot;, stored_val);  
+            printf("存储值：%.15f\n", stored_val);  
             return;  
         }  
     }  

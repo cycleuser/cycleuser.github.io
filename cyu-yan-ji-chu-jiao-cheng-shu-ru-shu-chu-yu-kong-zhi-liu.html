@@ -141,7 +141,7 @@
 <p>最常用的两个“大将”就是 <code>printf</code>（打印）和 <code>scanf</code>（扫描）。</p>
 <h3>1.1 说话的艺术：printf</h3>
 <p><code>printf</code> 的名字是 "print formatted" 的缩写，意思是“格式化打印”。它不光能输出文字，还能像填空题一样，把变量填进句子里。 比如你经常能看到下面这样的代码：</p>
-<div class="highlight"><pre><span></span><code><span class="nt">printf</span><span class="o">(</span><span class="s2">&quot;姓名: %s, 年龄: %d, 身高: %.2f米, 年级: %c\n&quot;</span><span class="o">,</span><span class="w"> </span><span class="nt">name</span><span class="o">,</span><span class="w"> </span><span class="nt">age</span><span class="o">,</span><span class="w"> </span><span class="nt">height</span><span class="o">,</span><span class="w"> </span><span class="nt">rank</span><span class="o">);</span>
+<div class="highlight"><pre><span></span><code><span class="nt">printf</span><span class="o">(</span><span class="s2">"姓名: %s, 年龄: %d, 身高: %.2f米, 年级: %c\n"</span><span class="o">,</span><span class="w"> </span><span class="nt">name</span><span class="o">,</span><span class="w"> </span><span class="nt">age</span><span class="o">,</span><span class="w"> </span><span class="nt">height</span><span class="o">,</span><span class="w"> </span><span class="nt">rank</span><span class="o">);</span>
 </code></pre></div>
 
 <ul>
@@ -161,37 +161,37 @@
 <span class="nt">int</span><span class="w"> </span><span class="nt">main</span><span class="o">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">    </span><span class="err">int</span><span class="w"> </span><span class="err">age</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">18</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="err">double</span><span class="w"> </span><span class="err">height</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1.75</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="err">char</span><span class="w"> </span><span class="err">name</span><span class="cp">[</span><span class="mi">20</span><span class="cp">]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">&quot;张三&quot;</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="err">char</span><span class="w"> </span><span class="err">rank</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">&#39;A&#39;</span><span class="p">;</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">新增字符变量</span><span class="w">  </span>
+<span class="w">    </span><span class="err">char</span><span class="w"> </span><span class="err">name</span><span class="cp">[</span><span class="mi">20</span><span class="cp">]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">"张三"</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="err">char</span><span class="w"> </span><span class="err">rank</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">'A'</span><span class="p">;</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">新增字符变量</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">1.</span><span class="w"> </span><span class="err">基本输出：printf</span><span class="w">  </span>
-<span class="w">    </span><span class="err">printf(&quot;===</span><span class="w"> </span><span class="err">输出演示</span><span class="w"> </span><span class="err">===\n&quot;)</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="err">printf("===</span><span class="w"> </span><span class="err">输出演示</span><span class="w"> </span><span class="err">===\n")</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">%c</span><span class="w"> </span><span class="err">用于输出单个字符</span><span class="w">  </span>
-<span class="w">    </span><span class="err">printf(&quot;姓名:</span><span class="w"> </span><span class="err">%s,</span><span class="w"> </span><span class="err">年龄:</span><span class="w"> </span><span class="err">%d,</span><span class="w"> </span><span class="err">身高:</span><span class="w"> </span><span class="err">%.2f米,</span><span class="w"> </span><span class="err">成绩等级:</span><span class="w"> </span><span class="err">%c\n&quot;,</span><span class="w"> </span><span class="err">name,</span><span class="w"> </span><span class="err">age,</span><span class="w"> </span><span class="err">height,</span><span class="w"> </span><span class="err">rank)</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="err">printf("姓名:</span><span class="w"> </span><span class="err">%s,</span><span class="w"> </span><span class="err">年龄:</span><span class="w"> </span><span class="err">%d,</span><span class="w"> </span><span class="err">身高:</span><span class="w"> </span><span class="err">%.2f米,</span><span class="w"> </span><span class="err">成绩等级:</span><span class="w"> </span><span class="err">%c\n",</span><span class="w"> </span><span class="err">name,</span><span class="w"> </span><span class="err">age,</span><span class="w"> </span><span class="err">height,</span><span class="w"> </span><span class="err">rank)</span><span class="p">;</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">进阶：格式化控制</span><span class="w">  </span>
 <span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">%5</span><span class="n">d</span><span class="p">:</span><span class="w"> </span><span class="err">占</span><span class="mi">5</span><span class="err">位宽度，右对齐</span><span class="w">  </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="o">%</span><span class="mi">04</span><span class="n">d</span><span class="o">:</span><span class="w"> </span><span class="err">占</span><span class="mi">4</span><span class="err">位宽度，不足补</span><span class="mi">0</span><span class="w">  </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="o">%.</span><span class="mi">1</span><span class="n">f</span><span class="o">:</span><span class="w"> </span><span class="err">保留</span><span class="mi">1</span><span class="err">位小数</span><span class="w">  </span>
-<span class="w">    </span><span class="nf">printf</span><span class="p">(</span><span class="s2">&quot;\n=== 格式化控制演示 ===\n&quot;</span><span class="p">);</span><span class="w">  </span>
-<span class="w">    </span><span class="err">printf(&quot;编号:</span><span class="w"> </span><span class="err">%04d</span><span class="w"> </span><span class="err">(补零)\n&quot;,</span><span class="w"> </span><span class="err">7)</span><span class="p">;</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">输出:</span><span class="w"> </span><span class="err">0007</span><span class="w">  </span>
-<span class="w">    </span><span class="err">printf(&quot;存款:</span><span class="w"> </span><span class="err">%8d</span><span class="w"> </span><span class="err">(占位)\n&quot;,</span><span class="w"> </span><span class="err">100)</span><span class="p">;</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">输出:</span><span class="w">      </span><span class="err">100</span><span class="w">  </span>
-<span class="w">    </span><span class="err">printf(&quot;体重:</span><span class="w"> </span><span class="err">%5.1f</span><span class="w"> </span><span class="err">kg</span><span class="w"> </span><span class="err">(精度)\n&quot;,</span><span class="w"> </span><span class="err">65.5)</span><span class="p">;</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">输出:</span><span class="w">  </span><span class="err">65.5</span><span class="w">  </span>
+<span class="w">    </span><span class="nf">printf</span><span class="p">(</span><span class="s2">"\n=== 格式化控制演示 ===\n"</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="err">printf("编号:</span><span class="w"> </span><span class="err">%04d</span><span class="w"> </span><span class="err">(补零)\n",</span><span class="w"> </span><span class="err">7)</span><span class="p">;</span><span class="w">        </span><span class="err">//</span><span class="w"> </span><span class="err">输出:</span><span class="w"> </span><span class="err">0007</span><span class="w">  </span>
+<span class="w">    </span><span class="err">printf("存款:</span><span class="w"> </span><span class="err">%8d</span><span class="w"> </span><span class="err">(占位)\n",</span><span class="w"> </span><span class="err">100)</span><span class="p">;</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">输出:</span><span class="w">      </span><span class="err">100</span><span class="w">  </span>
+<span class="w">    </span><span class="err">printf("体重:</span><span class="w"> </span><span class="err">%5.1f</span><span class="w"> </span><span class="err">kg</span><span class="w"> </span><span class="err">(精度)\n",</span><span class="w"> </span><span class="err">65.5)</span><span class="p">;</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">输出:</span><span class="w">  </span><span class="err">65.5</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">2.</span><span class="w"> </span><span class="err">基本输入：scanf</span><span class="w">  </span>
 <span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">注意：</span><span class="w">  </span>
 <span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">除了字符串变量名本身就是地址外，其他变量前通常要加</span><span class="w"> </span><span class="err">&amp;</span><span class="w"> </span><span class="err">取地址符</span><span class="w">  </span>
 <span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">scanf</span><span class="w"> </span><span class="err">很“挑剔”，格式串里的空格、回车都要小心处理</span><span class="w">  </span>
 <span class="w">    </span><span class="err">int</span><span class="w"> </span><span class="err">number</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="err">printf(&quot;\n===</span><span class="w"> </span><span class="err">输入演示</span><span class="w"> </span><span class="err">===\n&quot;)</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="err">printf(&quot;请输入一个幸运数字:</span><span class="w"> </span><span class="err">&quot;)</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="err">printf("\n===</span><span class="w"> </span><span class="err">输入演示</span><span class="w"> </span><span class="err">===\n")</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="err">printf("请输入一个幸运数字:</span><span class="w"> </span><span class="err">")</span><span class="p">;</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">尝试读取一个整数</span><span class="w">  </span>
 <span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">返回值是成功读取的变量个数</span><span class="w">  </span>
-<span class="w">    </span><span class="err">if</span><span class="w"> </span><span class="err">(scanf(&quot;%d&quot;,</span><span class="w"> </span><span class="err">&amp;number)</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">1)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
-<span class="w">        </span><span class="err">printf(&quot;你输入的数字是:</span><span class="w"> </span><span class="err">%d\n&quot;,</span><span class="w"> </span><span class="err">number)</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="err">if</span><span class="w"> </span><span class="err">(scanf("%d",</span><span class="w"> </span><span class="err">&amp;number)</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">1)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
+<span class="w">        </span><span class="err">printf("你输入的数字是:</span><span class="w"> </span><span class="err">%d\n",</span><span class="w"> </span><span class="err">number)</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="nt">else</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">        </span><span class="err">printf(&quot;输入格式错误，请确保输入的是数字！\n&quot;)</span><span class="p">;</span><span class="w">  </span>
+<span class="w">        </span><span class="err">printf("输入格式错误，请确保输入的是数字！\n")</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="nt">return</span><span class="w"> </span><span class="nt">0</span><span class="o">;</span><span class="w">  </span>
@@ -222,26 +222,26 @@
 
 <span class="nv">int</span><span class="w"> </span><span class="nv">main</span><span class="ss">()</span><span class="w"> </span>{<span class="w">  </span>
 <span class="w">    </span><span class="nv">int</span><span class="w"> </span><span class="nv">score</span><span class="c1">;  </span>
-<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;请输入考试成绩 (0-100): &quot;</span><span class="ss">)</span><span class="c1">; // 提示用户输入成绩  </span>
-<span class="w">    </span><span class="nv">scanf</span><span class="ss">(</span><span class="s2">&quot;%d&quot;</span>,<span class="w"> </span><span class="o">&amp;</span><span class="nv">score</span><span class="ss">)</span><span class="c1">; // 读取用户输入的成绩  </span>
-<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;%d\n&quot;</span>,<span class="w"> </span><span class="nv">score</span><span class="ss">)</span><span class="c1">; // 输出用户输入的成绩     </span>
+<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"请输入考试成绩 (0-100): "</span><span class="ss">)</span><span class="c1">; // 提示用户输入成绩  </span>
+<span class="w">    </span><span class="nv">scanf</span><span class="ss">(</span><span class="s2">"%d"</span>,<span class="w"> </span><span class="o">&amp;</span><span class="nv">score</span><span class="ss">)</span><span class="c1">; // 读取用户输入的成绩  </span>
+<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"%d\n"</span>,<span class="w"> </span><span class="nv">score</span><span class="ss">)</span><span class="c1">; // 输出用户输入的成绩     </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">90</span><span class="ss">)</span><span class="w"> </span>{<span class="w">  </span>
-<span class="w">        </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;优秀！保持住！\n&quot;</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">        </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"优秀！保持住！\n"</span><span class="ss">)</span><span class="c1">;  </span>
 <span class="w">    </span>}<span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">75</span><span class="ss">)</span><span class="w"> </span>{<span class="w">  </span>
-<span class="w">        </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;良好，继续加油。\n&quot;</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">        </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"良好，继续加油。\n"</span><span class="ss">)</span><span class="c1">;  </span>
 <span class="w">    </span>}<span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">60</span><span class="ss">)</span><span class="w"> </span>{<span class="w">  </span>
-<span class="w">        </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;及格，万岁！\n&quot;</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">        </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"及格，万岁！\n"</span><span class="ss">)</span><span class="c1">;  </span>
 <span class="w">    </span>}<span class="w"> </span><span class="k">else</span><span class="w"> </span>{<span class="w">  </span>
-<span class="w">        </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;不及格... 今晚别想看电视了。\n&quot;</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">        </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"不及格... 今晚别想看电视了。\n"</span><span class="ss">)</span><span class="c1">;  </span>
 <span class="w">    </span>}<span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span>嵌套判断<span class="w">  </span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">score</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">60</span><span class="ss">)</span><span class="w"> </span>{<span class="w">  </span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">50</span><span class="ss">)</span><span class="w"> </span>{<span class="w">  </span>
-<span class="w">            </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;(只差一点点，太可惜了)\n&quot;</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">            </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"(只差一点点，太可惜了)\n"</span><span class="ss">)</span><span class="c1">;  </span>
 <span class="w">        </span>}<span class="w"> </span><span class="k">else</span><span class="w"> </span>{<span class="w">  </span>
-<span class="w">            </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;(差距有点大，得好好补课了)\n&quot;</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">            </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"(差距有点大，得好好补课了)\n"</span><span class="ss">)</span><span class="c1">;  </span>
 <span class="w">        </span>}<span class="w">  </span>
 <span class="w">    </span>}<span class="w">  </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="c1">;  </span>
@@ -260,28 +260,28 @@
 <span class="nt">int</span><span class="w"> </span><span class="nt">main</span><span class="o">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="w">    </span><span class="err">int</span><span class="w"> </span><span class="err">day</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">3</span><span class="p">;</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">假设</span><span class="w"> </span><span class="err">1=周一,</span><span class="w"> </span><span class="err">7=周日</span><span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="err">printf(&quot;今天是星期</span><span class="w"> </span><span class="err">%d\n&quot;,</span><span class="w"> </span><span class="err">day)</span><span class="p">;</span><span class="w">  </span>
-<span class="w">    </span><span class="err">printf(&quot;今天的安排是：&quot;)</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="err">printf("今天是星期</span><span class="w"> </span><span class="err">%d\n",</span><span class="w"> </span><span class="err">day)</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span><span class="err">printf("今天的安排是：")</span><span class="p">;</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="err">switch</span><span class="w"> </span><span class="err">(day)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
 <span class="w">        </span><span class="err">case</span><span class="w"> </span><span class="err">1:</span><span class="w">  </span>
-<span class="w">            </span><span class="err">printf(&quot;开周会，写周报。\n&quot;)</span><span class="p">;</span><span class="w">  </span>
+<span class="w">            </span><span class="err">printf("开周会，写周报。\n")</span><span class="p">;</span><span class="w">  </span>
 <span class="w">            </span><span class="err">break</span><span class="p">;</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">必须有</span><span class="w"> </span><span class="err">break，否则会“滑落”到下一层</span><span class="w">  </span>
 <span class="w">        </span><span class="err">case</span><span class="w"> </span><span class="err">2:</span><span class="w">  </span>
 <span class="w">        </span><span class="err">case</span><span class="w"> </span><span class="err">3:</span><span class="w">  </span>
 <span class="w">        </span><span class="err">case</span><span class="w"> </span><span class="err">4:</span><span class="w">  </span>
 <span class="w">            </span><span class="err">//</span><span class="w"> </span><span class="err">2,3,4</span><span class="w"> </span><span class="err">都会执行这里的代码</span><span class="w">  </span>
-<span class="w">            </span><span class="err">printf(&quot;努力搬砖写代码。\n&quot;)</span><span class="p">;</span><span class="w">  </span>
+<span class="w">            </span><span class="err">printf("努力搬砖写代码。\n")</span><span class="p">;</span><span class="w">  </span>
 <span class="w">            </span><span class="err">break</span><span class="p">;</span><span class="w">  </span>
 <span class="w">        </span><span class="err">case</span><span class="w"> </span><span class="err">5:</span><span class="w">  </span>
-<span class="w">            </span><span class="err">printf(&quot;摸鱼，坐等下班。\n&quot;)</span><span class="p">;</span><span class="w">  </span>
+<span class="w">            </span><span class="err">printf("摸鱼，坐等下班。\n")</span><span class="p">;</span><span class="w">  </span>
 <span class="w">            </span><span class="err">break</span><span class="p">;</span><span class="w">  </span>
 <span class="w">        </span><span class="err">case</span><span class="w"> </span><span class="err">6:</span><span class="w">  </span>
 <span class="w">        </span><span class="err">case</span><span class="w"> </span><span class="err">7:</span><span class="w">  </span>
-<span class="w">            </span><span class="err">printf(&quot;睡大觉！\n&quot;)</span><span class="p">;</span><span class="w">  </span>
+<span class="w">            </span><span class="err">printf("睡大觉！\n")</span><span class="p">;</span><span class="w">  </span>
 <span class="w">            </span><span class="err">break</span><span class="p">;</span><span class="w">  </span>
 <span class="w">        </span><span class="n">default</span><span class="p">:</span><span class="w">  </span>
-<span class="w">            </span><span class="nf">printf</span><span class="p">(</span><span class="s2">&quot;输入错误，地球上没有星期%d！\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">day</span><span class="p">);</span><span class="w">  </span>
+<span class="w">            </span><span class="nf">printf</span><span class="p">(</span><span class="s2">"输入错误，地球上没有星期%d！\n"</span><span class="p">,</span><span class="w"> </span><span class="n">day</span><span class="p">);</span><span class="w">  </span>
 <span class="w">            </span><span class="err">break</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="p">}</span><span class="w">  </span>
 <span class="w">    </span><span class="nt">return</span><span class="w"> </span><span class="nt">0</span><span class="o">;</span><span class="w">  </span>
@@ -305,14 +305,14 @@
 
 <span class="nc">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="mf">1.</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">循环</span><span class="err">：</span><span class="n">最适合已知次数的循环</span><span class="w">  </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;=== For 循环 (倒数3秒) ===\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">"=== For 循环 (倒数3秒) ===\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nc">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="c1">--) {  </span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;%d...\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">"%d...\n"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="err">}</span><span class="w">  </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;发射！\n\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">"发射！\n\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="mf">2.</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="n">循环</span><span class="err">：</span><span class="n">适合条件未知</span><span class="err">、</span><span class="n">只知道什么时候停的循环</span><span class="w">  </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;=== While 循环 (存钱买房) ===\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">"=== While 循环 (存钱买房) ===\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nc">int</span><span class="w"> </span><span class="nc">money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="nc">int</span><span class="w"> </span><span class="n">goal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">目标20万</span><span class="w">  </span>
 <span class="w">    </span><span class="nc">int</span><span class="w"> </span><span class="nf">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span>
@@ -320,12 +320,12 @@
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nc">money</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">goal</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
 <span class="w">        </span><span class="nc">money</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">每年存5万</span><span class="w">  </span>
 <span class="w">        </span><span class="nf">year</span><span class="o">++</span><span class="p">;</span><span class="w">  </span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;第 %d 年，存款 %d 万\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">year</span><span class="p">,</span><span class="w"> </span><span class="nc">money</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">"第 %d 年，存款 %d 万\n"</span><span class="p">,</span><span class="w"> </span><span class="nf">year</span><span class="p">,</span><span class="w"> </span><span class="nc">money</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="err">}</span><span class="w">  </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;终于买得起房子了！\n\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">"终于买得起房子了！\n\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="mf">3.</span><span class="w"> </span><span class="n">do</span><span class="o">-</span><span class="k">while</span><span class="w"> </span><span class="n">循环</span><span class="err">：</span><span class="n">先斩后奏</span><span class="err">，</span><span class="n">至少执行一次</span><span class="w">  </span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;=== Do-While 循环 (尝试密码) ===\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="ss">"=== Do-While 循环 (尝试密码) ===\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">    </span><span class="nc">int</span><span class="w"> </span><span class="n">password</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="nc">int</span><span class="w"> </span><span class="n">try_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">模拟用户输入</span><span class="err">：</span><span class="n">假设第三次才输对</span><span class="w"> </span><span class="p">(</span><span class="mi">123456</span><span class="p">)</span><span class="w">  </span>
@@ -333,12 +333,12 @@
 <span class="w">      </span>
 <span class="w">    </span><span class="n">do</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
 <span class="w">        </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mock_inputs</span><span class="o">[</span><span class="n">try_count</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">模拟输入</span><span class="w">  </span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;尝试输入密码: %d -&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="ss">"尝试输入密码: %d -"</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span><span class="w">  </span>
 <span class="w">          </span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">password</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">123456</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
-<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;解锁成功！\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="ss">"解锁成功！\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="err">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="err">{</span><span class="w">  </span>
-<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="ss">&quot;密码错误\n&quot;</span><span class="p">);</span><span class="w">  </span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="ss">"密码错误\n"</span><span class="p">);</span><span class="w">  </span>
 <span class="w">        </span><span class="err">}</span><span class="w">  </span>
 <span class="w">        </span><span class="n">try_count</span><span class="o">++</span><span class="p">;</span><span class="w">  </span>
 <span class="w">    </span><span class="err">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">password</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">123456</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">try_count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">  </span>
@@ -373,26 +373,26 @@
 <div class="highlight"><pre><span></span><code>#<span class="k">include</span><span class="w"> </span><span class="o">&lt;</span><span class="nv">stdio</span>.<span class="nv">h</span><span class="o">&gt;</span><span class="w">  </span>
 
 <span class="nv">int</span><span class="w"> </span><span class="nv">main</span><span class="ss">()</span><span class="w"> </span>{<span class="w">  </span>
-<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;=== Break 与 Continue 演示 ===\n&quot;</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"=== Break 与 Continue 演示 ===\n"</span><span class="ss">)</span><span class="c1">;  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span>场景：吃馒头<span class="w">  </span>
 <span class="w">    </span><span class="o">//</span><span class="w"> </span>一共<span class="mi">10</span>个馒头，第<span class="mi">3</span>个掉地上了（<span class="k">continue</span>），吃到第<span class="mi">8</span>个吃撑了（<span class="k">break</span>）<span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="ss">(</span><span class="nv">int</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="c1">; i &lt;= 10; i++) {  </span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="ss">)</span><span class="w"> </span>{<span class="w">  </span>
-<span class="w">            </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;第 %d 个馒头掉地上了，不吃，跳过！(continue)\n&quot;</span>,<span class="w"> </span><span class="nv">i</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">            </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"第 %d 个馒头掉地上了，不吃，跳过！(continue)\n"</span>,<span class="w"> </span><span class="nv">i</span><span class="ss">)</span><span class="c1">;  </span>
 <span class="w">            </span><span class="k">continue</span><span class="c1">; // 直接进入下一次循环，后面代码不执行  </span>
 <span class="w">        </span>}<span class="w">  </span>
 <span class="w">          </span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">8</span><span class="ss">)</span><span class="w"> </span>{<span class="w">  </span>
-<span class="w">            </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;吃到第 %d 个实在太撑了，不吃了！(break)\n&quot;</span>,<span class="w"> </span><span class="nv">i</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">            </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"吃到第 %d 个实在太撑了，不吃了！(break)\n"</span>,<span class="w"> </span><span class="nv">i</span><span class="ss">)</span><span class="c1">;  </span>
 <span class="w">            </span><span class="k">break</span><span class="c1">; // 直接跳出整个循环  </span>
 <span class="w">        </span>}<span class="w">  </span>
 <span class="w">          </span>
-<span class="w">        </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;正在吃第 %d 个馒头... 真香。\n&quot;</span>,<span class="w"> </span><span class="nv">i</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">        </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"正在吃第 %d 个馒头... 真香。\n"</span>,<span class="w"> </span><span class="nv">i</span><span class="ss">)</span><span class="c1">;  </span>
 <span class="w">    </span>}<span class="w">  </span>
 <span class="w">      </span>
-<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;循环结束，去散步消食。\n&quot;</span><span class="ss">)</span><span class="c1">;  </span>
+<span class="w">    </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">"循环结束，去散步消食。\n"</span><span class="ss">)</span><span class="c1">;  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="c1">;  </span>
 }

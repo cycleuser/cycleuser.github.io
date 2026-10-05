@@ -141,11 +141,11 @@
 <span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">__getitem__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="k">index</span><span class="p">)</span><span class="err">:</span><span class="w">  </span>
 <span class="w">        </span><span class="n">if0</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="nl">length</span><span class="p">:</span><span class="w">  </span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">data</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="w">  </span>
-<span class="w">        </span><span class="n">raise</span><span class="w"> </span><span class="n">IndexError</span><span class="p">(</span><span class="ss">&quot;数组索引越界&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="w">        </span><span class="n">raise</span><span class="w"> </span><span class="n">IndexError</span><span class="p">(</span><span class="ss">"数组索引越界"</span><span class="p">)</span><span class="w">  </span>
 <span class="w">      </span>
 <span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">append</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="k">value</span><span class="p">)</span><span class="err">:</span><span class="w">  </span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="k">size</span><span class="err">:</span><span class="w">  </span>
-<span class="w">            </span><span class="n">raise</span><span class="w"> </span><span class="n">OverflowError</span><span class="p">(</span><span class="ss">&quot;数组已满&quot;</span><span class="p">)</span><span class="w">  </span>
+<span class="w">            </span><span class="n">raise</span><span class="w"> </span><span class="n">OverflowError</span><span class="p">(</span><span class="ss">"数组已满"</span><span class="p">)</span><span class="w">  </span>
 <span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="k">data</span><span class="o">[</span><span class="n">self.length</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="w">  </span>
 <span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
 </code></pre></div>
@@ -192,7 +192,7 @@
       
     <span class="n">def</span> <span class="nb">pop</span>(<span class="nb">self</span>):  
         <span class="k">if</span> <span class="nb">self</span>.<span class="n">is_empty</span>():  
-            <span class="n">raise</span> <span class="n">IndexError</span>(<span class="s">&quot;栈为空&quot;</span>)  
+            <span class="n">raise</span> <span class="n">IndexError</span>(<span class="s">"栈为空"</span>)  
         <span class="k">return</span> <span class="nb">self</span>.<span class="n">items</span>.<span class="nb">pop</span>()  
       
     <span class="n">def</span> <span class="n">is_empty</span>(<span class="nb">self</span>):  
@@ -213,7 +213,7 @@
       
     <span class="n">def</span> <span class="n">dequeue</span>(<span class="nb">self</span>):  
         <span class="k">if</span> <span class="nb">self</span>.<span class="n">is_empty</span>():  
-            <span class="n">raise</span> <span class="n">IndexError</span>(<span class="s">&quot;队列为空&quot;</span>)  
+            <span class="n">raise</span> <span class="n">IndexError</span>(<span class="s">"队列为空"</span>)  
         <span class="k">return</span> <span class="nb">self</span>.<span class="n">items</span>.<span class="nb">pop</span>(<span class="mi">0</span>)  
       
     <span class="n">def</span> <span class="n">is_empty</span>(<span class="nb">self</span>):  
@@ -237,12 +237,12 @@
       
     <span class="n">def</span> <span class="n">remove_front</span>(<span class="nb">self</span>):  
         <span class="k">if</span> <span class="nb">self</span>.<span class="n">is_empty</span>():  
-            <span class="n">raise</span> <span class="n">IndexError</span>(<span class="s">&quot;双端队列为空&quot;</span>)  
+            <span class="n">raise</span> <span class="n">IndexError</span>(<span class="s">"双端队列为空"</span>)  
         <span class="k">return</span> <span class="nb">self</span>.<span class="n">items</span>.<span class="nb">pop</span>(<span class="mi">0</span>)  
       
     <span class="n">def</span> <span class="n">remove_rear</span>(<span class="nb">self</span>):  
         <span class="k">if</span> <span class="nb">self</span>.<span class="n">is_empty</span>():  
-            <span class="n">raise</span> <span class="n">IndexError</span>(<span class="s">&quot;双端队列为空&quot;</span>)  
+            <span class="n">raise</span> <span class="n">IndexError</span>(<span class="s">"双端队列为空"</span>)  
         <span class="k">return</span> <span class="nb">self</span>.<span class="n">items</span>.<span class="nb">pop</span>()  
       
     <span class="n">def</span> <span class="n">is_empty</span>(<span class="nb">self</span>):  

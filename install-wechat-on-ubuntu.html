@@ -146,11 +146,11 @@ wget<span class="w"> </span>https://mirrors.aliyun.com/deepin/pool/main/libj/lib
 wget<span class="w"> </span>http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-libwine-dbg_2.18-20_i386.deb
 wget<span class="w"> </span>http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-libwine-dev_2.18-20_i386.deb
 wget<span class="w"> </span>http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin-wine/deepin-wine-binfmt_2.18-20_all.deb
-<span class="c1"># &#39;Add the i386 support&#39;</span>
+<span class="c1"># 'Add the i386 support'</span>
 sudo<span class="w"> </span>dpkg<span class="w"> </span>--add-architecture<span class="w"> </span>i386
-<span class="c1"># &#39;Refresh the APT cache...&#39;</span>
+<span class="c1"># 'Refresh the APT cache...'</span>
 sudo<span class="w"> </span>apt<span class="w"> </span>update
-<span class="c1"># &#39;Install the debs...&#39;</span>
+<span class="c1"># 'Install the debs...'</span>
 sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>*.deb
 <span class="c1"># if Errors occurs, try：sudo apt-get install -f</span>
 </code></pre></div>

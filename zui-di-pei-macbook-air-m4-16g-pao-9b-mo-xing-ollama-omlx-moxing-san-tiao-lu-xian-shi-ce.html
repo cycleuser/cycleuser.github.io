@@ -185,12 +185,12 @@
 <p>Ollama 的模型<strong>基本不能直接给 oMLX 用</strong>。就我实测，Ollama 把 MLX 权重拆成了逐个 tensor 的 blob（我 hexdump 看过，每个 blob 是 <code>长度前缀 + JSON 元数据 + 裸 tensor</code>），oMLX 要的是标准的 <code>config.json + model.safetensors + tokenizer.json</code> 目录结构，两者对不上。</p>
 <p>oMLX 这边，好消息是它<strong>原生支持 ModelScope 下载</strong>（内置了 <code>ms_downloader</code>，走 modelscope SDK）。Qwen 是阿里自家的，ModelScope 也是阿里的，所以 Qwen 系列的 MLX 版本在 ModelScope 上最全，国内直连比 HuggingFace 快得多：</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># oMLX 从 ModelScope 拉 Qwen3.5 的 MLX 版</span>
-snapshot_download<span class="o">(</span><span class="s1">&#39;mlx-community/Qwen3.5-9B-MLX-4bit&#39;</span>,<span class="w"> </span><span class="nv">local_dir</span><span class="o">=</span><span class="s1">&#39;~/.omlx/models/...&#39;</span><span class="o">)</span>
+snapshot_download<span class="o">(</span><span class="s1">'mlx-community/Qwen3.5-9B-MLX-4bit'</span>,<span class="w"> </span><span class="nv">local_dir</span><span class="o">=</span><span class="s1">'~/.omlx/models/...'</span><span class="o">)</span>
 </code></pre></div>
 
 <p>MoXing 更省事，它<strong>能直接读 Ollama 下载好的用户上传的 GGUF</strong>。Ollama 的 GGUF 模型本来就是整个文件存成一个 blob，MoXing 找到这个 blob 的路径就能直接跑，但是要注意只能运行omnicoder-9b这样的用户上传的GGUF，而不是Ollama的官方的GGUF：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">moxing.ollama</span><span class="w"> </span><span class="kn">import</span> <span class="n">OllamaClient</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">OllamaClient</span><span class="p">()</span><span class="o">.</span><span class="n">get_model_gguf_path</span><span class="p">(</span><span class="s1">&#39;carstenuhlig/omnicoder-2-9b&#39;</span><span class="p">)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">OllamaClient</span><span class="p">()</span><span class="o">.</span><span class="n">get_model_gguf_path</span><span class="p">(</span><span class="s1">'carstenuhlig/omnicoder-2-9b'</span><span class="p">)</span>
 <span class="c1"># /Users/fred/.ollama/models/blobs/sha256-550e8f...  (5.74 GB)</span>
 </code></pre></div>
 

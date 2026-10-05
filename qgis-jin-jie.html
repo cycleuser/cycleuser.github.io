@@ -206,7 +206,7 @@
 <blockquote>
 <p>这里使用的其实就是正则表达式（<em>Regular Expression，缩写为RegEx</em>）来进行特定模式的匹配。正则表达式非常强大，可以用于很多复杂的数据筛选操作。 <a href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285">基础细节可以参考这个链接</a>。 </p>
 </blockquote>
-<div class="highlight"><pre><span></span><code><span class="n">regexp_match</span><span class="p">(</span><span class="s">&quot;ref&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">&#39;</span><span class="o">^</span><span class="n">NH</span><span class="p">&#39;)</span>
+<div class="highlight"><pre><span></span><code><span class="n">regexp_match</span><span class="p">(</span><span class="s">"ref"</span><span class="p">,</span><span class="w"> </span><span class="p">'</span><span class="o">^</span><span class="n">NH</span><span class="p">')</span>
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka5.png"></p>
@@ -221,7 +221,7 @@
 <ol>
 <li>添加了<code>length</code>值域的新图层就会被添加在图层面板中来。这个域的值的单位是米。然后转换成千米。这可以使用QGIS的域计算器<strong>Field Calculator</strong> 来增加一个新域（field）。这个方法绝对颗星，但还有一个更推荐的处理框架方法。搜索并打开<strong>Field Calculator</strong> 处理算法，然后输入下面的表达式。</li>
 </ol>
-<div class="highlight"><pre><span></span><code>&quot;length&quot;/1000
+<div class="highlight"><pre><span></span><code>"length"/1000
 </code></pre></div>
 
 <p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/master/img/QGIS_Advanced/karnataka8.png"></p>
@@ -780,12 +780,12 @@
 <p>QGIS expression engine has a powerful function called ‘summary aggregates’ that allows evaluating a feature’s geometry and attributes with those of another layer. Expressions can be used for static calculations as well as on-the-fly computations, such as labels, virtual fields, symbology etc. This enables some powerful use cases.</p>
 <p>The summary aggregate function operates on all the values from a different layer, returning a single summary value. The syntax of the aggregate function is as follows</p>
 <div class="highlight"><pre><span></span><code><span class="nx">aggregate</span><span class="p">(</span>
-<span class="w">  </span><span class="nx">layer</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">layer</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="nx">id</span><span class="err">&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">aggregate</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">aggegate</span><span class="w"> </span><span class="k">type</span><span class="err">&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">expression</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">expression</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">aggregate</span><span class="err">&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">filter</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">optional</span><span class="w"> </span><span class="nx">filter</span><span class="w"> </span><span class="nx">expression</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">concatenator</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">optional</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">join</span><span class="w"> </span><span class="nx">values</span><span class="err">&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">order_by</span><span class="p">:=</span><span class="err">&#39;</span><span class="nx">optional</span><span class="w"> </span><span class="nx">expression</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">order</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">features</span><span class="err">&#39;</span>
+<span class="w">  </span><span class="nx">layer</span><span class="p">:=</span><span class="err">'</span><span class="nx">layer</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="nx">id</span><span class="err">'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">aggregate</span><span class="p">:=</span><span class="err">'</span><span class="nx">aggegate</span><span class="w"> </span><span class="k">type</span><span class="err">'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">expression</span><span class="p">:=</span><span class="err">'</span><span class="nx">expression</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">aggregate</span><span class="err">'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">filter</span><span class="p">:=</span><span class="err">'</span><span class="nx">optional</span><span class="w"> </span><span class="nx">filter</span><span class="w"> </span><span class="nx">expression</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">concatenator</span><span class="p">:=</span><span class="err">'</span><span class="nx">optional</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">join</span><span class="w"> </span><span class="nx">values</span><span class="err">'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">order_by</span><span class="p">:=</span><span class="err">'</span><span class="nx">optional</span><span class="w"> </span><span class="nx">expression</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">order</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">features</span><span class="err">'</span>
 <span class="w">  </span><span class="p">)</span>
 </code></pre></div>
 
@@ -800,8 +800,8 @@
 <li>Add a new field named <code>count</code> with the following expression. The expression is reading the features from the <code>parcels</code> layer and giving an aggregate count of the features. You will notice that the the result will be displayed at the bottom of the window.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="n">aggregate</span><span class="p">(</span>
-<span class="w"> </span><span class="n">layer</span><span class="o">:=</span><span class="w"> </span><span class="p">&#39;</span><span class="n">parcels</span><span class="p">&#39;</span><span class="o">,</span>
-<span class="w"> </span><span class="n">aggregate</span><span class="o">:=</span><span class="p">&#39;</span><span class="n">count</span><span class="p">&#39;</span><span class="o">,</span>
+<span class="w"> </span><span class="n">layer</span><span class="o">:=</span><span class="w"> </span><span class="p">'</span><span class="n">parcels</span><span class="p">'</span><span class="o">,</span>
+<span class="w"> </span><span class="n">aggregate</span><span class="o">:=</span><span class="p">'</span><span class="n">count</span><span class="p">'</span><span class="o">,</span>
 <span class="w"> </span><span class="n">expression</span><span class="o">:=</span><span class="n">fid</span>
 <span class="w"> </span><span class="p">)</span>
 </code></pre></div>
@@ -815,8 +815,8 @@
 <li>Switch to the <strong>Attributes Form</strong> tab. Select the field <code>count</code> and choose <strong>Text Edit</strong> as the <em>Widget Type</em>. At the <strong>Default Value</strong> field at the bottom, enter the following expression. Note that additional filter value. Here the <code>$geometry</code> refers to the geometry of the <code>parcels</code> layer and <code>geometry(@parent)</code> refers to the geometry of feature from the <code>polygons</code> layer. Click OK.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="n">aggregate</span><span class="p">(</span>
-<span class="w"> </span><span class="n">layer</span><span class="o">:=</span><span class="w"> </span><span class="p">&#39;</span><span class="n">parcels</span><span class="p">&#39;</span><span class="o">,</span>
-<span class="w"> </span><span class="n">aggregate</span><span class="o">:=</span><span class="p">&#39;</span><span class="n">count</span><span class="p">&#39;</span><span class="o">,</span>
+<span class="w"> </span><span class="n">layer</span><span class="o">:=</span><span class="w"> </span><span class="p">'</span><span class="n">parcels</span><span class="p">'</span><span class="o">,</span>
+<span class="w"> </span><span class="n">aggregate</span><span class="o">:=</span><span class="p">'</span><span class="n">count</span><span class="p">'</span><span class="o">,</span>
 <span class="w"> </span><span class="n">expression</span><span class="o">:=</span><span class="n">fid</span><span class="o">,</span>
 <span class="w"> </span><span class="n">filter</span><span class="o">:=</span><span class="n">intersects</span><span class="p">($</span><span class="n">geometry</span><span class="o">,</span><span class="w"> </span><span class="n">geometry</span><span class="p">(@</span><span class="n">parent</span><span class="p">))</span>
 <span class="w"> </span><span class="p">)</span>
@@ -832,9 +832,9 @@
 <li>There are many different types of aggregates available. We can use an aggregate called <strong>concatenate</strong> to compute a comma-separated text of all feature ids. Go to the <strong>Attribute Form</strong> properties again and select the <code>parcels</code> field. Enter the following expression as the <strong>Default Value</strong>.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="n">aggregate</span><span class="p">(</span>
-<span class="w"> </span><span class="n">layer</span><span class="o">:=</span><span class="w"> </span><span class="p">&#39;</span><span class="n">parcels</span><span class="p">&#39;</span><span class="o">,</span>
-<span class="w"> </span><span class="n">aggregate</span><span class="o">:=</span><span class="p">&#39;</span><span class="n">concatenate</span><span class="p">&#39;</span><span class="o">,</span>
-<span class="w"> </span><span class="n">concatenator</span><span class="o">:=</span><span class="p">&#39;</span><span class="o">,</span><span class="p">&#39;</span><span class="o">,</span>
+<span class="w"> </span><span class="n">layer</span><span class="o">:=</span><span class="w"> </span><span class="p">'</span><span class="n">parcels</span><span class="p">'</span><span class="o">,</span>
+<span class="w"> </span><span class="n">aggregate</span><span class="o">:=</span><span class="p">'</span><span class="n">concatenate</span><span class="p">'</span><span class="o">,</span>
+<span class="w"> </span><span class="n">concatenator</span><span class="o">:=</span><span class="p">'</span><span class="o">,</span><span class="p">'</span><span class="o">,</span>
 <span class="w"> </span><span class="n">expression</span><span class="o">:=</span><span class="n">to_string</span><span class="p">(</span><span class="n">fid</span><span class="p">)</span><span class="o">,</span>
 <span class="w"> </span><span class="n">filter</span><span class="o">:=</span><span class="n">intersects</span><span class="p">($</span><span class="n">geometry</span><span class="o">,</span><span class="w"> </span><span class="n">geometry</span><span class="p">(@</span><span class="n">parent</span><span class="p">))</span>
 <span class="w"> </span><span class="p">)</span>

@@ -160,18 +160,18 @@
 
 <h2>运行一个内核函数（kernel）</h2>
 <p>咱们这篇简介争取说的都是最简单的内容：咱们写一个代码来把a_gpu这段显存中存储的数组的每一个值都乘以2. 为了实现这个效果，我们就要写一段CUDA C代码，然后把这段代码提交给一个构造函数，这里用到了pycuda.compiler.SourceModule:</p>
-<div class="highlight"><pre><span></span><code><span class="n">mod</span> <span class="o">=</span> <span class="n">SourceModule</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">mod</span> <span class="o">=</span> <span class="n">SourceModule</span><span class="p">(</span><span class="s2">"""</span>
 <span class="s2"> __global__ void doublify(float *a)</span>
 <span class="s2"> {</span>
 <span class="s2"> int idx = threadIdx.x + threadIdx.y*4;</span>
 <span class="s2"> a[idx] *= 2;</span>
 <span class="s2"> }</span>
-<span class="s2"> &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="s2"> """</span><span class="p">)</span>
 </code></pre></div>
 
 <p>（<strong>译者注：上面这段代码需要对C有一定了解。这里的threadIDx是CUDA C语言的内置变量，这里借此确定了a数组所在的位置，然后通过指针对数组中每一个元素进行了自乘2的操作。</strong>）</p>
 <p>这一步如果没有出错，就说明这段代码已经编译成功，并且加载到显卡中了。然后咱们可以使用一个到咱们这个pycuda.driver.Function的引用，然后调用此引用，把显存中的数组a_gpu作为参数传过去，同时设定块大小为4x4：</p>
-<div class="highlight"><pre><span></span><code><span class="n">func</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;doublify&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">func</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"doublify"</span><span class="p">)</span>
 <span class="n">func</span><span class="p">(</span><span class="n">a_gpu</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
 
@@ -206,7 +206,7 @@
 <p>使用内置的 pycuda.driver.Function.<strong>call</strong>() 方法来进行的函数调用，会增加类型识别的资源开销（参考显卡接口）。 要实现跟上面代码同样的效果，又不造成这种开销，这个函数就需要设定好参数类型（如Python的标准库中的结构体模块struct所示），然后再去调用该函数。这样也就不用需要再使用numpy.number类去制定参数的规模了：</p>
 <div class="highlight"><pre><span></span><code><span class="n">grid</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">block</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">func</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="s2">&quot;P&quot;</span><span class="p">)</span>
+<span class="n">func</span><span class="o">.</span><span class="n">prepare</span><span class="p">(</span><span class="s2">"P"</span><span class="p">)</span>
 <span class="n">func</span><span class="o">.</span><span class="n">prepared_call</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">block</span><span class="p">,</span> <span class="n">a_gpu</span><span class="p">)</span>
 </code></pre></div>
 
@@ -227,7 +227,7 @@
 <h3>结构体</h3>
 <p>（由Nicholas Tung提供，代码在examples/demo_struct.py文件中)</p>
 <p>假如我们用如下的构造函数，对长度可变的数组的每一个元素的值进行翻倍：</p>
-<div class="highlight"><pre><span></span><code><span class="n">mod</span> <span class="o">=</span> <span class="n">SourceModule</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">mod</span> <span class="o">=</span> <span class="n">SourceModule</span><span class="p">(</span><span class="s2">"""</span>
 <span class="s2"> struct DoubleOperation {</span>
 <span class="s2"> int datalen, __padding; // so 64-bit ptrs can be aligned</span>
 <span class="s2"> float *ptr;</span>
@@ -239,7 +239,7 @@
 <span class="s2"> a-&gt;ptr[idx] *= 2;</span>
 <span class="s2"> }</span>
 <span class="s2"> }</span>
-<span class="s2"> &quot;&quot;&quot;</span><span class="p">)</span>
+<span class="s2"> """</span><span class="p">)</span>
 </code></pre></div>
 
 <p>网格grid中的每一个块block（这些概念参考CUDA的官方文档）都将对各个数组进行加倍。for循环允许比当前线程更多的数据成员被翻倍，当然，如果能够保证有足够多的线程的话，这样做的效率就低了。接下来，基于这个结构体进行封装出来的一个类就产生了，并且有两个数组被创建出来：</p>
@@ -258,16 +258,16 @@
 
 <span class="n">array1</span> <span class="o">=</span> <span class="n">DoubleOpStruct</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="n">struct_arr</span><span class="p">)</span>
 <span class="n">array2</span> <span class="o">=</span> <span class="n">DoubleOpStruct</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="n">do2_ptr</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original arrays&quot;</span><span class="p">,</span> <span class="n">array1</span><span class="p">,</span> <span class="n">array2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"original arrays"</span><span class="p">,</span> <span class="n">array1</span><span class="p">,</span> <span class="n">array2</span><span class="p">)</span>
 </code></pre></div>
 
 <p>上面这段代码使用了pycuda.driver.to_device() 和 pycuda.driver.from_device() 这两个函数来分配内存和复制数值，并且演示了在显存中如何利用从已分配块位置进行的偏移。最后咱们执行一下这段代码；下面的代码中演示了两种情况：对两个数组都进行加倍，以及只加倍第二个数组：</p>
-<div class="highlight"><pre><span></span><code><span class="n">func</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;double_array&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">func</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"double_array"</span><span class="p">)</span>
 <span class="n">func</span><span class="p">(</span><span class="n">struct_arr</span><span class="p">,</span> <span class="n">block</span> <span class="o">=</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;doubled arrays&quot;</span><span class="p">,</span> <span class="n">array1</span><span class="p">,</span> <span class="n">array2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"doubled arrays"</span><span class="p">,</span> <span class="n">array1</span><span class="p">,</span> <span class="n">array2</span><span class="p">)</span>
 
 <span class="n">func</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">intp</span><span class="p">(</span><span class="n">do2_ptr</span><span class="p">),</span> <span class="n">block</span> <span class="o">=</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;doubled second only&quot;</span><span class="p">,</span> <span class="n">array1</span><span class="p">,</span> <span class="n">array2</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"doubled second only"</span><span class="p">,</span> <span class="n">array1</span><span class="p">,</span> <span class="n">array2</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 
 <h2>接下来的征程</h2>

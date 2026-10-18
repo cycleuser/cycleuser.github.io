@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>打字练习 · 多语言标准键位训练</title>
+<style>
+/* ============ 主题（只保留暗色 / 亮色） ============ */
+:root{
+  --bg:#0f1216; --bg2:#171c23; --bg3:#212833; --line:#2b3340;
+  --fg:#5f6a7a; --fg-hl:#eaeef4; --acc:#7c6cff; --acc2:#4cc9f0;
+  --good:#3fb950; --bad:#ff5b5b; --warn:#d9a441;
+  --f0:#e06c75; --f1:#e5a04c; --f2:#d7c14e; --f3:#5fbf77; --f4:#4cc9f0;
+  --f5:#8b7ff0; --f6:#e07bb0; --f7:#f08d57; --th:#7a8697;
+  --fs:clamp(22px,2.9vw,42px); --lh:64px;
+  --kb-w:min(1160px,97vw); --ku:56px; --gap:clamp(3px,.5vw,7px);
+}
+html[data-theme="light"]{ --bg:#f5f6f8; --bg2:#ffffff; --bg3:#e7e9ee; --line:#d4d9e1;
+  --fg:#98a1ae; --fg-hl:#20242b; --acc:#503fd8; --acc2:#0e7ea8;
+  --good:#1e8a3c; --bad:#d3352f; --warn:#a56f14;
+  --f0:#d34753; --f1:#c4802c; --f2:#ab992c; --f3:#2b9e50; --f4:#0e8ec4; --f5:#6a5cd8; --f6:#c55c92; --f7:#cb7030; --th:#8b96a4;}
+
+*{margin:0;padding:0;box-sizing:border-box}
+[hidden]{display:none !important}
+html,body{height:100%}
+body{
+  background:var(--bg); color:var(--fg-hl);
+  font-family:'PingFang SC','Microsoft YaHei','Apple SD Gothic Neo','Noto Sans KR','Helvetica Neue',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased; touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent; overflow-x:hidden;
+}
+.app{min-height:100vh; display:flex; flex-direction:column; align-items:center;
+  padding:10px clamp(6px,2vw,20px) 12px; gap:10px}
+button{font-family:inherit; color:inherit; background:none; border:none; cursor:pointer}
+
+/* ============ 顶栏 ============ */
+.top{width:100%; max-width:1400px; display:flex; align-items:center; justify-content:space-between; gap:10px}
+.brand{display:flex; align-items:baseline; gap:9px; min-width:0}
+.brand .logo{font-size:24px; color:var(--acc)}
+.brand h1{font-size:clamp(19px,3.2vw,25px); font-weight:800; letter-spacing:.5px; white-space:nowrap}
+.brand .tag{font-size:12px; color:var(--fg); letter-spacing:1px; white-space:nowrap}
+.top-right{display:flex; align-items:center; gap:8px; flex-wrap:nowrap}
+select{appearance:none; -webkit-appearance:none; background:var(--bg2); color:var(--fg-hl);
+  border:1px solid var(--line); border-radius:9px; padding:6px 26px 6px 11px; font-size:12.5px;
+  font-family:inherit; cursor:pointer; outline:none}
+select:focus{border-color:var(--acc)}
+.sel-w{position:relative; display:inline-flex}
+.sel-w::after{content:'▾'; position:absolute; right:10px; top:50%; transform:translateY(-50%);
+  font-size:10px; color:var(--fg); pointer-events:none}
+#langSel{min-width:104px; font-weight:700; color:var(--acc2); border-color:var(--acc2)}
+.xp{display:flex; align-items:center; gap:7px; font-size:11.5px; color:var(--fg); white-space:nowrap;
+  background:var(--bg2); border:1px solid var(--line); border-radius:20px; padding:5px 11px}
+.xp b{color:var(--acc2); font-size:12px}
+.xp .bar{width:60px; height:5px; border-radius:3px; background:var(--bg3); overflow:hidden}
+.xp .bar i{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--acc),var(--acc2)); transition:width .4s}
+.icon-btn{width:34px; height:34px; border-radius:9px; background:var(--bg2); border:1px solid var(--line);
+  color:var(--fg); font-size:15px; line-height:1; display:grid; place-items:center; transition:.15s; flex:0 0 auto}
+.icon-btn:hover{color:var(--fg-hl); border-color:var(--acc); transform:translateY(-1px)}
+
+/* ============ 配置区（精简两行半） ============ */
+.config{width:100%; max-width:1400px; display:flex; flex-direction:column; gap:6px;
+  background:var(--bg2); border:1px solid var(--line); border-radius:13px; padding:8px clamp(8px,1.4vw,13px)}
+.row{display:flex; align-items:center; gap:6px; flex-wrap:wrap; min-height:26px}
+.row-label{font-size:11px; color:var(--fg); letter-spacing:1px; min-width:32px; user-select:none; flex:0 0 auto}
+.chip{font-size:12.5px; padding:4.5px 11px; border-radius:8px; color:var(--fg); background:transparent;
+  border:1px solid transparent; transition:.12s; white-space:nowrap; user-select:none}
+.chip:hover{color:var(--fg-hl); background:var(--bg3)}
+.chip.on{color:var(--bg); background:var(--acc); font-weight:700}
+html[data-theme="light"] .chip.on{color:#fff}
+.chip.mini{font-size:11.5px; padding:3.5px 8.5px; color:var(--fg); border:1px solid var(--line); background:transparent}
+.chip.mini:hover{border-color:var(--acc)}
+.chip.mini.on{color:var(--bg); background:var(--acc); border-color:var(--acc); font-weight:700}
+html[data-theme="light"] .chip.mini.on{color:#fff}
+.chip.off{opacity:.38}
+.sep{width:1px; height:15px; background:var(--line); margin:0 2px}
+.hinttxt{font-size:11.5px; color:var(--fg)}
+.row .grow{flex:1}
+
+/* ============ 舞台 ============ */
+.stage{width:100%; max-width:1400px; flex:1; display:flex; flex-direction:column; align-items:center; gap:8px; justify-content:center}
+.livebar{width:var(--kb-w); display:flex; align-items:center; gap:clamp(10px,2.6vw,24px); flex-wrap:wrap; min-height:28px}
+.ls{display:flex; align-items:baseline; gap:5px; font-size:12px; color:var(--fg); letter-spacing:.5px; user-select:none}
+.ls b{font-size:clamp(20px,2.7vw,28px); color:var(--acc2); font-variant-numeric:tabular-nums; font-weight:800}
+.ls.acc b{color:var(--good)} .ls.bad b{color:var(--bad)}
+.ls.hint{margin-left:auto; font-size:11.5px; color:var(--fg)}
+.progress{position:absolute; left:0; bottom:-7px; height:3px; width:100%; background:var(--bg3); border-radius:2px; overflow:hidden; opacity:0; transition:opacity .3s}
+.livebar{position:relative}
+.progress.on{opacity:1}
+.progress i{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--acc),var(--acc2))}
+
+.textarea-wrap{width:var(--kb-w); height:calc(var(--lh) * 3); position:relative; overflow:hidden;
+  mask-image:linear-gradient(180deg,transparent 0,#000 9%,#000 91%,transparent 100%);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 9%,#000 91%,transparent 100%);
+  cursor:text; padding:0 2px}
+.textarea-inner{position:relative; font-family:'JetBrains Mono','SFMono-Regular',Menlo,Consolas,'Liberation Mono',monospace;
+  font-size:var(--fs); line-height:var(--lh); letter-spacing:.4px; will-change:transform;
+  transition:transform .11s ease-out; word-break:normal; overflow-wrap:normal}
+.wgrp{display:inline-block; white-space:nowrap}
+.wgrp .kana{font-size:.58em; color:var(--fg); opacity:.8; margin-right:.22em;
+  letter-spacing:.06em; font-family:'PingFang SC','Hiragino Sans','Apple SD Gothic Neo','Noto Sans KR','Microsoft YaHei',sans-serif}
+.wgrp.wg-active .kana{color:var(--acc2); opacity:1}
+.ch{position:relative; color:var(--fg); transition:color .05s; white-space:pre}
+.ch.ok{color:var(--fg-hl)}
+.ch.bad{color:var(--bad)}
+.ch.sp.bad::after{content:''; position:absolute; left:0; right:0; bottom:.22em; height:2.5px; background:var(--bad); border-radius:1px}
+.ch.extra{color:var(--bad); opacity:.7; text-decoration:underline wavy var(--bad); text-underline-offset:4px}
+#caret{position:absolute; width:2.5px; height:calc(var(--lh) * .84); background:var(--acc);
+  border-radius:2px; box-shadow:0 0 8px var(--acc); animation:blink 1.05s steps(1,end) infinite; pointer-events:none; left:0; top:calc(var(--lh)*.08)}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:.12}}
+.flash{position:absolute; inset:0; background:var(--bad); opacity:0; pointer-events:none}
+#startHint{display:none}
+#countdown{position:absolute; inset:0; display:grid; place-items:center; font-size:clamp(48px,12vw,110px);
+  font-weight:800; color:var(--acc); text-shadow:0 0 34px var(--acc); z-index:5;
+  background:color-mix(in srgb,var(--bg) 78%,transparent)}
+
+/* ============ 键盘（加大） ============ */
+.kb-wrap{width:var(--kb-w); display:flex; flex-direction:column; gap:var(--gap); user-select:none}
+.kb-row{display:flex; gap:var(--gap); justify-content:flex-start}
+.key{position:relative; height:clamp(34px,4.8vw,60px); background:var(--bg2); border:1px solid var(--line);
+  border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  box-shadow:0 2.5px 0 0 var(--bg3); transition:transform .06s, background .1s, border-color .1s;
+  overflow:hidden; flex:0 0 auto; width:calc(var(--ku) * var(--u,1))}
+.key .lo{font-size:clamp(12px,1.6vw,18px); color:var(--fg-hl); font-family:'JetBrains Mono',Menlo,Consolas,'Apple SD Gothic Neo','Noto Sans KR',monospace; line-height:1.05}
+.key .up{font-size:clamp(8px,1.05vw,12px); color:var(--fg); line-height:1.15; height:1.2em;
+  font-family:Menlo,Consolas,'Apple SD Gothic Neo','Noto Sans KR',monospace}
+.key .fn{position:absolute; left:0; right:0; bottom:0; height:3.5px; background:var(--kc,var(--th)); opacity:.55}
+.key.wide .lo{font-size:clamp(9px,1.05vw,12px); letter-spacing:.5px}
+.key.home::after{content:''; position:absolute; bottom:clamp(5px,.8vw,8px); width:36%; height:2.5px;
+  background:var(--fg); opacity:.55; border-radius:2px}
+.key.down{transform:translateY(2.5px); box-shadow:none; background:var(--bg3)}
+.key.target{border-color:var(--acc); background:color-mix(in srgb,var(--acc) 24%,var(--bg2));
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--acc) 55%,transparent),0 2.5px 0 0 var(--bg3);
+  animation:pulse .9s ease-in-out infinite}
+.key.target.hintshift{border-color:var(--warn); box-shadow:0 0 0 2px color-mix(in srgb,var(--warn) 60%,transparent),0 2.5px 0 0 var(--bg3)}
+@keyframes pulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.4)}}
+.key.hit-ok{background:color-mix(in srgb,var(--good) 32%,var(--bg2)); border-color:var(--good)}
+.key.hit-bad{background:color-mix(in srgb,var(--bad) 36%,var(--bg2)); border-color:var(--bad)}
+.key.h1{background:color-mix(in srgb,var(--warn) 16%,var(--bg2))}
+.key.h2{background:color-mix(in srgb,var(--warn) 34%,var(--bg2))}
+.key.h3{background:color-mix(in srgb,var(--bad) 28%,var(--bg2))}
+.key.h4{background:color-mix(in srgb,var(--bad) 50%,var(--bg2))}
+.kb-legend{width:var(--kb-w); display:flex; gap:clamp(5px,1.3vw,15px); flex-wrap:wrap; justify-content:center;
+  font-size:11px; color:var(--fg); user-select:none}
+.kb-legend span{display:inline-flex; align-items:center; gap:4px}
+.kb-legend i{width:10px; height:10px; border-radius:2.5px; background:var(--kc)}
+.kb-legend em{font-style:normal; font-family:Menlo,'Apple SD Gothic Neo',monospace; color:var(--fg-hl); opacity:.72}
+
+.foot{width:var(--kb-w); display:flex; justify-content:space-between; gap:10px; font-size:11px; color:var(--fg); flex-wrap:wrap}
+.foot kbd{background:var(--bg3); border:1px solid var(--line); border-radius:4px; padding:1px 5px; font-family:Menlo,monospace; font-size:10px}
+#fingerTip{color:var(--acc2)}
+
+/* ============ 弹层 ============ */
+.modal{position:fixed; inset:0; background:rgba(4,6,10,.72); backdrop-filter:blur(6px);
+  display:none; align-items:flex-start; justify-content:center; padding:clamp(8px,3vh,34px) 12px; z-index:50; overflow-y:auto}
+.modal.on{display:flex}
+.card{width:100%; max-width:min(1160px,96vw); background:var(--bg2); border:1px solid var(--line);
+  border-radius:16px; padding:clamp(14px,2.4vw,26px); box-shadow:0 26px 60px rgba(0,0,0,.5)}
+.card.narrow{max-width:min(560px,96vw)}
+.card h2{font-size:clamp(16px,2.4vw,21px); margin-bottom:4px; display:flex; align-items:center; gap:9px; flex-wrap:wrap}
+.card h2 small{font-size:11.5px; color:var(--fg); font-weight:400; letter-spacing:1px}
+.card h3{font-size:13px; color:var(--acc2); margin:18px 0 8px; letter-spacing:1px; font-weight:700}
+.res-hero{display:flex; align-items:flex-end; gap:clamp(16px,5vw,50px); flex-wrap:wrap; padding:6px 0 2px}
+.res-big{display:flex; align-items:baseline; gap:6px}
+.res-big span{font-size:clamp(46px,11vw,86px); font-weight:800; color:var(--acc); line-height:.95; font-variant-numeric:tabular-nums}
+.res-big em{font-style:normal; font-size:clamp(12px,1.7vw,16px); color:var(--fg); letter-spacing:2px}
+.res-big.acc span{color:var(--good)}
+.res-grid{display:flex; flex-wrap:wrap; gap:6px 20px; font-size:12.5px; color:var(--fg); margin-top:6px}
+.res-grid div b{color:var(--fg-hl); font-variant-numeric:tabular-nums}
+.badge{font-size:10.5px; padding:2px 8px; border-radius:20px; background:color-mix(in srgb,var(--warn) 26%,transparent);
+  color:var(--warn); border:1px solid color-mix(in srgb,var(--warn) 45%,transparent); letter-spacing:1px}
+.chart-box{width:100%; background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:8px; margin-top:6px}
+.chart-box canvas{width:100%; height:230px; display:block}
+.legend{display:flex; gap:16px; font-size:11px; color:var(--fg); margin-top:6px}
+.legend i{display:inline-block; width:14px; height:2.5px; border-radius:2px; vertical-align:middle; margin-right:5px}
+.errchars{display:flex; flex-wrap:wrap; gap:6px}
+.errchars span{min-width:30px; text-align:center; padding:5px 7px; background:var(--bg); border:1px solid var(--line);
+  border-radius:7px; font-family:Menlo,monospace; font-size:14px; color:var(--bad)}
+.errchars span i{font-style:normal; font-size:9.5px; color:var(--fg); display:block}
+.weaklist{display:flex; flex-wrap:wrap; gap:6px}
+.weaklist button{font-family:Menlo,monospace; font-size:13px; padding:5px 9px; border-radius:7px;
+  background:var(--bg); border:1px solid var(--line); color:var(--fg-hl); transition:.12s}
+.weaklist button:hover{border-color:var(--acc); color:var(--acc)}
+.weaklist button em{font-style:normal; color:var(--fg); font-size:10px; margin-left:4px}
+.actions{display:flex; gap:8px; flex-wrap:wrap; margin-top:18px}
+.btn{padding:9px 16px; border-radius:9px; font-size:13px; background:var(--bg3); border:1px solid var(--line); transition:.14s}
+.btn:hover{border-color:var(--acc); transform:translateY(-1px)}
+.btn.pri{background:var(--acc); color:var(--bg); font-weight:700; border-color:var(--acc)}
+html[data-theme="light"] .btn.pri{color:#fff}
+.set-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:8px}
+.set-item{display:flex; align-items:center; gap:10px; padding:9px 12px; background:var(--bg);
+  border:1px solid var(--line); border-radius:10px; font-size:12.5px; color:var(--fg)}
+.set-item .sw{width:34px; height:19px; border-radius:10px; background:var(--bg3); position:relative; transition:.15s; flex:0 0 auto}
+.set-item .sw::after{content:''; position:absolute; top:2px; left:2px; width:15px; height:15px; border-radius:50%;
+  background:var(--fg); transition:.15s}
+.set-item.on .sw{background:var(--acc)}
+.set-item.on .sw::after{left:17px; background:var(--bg)}
+.set-item.on{color:var(--fg-hl); border-color:var(--acc)}
+textarea{width:100%; min-height:190px; background:var(--bg); color:var(--fg-hl); border:1px solid var(--line);
+  border-radius:10px; padding:12px; font-family:Menlo,monospace; font-size:13px; line-height:1.7; resize:vertical; outline:none}
+textarea:focus{border-color:var(--acc)}
+.help dl{display:grid; grid-template-columns:auto 1fr; gap:7px 16px; font-size:12.5px}
+.help dt{color:var(--fg-hl); font-family:Menlo,monospace}
+.help dd{color:var(--fg)}
+.help p{font-size:12.5px; color:var(--fg); line-height:1.9; margin:6px 0}
+.help p b{color:var(--fg-hl)}
+table{width:100%; border-collapse:collapse; font-size:12px}
+th,td{text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); font-variant-numeric:tabular-nums}
+th{color:var(--fg); font-weight:600; font-size:11px; letter-spacing:1px}
+td b{color:var(--acc2)}
+.tbl-wrap{max-height:44vh; overflow:auto}
+.toast{position:fixed; left:50%; bottom:26px; transform:translate(-50%,20px); background:var(--bg3);
+  border:1px solid var(--acc); color:var(--fg-hl); padding:9px 18px; border-radius:22px; font-size:12.5px;
+  opacity:0; pointer-events:none; transition:.25s; z-index:99}
+.toast.on{opacity:1; transform:translate(-50%,0)}
+.ktip{position:fixed; background:var(--bg3); border:1px solid var(--acc); border-radius:8px; padding:6px 10px;
+  font-size:11.5px; color:var(--fg-hl); pointer-events:none; opacity:0; transition:opacity .12s; z-index:60; white-space:nowrap}
+.ktip.on{opacity:1}
+
+/* ============ 响应式 ============ */
+@media (max-width:900px){
+  :root{--kb-w:min(720px,98vw)}
+  .xp .bar{width:42px}
+  .textarea-wrap{height:calc(var(--lh) * 2.3)}
+  .chip{font-size:11.5px; padding:4px 9px}
+  .ls.hint{width:100%; text-align:left}
+}
+@media (max-width:600px){
+  .brand .tag{display:none}
+  .top{flex-wrap:wrap; row-gap:6px}
+  .top-right{width:100%; justify-content:flex-end}
+  .xp .bar{display:none}
+  .xp{gap:5px}
+  .key{height:32px; border-radius:5px}
+  .key .lo{font-size:11.5px} .key .up{font-size:8px}
+  .foot{display:none}
+  .kb-legend{font-size:9.5px}
+  .xp{padding:4px 9px; font-size:10.5px}
+  #langSel{min-width:0; padding:5px 20px 5px 8px; font-size:11.5px}
+  .card.narrow{width:96vw}
+}
+@media (max-height:600px){
+  .textarea-wrap{height:calc(var(--lh) * 1.7)}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important; transition-duration:.001s!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <span class="logo">⌨</span>
+      <h1>打字练习</h1>
+      <span class="tag">标准键位 · 指法 · 速度</span>
+    </div>
+    <div class="top-right">
+      <span class="sel-w"><select id="langSel" title="选择语言 / Language"></select></span>
+      <div class="xp" title="经验值与等级：每局按 速度×准确率 计分">
+        <b id="lvl">Lv.1</b><span class="bar"><i id="lvlbar"></i></span><span id="xptxt">0 XP</span>
+      </div>
+      <button class="icon-btn" id="btnHistory" title="历史记录 (F3)">📈</button>
+      <button class="icon-btn" id="btnTheme" title="暗色 / 亮色 (F2)">◐</button>
+      <button class="icon-btn" id="btnSet" title="设置">⚙</button>
+      <button class="icon-btn" id="btnHelp" title="帮助 (F1)">?</button>
+    </div>
+  </header>
+
+  <nav class="config">
+    <div class="row" id="rowMode"><span class="row-label">模式</span></div>
+    <div class="row" id="rowVar"><span class="row-label">内容</span></div>
+    <div class="row" id="rowLen"><span class="row-label">长度</span></div>
+  </nav>
+
+  <main class="stage">
+    <div class="livebar">
+      <div class="ls" id="lsTime"><b>30</b><span>秒</span></div>
+      <div class="ls" id="lsWpm"><b>0</b><span>wpm</span></div>
+      <div class="ls acc" id="lsAcc"><b>100</b><span>%</span></div>
+      <div class="ls hint" id="lsHint"></div>
+      <div class="progress" id="progWrap"><i id="progBar"></i></div>
+    </div>
+
+    <section class="textarea-wrap" id="textWrap" tabindex="-1">
+      <div class="textarea-inner" id="textInner"><div id="caret"></div></div>
+      <div id="startHint">开始打字即可</div>
+      <div id="countdown" hidden></div>
+    </section>
+
+    <section class="kb-wrap" id="kbMain"></section>
+    <section class="kb-legend" id="kbLegend"></section>
+
+    <footer class="foot">
+      <span><kbd>Tab</kbd> 重开一局 · <kbd>Enter</kbd> 换一批 · <kbd>Esc</kbd> 停止 · <kbd>Backspace</kbd> 退格 · <kbd>F1</kbd> 帮助 · <kbd>F2</kbd> 主题 · <kbd>F3</kbd> 历史</span>
+      <span id="fingerTip"></span>
+    </footer>
+  </main>
+</div>
+
+<!-- 结果 -->
+<div class="modal" id="resultModal"><div class="card">
+  <h2>本局成绩 <small id="rMode"></small><span class="badge" id="rBadge" hidden>新纪录</span></h2>
+  <div class="res-hero">
+    <div class="res-big"><span id="rWpm">0</span><em>wpm</em></div>
+    <div class="res-big acc"><span id="rAcc">0</span><em>acc%</em></div>
+  </div>
+  <div class="res-grid" id="rGrid"></div>
+  <h3>速度曲线</h3>
+  <div class="chart-box"><canvas id="wpmChart"></canvas><div class="legend">
+    <span><i style="background:var(--acc)"></i>净速度 wpm</span><span><i style="background:var(--fg)"></i>毛速度 raw</span><span><i style="background:var(--good)"></i>准确率</span>
+  </div></div>
+  <h3>键位错误热力图</h3>
+  <div class="kb-wrap" id="kbHeat" style="width:100%"></div>
+  <h3>易错字符</h3><div class="errchars" id="errChars"></div>
+  <h3>本局薄弱键 <small style="color:var(--fg);font-weight:400">点一下即可针对练习</small></h3>
+  <div class="weaklist" id="weakKeys"></div>
+  <div class="actions">
+    <button class="btn pri" id="btnAgain">再来一局 <kbd>Tab</kbd></button>
+    <button class="btn" id="btnNext">换一批 <kbd>Enter</kbd></button>
+    <button class="btn" id="btnWeak">针对弱键练习</button>
+    <button class="btn" id="btnCopy">复制成绩</button>
+  </div>
+</div></div>
+
+<!-- 设置 -->
+<div class="modal" id="setModal"><div class="card narrow">
+  <h2>设置 <small>随时调整，立即生效</small></h2>
+  <div class="set-grid" id="setList"></div>
+  <div class="actions">
+    <button class="btn pri" id="btnSetClose">完成</button>
+    <button class="btn" id="btnCopyCfg">复制配置链接</button>
+  </div>
+</div></div>
+
+<!-- 自定义文本 -->
+<div class="modal" id="customModal"><div class="card">
+  <h2>自定义文本 <small>粘贴任意内容练习</small></h2>
+  <textarea id="customText" placeholder="把要练的文本粘贴到这里……&#10;&#10;适合论文段落、课文、代码；多行会合并，多余空白折叠为空格。"></textarea>
+  <div class="actions">
+    <button class="btn pri" id="btnCustomGo">开始练习 <kbd>Ctrl+Enter</kbd></button>
+    <button class="btn" id="btnCustomCancel">取消</button>
+    <span class="sep"></span>
+    <button class="btn" id="btnSampleCode">插入代码样例</button>
+    <button class="btn" id="btnSamplePunct">插入标点样例</button>
+  </div>
+</div></div>
+
+<!-- 历史 -->
+<div class="modal" id="historyModal"><div class="card">
+  <h2>历史成绩 <small id="hSummary"></small></h2>
+  <div class="chart-box"><canvas id="histChart"></canvas><div class="legend">
+    <span><i style="background:var(--acc)"></i>净速度 wpm</span><span><i style="background:var(--good)"></i>准确率 %</span>
+  </div></div>
+  <h3>最佳记录</h3><div id="bestTable"></div>
+  <h3>最近成绩</h3>
+  <div class="tbl-wrap"><table id="histTable"></table></div>
+  <h3>累计键位统计 <small style="color:var(--fg);font-weight:400">错误最多的键排在前面，可用于弱键训练</small></h3>
+  <div class="weaklist" id="allWeak"></div>
+  <div class="actions"><button class="btn" id="btnCloseHist">关闭</button><button class="btn" id="btnClearHist">清空历史</button></div>
+</div></div>
+
+<!-- 帮助 -->
+<div class="modal" id="helpModal"><div class="card help">
+  <h2>怎么玩 <small>多语言标准键位指法训练</small></h2>
+  <p><b>标准键位（基准键位）</b>：双手食指轻放在两个带凸点的基准键上（如 F 与 J），其余手指依次落在
+  ASDF 与 JKL 一行，拇指悬在空格键。键盘底部彩条表示每个键由哪根手指负责，练习时不要低头看键盘。</p>
+  <p><b>语言</b>：右上角下拉切换。英语/中文拼音/日语(罗马字)用 QWERTY；法语用 AZERTY；俄语用 ЙЦУКЕН；
+  德语用 QWERTZ；韩语键盘图标注两倍式(두벌식)字母位置，内容为国文罗马字转写(RR)。
+  练习法语 / 俄语 / 德语 / 西语 / 韩语等布局时，请把系统输入法切到对应键盘布局再打字；
+  手机或触屏直接点屏幕键盘即可，不受系统布局影响。</p>
+  <p><b>模式</b>：指法（分阶段学键位）· 词语（按词频与难度出题）· 符号（标点与特殊符号）·
+  数字（随机数、年份、金额、电话）· 代码（英语/拼音下可用）· 自定义（粘贴你自己的文本）·
+  弱键（根据历史统计自动针对最慢最错的键）· 听打（朗读单词拼写）· 每日挑战（当天固定题）。</p>
+  <dl>
+    <dt>Tab</dt><dd>同样设置重开一局</dd>
+    <dt>Enter</dt><dd>换一批内容重新开始</dd>
+    <dt>Esc</dt><dd>结束本局 / 关闭弹层</dd>
+    <dt>Shift+Enter</dt><dd>打开自定义文本框</dd>
+    <dt>Ctrl + Enter</dt><dd>自定义框内：开始练习</dd>
+    <dt>F1 / F2 / F3</dt><dd>帮助 / 暗亮主题 / 历史成绩</dd>
+    <dt>Shift + 空格</dt><dd>听打模式：重听当前单词</dd>
+    <dt>严格纠错</dt><dd>打错必须先退格修正才能继续</dd>
+    <dt>盲打</dt><dd>隐藏屏幕键盘与实时数据，只靠手感</dd>
+  </dl>
+  <p><b>指标说明</b>：<b>wpm</b> = 每分钟正确字符数（每 5 个字符算 1 词）；<b>raw</b> 毛速度把打错的也算进去；
+  <b>acc</b> 准确率把纠正过的错误也计入（= 正确击键 / 总击键）；<b>consistency</b> 一致性衡量节奏稳定程度；
+  <b>XP</b> = wpm × 准确率，累计升级。所有成绩只存在浏览器本地，不上传。</p>
+  <div class="actions"><button class="btn pri" id="btnCloseHelp">开始练习</button></div>
+</div></div>
+
+<div class="toast" id="toast"></div>
+<div class="ktip" id="ktip"></div><script>
+'use strict';
+/* ==================================================================
+   数据层：手指映射 / 各语言布局 / 分语言词库 / 符号·数字·代码素材
+   ================================================================== */
+
+/* ---------- 手指定义（标准指法，位置与语言无关） ---------- */
+const FINGERS = {
+  LP:['左手小指','--f0'], LR:['左手无名指','--f1'], LM:['左手中指','--f2'], LI:['左手食指','--f3'],
+  RI:['右手食指','--f4'], RM:['右手中指','--f5'], RR:['右手无名指','--f6'], RP:['右手小指','--f7'],
+  TH:['拇指（空格）','--th']
+};
+/* 每个物理位置的手指与宽度（与语言无关，各语言布局按位对齐） */
+const FW = [
+  [['LP',1],['LP',1],['LR',1],['LM',1],['LI',1],['LI',1],['RI',1],['RI',1],['RM',1],['RR',1],['RP',1],['RP',1],['RP',1],['RP',2]],
+  [['LP',1.5],['LP',1],['LR',1],['LM',1],['LI',1],['LI',1],['RI',1],['RI',1],['RM',1],['RR',1],['RP',1],['RP',1],['RP',1],['RP',1.5]],
+  [['LP',1.85],['LP',1],['LR',1],['LM',1],['LI',1],['LI',1],['RI',1],['RI',1],['RM',1],['RR',1],['RP',1],['RP',1],['RP',2.1]],
+  [['LP',2.35],['LP',1],['LR',1],['LM',1],['LI',1],['LI',1],['RI',1],['RI',1],['RM',1],['RR',1],['RP',1],['RP',2.35]],
+  [['TH',6.6]]
+];
+const CTRL = new Set(['tab','caps','enter','shift','backspace','space']);
+
+/* ---------- 各语言键盘布局：[未按shift的字符, shift后的字符, 附加标注?] ---------- */
+const EN_ROWS = [
+  [['`','~'],['1','!'],['2','@'],['3','#'],['4','$'],['5','%'],['6','^'],['7','&'],['8','*'],['9','('],['0',')'],['-','_'],['=','+'],['backspace','']],
+  [['tab',''],['q','Q'],['w','W'],['e','E'],['r','R'],['t','T'],['y','Y'],['u','U'],['i','I'],['o','O'],['p','P'],['[','{'],[']','}'],['\\','|']],
+  [['caps',''],['a','A'],['s','S'],['d','D'],['f','F'],['g','G'],['h','H'],['j','J'],['k','K'],['l','L'],[';',':'],["'",'"'],['enter','']],
+  [['shift',''],['z','Z'],['x','X'],['c','C'],['v','V'],['b','B'],['n','N'],['m','M'],[',','<'],['.','>'],['/','?'],['shift','']],
+  [['space','']]
+];
+/* 韩文：在 QWERTY 物理位显示两倍式字母（두벌식） */
+const KO_JAMO = { q:'ㅂ',w:'ㅈ',e:'ㄷ',r:'ㄱ',t:'ㅅ',y:'ㅛ',u:'ㅕ',i:'ㅑ',o:'ㅐ',p:'ㅔ',
+  a:'ㅁ',s:'ㄴ',d:'ㄹ',f:'ㅎ',g:'ㅗ',h:'ㅓ',j:'ㅏ',k:'ㅣ',l:'ㅡ',z:'ㅋ',x:'ㅌ',c:'ㅊ',v:'ㅍ',b:'ㅠ',n:'ㅜ',m:'ㅡ' };
+const KO_ROWS = EN_ROWS.map((row, ri) => row.map(k => {
+  if(ri === 0 && k[0] !== 'backspace' && !CTRL.has(k[0])) return k;    // 数字行保持标准
+  if(k[0].length === 1 && KO_JAMO[k[0]]) return [k[0], KO_JAMO[k[0]]];
+  return k;
+}));
+const FR_ROWS = [
+  [['²','',''],['&','1'],['é','2'],['"','3'],["'","4"],['(','5'],['-','6'],['è','7'],['_','8'],['ç','9'],['à','0'],[')','°'],['=','+'],['backspace','']],
+  [['tab',''],['a','A'],['z','Z'],['e','E'],['r','R'],['t','T'],['y','Y'],['u','U'],['i','I'],['o','O'],['p','P'],['^',''],['$','£'],['*','µ']],
+  [['caps',''],['q','Q'],['s','S'],['d','D'],['f','F'],['g','G'],['h','H'],['j','J'],['k','K'],['l','L'],['m','M'],['ù','%'],['enter','']],
+  [['shift',''],['w','W'],['x','X'],['c','C'],['v','V'],['b','B'],['n','N'],[',','?'],[';','.'],[':','/'],['!','§'],['shift','']],
+  [['space','']]
+];
+const RU_ROWS = [
+  [['ё','Ё'],['1','!'],['2','"'],['3','№'],['4',';'],['5','%'],['6',':'],['7','?'],['8','*'],['9','('],['0',')'],['-','_'],['=','+'],['backspace','']],
+  [['tab',''],['й','Й'],['ц','Ц'],['у','У'],['к','К'],['е','Е'],['н','Н'],['г','Г'],['ш','Ш'],['щ','Щ'],['з','З'],['х','Х'],['ъ','Ъ'],['\\','/']],
+  [['caps',''],['ф','Ф'],['ы','Ы'],['в','В'],['а','А'],['п','П'],['р','Р'],['о','О'],['л','Л'],['д','Д'],['ж','Ж'],['э','Э'],['enter','']],
+  [['shift',''],['я','Я'],['ч','Ч'],['с','С'],['м','М'],['и','И'],['т','Т'],['ь','Ь'],['б','Б'],['ю','Ю'],['.',''],['shift','']],
+  [['space','']]
+];
+const DE_ROWS = [
+  [['^','°'],['1','!'],['2','"'],['3','§'],['4','$'],['5','%'],['6','&'],['7','/'],['8','('],['9',')'],['0','='],['ß','?'],['´','`'],['backspace','']],
+  [['tab',''],['q','Q'],['w','W'],['e','E'],['r','R'],['t','T'],['z','Z'],['u','U'],['i','I'],['o','O'],['p','P'],['ü','Ü'],['+','*'],['\\','|']],
+  [['caps',''],['a','A'],['s','S'],['d','D'],['f','F'],['g','G'],['h','H'],['j','J'],['k','K'],['l','L'],['ö','Ö'],['ä','Ä'],['enter','']],
+  [['shift',''],['y','Y'],['x','X'],['c','C'],['v','V'],['b','B'],['n','N'],['m','M'],[',',';'],['.',':'],['-','_'],['shift','']],
+  [['space','']]
+];
+const ES_ROWS = [
+  [['º','ª'],['1','!'],['2','"'],['3','·'],['4','$'],['5','%'],['6','&'],['7','/'],['8','('],['9',')'],['0','='],['\'','?'],['¡','¿'],['backspace','']],
+  [['tab',''],['q','Q'],['w','W'],['e','E'],['r','R'],['t','T'],['y','Y'],['u','U'],['i','I'],['o','O'],['p','P'],['`','^'],['+','*'],['\\','|']],
+  [['caps',''],['a','A'],['s','S'],['d','D'],['f','F'],['g','G'],['h','H'],['j','J'],['k','K'],['l','L'],['ñ','Ñ'],['´','¨'],['enter','']],
+  [['shift',''],['z','Z'],['x','X'],['c','C'],['v','V'],['b','B'],['n','N'],['m','M'],[',',';'],['.',':'],['-','_'],['shift','']],
+  [['space','']]
+];
+
+const LAYOUTS = { en:EN_ROWS, zh:EN_ROWS, ja:EN_ROWS, ko:KO_ROWS, fr:FR_ROWS, ru:RU_ROWS, de:DE_ROWS, es:ES_ROWS };
+
+const TTS = { en:'en-US', zh:'zh-CN', ja:'ja-JP', ko:'ko-KR', fr:'fr-FR', ru:'ru-RU', de:'de-DE', es:'es-ES' };
+
+/* ---------- 语言词库（母语标签 + 键入内容） ---------- */
+const ZH_WORDS = ("你好|nihao 谢谢|xiexie 老师|laoshi 学生|xuesheng 同学|tongxue 朋友|pengyou 家人|jiaren " +
+"爸爸|baba 妈妈|mama 哥哥|gege 姐姐|jiejie 弟弟|didi 妹妹|meimei 学校|xuexiao 教室|jiaoshi 书本|shuben " +
+"课本|keben 词典|cidian 铅笔|qianbi 尺子|chizi 橡皮|xiangpi 桌子|zhuozi 椅子|yizi 电脑|diannao " +
+"手机|shouji 电话|dianhua 电视|dianshi 电影|dianying 音乐|yinyue 歌曲|gequ 图画|tuhua 照片|zhaopian " +
+"颜色|yanse 红色|hongse 蓝色|lanse 绿色|lvse 黄色|huangse 苹果|pingguo 香蕉|xiangjiao 西瓜|xigua " +
+"葡萄|putao 米饭|mifan 面条|miantiao 饺子|jiaozi 包子|baozi 馒头|mantou 鸡蛋|jidan 牛奶|niunai " +
+"咖啡|kafei 茶叶|chaye 水|shui 火|huo 风|feng 雨|yu 雪|xue 云|yun 太阳|taiyang 月亮|yueliang " +
+"星星|xingxing 天空|tiankong 大海|dahai 河流|heliu 森林|senlin 花园|huayuan 草地|caodi 树林|shulin " +
+"高山|gaoshan 城市|chengshi 道路|daolu 汽车|qiche 火车|huoche 飞机|feiji 地铁|ditie 公园|gongyuan " +
+"医院|yiyuan 银行|yinhang 超市|chaoshi 商店|shangdian 餐厅|canting 厨房|chufang 卧室|woshi " +
+"客厅|keting 钥匙|yaoshi 工作|gongzuo 学习|xuexi 生活|shenghuo 运动|yundong 足球|zuqiu 篮球|lanqiu " +
+"游泳|youyong 跑步|paobu 天气|tianqi 春天|chuntian 夏天|xiatian 秋天|qiutian 冬天|dongtian " +
+"早上|zaoshang 中午|zhongwu 晚上|wanshang 昨天|zuotian 今天|jintian 明天|mingtian 现在|xianzai " +
+"过去|guoqu 未来|weilai 问题|wenti 答案|daan 方法|fangfa 知识|zhishi 时间|shijian 世界|shijie " +
+"国家|guojia 人民|renmin 历史|lishi 科学|kexue 数学|shuxue 语文|yuwen 英语|yingyu 汉语|hanyu " +
+"拼音|pinyin 声音|shengyin 文章|wenzhang 故事|gushi 新闻|xinwen 消息|xiaoxi 心情|xinqing " +
+"梦想|mengxiang 勇气|yongqi 自信|zixin 努力|nuli 认真|renzhen 坚持|jianchi 成功|chenggong " +
+"失败|shibai 快乐|kuaile 幸福|xingfu 安静|anjing 热闹|renao 干净|ganjing 漂亮|piaoliang " +
+"聪明|congming 勤劳|qinlao 勇敢|yonggan 诚实|chengshi 温暖|wennuan 凉爽|liangshuang")
+.split(/\s+/).map(s => s.split('|')).filter(p => p.length === 2);
+
+const ZH_SYL = ("ba pa ma fa da ta na la ga ka ha zha cha sha za ca sa ji qi xi di ti ni li bi pi mi " +
+"du tu nu lu gu ku hu bu pu mu fu zhi chi shi zi ci si ri ge ke he ze ce se zhe che she re " +
+"jia qia xia jue que xue jun qun xun yan qian xian lang yang qiang xiang yong ying yin yun").split(/\s+/);
+
+const JA_WORDS = ("こんにちは|konnichiwa ありがとう|arigatou おはよう|ohayou こんばんは|konbanwa さようなら|sayounara " +
+"すみません|sumimasen おねがいします|onegaishimasu いただきます|itadakimasu おやすみ|oyasumi はい|hai いいえ|iie " +
+"わたし|watashi あなた|anata きょう|kyou あした|ashita きのう|kinou まいにち|mainichi げんき|genki " +
+"ともだち|tomodachi かぞく|kazoku おとうさん|otousan おかあさん|okaasan いもうと|imouto おとうと|otouto " +
+"がっこう|gakkou せんせい|sensei がくせい|gakusei だいがく|daigaku べんきょう|benkyou しごと|shigoto " +
+"れんしゅう|renshuu じてんしゃ|jitensha でんしゃ|densha ひこうき|hikouki としょかん|toshokan " +
+"ゆうびんきょく|yuubinkyoku びょういん|byouin ぎんこう|ginkou おんがく|ongaku えいが|eiga しゅみ|shumi " +
+"やま|yama かわ|kawa そら|sora うみ|umi ほし|hoshi つき|tsuki ひかり|hikari みらい|mirai ゆめ|yume " +
+"こころ|kokoro はな|hana とり|tori いぬ|inu ねこ|neko さかな|sakana ごはん|gohan リょうり|ryouri " +
+"まち|machi みせ|mise みち|michi みず|mizu おちゃ|ocha すし|sushi てんき|tenki でんわ|denwa " +
+"しんぶん|shinbun にほん|nihon にほんご|nihongo ひらがな|hiragana カタカナ|katakana コンピュータ|konpyuuta " +
+"インターネット|intaanetto プログラム|puroguramu データ|deeta パソコン|pasokon スマホ|sumaho " +
+"テスト|tesuto クラス|kurasu コーヒー|koohii ピアノ|piano バス|basu タクシー|takushii ホテル|hoteru " +
+"レストラン|resutoran ニュース|nyuusu スポーツ|supootsu サッカー|sakkaa かわいい|kawaii たのしい|tanoshii " +
+"おもしろい|omoshiroi むずかしい|muzukashii あたらしい|atarashii おおきい|ookii ちいさい|chiisai " +
+"つよい|tsuyoi やさしい|yasashii ながい|nagai みじかい|mijikai").split(/\s+/).map(s => s.split('|')).filter(p => p.length === 2);
+
+const JA_SYL = ("あ|a い|i う|u え|e お|o か|ka き|ki く|ku け|ke こ|ko さ|sa し|shi す|su せ|se そ|so " +
+"た|ta ち|chi つ|tsu て|te と|to な|na に|ni ぬ|nu ね|ne の|no は|ha ひ|hi ふ|fu へ|he ほ|ho " +
+"ま|ma み|mi む|mu め|me も|mo や|ya ゆ|yu よ|yo ら|ra り|ri る|ru れ|re ろ|ro わ|wa ん|n").split(/\s+/).map(s => s.split('|')).filter(p => p.length === 2);
+
+const KO_WORDS = ("한국|hanguk 사람|saram 사랑|sarang 나라|nara 물|mul 불|bul 산|san 바다|bada 하늘|haneul " +
+"별|byeol 학교|hakgyo 학생|haksaeng 선생|seonsaeng 친구|chingu 가족|gajok 음식|eumsig 밥|bab 김치|gimchi " +
+"비빔밥|bibimbab 불고기|bulgogi 나무|namu 꽃|kkot 바람|baram 여름|yeoreum 겨울|gyeoul 봄|bom 가을|gaeul " +
+"마음|maeum 가방|gabang 시계|sigye 전화|jeonhwa 컴퓨터|keompyuteo 음악|eumag 영화|yeonghwa 책|chaeg " +
+"노래|norae 춤|chum 여행|yeohaeng 요리|yori 연습|yeonseup 시험|siheom 대학|daehak 문화|munhwa " +
+"역사|yeogsa 날씨|nalssi 사진|sajin 시간|sigan 오늘|oneul 내일|naeil 어제|eoje 우리|uri 도시|dosi " +
+"길|gil 집|jib 눈|nun 입|ip 손|son 일|il 물고기|mulgogi 여자|yeoja 남자|namja 어머니|eomeoni " +
+"아버지|abeoji 누나|nuna 언니|eonni 동생|dongsaeng 할머니|halmeoni 할아버지|harabeoji 사과|sagwa " +
+"바나나|banana 우유|uyu 커피|keopi 우체국|ucheguk 지도|jido 책상|chaeksang 의자|uija 시장|sijang 강|gang")
+.split(/\s+/).map(s => s.split('|')).filter(p => p.length === 2);
+
+const FR_WORDS = ("bonjour merci oui non et ou mais pour avec sans dans sur sous chez bien mal vite " +
+"toujours jamais souvent parfois ici pourquoi comment combien notre votre leur maison appartement " +
+"chambre cuisine jardin école classe élève étudiant professeur livre cahier crayon papier tableau " +
+"fenêtre porte table chaise lit ville rue village campagne montagne rivière forêt fleur arbre ciel " +
+"soleil lune étoile pluie neige vent temps année mois semaine jour nuit matin soir heure minute " +
+"seconde musique chanson film image couleur rouge bleu vert jaune noir blanc gris rose orange violet " +
+"pomme poire banane raisin pain lait eau vin café thé sucre sel poivre viande poisson légume fruit " +
+"gâteau repas petit grand long court haut bas chaud froid doux facile difficile nouveau vieux beau " +
+"joli jeune riche pauvre rapide lent content triste fatigué libre vrai faux famille père mère fils " +
+"fille frère enfant ami voisin travail métier bureau usine magasin marché argent prix achat compte " +
+"banque poste gare avion train voiture vélo bus route chemin pont mur toit sol histoire science " +
+"langue mot phrase texte question réponse idée mémoire esprit santé corps main tête bouche dent " +
+"pied jambe bras dos peau sport match jeu danse culture tradition économie technologie ordinateur " +
+"téléphone internet information journal c'est j'aime l'école qu'est c'est")
+.split(/\s+/).filter(Boolean);
+
+const FR_LONG = ("bibliothèque infrastructure extraordinaire électronique administratif développement " +
+"université littérature démocratie économie gouvernement municipalité révolution constitution " +
+"caractéristique international expérimentation manifestation célébration démonstration installation " +
+"génération opération éducation spécialité qualité société liberté sécurité majorité communauté " +
+"responsabilité télévision").split(/\s+/);
+
+const RU_WORDS = ("привет спасибо человек время жизнь работа дом книга вода земля небо солнце луна звезда " +
+"море река гора лес поле город страна народ друг семья мать отец брат сестра сын дочь дети школа " +
+"учитель ученик студент университет урок язык слово письмо вопрос ответ правда ложь любовь счастье " +
+"радость надежда мечта цель путь дорога машина поезд самолёт корабль улица площадь магазин рынок " +
+"больница аптека еда завтрак обед ужин хлеб молоко чай кофе сахар соль мясо рыба суп яблоко банан " +
+"картофель помидор огурец морковь лук чеснок зима весна лето осень утро день вечер ночь сегодня " +
+"завтра вчера сейчас всегда никогда часто можно надо нужно хорошо плохо быстро медленно громко тихо " +
+"тепло холодно жарко дождь снег ветер туман радуга красный синий зелёный жёлтый белый чёрный большой " +
+"маленький новый старый молодой красивый умный добрый сильный слабый длинный короткий дорогой дешёвый " +
+"музыка песня танец фильм игра спорт футбол компьютер телефон интернет мост парк музей театр кино " +
+"ресторан кафе отель гостиница билет деньги цена месяц неделя понедельник вторник среда четверг " +
+"пятница суббота воскресенье январь февраль март апрель июнь июль август сентябрь октябрь ноябрь " +
+"декабрь ещё всё ёлка тётя мёд").split(/\s+/).filter(Boolean);
+
+const RU_LONG = ("ответственность обстоятельство здравствуйте путешествие распределение планирование " +
+"строительство образование правительство законодательство совершенствование самообразование " +
+"неравенство расстояние впечатление спокойствие соревнование произведение исследование " +
+"усовершенствование машиностроение путешественник здравоохранение водохранилище маловероятный " +
+"электричество человечество солнцестояние").split(/\s+/);
+
+const DE_WORDS = ("hallo danke bitte ja nein gut schlecht groß klein mehr weniger schnell langsam früh spät " +
+"heute morgen gestern jetzt immer oft selten schon noch auch aber oder und denn weil wenn bei mit nach " +
+"von zu aus für gegen über unter zwischen rechts links vielleicht sicher wahr falsch leicht schwer " +
+"warm kalt heiß kühl wunderschön toll schön freundlich höflich lustig ruhig laut leise stark schwach " +
+"klug faul fleißig mutig ehrlich treu freund freundin familie vater mutter sohn tochter bruder " +
+"schwester kind mädchen junge mann frau person mensch haus wohnung zimmer küche bad garten tür " +
+"fenster wand tisch stuhl bett schrank lampe fernseher telefon handy computer laptop tastatur " +
+"buch heft stift bleistift papier schule klasse lehrer schüler universität prüfung ferien " +
+"unterricht aufgabe übung sprache wort satz text frage antwort fehler richtig lösung beispiel " +
+"wissenschaft physik chemie biologie geschichte musik lied foto bild farbe rot blau grün gelb " +
+"schwarz weiß grau apfel banane birne brot butter käse milch fleisch wurst fisch reis suppe salat " +
+"gemüse obst kuchen torte eis zucker wasser saft bier tasse glas flasche teller gabel messer " +
+"löffel geld preis konto bank laden markt straße weg platz park bahnhof flughafen zug bus auto " +
+"fahrrad flugzeug schiff jahr monat woche tag nacht stunde minute montag dienstag mittwoch donnerstag " +
+"freitag samstag sonntag januar februar märz mai juni juli august september oktober november dezember " +
+"frühling sommer herbst winter wetter regen schnee wind wolke himmel erde wald fluss see berg insel " +
+"strand urlaub reise karte traum liebe freude angst hoffnung meinung wahrheit geheimnis").split(/\s+/);
+
+const DE_LONG = ("Geschwindigkeit Geschwindigkeitsbegrenzung Verantwortlichkeit Selbstverständlichkeit " +
+"Verkehrsinfrastruktur Bundesverfassungsgericht Rentenversicherung Krankenversicherung " +
+"Arbeitsunfähigkeit Elektrizitätsgesellschaft Klimaveränderung Umweltschutz Entwicklungsmöglichkeiten " +
+"Donaudampfschifffahrtsgesellschaft Hochschulausbildung Wiedervereinigung Vertragsverhandlungen " +
+"Grundschullehrerin Berufsausbildung Energieversorgung Verkehrssicherheit").split(/\s+/);
+
+const ES_WORDS = ("hola gracias amigo amiga familia padre madre hermano hermana hijo hija primo prima " +
+"abuelo abuela hombre mujer niño niña mesa silla puerta ventana pared suelo techo cocina dormitorio " +
+"patio garaje escalera agua leche pan queso carne pollo pescado fruta manzana pera naranja uva fresa " +
+"tomate lechuga cebolla patata arroz pasta sopa tortilla huevo aceite sal pimienta vino cerveza zumo " +
+"galleta chocolate helado escuela clase libro goma cuaderno diccionario pizarra tiza mochila profesor " +
+"alumno examen nota recreo casa piso calle plaza parque tienda mercado banco hospital farmacia iglesia " +
+"museo cine teatro restaurante hotel estadio pueblo ciudad campo montaña playa bosque lago luna " +
+"estrella nube sol cielo mar flor perro gato caballo vaca oveja pez coche tren barco bicicleta " +
+"camino puente hoy ayer mañana semana año hora lunes martes jueves viernes domingo enero febrero " +
+"marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre rojo azul verde amarillo " +
+"negro blanco gris rosa naranja morado grande pequeño alto bajo largo corto lento dulce fuerte nuevo " +
+"viejo joven bonito feo limpio sucio feliz triste ocupado libre caro barato rico pobre posible " +
+"imposible importante interesante aburrido divertido trabajo empresa oficina dinero precio compra " +
+"venta cuenta danza foto pantalla teclado impresora ordenador correo").split(/\s+/);
+
+const ES_LONG = ("responsabilidad posibilidad universidad comunidad electricidad felicidad sociedad " +
+"libertad seguridad crecimiento conocimiento entretenimiento sostenibilidad particularidad " +
+"nacionalidad personalidad especialidad identidad actividad productividad naturaleza publicidad " +
+"arquitectura extraordinario incomparable inolvidable incansablemente").split(/\s+/);
+
+/* ---------- 英语词库 ---------- */
+const W200 = ("the be to of and a in that have it for not on with he as you do at this but his by from they we " +
+"say her she or an will my one all would there their what so up out if about who get which go me when make can " +
+"like time no just him know take people into year your good some could them see other than then now look only " +
+"come its over think also back after use two how our work first well way even new want because any these give " +
+"day most us is are was were been has had did said").split(/\s+/);
+
+const W1000 = ("ability able about above accept across action active activity actually add address affect after " +
+"again against age ago agree air all allow almost alone along already also although always among amount analysis " +
+"ancient and animal another answer any anyone anything appear apply area argue around arrive art article as ask " +
+"assume at attack attempt attention audience author available avoid away baby back bad bag ball bank bar base " +
+"be beach bear beat beautiful become bed before begin behavior behind believe benefit best better between beyond " +
+"big bird bit black blue board boat body book born both bottom box boy break bring budget build business but buy " +
+"call came can cannot capital car card care carry case catch cause center central century certain chair challenge " +
+"chance change character charge check child choose city claim class clear close cold college color come common " +
+"community company complete condition connect consider consumer contain continue control cost could country couple " +
+"course court cover create crime crisis current customer cut dark data day dead deal death decide deep degree " +
+"describe design detail determine develop development die difference different difficult direction director " +
+"discover discuss discussion do doctor dog door down draw dream drive drop drug during each early earth easy eat " +
+"economic economy edge education effect effort eight either else employee end energy engine enough enter entire " +
+"environment equal especially even event ever every everything exactly example except experience expert explain " +
+"eye face fact fair fall family famous far fast father fear feed feel field fight figure file fill film final " +
+"financial find fine finger finish fire firm first fish five floor follow food foot for force foreign forget " +
+"form former forward four free freedom friend from front full function fund future game garden gas general get " +
+"girl give glass go gold good govern government great green ground group grow growth guess gun hair half hand " +
+"happen happy hard head health hear heart heavy help high history hit hold home hope hospital hot hour house " +
+"however huge human hundred idea identify if ill imagine important improve in include increase indeed indicate " +
+"industry information inside instead interest international into invest involve issue it item join judge just " +
+"keep key kid kill kind kitchen know knowledge lack land language large last late later laugh law lay lead leader " +
+"learn least leave left legal less let letter level lie life light like likely limit line list listen little " +
+"local long look lose loss lot love low machine main major manage many market marriage match material may maybe " +
+"measure media medical meet member memory mention message method middle might military million mind minute miss " +
+"model modern moment money month more morning most mother move movie much music must my name nation national " +
+"natural nature near nearly need network never new news next nice night none nor north note nothing notice now " +
+"number object occur offer office officer often oil old on once one only open operation option order other out " +
+"outside over own page paint pair parent part particular party pass past pay peace people perform perhaps " +
+"period person physical pick picture piece place plan plant play point police policy political poor popular " +
+"position possible power practice prepare present president press pressure prevent price probably problem process " +
+"produce product professional program project property protect prove provide public pull purpose push put quality " +
+"radio raise range rather reach read ready real realize really reason receive recent record reduce region " +
+"relate relationship remain remember report represent research resource respond response rest result return " +
+"reveal rich right rise risk road rock role room round rule run safe sale same save science score sea search " +
+"season seat second section security see seek seem sell send senior sense series serious serve service set " +
+"seven several shape share she shoot short should show side sign similar simple since sing single sister sit " +
+"site situation six size skin small smart smoke social society soft soil soldier some son song soon sort " +
+"sound source south space speak special speech speed spend sport spread spring staff stage stand standard star " +
+"start state station stay steal step still stock stop store story street strong student study stuff success " +
+"such suddenly suffer suggest summer support suppose sure surface system table take talk task teach team tell " +
+"ten term test text than thank that the theory there these they thing think third those though thought thousand " +
+"three through throw thus time today together told tomorrow tone too took tool top total touch toward town trade " +
+"training travel treat tree trial trip true trust try turn two type understand unit until up upon use used useful " +
+"user usual value various very video view violence visit voice vote wait wake walk wall want war warm watch water " +
+"way wear week weight well west western what whatever wheel when where whether which while white who whole whom " +
+"whose why wide wife will wind window wish with within without woman wonder wood word work world worry would " +
+"write wrong yard yeah year yes yet young youth zone").split(/\s+/).filter(Boolean);
+
+const WADV = ("algorithm ambiguity analytical anticipate apparatus approximately arbitrary assemble assumption " +
+"attain authenticate auxiliary benchmark bibliography calibration campaign capability catastrophe cerebral " +
+"coincidence collateral comprehensive comprise conceptual concatenate configuration confidential consequently " +
+"consolidate constitute contemporary contradictory convergence coordinates correlation corresponding credential " +
+"cumulative cylindrical deadline decomposition deficiency definitive delegation demographic depreciation " +
+"descriptive differential disadvantage dissemination documentation dynamics ecosystem electromagnetic elementary " +
+"eliminate empirical encyclopedia equilibrium equivalent erosion established evaluation exception exclusive " +
+"experimental explanation exploration extrapolation fundamental geological governance gradual habitat hypothesis " +
+"identical implementation implication inheritance innovation inspection installation integration intelligence " +
+"interpretation investigation justification legislation maintenance manufacturing measurement meteorology " +
+"microscopic millisecond minimum miscellaneous modification molecular morphology negotiation notification " +
+"objective observation occupational optimization orchestration oversight parallel performance periodic phenomenon " +
+"photography polarization precipitation preliminary preparation prerequisite presumption probability procedure " +
+"proportional protocol qualitative quantitative radioactive rational recommendation reconciliation reduction " +
+"regional registration regulation rehabilitation related reproduction research reservoir resistance resolution " +
+"resource retrospective satisfaction scheduling sedimentary semiconductor sensitivity simulation specialization " +
+"specification spectroscopy statistics structural subsequent substitution sufficiency supermarket supplementary " +
+"survey sustainable telecommunication temperature theoretical transformation transportation ultimately " +
+"unpredictable urbanization verification vulnerability").split(/\s+/);
+
+const WLONG = ("extraordinary understanding responsibility internationalization semiconductor telecommunications " +
+"environmentally philosophical biochemistry computational archaeology meteorological constitutional " +
+"pharmaceutical documentation anthropologist cryptocurrency interdisciplinary representative manipulation " +
+"synchronization authentication characterization photography precipitation crystallization administrative " +
+"accomplishment contemporary identification interpretation transformation notwithstanding investigation " +
+"disappointment establishment manufacturing infrastructure rehabilitation transformation vocabulary " +
+"acknowledgement miscellaneous sophistication bureaucratic headquarters archaeologists sedimentology " +
+"geochemistry petrology submersible complementarity lighthouse weatherboarding").split(/\s+/);
+
+const WCONF = ("their there theyre its yours ours throne threat three through thought trail principal " +
+"principle stationary stationery complement compliment affect effect advice advise accept except access " +
+"beside besides between beyond among coin caution council counsel series serious then than them theme " +
+"quiet quite quota quote").split(/\s+/);
+
+const WROW_TOP = ("typewriter quiet quite we were try yet yes yesterday today type pretty require write right " +
+"tonight question effect error poetry power pour tower eighteen fifty tip little title monitor report theory " +
+"require quite right").split(/\s+/);
+const WROW_MID = ("as sad add all fall glad hall ask lamp hands salad castle demand sadness lamps lass glass " +
+"lash dad had sallied call ball small shall flags bags half").split(/\s+/);
+const WROW_BOT = ("club zoom numb vocab vomit comb bomb job mob thumb plumb volume box bumble boom vacuum " +
+"number bottom button").split(/\s+/);
+
+const WPCM = ("cat dog sun run jump fish bird tree book milk blue green apple house water happy quick brown fox " +
+"lazy zebra school teacher family friend music sports weather travel market village mountain river ocean desert " +
+"forest garden kitchen window mirror pencil paper table chair money future science history language program " +
+"computer keyboard practice accuracy rhythm simple example").split(/\s+/);
+
+/* ---------- 符号与代码素材 ---------- */
+const SYM_GROUPS = [['.',','],[';',":"],["'",'"'],['(',')'],[ '[',']'],['{','}'],['<','>'],['/','\\'],
+  ['+','-'],['*','/'],['=','<'],['!','?'],['@','#'],['$','%'],['^','&'],['~','`'],['|',':']];
+const SYM_TEXTS = [
+  "don't stop; keep going!", "price: $3.50 (net).", "if (a>b) { c = a; }", "x = (b+c) * 2 / d;",
+  "[2026-10-18] done?", "C:\\Users\\name\\file.txt", "10% + 5% = 15%?", "e.g., etc.",
+  "a[0] = b[1] + c[2];", "5 < 7 && 9 > 3", "arr = {1, 2, 3};", "list = ['a', 'b'];",
+  "sum(a) / len(a)", "printf(\"%d\\n\", n);", "git commit -m 'fix'", "a && b || !c",
+  "x != y ? x : y", "p = q ^ 2 | mask;", "1/2 + 3/4 = 1.25", "note: see fig. 3 (p. 12).",
+  "'quoted' and \"double\"", "cost = 1,200.00", "index 0..9 = 10 items", "temp = -12.5 degC",
+  "3 * (4 - 1) = 9", "a^2 + b^2 = c^2", "email: me@site.org", "tel: 555-1234",
+  "# title ## sub", "* bold * _ ital _"
+];
+const CODE_C = [
+  "#include <stdio.h>", "#include <stdlib.h>", "int main(void) {", "return 0; }",
+  "printf(\"%d\\n\", x);", "for (int i = 0; i < n; i++) {", "if (a[i] > m) m = a[i];",
+  "int *p = &x; *p = 10;", 'char *s = "hello";', "while (!feof(fp)) {",
+  "struct Node { int v; struct Node *next; };", "typedef unsigned long ulong;",
+  "free(p); p = NULL;", "x = (a > b) ? a : b;", "switch (c) { case 'A': break; }",
+  "static const int MAX = 1024;", "scanf(\"%lf\", &v);", "for (j = i + 1; j < n; ++j)",
+  "double arr[3][4] = {0};", "if (!(x > 0 && x < 100)) return -1;",
+  "a ^= b; b ^= a; a ^= b;", "n &= (n - 1);", "memset(buf, 0, sizeof(buf));"
+];
+const CODE_PY = [
+  "def main() -> None:", "if __name__ == '__main__':", "for i in range(len(a)):",
+  "result = [x ** 2 for x in nums if x > 0]", "print(f'{name}: {score:.2f}')",
+  "with open(path, 'r', encoding='utf-8') as f:", "try:", "except ValueError as e:",
+  "d = {'a': 1, 'b': 2}", "s = {c.lower() for c in text}", "lambda x: x * 2 + 1",
+  "import numpy as np", "import matplotlib.pyplot as plt", "plt.plot(x, y, 'k--')",
+  "self._cache[key] = value", "a, b = b, a",
+  "while i <= j and a[i] < pivot: i += 1", "sorted(items, key=lambda t: -t[1])",
+  "return {'ok': True, 'data': out}", "x = y if cond else z"
+];
+const CODE_JS = [
+  "const { id, name = 'x' } = obj;", "arr.map(x => x * 2).filter(Boolean);",
+  "async function load(url) {", "const r = await fetch(url);",
+  "list.forEach((v, i) => log(i, v));",
+  "JSON.stringify(data, null, 2);", "a?.b?.c ?? 'fallback';", "for (const k of Object.keys(o))",
+  "obj = { ...base, extra: 1 };", "arr.sort((p, q) => p.age - q.age);"
+];
+const SAMPLE_CODE = CODE_C.slice(0,8).join(' ') + ' ' + CODE_PY.slice(0,6).join(' ');
+const SAMPLE_PUNCT = SYM_TEXTS.slice(0,12).join(' ');/* ==================================================================
+   引擎层
+   ================================================================== */
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const IS_TOUCH = matchMedia('(pointer:coarse)').matches;
+const THEMES = ['dark','light'];
+const DECORABLE = new Set(['en','fr','de','es','ru','zh']);
+const LS = 'dazi.v1';
+
+function mulberry32(a){ return function(){ a |= 0; a = a + 0x6D2B79F5 | 0;
+  let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+  return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const rnd = r => (r ? r() : Math.random());
+function pick(arr, r){ return arr[Math.floor(rnd(r) * arr.length)]; }
+function shuffle(arr, r){ const a = arr.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(rnd(r)*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function daySeed(){ const d=new Date(); return d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate(); }
+
+/* ---------- 配置与存储 ---------- */
+const DEF = { lang:'en', mode:'words', variant:'w1000', lesson:0, len:'t30', caps:false, digits:false, punct:false,
+  strict:false, loop:false, sound:true, kbd:true, hintOn:true, heat:false, blind:false, countdown:false, theme:'dark' };
+let S = Object.assign({}, DEF, { custom:null });
+let store = { xp:0, hist:[], best:{}, keys:{}, daily:{} };
+
+function loadStore(){
+  try{ const o = JSON.parse(localStorage.getItem(LS) || '{}');
+    store = Object.assign(store, o);
+    if(o.settings) S = Object.assign(S, o.settings);
+  }catch(e){ /* 存储损坏则使用默认值 */ }
+  if(!LAYOUTS[S.lang]) S.lang = 'en';
+  if(!THEMES.includes(S.theme)) S.theme = 'dark';
+}
+function saveStore(){
+  try{ const o = Object.assign({}, store, {settings:S}); localStorage.setItem(LS, JSON.stringify(o)); }
+  catch(e){ /* 隐私模式忽略 */ }
+}
+
+/* ---------- DOM ---------- */
+const textWrap = $('#textWrap'), textInner = $('#textInner'), caret = $('#caret');
+const kbMain = $('#kbMain'), kbHeat = $('#kbHeat'), legend = $('#kbLegend');
+const ktip = $('#ktip');
+let LH = 64;
+
+/* ================= 布局工具 ================= */
+function activeRows(){ return LAYOUTS[S.lang] || EN_ROWS; }
+let HOME_SET = new Set(['f','j']), LAY_CHARS = new Set();
+function layoutChars(){
+  const s = LAY_CHARS;
+  if(!s.size){
+    activeRows().forEach(r => r.forEach(k => {
+      if(CTRL.has(k[0])) return;
+      const lo = k[0], up = k[1];
+      if(lo && lo.length === 1) s.add(lo.toLowerCase());
+      if(up && up.length === 1) s.add(up.toLowerCase());
+    }));
+  }
+  return s;
+}
+function layoutPunct(){
+  const s = [];
+  activeRows().forEach(r => r.forEach(k => {
+    if(CTRL.has(k[0])) return;
+    [k[0], k[1]].forEach(c => {
+      if(c && c.length === 1 && !/[\p{L}\p{N} ' ']/u.test(c) && s.indexOf(c) < 0) s.push(c);
+    });
+  }));
+  return s;
+}
+function layoutLetters(){
+  const a = [];
+  activeRows().forEach(r => r.forEach(k => {
+    if(CTRL.has(k[0])) return;
+    if(k[0].length === 1 && /\p{L}/u.test(k[0]) && a.indexOf(k[0]) < 0) a.push(k[0]);
+  }));
+  return a;
+}
+function digitKeys(){ }
+/* 由布局推导分阶段课程 */
+function lessonList(){
+  const R = activeRows();
+  const midC = R[2].slice(1, 11).map(k => k[0]);
+  const home = midC.slice(0, 4).concat(midC.slice(6, 10));
+  const reach = midC.slice(4, 6);
+  const ch = k => k[0];
+  const topL = R[1].slice(1, 6).map(ch), topR = R[1].slice(6, 11).map(ch);
+  const botL = R[3].slice(1, 6).map(ch), botR = R[3].slice(6, 11).map(ch);
+  const digits = R[0].slice(0, 13).map(ch);
+  const punct = layoutPunct();
+  const ups = layoutLetters().map(c => c.toUpperCase());
+  const all = midC.concat(topL, topR, botL, botR).concat(punct.filter(c => c !== ' '));
+  const mk = (name, set, shiftCap) => ({ name, shiftCap: !!shiftCap, tip:'', set });
+  return [
+    mk('基准键位', home), mk('食指伸展', home.concat(reach)),
+    mk('上排左半', home.concat(reach, topL)), mk('上排右半', home.concat(reach, topR)),
+    mk('下排键盘', home.concat(reach, botL, botR)), mk('数字行', digits),
+    mk('标点符号', punct), mk('上档符号', ups, true), mk('综合混合', all)
+  ].map(l => (l.set = [...new Set(l.set.filter(c => c && c.length === 1))], l));
+}
+let LESSONS = [];
+
+/* ================= 出题 ================= */
+function objPair(lab, code){ return { lab: lab || null, code }; }
+function langBank(){
+  const L = S.lang;
+  if(L === 'en'){
+    const P = { w200:() => W200, w1000:() => W1000, wadv:() => WADV, wlong:() => WLONG,
+      wconf:() => WCONF, wrow:() => WROW_TOP.concat(WROW_MID, WROW_BOT) }[S.variant] || (() => W1000);
+    return P().map(w => objPair(null, w));
+  }
+  if(L === 'zh'){
+    if(S.variant === 'zy') return ZH_SYL.map(s => objPair(null, s));
+    return ZH_WORDS.map(p => objPair(p[0], p[1]));
+  }
+  if(L === 'ja'){
+    if(S.variant === 'jk') return JA_SYL.map(p => objPair(p[0], p[1]));
+    return JA_WORDS.map(p => objPair(p[0], p[1]));
+  }
+  if(L === 'ko') return KO_WORDS.map(p => objPair(p[0], p[1]));
+  const long = { fr:FR_LONG, ru:RU_LONG, de:DE_LONG, es:ES_LONG }[L] || [];
+  const base = { fr:FR_WORDS, ru:RU_WORDS, de:DE_WORDS, es:ES_WORDS }[L] || [];
+  return (S.variant === 'long' || S.variant === 'fl' || S.variant === 'rl' || S.variant === 'dl' || S.variant === 'sl'
+    ? long : base).map(w => objPair(null, w));
+}
+function lessonWords(n, r){
+  const L = LESSONS[clamp(S.lesson | 0, 0, LESSONS.length - 1)];
+  const set = new Set(L.set);
+  const bank = langBank().filter(w => w.code.length > 1 && [...w.code].every(c => set.has(c)));
+  const letters = L.set.filter(c => /\p{L}/u.test(c));
+  const out = [];
+  while(out.length < n){
+    if(bank.length > 6 && rnd(r) < 0.55) out.push(pick(bank, r));
+    else {
+      const len = 2 + Math.floor(rnd(r) * 5); let code = '';
+      for(let i = 0; i < len; i++) code += letters.length ? pick(letters, r) : pick(L.set, r);
+      if(/(.)\1{3,}/.test(code)) continue;
+      out.push(objPair(null, code));
+    }
+  }
+  return out;
+}
+function symWords(n, r){
+  const P = layoutPunct();
+  if(!P.length) return langBank().slice(0, n);
+  const out = [];
+  const textsOK = (S.lang === 'en' || S.lang === 'zh');
+  while(out.length < n){
+    if(textsOK && (S.variant === 't' || (S.variant === 'mix' && rnd(r) < .45)))
+      pick(SYM_TEXTS, r).split(/\s+/).forEach(w => out.push(objPair(null, w)));
+    else {
+      let w = ''; const k = 2 + Math.floor(rnd(r) * 3);
+      for(let i = 0; i < k; i++) w += pick(P, r);
+      out.push(objPair(null, w));
+    }
+  }
+  return out;
+}
+function numWords(n, r){
+  const out = [], D = () => String(Math.floor(rnd(r) * 10));
+  const ops = '+-*/%'.split('').filter(c => LAY_CHARS.has(c));
+  const money = LAY_CHARS.has('$');
+  while(out.length < n){
+    const v = rnd(r);
+    if(S.variant === 'year') out.push(objPair(null, String(1900 + Math.floor(rnd(r) * 200))));
+    else if(S.variant === 'money') out.push(objPair(null, money
+      ? '$' + (1 + Math.floor(rnd(r) * 99999)).toLocaleString('en-US') + '.' + String(100 + Math.floor(rnd(r) * 900)).slice(1)
+      : (1 + Math.floor(rnd(r) * 99999)).toLocaleString('en-US') + '.' + String(100 + Math.floor(rnd(r) * 900)).slice(1)));
+    else if(S.variant === 'phone') out.push(objPair(null, String(2 + Math.floor(rnd(r) * 7)) + D() + D() + '-' + D() + D() + D() + '-' + D() + D() + D() + D()));
+    else if(S.variant === 'dec') out.push(objPair(null, (rnd(r) * 1000).toFixed(2 + Math.floor(rnd(r) * 3))));
+    else if(S.variant === 'expr') out.push(objPair(null, (2 + Math.floor(rnd(r) * 98)) + (ops.length ? pick(ops, r) : '+') + (1 + Math.floor(rnd(r) * 40)) + '='));
+    else if(v < .3){ let s = ''; const k = 3 + Math.floor(rnd(r) * 5); for(let i = 0; i < k; i++) s += D(); out.push(objPair(null, s)); }
+    else if(v < .55) out.push(objPair(null, String(1900 + Math.floor(rnd(r) * 200))));
+    else if(v < .7) out.push(objPair(null, (1 + Math.floor(rnd(r) * 9999)).toLocaleString('en-US')));
+    else if(v < .85) out.push(objPair(null, (rnd(r) * 100).toFixed(2)));
+    else out.push(objPair(null, (10 + Math.floor(rnd(r) * 90)) + '%'));
+  }
+  return out;
+}
+function codeWords(n, r){
+  const bank = S.variant === 'c' ? CODE_C : S.variant === 'py' ? CODE_PY : S.variant === 'js' ? CODE_JS
+    : CODE_C.concat(CODE_PY, CODE_JS);
+  const out = [];
+  while(out.length < n) out.push(...pick(bank, r).split(/\s+/).map(w => objPair(null, w)));
+  return out.slice(0, Math.max(n, 12));
+}
+function weakChars(){
+  const act = LAY_CHARS, k = store.keys || {}, arr = [];
+  for(const ch in k){
+    if(act.size && !act.has(ch) && !act.has(ch.toLowerCase()) && !act.has(ch.toUpperCase())) continue;
+    const e = k[ch]; if(e.p < 3) continue;
+    const slow = e.avg ? clamp(e.avg / 260, 0, 2) : 0;
+    arr.push({ ch, score:(e.e / e.p) * 3 + slow * .5 });
+  }
+  arr.sort((a, b) => b.score - a.score);
+  return arr.slice(0, 10);
+}
+function weakWords(n, r){
+  let cs = weakChars().map(o => o.ch).filter(c => c && c !== ' ' && c.length === 1);
+  if(!cs.length) cs = layoutLetters().slice(0, 8);
+  const out = [];
+  while(out.length < n){
+    const len = 3 + Math.floor(rnd(r) * 4); let w = '';
+    for(let i = 0; i < len; i++) w += pick(cs, r);
+    out.push(objPair(null, w));
+  }
+  return out;
+}
+function dailyPlan(){
+  const vs = VARIANTS[S.lang] || VARIANTS.en, r = mulberry32(daySeed());
+  return { variant: vs[Math.floor(r() * vs.length)][0], len: r() < .5 ? 't60' : 'w50',
+    punct: r() < .5, digits: r() < .35, caps: r() < .2 };
+}
+function applyDecor(words, caps, digits, punct, r){
+  if(!DECORABLE.has(S.lang)) return words;
+  let out = words.slice();
+  if(digits) for(let i = 2 + Math.floor(rnd(r) * 3); i < out.length; i += 5 + Math.floor(rnd(r) * 4))
+    out[i] = objPair(null, String(Math.floor(rnd(r) * 9000 + 100)));
+  if(punct) out = out.map((w, i) => {
+    const v = rnd(r);
+    if(v < .07) return objPair(w.lab, '(' + w.code + ')');
+    if(v < .13) return objPair(w.lab, '"' + w.code + '"');
+    if(v < .18) return objPair(w.lab, w.code + ':');
+    if(v < .24) return objPair(w.lab, w.code + ',');
+    if(v < .28 && i % 6 === 5) return objPair(w.lab, w.code + '.');
+    if(v < .31) return objPair(w.lab, w.code + ';');
+    return w;
+  });
+  if(caps) out = out.map(w => objPair(w.lab, [...w.code].map(c => c.toUpperCase()).join('')));
+  return out;
+}
+const VAR_ALIAS = { fl:'long', rl:'long', dl:'long', sl:'long' };
+function buildWords(n, r){
+  const m = S.mode, vSave = S.variant;
+  if(m === 'daily'){ const p = dailyPlan(); S.variant = p.variant; }
+  try{
+    if(m === 'key') var w = lessonWords(n, r);
+    else if(m === 'words') var w = shuffle(langBank(), r).slice(0, n);
+    else if(m === 'symbols') var w = symWords(n, r);
+    else if(m === 'numbers') var w = numWords(n, r);
+    else if(m === 'code') var w = codeWords(n, r);
+    else if(m === 'weak') var w = weakWords(n, r);
+    else if(m === 'dictation') var w = shuffle(langBank(), r).slice(0, n);
+    else if(m === 'custom'){
+      const src = (S.custom && S.custom.length) ? S.custom.map(x => objPair(null, x)) : langBank();
+      var w = S.customShuffle ? shuffle(src, r) : src.slice();
+      if(T.round.kind === 'words' && w.length > n) w = w.slice(0, n);
+    } else var w = shuffle(langBank(), r).slice(0, n);
+  } finally { S.variant = vSave; }
+  if(!w || !w.length) w = langBank().slice(0, Math.max(4, Math.min(n, 200)));
+  let caps = S.caps, digits = S.digits, punct = S.punct;
+  if(m === 'key') caps = !!LESSONS[clamp(S.lesson | 0, 0, LESSONS.length - 1)].shiftCap;
+  if(m === 'daily'){ const p = dailyPlan(); caps = caps || p.caps; punct = punct || p.punct; digits = digits || p.digits; }
+  if(m === 'symbols') punct = true;
+  if(m === 'code') { caps = false; punct = false; }
+  return applyDecor(w, caps, digits && m !== 'numbers', punct && m !== 'symbols' && m !== 'code', r);
+}
+
+/* ================= 键盘渲染 ================= */
+const KEYMAP = {};
+function buildKeyboard(host, isHeat){
+  const rows = activeRows();
+  host.innerHTML = '';
+  rows.forEach((row, ri) => {
+    const r = document.createElement('div'); r.className = 'kb-row';
+    if(row.some(k => k[0] === 'space')) r.style.justifyContent = 'center';
+    row.forEach((k, ci) => {
+      const [lo, up] = k, [fg, w] = FW[ri][ci];
+      const el = document.createElement('div');
+      el.className = 'key' + (w && w > 1.2 ? ' wide' : '') + (ri === 2 && (ci === 4 || ci === 7) && !CTRL.has(lo) ? ' home' : '');
+      el.style.setProperty('--u', w || 1);
+      el.dataset.f = fg; el.dataset.lo = lo; el.dataset.up = up || '';
+      const uv = document.createElement('div'); uv.className = 'up';
+      uv.textContent = lo === 'backspace' ? '' : lo === 'shift' ? ''
+        : lo === 'space' ? '' : (up || (CTRL.has(lo) ? '' : ''));
+      const lv = document.createElement('div'); lv.className = 'lo';
+      lv.textContent = lo === 'backspace' ? '⌫' : lo === 'enter' ? 'enter' : lo === 'shift' ? 'shift'
+        : lo === 'caps' ? 'caps' : lo === 'tab' ? 'tab' : lo === 'space' ? '' : lo;
+      const fb = document.createElement('div'); fb.className = 'fn';
+      fb.style.setProperty('--kc', 'var(' + FINGERS[fg][1] + ')');
+      el.appendChild(uv); el.appendChild(lv); el.appendChild(fb);
+      r.appendChild(el);
+      if(!isHeat){
+        const reg = (ch, shift) => { if(ch) (KEYMAP[ch] = KEYMAP[ch] || []).push({ el, shift: !!shift }); };
+        if(lo === 'space'){ reg(' ', false); }
+        else if(lo.length === 1){
+          reg(lo, false);
+          if(up) reg(up, true);
+        } else reg(lo, false);
+        el.addEventListener('pointerdown', ev => { ev.preventDefault(); virtualPress(lo, up); });
+        el.addEventListener('pointerenter', () => showKeyTip(el));
+        el.addEventListener('pointerleave', hideKeyTip);
+        el.addEventListener('click', () => drillKey(lo, up));
+      }
+    });
+    host.appendChild(r);
+  });
+}
+function rebuildKeys(){
+  for(const k in KEYMAP) delete KEYMAP[k];
+  LAY_CHARS = new Set();
+  buildKeyboard(kbMain, false);
+  buildKeyboard(kbHeat, true);
+  layoutChars();
+  HOME_SET = new Set([activeRows()[2][4][0], activeRows()[2][7][0]]);
+  LESSONS = lessonList();
+  if(S.mode === 'key' && (S.lesson | 0) >= LESSONS.length) S.lesson = 0;
+  buildLegend();
+  latchShift();
+}
+function homeLabel(fg){
+  const row = activeRows()[2];
+  const idx = { LP:1, LR:2, LM:3, LI:4, RI:7, RM:8, RR:9, RP:10 }[fg];
+  return idx != null ? row[idx][0] : 'space';
+}
+function buildLegend(){
+  legend.innerHTML = Object.keys(FINGERS).map(k =>
+    '<span style="--kc:var(' + FINGERS[k][1] + ')"><i></i>' + FINGERS[k][0].replace('（空格）','') +
+    '<em>' + (k === 'TH' ? 'space' : (homeLabel(k) || '').toUpperCase()) + '</em></span>').join('');
+}
+function showKeyTip(el){
+  const fg = FINGERS[el.dataset.f];
+  if(!fg) return;
+  const lo = el.dataset.lo, up = el.dataset.up;
+  ktip.innerHTML = '<b>' + esc((up || lo)) + '</b> · ' + fg[0] +
+    (HOME_SET.has(lo) ? '（基准键）' : ' · 基准位 ' + (homeLabel(el.dataset.f) || '空格'));
+  const r = el.getBoundingClientRect();
+  ktip.style.left = clamp(r.left + r.width / 2 - 70, 6, innerWidth - 160) + 'px';
+  ktip.style.top = Math.max(6, r.top - 34) + 'px';
+  ktip.classList.add('on');
+}
+function hideKeyTip(){ ktip.classList.remove('on'); }
+function drillKey(lo, up){
+  if(lo.length !== 1) return;
+  const ch = S.lang === 'ko' ? lo : (up || lo);   // 韩文标注的是两倍式字母，实际键入用拉丁字
+  S.custom = [];
+  for(let i = 0; i < 24; i++) S.custom.push(ch.repeat(2 + (i % 4)));
+  S.mode = 'custom';
+  closeModal('#customModal'); closeModal('#resultModal'); closeModal('#historyModal'); closeModal('#setModal');
+  renderConfig(); startRound(); toast('已针对键「' + ch + '」出题');
+}
+
+/* ================= 回合控制 ================= */
+const T = { started:false, over:true, t0:0, timer:null, pos:0, words:[], chars:[],
+  strokes:{ ok:0, bad:0, extra:0, back:0, total:0, press:0 }, round:{}, keys:{}, snaps:[], iv:[], cdDone:false,
+  lastStroke:0, lastSample:0, mobileShift:false, curGrp:null };
+
+function lenInfo(){
+  const l = S.len;
+  if(l === 'inf') return { kind:'inf' };
+  if(l[0] === 't') return { kind:'time', n:parseInt(l.slice(1), 10) };
+  return { kind:'words', n:parseInt(l.slice(1), 10) };
+}
+function computeLH(){
+  const fs = parseFloat(getComputedStyle(textInner).fontSize) || 24;
+  LH = Math.round(fs * 1.62);
+  document.documentElement.style.setProperty('--lh', LH + 'px');
+  setUnits(kbMain); setUnits(kbHeat);
+}
+function setUnits(host){
+  if(!host) return;
+  const w = host.clientWidth;
+  if(!w) return;
+  const gap = parseFloat(getComputedStyle(host).rowGap || getComputedStyle(host).gap) || 5;
+  host.style.setProperty('--ku', Math.max(13, (w - 15 * gap) / 16) + 'px');
+}
+const LANGNAME = () => ({ en:'English', zh:'中文拼音', ja:'日本語', ko:'한국어', fr:'Français', ru:'Русский', de:'Deutsch', es:'Español' }[S.lang] || S.lang);
+function modeName(){
+  const M = { key:'指法', words:'词语', symbols:'符号', numbers:'数字', code:'代码',
+    custom:'自定义', weak:'弱键', dictation:'听打', daily:'每日挑战' };
+  let n = LANGNAME() + '·' + (M[S.mode] || S.mode);
+  if(S.mode === 'key') n += '·' + (LESSONS[clamp(S.lesson | 0, 0, LESSONS.length - 1)] || { name:'' }).name;
+  return n;
+}
+function startRound(){
+  clearInterval(T.timer); T.timer = null;
+  closeModal('#resultModal');
+  Object.assign(T, { started:false, over:false, pos:0, strokes:{ ok:0, bad:0, extra:0, back:0, total:0, press:0 },
+    keys:{}, snaps:[], iv:[], cdDone:false, lastStroke:0, lastSample:0, mobileShift:false, curGrp:null });
+  T.round = lenInfo();
+  computeLH();
+  const need = T.round.kind === 'words' ? T.round.n : 320;
+  const r = S.mode === 'daily' ? mulberry32(daySeed()) : null;
+  T.words = buildWords(need, r);
+  setText(T.words);
+  $('#progWrap').classList.remove('on'); $('#progBar').style.width = '0%';
+  latchShift();
+  updateHint(); refreshLive(); setProgress(0);
+  $('#startHint').classList.remove('off');
+  $('#countdown').hidden = true;
+  applyOptions();
+  updateTargets();
+  if(S.mode === 'dictation' && T.words[0]) setTimeout(() => speakWord(T.words[0]), 300);
+  if(S.mode === 'custom' && !(S.custom || []).length) openModal('#customModal');
+}
+function chunkOf(w, wi){
+  const grp = document.createElement('span'); grp.className = 'wgrp'; grp.dataset.wi = wi;
+  const chars = [];
+  const addLabel = w.lab && S.mode !== 'dictation';
+  if(addLabel){
+    const kEl = document.createElement('span'); kEl.className = 'kana';
+    kEl.textContent = w.lab; grp.appendChild(kEl);
+  }
+  for(const ch of w.code){
+    const s = document.createElement('span');
+    s.className = 'ch'; s.textContent = ch;
+    grp.appendChild(s);
+    chars.push({ ch, wi, sep:false, st:'todo', extra:[], el:s, g:grp });
+  }
+  return { grp, chars };
+}
+function makeSep(){
+  const s = document.createElement('span');
+  s.className = 'ch sp'; s.textContent = '\u00A0';
+  return { ch:' ', wi:-1, sep:true, st:'todo', extra:[], el:s, g:null };
+}
+function setText(words){
+  textInner.querySelectorAll('.ch,.wgrp').forEach(n => n.remove());
+  const frag = document.createDocumentFragment();
+  const chars = [];
+  words.forEach((w, wi) => {
+    const { grp, chars:c2 } = chunkOf(w, wi);
+    frag.appendChild(grp); chars.push(...c2);
+    if(wi < words.length - 1){ const sep = makeSep(); frag.appendChild(sep.el); chars.push(sep); }
+  });
+  T.chars = chars;
+  textInner.appendChild(frag);
+  T.curGrp = null;
+  placeCaret();
+}
+function appendWords(words){
+  const base = T.chars.length;
+  words.forEach((w, i) => {
+    if(T.chars[T.chars.length - 1] && !T.chars[T.chars.length - 1].sep){
+      const sep = makeSep(); textInner.appendChild(sep.el); T.chars.push(sep);
+    }
+    const { grp, chars } = chunkOf(w, base + i);
+    textInner.appendChild(grp);
+    T.chars.push(...chars);
+    T.words.push(w);
+  });
+}
+function cur(){ return T.chars[T.pos]; }
+function placeCaret(){
+  const c = cur();
+  if(!c || !c.el) return;
+  const el = c.el;
+  const line = Math.round(el.offsetTop / LH);
+  const ty = Math.min(0, LH - line * LH);
+  if(textInner.dataset.ty !== String(ty)){ textInner.style.transform = 'translateY(' + ty + 'px)'; textInner.dataset.ty = String(ty); }
+  caret.style.left = el.offsetLeft + 'px';
+  caret.style.top = (el.offsetTop + LH * .08) + 'px';
+}
+
+/* ---------- 开始 / 计时 ---------- */
+function startTest(){
+  if(T.over) return false;
+  if(T.started) return true;
+  if(S.countdown && !T.cdDone){ runCountdown(); return false; }
+  T.started = true; T.t0 = performance.now(); T.lastStroke = T.t0; T.lastSample = 0;
+  $('#startHint').classList.add('off');
+  $('#progWrap').classList.add('on');
+  T.timer = setInterval(tick, 100);
+  if(S.mode === 'dictation' && T.words[0]) speakWord(T.words[0]);
+  return true;
+}
+function runCountdown(){
+  const el = $('#countdown'); el.hidden = false;
+  let n = 3;
+  el.textContent = n;
+  const iv = setInterval(() => {
+    n--;
+    if(n <= 0){ clearInterval(iv); el.hidden = true; T.cdDone = true;
+      T.started = true; T.t0 = performance.now(); T.lastStroke = T.t0; T.lastSample = 0;
+      $('#startHint').classList.add('off'); $('#progWrap').classList.add('on');
+      T.timer = setInterval(tick, 100);
+      if(S.mode === 'dictation' && T.words[0]) speakWord(T.words[0]);
+    } else el.textContent = n;
+  }, 700);
+}
+function elapsed(){ return (performance.now() - T.t0) / 1000; }
+function tick(){
+  if(!T.started || T.over) return;
+  const e = elapsed(), li = T.round;
+  if(li.kind === 'time'){
+    const left = Math.max(0, li.n - e);
+    $('#lsTime').firstElementChild.textContent = left < 10 ? left.toFixed(1) : Math.ceil(left);
+    setProgress(e / li.n);
+    if(left <= 0){ endTest('time'); return; }
+  } else if(li.kind === 'words'){
+    setProgress(T.pos / Math.max(1, T.chars.length));
+  } else { setProgress(0); $('#progWrap').classList.remove('on'); }
+  if(e - T.lastSample >= 1){ T.lastSample = e; sample(e); }
+  refreshLive();
+  ensureBuffer();
+}
+function sample(e){
+  const mins = e / 60; if(mins <= 0) return;
+  const s = T.strokes;
+  T.snaps.push({ t:e, wpm:(s.ok / 5) / mins, raw:((s.ok + s.bad + s.extra) / 5) / mins, acc:accOf() });
+}
+function ensureBuffer(){
+  if(T.round.kind === 'words' && !S.loop) return;
+  if(T.pos > T.chars.length - 40) appendWords(buildWords(60, null));
+}
+function accOf(){ const s = T.strokes, d = s.press; return d ? clamp(100 * s.ok / d, 0, 100) : 100; }
+function wpmNow(){ const m = Math.max(1 / 60, elapsed() / 60); return (T.strokes.ok / 5) / m; }
+function rawNow(){ const m = Math.max(1 / 60, elapsed() / 60); return ((T.strokes.ok + T.strokes.bad + T.strokes.extra) / 5) / m; }
+function setProgress(p){ $('#progBar').style.width = clamp(p * 100, 0, 100) + '%'; }
+function wordDone(){ let n = 0; for(const c of T.chars) if(c.st === 'ok' && c.sep) n++; return n; }
+function refreshLive(){
+  const blindHide = S.blind, li = T.round, hint = $('#lsHint');
+  $('#lsTime').hidden = li.kind !== 'time';
+  if(!T.started){
+    $('#lsWpm').querySelector('b').textContent = '0';
+    $('#lsAcc').querySelector('b').textContent = '100';
+    $('#lsAcc').className = 'ls acc';
+    hint.textContent = updateHint();
+    return;
+  }
+  $('#lsWpm').querySelector('b').textContent = blindHide ? '--' : Math.max(0, Math.round(wpmNow()));
+  const a = $('#lsAcc'); a.querySelector('b').textContent = blindHide ? '--' : Math.round(accOf());
+  a.className = 'ls ' + (blindHide ? '' : accOf() >= 96 ? 'acc' : accOf() < 88 ? 'bad' : '');
+  if(li.kind === 'words') hint.textContent = blindHide ? '盲打中' : (T.words.length - wordDone()) + ' 词剩余';
+  else if(li.kind === 'inf') hint.textContent = blindHide ? '盲打中 · Esc 结束' : '无限模式 · ' + T.strokes.ok + ' 字符 · Esc 结束';
+  else hint.textContent = blindHide ? '盲打中' : '已用 ' + Math.round(elapsed()) + 's';
+}
+
+/* ---------- 输入判定 ---------- */
+function strictBlocked(){
+  const c = cur(), p = T.chars[T.pos - 1];
+  return !!((c && c.st !== 'todo') || (p && (p.st === 'bad' || p.extra.length)));
+}
+function typeChar(raw){
+  if(T.over){ return; }
+  if(!startTest()) return;
+  const c = cur(); if(!c) return;
+  if(S.strict && strictBlocked()){ blockFlash(); return; }
+  const now = performance.now(), gap = T.lastStroke ? now - T.lastStroke : 0;
+  T.lastStroke = now;
+  let good = false;
+  if(raw === c.ch){
+    good = true;
+  } else if(c.sep && !/^\s$/.test(raw)){
+    addExtra(T.chars[T.pos - 1] || c, raw); T.strokes.extra++; T.strokes.total++; T.strokes.press++; feedback(raw, false); return;
+  }
+  if(good){ c.st = 'ok'; T.strokes.ok++; }
+  else { if(c.st === 'todo'){ c.st = 'bad'; T.strokes.bad++; }
+    else { addExtra(T.chars[T.pos - 1] || c, raw); T.strokes.extra++; } }
+  T.strokes.total++; T.strokes.press++;
+  feedback(raw, good);
+  paintChar(c);
+  T.pos++;
+  afterInput(c, gap);
+}
+function paintChar(c){
+  if(!c.el) return;
+  c.el.classList.remove('ok', 'bad');
+  if(c.st === 'ok') c.el.classList.add('ok');
+  else if(c.st === 'bad') c.el.classList.add('bad');
+}
+function addExtra(anchor, raw){
+  const s = document.createElement('span');
+  s.className = 'ch extra';
+  s.textContent = raw === ' ' ? '\u00A0' : raw;
+  if(anchor.el && anchor.el.parentNode) anchor.el.parentNode.insertBefore(s, anchor.el.nextSibling);
+  else textInner.appendChild(s);
+  anchor.extra.push({ ch:raw, el:s });
+  feedback(raw, false);
+}
+function afterInput(c, gap){
+  if(gap > 0 && gap < 4000) T.iv.push(gap);
+  const k = keyOf(c.ch);
+  if(k){ const st = T.keys[k] = T.keys[k] || { p:0, e:0, sum:0, n:0 };
+    st.p++; if(c.st !== 'ok') st.e++; if(gap > 0 && gap < 3000){ st.sum += gap; st.n++; } }
+  caret.classList.remove('hide'); void caret.offsetWidth;
+  updateTargets(); placeCaret(); refreshLive();
+  if(S.mode === 'dictation' && c.sep && c.st === 'ok'){
+    const done = T.chars.slice(0, T.pos).filter(x => x.sep).length;
+    if(T.words[done]) speakWord(T.words[done]);
+  }
+  if(T.pos >= T.chars.length){
+    if(T.round.kind === 'words') endTest('done');
+    else if(!S.loop && T.round.kind !== 'inf') endTest('done');
+    else ensureBuffer();
+  }
+}
+function keyOf(ch){ return (ch && ch.length === 1) ? ch : null; }
+function backspace(){
+  if(T.over || !T.started) return;
+  const prev = T.chars[T.pos - 1];
+  if(prev && prev.extra.length){
+    const e = prev.extra.pop(); if(e.el) e.el.remove();
+    T.strokes.back++; T.strokes.total--; if(T.strokes.extra) T.strokes.extra--;
+    updateTargets(); placeCaret(); return;
+  }
+  if(T.pos === 0) return;
+  T.pos--;
+  const c = cur();
+  if(c.extra.length){
+    while(c.extra.length){ const e = c.extra.pop(); if(e.el) e.el.remove(); T.strokes.total--; if(T.strokes.extra) T.strokes.extra--; }
+  }
+  if(c.st !== 'todo'){ if(c.st === 'ok') T.strokes.ok--; else T.strokes.bad--; T.strokes.total--; }
+  c.st = 'todo'; paintChar(c); T.strokes.back++;
+  updateTargets(); placeCaret(); refreshLive();
+  caret.classList.remove('hide');
+}
+function blockFlash(){
+  const c = cur(); if(!c) return;
+  c.el && c.el.animate([{ color:'var(--bad)' }, { color:'inherit' }], { duration:220 });
+  if(S.sound) click('bad');
+}
+function updateTargets(){
+  $$('#kbMain .key.target').forEach(e => e.classList.remove('target', 'hintshift'));
+  $('#fingerTip').textContent = '';
+  // 当前词组高亮
+  const g = cur() && cur().g;
+  if(T.curGrp && T.curGrp !== g) T.curGrp.classList.remove('wg-active');
+  if(g) g.classList.add('wg-active');
+  T.curGrp = g || null;
+  if(T.over || !S.hintOn || S.blind) return;
+  const c = cur(); if(!c) return;
+  const need = KEYMAP[c.ch] || [];
+  let shift = false;
+  need.forEach(n => { if(n.shift) shift = true; n.el.classList.add('target'); });
+  if(shift){ (KEYMAP['shift'] || []).forEach(s => s.el.classList.add('target', 'hintshift')); }
+  const fg = need.length ? FINGERS[need[0].el.dataset.f] : null;
+  if(fg) $('#fingerTip').textContent = '下一键 ' + (c.ch === ' ' ? '空格' : c.ch) + ' · ' + fg[0] +
+    (HOME_SET.has(c.ch) ? ' · 基准键' : '');
+}
+function clearHeat(el){ ['h1','h2','h3','h4'].forEach(c => el.classList.remove(c)); }
+function heatClass(st){
+  if(!st || st.p < 3) return null;
+  const rate = st.e / st.p;
+  return rate <= .02 ? null : rate < .08 ? 'h1' : rate < .18 ? 'h2' : rate < .32 ? 'h3' : 'h4';
+}
+function updateHeat(){
+  $$('#kbHeat .key').forEach(el => {
+    clearHeat(el);
+    let st = store.keys[el.dataset.lo];
+    if(!st && el.dataset.up) st = store.keys[el.dataset.up];
+    const hc = heatClass(st);
+    if(hc) el.classList.add(hc);
+  });
+}
+
+/* ---------- 声音与朗读 ---------- */
+let AC = null;
+function actx(){ if(!AC){ try{ AC = new (window.AudioContext || window.webkitAudioContext)(); }catch(e){ return null; } }
+  if(AC && AC.state === 'suspended') AC.resume(); return AC; }
+function click(kind){
+  if(!S.sound) return;
+  const c = actx(); if(!c) return;
+  const t = c.currentTime, o = c.createOscillator(), g = c.createGain();
+  const bad = kind === 'bad';
+  o.type = bad ? 'square' : 'triangle';
+  o.frequency.setValueAtTime(bad ? 170 : (kind === 'end' ? 420 : 620 + Math.random() * 60), t);
+  if(!bad) o.frequency.exponentialRampToValueAtTime(240, t + .04);
+  g.gain.setValueAtTime(.0001, t);
+  g.gain.exponentialRampToValueAtTime(bad ? .16 : .055, t + .004);
+  g.gain.exponentialRampToValueAtTime(.0001, t + (kind === 'end' ? .22 : .05));
+  o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + (kind === 'end' ? .25 : .06));
+}
+function speakWord(w){
+  if(!('speechSynthesis' in window) || !w) return;
+  const text = (S.mode === 'dictation' && w.lab) ? w.lab : w.code;
+  if(!text) return;
+  try{ speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(String(text).replace(/[^\p{L}\p{N}' -]/gu, ''));
+    u.lang = TTS[S.lang] || 'en-US'; u.rate = .92; speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* ---------- 结束与成绩 ---------- */
+function endTest(why){
+  if(T.over) return;
+  T.over = true; T.started = false; clearInterval(T.timer); T.timer = null;
+  if(!T.strokes.press) return startRound();
+  sample(Math.max(.5, elapsed()));
+  const dur = Math.max(.5, elapsed()), mins = dur / 60, s = T.strokes;
+  const wpm = (s.ok / 5) / mins, raw = ((s.ok + s.bad + s.extra) / 5) / mins, acc = accOf();
+  const missed = T.round.kind === 'words' ? Math.max(0, T.chars.length - T.pos) : 0;
+  const cons = consistency();
+  const xp = Math.round(wpm * acc / 100);
+  const key = S.lang + ':' + S.mode + ':' + (S.mode === 'key' ? S.lesson : S.variant) + ':' + S.len;
+  const rec = { d:Date.now(), lang:S.lang, mode:S.mode, variant:S.variant, len:S.len, label:modeName(),
+    wpm:Math.round(wpm), raw:Math.round(raw), acc:Math.round(acc * 10) / 10, cons:Math.round(cons),
+    ok:s.ok, bad:s.bad, extra:s.extra, missed, strokes:s.press, dur:Math.round(dur * 10) / 10, xp, why };
+  const prev = store.best[key];
+  const isRecord = !prev || prev.wpm < rec.wpm;
+  store.best[key] = isRecord ? rec : prev;
+  store.xp += xp;
+  store.hist.unshift(rec); if(store.hist.length > 300) store.hist.length = 300;
+  mergeKeys(T.keys);
+  if(S.mode === 'daily'){ const d = daySeed(); if(!store.daily[d] || store.daily[d].wpm < rec.wpm) store.daily[d] = rec; }
+  saveStore(); updateLevel(); click('end');
+  showResult(rec, isRecord);
+}
+function consistency(){
+  const iv = T.iv; if(!iv || iv.length < 5) return 0;
+  const mean = iv.reduce((a, b) => a + b, 0) / iv.length;
+  const sd = Math.sqrt(iv.reduce((a, b) => a + (b - mean) ** 2, 0) / iv.length);
+  return clamp(100 * (1 - sd / mean), 0, 100);
+}
+function mergeKeys(k){
+  store.keys = store.keys || {};
+  for(const ch in k){ const a = store.keys[ch] || { p:0, e:0, sum:0, n:0 }, b = k[ch];
+    a.p += b.p; a.e += b.e; a.sum += b.sum || 0; a.n += b.n || 0;
+    a.avg = a.n ? a.sum / a.n : 0; store.keys[ch] = a; }
+}
+function levelInfo(xp){ const lvl = Math.floor(Math.sqrt(xp / 120)) + 1;
+  const base = 120 * (lvl - 1) ** 2, next = 120 * lvl ** 2;
+  return { lvl, pct:clamp(100 * (xp - base) / (next - base), 0, 100), next, base }; }
+function updateLevel(){
+  const l = levelInfo(store.xp);
+  $('#lvl').textContent = 'Lv.' + l.lvl;
+  $('#lvlbar').style.width = l.pct + '%';
+  $('#xptxt').textContent = store.xp + ' XP';
+}
+function avgKeyMs(){ const v = Object.values(T.keys).filter(k => k.n);
+  return v.length ? v.reduce((a, k) => a + k.sum / k.n, 0) / v.length : 0; }
+function lenLabel(l){ const m = { t15:'15 秒', t30:'30 秒', t60:'60 秒', t120:'120 秒', inf:'无限',
+  w10:'10 词', w25:'25 词', w50:'50 词', w100:'100 词' }; return m[l] || l; }
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c])); }
+function showResult(rec, isRecord){
+  $('#rMode').textContent = rec.label + ' · ' + lenLabel(S.len) + (S.blind ? ' · 盲打' : '') + (S.strict ? ' · 严格' : '');
+  $('#rBadge').hidden = !isRecord;
+  $('#rWpm').textContent = rec.wpm; $('#rAcc').textContent = rec.acc;
+  const rows = [
+    ['raw', rec.raw + ' wpm'], ['一致性', rec.cons + '%'], ['字符', rec.ok + '对/' + rec.bad + '错/' + rec.extra + '多' + (rec.missed ? '/' + rec.missed + '漏' : '')],
+    ['击键', rec.strokes + ' 次'], ['用时', rec.dur + ' 秒'], ['得分', rec.xp + ' XP'],
+    ['键位均速', (v => v > 0 ? v.toFixed(0) + ' ms/键' : '—')(avgKeyMs())],
+    ['纪录', (store.best[S.lang + ':' + S.mode + ':' + (S.mode === 'key' ? S.lesson : S.variant) + ':' + S.len] || rec).wpm + ' wpm']
+  ];
+  $('#rGrid').innerHTML = rows.map(r => '<div>' + r[0] + ' <b>' + r[1] + '</b></div>').join('');
+  openModal('#resultModal'); setUnits(kbHeat);
+  drawChart($('#wpmChart'), T.snaps);
+  const errs = Object.entries(T.keys).filter(([, v]) => v.e > 0).sort((a, b) => b[1].e - a[1].e).slice(0, 12);
+  $('#errChars').innerHTML = errs.length ? errs.map(([c, v]) =>
+    '<span>' + esc(c === ' ' ? '␣' : c) + '<i>' + v.e + '/' + v.p + '</i></span>').join('')
+    : '<span style="color:var(--good);border-color:var(--good)">全对<i>零失误</i></span>';
+  const wk = Object.entries(T.keys).filter(([, v]) => v.p >= 2)
+    .sort((a, b) => (b[1].e / b[1].p) - (a[1].e / a[1].p)).slice(0, 8);
+  $('#weakKeys').innerHTML = wk.length ? wk.map(([c, v]) =>
+    '<button data-k="' + esc(c) + '">' + esc(c === ' ' ? '␣' : c) + '<em>' + Math.round(100 * v.e / v.p) + '%错</em></button>').join('')
+    : '<span style="font-size:12px;color:var(--fg)">本局无明显弱键</span>';
+  $$('#weakKeys button').forEach(b => b.onclick = () => {
+    S.custom = []; const base = b.dataset.k;
+    for(let i = 0; i < 40; i++) S.custom.push(base + (i % 3 ? pick(layoutLetters(), null) : base));
+    S.mode = 'custom'; closeAll(); renderConfig(); startRound(); toast('已针对「' + base + '」出题');
+  });
+  updateHeat();
+}
+
+/* ---------- 图表 ---------- */
+function prep(cv){
+  const dpr = window.devicePixelRatio || 1, r = cv.getBoundingClientRect();
+  const w = Math.max(300, r.width), h = Math.max(120, r.height);
+  cv.width = w * dpr; cv.height = h * dpr;
+  const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, w, h);
+  return { g, w, h };
+}
+function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+function drawChart(cv, snaps){
+  const { g, w, h } = prep(cv);
+  if(!snaps.length){ g.fillStyle = css('--fg'); g.font = '13px sans-serif'; g.fillText('数据不足', 12, 24); return; }
+  const pad = { l:34, r:40, t:12, b:20 };
+  const maxW = Math.max(60, Math.ceil(Math.max(...snaps.map(s => Math.max(s.wpm, s.raw))) / 20) * 20);
+  const maxT = Math.max(5, snaps[snaps.length - 1].t);
+  const X = t => pad.l + (w - pad.l - pad.r) * (t / maxT);
+  const Y = v => h - pad.b - (h - pad.t - pad.b) * (v / maxW);
+  g.strokeStyle = css('--line'); g.lineWidth = 1; g.font = '10px Menlo,monospace'; g.fillStyle = css('--fg');
+  for(let i = 0; i <= 4; i++){ const v = maxW * i / 4, y = Y(v);
+    g.beginPath(); g.moveTo(pad.l, y); g.lineTo(w - pad.r, y); g.stroke();
+    g.textAlign = 'right'; g.fillText(String(Math.round(v)), pad.l - 5, y + 3);
+    g.textAlign = 'left'; g.fillText((i * 25) + '%', w - pad.r + 4, y + 3); }
+  g.textAlign = 'center';
+  const tf = t => (maxT < 12 ? Math.round(t * 10) / 10 : Math.round(t)) + 's';
+  for(let i = 0; i <= 4; i++){ const t = maxT * i / 4; g.fillText(tf(t), X(t), h - 6); }
+  const line = (get, color, width, dash) => {
+    g.beginPath(); g.strokeStyle = color; g.lineWidth = width; g.setLineDash(dash || []);
+    snaps.forEach((s, i) => { const x = X(s.t), y = get(s); i ? g.lineTo(x, y) : g.moveTo(x, y); });
+    g.stroke(); g.setLineDash([]);
+  };
+  line(s => Y(s.raw), css('--fg'), 1.5, [4, 3]);
+  line(s => Y(s.wpm), css('--acc'), 2.4);
+  line(s => Y(maxW * s.acc / 100), css('--good'), 1.2, [2, 3]);
+  if(snaps.length < 60){ g.fillStyle = css('--acc');
+    snaps.forEach(s => g.fillRect(X(s.t) - 1.5, Y(s.wpm) - 1.5, 3, 3)); }
+}
+function drawHist(cv){
+  const h2 = store.hist.filter(x => x.lang === S.lang).slice(0, 40).reverse();
+  const { g, w, h } = prep(cv);
+  if(!h2.length){ g.fillStyle = css('--fg'); g.font = '13px sans-serif'; g.fillText('这种语言还没有成绩', 12, 24); return; }
+  const pad = { l:34, r:40, t:12, b:20 };
+  const maxW = Math.max(60, Math.ceil(Math.max(...h2.map(x => x.wpm)) / 20) * 20);
+  const X = i => pad.l + (w - pad.l - pad.r) * (h2.length === 1 ? .5 : i / (h2.length - 1));
+  const Y = v => h - pad.b - (h - pad.t - pad.b) * (v / maxW);
+  g.strokeStyle = css('--line'); g.font = '10px Menlo,monospace'; g.fillStyle = css('--fg');
+  for(let i = 0; i <= 4; i++){ const v = maxW * i / 4, y = Y(v);
+    g.beginPath(); g.moveTo(pad.l, y); g.lineTo(w - pad.r, y); g.stroke();
+    g.textAlign = 'right'; g.fillText(String(Math.round(v)), pad.l - 5, y + 3);
+    g.textAlign = 'left'; g.fillText((i * 25) + '%', w - pad.r + 4, y + 3); }
+  const line = (get, color) => { g.beginPath(); g.strokeStyle = color; g.lineWidth = 2;
+    h2.forEach((s, i) => { const x = X(i), y = get(s); i ? g.lineTo(x, y) : g.moveTo(x, y); }); g.stroke(); };
+  line(s => Y(maxW * s.acc / 100), css('--good'));
+  line(s => Y(s.wpm), css('--acc'));
+  g.fillStyle = css('--acc2');
+  h2.forEach((s, i) => { g.beginPath(); g.arc(X(i), Y(s.wpm), 2.6, 0, 7); g.fill(); });
+}/* ================= 界面配置 ================= */
+const LANGS = [ ['en','英语 English'], ['zh','中文拼音'], ['ja','日本語'], ['ko','한국어'],
+  ['fr','Français'], ['ru','Русский'], ['de','Deutsch'], ['es','Español'] ];
+const MODES = [['key','指法'],['words','词语'],['symbols','符号'],['numbers','数字'],['code','代码'],
+  ['custom','自定义'],['weak','弱键'],['dictation','听打'],['daily','每日']];
+const VARIANTS = {
+  en:[['w200','基础200'],['w1000','常用千词'],['wadv','进阶词'],['wlong','长难词'],['wconf','易混词'],['wrow','同行词']],
+  zh:[['zw','词语拼音'],['zy','音节练习']],
+  ja:[['jw','常用词'],['jk','假名音节']],
+  fr:[['fw','常用词'],['fl','长难词']], ru:[['rw','常用词'],['rl','长难词']],
+  de:[['dw','常用词'],['dl','长难词']], es:[['sw','常用词'],['sl','长难词']],
+  ko:[['kw','常用词']]
+};
+const LENS = [['t15','15 秒'],['t30','30 秒'],['t60','60 秒'],['t120','120 秒'],['inf','无限'],
+  ['w10','10 词'],['w25','25 词'],['w50','50 词'],['w100','100 词']];
+const CODE_OK = new Set(['en','zh']);
+
+function chip(label, on, fn, cls){
+  const b = document.createElement('button');
+  b.className = 'chip' + (cls ? ' ' + cls : '') + (on ? ' on' : '');
+  b.textContent = label; b.onclick = fn; return b;
+}
+function mkSel(opts, val, fn, title){
+  const s = document.createElement('select');
+  if(title) s.title = title;
+  opts.forEach(o => { const op = document.createElement('option');
+    op.value = o[0]; op.textContent = o[1]; s.appendChild(op); });
+  s.value = val;
+  if(s.selectedIndex < 0 && s.options.length) s.selectedIndex = 0;
+  s.onchange = () => fn(s.value);
+  return s;
+}
+function langSelect(){
+  const sel = $('#langSel');
+  sel.innerHTML = '';
+  LANGS.forEach(([v, t]) => { const o = document.createElement('option');
+    o.value = v; o.textContent = t; sel.appendChild(o); });
+  sel.value = S.lang;
+}
+function setLang(v){
+  if(!LAYOUTS[v]) return;
+  S.lang = v;
+  if(S.mode === 'code' && !CODE_OK.has(v)) S.mode = 'words';
+  if(!(VARIANTS[v] || []).some(x => x[0] === S.variant)) S.variant = VARIANTS[v][0][0];
+  rebuildKeys(); renderConfig(); startRound(); writeHash(); saveStore();
+  toast('语言：' + LANGNAME() + (v === 'fr' ? '（AZERTY）' : v === 'ru' ? '（ЙЦУКЕН）'
+    : v === 'de' ? '（QWERTZ）' : v === 'ko' ? '（两倍式标注）' : ''));
+}
+function renderConfig(){
+  // 模式行：9 个芯片
+  const rm = $('#rowMode'); rm.querySelectorAll('.chip,select').forEach(n => n.remove());
+  MODES.forEach(([id, name]) => {
+    const bad = id === 'code' && !CODE_OK.has(S.lang);
+    const b = chip(name, S.mode === id, () => {
+      if(bad){ toast('代码模式需要大括号等字符，请用英语或中文拼音'); return; }
+      S.mode = id; renderConfig(); startRound(); writeHash();
+    }, 'mini');
+    if(bad) b.classList.add('off');
+    rm.appendChild(b);
+  });
+  // 内容行：按模式给下拉或按钮
+  const rv = $('#rowVar'); rv.querySelectorAll('.chip,select,span.hinttxt').forEach(n => n.remove());
+  const lbl = rv.firstElementChild;
+  const inlineDecor = DECORABLE.has(S.lang) && ['custom','daily'].indexOf(S.mode) < 0
+    && ['key','symbols','numbers','code'].indexOf(S.mode) < 0;
+  if(S.mode === 'key'){
+    lbl.textContent = '阶段';
+    rv.appendChild(mkSel(LESSONS.map((l, i) => [String(i), (i + 1) + '·' + l.name]),
+      String(clamp(S.lesson|0, 0, LESSONS.length-1)), v => { S.lesson = +v; startRound(); writeHash(); }, '指法阶段'));
+  } else if(S.mode === 'symbols'){
+    lbl.textContent = '类型';
+    const opts = [['g','符号组合'],['mix','混合']];
+    if(S.lang === 'en' || S.lang === 'zh') opts.unshift(['t','标点短句']);
+    if(!opts.some(o => o[0] === S.variant)) S.variant = opts[0][0];
+    rv.appendChild(mkSel(opts, S.variant, v => { S.variant = v; startRound(); writeHash(); }));
+  } else if(S.mode === 'numbers'){
+    lbl.textContent = '类型';
+    rv.appendChild(mkSel([['rand','随机数'],['year','年份'],['money','金额'],['phone','电话'],['dec','小数'],['expr','算式']],
+      S.variant, v => { S.variant = v; startRound(); writeHash(); }));
+  } else if(S.mode === 'code'){
+    lbl.textContent = '语言';
+    rv.appendChild(mkSel([['c','C 语言'],['py','Python'],['js','JavaScript'],['mix','混合']],
+      ['c','py','js','mix'].includes(S.variant) ? S.variant : 'mix', v => { S.variant = v; startRound(); writeHash(); }));
+  } else if(S.mode === 'custom'){
+    lbl.textContent = '文本';
+    rv.appendChild(chip('粘贴或编辑文本…', false, () => openModal('#customModal'), 'mini'));
+    rv.appendChild(chip('随机行序', !!S.customShuffle, () => { S.customShuffle = !S.customShuffle; renderConfig(); startRound(); writeHash(); }, 'mini'));
+    rv.appendChild(chip((S.custom || []).length ? '已载入 ' + (S.custom || []).length + ' 词' : '未载入（用词库兜底）', false, () => openModal('#customModal'), 'mini'));
+  } else if(S.mode === 'weak'){
+    lbl.textContent = '依据';
+    const wk = weakChars();
+    const t = wk.length ? '弱键：' + wk.slice(0, 6).map(o => o.ch === ' ' ? '␣' : o.ch).join(' ') : '暂无数据，先随便练几局';
+    rv.appendChild(chip(t, false, () => {}, 'mini'));
+  } else if(S.mode === 'daily'){
+    lbl.textContent = '今日';
+    const p = dailyPlan();
+    rv.appendChild(chip('全天同一套题 · 内容随机到本语言词库 · ' + lenLabel(p.len), false, () => {}, 'mini'));
+  } else {
+    lbl.textContent = '词库';
+    if(!(VARIANTS[S.lang] || []).some(o => o[0] === S.variant)) S.variant = VARIANTS[S.lang][0][0];
+    rv.appendChild(mkSel(VARIANTS[S.lang], S.variant, v => { S.variant = v; startRound(); writeHash(); }));
+  }
+  if(inlineDecor){
+    ['caps','punct','digits'].forEach(k => {
+      const n = { caps:'大写', punct:'标点', digits:'数字' }[k];
+      rv.appendChild(chip(n, !!S[k], () => { S[k] = !S[k]; saveStore(); renderConfig(); startRound(); writeHash(); }, 'mini'));
+    });
+  }
+  // 长度行：下拉 + 最常用开关
+  const rl = $('#rowLen'); rl.querySelectorAll('.chip,select').forEach(n => n.remove());
+  rl.appendChild(mkSel(LENS, S.len, v => { S.len = v; startRound(); writeHash(); }, '时长或词数'));
+  rl.appendChild(chip('循环', !!S.loop, () => { S.loop = !S.loop; saveStore(); renderConfig(); writeHash(); startRound(); }, 'mini'));
+  rl.appendChild(chip('严格纠错', !!S.strict, () => { S.strict = !S.strict; saveStore(); renderConfig(); writeHash(); startRound(); }, 'mini'));
+  rl.appendChild(chip('盲打', !!S.blind, () => { S.blind = !S.blind; saveStore(); renderConfig(); writeHash(); applyOptions(); startRound(); }, 'mini'));
+  const grow = document.createElement('div'); grow.className = 'grow'; rl.appendChild(grow);
+  rl.appendChild(chip('⚙ 更多设置', false, () => { renderSettings(); openModal('#setModal'); }, 'mini'));
+  applyOptions();
+  writeHash();
+}
+function renderSettings(){
+  const list = $('#setList'); list.innerHTML = '';
+  [['sound','按键音'],['kbd','屏幕键盘'],['hintOn','指法提示'],['heat','错误热力'],
+   ['countdown','开局倒计时'],['blind','盲打'],['strict','严格纠错'],['loop','循环内容']]
+  .forEach(([k, name]) => {
+    const it = document.createElement('div');
+    it.className = 'set-item' + (S[k] ? ' on' : '');
+    it.innerHTML = '<span class="sw"></span><span>' + name + '</span>';
+    it.onclick = () => { S[k] = !S[k]; saveStore(); renderSettings(); applyOptions(); if(k === 'blind') refreshLive(); };
+    list.appendChild(it);
+  });
+}
+function updateHint(){
+  const H = { key:'跟着彩色手指，一次一个键，别低头看键盘', words:'保持节奏比追求瞬时速度更有效',
+    symbols:'小指负责右下区的符号，宁可慢也要准', numbers:'数字在中排上方，中指无名指各管两个',
+    code:'代码符号最容易翻车，慢练成形再提速', custom:'粘贴论文、课文、代码都行',
+    weak:'这里专治你最慢最错的键', dictation:'听到单词后打出它的写法，Shift+空格 重听', daily:'今天的题目固定，和昨天的自己比' };
+  const LN = { fr:'法语请把系统输入法切到 AZERTY',
+    ru:'俄语请切到 ЙЦУКЕН 布局', de:'德语请切到 QWERTZ 布局', es:'西语请切到西班牙键盘（带 ñ）',
+    ko:'韩语显示两倍式字母，按罗马字转写输入', ja:'日语按罗马字（ローマ字）输入' };
+  const tip = (H[S.mode] || '') + (LN[S.lang] && S.mode === 'words' ? ' · ' + LN[S.lang] : '');
+  $('#startHint').textContent = S.mode === 'dictation' ? '听到单词后开始打字' : '开始打字即可';
+  return tip;
+}
+function applyOptions(){
+  document.documentElement.dataset.theme = S.theme;
+  const showKbd = S.kbd && !S.blind;
+  kbMain.style.display = showKbd ? '' : 'none';
+  legend.style.display = showKbd && !IS_TOUCH ? '' : (IS_TOUCH ? '' : 'none');
+  $$('#kbMain .key').forEach(el => {
+    clearHeat(el);
+    if(S.heat && showKbd){
+      let st = store.keys[el.dataset.lo];
+      if(!st && el.dataset.up) st = store.keys[el.dataset.up];
+      const hc = heatClass(st);
+      if(hc) el.classList.add(hc);
+    }
+  });
+  updateTargets();
+}
+function cycleTheme(){ S.theme = S.theme === 'dark' ? 'light' : 'dark';
+  applyOptions(); saveStore(); writeHash(); toast(S.theme === 'dark' ? '暗色' : '亮色'); }
+function copyCfgHref(){
+  if(navigator.clipboard) navigator.clipboard.writeText(location.href)
+    .then(() => toast('配置链接已复制'), () => toast(location.href));
+  else toast(location.href);
+}
+function writeHash(){
+  try{
+    const p = new URLSearchParams();
+    p.set('g', S.lang); p.set('m', S.mode);
+    p.set('v', S.mode === 'key' ? String(S.lesson) : S.variant); p.set('l', S.len);
+    ['caps','digits','punct','strict','loop','blind','countdown','kbd','sound','hintOn','heat'].forEach(k => p.set(k, S[k] ? '1' : '0'));
+    const s = p.toString();
+    if(location.hash.slice(1) !== s) history.replaceState(null, '', '#' + s);
+  }catch(e){}
+}
+function parseHash(){
+  try{
+    if(!location.hash.length) return;
+    const p = new URLSearchParams(location.hash.slice(1));
+    if(p.get('g') && LAYOUTS[p.get('g')]) S.lang = p.get('g');
+    if(p.get('m')) S.mode = p.get('m');
+    if(p.get('v')){ if(S.mode === 'key') S.lesson = clamp(parseInt(p.get('v'), 10) || 0, 0, 8); else S.variant = p.get('v'); }
+    if(p.get('l') && LENS.some(o => o[0] === p.get('l'))) S.len = p.get('l');
+    ['caps','digits','punct','strict','loop','blind','countdown','kbd','sound','hintOn','heat'].forEach(k => {
+      if(p.get(k) !== null) S[k] = p.get(k) === '1'; });
+  }catch(e){}
+}
+
+/* ---------- 弹层 ---------- */
+function openModal(sel){ $(sel).classList.add('on'); }
+function closeModal(sel){ const el = typeof sel === 'string' ? $(sel) : sel; if(el) el.classList.remove('on'); }
+function closeAll(){ $$('.modal').forEach(m => m.classList.remove('on')); }
+function anyModal(){ return $('.modal.on'); }
+let toastT = null;
+function toast(msg){
+  const el = $('#toast');
+  el.textContent = msg; el.classList.add('on');
+  clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('on'), 1900);
+}
+function restart(){ closeAll(); startRound(); }
+
+/* ---------- 历史 ---------- */
+function fmtDate(d){ return new Date(d).toLocaleString('zh-CN', { month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' }); }
+function renderHist(){
+  const h = store.hist.filter(x => x.lang === S.lang);
+  const all = store.hist;
+  $('#hSummary').textContent = all.length ? '共 ' + all.length + ' 局 · 本语言 ' + h.length + ' 局 · 最高 ' +
+    Math.max.apply(null, all.map(x => x.wpm).concat([0])) + ' wpm · 平均准确率 ' +
+    Math.round(all.reduce((a, x) => a + x.acc, 0) / all.length) + '%' : '还没有记录，先打一局';
+  $('#histTable').innerHTML = '<tr><th>时间</th><th>语言</th><th>模式</th><th>长度</th><th>wpm</th><th>raw</th><th>acc</th><th>一致</th><th>XP</th></tr>' +
+    all.slice(0, 60).map(r => '<tr><td>' + fmtDate(r.d) + '</td><td>' + esc(r.lang.toUpperCase()) + '</td><td>' + esc(r.label.replace(LANGNAME() + '·','')) + '</td><td>' +
+    lenLabel(r.len) + '</td><td><b>' + r.wpm + '</b></td><td>' + r.raw + '</td><td>' + r.acc + '%</td><td>' + r.cons + '%</td><td>' + r.xp + '</td></tr>').join('');
+  $('#bestTable').innerHTML = '<table><tr><th>设置</th><th>wpm</th><th>acc</th><th>一致性</th><th>日期</th></tr>' +
+    Object.entries(store.best).map(([k, v]) => '<tr><td>' + esc(v.label) + ' · ' + lenLabel(v.len) + '</td><td><b>' + v.wpm +
+      '</b></td><td>' + v.acc + '%</td><td>' + v.cons + '%</td><td>' + new Date(v.d).toLocaleDateString('zh-CN') + '</td></tr>').join('') + '</table>';
+  $('#allWeak').innerHTML = weakChars().map(o =>
+    '<button data-k="' + esc(o.ch) + '">' + esc(o.ch === ' ' ? '␣' : o.ch) + '<em>' + o.e + '/' + o.p + ' 错</em></button>').join('')
+    || '<span class="hinttxt">暂无键位统计</span>';
+  $$('#allWeak button').forEach(b => b.onclick = () => {
+    S.custom = []; for(let i = 0; i < 40; i++) S.custom.push(b.dataset.k);
+    S.mode = 'custom'; closeAll(); renderConfig(); startRound(); toast('已针对「' + b.dataset.k + '」出题');
+  });
+  setTimeout(() => drawHist($('#histChart')), 40);
+}
+
+/* ---------- 主输入路由 ---------- */
+document.addEventListener('keydown', e => {
+  const m = anyModal();
+  if(m){
+    if(e.key === 'Escape'){ closeAll(); e.preventDefault(); }
+    else if(m.id === 'customModal' && e.key === 'Enter' && (e.ctrlKey || e.metaKey)){ e.preventDefault(); startCustom(); }
+    return;
+  }
+  const t = e.target;
+  if(t && (t.tagName === 'TEXTAREA' || t.tagName === 'INPUT' || t.tagName === 'SELECT')){
+    if(e.key !== 'Escape') return;
+    e.preventDefault(); t.blur(); return;
+  }
+  switch(e.key){
+    case 'Tab': e.preventDefault(); restart(); return;
+    case 'Enter': e.preventDefault(); if(e.shiftKey) openModal('#customModal'); else restart(); return;
+    case 'Escape': if(!T.over){ endTest('esc'); toast('已结束本局'); } return;
+    case 'Backspace': e.preventDefault(); backspace(); return;
+    case 'F1': e.preventDefault(); openModal('#helpModal'); return;
+    case 'F2': e.preventDefault(); cycleTheme(); return;
+    case 'F3': e.preventDefault(); openModal('#historyModal'); renderHist(); return;
+  }
+  if(e.ctrlKey || e.metaKey || e.altKey) return;
+  if(['Shift', 'Control', 'Alt', 'Meta', 'CapsLock'].indexOf(e.key) >= 0){
+    (KEYMAP[e.key.toLowerCase()] || []).forEach(n => n.el.classList.add('down'));
+    return;
+  }
+  if(e.key === ' ' && e.shiftKey && S.mode === 'dictation'){
+    e.preventDefault();
+    const done = T.chars.slice(0, T.pos).filter(c => c.sep).length;
+    speakWord(T.words[done]); return;
+  }
+  if(e.key.length === 1){ e.preventDefault(); typeChar(e.key); }
+});
+document.addEventListener('keyup', e => {
+  (KEYMAP[e.key.toLowerCase()] || []).forEach(n => n.el.classList.remove('down'));
+});
+function virtualPress(lo, up){
+  if(anyModal()) return;
+  if(lo === 'shift' || lo === 'caps'){ T.mobileShift = !T.mobileShift; latchShift(); return; }
+  if(lo === 'backspace'){ backspace(); return; }
+  if(lo === 'enter'){ restart(); return; }
+  if(lo === 'tab') return;
+  if(lo === 'space'){ typeChar(' '); return; }
+  const ch = T.mobileShift ? (S.lang === 'ko' ? lo.toUpperCase() : (up || lo.toUpperCase())) : lo;
+  T.mobileShift = false; latchShift();
+  typeChar(ch);
+}
+function latchShift(){
+  $$('#kbMain .key[data-lo="shift"],#kbMain .key[data-lo="caps"]').forEach(el => el.classList.toggle('down', T.mobileShift));
+}
+function feedback(raw, good){
+  (KEYMAP[raw] || []).forEach(n => {
+    n.el.classList.add('down', good ? 'hit-ok' : 'hit-bad');
+    setTimeout(() => n.el.classList.remove('down', good ? 'hit-ok' : 'hit-bad'), 95);
+  });
+  click(good ? 'ok' : 'bad');
+}
+function startCustom(){
+  const raw = $('#customText').value || '';
+  const words = raw.split(/\s+/).filter(Boolean);
+  if(!words.length){ toast('还没有内容'); return; }
+  S.custom = words; S.mode = 'custom';
+  closeModal('#customModal'); renderConfig(); startRound();
+  toast('已载入 ' + words.length + ' 词');
+}
+
+/* ---------- 启动 ---------- */
+function init(){
+  loadStore();
+  parseHash();
+  document.documentElement.dataset.theme = S.theme;
+  rebuildKeys();
+  computeLH();
+  langSelect();
+  renderConfig();
+  updateLevel();
+  startRound();
+  if(IS_TOUCH) toast('手机点屏幕键盘即可练习，大写先点 shift');
+  if(!('speechSynthesis' in window)) toast('此浏览器不支持语音听打');
+  writeHash();
+}
+window.addEventListener('resize', () => {
+  computeLH(); placeCaret(); setUnits(kbHeat);
+  if($('#resultModal').classList.contains('on')) drawChart($('#wpmChart'), T.snaps);
+  if($('#historyModal').classList.contains('on')) drawHist($('#histChart'));
+});
+$('#langSel').addEventListener('change', e => setLang(e.target.value));
+$('#btnTheme').onclick = cycleTheme;
+$('#btnHelp').onclick = () => openModal('#helpModal');
+$('#btnCloseHelp').onclick = () => closeAll();
+$('#btnSet').onclick = () => { renderSettings(); openModal('#setModal'); };
+$('#btnSetClose').onclick = () => closeAll();
+$('#btnCopyCfg').onclick = copyCfgHref;
+$('#btnHistory').onclick = () => { openModal('#historyModal'); renderHist(); };
+$('#btnCloseHist').onclick = () => closeAll();
+$('#btnClearHist').onclick = () => {
+  if(!confirm('确定清空本地历史与键位统计？')) return;
+  store.hist = []; store.best = {}; store.keys = {}; store.xp = 0; store.daily = {};
+  saveStore(); updateLevel(); renderHist(); toast('已清空');
+};
+$('#btnAgain').onclick = () => restart();
+$('#btnNext').onclick = () => { closeAll(); startRound(); };
+$('#btnWeak').onclick = () => { S.mode = 'weak'; closeAll(); renderConfig(); startRound(); toast('弱键训练开始'); };
+$('#btnCopy').onclick = () => {
+  const r = store.hist[0]; if(!r) return;
+  const txt = '打字练习 ' + r.wpm + ' wpm / 准确率 ' + r.acc + '% / raw ' + r.raw + ' / 一致性 ' + r.cons + '% · ' + r.label + ' · ' + lenLabel(r.len);
+  if(navigator.clipboard) navigator.clipboard.writeText(txt).then(() => toast('成绩已复制'), () => toast(txt)); else toast(txt);
+};
+$('#btnCustomGo').onclick = startCustom;
+$('#btnCustomCancel').onclick = () => closeModal('#customModal');
+$$('.modal').forEach(m => m.addEventListener('mousedown', e => { if(e.target === m){ m.classList.remove('on'); if(m.id === 'setModal') renderConfig(); } }));
+document.addEventListener('pointerdown', () => { actx(); }, { once:true });
+if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+
+/* 供自动化测试使用 */
+window.TY = {
+  S, T, startRound, restart, typeChar, endTest, startCustom, renderConfig, setLang, rebuildKeys,
+  stats: () => ({ wpm:wpmNow(), raw:rawNow(), acc:accOf(), pos:T.pos, len:T.chars.length,
+    strokes:Object.assign({}, T.strokes), firstWord:firstWord(), started:T.started, over:T.over }),
+  states: () => T.chars.slice(0, 30).map(c => c.st),
+  typeAll: str => { for(const c of str) typeChar(c); },
+  target: () => T.chars[T.pos] ? T.chars[T.pos].ch : null,
+  lessons: () => LESSONS.map(l => l.name + ':' + l.set.slice(0, 6).join('')),
+  words: () => T.words.slice(0, 8).map(w => w.lab ? (w.lab + '|' + w.code) : w.code)
+};
+function firstWord(){
+  const c = T.chars; let s = '';
+  for(let i = 0; i < c.length; i++){ if(c[i].sep) break; s += c[i].ch; }
+  return s;
+}
+</script>
+</body>
+</html>

@@ -169,7 +169,7 @@
         <div class="toast" id="toast"></div>
     </div>
     <div class="tip">
-        <b>方向键 / WASD</b> 或 <b>滑动屏幕</b> 移动方块<br>
+        <b>方向键 / WASD</b>、<b>滑动屏幕</b>、<b>鼠标拖拽</b> 或 <b>触摸板双指划动</b> 移动方块<br>
         <b>撤回</b> 可回到上一步；<b>达成 2048 后可继续玩</b>
     </div>
 </div>
@@ -443,6 +443,60 @@
         doMove(dir);
         startX = startY = undefined;
     }, { passive: true });
+
+    // 鼠标拖拽：在棋盘上按住拖动，松手时按拖动方向移动
+    var mouseStartX, mouseStartY, mouseDragging = false;
+    gameArea.addEventListener('mousedown', function (e) {
+        if (e.button !== 0) return;      // 只响应左键
+        if (overlay.classList.contains('show')) return;   // 遮罩弹出时不拖拽
+        mouseStartX = e.clientX;
+        mouseStartY = e.clientY;
+        mouseDragging = true;
+        e.preventDefault();
+    });
+    document.addEventListener('mouseup', function (e) {
+        if (!mouseDragging) return;
+        mouseDragging = false;
+        var dx = e.clientX - mouseStartX;
+        var dy = e.clientY - mouseStartY;
+        var adx = Math.abs(dx), ady = Math.abs(dy);
+        if (Math.max(adx, ady) < 24) return;
+        var dir = adx > ady ? (dx > 0 ? 1 : 0) : (dy > 0 ? 3 : 2);
+        doMove(dir);
+    });
+
+    // 触摸板双指扫动 / 鼠标滚轮：页面任意位置划动都能移动，一次手势只算一步
+    var wheelAccX = 0, wheelAccY = 0, wheelLock = false, wheelIdleTimer = null;
+    function wheelToPixels(e) {
+        // deltaMode: 0=像素 1=行（Firefox/Linux 常见） 2=页；统一换算成像素，
+        // 否则行模式下 deltaY 只有个位数，永远累积不到阈值
+        var f = e.deltaMode === 1 ? 33 : (e.deltaMode === 2 ? window.innerHeight : 1);
+        return { x: e.deltaX * f, y: e.deltaY * f };
+    }
+    document.addEventListener('wheel', function (e) {
+        e.preventDefault();
+        if (overlay.classList.contains('show')) return;   // 遮罩弹出时不响应
+        if (wheelLock) return;
+        var d = wheelToPixels(e);
+        // 新手势与已累积方向相反，视为另一次扫动，重新累计
+        if (d.x && wheelAccX && d.x * wheelAccX < 0) wheelAccX = 0;
+        if (d.y && wheelAccY && d.y * wheelAccY < 0) wheelAccY = 0;
+        wheelAccX += d.x;
+        wheelAccY += d.y;
+        var adx = Math.abs(wheelAccX), ady = Math.abs(wheelAccY);
+        if (Math.max(adx, ady) < 24) {
+            // 手势不够大就防抖归零，残值不泄漏到下一次划动
+            clearTimeout(wheelIdleTimer);
+            wheelIdleTimer = setTimeout(function () { wheelAccX = wheelAccY = 0; }, 200);
+            return;
+        }
+        var dir = adx > ady ? (wheelAccX > 0 ? 1 : 0) : (wheelAccY > 0 ? 3 : 2);
+        doMove(dir);
+        wheelAccX = wheelAccY = 0;
+        wheelLock = true;
+        // 锁定期内丢弃惯性滚动（momentum）的后续事件，一次扫动只走一步
+        setTimeout(function () { wheelLock = false; }, 250);
+    }, { passive: false });
 
     // 暴露全局
     window.newGame = newGame;

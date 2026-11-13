@@ -163,3 +163,56 @@ fig.tight_layout()
 fig.savefig(BASE + "cauchy-vector-geom.png", dpi=150)
 plt.close(fig)
 print("vector geom done")
+
+# ============ 图：二维向量的内积 = 投影 × 长度 ============
+fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.0, 5.2), dpi=150)
+# 通用设置
+u = np.array([3.4, 0.0])          # 让 u 沿 x 轴，方便看投影
+v = np.array([1.7, 2.1])
+O = np.zeros(2)
+# --- 左：投影视角 ---
+ax = axA
+ax.annotate("", xy=u, xytext=O, arrowprops=dict(arrowstyle="->", color=BLUE, lw=2.6))
+ax.text(u[0]+0.05, -0.32, "$u$", fontsize=15, color=BLUE)
+ax.annotate("", xy=v, xytext=O, arrowprops=dict(arrowstyle="->", color=ORANGE, lw=2.6))
+ax.text(v[0]+0.05, v[1]+0.05, "$v$", fontsize=15, color=ORANGE)
+# v 在 u 上的投影点
+proj = (u@v)/(u@u)*u
+ax.plot([v[0], proj[0]], [v[1], proj[1]], color="#888", lw=1.2, ls="--")
+ax.annotate("", xy=proj, xytext=O, arrowprops=dict(arrowstyle="->", color="#4a7c59", lw=2.2))
+ax.text(proj[0]/2, -0.34, "投影 $|v|\\cos\\theta$", fontsize=11, color="#4a7c59", ha="center")
+# 直角标记 at proj
+d1 = (u-u*0)/np.linalg.norm(u); d2 = (v-proj)/np.linalg.norm(v-proj)
+s0=0.22
+ax.plot([proj[0]+s0*d1[0], proj[0]+s0*d1[0]+s0*d2[0], proj[0]+s0*d2[0]],
+        [proj[1]+s0*d1[1], proj[1]+s0*d1[1]+s0*d2[1], proj[1]+s0*d2[1]], color="#444", lw=1.2)
+# 夹角弧
+import numpy as np
+ang = np.linspace(0, np.arctan2(v[1],v[0]), 40)
+r=0.9
+ax.plot(r*np.cos(ang), r*np.sin(ang), color="#444", lw=1.1)
+ax.text(1.05, 0.32, "$\\theta$", fontsize=13, color="#444")
+ax.set_title("内积的几何意义：$u\\cdot v=|u|\\,|v|\\cos\\theta$", fontsize=11.5, color=INK)
+ax.set_xlim(-0.5, 4.2); ax.set_ylim(-0.9, 2.9); ax.set_aspect("equal")
+ax.axhline(0,color="#ccc",lw=0.7); ax.axvline(0,color="#ccc",lw=0.7)
+style(ax)
+# --- 右：分量视角 ---
+ax = axB
+ax.annotate("", xy=u, xytext=O, arrowprops=dict(arrowstyle="->", color=BLUE, lw=2.6))
+ax.text(u[0]+0.05, -0.32, "$u=(3,0)$", fontsize=12, color=BLUE)
+ax.annotate("", xy=v, xytext=O, arrowprops=dict(arrowstyle="->", color=ORANGE, lw=2.6))
+ax.text(v[0]+0.05, v[1]+0.05, "$v=(1.7,2.1)$", fontsize=12, color=ORANGE)
+# 分量分解：v 的 x、y 分量虚线
+ax.plot([v[0],v[0]],[0,v[1]], color="#bbb", lw=1.0, ls=":")
+ax.plot([0,v[0]],[v[1],v[1]], color="#bbb", lw=1.0, ls=":")
+ax.set_title("分量算法：$u\\cdot v = u_x v_x + u_y v_y$", fontsize=11.5, color=INK)
+ax.text(0.2, 2.55, "$u\\cdot v=3\\times1.7+0\\times2.1=5.1$\n$|u|=\\sqrt{3^2+0^2}=3$\n$|v|=\\sqrt{1.7^2+2.1^2}\\approx2.7$\n$|u||v|\\cos\\theta\\approx 3\\times2.7\\times0.63\\approx5.1$",
+        fontsize=10.5, color=INK, va="top")
+ax.set_xlim(-0.5, 4.2); ax.set_ylim(-0.9, 2.9); ax.set_aspect("equal")
+ax.axhline(0,color="#ccc",lw=0.7); ax.axvline(0,color="#ccc",lw=0.7)
+style(ax)
+fig.suptitle("二维向量的内积：两种算法，同一个数", fontsize=12.5, color=INK)
+fig.tight_layout()
+fig.savefig(BASE + "dot-product-2d.png", dpi=150)
+plt.close(fig)
+print("dot product done")

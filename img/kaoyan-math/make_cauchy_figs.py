@@ -115,3 +115,51 @@ fig.savefig(BASE + "cauchy-algebra-cases.png", dpi=150)
 plt.close(fig)
 
 print("done")
+
+# ============ 图：向量形式几何 —— u+tv 沿直线滑动，最短时垂直于 v ============
+fig, ax = plt.subplots(figsize=(7.2, 6.0), dpi=150)
+u = np.array([3.0, 2.2])
+v = np.array([2.2, 0.15])
+# u+tv 的轨迹：过 u 沿 v 方向的直线
+tt = np.linspace(-2.2, 1.6, 50)
+line = np.array([u + s*v for s in tt])
+ax.plot(line[:,0], line[:,1], color="#999", lw=1.2, ls="--", zorder=1)
+# 原点
+O = np.zeros(2)
+# u+tv 最短点：投影 令 (u+tv)⊥v => t* = -<u,v>/<v,v>
+ts = -(u@v)/(v@v)
+Pmin = u + ts*v
+# 画 u, v
+ax.annotate("", xy=u, xytext=O, arrowprops=dict(arrowstyle="->", color=BLUE, lw=2.4))
+ax.text(u[0]*0.42, u[1]*0.42+0.35, "$u$", fontsize=15, color=BLUE)
+ax.annotate("", xy=v*1.15, xytext=O, arrowprops=dict(arrowstyle="->", color=ORANGE, lw=2.4))
+ax.text(v[0]*1.2, v[1]*1.2+0.18, "$v$", fontsize=15, color=ORANGE)
+# 最短的 u+tv
+ax.annotate("", xy=Pmin, xytext=O, arrowprops=dict(arrowstyle="->", color=RED, lw=2.2))
+ax.text(Pmin[0]*0.55-0.1, Pmin[1]*0.55+0.28, "$u+tv$（最短）", fontsize=11, color=RED)
+# 从 u 到 Pmin 的垂线段（就是 tv）
+ax.annotate("", xy=Pmin, xytext=u, arrowprops=dict(arrowstyle="->", color="#7a7a2a", lw=1.6))
+ax.text((u[0]+Pmin[0])/2+0.05, (u[1]+Pmin[1])/2+0.28, "$tv$", fontsize=12, color="#7a7a2a")
+# 直角标记 at Pmin: (u+tv) ⟂ v
+import numpy as np2
+dir1 = -Pmin/np.linalg.norm(Pmin)
+dir2 = v/np.linalg.norm(v)
+s0 = 0.28
+p1 = Pmin + s0*dir1
+p2 = Pmin + s0*dir1 + s0*dir2
+p3 = Pmin + s0*dir2
+ax.plot([p1[0],p2[0],p3[0]],[p1[1],p2[1],p3[1]], color="#444", lw=1.3)
+# 点
+ax.plot([u[0]],[u[1]],"o",color=BLUE,ms=7,zorder=6)
+ax.plot([Pmin[0]],[Pmin[1]],"o",color=RED,ms=8,zorder=6)
+ax.text(1.0, 3.6, "$q(t)=\\|u+tv\\|^2\\geq0$：$u+tv$ 沿虚线滑动，\n长度最短时恰垂直于 $v$，这个最小长度平方 $\\geq0$",
+        fontsize=10.5, color=INK)
+ax.set_xlim(-1.0, 6.2); ax.set_ylim(-1.2, 4.4)
+ax.set_aspect("equal")
+ax.axhline(0, color="#ccc", lw=0.7); ax.axvline(0, color="#ccc", lw=0.7)
+ax.set_title("向量形式：$\\min_t\\|u+tv\\|^2=\\|u\\|^2-\\dfrac{\\langle u,v\\rangle^2}{\\|v\\|^2}\\geq0$", fontsize=12, color=INK)
+style(ax)
+fig.tight_layout()
+fig.savefig(BASE + "cauchy-vector-geom.png", dpi=150)
+plt.close(fig)
+print("vector geom done")

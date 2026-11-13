@@ -345,7 +345,8 @@ for i in range(n_star):
         pos += 0.45
 ax.text(0.6, 1.75, r"7 个相同球放进 3 个不同的盒子 $\Leftrightarrow$ 插 2 块板", fontsize=11,
         color=INK, ha="left")
-ax.text(0.6, 0.30, r"共 $C_{7+3-1}^{3-1}=C_9^2=36$ 种", fontsize=12, color=BLUE, ha="left")
+ax.text(0.6, 0.30, r"允许空盒：$C_{7+3-1}^{3-1}=C_9^2=36$；每盒至少一个：$C_{7-1}^{3-1}=C_6^2=15$",
+        fontsize=11.5, color=BLUE, ha="left")
 ax.set_xlim(0.3, 8.6); ax.set_ylim(0.05, 2.1)
 ax.axis("off")
 ax.set_title("隔板法：球相同、盒不同，只看两块板插在哪", fontsize=12.5, color=INK)

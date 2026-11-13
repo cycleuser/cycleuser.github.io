@@ -216,3 +216,33 @@ fig.tight_layout()
 fig.savefig(BASE + "dot-product-2d.png", dpi=150)
 plt.close(fig)
 print("dot product done")
+
+# ============ 图：f(x)g(x) 是逐点相乘，积分是乘积曲线下的面积 ============
+fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.4, 4.6), dpi=150)
+x = np.linspace(0, 2, 400)
+f = x            # f(x)=x
+g = 2 - x        # g(x)=2-x
+h = f*g          # f(x)g(x)=x(2-x)
+# 左：f、g 两条曲线
+axA.plot(x, f, color=BLUE, lw=2.6, label="$f(x)=x$")
+axA.plot(x, g, color=ORANGE, lw=2.6, label="$g(x)=2-x$")
+axA.fill_between(x, 0, f, color=BLUE, alpha=0.08)
+axA.fill_between(x, 0, g, color=ORANGE, alpha=0.08)
+axA.set_title("两条曲线 $f(x)$ 和 $g(x)$", fontsize=11.5, color=INK)
+axA.set_xlabel("$x$", fontsize=11, color=INK); axA.set_ylabel("函数值", fontsize=11, color=INK)
+axA.legend(loc="upper center", fontsize=10)
+axA.set_xlim(0,2); axA.set_ylim(0,2.2); style(axA)
+# 右：乘积曲线 + 面积
+axB.plot(x, h, color="#6a3d9a", lw=2.8, label="$f(x)g(x)=x(2-x)$")
+axB.fill_between(x, 0, h, color="#6a3d9a", alpha=0.18)
+axB.set_title("乘积曲线及其下方面积 $\\int_0^2 f g\\,dx=4/3$", fontsize=11.5, color=INK)
+axB.set_xlabel("$x$", fontsize=11, color=INK); axB.set_ylabel("$f(x)g(x)$", fontsize=11, color=INK)
+axB.annotate("面积 $=\\int_0^2 x(2-x)\\,dx=\\frac{4}{3}$", xy=(1.0, 0.55),
+             xytext=(0.15, 1.15), fontsize=10.5, color="#6a3d9a",
+             arrowprops=dict(arrowstyle="->", color="#6a3d9a", lw=1.2))
+axB.set_xlim(0,2); axB.set_ylim(0,1.3); style(axB)
+fig.suptitle("积分形式在算什么：每个 $x$ 处把 $f(x)$ 与 $g(x)$ 相乘，得到新曲线，再求它下方的面积", fontsize=12, color=INK)
+fig.tight_layout()
+fig.savefig(BASE + "int-fg-meaning.png", dpi=150)
+plt.close(fig)
+print("int fg done")

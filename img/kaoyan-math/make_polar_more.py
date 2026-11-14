@@ -27,7 +27,7 @@ def frame(ax, xlim, ylim, title):
 PI = np.pi
 BOX = dict(boxstyle="round,pad=0.3", facecolor="white", edgecolor="#dddddd")
 F2, T2 = 11.0, 11.5
-fig, axes = plt.subplots(2, 2, figsize=(12.4, 9.4), dpi=150)
+fig, axes = plt.subplots(2, 2, figsize=(12.6, 9.2), dpi=150)
 a = 1.6
 
 
@@ -44,39 +44,24 @@ def polar_style(ax, xlim, ylim, title):
     ax.set_aspect("equal"); ax.set_xticks([]); ax.set_yticks([])
     for sp in ax.spines.values():
         sp.set_color("#cccccc")
-    ax.set_title(title + "\n极坐标平面里的图形", fontsize=T2, color=INK, pad=6)
+    ax.set_title(title + "\n极坐标平面：$r$ 随 $\\theta$ 变化", fontsize=T2, color=INK, pad=6)
 
 
-def cart_style(ax, xlim, ylim, title, eq, boxpos=(0.5, 0.035)):
+def yx_style(ax, xlim, ylim, title, eq, xticks, xlabels):
     ax.set_xlim(*xlim); ax.set_ylim(*ylim)
-    ax.set_aspect("equal"); ax.grid(True, color="#ececec", lw=0.8)
-    ax.axhline(0, color="#c8c8c8", lw=1.0, zorder=1)
-    ax.axvline(0, color="#c8c8c8", lw=1.0, zorder=1)
-    tk = [t for t in (-2, -1, 0, 1, 2, 3) if xlim[0] < t < xlim[1]]
-    ax.set_xticks(tk); ax.set_xticklabels([str(t) for t in tk], fontsize=F2 - 3.5, color="#999999")
-    tkY = [t for t in (-2, -1, 0, 1, 2) if ylim[0] < t < ylim[1]]
-    ax.set_yticks(tkY); ax.set_yticklabels([str(t) for t in tkY], fontsize=F2 - 3.5, color="#999999")
-    ax.tick_params(length=2, colors="#cccccc")
-    ax.set_xlabel("$x$", fontsize=F2 - 1, color=INK, labelpad=0)
-    ax.set_ylabel("$y$", fontsize=F2 - 1, color=INK, labelpad=0)
-    for sp in ax.spines.values():
-        sp.set_color("#cccccc")
-    ax.set_title(title + "\n直角坐标：$y$ 与 $x$ 的关系", fontsize=T2, color=INK, pad=6)
-    ax.text(boxpos[0], boxpos[1], eq, transform=ax.transAxes, fontsize=F2 - 1,
-            color=INK, ha="center", va="bottom", bbox=BOX)
-
-
-def rt_style(ax, xlim, ylim, title, xt, xl):
-    ax.set_xlim(*xlim); ax.set_ylim(*ylim); ax.grid(True, color="#ececec", lw=0.8)
-    ax.axhline(0, color="#c8c8c8", lw=1.0)
-    ax.axvline(0, color="#c8c8c8", lw=1.0)
-    ax.set_xticks(xt); ax.set_xticklabels(xl, fontsize=F2 - 2, color=INK)
+    ax.grid(True, color="#ececec", lw=0.8)
+    ax.axhline(0, color="#c8c8c8", lw=1.1, zorder=2)
+    ax.axvline(0, color="#c8c8c8", lw=1.1, zorder=2)
+    ax.set_xticks(xticks); ax.set_xticklabels(xlabels, fontsize=F2 - 2.5, color=INK)
     ax.set_yticks([])
+    ax.tick_params(axis="x", colors="#bbbbbb", length=3)
     for sp in ax.spines.values():
         sp.set_color("#cccccc")
-    ax.set_title(title + "\n$r$ 作为 $\\theta$ 的函数", fontsize=T2, color=INK, pad=6)
-    ax.set_xlabel(r"$\theta$", fontsize=F2 - 1, color=INK, labelpad=1)
-    ax.set_ylabel(r"$r$", fontsize=F2 - 1, color=INK, labelpad=1)
+    ax.set_title(title + "\n直角坐标：把 $r,\\theta$ 换成 $y,x$", fontsize=T2, color=INK, pad=6)
+    ax.set_xlabel("$x$", fontsize=F2, color=INK, labelpad=1)
+    ax.set_ylabel("$y$", fontsize=F2, color=INK, labelpad=1)
+    ax.text(0.5, 0.94, eq, transform=ax.transAxes, fontsize=F2 - 1, color=INK,
+            ha="center", va="top", bbox=BOX)
 
 
 # 第一行：圆
@@ -87,16 +72,14 @@ ax.plot(2 * a * np.cos(tt) ** 2, 2 * a * np.cos(tt) * np.sin(tt), color=BLUE, lw
 ax.plot([0], [0], "o", color=INK, ms=7, zorder=6)
 ax.plot([2 * a], [0], "o", color=RED, ms=7, zorder=6)
 ax.text(-0.16, -0.28, "$O$", fontsize=F2, color=INK, ha="right")
-ax.text(1.75, 0.32, "$\\theta=0$ 时 $r=2a$", fontsize=F2 - 2, color=RED)
-ax.text(-1.15, 2.05, "$\\theta$ 取 $\\left[-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right]$ 描完一圈", fontsize=F2 - 2.5, color=GREY)
+ax.text(1.55, 0.32, "$\\theta=0$：$r=2a$", fontsize=F2 - 2, color=RED)
+ax.text(-1.10, 1.95, "$\\theta\\in\\left[-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right]$", fontsize=F2 - 2.5, color=GREY)
 
 ax = axes[0][1]
-cart_style(ax, (-1.2, 3.6), (-2.4, 2.4), "过极点的圆", "$y=\\pm\\sqrt{a^{2}-\\left(x-a\\right)^{2}}$")
-ax.plot(2 * a * np.cos(tt) ** 2, 2 * a * np.cos(tt) * np.sin(tt), color=BLUE, lw=2.6, zorder=3)
-ax.plot([0], [0], "o", color=INK, ms=7, zorder=6)
-ax.plot([2 * a], [0], "o", color=RED, ms=7, zorder=6)
-ax.plot([a], [0], "+", color=GREY, ms=9, zorder=6)
-ax.text(a - 0.30, -0.42, "圆心 $(a,0)$", fontsize=F2 - 2.5, color=GREY)
+yx_style(ax, (-2.0, 2.0), (-0.4, 3.8), "圆的式子里 $r\\to y$、$\\theta\\to x$",
+         "$y=2a\\cos x$", [-PI / 2, 0, PI / 2], [r"$-\frac{\pi}{2}$", "$0$", r"$\frac{\pi}{2}$"])
+ax.plot(tt, 2 * a * np.cos(tt), color=BLUE, lw=2.6, zorder=3)
+ax.plot([0], [2 * a], "o", color=RED, ms=7, zorder=5)
 
 # 第二行：直线
 ax = axes[1][0]
@@ -109,11 +92,10 @@ ax.text(1.08, 1.85, "$x=1$", fontsize=F2 - 1, color=ORANGE)
 ax.text(-1.10, 1.90, "直线不过极点", fontsize=F2 - 2.5, color=GREY)
 
 ax = axes[1][1]
-cart_style(ax, (-1.6, 3.4), (-2.4, 2.4), "不过极点的直线", "$x=1$，不能写成 $y=f(x)$", boxpos=(0.30, 0.06))
-ax.plot([1, 1], [-2.2, 2.2], color=ORANGE, lw=2.6, zorder=3)
-ax.plot([0], [0], "o", color=INK, ms=7, zorder=6)
-ax.text(1.10, 1.90, "$x=1$", fontsize=F2 - 1, color=ORANGE)
-ax.text(-1.10, 2.05, "极点到直线的距离是 $1$", fontsize=F2 - 2.5, color=GREY)
+yx_style(ax, (-1.6, 1.6), (-0.6, 4.6), "直线的式子里 $r\\to y$、$\\theta\\to x$",
+         "$y=\\sec x$", [-PI / 2, 0, PI / 2], [r"$-\frac{\pi}{2}$", "$0$", r"$\frac{\pi}{2}$"])
+ax.plot(tt2, 1 / np.cos(tt2), color=ORANGE, lw=2.6, zorder=3)
+ax.plot([0], [1], "o", color=RED, ms=7, zorder=5)
 
 fig.tight_layout(); fig.savefig(BASE + "pc-circle-line.png", dpi=150); plt.close(fig)
 

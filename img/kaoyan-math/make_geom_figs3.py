@@ -120,7 +120,7 @@ for th, col in zip([np.deg2rad(62), np.deg2rad(118), np.deg2rad(200)], cols):
     ax.plot([F2[0], P[0]], [F2[1], P[1]], color=col, lw=1.4, alpha=0.9)
     ax.plot(*P, "o", color=col, ms=6, zorder=6)
     ax.text(P[0] + 0.10, P[1] + 0.10, "$P$", fontsize=10, color=col)
-ax.text(0.05, -1.52, "三处之和都等于 $2a=6$", fontsize=11, color=INK)
+ax.text(-1.55, -1.45, "三处之和都等于 $2a=6$", fontsize=11, color=INK)
 ax.text(-4.15, -2.55, "把绳子的两端固定在 $F_1,F_2$，绳长 $2a$，", fontsize=10, color=INK)
 ax.text(-4.15, -2.95, "笔尖绷紧划过一圈，画出的就是椭圆", fontsize=10, color=INK)
 ax.set_title("定义：到两焦点距离之和为 $2a$", fontsize=12, color=INK)

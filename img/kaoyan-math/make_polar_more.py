@@ -24,35 +24,77 @@ def frame(ax, xlim, ylim, title):
 
 
 # ============ 1 过极点的圆与直线 ============
-fig, axes = plt.subplots(1, 2, figsize=(11.4, 5.0), dpi=150)
+PI = np.pi
+fig, axes = plt.subplots(2, 2, figsize=(11.6, 8.6), dpi=150)
 
-ax = axes[0]
-frame(ax, (-0.5, 4.0), (-2.0, 2.4), "过极点的圆：$r=2a\\cos\\theta$")
+# 左上：极坐标平面里的圆
+ax = axes[0][0]
+ax.set_xlim(-1.4, 3.3); ax.set_ylim(-2.0, 2.0)
+ax.set_aspect("equal"); ax.set_xticks([]); ax.set_yticks([])
+for sp in ax.spines.values():
+    sp.set_color("#cccccc")
+ax.set_title("过极点的圆 $r=2a\\cos\\theta$\n极坐标平面里的图形", fontsize=11.5, color=INK, pad=6)
 a = 1.6
-th = np.linspace(-np.pi / 2, np.pi / 2, 400)
-ax.plot(2 * a * np.cos(th) * np.cos(th), 2 * a * np.cos(th) * np.sin(th), color=BLUE, lw=2.6, zorder=3)
+tt = np.linspace(-np.pi / 2, np.pi / 2, 400)
+ax.plot(2 * a * np.cos(tt) * np.cos(tt), 2 * a * np.cos(tt) * np.sin(tt), color=BLUE, lw=2.6, zorder=3)
 ax.plot([0], [0], "o", color=INK, ms=7, zorder=6)
-ax.plot([a], [0], "o", color=RED, ms=7, zorder=6)
 ax.plot([2 * a], [0], "o", color=RED, ms=7, zorder=6)
-ax.text(-0.22, -0.28, "$O$", fontsize=F, color=INK, ha="right")
-ax.text(a - 0.05, -0.42, "圆心 $(a,0)$", fontsize=F - 1.5, color=GREY, ha="center")
-ax.text(2 * a + 0.12, 0.10, "$\\theta=0$ 时 $r=2a$", fontsize=F - 1.5, color=RED)
-ax.annotate("极点在圆上", xy=(0, 0), xytext=(0.30, 1.62), fontsize=F - 1.5, color=INK,
-            arrowprops=dict(arrowstyle="->", color=GREY, lw=1.0))
-ax.text(-0.45, -1.85, "$\\theta$ 只能取 $[-\\frac{\\pi}{2},\\frac{\\pi}{2}]$，否则 $r<0$", fontsize=F - 2, color=GREY)
+ax.text(-0.20, -0.26, "$O$", fontsize=F, color=INK, ha="right")
+ax.text(2 * a + 0.12, 0.12, "$\\theta=0$ 时 $r=2a$", fontsize=F - 2, color=RED)
+ax.text(-1.30, -1.85, "$\\theta$ 取 $\\left[-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right]$ 描完一圈", fontsize=F - 2.5, color=GREY)
 
-ax = axes[1]
-frame(ax, (-0.6, 3.4), (-2.0, 2.4), "不过极点的直线：$r=\\sec\\theta$（即 $x=1$）")
+# 右上：极坐标平面里的直线
+ax = axes[0][1]
+ax.set_xlim(-1.6, 3.3); ax.set_ylim(-2.2, 2.2)
+ax.set_aspect("equal"); ax.set_xticks([]); ax.set_yticks([])
+for sp in ax.spines.values():
+    sp.set_color("#cccccc")
+ax.set_title("不过极点的直线 $r=\\sec\\theta$\n极坐标平面里的图形", fontsize=11.5, color=INK, pad=6)
 tt = np.linspace(-1.15, 1.15, 300)
-r = 1 / np.cos(tt)
-ax.plot(r * np.cos(tt), r * np.sin(tt), color=ORANGE, lw=2.6, zorder=3)
-ax.text(1.10, 1.55, "$x=1$", fontsize=F - 1, color=ORANGE)
+ax.plot(np.cos(tt) * 0 + 1.0, np.tan(tt), color=ORANGE, lw=2.6, zorder=3)
 ax.plot([0], [0], "o", color=INK, ms=7, zorder=6)
-ax.text(-0.22, -0.28, "$O$", fontsize=F, color=INK, ha="right")
-ax.annotate("", xy=(1.0, 1.0), xytext=(0, 0),
-            arrowprops=dict(arrowstyle="->", color=GREY, lw=1.1, ls=":"))
-ax.text(0.10, 0.42, "$\\theta$ 变大时 $r$ 也变大", fontsize=F - 2, color=GREY)
-ax.text(-0.55, -1.85, "直线不过极点时，$r$ 随 $\\theta$ 变化，不是常数", fontsize=F - 2, color=INK)
+ax.text(-0.20, -0.30, "$O$", fontsize=F, color=INK, ha="right")
+ax.text(1.10, 1.80, "$x=1$", fontsize=F - 1, color=ORANGE)
+ax.text(-1.55, -2.05, "直线不过极点，$r$ 随 $\\theta$ 变化", fontsize=F - 2.5, color=GREY)
+
+# 左下：r 作为 theta 的函数
+ax = axes[1][0]
+ax.set_xlim(-2.0, 2.0); ax.set_ylim(-0.35, 3.6)
+ax.grid(True, color="#ececec", lw=0.8)
+ax.axhline(0, color="#c8c8c8", lw=1.0)
+ax.axvline(0, color="#c8c8c8", lw=1.0)
+ax.set_xticks([-PI / 2, 0, PI / 2])
+ax.set_xticklabels([r"$-\frac{\pi}{2}$", "0", r"$\frac{\pi}{2}$"], fontsize=F - 2, color=INK)
+ax.set_yticks([])
+for sp in ax.spines.values():
+    sp.set_color("#cccccc")
+ax.set_title("同一函数：$r=2a\\cos\\theta$\n直角坐标里 $r$ 作为 $\\theta$ 的函数", fontsize=11.5, color=INK, pad=6)
+ax.set_xlabel(r"$\theta$", fontsize=F - 1, color=INK, labelpad=1)
+ax.set_ylabel(r"$r$", fontsize=F - 1, color=INK, labelpad=1)
+tt = np.linspace(-np.pi / 2, np.pi / 2, 400)
+ax.plot(tt, 2 * a * np.cos(tt), color=BLUE, lw=2.6, zorder=3)
+ax.plot([0], [2 * a], "o", color=RED, ms=7, zorder=5)
+ax.text(-1.95, 0.30, "一条余弦拱：$\\theta=0$ 处最高 $2a$，两端落到 $0$", fontsize=F - 2.5, color=INK)
+
+# 右下：sec
+ax = axes[1][1]
+ax.set_xlim(-1.6, 1.6); ax.set_ylim(-0.6, 5.2)
+ax.grid(True, color="#ececec", lw=0.8)
+ax.axhline(0, color="#c8c8c8", lw=1.0)
+ax.axvline(0, color="#c8c8c8", lw=1.0)
+ax.set_xticks([-PI / 2, 0, PI / 2])
+ax.set_xticklabels([r"$-\frac{\pi}{2}$", "0", r"$\frac{\pi}{2}$"], fontsize=F - 2, color=INK)
+ax.set_yticks([])
+for sp in ax.spines.values():
+    sp.set_color("#cccccc")
+ax.set_title("同一函数：$r=\\sec\\theta$\n直角坐标里 $r$ 作为 $\\theta$ 的函数", fontsize=11.5, color=INK, pad=6)
+ax.set_xlabel(r"$\theta$", fontsize=F - 1, color=INK, labelpad=1)
+ax.set_ylabel(r"$r$", fontsize=F - 1, color=INK, labelpad=1)
+tt = np.linspace(-1.25, 1.25, 400)
+rr = 1 / np.cos(tt)
+ax.plot(tt, rr, color=ORANGE, lw=2.6, zorder=3)
+ax.plot([0], [1], "o", color=RED, ms=7, zorder=5)
+ax.text(-1.55, 4.55, "$\\theta=0$ 处 $r=1$ 最小，两端往上冲", fontsize=F - 2.5, color=INK)
 
 fig.tight_layout(); fig.savefig(BASE + "pc-circle-line.png", dpi=150); plt.close(fig)
 

@@ -476,9 +476,11 @@ plt.close(fig)
 # ============================================================
 # 10 星形线与渐开线
 # ============================================================
-fig, axes = plt.subplots(1, 2, figsize=(11.2, 5.0), dpi=150)
+# ============================================================
+# 星形线（单图）
+# ============================================================
+fig, ax = plt.subplots(figsize=(7.2, 6.6), dpi=150)
 
-ax = axes[0]
 t = np.linspace(0, 2 * np.pi, 800)
 a = 1.6
 ax.plot(a * np.cos(t) ** 3, a * np.sin(t) ** 3, color=BLUE, lw=2.3)
@@ -492,30 +494,11 @@ ax.set_aspect("equal"); cross(ax, (-2.0, 2.0), (-1.9, 1.9))
 ax.set_xlabel("$x$", fontsize=10, color=INK); ax.set_ylabel("$y$", fontsize=10, color=INK)
 style(ax)
 
-ax = axes[1]
-R = 1.0
-t = np.linspace(0, 2.6 * np.pi, 900)
-ax.plot(R * (np.cos(t) + t * np.sin(t)), R * (np.sin(t) - t * np.cos(t)),
-        color=BLUE, lw=2.2)
-th = np.linspace(0, 2 * np.pi, 300)
-ax.plot(R * np.cos(th), R * np.sin(th), color=GREY, lw=1.2, ls="--")
-t0 = 1.9
-P = (R * (np.cos(t0) + t0 * np.sin(t0)), R * (np.sin(t0) - t0 * np.cos(t0)))
-T = (R * np.cos(t0), R * np.sin(t0))
-ax.plot([T[0], P[0]], [T[1], P[1]], color=RED, lw=1.8)
-ax.plot(*T, "o", color=GREEN, ms=6, zorder=6)
-ax.plot(*P, "o", color=ORANGE, ms=6, zorder=6)
-ax.text(T[0] - 0.55, T[1] + 0.12, "切点", fontsize=9.5, color=GREEN)
-ax.text(P[0] + 0.08, P[1] + 0.10, "$P$", fontsize=10.5, color=ORANGE)
-ax.text(-3.75, -2.15, r"$x=R(\cos t+t\sin t)$", fontsize=10.5, color=INK)
-ax.text(-3.75, -2.62, r"$y=R(\sin t-t\cos t)$", fontsize=10.5, color=INK)
-ax.set_title("圆的渐开线：把切线一段段展开", fontsize=11.5, color=INK)
-ax.set_aspect("equal"); cross(ax, (-3.8, 4.4), (-3.4, 3.4))
-ax.set_xlabel("$x$", fontsize=10, color=INK); ax.set_ylabel("$y$", fontsize=10, color=INK)
-style(ax)
+ax.set_title("星形线：小圆在大圆内壁滚动，圆周上一点的轨迹", fontsize=12, color=INK)
 fig.tight_layout()
 fig.savefig(BASE + "geo2-astroid-involute.png", dpi=150)
 plt.close(fig)
+
 
 
 # ============================================================

@@ -40,7 +40,8 @@ ax.plot(2 * a * np.cos(tt) * np.cos(tt), 2 * a * np.cos(tt) * np.sin(tt), color=
 ax.plot([0], [0], "o", color=INK, ms=7, zorder=6)
 ax.plot([2 * a], [0], "o", color=RED, ms=7, zorder=6)
 ax.text(-0.20, -0.26, "$O$", fontsize=F, color=INK, ha="right")
-ax.text(2 * a + 0.12, 0.12, "$\\theta=0$ 时 $r=2a$", fontsize=F - 2, color=RED)
+ax.annotate("$\\theta=0$ 时 $r=2a$", xy=(2 * a, 0.02), xytext=(1.55, 0.62),
+            fontsize=F - 2, color=RED, arrowprops=dict(arrowstyle="->", color=RED, lw=1.0))
 ax.text(-1.30, -1.85, "$\\theta$ 取 $\\left[-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right]$ 描完一圈", fontsize=F - 2.5, color=GREY)
 
 # 右上：极坐标平面里的直线
@@ -74,11 +75,11 @@ ax.set_ylabel(r"$r$", fontsize=F - 1, color=INK, labelpad=1)
 tt = np.linspace(-np.pi / 2, np.pi / 2, 400)
 ax.plot(tt, 2 * a * np.cos(tt), color=BLUE, lw=2.6, zorder=3)
 ax.plot([0], [2 * a], "o", color=RED, ms=7, zorder=5)
-ax.text(-1.95, 0.30, "一条余弦拱：$\\theta=0$ 处最高 $2a$，两端落到 $0$", fontsize=F - 2.5, color=INK)
+ax.text(-1.90, 3.42, "一条余弦拱：$\\theta=0$ 处最高 $2a$，两端落到 $0$", fontsize=F - 2.5, color=INK)
 
 # 右下：sec
 ax = axes[1][1]
-ax.set_xlim(-1.6, 1.6); ax.set_ylim(-0.6, 5.2)
+ax.set_xlim(-1.6, 1.6); ax.set_ylim(-0.6, 4.2)
 ax.grid(True, color="#ececec", lw=0.8)
 ax.axhline(0, color="#c8c8c8", lw=1.0)
 ax.axvline(0, color="#c8c8c8", lw=1.0)
@@ -90,11 +91,11 @@ for sp in ax.spines.values():
 ax.set_title("同一函数：$r=\\sec\\theta$\n直角坐标里 $r$ 作为 $\\theta$ 的函数", fontsize=11.5, color=INK, pad=6)
 ax.set_xlabel(r"$\theta$", fontsize=F - 1, color=INK, labelpad=1)
 ax.set_ylabel(r"$r$", fontsize=F - 1, color=INK, labelpad=1)
-tt = np.linspace(-1.25, 1.25, 400)
+tt = np.linspace(-1.15, 1.15, 400)
 rr = 1 / np.cos(tt)
 ax.plot(tt, rr, color=ORANGE, lw=2.6, zorder=3)
 ax.plot([0], [1], "o", color=RED, ms=7, zorder=5)
-ax.text(-1.55, 4.55, "$\\theta=0$ 处 $r=1$ 最小，两端往上冲", fontsize=F - 2.5, color=INK)
+ax.text(-1.52, 3.55, "$\\theta=0$ 处 $r=1$ 最小，两端往上冲", fontsize=F - 2.5, color=INK)
 
 fig.tight_layout(); fig.savefig(BASE + "pc-circle-line.png", dpi=150); plt.close(fig)
 

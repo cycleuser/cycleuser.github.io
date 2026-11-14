@@ -176,7 +176,7 @@ ax.plot([0, r0 * np.cos(t0)], [0, r0 * np.sin(t0)], color=GREY, lw=1.0, ls=":", 
 ax.plot([x0], [y0], "o", color=RED, ms=7, zorder=6)
 ax.annotate("$P\\left(r_0,\\ \\theta_0\\right)$", xy=(x0, y0), xytext=(-4.85, -3.55),
             fontsize=F - 1.5, color=RED, arrowprops=dict(arrowstyle="->", color=RED, lw=1.0))
-ax.text(-4.85, 4.55, "每转半圈，$r$ 加 $\\pi a/2$", fontsize=F - 2, color=INK)
+ax.text(-4.85, 4.55, "每转一圈，$r$ 加 $2\\pi a$", fontsize=F - 2, color=INK)
 
 ax = axes[1]
 cart_panel(ax, 5.0, "同一条曲线，换成直角坐标平面")
@@ -217,7 +217,7 @@ ax.plot([0, x0], [0, y0], color=GREY, lw=1.0, ls=":", zorder=4)
 ax.plot([x0], [y0], "o", color=RED, ms=7, zorder=6)
 ax.annotate("$P\\left(r_0,\\ \\theta_0\\right)$", xy=(x0, y0), xytext=(-14.2, -5.6),
             fontsize=F - 1.5, color=RED, arrowprops=dict(arrowstyle="->", color=RED, lw=1.0))
-ax.text(-14.2, 12.2, "每转半圈，$r$ 乘同一个倍数", fontsize=F - 2, color=INK)
+ax.text(-14.2, 12.2, "每转一圈，$r$ 乘 $e^{2\\pi a}$", fontsize=F - 2, color=INK)
 
 ax = axes[1]
 cart_panel(ax, 14.6, "同一条曲线，换成直角坐标平面")

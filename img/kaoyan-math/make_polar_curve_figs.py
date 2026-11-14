@@ -80,7 +80,7 @@ a = 1.0
 th = np.linspace(0, 2 * np.pi, 2000)
 r = a * (1 + np.cos(th))
 X, Y = r * np.cos(th), r * np.sin(th)
-fig, axes = plt.subplots(1, 3, figsize=(16.6, 5.0), dpi=150)
+fig, axes = plt.subplots(1, 2, figsize=(12.4, 5.0), dpi=150)
 
 ax = axes[0]
 polar_axes(ax, 2.2, "心形线 $r=a(1+\\cos\\theta)$")
@@ -99,20 +99,13 @@ ax.plot(X, Y, color=RED, lw=2.6, zorder=3)
 ax.plot([0], [0], "o", color=INK, ms=6, zorder=6)
 ax.plot([2 * a], [0], "o", color=BLUE, ms=7, zorder=6)
 
-ax = axes[2]
-rtheta_axes(ax, (-0.35, 2 * PI + 0.35), (-0.35, 2.45), "心形线 $r=a(1+\\cos\\theta)$")
-ax.plot(th, r, color=RED, lw=2.6, zorder=3)
-ax.plot([0, 2 * PI], [2, 2], "o", color=BLUE, ms=6, zorder=5)
-ax.plot([PI], [0], "o", color=INK, ms=6, zorder=5)
-ax.annotate("$\\theta=\\pi$ 时 $r$ 掉到 $0$，\n曲线的尖端就是这里", xy=(PI, 0), xytext=(3.45, 0.55),
-            fontsize=F - 2.5, color=INK, arrowprops=dict(arrowstyle="->", color=GREY, lw=1.0))
 fig.tight_layout(); fig.savefig(BASE + "pc-cardioid.png", dpi=150); plt.close(fig)
 
 
 # ============ 2 玫瑰线 ============
 r3 = np.sin(3 * th)
 r4 = np.cos(2 * th)
-fig, axes = plt.subplots(2, 3, figsize=(16.6, 9.4), dpi=150)
+fig, axes = plt.subplots(2, 2, figsize=(12.4, 9.6), dpi=150)
 
 ax = axes[0][0]
 polar_axes(ax, 1.35, "三叶玫瑰线 $r=a\\sin 3\\theta$")
@@ -129,11 +122,6 @@ cart_panel(ax, 1.45, "三叶玫瑰线", "$\\left(x^{2}+y^{2}\\right)^{2}=ay\\lef
            note="$y$ 是 $x$ 的四次隐函数，解不成初等式")
 ax.plot(r3 * np.cos(th), r3 * np.sin(th), color=ORANGE, lw=2.4, zorder=3)
 
-ax = axes[0][2]
-rtheta_axes(ax, (-0.35, 2 * PI + 0.35), (-1.72, 1.40), "三叶玫瑰线 $r=a\\sin 3\\theta$")
-ax.plot(th, r3, color=ORANGE, lw=2.4, zorder=3)
-ax.text(-0.25, -1.62, "三个正拱、三个负拱；负的 $r$ 沿反方向画花瓣，片数是 3 不是 6",
-        fontsize=F - 3.5, color=INK)
 
 ax = axes[1][0]
 polar_axes(ax, 1.35, "四叶玫瑰线 $r=a\\cos 2\\theta$")
@@ -150,10 +138,6 @@ cart_panel(ax, 1.45, "四叶玫瑰线", "$\\left(x^{2}+y^{2}\\right)^{3}=a^{2}\\
            note="$y$ 是 $x$ 的六次隐函数，解不成初等式")
 ax.plot(r4 * np.cos(th), r4 * np.sin(th), color=GREEN, lw=2.4, zorder=3)
 
-ax = axes[1][2]
-rtheta_axes(ax, (-0.35, 2 * PI + 0.35), (-1.72, 1.40), "四叶玫瑰线 $r=a\\cos 2\\theta$")
-ax.plot(th, r4, color=GREEN, lw=2.4, zorder=3)
-ax.text(-0.25, -1.62, "两正两负共四个拱，正负各画出两瓣，合起来 4 片", fontsize=F - 3.5, color=INK)
 
 fig.tight_layout(); fig.savefig(BASE + "pc-rose.png", dpi=150); plt.close(fig)
 
@@ -163,7 +147,7 @@ a = 1.2
 t2 = np.concatenate([np.linspace(-PI / 4, PI / 4, 900), np.linspace(3 * PI / 4, 5 * PI / 4, 900)])
 r2 = a * np.sqrt(np.cos(2 * t2))
 X2, Y2 = r2 * np.cos(t2), r2 * np.sin(t2)
-fig, axes = plt.subplots(1, 3, figsize=(16.6, 5.0), dpi=150)
+fig, axes = plt.subplots(1, 2, figsize=(12.4, 5.2), dpi=150)
 
 ax = axes[0]
 polar_axes(ax, 1.75, "双纽线 $r^{2}=a^{2}\\cos 2\\theta$")
@@ -181,26 +165,11 @@ ax.plot(X2, Y2, color=BLUE, lw=2.6, zorder=3)
 ax.plot([0], [0], "o", color=INK, ms=6, zorder=6)
 ax.plot([a, -a], [0, 0], "o", color=RED, ms=7, zorder=6)
 
-ax = axes[2]
-rtheta_axes(ax, (-1.15, 4.35), (-1.50, 1.55), "双纽线 $r^{2}=a^{2}\\cos 2\\theta$",
-            ticks=[(0, "0"), (PI / 2, r"$\frac{\pi}{2}$"), (PI, r"$\pi$")])
-tt = np.linspace(-PI / 4, PI / 4, 400)
-ax.plot(tt, a * np.sqrt(np.cos(2 * tt)), color=BLUE, lw=2.6, zorder=3)
-ax.plot(tt + PI, -a * np.sqrt(np.cos(2 * tt)), color=BLUE, lw=2.6, zorder=3)
-for st in (-PI / 4, PI / 4, 3 * PI / 4, 5 * PI / 4):
-    ax.axvline(st, color="#e0c8c8", lw=1.0, ls="--", zorder=1)
-ax.text(0.10, 1.30, "$\\theta\\in\\left[-\\frac{\\pi}{4},\\frac{\\pi}{4}\\right]$：$r\\geq0$，画出一瓣",
-        fontsize=F - 3, color=BLUE)
-ax.text(1.45, -1.34, "$\\theta\\in\\left[\\frac{3\\pi}{4},\\frac{5\\pi}{4}\\right]$：$r\\leq0$，沿反方向画出另一瓣",
-        fontsize=F - 3, color=BLUE)
-ax.text(-1.10, -1.34, "中间区间 $\\cos 2\\theta<0$，$r$ 无定义",
-        fontsize=F - 3, color=GREY)
-
 fig.tight_layout(); fig.savefig(BASE + "pc-lemniscate.png", dpi=150); plt.close(fig)
 
 
 # ============ 4 阿基米德螺线 ============
-fig, axes = plt.subplots(1, 3, figsize=(16.6, 5.0), dpi=150)
+fig, axes = plt.subplots(1, 2, figsize=(12.4, 5.0), dpi=150)
 th3 = np.linspace(0, 3 * PI, 1200)
 r3s = 0.5 * th3
 i0 = np.argmin(np.abs(th3 - 4 * PI / 3))
@@ -228,20 +197,11 @@ ax.text(x0 - 0.30, y0 - 0.50, "$P\\left(x_0,\\ y_0\\right)$", fontsize=F - 1.5, 
 ax.text(x0 + 0.22, 0.20, "$x_0$", fontsize=F - 2, color=GREY)
 ax.text(0.22, y0 - 0.20, "$y_0$", fontsize=F - 2, color=GREY)
 
-ax = axes[2]
-rtheta_axes(ax, (-0.35, 3 * PI + 0.35), (-0.6, 5.2), "阿基米德螺线 $r=a\\theta$",
-            ticks=[(0, "0"), (PI, r"$\pi$"), (2 * PI, r"$2\pi$"), (3 * PI, r"$3\pi$")])
-ax.plot(th3, r3s, color=ORANGE, lw=2.6, zorder=3)
-ax.plot([t0], [r0], "o", color=RED, ms=7, zorder=5)
-ax.plot([t0, t0], [0, r0], color=GREY, lw=0.9, ls=":", zorder=2)
-ax.text(t0 - 0.10, r0 + 0.28, "$P$", fontsize=F - 1.5, color=RED, ha="right")
-ax.text(0.30, 4.35, "$r$ 与 $\\theta$ 成正比，图像是直线", fontsize=F - 2.5, color=INK)
-
 fig.tight_layout(); fig.savefig(BASE + "pc-spiral-arch.png", dpi=150); plt.close(fig)
 
 
 # ============ 5 对数螺线 ============
-fig, axes = plt.subplots(1, 3, figsize=(16.6, 5.0), dpi=150)
+fig, axes = plt.subplots(1, 2, figsize=(12.4, 5.0), dpi=150)
 th4 = np.linspace(0, 3 * PI, 1600)
 r4s = np.exp(0.28 * th4)
 k0 = np.argmin(np.abs(th4 - 7 * PI / 4))
@@ -268,15 +228,6 @@ ax.plot([0], [0], "o", color=INK, ms=5, zorder=6)
 ax.text(x0 + 0.5, y0 - 1.5, "$P\\left(x_0,\\ y_0\\right)$", fontsize=F - 1.5, color=RED, ha="left")
 ax.text(x0 + 0.5, 0.5, "$x_0$", fontsize=F - 2, color=GREY)
 ax.text(0.45, y0 + 0.55, "$y_0$", fontsize=F - 2, color=GREY)
-
-ax = axes[2]
-rtheta_axes(ax, (-0.35, 3 * PI + 0.35), (-0.6, 15.2), "对数螺线 $r=e^{a\\theta}$",
-            ticks=[(0, "0"), (PI, r"$\pi$"), (2 * PI, r"$2\pi$"), (3 * PI, r"$3\pi$")])
-ax.plot(th4, r4s, color=GREEN, lw=2.6, zorder=3)
-ax.plot([t0], [r0], "o", color=RED, ms=7, zorder=5)
-ax.plot([t0, t0], [0, r0], color=GREY, lw=0.9, ls=":", zorder=2)
-ax.text(t0 + 0.25, r0 + 0.6, "$P$", fontsize=F - 1.5, color=RED)
-ax.text(0.30, 12.8, "$r$ 是 $\\theta$ 的指数函数", fontsize=F - 2.5, color=INK)
 
 fig.tight_layout(); fig.savefig(BASE + "pc-spiral-log.png", dpi=150); plt.close(fig)
 print("done")

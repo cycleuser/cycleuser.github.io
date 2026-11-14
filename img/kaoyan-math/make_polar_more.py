@@ -27,7 +27,7 @@ def frame(ax, xlim, ylim, title):
 PI = np.pi
 BOX = dict(boxstyle="round,pad=0.3", facecolor="white", edgecolor="#dddddd")
 F2, T2 = 11.0, 11.5
-fig, axes = plt.subplots(2, 3, figsize=(16.6, 9.2), dpi=150)
+fig, axes = plt.subplots(2, 2, figsize=(12.4, 9.4), dpi=150)
 a = 1.6
 
 
@@ -98,13 +98,6 @@ ax.plot([2 * a], [0], "o", color=RED, ms=7, zorder=6)
 ax.plot([a], [0], "+", color=GREY, ms=9, zorder=6)
 ax.text(a - 0.30, -0.42, "圆心 $(a,0)$", fontsize=F2 - 2.5, color=GREY)
 
-ax = axes[0][2]
-rt_style(ax, (-2.0, 2.0), (-0.35, 3.6), "过极点的圆 $r=2a\\cos\\theta$",
-         [-PI / 2, 0, PI / 2], [r"$-\frac{\pi}{2}$", "0", r"$\frac{\pi}{2}$"])
-ax.plot(tt, 2 * a * np.cos(tt), color=BLUE, lw=2.6, zorder=3)
-ax.plot([0], [2 * a], "o", color=RED, ms=7, zorder=5)
-ax.text(-1.96, 3.35, "一条余弦拱：$\\theta=0$ 处最高 $2a$，两端落到 $0$", fontsize=F2 - 2.5, color=INK)
-
 # 第二行：直线
 ax = axes[1][0]
 polar_style(ax, (-1.6, 3.4), (-2.4, 2.4), "不过极点的直线 $r=\\sec\\theta$")
@@ -113,7 +106,7 @@ ax.plot(np.ones_like(tt2), np.tan(tt2), color=ORANGE, lw=2.6, zorder=3)
 ax.plot([0], [0], "o", color=INK, ms=7, zorder=6)
 ax.text(-0.16, -0.30, "$O$", fontsize=F2, color=INK, ha="right")
 ax.text(1.08, 1.85, "$x=1$", fontsize=F2 - 1, color=ORANGE)
-ax.text(-1.10, 2.05, "直线不过极点，$r$ 随 $\\theta$ 变化", fontsize=F2 - 2.5, color=GREY)
+ax.text(-1.10, 1.90, "直线不过极点", fontsize=F2 - 2.5, color=GREY)
 
 ax = axes[1][1]
 cart_style(ax, (-1.6, 3.4), (-2.4, 2.4), "不过极点的直线", "$x=1$，不能写成 $y=f(x)$", boxpos=(0.30, 0.06))
@@ -121,13 +114,6 @@ ax.plot([1, 1], [-2.2, 2.2], color=ORANGE, lw=2.6, zorder=3)
 ax.plot([0], [0], "o", color=INK, ms=7, zorder=6)
 ax.text(1.10, 1.90, "$x=1$", fontsize=F2 - 1, color=ORANGE)
 ax.text(-1.10, 2.05, "极点到直线的距离是 $1$", fontsize=F2 - 2.5, color=GREY)
-
-ax = axes[1][2]
-rt_style(ax, (-1.6, 1.6), (-0.6, 4.2), "不过极点的直线 $r=\\sec\\theta$",
-         [-PI / 2, 0, PI / 2], [r"$-\frac{\pi}{2}$", "0", r"$\frac{\pi}{2}$"])
-ax.plot(tt2, 1 / np.cos(tt2), color=ORANGE, lw=2.6, zorder=3)
-ax.plot([0], [1], "o", color=RED, ms=7, zorder=5)
-ax.text(-1.52, 3.55, "$\\theta=0$ 处 $r=1$ 最小，两端往上冲", fontsize=F2 - 2.5, color=INK)
 
 fig.tight_layout(); fig.savefig(BASE + "pc-circle-line.png", dpi=150); plt.close(fig)
 

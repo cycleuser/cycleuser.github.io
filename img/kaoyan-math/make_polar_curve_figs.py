@@ -7,10 +7,11 @@ plt.rcParams["font.family"] = ["PingFang SC", "Arial Unicode MS", "DejaVu Sans"]
 plt.rcParams["axes.unicode_minus"] = False
 
 INK, ORANGE, BLUE = "#2b2b2b", "#d2691e", "#2f4f6f"
-RED, GREEN, GREY, BROWN = "#b03a2e", "#4a7c59", "#8a8a8a", "#7a5230"
+RED, GREEN, GREY = "#b03a2e", "#4a7c59", "#8a8a8a"
 BASE = "/Users/fred/Documents/GitHub/cycleuser/blog/output/img/kaoyan-math/"
-F, T = 11.5, 12.5
+F, T = 11.5, 12.0
 PI = np.pi
+BOX = dict(boxstyle="round,pad=0.3", facecolor="white", edgecolor="#dddddd")
 
 
 def polar_axes(ax, lim, title):
@@ -30,8 +31,22 @@ def polar_axes(ax, lim, title):
     ax.set_title(title + "\n极坐标平面里的图形", fontsize=T, color=INK, pad=6)
 
 
+def cart_panel(ax, lim, title, eq, eqfont=None):
+    ax.set_xlim(-lim, lim); ax.set_ylim(-lim, lim)
+    ax.set_aspect("equal")
+    ax.grid(True, color="#ececec", lw=0.8)
+    ax.axhline(0, color="#c8c8c8", lw=1.0, zorder=1)
+    ax.axvline(0, color="#c8c8c8", lw=1.0, zorder=1)
+    ax.set_xticks([]); ax.set_yticks([])
+    for sp in ax.spines.values():
+        sp.set_color("#cccccc")
+    ax.set_title(title + "\n直角坐标平面里的图形", fontsize=T, color=INK, pad=6)
+    ax.text(0.5, 0.035, eq, transform=ax.transAxes,
+            fontsize=(eqfont if eqfont else F - 1.5), color=INK,
+            ha="center", va="bottom", bbox=BOX)
+
+
 def rtheta_axes(ax, trange, rrange, title, ticks=None):
-    """直角坐标里把 r 当作 theta 的函数画：横轴 theta，纵轴 r。"""
     ax.set_xlim(*trange); ax.set_ylim(*rrange)
     ax.grid(True, color="#ececec", lw=0.8)
     ax.axhline(0, color="#c8c8c8", lw=1.0, zorder=2)
@@ -45,7 +60,7 @@ def rtheta_axes(ax, trange, rrange, title, ticks=None):
     ax.tick_params(axis="x", colors="#bbbbbb", length=3)
     for sp in ax.spines.values():
         sp.set_color("#cccccc")
-    ax.set_title(title + "\n直角坐标：$r$ 作为 $\\theta$ 的函数", fontsize=T, color=INK, pad=6)
+    ax.set_title(title + "\n$r$ 作为 $\\theta$ 的函数", fontsize=T, color=INK, pad=6)
     ax.set_xlabel(r"$\theta$", fontsize=F - 1, color=INK, labelpad=1)
     ax.set_ylabel(r"$r$", fontsize=F - 1, color=INK, labelpad=1)
 
@@ -54,32 +69,39 @@ def rtheta_axes(ax, trange, rrange, title, ticks=None):
 a = 1.0
 th = np.linspace(0, 2 * np.pi, 2000)
 r = a * (1 + np.cos(th))
-fig, axes = plt.subplots(1, 2, figsize=(12.0, 5.0), dpi=150)
+X, Y = r * np.cos(th), r * np.sin(th)
+fig, axes = plt.subplots(1, 3, figsize=(16.6, 5.0), dpi=150)
 
 ax = axes[0]
 polar_axes(ax, 2.2, "心形线 $r=a(1+\\cos\\theta)$")
-ax.plot(r * np.cos(th), r * np.sin(th), color=RED, lw=2.6, zorder=3)
+ax.plot(X, Y, color=RED, lw=2.6, zorder=3)
 ax.plot([0], [0], "o", color=INK, ms=6, zorder=6)
 ax.plot([2 * a], [0], "o", color=BLUE, ms=7, zorder=6)
-ax.annotate("$\\theta=0$：$r=2a$", xy=(2 * a, 0), xytext=(0.30, 2.00),
+ax.annotate("$\\theta=0$：$r=2a$", xy=(2 * a, 0), xytext=(0.20, 2.00),
             fontsize=F - 2, color=BLUE, arrowprops=dict(arrowstyle="->", color=BLUE, lw=1.0))
-ax.annotate("$\\theta=\\pi$：$r=0$，回到极点", xy=(0, 0), xytext=(-2.10, 1.55),
+ax.annotate("$\\theta=\\pi$：$r=0$", xy=(0, 0), xytext=(-2.10, 1.55),
             fontsize=F - 2, color=INK, arrowprops=dict(arrowstyle="->", color=GREY, lw=1.0))
 
 ax = axes[1]
+cart_panel(ax, 2.4, "心形线", "$\\left(x^{2}+y^{2}-ax\\right)^{2}=a^{2}\\left(x^{2}+y^{2}\\right)$", F - 2.5)
+ax.plot(X, Y, color=RED, lw=2.6, zorder=3)
+ax.plot([0], [0], "o", color=INK, ms=6, zorder=6)
+ax.plot([2 * a], [0], "o", color=BLUE, ms=7, zorder=6)
+
+ax = axes[2]
 rtheta_axes(ax, (-0.35, 2 * PI + 0.35), (-0.35, 2.45), "心形线 $r=a(1+\\cos\\theta)$")
 ax.plot(th, r, color=RED, lw=2.6, zorder=3)
 ax.plot([0, 2 * PI], [2, 2], "o", color=BLUE, ms=6, zorder=5)
 ax.plot([PI], [0], "o", color=INK, ms=6, zorder=5)
-ax.annotate("$\\theta=\\pi$ 时 $r$ 掉到 $0$，\n曲线的尖端就是这里", xy=(PI, 0), xytext=(3.55, 0.55),
+ax.annotate("$\\theta=\\pi$ 时 $r$ 掉到 $0$，\n曲线的尖端就是这里", xy=(PI, 0), xytext=(3.45, 0.55),
             fontsize=F - 2.5, color=INK, arrowprops=dict(arrowstyle="->", color=GREY, lw=1.0))
 fig.tight_layout(); fig.savefig(BASE + "pc-cardioid.png", dpi=150); plt.close(fig)
 
 
 # ============ 2 玫瑰线 ============
 r3 = np.sin(3 * th)
-r2 = np.cos(2 * th)
-fig, axes = plt.subplots(2, 2, figsize=(11.6, 8.8), dpi=150)
+r4 = np.cos(2 * th)
+fig, axes = plt.subplots(2, 3, figsize=(16.6, 9.4), dpi=150)
 
 ax = axes[0][0]
 polar_axes(ax, 1.35, "三叶玫瑰线 $r=a\\sin 3\\theta$")
@@ -92,8 +114,18 @@ for k in range(3):
 ax.text(-1.3, -1.24, "$n$ 为奇数：$n$ 片（这里 3 片）", fontsize=F - 2.5, color=INK)
 
 ax = axes[0][1]
+cart_panel(ax, 1.45, "三叶玫瑰线", "$\\left(x^{2}+y^{2}\\right)^{2}=ay\\left(3x^{2}-y^{2}\\right)$", F - 3)
+ax.plot(r3 * np.cos(th), r3 * np.sin(th), color=ORANGE, lw=2.4, zorder=3)
+
+ax = axes[0][2]
+rtheta_axes(ax, (-0.35, 2 * PI + 0.35), (-1.72, 1.40), "三叶玫瑰线 $r=a\\sin 3\\theta$")
+ax.plot(th, r3, color=ORANGE, lw=2.4, zorder=3)
+ax.text(-0.25, -1.62, "三个正拱、三个负拱；负的 $r$ 沿反方向画花瓣，片数是 3 不是 6",
+        fontsize=F - 3.5, color=INK)
+
+ax = axes[1][0]
 polar_axes(ax, 1.35, "四叶玫瑰线 $r=a\\cos 2\\theta$")
-ax.plot(r2 * np.cos(th), r2 * np.sin(th), color=GREEN, lw=2.4, zorder=3)
+ax.plot(r4 * np.cos(th), r4 * np.sin(th), color=GREEN, lw=2.4, zorder=3)
 for k in range(4):
     ang = k * PI / 2
     ax.plot([0, np.cos(ang)], [0, np.sin(ang)], color=GREY, lw=0.9, ls=":", zorder=2)
@@ -101,17 +133,14 @@ for k in range(4):
             color=GREEN, ha="center", va="center")
 ax.text(-1.3, -1.24, "$n$ 为偶数：$2n$ 片（这里 4 片）", fontsize=F - 2.5, color=INK)
 
-ax = axes[1][0]
-rtheta_axes(ax, (-0.35, 2 * PI + 0.35), (-1.72, 1.40), "三叶玫瑰线 $r=a\\sin 3\\theta$")
-ax.plot(th, r3, color=ORANGE, lw=2.4, zorder=3)
-ax.axhline(0, color="#b0b0b0", lw=0.9, zorder=2)
-ax.text(-0.25, -1.62, "三个正拱、三个负拱；负的一段 $r<0$，在反方向上画花瓣，所以片数是 3 不是 6", fontsize=F - 3.5, color=INK)
-
 ax = axes[1][1]
+cart_panel(ax, 1.45, "四叶玫瑰线", "$\\left(x^{2}+y^{2}\\right)^{3}=a^{2}\\left(x^{2}-y^{2}\\right)^{2}$", F - 3)
+ax.plot(r4 * np.cos(th), r4 * np.sin(th), color=GREEN, lw=2.4, zorder=3)
+
+ax = axes[1][2]
 rtheta_axes(ax, (-0.35, 2 * PI + 0.35), (-1.72, 1.40), "四叶玫瑰线 $r=a\\cos 2\\theta$")
-ax.plot(th, r2, color=GREEN, lw=2.4, zorder=3)
-ax.axhline(0, color="#b0b0b0", lw=0.9, zorder=2)
-ax.text(-0.25, -1.62, "两正两负，共四个拱，正负各画出两瓣，合起来 4 片", fontsize=F - 3.5, color=INK)
+ax.plot(th, r4, color=GREEN, lw=2.4, zorder=3)
+ax.text(-0.25, -1.62, "两正两负共四个拱，正负各画出两瓣，合起来 4 片", fontsize=F - 3.5, color=INK)
 
 fig.tight_layout(); fig.savefig(BASE + "pc-rose.png", dpi=150); plt.close(fig)
 
@@ -119,68 +148,63 @@ fig.tight_layout(); fig.savefig(BASE + "pc-rose.png", dpi=150); plt.close(fig)
 # ============ 3 双纽线 ============
 a = 1.2
 t2 = np.concatenate([np.linspace(-PI / 4, PI / 4, 900), np.linspace(3 * PI / 4, 5 * PI / 4, 900)])
-r2d = a * np.sqrt(np.cos(2 * t2))
-fig, axes = plt.subplots(1, 2, figsize=(12.0, 5.0), dpi=150)
+r2 = a * np.sqrt(np.cos(2 * t2))
+X2, Y2 = r2 * np.cos(t2), r2 * np.sin(t2)
+fig, axes = plt.subplots(1, 3, figsize=(16.6, 5.0), dpi=150)
 
 ax = axes[0]
 polar_axes(ax, 1.75, "双纽线 $r^{2}=a^{2}\\cos 2\\theta$")
-ax.plot(r2d * np.cos(t2), r2d * np.sin(t2), color=BLUE, lw=2.6, zorder=3)
+ax.plot(X2, Y2, color=BLUE, lw=2.6, zorder=3)
 ax.plot([0], [0], "o", color=INK, ms=6, zorder=6)
-ax.plot([a], [0], "o", color=RED, ms=7, zorder=6)
-ax.plot([-a], [0], "o", color=RED, ms=7, zorder=6)
+ax.plot([a, -a], [0, 0], "o", color=RED, ms=7, zorder=6)
 ax.text(a + 0.07, 0.15, "顶点", fontsize=F - 3, color=RED)
 ax.text(-a - 0.55, 0.15, "顶点", fontsize=F - 3, color=RED)
 ax.text(-1.70, -1.30, "只有 $\\cos 2\\theta\\geq0$ 的部分有图形", fontsize=F - 2.5, color=INK)
 
 ax = axes[1]
-rtheta_axes(ax, (-1.15, 4.35), (-1.50, 1.55), r"双纽线 $r^{2}=a^{2}\cos 2\theta$",
+cart_panel(ax, 1.80, "双纽线", "$\\left(x^{2}+y^{2}\\right)^{2}=a^{2}\\left(x^{2}-y^{2}\\right)$", F - 2.5)
+ax.plot(X2, Y2, color=BLUE, lw=2.6, zorder=3)
+ax.plot([0], [0], "o", color=INK, ms=6, zorder=6)
+ax.plot([a, -a], [0, 0], "o", color=RED, ms=7, zorder=6)
+
+ax = axes[2]
+rtheta_axes(ax, (-1.15, 4.35), (-1.50, 1.55), "双纽线 $r^{2}=a^{2}\\cos 2\\theta$",
             ticks=[(0, "0"), (PI / 2, r"$\frac{\pi}{2}$"), (PI, r"$\pi$")])
 tt = np.linspace(-PI / 4, PI / 4, 400)
 ax.plot(tt, a * np.sqrt(np.cos(2 * tt)), color=BLUE, lw=2.6, zorder=3)
 ax.plot(tt + PI, -a * np.sqrt(np.cos(2 * tt)), color=BLUE, lw=2.6, zorder=3)
 for st in (-PI / 4, PI / 4, 3 * PI / 4, 5 * PI / 4):
     ax.axvline(st, color="#e0c8c8", lw=1.0, ls="--", zorder=1)
-ax.text(0.55, -0.62, "$\\theta\\in\\left[-\\frac{\\pi}{4},\\frac{\\pi}{4}\\right]$：$r\\geq0$，画出一瓣",
+ax.text(0.10, 1.30, "$\\theta\\in\\left[-\\frac{\\pi}{4},\\frac{\\pi}{4}\\right]$：$r\\geq0$，画出一瓣",
         fontsize=F - 3, color=BLUE)
-ax.text(2.60, 0.22, "$\\theta\\in\\left[\\frac{3\\pi}{4},\\frac{5\\pi}{4}\\right]$：$r\\leq0$，\n沿反方向也画出一瓣",
+ax.text(1.45, -1.34, "$\\theta\\in\\left[\\frac{3\\pi}{4},\\frac{5\\pi}{4}\\right]$：$r\\leq0$，沿反方向画出另一瓣",
         fontsize=F - 3, color=BLUE)
-ax.text(2.30, 1.30, "中间的区间 $\\cos 2\\theta<0$，$r$ 无定义，图上没有曲线",
+ax.text(-1.10, -1.34, "中间区间 $\\cos 2\\theta<0$，$r$ 无定义",
         fontsize=F - 3, color=GREY)
+
 fig.tight_layout(); fig.savefig(BASE + "pc-lemniscate.png", dpi=150); plt.close(fig)
 
 
 # ============ 4 阿基米德螺线 ============
-def cart_panel(ax, lim, title):
-    ax.set_xlim(-lim, lim); ax.set_ylim(-lim, lim)
-    ax.set_aspect("equal")
-    ax.grid(True, color="#ececec", lw=0.8)
-    ax.axhline(0, color="#c8c8c8", lw=1.0, zorder=1)
-    ax.axvline(0, color="#c8c8c8", lw=1.0, zorder=1)
-    ax.set_xticks([]); ax.set_yticks([])
-    for sp in ax.spines.values():
-        sp.set_color("#cccccc")
-    ax.set_title(title, fontsize=T, color=INK, pad=8)
-
-
 fig, axes = plt.subplots(1, 3, figsize=(16.6, 5.0), dpi=150)
 th3 = np.linspace(0, 3 * PI, 1200)
-r3 = 0.5 * th3
+r3s = 0.5 * th3
 i0 = np.argmin(np.abs(th3 - 4 * PI / 3))
-t0, r0 = th3[i0], r3[i0]
+t0, r0 = th3[i0], r3s[i0]
 x0, y0 = r0 * np.cos(t0), r0 * np.sin(t0)
 
 ax = axes[0]
 polar_axes(ax, 5.0, "阿基米德螺线 $r=a\\theta$")
-ax.plot(r3 * np.cos(th3), r3 * np.sin(th3), color=ORANGE, lw=2.4, zorder=3)
-ax.plot([0, r0 * np.cos(t0)], [0, r0 * np.sin(t0)], color=GREY, lw=1.0, ls=":", zorder=4)
+ax.plot(r3s * np.cos(th3), r3s * np.sin(th3), color=ORANGE, lw=2.4, zorder=3)
+ax.plot([0, x0], [0, y0], color=GREY, lw=1.0, ls=":", zorder=4)
 ax.plot([x0], [y0], "o", color=RED, ms=7, zorder=6)
 ax.annotate("$P\\left(r_0,\\ \\theta_0\\right)$", xy=(x0, y0), xytext=(-4.85, -3.55),
             fontsize=F - 1.5, color=RED, arrowprops=dict(arrowstyle="->", color=RED, lw=1.0))
 ax.text(-4.85, 4.55, "每转一圈，$r$ 加 $2\\pi a$", fontsize=F - 2, color=INK)
 
 ax = axes[1]
-cart_panel(ax, 5.0, "同一条曲线，换成直角坐标平面")
-ax.plot(r3 * np.cos(th3), r3 * np.sin(th3), color=ORANGE, lw=2.4, zorder=3)
+cart_panel(ax, 5.0, "阿基米德螺线", "$\\sqrt{x^{2}+y^{2}}=a\\arctan\\frac{y}{x}$", F - 2.5)
+ax.plot(r3s * np.cos(th3), r3s * np.sin(th3), color=ORANGE, lw=2.4, zorder=3)
 ax.plot([x0, x0], [0, y0], color=GREY, lw=0.9, ls="--", zorder=2)
 ax.plot([0, x0], [y0, y0], color=GREY, lw=0.9, ls="--", zorder=2)
 ax.plot([x0], [y0], "o", color=RED, ms=7, zorder=6)
@@ -188,12 +212,11 @@ ax.plot([0], [0], "o", color=INK, ms=5, zorder=6)
 ax.text(x0 - 0.30, y0 - 0.50, "$P\\left(x_0,\\ y_0\\right)$", fontsize=F - 1.5, color=RED, ha="right")
 ax.text(x0 + 0.22, 0.20, "$x_0$", fontsize=F - 2, color=GREY)
 ax.text(0.22, y0 - 0.20, "$y_0$", fontsize=F - 2, color=GREY)
-ax.text(-4.85, 4.55, "同一个点，改读横纵坐标", fontsize=F - 2, color=INK)
 
 ax = axes[2]
 rtheta_axes(ax, (-0.35, 3 * PI + 0.35), (-0.6, 5.2), "阿基米德螺线 $r=a\\theta$",
             ticks=[(0, "0"), (PI, r"$\pi$"), (2 * PI, r"$2\pi$"), (3 * PI, r"$3\pi$")])
-ax.plot(th3, r3, color=ORANGE, lw=2.6, zorder=3)
+ax.plot(th3, r3s, color=ORANGE, lw=2.6, zorder=3)
 ax.plot([t0], [r0], "o", color=RED, ms=7, zorder=5)
 ax.plot([t0, t0], [0, r0], color=GREY, lw=0.9, ls=":", zorder=2)
 ax.text(t0 - 0.10, r0 + 0.28, "$P$", fontsize=F - 1.5, color=RED, ha="right")
@@ -205,14 +228,14 @@ fig.tight_layout(); fig.savefig(BASE + "pc-spiral-arch.png", dpi=150); plt.close
 # ============ 5 对数螺线 ============
 fig, axes = plt.subplots(1, 3, figsize=(16.6, 5.0), dpi=150)
 th4 = np.linspace(0, 3 * PI, 1600)
-r4 = np.exp(0.28 * th4)
+r4s = np.exp(0.28 * th4)
 k0 = np.argmin(np.abs(th4 - 7 * PI / 4))
-t0, r0 = th4[k0], r4[k0]
+t0, r0 = th4[k0], r4s[k0]
 x0, y0 = r0 * np.cos(t0), r0 * np.sin(t0)
 
 ax = axes[0]
 polar_axes(ax, 14.6, "对数螺线 $r=e^{a\\theta}$")
-ax.plot(r4 * np.cos(th4), r4 * np.sin(th4), color=GREEN, lw=2.2, zorder=3)
+ax.plot(r4s * np.cos(th4), r4s * np.sin(th4), color=GREEN, lw=2.2, zorder=3)
 ax.plot([0, x0], [0, y0], color=GREY, lw=1.0, ls=":", zorder=4)
 ax.plot([x0], [y0], "o", color=RED, ms=7, zorder=6)
 ax.annotate("$P\\left(r_0,\\ \\theta_0\\right)$", xy=(x0, y0), xytext=(-14.2, -5.6),
@@ -220,8 +243,8 @@ ax.annotate("$P\\left(r_0,\\ \\theta_0\\right)$", xy=(x0, y0), xytext=(-14.2, -5
 ax.text(-14.2, 12.2, "每转一圈，$r$ 乘 $e^{2\\pi a}$", fontsize=F - 2, color=INK)
 
 ax = axes[1]
-cart_panel(ax, 14.6, "同一条曲线，换成直角坐标平面")
-ax.plot(r4 * np.cos(th4), r4 * np.sin(th4), color=GREEN, lw=2.2, zorder=3)
+cart_panel(ax, 14.6, "对数螺线", "$\\sqrt{x^{2}+y^{2}}=e^{a\\arctan\\frac{y}{x}}$", F - 2.5)
+ax.plot(r4s * np.cos(th4), r4s * np.sin(th4), color=GREEN, lw=2.2, zorder=3)
 ax.plot([x0, x0], [0, y0], color=GREY, lw=0.9, ls="--", zorder=2)
 ax.plot([0, x0], [y0, y0], color=GREY, lw=0.9, ls="--", zorder=2)
 ax.plot([x0], [y0], "o", color=RED, ms=7, zorder=6)
@@ -229,17 +252,15 @@ ax.plot([0], [0], "o", color=INK, ms=5, zorder=6)
 ax.text(x0 + 0.5, y0 - 1.5, "$P\\left(x_0,\\ y_0\\right)$", fontsize=F - 1.5, color=RED, ha="left")
 ax.text(x0 + 0.5, 0.5, "$x_0$", fontsize=F - 2, color=GREY)
 ax.text(0.45, y0 + 0.55, "$y_0$", fontsize=F - 2, color=GREY)
-ax.text(-14.2, 12.2, "同一个点，改读横纵坐标", fontsize=F - 2, color=INK)
 
 ax = axes[2]
 rtheta_axes(ax, (-0.35, 3 * PI + 0.35), (-0.6, 15.2), "对数螺线 $r=e^{a\\theta}$",
             ticks=[(0, "0"), (PI, r"$\pi$"), (2 * PI, r"$2\pi$"), (3 * PI, r"$3\pi$")])
-ax.plot(th4, r4, color=GREEN, lw=2.6, zorder=3)
+ax.plot(th4, r4s, color=GREEN, lw=2.6, zorder=3)
 ax.plot([t0], [r0], "o", color=RED, ms=7, zorder=5)
 ax.plot([t0, t0], [0, r0], color=GREY, lw=0.9, ls=":", zorder=2)
 ax.text(t0 + 0.25, r0 + 0.6, "$P$", fontsize=F - 1.5, color=RED)
-ax.text(0.30, 12.8, "$r$ 是 $\\theta$ 的指数函数，图像是加速上升的曲线", fontsize=F - 2.5, color=INK)
+ax.text(0.30, 12.8, "$r$ 是 $\\theta$ 的指数函数", fontsize=F - 2.5, color=INK)
 
 fig.tight_layout(); fig.savefig(BASE + "pc-spiral-log.png", dpi=150); plt.close(fig)
-
 print("done")

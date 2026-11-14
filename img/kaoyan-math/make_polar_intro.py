@@ -39,7 +39,7 @@ fig, axes = plt.subplots(2, 2, figsize=(11.8, 10.6), dpi=140)
 
 # ---------- (1) 两个数 ----------
 ax = axes[0][0]
-pad(ax, (-1.0, 3.9), (-2.9, 3.2), "读法：先转 $\\theta$，再走 $r$")
+pad(ax, (-1.0, 3.9), (-2.9, 3.2), "读法：先转 $\\theta$ 定方向，再量 $r$")
 draw_axes(ax, 3.4)
 r0, t0 = 2.9, np.deg2rad(48)
 P = np.array([r0 * np.cos(t0), r0 * np.sin(t0)])

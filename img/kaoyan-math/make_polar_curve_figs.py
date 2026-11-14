@@ -15,7 +15,8 @@ PI = np.pi
 
 def polar_axes(ax, lim, title):
     th = np.linspace(0, 2 * np.pi, 400)
-    for rr in np.arange(0.5, lim + 0.01, 0.5):
+    step = 0.5 if lim <= 6 else 2.0
+    for rr in np.arange(step, lim + 0.01, step):
         ax.plot(rr * np.cos(th), rr * np.sin(th), color="#ececec", lw=0.8, zorder=0)
     for a0 in np.arange(0, np.pi, np.pi / 6):
         ax.plot([0, lim * np.cos(a0)], [0, lim * np.sin(a0)], color="#ececec", lw=0.8, zorder=0)
@@ -149,52 +150,96 @@ fig.tight_layout(); fig.savefig(BASE + "pc-lemniscate.png", dpi=150); plt.close(
 
 
 # ============ 4 阿基米德螺线 ============
-fig, axes = plt.subplots(1, 2, figsize=(12.0, 5.2), dpi=150)
+def cart_panel(ax, lim, title):
+    ax.set_xlim(-lim, lim); ax.set_ylim(-lim, lim)
+    ax.set_aspect("equal")
+    ax.grid(True, color="#ececec", lw=0.8)
+    ax.axhline(0, color="#c8c8c8", lw=1.0, zorder=1)
+    ax.axvline(0, color="#c8c8c8", lw=1.0, zorder=1)
+    ax.set_xticks([]); ax.set_yticks([])
+    for sp in ax.spines.values():
+        sp.set_color("#cccccc")
+    ax.set_title(title, fontsize=T, color=INK, pad=8)
+
+
+fig, axes = plt.subplots(1, 3, figsize=(16.6, 5.0), dpi=150)
+th3 = np.linspace(0, 3 * PI, 1200)
+r3 = 0.5 * th3
+i0 = np.argmin(np.abs(th3 - 4 * PI / 3))
+t0, r0 = th3[i0], r3[i0]
+x0, y0 = r0 * np.cos(t0), r0 * np.sin(t0)
 
 ax = axes[0]
-polar_axes(ax, 4.6, "阿基米德螺线 $r=a\\theta$")
-th3 = np.linspace(0, 3 * PI, 1200)
-ax.plot((0.5 * th3) * np.cos(th3), (0.5 * th3) * np.sin(th3), color=ORANGE, lw=2.4, zorder=3)
-for k in range(1, 4):
-    ang = k * PI / 2
-    rr = 0.5 * ang
-    ax.plot([0, rr * np.cos(ang)], [0, rr * np.sin(ang)], color=GREY, lw=0.9, ls=":", zorder=2)
-    ax.plot([rr * np.cos(ang)], [rr * np.sin(ang)], "o", color=ORANGE, ms=5, zorder=5)
-ax.text(-4.4, -3.75, "每转半圈，$r$ 增加同样的量 $\\pi a/2$", fontsize=F - 2, color=INK)
-ax.text(-4.4, -4.20, "相邻两圈间距相等", fontsize=F - 2, color=GREY)
+polar_axes(ax, 5.0, "阿基米德螺线 $r=a\\theta$")
+ax.plot(r3 * np.cos(th3), r3 * np.sin(th3), color=ORANGE, lw=2.4, zorder=3)
+ax.plot([0, r0 * np.cos(t0)], [0, r0 * np.sin(t0)], color=GREY, lw=1.0, ls=":", zorder=4)
+ax.plot([x0], [y0], "o", color=RED, ms=7, zorder=6)
+ax.annotate("$P\\left(r_0,\\ \\theta_0\\right)$", xy=(x0, y0), xytext=(-4.85, -3.55),
+            fontsize=F - 1.5, color=RED, arrowprops=dict(arrowstyle="->", color=RED, lw=1.0))
+ax.text(-4.85, 4.55, "每转半圈，$r$ 加 $\\pi a/2$", fontsize=F - 2, color=INK)
 
 ax = axes[1]
+cart_panel(ax, 5.0, "同一条曲线，换成直角坐标平面")
+ax.plot(r3 * np.cos(th3), r3 * np.sin(th3), color=ORANGE, lw=2.4, zorder=3)
+ax.plot([x0, x0], [0, y0], color=GREY, lw=0.9, ls="--", zorder=2)
+ax.plot([0, x0], [y0, y0], color=GREY, lw=0.9, ls="--", zorder=2)
+ax.plot([x0], [y0], "o", color=RED, ms=7, zorder=6)
+ax.plot([0], [0], "o", color=INK, ms=5, zorder=6)
+ax.text(x0 - 0.30, y0 - 0.50, "$P\\left(x_0,\\ y_0\\right)$", fontsize=F - 1.5, color=RED, ha="right")
+ax.text(x0 + 0.22, 0.20, "$x_0$", fontsize=F - 2, color=GREY)
+ax.text(0.22, y0 - 0.20, "$y_0$", fontsize=F - 2, color=GREY)
+ax.text(-4.85, 4.55, "同一个点，改读横纵坐标", fontsize=F - 2, color=INK)
+
+ax = axes[2]
 rtheta_axes(ax, (-0.35, 3 * PI + 0.35), (-0.6, 5.2), "阿基米德螺线 $r=a\\theta$",
             ticks=[(0, "0"), (PI, r"$\pi$"), (2 * PI, r"$2\pi$"), (3 * PI, r"$3\pi$")])
-ax.plot(th3, 0.5 * th3, color=ORANGE, lw=2.6, zorder=3)
-ax.text(0.35, 4.3, "在直角坐标里它是一条过原点的直线：\n$r$ 与 $\\theta$ 成正比",
-        fontsize=F - 3, color=INK)
+ax.plot(th3, r3, color=ORANGE, lw=2.6, zorder=3)
+ax.plot([t0], [r0], "o", color=RED, ms=7, zorder=5)
+ax.plot([t0, t0], [0, r0], color=GREY, lw=0.9, ls=":", zorder=2)
+ax.text(t0 - 0.10, r0 + 0.28, "$P$", fontsize=F - 1.5, color=RED, ha="right")
+ax.text(0.30, 4.35, "$r$ 与 $\\theta$ 成正比，图像是直线", fontsize=F - 2.5, color=INK)
+
 fig.tight_layout(); fig.savefig(BASE + "pc-spiral-arch.png", dpi=150); plt.close(fig)
 
 
 # ============ 5 对数螺线 ============
-fig, axes = plt.subplots(1, 2, figsize=(12.0, 5.2), dpi=150)
+fig, axes = plt.subplots(1, 3, figsize=(16.6, 5.0), dpi=150)
+th4 = np.linspace(0, 3 * PI, 1600)
+r4 = np.exp(0.28 * th4)
+k0 = np.argmin(np.abs(th4 - 7 * PI / 4))
+t0, r0 = th4[k0], r4[k0]
+x0, y0 = r0 * np.cos(t0), r0 * np.sin(t0)
 
 ax = axes[0]
-polar_axes(ax, 8.2, "对数螺线 $r=e^{a\\theta}$")
-th4 = np.linspace(0, 3 * PI, 1400)
-r4 = np.exp(0.28 * th4)
-ax.plot(r4 * np.cos(th4), r4 * np.sin(th4), color=GREEN, lw=2.4, zorder=3)
-for k in range(1, 4):
-    ang = k * PI / 2
-    rr = np.exp(0.28 * ang)
-    ax.plot([0, rr * np.cos(ang)], [0, rr * np.sin(ang)], color=GREY, lw=0.9, ls=":", zorder=2)
-    ax.plot([rr * np.cos(ang)], [rr * np.sin(ang)], "o", color=GREEN, ms=5, zorder=5)
-ax.text(-8.0, -6.9, "每转半圈，$r$ 按同一个倍数放大", fontsize=F - 2, color=INK)
-ax.text(-8.0, -7.6, "越往外圈越大", fontsize=F - 2, color=GREY)
-ax.text(-8.0, 4.60, "等角螺线：半径与切线的夹角处处相同", fontsize=F - 2, color=GREY)
+polar_axes(ax, 14.6, "对数螺线 $r=e^{a\\theta}$")
+ax.plot(r4 * np.cos(th4), r4 * np.sin(th4), color=GREEN, lw=2.2, zorder=3)
+ax.plot([0, x0], [0, y0], color=GREY, lw=1.0, ls=":", zorder=4)
+ax.plot([x0], [y0], "o", color=RED, ms=7, zorder=6)
+ax.annotate("$P\\left(r_0,\\ \\theta_0\\right)$", xy=(x0, y0), xytext=(-14.2, -5.6),
+            fontsize=F - 1.5, color=RED, arrowprops=dict(arrowstyle="->", color=RED, lw=1.0))
+ax.text(-14.2, 12.2, "每转半圈，$r$ 乘同一个倍数", fontsize=F - 2, color=INK)
 
 ax = axes[1]
-rtheta_axes(ax, (-0.35, 3 * PI + 0.35), (-0.6, 14.5), "对数螺线 $r=e^{a\\theta}$",
+cart_panel(ax, 14.6, "同一条曲线，换成直角坐标平面")
+ax.plot(r4 * np.cos(th4), r4 * np.sin(th4), color=GREEN, lw=2.2, zorder=3)
+ax.plot([x0, x0], [0, y0], color=GREY, lw=0.9, ls="--", zorder=2)
+ax.plot([0, x0], [y0, y0], color=GREY, lw=0.9, ls="--", zorder=2)
+ax.plot([x0], [y0], "o", color=RED, ms=7, zorder=6)
+ax.plot([0], [0], "o", color=INK, ms=5, zorder=6)
+ax.text(x0 + 0.5, y0 - 1.5, "$P\\left(x_0,\\ y_0\\right)$", fontsize=F - 1.5, color=RED, ha="left")
+ax.text(x0 + 0.5, 0.5, "$x_0$", fontsize=F - 2, color=GREY)
+ax.text(0.45, y0 + 0.55, "$y_0$", fontsize=F - 2, color=GREY)
+ax.text(-14.2, 12.2, "同一个点，改读横纵坐标", fontsize=F - 2, color=INK)
+
+ax = axes[2]
+rtheta_axes(ax, (-0.35, 3 * PI + 0.35), (-0.6, 15.2), "对数螺线 $r=e^{a\\theta}$",
             ticks=[(0, "0"), (PI, r"$\pi$"), (2 * PI, r"$2\pi$"), (3 * PI, r"$3\pi$")])
 ax.plot(th4, r4, color=GREEN, lw=2.6, zorder=3)
-ax.text(0.30, 9.5, "在直角坐标里它是一条指数曲线：\n转角相同，$r$ 就乘同一个倍数",
-        fontsize=F - 3, color=INK)
+ax.plot([t0], [r0], "o", color=RED, ms=7, zorder=5)
+ax.plot([t0, t0], [0, r0], color=GREY, lw=0.9, ls=":", zorder=2)
+ax.text(t0 + 0.25, r0 + 0.6, "$P$", fontsize=F - 1.5, color=RED)
+ax.text(0.30, 12.8, "$r$ 是 $\\theta$ 的指数函数，图像是加速上升的曲线", fontsize=F - 2.5, color=INK)
+
 fig.tight_layout(); fig.savefig(BASE + "pc-spiral-log.png", dpi=150); plt.close(fig)
 
 print("done")

@@ -93,22 +93,23 @@ ax.text(-2.55, -2.70, "$(r,\\ \\theta)$ 与 $(-r,\\ \\theta+(2k+1)\\pi)$：也�
 ax.text(-2.55, -3.20, "$k$ 取整数：多转几整圈回到原处", fontsize=F - 2, color=GREY)
 
 # ---------- (4) 为什么引入 ----------
+from matplotlib.lines import Line2D
 ax = axes[1][1]
-pad(ax, (-3.6, 4.0), (-3.3, 3.3), "为什么引入：绕中心转的图形更好写")
+pad(ax, (-3.7, 3.7), (-3.4, 3.0), "为什么引入：绕中心转的图形更好写")
 th = np.linspace(0, 2 * np.pi, 400)
-a = 2.4
+a = 2.5
 ax.plot(a * np.cos(th), a * np.sin(th), color=BLUE, lw=2.6, zorder=3)
-ax.plot([0, 3.3 * np.cos(np.pi / 4)], [0, 3.3 * np.sin(np.pi / 4)], color=ORANGE, lw=2.4, zorder=3)
-tt = np.linspace(0, 2.3 * np.pi, 900)
-rr = 0.30 * tt
+ax.plot([0, 3.4 * np.cos(np.pi / 4)], [0, 3.4 * np.sin(np.pi / 4)], color=ORANGE, lw=2.4, zorder=3)
+tt = np.linspace(0, 2.6 * np.pi, 900)
+rr = 0.26 * tt
 ax.plot(rr * np.cos(tt), rr * np.sin(tt), color=GREEN, lw=2.0, zorder=4)
 ax.plot([0], [0], "o", color=INK, ms=6, zorder=6)
-ax.text(-3.45, 2.25, "圆：$r=a$", fontsize=F - 0.5, color=BLUE)
-ax.text(2.55, 1.35, "射线：$\\theta=\\frac{\\pi}{4}$", fontsize=F - 0.5, color=ORANGE)
-ax.text(-3.45, -1.90, "螺线：$r=a\\theta$", fontsize=F - 0.5, color=GREEN)
-ax.text(-3.45, -2.55, "同一个圆：$x^{2}+y^{2}=a^{2}$ 与 $r=a$", fontsize=F - 2, color=GREY)
-ax.text(-3.45, -3.00, "射线本来要写 $y=x\\ (x\\geq0)$，极坐标只写 $\\theta=\\frac{\\pi}{4}$",
-        fontsize=F - 2.5, color=GREY)
+ax.text(0.45, 2.35, "$\\theta=\\frac{\\pi}{4}$", fontsize=F - 1.5, color=ORANGE)
+h = [Line2D([], [], color=BLUE, lw=2.6, label="圆 $r=a$：一句话写完"),
+     Line2D([], [], color=ORANGE, lw=2.4, label="射线 $\\theta=\\frac{\\pi}{4}$：一个数写完"),
+     Line2D([], [], color=GREEN, lw=2.0, label="螺线 $r=a\\theta$：直角坐标写不出 $y=f(x)$")]
+ax.legend(handles=h, loc="lower left", frameon=False, fontsize=F - 2.5,
+          handlelength=1.6, labelcolor=INK, bbox_to_anchor=(-0.02, -0.02))
 
 fig.suptitle("极坐标：用距离与方向定位一个点", fontsize=14.5, color=INK)
 fig.tight_layout(rect=(0, 0, 1, 0.955))

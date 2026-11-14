@@ -52,10 +52,16 @@ def cart_style(ax, xlim, ylim, title, eq, boxpos=(0.5, 0.035)):
     ax.set_aspect("equal"); ax.grid(True, color="#ececec", lw=0.8)
     ax.axhline(0, color="#c8c8c8", lw=1.0, zorder=1)
     ax.axvline(0, color="#c8c8c8", lw=1.0, zorder=1)
-    ax.set_xticks([]); ax.set_yticks([])
+    tk = [t for t in (-2, -1, 0, 1, 2, 3) if xlim[0] < t < xlim[1]]
+    ax.set_xticks(tk); ax.set_xticklabels([str(t) for t in tk], fontsize=F2 - 3.5, color="#999999")
+    tkY = [t for t in (-2, -1, 0, 1, 2) if ylim[0] < t < ylim[1]]
+    ax.set_yticks(tkY); ax.set_yticklabels([str(t) for t in tkY], fontsize=F2 - 3.5, color="#999999")
+    ax.tick_params(length=2, colors="#cccccc")
+    ax.set_xlabel("$x$", fontsize=F2 - 1, color=INK, labelpad=0)
+    ax.set_ylabel("$y$", fontsize=F2 - 1, color=INK, labelpad=0)
     for sp in ax.spines.values():
         sp.set_color("#cccccc")
-    ax.set_title(title + "\n直角坐标平面里的图形", fontsize=T2, color=INK, pad=6)
+    ax.set_title(title + "\n直角坐标：$y$ 与 $x$ 的关系", fontsize=T2, color=INK, pad=6)
     ax.text(boxpos[0], boxpos[1], eq, transform=ax.transAxes, fontsize=F2 - 1,
             color=INK, ha="center", va="bottom", bbox=BOX)
 
@@ -85,7 +91,7 @@ ax.text(1.75, 0.32, "$\\theta=0$ 时 $r=2a$", fontsize=F2 - 2, color=RED)
 ax.text(-1.15, 2.05, "$\\theta$ 取 $\\left[-\\frac{\\pi}{2},\\frac{\\pi}{2}\\right]$ 描完一圈", fontsize=F2 - 2.5, color=GREY)
 
 ax = axes[0][1]
-cart_style(ax, (-1.2, 3.6), (-2.4, 2.4), "过极点的圆", "$\\left(x-a\\right)^{2}+y^{2}=a^{2}$")
+cart_style(ax, (-1.2, 3.6), (-2.4, 2.4), "过极点的圆", "$y=\\pm\\sqrt{a^{2}-\\left(x-a\\right)^{2}}$")
 ax.plot(2 * a * np.cos(tt) ** 2, 2 * a * np.cos(tt) * np.sin(tt), color=BLUE, lw=2.6, zorder=3)
 ax.plot([0], [0], "o", color=INK, ms=7, zorder=6)
 ax.plot([2 * a], [0], "o", color=RED, ms=7, zorder=6)
@@ -110,7 +116,7 @@ ax.text(1.08, 1.85, "$x=1$", fontsize=F2 - 1, color=ORANGE)
 ax.text(-1.10, 2.05, "直线不过极点，$r$ 随 $\\theta$ 变化", fontsize=F2 - 2.5, color=GREY)
 
 ax = axes[1][1]
-cart_style(ax, (-1.6, 3.4), (-2.4, 2.4), "不过极点的直线", "$x=1$", boxpos=(0.20, 0.06))
+cart_style(ax, (-1.6, 3.4), (-2.4, 2.4), "不过极点的直线", "$x=1$，不能写成 $y=f(x)$", boxpos=(0.30, 0.06))
 ax.plot([1, 1], [-2.2, 2.2], color=ORANGE, lw=2.6, zorder=3)
 ax.plot([0], [0], "o", color=INK, ms=7, zorder=6)
 ax.text(1.10, 1.90, "$x=1$", fontsize=F2 - 1, color=ORANGE)

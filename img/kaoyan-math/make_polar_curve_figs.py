@@ -31,19 +31,29 @@ def polar_axes(ax, lim, title):
     ax.set_title(title + "\n极坐标平面里的图形", fontsize=T, color=INK, pad=6)
 
 
-def cart_panel(ax, lim, title, eq, eqfont=None):
+def cart_panel(ax, lim, title, eq, eqfont=None, note=""):
     ax.set_xlim(-lim, lim); ax.set_ylim(-lim, lim)
     ax.set_aspect("equal")
     ax.grid(True, color="#ececec", lw=0.8)
     ax.axhline(0, color="#c8c8c8", lw=1.0, zorder=1)
     ax.axvline(0, color="#c8c8c8", lw=1.0, zorder=1)
-    ax.set_xticks([]); ax.set_yticks([])
+    tk = [-2, -1, 0, 1, 2]
+    tk = [t for t in tk if -lim < t < lim]
+    ax.set_xticks(tk); ax.set_yticks(tk)
+    ax.set_xticklabels([str(t) for t in tk], fontsize=F - 3.5, color="#999999")
+    ax.set_yticklabels([str(t) for t in tk], fontsize=F - 3.5, color="#999999")
+    ax.tick_params(length=2, colors="#cccccc")
     for sp in ax.spines.values():
         sp.set_color("#cccccc")
-    ax.set_title(title + "\n直角坐标平面里的图形", fontsize=T, color=INK, pad=6)
+    ax.set_xlabel("$x$", fontsize=F - 1, color=INK, labelpad=0)
+    ax.set_ylabel("$y$", fontsize=F - 1, color=INK, labelpad=0)
+    ax.set_title(title + "\n直角坐标：$y$ 与 $x$ 的关系", fontsize=T, color=INK, pad=6)
     ax.text(0.5, 0.035, eq, transform=ax.transAxes,
             fontsize=(eqfont if eqfont else F - 1.5), color=INK,
             ha="center", va="bottom", bbox=BOX)
+    if note:
+        ax.text(0.5, 0.105, note, transform=ax.transAxes, fontsize=F - 3.5,
+                color=GREY, ha="center", va="bottom")
 
 
 def rtheta_axes(ax, trange, rrange, title, ticks=None):
@@ -83,7 +93,8 @@ ax.annotate("$\\theta=\\pi$：$r=0$", xy=(0, 0), xytext=(-2.10, 1.55),
             fontsize=F - 2, color=INK, arrowprops=dict(arrowstyle="->", color=GREY, lw=1.0))
 
 ax = axes[1]
-cart_panel(ax, 2.4, "心形线", "$\\left(x^{2}+y^{2}-ax\\right)^{2}=a^{2}\\left(x^{2}+y^{2}\\right)$", F - 2.5)
+cart_panel(ax, 2.4, "心形线", "$y=\\pm\\sqrt{\\left(\\dfrac{a+\\sqrt{a^{2}+4ax}}{2}\\right)^{2}-x^{2}}$", F - 4,
+           note="开方只给出上下两支，尖角附近还要再分段")
 ax.plot(X, Y, color=RED, lw=2.6, zorder=3)
 ax.plot([0], [0], "o", color=INK, ms=6, zorder=6)
 ax.plot([2 * a], [0], "o", color=BLUE, ms=7, zorder=6)
@@ -114,7 +125,8 @@ for k in range(3):
 ax.text(-1.3, -1.24, "$n$ 为奇数：$n$ 片（这里 3 片）", fontsize=F - 2.5, color=INK)
 
 ax = axes[0][1]
-cart_panel(ax, 1.45, "三叶玫瑰线", "$\\left(x^{2}+y^{2}\\right)^{2}=ay\\left(3x^{2}-y^{2}\\right)$", F - 3)
+cart_panel(ax, 1.45, "三叶玫瑰线", "$\\left(x^{2}+y^{2}\\right)^{2}=ay\\left(3x^{2}-y^{2}\\right)$", F - 3.5,
+           note="$y$ 是 $x$ 的四次隐函数，解不成初等式")
 ax.plot(r3 * np.cos(th), r3 * np.sin(th), color=ORANGE, lw=2.4, zorder=3)
 
 ax = axes[0][2]
@@ -134,7 +146,8 @@ for k in range(4):
 ax.text(-1.3, -1.24, "$n$ 为偶数：$2n$ 片（这里 4 片）", fontsize=F - 2.5, color=INK)
 
 ax = axes[1][1]
-cart_panel(ax, 1.45, "四叶玫瑰线", "$\\left(x^{2}+y^{2}\\right)^{3}=a^{2}\\left(x^{2}-y^{2}\\right)^{2}$", F - 3)
+cart_panel(ax, 1.45, "四叶玫瑰线", "$\\left(x^{2}+y^{2}\\right)^{3}=a^{2}\\left(x^{2}-y^{2}\\right)^{2}$", F - 3.5,
+           note="$y$ 是 $x$ 的六次隐函数，解不成初等式")
 ax.plot(r4 * np.cos(th), r4 * np.sin(th), color=GREEN, lw=2.4, zorder=3)
 
 ax = axes[1][2]
@@ -162,7 +175,8 @@ ax.text(-a - 0.55, 0.15, "顶点", fontsize=F - 3, color=RED)
 ax.text(-1.70, -1.30, "只有 $\\cos 2\\theta\\geq0$ 的部分有图形", fontsize=F - 2.5, color=INK)
 
 ax = axes[1]
-cart_panel(ax, 1.80, "双纽线", "$\\left(x^{2}+y^{2}\\right)^{2}=a^{2}\\left(x^{2}-y^{2}\\right)$", F - 2.5)
+cart_panel(ax, 1.85, "双纽线", "$y=\\pm\\sqrt{\\dfrac{a\\sqrt{8x^{2}+a^{2}}-\\left(2x^{2}+a^{2}\\right)}{2}}$", F - 4,
+           note="开方给出上下两支")
 ax.plot(X2, Y2, color=BLUE, lw=2.6, zorder=3)
 ax.plot([0], [0], "o", color=INK, ms=6, zorder=6)
 ax.plot([a, -a], [0, 0], "o", color=RED, ms=7, zorder=6)
@@ -203,7 +217,8 @@ ax.annotate("$P\\left(r_0,\\ \\theta_0\\right)$", xy=(x0, y0), xytext=(-4.85, -3
 ax.text(-4.85, 4.55, "每转一圈，$r$ 加 $2\\pi a$", fontsize=F - 2, color=INK)
 
 ax = axes[1]
-cart_panel(ax, 5.0, "阿基米德螺线", "$\\sqrt{x^{2}+y^{2}}=a\\arctan\\frac{y}{x}$", F - 2.5)
+cart_panel(ax, 5.0, "阿基米德螺线", "$\\sqrt{x^{2}+y^{2}}=a\\arctan\\frac{y}{x}$", F - 3,
+           note="左端含反正切，$y$ 解不成 $x$ 的初等式")
 ax.plot(r3s * np.cos(th3), r3s * np.sin(th3), color=ORANGE, lw=2.4, zorder=3)
 ax.plot([x0, x0], [0, y0], color=GREY, lw=0.9, ls="--", zorder=2)
 ax.plot([0, x0], [y0, y0], color=GREY, lw=0.9, ls="--", zorder=2)
@@ -243,7 +258,8 @@ ax.annotate("$P\\left(r_0,\\ \\theta_0\\right)$", xy=(x0, y0), xytext=(-14.2, -5
 ax.text(-14.2, 12.2, "每转一圈，$r$ 乘 $e^{2\\pi a}$", fontsize=F - 2, color=INK)
 
 ax = axes[1]
-cart_panel(ax, 14.6, "对数螺线", "$\\sqrt{x^{2}+y^{2}}=e^{a\\arctan\\frac{y}{x}}$", F - 2.5)
+cart_panel(ax, 14.6, "对数螺线", "$\\sqrt{x^{2}+y^{2}}=e^{a\\arctan\\frac{y}{x}}$", F - 3,
+           note="左端含反正切，$y$ 解不成 $x$ 的初等式")
 ax.plot(r4s * np.cos(th4), r4s * np.sin(th4), color=GREEN, lw=2.2, zorder=3)
 ax.plot([x0, x0], [0, y0], color=GREY, lw=0.9, ls="--", zorder=2)
 ax.plot([0, x0], [y0, y0], color=GREY, lw=0.9, ls="--", zorder=2)

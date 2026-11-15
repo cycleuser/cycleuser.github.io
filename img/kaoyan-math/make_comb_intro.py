@@ -210,29 +210,37 @@ save_gif(frames, "comb-regression.gif", dur=650)
 # =====================================================================
 # 5) 分类
 # =====================================================================
-c1 = rng.normal([3.0, 3.0], 0.85, size=(24, 2))
-c2 = rng.normal([6.5, 7.0], 0.85, size=(24, 2))
+rng2 = np.random.default_rng(11)
+c1 = rng2.normal([3.2, 3.0], 0.75, size=(22, 2))
+c2 = rng2.normal([6.8, 7.2], 0.75, size=(22, 2))
+m1 = c1.mean(axis=0); m2 = c2.mean(axis=0)
+mid = (m1 + m2)/2
+d = m2 - m1; d = d/np.linalg.norm(d)          # 两类中心连线方向
+n = np.array([-d[1], d[0]])                   # 边界方向（垂直于连线）
+p0 = mid - 6.5*n; p1 = mid + 6.5*n
+q = np.array([9.0, 8.6])                      # 新样本，位于蓝侧
+side = float(np.dot(q - mid, d))
 frames = []
-for t in np.linspace(0, 1, 10):
-    fig, ax = axes_(6.8, 4.6, (0, 14.4), (0, 10.2))
-    ax.scatter(c1[:, 0], c1[:, 1], s=46, color=RED, alpha=0.8, edgecolor="white", linewidth=0.8, zorder=4)
-    ax.scatter(c2[:, 0], c2[:, 1], s=46, color=BLUE, alpha=0.8, edgecolor="white", linewidth=0.8, zorder=4)
-    ang = np.deg2rad(38)
-    mid = np.array([4.75, 5.0])
-    d = np.array([np.cos(ang), np.sin(ang)])
-    n = np.array([-d[1], d[0]])
-    p0 = mid - 7*d; p1 = mid + 7*d
-    if t > 0.05:
-        ax.plot([p0[0], p1[0]], [p0[1], p1[1]], color=GREEN, lw=2.6, zorder=5)
-        T(ax, 5.5, 1.1, "决策边界：线一侧判为一类，另一侧判为另一类", size=F-4, color=GREEN)
+for t in np.linspace(0, 1, 12):
+    fig, ax = axes_(6.8, 4.8, (0, 11.6), (0, 11.0))
+    ax.scatter(c1[:, 0], c1[:, 1], s=52, color=RED, alpha=0.85, edgecolor="white",
+               linewidth=0.9, zorder=4)
+    ax.scatter(c2[:, 0], c2[:, 1], s=52, color=BLUE, alpha=0.85, edgecolor="white",
+               linewidth=0.9, zorder=4)
+    if t > 0.02:
+        ax.plot([p0[0], p1[0]], [p0[1], p1[1]], color=GREEN, lw=2.8, zorder=5)
     if t > 0.9:
-        q = np.array([8.4, 8.8])
-        ax.plot([q[0]], [q[1]], "o", ms=12, mfc="white", mec=INK, mew=2.0, zorder=6)
-        T(ax, q[0]-0.5, q[1]+0.45, "新样本 → 蓝类", size=F-3, color=INK, ha="center")
-    ax.set_xlim(0, 10.5); ax.set_ylim(0, 10)
+        ax.plot([q[0]], [q[1]], "o", ms=15, mfc="white", mec=BLUE, mew=2.6, zorder=7)
+        ax.annotate("新样本\n→ 蓝类", xy=(q[0], q[1]), xytext=(q[0]-0.4, q[1]-2.0),
+                    fontsize=F-3, color=BLUE, ha="center",
+                    arrowprops=dict(arrowstyle="->", color=BLUE, lw=1.6))
+        ax.text(0.5, 0.06, "决策边界：线一侧判为红类，另一侧判为蓝类",
+                transform=ax.transAxes, fontsize=F-4, color=GREEN, ha="center")
+    ax.set_xlim(0, 11.6); ax.set_ylim(0, 11.0)
     ax.set_xticks([]); ax.set_yticks([])
     for sp in ax.spines.values(): sp.set_color("#d8dde3")
-    T(ax, 5.25, 9.8, "分类：看它落在哪一类，输出的是类别", size=F-2)
-    fig.subplots_adjust(0.01, 0.06, 0.99, 0.98)
+    ax.text(0.5, 1.045, "分类：判断它落在哪一类，输出的是类别", transform=ax.transAxes,
+            fontsize=F-2, color=INK, ha="center")
+    fig.subplots_adjust(0.02, 0.05, 0.98, 0.90)
     frames.append(grab(fig, "cls"))
 save_gif(frames, "comb-classification.gif", dur=700)

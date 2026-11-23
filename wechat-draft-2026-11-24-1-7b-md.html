@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="上一篇只测了七个"建个文件跑一下"的小任务，题目太浅，测不出东西。这一篇换了更接近现在主流智能体评测的做法：十二 …">
+    <link rel="canonical" href="https://blog.cycleuser.org/wechat-draft-2026-11-24-1-7b-md.html">
+    <meta property="og:site_name" content="CycleUser">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="1.7B 本地小模型到底能不能干活：12 项编码任务 + 8 项目常任务 + 四个智能体工具">
+    <meta property="og:description" content="上一篇只测了七个"建个文件跑一下"的小任务，题目太浅，测不出东西。这一篇换了更接近现在主流智能体评测的做法：十二 …">
+    <meta property="og:url" content="https://blog.cycleuser.org/wechat-draft-2026-11-24-1-7b-md.html">
+    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://blog.cycleuser.org/theme/image/default-logo.png">
+    <meta name="twitter:image" content="https://blog.cycleuser.org/theme/image/default-logo.png">
+    <link rel="alternate" type="application/atom+xml" title="CycleUser Atom" href="./feeds/all.atom.xml">
+    <link rel="alternate" type="application/rss+xml" title="CycleUser RSS" href="./feeds/all.rss.xml">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"1.7B \u672c\u5730\u5c0f\u6a21\u578b\u5230\u5e95\u80fd\u4e0d\u80fd\u5e72\u6d3b\uff1a12 \u9879\u7f16\u7801\u4efb\u52a1 + 8 \u9879\u76ee\u5e38\u4efb\u52a1 + \u56db\u4e2a\u667a\u80fd\u4f53\u5de5\u5177","datePublished":"2026-11-24T12:00:00+08:00","dateModified":"2026-11-24T12:00:00+08:00","author":{"@type":"Person","name":"CycleUser"},"publisher":{"@type":"Organization","name":"CycleUser"},"mainEntityOfPage":"https://blog.cycleuser.org/wechat-draft-2026-11-24-1-7b-md.html","description":"\u4e0a\u4e00\u7bc7\u53ea\u6d4b\u4e86\u4e03\u4e2a\"\u5efa\u4e2a\u6587\u4ef6\u8dd1\u4e00\u4e0b\"\u7684\u5c0f\u4efb\u52a1\uff0c\u9898\u76ee\u592a\u6d45\uff0c\u6d4b\u4e0d\u51fa\u4e1c\u897f\u3002\u8fd9\u4e00\u7bc7\u6362\u4e86\u66f4\u63a5\u8fd1\u73b0\u5728\u4e3b\u6d41\u667a\u80fd\u4f53\u8bc4\u6d4b\u7684\u505a\u6cd5\uff1a\u5341\u4e8c \u2026","keywords":["\u968f\u7b14"]}
+    </script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://giscus.app" crossorigin>
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894037367471530"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9894037367471530">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=21' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=21' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=21' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <link href="https://blog.cycleuser.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="CycleUser Full Atom Feed" />
+    <link href="https://blog.cycleuser.org/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="CycleUser Full RSS Feed" />
+</head>
+
+<body id="index" class="blog">
+<a class="skip-link" href="#content">跳到正文 / Skip to content</a>
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="./index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./search.html" data-i18n="搜索">搜索</a></li><li class="has-sub"><a href="javascript:void(0)" data-i18n="工具">工具</a>
+                    <ul><li><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li><a href="./model-radar.html" data-i18n="模型雷达">模型雷达</a></li><li><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li></ul>
+                </li><li class="has-sub"><a href="javascript:void(0)" data-i18n="游戏">游戏</a>
+                    <ul><li><a href="./打字练习.html" data-i18n="打字练习">打字练习</a></li><li><a href="./2048游戏.html" data-i18n="2048">2048</a></li><li><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li></ul>
+                </li><li class="has-sub"><a href="./categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="./category/academic.html">Academic (3)</a></li><li><a href="./category/ai.html">AI (6)</a></li><li><a href="./category/ben-di-tui-li.html">本地推理 (1)</a></li><li><a href="./category/bian-cheng-gong-ju.html">编程工具 (3)</a></li><li><a href="./category/c.html">C (16)</a></li><li><a href="./category/camera.html">Camera (15)</a></li><li><a href="./category/chromebook.html">ChromeBook (2)</a></li><li><a href="./category/cuda.html">CUDA (1)</a></li><li><a href="./category/design.html">Design (1)</a></li><li><a href="./category/diy.html">DIY (1)</a></li><li><a href="./category/duke.html">Duke (1)</a></li><li><a href="./category/earth.html">Earth (75)</a></li><li><a href="./category/education.html">Education (23)</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./category/gai-lu-tong-ji.html">概率统计 (7)</a></li><li><a href="./category/hackintosh.html">Hackintosh (7)</a></li><li><a href="./category/java.html">Java (1)</a></li><li><a href="./category/ji-qi-xue-xi.html">机器学习 (4)</a></li><li><a href="./category/ji-suan-ji.html">计算机 (1)</a></li><li><a href="./category/ji-zhu.html">技术 (3)</a></li><li><a href="./category/ji-zhu-jie-du.html">技术解读 (1)</a></li><li><a href="./category/kao-yan.html">考研 (2)</a></li><li><a href="./category/kao-yan-shu-xue.html">考研数学 (53)</a></li><li><a href="./category/kao-yan-ying-yu.html">考研英语 (17)</a></li><li><a href="./category/ke-ji.html">科技 (1)</a></li><li><a href="./category/linux.html">Linux (4)</a></li><li><a href="./category/llm.html">LLM (65)</a></li><li><a href="./category/ltfs.html">LTFS (1)</a></li><li><a href="./category/mac.html">Mac (3)</a></li><li><a href="./category/math.html">Math (32)</a></li><li><a href="./category/ml.html">ML (4)</a></li><li><a href="./category/modeling.html">Modeling (10)</a></li><li><a href="./category/nas.html">NAS (1)</a></li><li><a href="./category/nix.html">Nix (1)</a></li><li><a href="./category/photography.html">Photography (1)</a></li><li><a href="./category/programming.html">Programming (13)</a></li><li><a href="./category/pve.html">PVE (1)</a></li><li><a href="./category/python.html">Python (27)</a></li><li><a href="./category/qgis.html">QGIS (3)</a></li><li><a href="./category/qian-duan.html">前端 (1)</a></li><li><a href="./category/qt.html">QT (1)</a></li><li><a href="./category/raspbian.html">Raspbian (1)</a></li><li><a href="./category/ren-gong-zhi-neng.html">人工智能 (35)</a></li><li><a href="./category/science.html">Science (2)</a></li><li><a href="./category/sdr.html">SDR (2)</a></li><li><a href="./category/she-ying.html">摄影 (1)</a></li><li><a href="./category/shu-xue.html">数学 (8)</a></li><li><a href="./category/shu-zhi-ji-suan.html">数值计算 (1)</a></li><li><a href="./category/software.html">Software (3)</a></li><li><a href="./category/story.html">Story (73)</a></li><li><a href="./category/sui-bi.html">随笔 (30)</a></li><li><a href="./category/tong-ji.html">统计 (1)</a></li><li><a href="./category/tool.html">Tool (57)</a></li><li><a href="./category/tools.html">Tools (2)</a></li><li><a href="./category/virtualization.html">Virtualization (1)</a></li><li><a href="./category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./category/wen-xue.html">文学 (1)</a></li><li><a href="./category/windows.html">Windows (1)</a></li><li><a href="./category/work.html">Work (24)</a></li><li><a href="./category/yan-jiu-she-ji.html">研究设计 (1)</a></li><li><a href="./category/zhi-neng-ti.html">智能体 (2)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="./tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="./tag/12-factor.html">12-Factor (1)</a></li><li><a href="./tag/16gxian-cun.html">16G显存 (1)</a></li><li><a href="./tag/2080ti.html">2080Ti (1)</a></li><li><a href="./tag/24g.html">24G (1)</a></li><li><a href="./tag/3090.html">3090 (1)</a></li><li><a href="./tag/32g.html">32G (1)</a></li><li><a href="./tag/3dda-yin.html">3D打印 (1)</a></li><li><a href="./tag/4060ti.html">4060Ti (1)</a></li><li><a href="./tag/4090.html">4090 (1)</a></li><li><a href="./tag/5060ti.html">5060Ti (2)</a></li><li><a href="./tag/5070ti.html">5070Ti (1)</a></li><li><a href="./tag/5090.html">5090 (1)</a></li><li><a href="./tag/7900xtx.html">7900XTX (6)</a></li><li><a href="./tag/8gxian-cun.html">8G显存 (1)</a></li><li><a href="./tag/9bmo-xing.html">9B模型 (1)</a></li><li><a href="./tag/abbreviations.html">abbreviations (1)</a></li><li><a href="./tag/ablation-study.html">ablation study (1)</a></li><li><a href="./tag/academic.html">academic (1)</a></li><li><a href="./tag/adamw.html">AdamW (1)</a></li><li><a href="./tag/advice.html">advice (1)</a></li><li><a href="./tag/aerodynamics.html">aerodynamics (3)</a></li><li><a href="./tag/agent.html">Agent (4)</a></li><li><a href="./tag/agent-skills.html">Agent Skills (1)</a></li><li><a href="./tag/ai.html">AI (41)</a></li><li><a href="./tag/ai-agent.html">AI Agent (1)</a></li><li><a href="./tag/ai-jian-ce.html">AI 检测 (4)</a></li><li><a href="./tag/ai-max-395.html">AI Max 395 (3)</a></li><li><a href="./tag/ai-shi-yong.html">AI 使用 (1)</a></li><li><a href="./tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="./tag/aigc.html">AIGC (1)</a></li><li><a href="./tag/ailun-li.html">AI伦理 (1)</a></li><li><a href="./tag/airfoil.html">airfoil (1)</a></li><li><a href="./tag/aixie-zuo.html">AI写作 (2)</a></li><li><a href="./tag/aiyun-ying.html">AI运营 (1)</a></li><li><a href="./tag/aizhi-li.html">AI治理 (1)</a></li><li><a href="./tag/algorithm.html">Algorithm (12)</a></li><li><a href="./tag/am-gmbu-deng-shi.html">AM-GM不等式 (1)</a></li><li><a href="./tag/amd.html">AMD (3)</a></li><li><a href="./tag/amd-xian-qia.html">AMD 显卡 (1)</a></li><li><a href="./tag/an-quan-dui-qi.html">安全对齐 (1)</a></li><li><a href="./tag/an-zhuang-jiao-cheng.html">安装教程 (1)</a></li><li><a href="./tag/anime.html">anime (1)</a></li><li><a href="./tag/anthropic.html">Anthropic (1)</a></li><li><a href="./tag/ao-han-shu.html">凹函数 (2)</a></li><li><a href="./tag/ao-tu-xing.html">凹凸性 (1)</a></li><li><a href="./tag/api.html">API (1)</a></li><li><a href="./tag/arc.html">ARC (1)</a></li><li><a href="./tag/architecture.html">Architecture (3)</a></li><li><a href="./tag/arithmetic.html">arithmetic (1)</a></li><li><a href="./tag/attitude.html">Attitude (2)</a></li><li><a href="./tag/ban-ben-xue.html">版本学 (1)</a></li><li><a href="./tag/ban-quan.html">版权 (1)</a></li><li><a href="./tag/bayesian.html">Bayesian (2)</a></li><li><a href="./tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="./tag/beginner.html">Beginner (3)</a></li><li><a href="./tag/bei-fen.html">备份 (1)</a></li><li><a href="./tag/bei-kao.html">备考 (4)</a></li><li><a href="./tag/bei-kao-ce-lue.html">备考策略 (1)</a></li><li><a href="./tag/bei-kao-ji-hua.html">备考计划 (1)</a></li><li><a href="./tag/bei-ta-fen-bu.html">贝塔分布 (1)</a></li><li><a href="./tag/bei-xie-si.html">贝叶斯 (2)</a></li><li><a href="./tag/bei-xie-si-gong-shi.html">贝叶斯公式 (1)</a></li><li><a href="./tag/ben-di-bu-shu.html">本地部署 (21)</a></li><li><a href="./tag/ben-di-bu-shu-bing-yun-xing-omnicoder-9bde-su-du-zhi-mi-moxing-vs-ollama.html">本地部署并运行omnicoder-9b的速度之谜MoXing-vs-Ollama (1)</a></li><li><a href="./tag/ben-di-da-mo-xing.html">本地大模型 (1)</a></li><li><a href="./tag/ben-di-mo-xing.html">本地模型 (18)</a></li><li><a href="./tag/ben-di-tui-li.html">本地推理 (2)</a></li><li><a href="./tag/ben-di-vszai-xian.html">本地vs在线 (1)</a></li><li><a href="./tag/bert.html">BERT (2)</a></li><li><a href="./tag/bfcl.html">BFCL (4)</a></li><li><a href="./tag/bi-ji-ben-dian-nao.html">笔记本电脑 (1)</a></li><li><a href="./tag/bi-yao-xing.html">必要性 (1)</a></li><li><a href="./tag/bi-ye-lun-wen.html">毕业论文 (2)</a></li><li><a href="./tag/bian-cheng.html">编程 (1)</a></li><li><a href="./tag/bian-cheng-huan-jing.html">编程环境 (1)</a></li><li><a href="./tag/bian-cheng-zhu-shou.html">编程助手 (1)</a></li><li><a href="./tag/bian-ma-zhi-neng-ti.html">编码智能体 (2)</a></li><li><a href="./tag/bianque.html">BianQue (1)</a></li><li><a href="./tag/biao-zhun-wu.html">标准误 (1)</a></li><li><a href="./tag/binary.html">binary (1)</a></li><li><a href="./tag/bing-fei-gu-yi-wei-shi-yao-wo-geng-duo-yong-ming-ling-xing-gong-ju-er-bu-shi-gui.html">并非故意-为什么我更多用命令行工具而不是GUI (1)</a></li><li><a href="./tag/bing-xue.html">冰雪 (15)</a></li><li><a href="./tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="./tag/bo-nu-li.html">伯努利 (1)</a></li><li><a href="./tag/book.html">Book (10)</a></li><li><a href="./tag/brent.html">Brent (1)</a></li><li><a href="./tag/bu-shu.html">部署 (1)</a></li><li><a href="./tag/bullshit.html">bullshit (1)</a></li><li><a href="./tag/bzhan.html">B站 (2)</a></li><li><a href="./tag/c.html">C (10)</a></li><li><a href="./tag/camera.html">Camera (23)</a></li><li><a href="./tag/can-shu-hua-jian-mo.html">参数化建模 (1)</a></li><li><a href="./tag/career.html">career (1)</a></li><li><a href="./tag/causation.html">Causation (1)</a></li><li><a href="./tag/chai-fen-ce-shi.html">差分测试 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-da-mo-xing-omnicoder-9b-jian-ce-moxing-vs-ollama-dui-bi.html">超强的本地大模型-OmniCoder-9B-简测MoXing-vs-Ollama-对比 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-xiao-mo-xing-omnicoder-9bde-an-zhuang-yu-shi-yong-zhi-nan.html">超强的本地小模型OmniCoder-9B的安装与使用指南 (1)</a></li><li><a href="./tag/chao-xiao-mo-xing.html">超小模型 (1)</a></li><li><a href="./tag/chat.html">Chat (1)</a></li><li><a href="./tag/chatgpt.html">ChatGPT (1)</a></li><li><a href="./tag/cheng-ben.html">成本 (1)</a></li><li><a href="./tag/cheng-chang.html">成长 (3)</a></li><li><a href="./tag/chi-xian.html">离线 (1)</a></li><li><a href="./tag/chouchou-pdflun-wen-zhong-ming-ming-gong-ju-sheng-ji-liao-zhe-ci-zhuan-men-you-hua-liao-zhong-wen-lun-wen-zhi-chi.html">Chou瞅-PDF论文重命名工具升级了这次专门优化了中文论文支持 (1)</a></li><li><a href="./tag/chouchou-yi-ge-pythonxiao-gong-ju-rang-ni-de-lun-wen-pdfwen-jian-ming-bu-zai-shi-luan-ma.html">Chou瞅一个Python小工具让你的论文PDF文件名不再是乱码 (1)</a></li><li><a href="./tag/chromebook.html">ChromeBook (2)</a></li><li><a href="./tag/chu-xue-zhe.html">初学者 (1)</a></li><li><a href="./tag/chuan-bo-xue.html">传播学 (1)</a></li><li><a href="./tag/chuan-re.html">传热 (1)</a></li><li><a href="./tag/chuang-zao-li.html">创造力 (1)</a></li><li><a href="./tag/ci-hui.html">词汇 (11)</a></li><li><a href="./tag/ci-hui-qun.html">词汇群 (1)</a></li><li><a href="./tag/ci-pan-zhen-lie.html">磁盘阵列 (1)</a></li><li><a href="./tag/claude-code.html">Claude Code (1)</a></li><li><a href="./tag/cli.html">CLI (1)</a></li><li><a href="./tag/clip.html">CLIP (1)</a></li><li><a href="./tag/cloudflare-tunnel.html">Cloudflare Tunnel (1)</a></li><li><a href="./tag/code.html">Code (2)</a></li><li><a href="./tag/code-generation.html">Code Generation (6)</a></li><li><a href="./tag/codex.html">Codex (1)</a></li><li><a href="./tag/coding.html">Coding (1)</a></li><li><a href="./tag/cognition.html">Cognition (1)</a></li><li><a href="./tag/comics.html">comics (1)</a></li><li><a href="./tag/communicate.html">Communicate (6)</a></li><li><a href="./tag/communication.html">communication (3)</a></li><li><a href="./tag/comparison.html">comparison (1)</a></li><li><a href="./tag/computability.html">Computability (12)</a></li><li><a href="./tag/computer.html">computer (3)</a></li><li><a href="./tag/concave.html">concave (1)</a></li><li><a href="./tag/conda.html">Conda (2)</a></li><li><a href="./tag/conda-forge.html">conda-forge (1)</a></li><li><a href="./tag/configback-kua-ping-tai-kai-fa-pei-zhi-wen-jian-de-wu-tong-bei-fen-qian-yi-guan-li-gong-ju.html">ConfigBack-跨平台开发配置文件的无痛备份迁移管理工具 (1)</a></li><li><a href="./tag/cong-shu-zu-dao-fu-za-shu-ju-cyu-yan-shi-zen-yao-yi-bu-bu-bian-fu-za-de.html">从数组到复杂数据C语言是怎么一步步变复杂的 (1)</a></li><li><a href="./tag/copytalker-kua-yue-yu-yan-zhang-ai-de-jin-shi-shi-yu-yin-fan-yi.html">CopyTalker-跨越语言障碍的近实时语音翻译 (1)</a></li><li><a href="./tag/correlation.html">Correlation (1)</a></li><li><a href="./tag/cpu.html">CPU (1)</a></li><li><a href="./tag/cpushi-jian.html">CPU时间 (1)</a></li><li><a href="./tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="./tag/cs.html">CS (1)</a></li><li><a href="./tag/csv.html">csv (1)</a></li><li><a href="./tag/cuda.html">CUDA (7)</a></li><li><a href="./tag/culture.html">culture (1)</a></li><li><a href="./tag/cursor.html">Cursor (1)</a></li><li><a href="./tag/cyu-yan-fu-xi-quan-gong-lue-yi-wen-chi-tou-suo-you-zhi-shi-dian.html">C语言复习全攻略-一文吃透所有知识点 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-numc-yi-ge-numpy-feng-ge-de-c-yu-yan-ku.html">C语言基础教程NumC-一个-NumPy-风格的-C-语言库 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shi-xian-lei-si-dong-tai-lei-xing-dui-yong-hu-shu-ru-jie-xi-bing-qie-xuan-ze-he-gua-de-shu-ju-lei-xing.html">C语言基础教程-实现类似动态类型对用户输入解析并且选择合适的数据类型 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shu-zu-xing-zhuang-50xing-200000lie-vs-200000xing-50lie-tong-yang-de-shu-ju-bu-tong-de-xing-neng.html">C语言基础教程数组形状-50行200000列-vs-200000行50列-同样的数据不同的性能 (1)</a></li><li><a href="./tag/da-bian.html">答辩 (1)</a></li><li><a href="./tag/da-fei-yu.html">大肥鱼 (1)</a></li><li><a href="./tag/da-gong.html">打工 (1)</a></li><li><a href="./tag/da-mo-xing.html">大模型 (3)</a></li><li><a href="./tag/da-qi.html">大气 (16)</a></li><li><a href="./tag/da-te-mao-si.html">达特茅斯 (1)</a></li><li><a href="./tag/da-xue.html">大学 (3)</a></li><li><a href="./tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="./tag/da-xue-sheng-huo.html">大学生活 (1)</a></li><li><a href="./tag/da-yi.html">大一 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing.html">大语言模型 (5)</a></li><li><a href="./tag/da-yu-yan-mo-xing-li-mian-de-tokende-han-yi-he-yuan-liu.html">大语言模型里面的token的含义和源流 (1)</a></li><li><a href="./tag/da-zuo-wen.html">大作文 (2)</a></li><li><a href="./tag/dai-ma-neng-li.html">代码能力 (1)</a></li><li><a href="./tag/dai-ma-qian-yi.html">代码迁移 (1)</a></li><li><a href="./tag/dan-ci.html">单词 (1)</a></li><li><a href="./tag/dan-diao-shi-zhong.html">单调时钟 (1)</a></li><li><a href="./tag/dan-jing-du-fu-dian-shu-de-fen-bian-lu-wei-shi-yao-zai-ji-suan-ji-li-1000-mo-he-1000-mo-jia-001-ke-neng-shi-yi-yang-de.html">单精度浮点数的分辨率为什么在计算机里-1000-万和-1000-万加-001-可能是一样的 (1)</a></li><li><a href="./tag/dan-yang-ben-xue-xi.html">单样本学习 (1)</a></li><li><a href="./tag/dan-yi-zhi-ze-yuan-ze-xie-hao-pythonhan-shu-de-di-yi-bu.html">单一职责原则写好Python函数的第一步 (1)</a></li><li><a href="./tag/dao-du.html">导读 (1)</a></li><li><a href="./tag/dao-shu.html">导数 (1)</a></li><li><a href="./tag/dao-shu-ding-yi.html">导数定义 (1)</a></li><li><a href="./tag/data.html">Data (3)</a></li><li><a href="./tag/data-science.html">Data Science (2)</a></li><li><a href="./tag/database.html">Database (1)</a></li><li><a href="./tag/datewise-photo-organizer-ji-yu-ri-qi-shi-jian-jin-xing-tu-pian-zu-zhi-he-lu-jing-guan-li-de-she-ying-fu-zhu-gong-ju-ruan-jian.html">Datewise-Photo-Organizer-基于日期时间进行图片组织和路径管理的摄影辅助工具软件 (1)</a></li><li><a href="./tag/ddr3.html">DDR3 (1)</a></li><li><a href="./tag/ddr4.html">DDR4 (1)</a></li><li><a href="./tag/ddr5.html">DDR5 (1)</a></li><li><a href="./tag/de-guo.html">德国 (1)</a></li><li><a href="./tag/decision-making.html">decision-making (1)</a></li><li><a href="./tag/decode.html">decode (1)</a></li><li><a href="./tag/deepseek.html">DeepSeek (7)</a></li><li><a href="./tag/deepseek-harness.html">DeepSeek Harness (1)</a></li><li><a href="./tag/deng-jie-wu-qiong-xiao.html">等价无穷小 (1)</a></li><li><a href="./tag/design.html">Design (1)</a></li><li><a href="./tag/di-li-ke-lei-fen-bu.html">狄利克雷分布 (1)</a></li><li><a href="./tag/di-li-ke-lei-han-shu.html">狄利克雷函数 (1)</a></li><li><a href="./tag/di-qiu-ke-xue.html">地球科学 (1)</a></li><li><a href="./tag/dian-che-nan-ti-han-shang-de-zhi-jia-hui-zai-shi-gu-qian-tu-ran-tui-chu-yao.html">电车难题厂商的智驾会在事故前突然退出么 (1)</a></li><li><a href="./tag/dian-fei.html">电费 (2)</a></li><li><a href="./tag/dian-yuan.html">电源 (1)</a></li><li><a href="./tag/diffusion.html">Diffusion (1)</a></li><li><a href="./tag/dimension.html">dimension (1)</a></li><li><a href="./tag/ding-du-hu-ge.html">丁都护歌 (1)</a></li><li><a href="./tag/ding-ji-fen.html">定积分 (1)</a></li><li><a href="./tag/discuss.html">Discuss (7)</a></li><li><a href="./tag/disease.html">Disease (1)</a></li><li><a href="./tag/diy.html">DIY (1)</a></li><li><a href="./tag/download.html">Download (1)</a></li><li><a href="./tag/du-li-xing.html">独立性 (1)</a></li><li><a href="./tag/du-liang-kong-jian.html">度量空间 (1)</a></li><li><a href="./tag/du-shu.html">读书 (1)</a></li><li><a href="./tag/du-shu-bi-ji.html">读书笔记 (1)</a></li><li><a href="./tag/duan-ju.html">短剧 (1)</a></li><li><a href="./tag/dui-kang.html">对抗 (1)</a></li><li><a href="./tag/dui-shu-han-shu.html">对数函数 (1)</a></li><li><a href="./tag/dui-ying-fen-xi.html">对应分析 (1)</a></li><li><a href="./tag/duo-feng.html">多峰 (1)</a></li><li><a href="./tag/duo-mo-tai.html">多模态 (1)</a></li><li><a href="./tag/duo-qia-bu-shu.html">多卡部署 (1)</a></li><li><a href="./tag/duo-xiang-fen-bu.html">多项分布 (1)</a></li><li><a href="./tag/duo-yu-yan.html">多语言 (1)</a></li><li><a href="./tag/duo-zhi-neng-ti.html">多智能体 (1)</a></li><li><a href="./tag/e.html">e (2)</a></li><li><a href="./tag/earth.html">Earth (75)</a></li><li><a href="./tag/earth-science.html">Earth Science (1)</a></li><li><a href="./tag/education.html">Education (16)</a></li><li><a href="./tag/efficiency.html">efficiency (1)</a></li><li><a href="./tag/ekf.html">EKF (1)</a></li><li><a href="./tag/embeddinggemma.html">EmbeddingGemma (2)</a></li><li><a href="./tag/emotion.html">emotion (1)</a></li><li><a href="./tag/emsuan-fa.html">EM算法 (1)</a></li><li><a href="./tag/engineering.html">Engineering (1)</a></li><li><a href="./tag/environment.html">Environment (1)</a></li><li><a href="./tag/er-ji.html">耳机 (1)</a></li><li><a href="./tag/er-jie-dao-shu.html">二阶导数 (1)</a></li><li><a href="./tag/er-jin-zhi.html">二进制 (1)</a></li><li><a href="./tag/er-shou.html">二手 (1)</a></li><li><a href="./tag/er-xiang-fen-bu.html">二项分布 (1)</a></li><li><a href="./tag/er-xiang-shi-xi-shu.html">二项式系数 (1)</a></li><li><a href="./tag/ertinger-ting-yi-ge-jian-dan-de-yin-pin-jiang-zao-gong-ju.html">ErTing耳听一个简单的音频降噪工具 (1)</a></li><li><a href="./tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="./tag/fa-guo.html">法国 (1)</a></li><li><a href="./tag/fa-lan-ke-fu.html">法兰克福 (1)</a></li><li><a href="./tag/family.html">family (1)</a></li><li><a href="./tag/fan-shu.html">范数 (1)</a></li><li><a href="./tag/fan-si.html">反思 (1)</a></li><li><a href="./tag/fan-yi-mo-xing.html">翻译模型 (1)</a></li><li><a href="./tag/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">FanFu凡赴-把-Ollama-的-GGUF-模型转成-HuggingFace-格式纯好玩 (1)</a></li><li><a href="./tag/fang-chai.html">方差 (2)</a></li><li><a href="./tag/fang-chai-fen-xi.html">方差分析 (1)</a></li><li><a href="./tag/fang-fa-bi-gui-mo-geng-zhong-yao-agenticqwenyu-needlede-xiao-mo-xing-zhi-neng-ti-ying-yong-tan-suo.html">方法比规模更重要AgenticQwen与Needle的小模型智能体应用探索 (1)</a></li><li><a href="./tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="./tag/fei-can-shu-jian-yan.html">非参数检验 (1)</a></li><li><a href="./tag/fen-xing-wei-shu.html">分形维数 (1)</a></li><li><a href="./tag/feng-ge-qian-yi.html">风格迁移 (1)</a></li><li><a href="./tag/feng-xian.html">风险 (1)</a></li><li><a href="./tag/fengtang.html">FengTang (1)</a></li><li><a href="./tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="./tag/filtering.html">Filtering (6)</a></li><li><a href="./tag/folderlensyi-ge-pyside6shi-xian-de-jian-dan-wen-jian-guan-li-qi-kai-fa-shi-li.html">FolderLens一个PySide6实现的简单文件管理器开发实例 (1)</a></li><li><a href="./tag/fractal.html">fractal (1)</a></li><li><a href="./tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="./tag/freshman.html">freshman (5)</a></li><li><a href="./tag/fu-gai-lu.html">负概率 (1)</a></li><li><a href="./tag/fu-shang.html">负熵 (1)</a></li><li><a href="./tag/fu-wen-du.html">负温度 (1)</a></li><li><a href="./tag/fu-ya.html">负压 (1)</a></li><li><a href="./tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="./tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./tag/function-calling.html">function calling (1)</a></li><li><a href="./tag/gai-lu-fen-bu.html">概率分布 (1)</a></li><li><a href="./tag/gai-lu-lun.html">概率论 (9)</a></li><li><a href="./tag/game.html">Game (2)</a></li><li><a href="./tag/gametheory.html">GameTheory (1)</a></li><li><a href="./tag/gangdan-de-zhi-shi-ku-shi-zen-yao-lian-cheng-de.html">GangDan-的知识库是怎么炼成的 (1)</a></li><li><a href="./tag/gangdan-geng-xin-ke-yong-zai-xian-mo-xing-cong-xie-zong-shu-dao-xie-wan-zheng-wen-zhang.html">GangDan-更新可用在线模型从写综述到写完整文章 (1)</a></li><li><a href="./tag/gangdan-wu-yue-zhong-de-ji-zhong-geng-xin-jing-zhun-xuan-wen-zhi-shi-ku-fen-xi-xue-xi-mo-kuai-quan-mian-xiu-fu.html">GangDan-五月中的集中更新精准选文知识库分析学习模块全面修复 (1)</a></li><li><a href="./tag/gangdan-you-geng-xin-liao-yi-bo-cong-kai-fa-zhu-shou-zhuan-xing-wei-zhi-shi-guan-li-yu-jiao-xue-fu-zhu-gong-ju.html">GangDan-又更新了一波从开发助手转型为知识管理与教学辅助工具 (1)</a></li><li><a href="./tag/gangdangang-dan-sheng-ji-kai-yuan-ben-di-zhi-shi-ku-zhi-chi-ben-di-mo-xing-he-zai-xian-mo-xing-de-shen-du-yan-jiu-zhu-shou.html">GangDan纲担升级开源本地知识库-支持本地模型和在线模型的深度研究助手 (1)</a></li><li><a href="./tag/gangdangang-dan-zhong-gou-ji-hu-zhong-zuo-liao-yi-bian.html">GangDan纲担重构-几乎重做了一遍 (1)</a></li><li><a href="./tag/gangdanji-xu-geng-xin-xian-zai-neng-zhi-jie-shang-chuan-cajgou-jian-zhi-shi-ku-liao.html">GangDan继续更新现在能直接上传CAJ构建知识库了 (1)</a></li><li><a href="./tag/gangdanzhi-shi-ku-dao-chu-gai-jin-ke-yi-zhi-jie-dao-chu-xia-zai-hao-de-wen-zhang-yuan-wen-liao.html">GangDan知识库导出改进-可以直接导出下载好的文章原文了 (1)</a></li><li><a href="./tag/gao-deng-shu-xue.html">高等数学 (30)</a></li><li><a href="./tag/gao-si-fen-bu.html">高斯分布 (2)</a></li><li><a href="./tag/gao-si-hun-he.html">高斯混合 (1)</a></li><li><a href="./tag/gao-xiao-jiao-shi-jian-yi-da-yi-kai-xue-yao-you-dian-nao-huan-yao-an-zhuang-opencodeshi-yong-zhi-neng-ti.html">高校教师建议大一开学要有电脑还要安装OpenCode使用智能体 (1)</a></li><li><a href="./tag/ge-er-feng-de-shi-nai-de-ding-li.html">格尔丰德施耐德定理 (1)</a></li><li><a href="./tag/ge-shi.html">格式 (1)</a></li><li><a href="./tag/gei-xin-shou-shi-xian-yi-wei-shu-zu-de-liang-chong-si-lu-chuan-tong-cyu-yan-vs-numcku.html">给新手实现一维数组的两种思路传统C语言-vs-NumC库 (1)</a></li><li><a href="./tag/gemma4.html">Gemma4 (1)</a></li><li><a href="./tag/general-education.html">general-education (1)</a></li><li><a href="./tag/geojstool-di-qiu-hua-xue-fen-xi-gong-ju-wang-ye-ban-de-geopytool.html">GeoJsTool-地球化学分析工具-网页版的GeoPyTool (1)</a></li><li><a href="./tag/geology.html">Geology (4)</a></li><li><a href="./tag/geometry.html">geometry (1)</a></li><li><a href="./tag/geopython.html">GeoPython (1)</a></li><li><a href="./tag/gfx1151.html">gfx1151 (1)</a></li><li><a href="./tag/gguf.html">GGUF (4)</a></li><li><a href="./tag/gis.html">GIS (3)</a></li><li><a href="./tag/glm.html">GLM (1)</a></li><li><a href="./tag/glm-53-flash.html">GLM-5.3-Flash (1)</a></li><li><a href="./tag/glumpy.html">GlumPy (2)</a></li><li><a href="./tag/golden-section.html">Golden Section (1)</a></li><li><a href="./tag/gong-ju.html">工具 (1)</a></li><li><a href="./tag/gong-ju-diao-yong.html">工具调用 (4)</a></li><li><a href="./tag/gong-xian-du-gui-yin.html">贡献度归因 (1)</a></li><li><a href="./tag/gong-zhong-hao.html">公众号 (1)</a></li><li><a href="./tag/gong-zuo-zhan.html">工作站 (1)</a></li><li><a href="./tag/google-de-turboquant-suan-fa-ru-he-rang-aigeng-sheng-nei-cun-gao-ding-xiang-liang-liang-hua-nan-ti.html">Google-的-TurboQuant-算法如何让AI更省内存搞定向量量化难题 (1)</a></li><li><a href="./tag/gpt-3.html">GPT-3 (1)</a></li><li><a href="./tag/gpt-35.html">GPT-3.5 (3)</a></li><li><a href="./tag/gpt-4o.html">GPT-4o (1)</a></li><li><a href="./tag/gpt-6-astra.html">GPT-6 Astra (1)</a></li><li><a href="./tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="./tag/graduate-school.html">graduate-school (1)</a></li><li><a href="./tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="./tag/granite4.html">granite4 (1)</a></li><li><a href="./tag/gsm8k.html">GSM8K (2)</a></li><li><a href="./tag/gu-dian-xiao-shuo.html">古典小说 (1)</a></li><li><a href="./tag/gu-ge.html">谷歌 (1)</a></li><li><a href="./tag/gu-ge-turboquant-lun-wen-zhong-yi-ji-yu-jin-zui-you-niu-qu-lu-de-gao-su-zai-xian-xiang-liang-liang-hua-suan-fa.html">谷歌-TurboQuant-论文中译基于近最优扭曲率的高速在线向量量化算法 (1)</a></li><li><a href="./tag/gu-ji-liang.html">估计量 (1)</a></li><li><a href="./tag/gua-yong-zhuan-ye.html">适用专业 (1)</a></li><li><a href="./tag/guan-xi-xing-shu-ju-ku.html">关系型数据库 (1)</a></li><li><a href="./tag/guide.html">Guide (1)</a></li><li><a href="./tag/gvs5h.html">GVS5H (1)</a></li><li><a href="./tag/hack.html">Hack (2)</a></li><li><a href="./tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="./tag/hadoop.html">Hadoop (2)</a></li><li><a href="./tag/halogen.html">halogen (2)</a></li><li><a href="./tag/han-guo.html">韩国 (1)</a></li><li><a href="./tag/hardware.html">Hardware (2)</a></li><li><a href="./tag/hate.html">Hate (1)</a></li><li><a href="./tag/hbase.html">HBase (1)</a></li><li><a href="./tag/he-gui.html">合规 (1)</a></li><li><a href="./tag/he-ji.html">合辑 (1)</a></li><li><a href="./tag/heibancong-markdownzhuan-chu-ppthuan-deng-pian.html">HeiBan从Markdown转出PPT幻灯片 (1)</a></li><li><a href="./tag/heibanhei-ban-jiang-markdownzhuan-huan-cheng-htmllai-dang-jiang-yi.html">HeiBan黑板-将Markdown转换成HTML来当讲义 (1)</a></li><li><a href="./tag/hellaswag.html">HellaSwag (2)</a></li><li><a href="./tag/hermes.html">Hermes (1)</a></li><li><a href="./tag/heroism.html">heroism (1)</a></li><li><a href="./tag/history.html">History (6)</a></li><li><a href="./tag/hu-xin-xi.html">互信息 (1)</a></li><li><a href="./tag/huan-jue.html">幻觉 (1)</a></li><li><a href="./tag/huan-wei-si-kao-he-ni-chou-sha.html">换位思考和你瞅啥 (1)</a></li><li><a href="./tag/huan-yi-ge-ba-wang-ye-zhuan-huan-cheng-markdownde-python-xiao-gong-ju.html">Huan-一个把网页转换成-Markdown的Python-小工具 (1)</a></li><li><a href="./tag/hui-yi.html">回忆 (4)</a></li><li><a href="./tag/humaneval.html">HumanEval (2)</a></li><li><a href="./tag/hypothesis-testing.html">hypothesis-testing (1)</a></li><li><a href="./tag/ide.html">IDE (2)</a></li><li><a href="./tag/imbalance.html">Imbalance (1)</a></li><li><a href="./tag/imu.html">IMU (1)</a></li><li><a href="./tag/index-translate.html">Index-Translate (1)</a></li><li><a href="./tag/iptables.html">iptables (1)</a></li><li><a href="./tag/jacobian.html">Jacobian (1)</a></li><li><a href="./tag/java.html">Java (1)</a></li><li><a href="./tag/java-ji-chu-yu-fa-5fen-zhong-ru-men.html">Java-基础语法5分钟入门 (1)</a></li><li><a href="./tag/jcode.html">Jcode (2)</a></li><li><a href="./tag/jdk.html">JDK (1)</a></li><li><a href="./tag/jensenbu-deng-shi.html">Jensen不等式 (1)</a></li><li><a href="./tag/jev.html">Jev (1)</a></li><li><a href="./tag/ji-chu-zhi-shi-chu-ji-tong-ji-gai-nian-de-jian-dan-jie-shao.html">基础知识初级统计概念的简单介绍 (1)</a></li><li><a href="./tag/ji-he-ping-jun.html">几何平均 (1)</a></li><li><a href="./tag/ji-neng.html">技能 (1)</a></li><li><a href="./tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="./tag/ji-nian.html">纪念 (1)</a></li><li><a href="./tag/ji-shi-ben.html">记事本 (1)</a></li><li><a href="./tag/ji-shi-she-ying.html">纪实摄影 (1)</a></li><li><a href="./tag/ji-suan-ji.html">计算机 (1)</a></li><li><a href="./tag/ji-suan-ji-zu-cheng.html">计算机组成 (1)</a></li><li><a href="./tag/ji-xian.html">极限 (2)</a></li><li><a href="./tag/ji-yi.html">记忆 (1)</a></li><li><a href="./tag/ji-yu-ben-di-mo-xing-de-bian-cheng-xue-xi-fu-zhu-huan-jing-da-jian-wan-zheng-zhi-nan.html">基于本地模型的编程学习辅助环境搭建完整指南 (1)</a></li><li><a href="./tag/ji-yu-tunade-virtualbox-yu-ubuntu-xu-ni-ji-bu-shu-zhi-nan.html">基于TUNA的-VirtualBox-与-Ubuntu-虚拟机部署指南 (1)</a></li><li><a href="./tag/ji-zhang.html">记账 (1)</a></li><li><a href="./tag/ji-zhi-ke-jie-shi-xing.html">机制可解释性 (1)</a></li><li><a href="./tag/ji-zhun-ce-shi.html">基准测试 (1)</a></li><li><a href="./tag/jia-jing-ben.html">嘉靖本 (1)</a></li><li><a href="./tag/jia-qi.html">假期 (1)</a></li><li><a href="./tag/jia-she-jian-yan.html">假设检验 (1)</a></li><li><a href="./tag/jian-dan-shuo-shuo-pythonli-mian-de-han-shu-shi-di-yi-gong-min-first-class-citizen.html">简单说说Python里面的函数是第一公民First-Class-Citizen (1)</a></li><li><a href="./tag/jian-du-xue-xi.html">监督学习 (1)</a></li><li><a href="./tag/jian-duan-dian.html">间断点 (1)</a></li><li><a href="./tag/jian-ping-zi.html">捡瓶子 (1)</a></li><li><a href="./tag/jian-tao.html">检讨 (1)</a></li><li><a href="./tag/jian-xie.html">简写 (1)</a></li><li><a href="./tag/jian-yi.html">建议 (1)</a></li><li><a href="./tag/jiang-wei.html">降维 (1)</a></li><li><a href="./tag/jiang-zuo.html">讲座 (1)</a></li><li><a href="./tag/jiao-cheng.html">教程 (1)</a></li><li><a href="./tag/jiao-shi-jie.html">教师节 (1)</a></li><li><a href="./tag/jiao-xue.html">教学 (2)</a></li><li><a href="./tag/jiao-xue-xi-lie.html">教学系列 (1)</a></li><li><a href="./tag/jiao-yu.html">教育 (6)</a></li><li><a href="./tag/jie-wei.html">价位 (1)</a></li><li><a href="./tag/jie-zhu-pythonlai-li-jie-zi-gua-ying-xin-pu-sen-ji-fen-yuan-li-shi-xian-yu-dong-tai-ke-shi-hua.html">借助Python来理解自适应辛普森积分原理实现与动态可视化 (1)</a></li><li><a href="./tag/jing-xiang.html">镜像 (2)</a></li><li><a href="./tag/jiu-wen-gao-bie-guo-qu-gao-bie-ke-xue-wang.html">旧文告别过去告别科学网 (1)</a></li><li><a href="./tag/jixingji-xing-dang-agent-dui-hua-chao-chu-shang-xia-wen-xian-zhi-zuo-liao-yi-ge-lei-si-xu-ni-ji-re-qian-yi-cao-lu-fang-an.html">JiXing记行-当-Agent-对话超出上下文限制做了一个类似虚拟机热迁移草率方案 (1)</a></li><li><a href="./tag/job.html">Job (1)</a></li><li><a href="./tag/job-hunting.html">job-hunting (1)</a></li><li><a href="./tag/json.html">json (1)</a></li><li><a href="./tag/jsonl.html">jsonl (1)</a></li><li><a href="./tag/ju-chi.html">距离 (1)</a></li><li><a href="./tag/ju-zhen-qiu-ni.html">矩阵求逆 (1)</a></li><li><a href="./tag/jue-ce.html">决策 (1)</a></li><li><a href="./tag/jue-ce-mo-xing.html">决策模型 (1)</a></li><li><a href="./tag/jun-fang-wu-chai.html">均方误差 (1)</a></li><li><a href="./tag/jun-zhi.html">均值 (1)</a></li><li><a href="./tag/jun-zhi-bu-deng-shi-lian.html">均值不等式链 (1)</a></li><li><a href="./tag/junck.html">Junck (3)</a></li><li><a href="./tag/kai-fa-huan-jing.html">开发环境 (2)</a></li><li><a href="./tag/kai-yuan.html">开源 (8)</a></li><li><a href="./tag/kai-yuan-mo-xing.html">开源模型 (1)</a></li><li><a href="./tag/kalman.html">Kalman (1)</a></li><li><a href="./tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="./tag/kao-yan-qu-mei-chu-shi-yu-fu-shi.html">考研祛魅初试与复试 (1)</a></li><li><a href="./tag/kao-yan-shu-xue.html">考研数学 (54)</a></li><li><a href="./tag/kao-yan-ying-yu.html">考研英语 (19)</a></li><li><a href="./tag/ke-biao.html">课表 (1)</a></li><li><a href="./tag/ke-fu-xian-xing.html">可复现性 (1)</a></li><li><a href="./tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="./tag/ke-yi-lian-xi.html">刻意练习 (1)</a></li><li><a href="./tag/kev.html">Kev (1)</a></li><li><a href="./tag/kivy.html">Kivy (3)</a></li><li><a href="./tag/kiwix.html">Kiwix (1)</a></li><li><a href="./tag/klsan-du.html">KL散度 (1)</a></li><li><a href="./tag/kruskal-wallis.html">Kruskal-Wallis (1)</a></li><li><a href="./tag/kuan-biao.html">宽表 (1)</a></li><li><a href="./tag/kuo-san-mo-xing.html">扩散模型 (1)</a></li><li><a href="./tag/kv-cache.html">KV cache (1)</a></li><li><a href="./tag/kvhuan-cun.html">KV缓存 (1)</a></li><li><a href="./tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="./tag/language.html">Language (1)</a></li><li><a href="./tag/lao-deng-chang-tan.html">老登常谈 (1)</a></li><li><a href="./tag/laya.html">Laya (1)</a></li><li><a href="./tag/learn.html">Learn (4)</a></li><li><a href="./tag/learning.html">Learning (10)</a></li><li><a href="./tag/lens.html">Lens (19)</a></li><li><a href="./tag/lesson.html">Lesson (1)</a></li><li><a href="./tag/lfm.html">LFM (1)</a></li><li><a href="./tag/lfm25.html">lfm2.5 (1)</a></li><li><a href="./tag/lfm3.html">LFM3 (3)</a></li><li><a href="./tag/lfm3-omni.html">LFM3-Omni (1)</a></li><li><a href="./tag/li-man-han-shu.html">黎曼函数 (1)</a></li><li><a href="./tag/li-man-he.html">黎曼和 (1)</a></li><li><a href="./tag/li-xiao-bin.html">李晓斌 (1)</a></li><li><a href="./tag/li-xing-dui-bi.html">理性对比 (5)</a></li><li><a href="./tag/li-xing-xuan-gou.html">理性选购 (1)</a></li><li><a href="./tag/li-yong-chao-qiang-de-xiao-mo-xing-omnicoder-9b-shi-shi-turboquant-liang-hua-kv-cache-2-bit-tiao-zhan-fp1.html">利用超强的小模型-OmniCoder-9B-试试-TurboQuant-量化-KV-Cache-2-bit-挑战-FP1 (1)</a></li><li><a href="./tag/li-yong-pythonshi-xian-de-yu-ben-di-da-mo-xing-jiao-hu-de-posix-jian-rong-ceng.html">利用Python实现的与本地大模型交互的POSIX-兼容层 (1)</a></li><li><a href="./tag/lian-xu.html">连续 (1)</a></li><li><a href="./tag/liang-hua.html">量化 (7)</a></li><li><a href="./tag/liaoliao-rang-ben-di-da-yu-yan-mo-xing-ai-bang-ni-liao-tian-de-kai-yuan-gong-ju.html">Liao聊-让本地大语言模型-AI-帮你聊天的开源工具 (1)</a></li><li><a href="./tag/library.html">Library (1)</a></li><li><a href="./tag/life.html">life (16)</a></li><li><a href="./tag/lift.html">lift (1)</a></li><li><a href="./tag/ling-hui-gui.html">岭回归 (1)</a></li><li><a href="./tag/ling-yang-ben-xue-xi.html">零样本学习 (1)</a></li><li><a href="./tag/linux.html">Linux (9)</a></li><li><a href="./tag/liquid-ai.html">Liquid AI (1)</a></li><li><a href="./tag/liquidai.html">LiquidAI (1)</a></li><li><a href="./tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="./tag/liu-liang-pei-e.html">流量配额 (1)</a></li><li><a href="./tag/liu-shui-xian-bing-xing.html">流水线并行 (1)</a></li><li><a href="./tag/livecodebench.html">LiveCodeBench (1)</a></li><li><a href="./tag/llamacpp.html">llama.cpp (10)</a></li><li><a href="./tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="./tag/llm.html">LLM (15)</a></li><li><a href="./tag/ln1p.html">ln1p (1)</a></li><li><a href="./tag/ltcm.html">LTCM (1)</a></li><li><a href="./tag/ltfs.html">LTFS (1)</a></li><li><a href="./tag/lto.html">LTO (1)</a></li><li><a href="./tag/lu-di.html">陆地 (17)</a></li><li><a href="./tag/lu-yin-zhuan-wen-zi.html">录音转文字 (1)</a></li><li><a href="./tag/lu-you-qi.html">路由器 (2)</a></li><li><a href="./tag/lua.html">Lua (1)</a></li><li><a href="./tag/luci.html">LuCI (1)</a></li><li><a href="./tag/lun-wen.html">论文 (1)</a></li><li><a href="./tag/lun-wen-tou-gao.html">论文投稿 (1)</a></li><li><a href="./tag/luo-ji-hui-gui.html">逻辑回归 (1)</a></li><li><a href="./tag/mac.html">Mac (11)</a></li><li><a href="./tag/macbook.html">MacBook (1)</a></li><li><a href="./tag/macbook-air-m4.html">MacBook Air M4 (2)</a></li><li><a href="./tag/macos.html">macOS (1)</a></li><li><a href="./tag/maml.html">MAML (1)</a></li><li><a href="./tag/mao-ping-ben.html">毛评本 (1)</a></li><li><a href="./tag/markdown.html">Markdown (1)</a></li><li><a href="./tag/materials.html">Materials (1)</a></li><li><a href="./tag/math.html">Math (5)</a></li><li><a href="./tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="./tag/mathematics.html">mathematics (1)</a></li><li><a href="./tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="./tag/maturity.html">maturity (1)</a></li><li><a href="./tag/mayavi.html">MayaVi (1)</a></li><li><a href="./tag/mcp.html">MCP (1)</a></li><li><a href="./tag/md.html">md (1)</a></li><li><a href="./tag/mds.html">MDS (1)</a></li><li><a href="./tag/mechanics.html">Mechanics (1)</a></li><li><a href="./tag/mei-guo.html">美国 (1)</a></li><li><a href="./tag/memgpt.html">MemGPT (1)</a></li><li><a href="./tag/memory.html">Memory (4)</a></li><li><a href="./tag/methodology.html">Methodology (1)</a></li><li><a href="./tag/mi-du-han-shu.html">密度函数 (1)</a></li><li><a href="./tag/mi-han-shu.html">幂函数 (1)</a></li><li><a href="./tag/mian-dui-wu-mai-ni-shi-wu-neng-wei-li-huan-shi-xiu-shou-pang-guan.html">面对雾霾你是无能为力还是袖手旁观 (1)</a></li><li><a href="./tag/mian-xiang-dui-xiang-bian-cheng-ru-men-yong-wu-xia-jiao-se-li-jie-python-zhong-de-lei.html">面向对象编程入门用武侠角色理解-Python-中的类 (1)</a></li><li><a href="./tag/microscope.html">Microscope (2)</a></li><li><a href="./tag/mindset.html">mindset (2)</a></li><li><a href="./tag/ming-fan.html">铭凡 (1)</a></li><li><a href="./tag/ming-ling-xing.html">命令行 (1)</a></li><li><a href="./tag/miniconda3.html">Miniconda3 (1)</a></li><li><a href="./tag/minimax.html">MiniMax (1)</a></li><li><a href="./tag/mit-csail.html">MIT CSAIL (1)</a></li><li><a href="./tag/ml.html">ML (4)</a></li><li><a href="./tag/mlx.html">MLX (3)</a></li><li><a href="./tag/mmlu.html">MMLU (2)</a></li><li><a href="./tag/mo-ban.html">模板 (1)</a></li><li><a href="./tag/mo-ni.html">模拟 (1)</a></li><li><a href="./tag/mo-xing-bian-ji.html">模型编辑 (1)</a></li><li><a href="./tag/mo-xing-ji-fei.html">模型计费 (1)</a></li><li><a href="./tag/mo-xing-liang-hua.html">模型量化 (1)</a></li><li><a href="./tag/mo-xing-ping-ce.html">模型评测 (3)</a></li><li><a href="./tag/mo-xing-xuan-ze.html">模型选择 (2)</a></li><li><a href="./tag/mobile.html">Mobile (1)</a></li><li><a href="./tag/modelscope.html">ModelScope (3)</a></li><li><a href="./tag/moe.html">MoE (7)</a></li><li><a href="./tag/moon.html">Moon (1)</a></li><li><a href="./tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="./tag/moving-average.html">Moving Average (1)</a></li><li><a href="./tag/moxing.html">moxing (1)</a></li><li><a href="./tag/moxing-he-ollama-dui-bi-cong-omnicoder-9bdao-geng-duo-mo-xing.html">MoXing-和-Ollama-对比从omnicoder-9b到更多模型 (1)</a></li><li><a href="./tag/moxing-su-du-zui-gao-da-dao-ollamade-201-tong-mo-xing-tong-ying-jian-de-shi-ce-dui-bi-omnicoder-2-9b-de-q4_k_m.html">MoXing-速度最高达到-Ollama的-201-同模型同硬件的实测对比OmniCoder-2-9B-的-Q4_K_M (1)</a></li><li><a href="./tag/moxing-wu-yue-geng-xin-suan-shi-lai-liao-ge-da-sao-chu.html">MoXing-五月更新算是来了个大扫除 (1)</a></li><li><a href="./tag/moxing-zhu-li-la-ji-lao-yong-bai-yuan-chao-lian-jie-xian-qia-ben-di-yun-xing-omnicoder-2-9bmo-xing-jie-guo-ye-zhi-you-shi-ji-ge-tokenss.html">MoXing-助力垃圾佬用百元超廉价显卡本地运行omnicoder-2-9b模型结果也只有十几个tokenss (1)</a></li><li><a href="./tag/moxingdi-yu-suan-chang-jing-yong-rx580xian-qia-qing-song-yun-xing-qwen35-9b-q4_k_mmo-xing.html">MoXing低预算场景用RX580显卡轻松运行Qwen35-9b-q4_k_m模型 (1)</a></li><li><a href="./tag/moxingsheng-ji-tong-shi-yun-xing-duo-ge-mo-xing-shi-li.html">MoXing升级同时运行多个模型实例 (1)</a></li><li><a href="./tag/moxingxin-sheng-ji-zhi-jie-duo-she-ollama-bu-fen-mo-xing-ti-su-50.html">MoXing新升级直接夺舍-Ollama-部分模型提速-50 (1)</a></li><li><a href="./tag/mtp.html">MTP (2)</a></li><li><a href="./tag/muon.html">Muon (1)</a></li><li><a href="./tag/n-cpu-moe.html">n-cpu-moe (1)</a></li><li><a href="./tag/n8n.html">n8n (1)</a></li><li><a href="./tag/nas.html">NAS (1)</a></li><li><a href="./tag/nasa.html">NASA (75)</a></li><li><a href="./tag/nei-cun.html">内存 (3)</a></li><li><a href="./tag/nei-rong-ping-tai.html">内容平台 (1)</a></li><li><a href="./tag/nei-wang-chuan-tou.html">内网穿透 (1)</a></li><li><a href="./tag/nemotron.html">Nemotron (1)</a></li><li><a href="./tag/network.html">Network (1)</a></li><li><a href="./tag/nextjs.html">Next.js (1)</a></li><li><a href="./tag/ni-de-dian-nao-mei-miao-neng-zuo-duo-shao-ci-fu-dian-yun-suan-flops-de-gu-shi.html">你的电脑每秒能做多少次浮点运算FLOPS-的故事 (1)</a></li><li><a href="./tag/ni-ren.html">拟人 (1)</a></li><li><a href="./tag/niu-dun-fa-qiu-jie-guo-cheng-de-pythonshi-xian-ji-qi-xiang-jie.html">牛顿法求解过程的Python实现及其详解 (1)</a></li><li><a href="./tag/nixos.html">NixOS (1)</a></li><li><a href="./tag/nlp.html">NLP (1)</a></li><li><a href="./tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="./tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="./tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="./tag/nosql.html">NoSQL (1)</a></li><li><a href="./tag/numpy.html">NumPy (2)</a></li><li><a href="./tag/nuo-jiang.html">诺奖 (1)</a></li><li><a href="./tag/nuoyi-geng-xin-xin-zeng-zai-xian-zhuan-huan-yin-qing-mei-xian-qia-ye-bu-pa-chang-wen-dang-ye-bu-na-yao-tou-teng.html">NuoYi-更新新增在线转换引擎没显卡也不怕长文档也不那么头疼 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-geng-xin-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju-shao-wei-sheng-yi-dian-xian-cun-liao.html">NuoYi-挪移更新-离线的-PDFDOCX-转-Markdown-工具稍微省一点显存了 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-yi-ge-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju.html">NuoYi-挪移-一个离线的-PDFDOCX-转-Markdown-工具 (1)</a></li><li><a href="./tag/nvidia.html">Nvidia (1)</a></li><li><a href="./tag/nvlink.html">NVLink (1)</a></li><li><a href="./tag/ocr.html">OCR (1)</a></li><li><a href="./tag/oculink.html">OCuLink (1)</a></li><li><a href="./tag/ollama.html">Ollama (25)</a></li><li><a href="./tag/ollama-cloud.html">Ollama Cloud (1)</a></li><li><a href="./tag/ollamaaidgei-ni-guan-li-ben-di-da-mo-xing-pei-ge-de-li-zhu-shou.html">OllamaAid给你管理本地大模型配个得力助手 (1)</a></li><li><a href="./tag/ollamageng-xin-suo-you-ben-di-mo-xing.html">Ollama更新所有本地模型 (1)</a></li><li><a href="./tag/ollamaqian-ru-mo-xing-xuan-xing-zhi-nan-zhu-liu-mo-xing-shen-du-dui-bi.html">Ollama嵌入模型选型指南-主流模型深度对比 (1)</a></li><li><a href="./tag/omlx.html">omlx (1)</a></li><li><a href="./tag/opc.html">OPC (1)</a></li><li><a href="./tag/opencl.html">OpenCL (1)</a></li><li><a href="./tag/opencode.html">OpenCode (19)</a></li><li><a href="./tag/opencode-jin-jie-zhi-ji-neng-chuang-zuo-chai-jie-miao-shu-dian-xing-ren-wu-hou-yan-zheng-shi-xian-zai-zuo-cheng-ke-fu-yong-de-ji-neng.html">OpenCode-进阶之技能创作拆解描述典型任务后验证实现再做成可复用的技能 (1)</a></li><li><a href="./tag/opencode-skillsfen-xiang-yi-tao-zi-ji-luan-xie-de-huan-suan-shi-yong-de-ai-bian-ma-ji-neng-ku.html">OpenCode-Skills分享一套自己乱写的还算实用的-AI-编码技能库 (1)</a></li><li><a href="./tag/openlaoke.html">OpenLaoKe (2)</a></li><li><a href="./tag/openlaoke-geng-xin-ben-di-gguf-mo-xing-ling-api-fei-yong-pao-qi-lai.html">OpenLaoKe-更新本地-GGUF-模型零-API-费用跑起来 (1)</a></li><li><a href="./tag/openlaokelao-ke-yi-ge-ming-ling-xing-aizhu-shou.html">OpenLaoKe唠嗑一个命令行AI助手 (1)</a></li><li><a href="./tag/openscad.html">OpenSCAD (1)</a></li><li><a href="./tag/openspace.html">OpenSpace (1)</a></li><li><a href="./tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="./tag/openwrt.html">OpenWrt (2)</a></li><li><a href="./tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="./tag/optimization.html">Optimization (2)</a></li><li><a href="./tag/ornith.html">Ornith (1)</a></li><li><a href="./tag/os.html">os (1)</a></li><li><a href="./tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="./tag/p100.html">P100 (1)</a></li><li><a href="./tag/pa-si-qia-heng-deng-shi.html">帕斯卡恒等式 (1)</a></li><li><a href="./tag/pan-bie-mo-xing.html">判别模型 (1)</a></li><li><a href="./tag/pan-duan-ce-lue.html">判断策略 (1)</a></li><li><a href="./tag/pan-duan-mo-xing.html">判断模型 (2)</a></li><li><a href="./tag/pandas.html">pandas (1)</a></li><li><a href="./tag/pangram.html">Pangram (1)</a></li><li><a href="./tag/pao-mo.html">泡沫 (1)</a></li><li><a href="./tag/parenting.html">Parenting (1)</a></li><li><a href="./tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="./tag/path.html">PATH (1)</a></li><li><a href="./tag/pca.html">PCA (1)</a></li><li><a href="./tag/pcie.html">PCIe (1)</a></li><li><a href="./tag/pdfjie-xi.html">PDF解析 (1)</a></li><li><a href="./tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="./tag/pei-zhi.html">配置 (1)</a></li><li><a href="./tag/performance.html">Performance (1)</a></li><li><a href="./tag/phd.html">PHD (2)</a></li><li><a href="./tag/philosophy.html">philosophy (2)</a></li><li><a href="./tag/photo.html">Photo (23)</a></li><li><a href="./tag/photography.html">Photography (2)</a></li><li><a href="./tag/physics.html">Physics (3)</a></li><li><a href="./tag/pi.html">pi (4)</a></li><li><a href="./tag/pi-agent.html">pi agent (1)</a></li><li><a href="./tag/pian-chai.html">偏差 (1)</a></li><li><a href="./tag/pin-pai-ming-ming.html">品牌命名 (2)</a></li><li><a href="./tag/ping-ce.html">评测 (1)</a></li><li><a href="./tag/ping-gu.html">评估 (1)</a></li><li><a href="./tag/po-jia-mo-xing.html">破甲模型 (1)</a></li><li><a href="./tag/po-su-bei-xie-si.html">朴素贝叶斯 (1)</a></li><li><a href="./tag/poem.html">Poem (2)</a></li><li><a href="./tag/polystrata.html">PolyStrata (4)</a></li><li><a href="./tag/powershell.html">PowerShell (1)</a></li><li><a href="./tag/prefill.html">prefill (1)</a></li><li><a href="./tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="./tag/programming.html">Programming (11)</a></li><li><a href="./tag/project-maya.html">Project Maya (2)</a></li><li><a href="./tag/prompt.html">Prompt (1)</a></li><li><a href="./tag/psychology.html">Psychology (1)</a></li><li><a href="./tag/pve.html">PVE (2)</a></li><li><a href="./tag/pyenv.html">Pyenv (2)</a></li><li><a href="./tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="./tag/pyside6.html">PySide6 (1)</a></li><li><a href="./tag/python.html">Python (76)</a></li><li><a href="./tag/python-ji-chu-yu-fa-5fen-zhong-ru-men.html">Python-基础语法5分钟入门 (1)</a></li><li><a href="./tag/q3.html">Q3 (1)</a></li><li><a href="./tag/q4.html">Q4 (1)</a></li><li><a href="./tag/qemu.html">QEMU (1)</a></li><li><a href="./tag/qgis.html">QGIS (3)</a></li><li><a href="./tag/qi-che.html">汽车 (1)</a></li><li><a href="./tag/qian-bian-liang.html">潜变量 (1)</a></li><li><a href="./tag/qian-duan-gong-cheng.html">前端工程 (1)</a></li><li><a href="./tag/qian-ru-mo-xing.html">嵌入模型 (2)</a></li><li><a href="./tag/qian-ru-shi.html">嵌入式 (1)</a></li><li><a href="./tag/qian-wen.html">千问 (1)</a></li><li><a href="./tag/qian-wen-38-flash-next.html">千问3.8 flash next (1)</a></li><li><a href="./tag/qian-yi-xue-xi.html">迁移学习 (1)</a></li><li><a href="./tag/qiang-zhong.html">墙钟 (1)</a></li><li><a href="./tag/qie-xian.html">切线 (1)</a></li><li><a href="./tag/qiu-dao-fa-ze.html">求导法则 (1)</a></li><li><a href="./tag/qt.html">QT (1)</a></li><li><a href="./tag/qu-shen-cha.html">去审查 (1)</a></li><li><a href="./tag/quan-cheng.html">全称 (1)</a></li><li><a href="./tag/quan-wei-pian-wu.html">权威偏误 (1)</a></li><li><a href="./tag/quan-zhan-kuang-jia.html">全栈框架 (1)</a></li><li><a href="./tag/quan-zhong-kong-jian-bian-cheng.html">权重空间编程 (1)</a></li><li><a href="./tag/qwen.html">Qwen (7)</a></li><li><a href="./tag/qwen3.html">Qwen3 (10)</a></li><li><a href="./tag/qwen35.html">Qwen3.5 (2)</a></li><li><a href="./tag/qwen35-08b.html">Qwen3.5-0.8B (1)</a></li><li><a href="./tag/qwen36.html">Qwen3.6 (3)</a></li><li><a href="./tag/qwen38.html">Qwen3.8 (8)</a></li><li><a href="./tag/qwen38-flash-next.html">Qwen3.8-Flash-Next (1)</a></li><li><a href="./tag/r9700.html">R9700 (3)</a></li><li><a href="./tag/radiance.html">radiance (1)</a></li><li><a href="./tag/radio.html">Radio (2)</a></li><li><a href="./tag/rag.html">RAG (3)</a></li><li><a href="./tag/raid.html">RAID (1)</a></li><li><a href="./tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="./tag/raspbian.html">Raspbian (1)</a></li><li><a href="./tag/re-fu-she.html">热辐射 (1)</a></li><li><a href="./tag/react.html">React (1)</a></li><li><a href="./tag/reading.html">reading (2)</a></li><li><a href="./tag/reflection.html">reflection (4)</a></li><li><a href="./tag/remote.html">Remote (1)</a></li><li><a href="./tag/ren-wei-hua.html">人味化 (1)</a></li><li><a href="./tag/ren-xing-ji-qi-ren.html">人形机器人 (1)</a></li><li><a href="./tag/research.html">Research (3)</a></li><li><a href="./tag/resume.html">resume (1)</a></li><li><a href="./tag/ri-ben.html">日本 (1)</a></li><li><a href="./tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="./tag/ri-chang-sheng-huo.html">日常生活 (1)</a></li><li><a href="./tag/ri-geng.html">日更 (1)</a></li><li><a href="./tag/rocm.html">ROCm (1)</a></li><li><a href="./tag/rotation.html">Rotation (1)</a></li><li><a href="./tag/rsa.html">RSA (1)</a></li><li><a href="./tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="./tag/rtx-4070.html">RTX 4070 (1)</a></li><li><a href="./tag/rtx2060.html">RTX2060 (1)</a></li><li><a href="./tag/rtx3070.html">RTX3070 (1)</a></li><li><a href="./tag/rtx4060.html">RTX4060 (1)</a></li><li><a href="./tag/ruan-kao.html">软考 (2)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-jia-gou-shi-zhuan-ye-ying-yu-gao-pin-ci-hui-biao.html">软考高级系统架构设计师知识精要-架构师专业英语高频词汇表 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-ce-shi-yu-yun-xing-wei-hu.html">软考高级系统架构设计师知识精要-软件测试与运行维护 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-gong-cheng-yu-kai-fa-fang-fa.html">软考高级系统架构设计师知识精要-软件工程与开发方法 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-jia-gou-she-ji-yu-ping-gu.html">软考高级系统架构设计师知识精要-软件架构设计与评估 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-an-quan-yu-qu-kuai-lian-ji-zhu.html">软考高级系统架构设计师知识精要-系统安全与区块链技术 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-jian-mo-yu-umlshe-ji.html">软考高级系统架构设计师知识精要-系统建模与UML设计 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xi-xi-tong-yu-qi-ye-xin-xi-hua.html">软考高级系统架构设计师知识精要-信息系统与企业信息化 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xing-ji-zhu-yu-ji-chu-she-shi.html">软考高级系统架构设计师知识精要-新兴技术与基础设施 (1)</a></li><li><a href="./tag/rust.html">Rust (2)</a></li><li><a href="./tag/rust-anything.html">rust-anything (1)</a></li><li><a href="./tag/rustyu-yan-cheng-xu-she-ji-ji-chu-di-san-zhang-fu-he-shu-ju-lei-xing-yu-xun-huan.html">Rust语言程序设计基础第三章复合数据类型与循环 (1)</a></li><li><a href="./tag/rx-7900-xtx.html">RX 7900 XTX (2)</a></li><li><a href="./tag/rx590.html">RX590 (1)</a></li><li><a href="./tag/rx6800xt.html">RX6800XT (1)</a></li><li><a href="./tag/san-guo-yan-yi.html">三国演义 (1)</a></li><li><a href="./tag/san-jiao-han-shu.html">三角函数 (1)</a></li><li><a href="./tag/sandbox.html">SandBox (1)</a></li><li><a href="./tag/scholar.html">Scholar (2)</a></li><li><a href="./tag/school.html">School (3)</a></li><li><a href="./tag/science.html">Science (3)</a></li><li><a href="./tag/search.html">Search (1)</a></li><li><a href="./tag/self-study.html">Self-Study (1)</a></li><li><a href="./tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="./tag/server.html">Server (1)</a></li><li><a href="./tag/shang.html">熵 (1)</a></li><li><a href="./tag/shang-gu-juan-zhou.html">上古卷轴 (1)</a></li><li><a href="./tag/shang-xia-wen.html">上下文 (2)</a></li><li><a href="./tag/shang-xia-wen-guan-li.html">上下文管理 (1)</a></li><li><a href="./tag/shang-ye-xin-xi.html">商业信息 (1)</a></li><li><a href="./tag/shao-di.html">哨笛 (1)</a></li><li><a href="./tag/shapleyzhi.html">Shapley值 (1)</a></li><li><a href="./tag/she-ying.html">摄影 (2)</a></li><li><a href="./tag/she-ying-shi.html">摄影史 (1)</a></li><li><a href="./tag/sheng-cheng-mo-xing.html">生成模型 (2)</a></li><li><a href="./tag/sheng-cheng-su-du.html">生成速度 (1)</a></li><li><a href="./tag/sheng-huo.html">生活 (1)</a></li><li><a href="./tag/shi-ce.html">实测 (1)</a></li><li><a href="./tag/shi-jian-ce-liang.html">时间测量 (1)</a></li><li><a href="./tag/shi-jie-yi-liu-da-xue-shuo-shuo-er-yi-huan-shi-zhen-de-qu-zuo.html">世界一流大学说说而已还是真的去做 (1)</a></li><li><a href="./tag/shi-pin-sheng-cheng.html">视频生成 (1)</a></li><li><a href="./tag/shi-sheng-guan-xi.html">师生关系 (1)</a></li><li><a href="./tag/shi-shu-wan-bei-xing.html">实数完备性 (1)</a></li><li><a href="./tag/shi-yan-she-ji.html">实验设计 (1)</a></li><li><a href="./tag/shi-yong-llama-factory-cong-modelscope-xia-zai-mo-xing-bing-wei-diao.html">使用-LLaMA-Factory-从-ModelScope-下载模型并微调 (1)</a></li><li><a href="./tag/shi-yong-ollamakuai-su-bu-shu-bing-yun-xing-zui-xin-de-qwen3-30b-a3b-2507mo-xing.html">使用ollama快速部署并运行最新的qwen3-30b-a3b-2507模型 (1)</a></li><li><a href="./tag/shit.html">Shit (1)</a></li><li><a href="./tag/shou-suo-gu-ji.html">收缩估计 (2)</a></li><li><a href="./tag/shu-ju-an-quan.html">数据安全 (2)</a></li><li><a href="./tag/shu-ju-fen-xi.html">数据分析 (2)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-0zhang-cyu-yan-pythonde-di-ceng-shi-jiao.html">数据结构与算法基础-第0章-C语言Python的底层视角 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-1zhang-suan-fa-ji-chu-yu-fu-za-du-fen-xi.html">数据结构与算法基础-第1章-算法基础与复杂度分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-2zhang-xian-xing-shu-ju-jie-gou.html">数据结构与算法基础-第2章-线性数据结构 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-4zhang-tu-lun-ji-chu.html">数据结构与算法基础-第4章-图论基础 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-5zhang-pai-xu-suan-fa.html">数据结构与算法基础-第5章-排序算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-6zhang-sou-suo-suan-fa.html">数据结构与算法基础-第6章-搜索算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-7zhang-dong-tai-gui-hua.html">数据结构与算法基础-第7章-动态规划 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-8zhang-gao-ji-suan-fa.html">数据结构与算法基础-第8章-高级算法 (1)</a></li><li><a href="./tag/shu-ju-ke-shi-hua.html">数据可视化 (3)</a></li><li><a href="./tag/shu-ju-ke-xue.html">数据科学 (1)</a></li><li><a href="./tag/shu-ju-ku.html">数据库 (1)</a></li><li><a href="./tag/shu-ju-lei-xing.html">数据类型 (1)</a></li><li><a href="./tag/shu-ju-xie-lu.html">数据泄露 (1)</a></li><li><a href="./tag/shu-ju-zhong-xin.html">数据中心 (1)</a></li><li><a href="./tag/shu-xue.html">数学 (1)</a></li><li><a href="./tag/shu-xue-er.html">数学二 (1)</a></li><li><a href="./tag/shu-xue-jian-mo.html">数学建模 (2)</a></li><li><a href="./tag/shu-xue-nong.html">数学农 (1)</a></li><li><a href="./tag/shu-xue-san.html">数学三 (1)</a></li><li><a href="./tag/shu-xue-shi.html">数学史 (1)</a></li><li><a href="./tag/shu-xue-yi.html">数学一 (1)</a></li><li><a href="./tag/shu-zhi-ji-fen-man-tan-ru-he-rang-yong-pythonqiu-ji-fen.html">数值积分漫谈如何让用Python求积分 (1)</a></li><li><a href="./tag/shua-ji.html">刷机 (1)</a></li><li><a href="./tag/shuang-yu.html">双语 (76)</a></li><li><a href="./tag/shui-ke-xing-cun-zhi-nan-ru-guo-ni-bei-po-yao-qu-ting-ni-bu-xi-huan-de-ke-cheng-gai-zen-yao-ban.html">水课幸存指南-如果你被迫要去听你不喜欢的课程该怎么办 (1)</a></li><li><a href="./tag/shui-ti.html">水体 (21)</a></li><li><a href="./tag/shun-shi-su-du.html">瞬时速度 (1)</a></li><li><a href="./tag/si-kao.html">思考 (1)</a></li><li><a href="./tag/si-yue-ying-hui.html">四月影会 (1)</a></li><li><a href="./tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="./tag/signal-processing.html">Signal Processing (3)</a></li><li><a href="./tag/skill.html">skill (3)</a></li><li><a href="./tag/smollm2.html">smollm2 (1)</a></li><li><a href="./tag/software.html">Software (1)</a></li><li><a href="./tag/sou-suo.html">搜索 (1)</a></li><li><a href="./tag/spacex.html">SpaceX (1)</a></li><li><a href="./tag/spark.html">Spark (1)</a></li><li><a href="./tag/sports.html">sports (1)</a></li><li><a href="./tag/sql.html">SQL (1)</a></li><li><a href="./tag/stable-diffusion.html">Stable Diffusion (1)</a></li><li><a href="./tag/state-space.html">State Space (1)</a></li><li><a href="./tag/statistics.html">Statistics (3)</a></li><li><a href="./tag/story.html">Story (51)</a></li><li><a href="./tag/strata.html">Strata (7)</a></li><li><a href="./tag/strix-halo.html">Strix Halo (1)</a></li><li><a href="./tag/suan-zhu-ping-jun.html">算术平均 (1)</a></li><li><a href="./tag/sui-bi.html">随笔 (19)</a></li><li><a href="./tag/t-bench.html">τ-bench (1)</a></li><li><a href="./tag/t-sne.html">t-SNE (1)</a></li><li><a href="./tag/tai-kong.html">太空 (1)</a></li><li><a href="./tag/tai-le-ji-shu.html">泰勒级数 (1)</a></li><li><a href="./tag/tai-le-zhan-kai.html">泰勒展开 (1)</a></li><li><a href="./tag/tanstack.html">TanStack (1)</a></li><li><a href="./tag/tape.html">Tape (1)</a></li><li><a href="./tag/telescope.html">Telescope (1)</a></li><li><a href="./tag/terminal.html">Terminal (1)</a></li><li><a href="./tag/textbook.html">textbook (1)</a></li><li><a href="./tag/thinking.html">Thinking (8)</a></li><li><a href="./tag/ti-shi-ci-huan-cun.html">提示词缓存 (1)</a></li><li><a href="./tag/ti-shi-zhu-ru.html">提示注入 (1)</a></li><li><a href="./tag/ti-xing-fa-qiu-ji-fen-de-pythonshi-xian.html">梯形法求积分的Python实现 (1)</a></li><li><a href="./tag/tian-biao.html">填表 (1)</a></li><li><a href="./tag/tian-ji.html">天际 (1)</a></li><li><a href="./tag/tian-wen.html">天文 (1)</a></li><li><a href="./tag/tian-xiang-guan.html">天象馆 (1)</a></li><li><a href="./tag/tiao-jian-shu.html">条件数 (1)</a></li><li><a href="./tag/time-series.html">Time Series (1)</a></li><li><a href="./tag/ting-shuo-du-xie.html">听说读写 (1)</a></li><li><a href="./tag/token.html">token (2)</a></li><li><a href="./tag/token-su-du.html">token 速度 (1)</a></li><li><a href="./tag/tokenzi-you-yong-moxingzai-7900xtx-24gxian-qia-shang-ben-di-yun-xing-qwen36-27bmo-xing-gei-opencodeyong-lai-wen-dang-bian.html">Token自由-用MoXing在7900xtx-24G显卡上本地运行Qwen36-27B模型给OpenCode用来文档编 (1)</a></li><li><a href="./tag/toml.html">toml (1)</a></li><li><a href="./tag/tong-ji.html">统计 (1)</a></li><li><a href="./tag/tong-ji-jian-yan.html">统计检验 (1)</a></li><li><a href="./tag/tong-ji-xue.html">统计学 (2)</a></li><li><a href="./tag/tong-men-xiang-can-bai-yuan-xian-qia-de-ben-di-mo-xing-da-zhan-rx580-16g-2048sp-vs-rx590-8g-2304sp.html">同门相残-百元显卡的本地模型大战RX580-16G-2048SP-VS-RX590-8G-2304SP (1)</a></li><li><a href="./tag/tong-nian.html">童年 (2)</a></li><li><a href="./tag/tong-xue.html">同学 (1)</a></li><li><a href="./tag/tong-yi-nei-cun.html">统一内存 (2)</a></li><li><a href="./tag/tool.html">Tool (8)</a></li><li><a href="./tag/tool-calling.html">tool calling (3)</a></li><li><a href="./tag/toolbench.html">ToolBench (1)</a></li><li><a href="./tag/tools.html">Tools (10)</a></li><li><a href="./tag/tou-ji-jie-ma.html">投机解码 (1)</a></li><li><a href="./tag/tpu.html">TPU (1)</a></li><li><a href="./tag/traffic.html">Traffic (1)</a></li><li><a href="./tag/transformer.html">Transformer (2)</a></li><li><a href="./tag/translate.html">Translate (2)</a></li><li><a href="./tag/translation.html">Translation (1)</a></li><li><a href="./tag/transpaste-sheng-ji-yi-ge-jian-tie-ban-fan-yi-gong-ju-de-zi-wo-xiu-yang.html">TransPaste-升级一个剪贴板翻译工具的自我修养 (1)</a></li><li><a href="./tag/transpaste-yi-kuan-ji-yu-ben-di-da-yu-yan-mo-xing-de-qing-liang-ji-jian-tie-ban-fan-yi-gong-ju.html">TransPaste-一款基于本地大语言模型的轻量级剪贴板翻译工具 (1)</a></li><li><a href="./tag/transpasteben-di-ai-fan-yi-gong-ju-xin-ban-ben-sheng-ji-hou-zhi-chi-geng-duo-xi-li-du-de-fan-yi-kong-zhi.html">TransPaste本地-AI-翻译工具新版本升级后支持更多细粒度的翻译控制 (1)</a></li><li><a href="./tag/trimesh.html">trimesh (1)</a></li><li><a href="./tag/tu-biao-zuo-wen.html">图表作文 (1)</a></li><li><a href="./tag/tu-han-shu.html">凸函数 (1)</a></li><li><a href="./tag/tu-hua-zuo-wen.html">图画作文 (1)</a></li><li><a href="./tag/tu-xiang-jian-ce.html">图像检测 (1)</a></li><li><a href="./tag/tui.html">TUI (1)</a></li><li><a href="./tag/tui-jian-yi-kuan-markdownde-kua-ping-tai-chi-xian-bian-ji-qi-zhi-chi-sui-shi-yu-lan.html">推荐一款MarkDown的跨平台离线编辑器支持随时预览 (1)</a></li><li><a href="./tag/tui-li.html">推理 (1)</a></li><li><a href="./tag/tui-li-shi-kuo-zhan.html">推理时扩展 (1)</a></li><li><a href="./tag/tui-li-su-du.html">推理速度 (1)</a></li><li><a href="./tag/tui-li-yin-qing.html">推理引擎 (3)</a></li><li><a href="./tag/tuna.html">TUNA (1)</a></li><li><a href="./tag/turing.html">Turing (12)</a></li><li><a href="./tag/tutorial.html">tutorial (2)</a></li><li><a href="./tag/txt.html">txt (1)</a></li><li><a href="./tag/uav.html">UAV (1)</a></li><li><a href="./tag/ubuntu.html">Ubuntu (5)</a></li><li><a href="./tag/ubuntu-shou-dong-an-zhuang-ollama-0171-lai-yun-xing-qwen3535b-a3b-de-xiang-xi-zhi-nan.html">Ubuntu-手动安装-Ollama-0171-来运行-qwen3535b-a3b-的详细指南 (1)</a></li><li><a href="./tag/ui.html">UI (1)</a></li><li><a href="./tag/ukf.html">UKF (1)</a></li><li><a href="./tag/umap.html">UMAP (1)</a></li><li><a href="./tag/university.html">university (14)</a></li><li><a href="./tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="./tag/ustc.html">USTC (1)</a></li><li><a href="./tag/v100.html">V100 (1)</a></li><li><a href="./tag/ventoy.html">Ventoy (1)</a></li><li><a href="./tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="./tag/vibe-coding-fen-wei-bian-cheng-an-li-tong-guo-dui-hua-shi-xian-ke-yong-de-kuai-su-cha-biao-gong-ju.html">Vibe-Coding-氛围编程案例-通过对话实现可用的快速查表工具 (1)</a></li><li><a href="./tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="./tag/video.html">video (2)</a></li><li><a href="./tag/vidtogif-yi-ge-jian-dan-gao-xiao-de-shi-pin-zhuan-gif-gong-ju.html">VidToGif-一个简单高效的视频转-GIF-工具 (1)</a></li><li><a href="./tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="./tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="./tag/virtualization.html">Virtualization (1)</a></li><li><a href="./tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./tag/vispy.html">VisPy (1)</a></li><li><a href="./tag/visualization.html">Visualization (8)</a></li><li><a href="./tag/vllm.html">vLLM (2)</a></li><li><a href="./tag/vm.html">VM (1)</a></li><li><a href="./tag/vmwarexu-ni-ji-yun-xing-macosunlcokrecoveryosoc4vm-shi-xian-ti-gong-bai-du-yun-pan-xia-zai.html">VMware虚拟机运行macOSunlcokrecoveryosOC4VM-实现提供百度云盘下载 (1)</a></li><li><a href="./tag/void-moxingdi-cheng-ben-fang-an-yong-rx580xian-qia-ben-di-yun-xing-qwen359bmo-xing-da-zao-lei-cursorti-yan.html">Void-MoXing低成本方案用RX580显卡本地运行qwen359B模型打造类Cursor体验 (1)</a></li><li><a href="./tag/vscode.html">VSCode (2)</a></li><li><a href="./tag/vtk.html">VTK (1)</a></li><li><a href="./tag/wai-jie-xian-qia.html">外接显卡 (1)</a></li><li><a href="./tag/wai-yu.html">外语 (1)</a></li><li><a href="./tag/wan-xing-tian-kong.html">完形填空 (1)</a></li><li><a href="./tag/wang-pan.html">网盘 (1)</a></li><li><a href="./tag/wang-zhi-ping.html">王志平 (1)</a></li><li><a href="./tag/web.html">Web (1)</a></li><li><a href="./tag/wen-ben.html">文本 (2)</a></li><li><a href="./tag/wen-ben-shou-ji.html">文本收集 (1)</a></li><li><a href="./tag/wen-dang-he-cha.html">文档核查 (1)</a></li><li><a href="./tag/wen-feng.html">文风 (2)</a></li><li><a href="./tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="./tag/windows.html">Windows (6)</a></li><li><a href="./tag/windows-xi-tong-xia-cong-qing-hua-da-xue-tuna-jing-xiang-an-zhuang-miniconda3-wan-zheng-zhi-nan.html">Windows-系统下从清华大学-TUNA-镜像安装-Miniconda3-完整指南 (1)</a></li><li><a href="./tag/windows11.html">Windows11 (1)</a></li><li><a href="./tag/wingetguigei-windows-bao-guan-li-qi-jia-ge-tu-xing-jie-mian.html">WinGetGUI给-Windows-包管理器加个图形界面 (1)</a></li><li><a href="./tag/winogrande.html">WinoGrande (1)</a></li><li><a href="./tag/workbuddy.html">WorkBuddy (1)</a></li><li><a href="./tag/workflow.html">workflow (1)</a></li><li><a href="./tag/wu-chai-li-lun.html">误差理论 (1)</a></li><li><a href="./tag/wu-li-shu.html">无理数 (1)</a></li><li><a href="./tag/wu-qiong-xiao-de-jie.html">无穷小的阶 (1)</a></li><li><a href="./tag/x99.html">X99 (1)</a></li><li><a href="./tag/xcode.html">Xcode (1)</a></li><li><a href="./tag/xi-guan.html">习惯 (1)</a></li><li><a href="./tag/xi-shu-mo-xing.html">稀疏模型 (2)</a></li><li><a href="./tag/xi-tong-jia-gou-she-ji-shi.html">系统架构设计师 (1)</a></li><li><a href="./tag/xia-zai.html">下载 (1)</a></li><li><a href="./tag/xian.html">弦 (1)</a></li><li><a href="./tag/xian-cun.html">显存 (5)</a></li><li><a href="./tag/xian-cun-diao-du.html">显存调度 (1)</a></li><li><a href="./tag/xian-jiao-hui-zai-rang-ta-zuo-da-mo-xing-ding-zhi-hua-li-cpthe-sftdao-di-zai-gan-shi-yao.html">先教会再让它做大模型定制化里CPT和SFT到底在干什么 (1)</a></li><li><a href="./tag/xian-qia.html">显卡 (4)</a></li><li><a href="./tag/xian-qia-xuan-gou.html">显卡选购 (2)</a></li><li><a href="./tag/xian-xing-dai-shu.html">线性代数 (15)</a></li><li><a href="./tag/xiang-gan-xin-xi.html">相干信息 (1)</a></li><li><a href="./tag/xiang-liang-jian-suo.html">向量检索 (3)</a></li><li><a href="./tag/xiang-sheng.html">相声 (1)</a></li><li><a href="./tag/xiang-si-du.html">相似度 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-er-hui-jiu-suan-shi-sun-wu-kong-shang-da-xue-ye-de-yong-gong.html">小猴子学编程第二回就算是孙悟空上大学也得用功 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-san-hui-shi-yi-zhi-pa-zai-na-zi-yuan-zi-ai-huan-shi-gan-jin-zhun-bei-qu-xin-fu-ben.html">小猴子学编程第三回是一直趴在那自怨自艾还是赶紧准备去新副本 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-si-hui-chong-zhi-bu-hui-rang-ni-bian-qiang-xue-xi-cai-hui.html">小猴子学编程第四回充值不会让你变强学习才会 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-yi-hui-na-pa-shi-sun-wu-kong-ye-xu-yao-xue-xi.html">小猴子学编程第一回哪怕是孙悟空也需要学习 (1)</a></li><li><a href="./tag/xiao-lu.html">效率 (1)</a></li><li><a href="./tag/xiao-mo-xing.html">小模型 (3)</a></li><li><a href="./tag/xiao-mo-xing-ping-ce.html">小模型评测 (2)</a></li><li><a href="./tag/xiao-oji-hao.html">小o记号 (1)</a></li><li><a href="./tag/xiao-rong-shi-yan.html">消融实验 (1)</a></li><li><a href="./tag/xiao-yang-ben-xue-xi.html">小样本学习 (1)</a></li><li><a href="./tag/xiao-you.html">校友 (1)</a></li><li><a href="./tag/xiao-zhu-ji.html">小主机 (1)</a></li><li><a href="./tag/xiao-zuo-wen.html">小作文 (1)</a></li><li><a href="./tag/xie-tong.html">协同 (1)</a></li><li><a href="./tag/xie-zuo.html">写作 (3)</a></li><li><a href="./tag/xiexie-ba-markdown-zhuan-cheng-wei-xin-gong-zhong-hao-ge-shi-wang-ye-de-xiao-gong-ju.html">Xie写把-Markdown-转成微信公众号格式网页的小工具 (1)</a></li><li><a href="./tag/xin-shou.html">新手 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-markdown-shu-xue-gong-shi-zhi-nan.html">新手向的-Markdown-数学公式指南 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-ruan-kao-gao-ji-jia-gou-shi-wan-quan-bei-kao-zhi-nan.html">新手向的软考高级架构师完全备考指南 (1)</a></li><li><a href="./tag/xing-neng-ce-shi.html">性能测试 (2)</a></li><li><a href="./tag/xing-neng-shi-ce.html">性能实测 (1)</a></li><li><a href="./tag/xing-neng-you-hua.html">性能优化 (1)</a></li><li><a href="./tag/xiu-liao-transpastede-4ge-bug.html">修了TransPaste的4个bug (1)</a></li><li><a href="./tag/xu-xu-tu-zhi.html">徐徐图之 (1)</a></li><li><a href="./tag/xue-shuo.html">学硕 (1)</a></li><li><a href="./tag/xue-xi.html">学习 (2)</a></li><li><a href="./tag/xue-xi-fang-fa.html">学习方法 (2)</a></li><li><a href="./tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="./tag/xue-xi-lu-de-qian-shi-jin-sheng-cong-quan-ju-dan-yi-dao-zhu-ceng-ding-zhi.html">学习率的前世今生从全局单一到逐层定制 (1)</a></li><li><a href="./tag/xue-xi-lu-xian.html">学习路线 (1)</a></li><li><a href="./tag/xue-xi-zi-yuan.html">学习资源 (1)</a></li><li><a href="./tag/xue-zhu.html">学术 (1)</a></li><li><a href="./tag/xue-zhu-cheng-xin.html">学术诚信 (1)</a></li><li><a href="./tag/xue-zhu-lun-wen-zhong-chang-jian-yan-jiu-fang-fa-zong-shu-ji-jian-dan-ju-li.html">学术论文中常见研究方法综述及简单举例 (1)</a></li><li><a href="./tag/xue-zhu-yan-jiu-zhi-chi-gong-ju-fen-lei-yu-wen-xian-huo-qu-fang-fa.html">学术研究支持工具分类与文献获取方法 (1)</a></li><li><a href="./tag/ya-suo.html">压缩 (1)</a></li><li><a href="./tag/yaml.html">yaml (1)</a></li><li><a href="./tag/yan-gao.html">广告 (1)</a></li><li><a href="./tag/yan-ji.html">验机 (1)</a></li><li><a href="./tag/yan-jing.html">眼镜 (1)</a></li><li><a href="./tag/yan-jiu-sheng.html">研究生 (1)</a></li><li><a href="./tag/yang-hui-san-jiao.html">杨辉三角 (1)</a></li><li><a href="./tag/yang-la-ji.html">洋垃圾 (2)</a></li><li><a href="./tag/yi-da-li.html">意大利 (1)</a></li><li><a href="./tag/yi-xue-chang-jing-yong-duo-mo-tai-da-mo-xing-you-ke-neng-wan-quan-bu-kao-pu-si-tan-fu-da-xue-li-fei-fei-tuan-dui-xin-yan-jiu-jie-kai-duo-mo-tai-aide-hai-shi-shen-lou-xiao-ying.html">医学场景用多模态大模型有可能完全不靠谱斯坦福大学李飞飞团队新研究揭开多模态AI的海市蜃楼效应 (1)</a></li><li><a href="./tag/yi-zhi-tiny-fastboot-scriptdao-macosban-ben-gei-motorola-g100guo-xing-ban-ben-xt2533-4shua-ru-g6.html">移植Tiny-Fastboot-Script到macOS版本给Motorola-G100国行版本XT2533-4刷入G6 (1)</a></li><li><a href="./tag/yin-pin.html">音频 (1)</a></li><li><a href="./tag/yin-si.html">隐私 (1)</a></li><li><a href="./tag/yin-zi-fen-xi.html">因子分析 (1)</a></li><li><a href="./tag/ying-guo.html">英国 (1)</a></li><li><a href="./tag/ying-jian.html">硬件 (1)</a></li><li><a href="./tag/ying-kao-ce-lue.html">应考策略 (1)</a></li><li><a href="./tag/ying-pan.html">硬盘 (2)</a></li><li><a href="./tag/ying-yong-chang-jing.html">应用场景 (1)</a></li><li><a href="./tag/ying-yong-wen.html">应用文 (1)</a></li><li><a href="./tag/ying-yu.html">英语 (1)</a></li><li><a href="./tag/ying-yu-er.html">英语二 (5)</a></li><li><a href="./tag/ying-yu-yi.html">英语一 (5)</a></li><li><a href="./tag/yong-liang-jian-kong.html">用量监控 (1)</a></li><li><a href="./tag/yong-wan-quan-kai-yuan-mian-fei-de-ben-di-mo-xing-lai-dui-shi-pin-zhong-de-yin-pin-jin-xing-jiang-zao.html">用完全开源免费的本地模型来对视频中的音频进行降噪 (1)</a></li><li><a href="./tag/you-jian.html">邮件 (1)</a></li><li><a href="./tag/you-xi.html">游戏 (2)</a></li><li><a href="./tag/you-xi-shi-zen-yao-yun-xing-de-ru-guo-zhi-zhi-dao-chong-zhi-shi-ji-shang-bing-bu-yi-ding-neng-bian-qiang.html">游戏是怎么运行的如果只知道充值实际上并不一定能变强 (1)</a></li><li><a href="./tag/yu-er.html">育儿 (1)</a></li><li><a href="./tag/yu-suan.html">预算 (1)</a></li><li><a href="./tag/yu-xun-lian.html">预训练 (2)</a></li><li><a href="./tag/yuan-cheng.html">远程 (1)</a></li><li><a href="./tag/yuan-xing-wang-luo.html">原型网络 (1)</a></li><li><a href="./tag/yuan-xue-xi.html">元学习 (1)</a></li><li><a href="./tag/yue-du-fang-fa.html">阅读方法 (1)</a></li><li><a href="./tag/yue-du-li-jie.html">阅读理解 (1)</a></li><li><a href="./tag/yue-yu.html">越狱 (1)</a></li><li><a href="./tag/zai-xian-api.html">在线API (1)</a></li><li><a href="./tag/zai-xian-da-mo-xing.html">在线大模型 (1)</a></li><li><a href="./tag/zao-ju.html">造句 (1)</a></li><li><a href="./tag/zhang-liang-bing-xing.html">张量并行 (1)</a></li><li><a href="./tag/zhe-ji-tian-wo-chuan-yue-liao-shi-jian.html">这几天我穿越了时间 (1)</a></li><li><a href="./tag/zhe-xue.html">哲学 (1)</a></li><li><a href="./tag/zhen-dui-da-mo-xing-he-zhi-neng-ti-xin-shou-kai-fa-zhe-de-linuxhuan-jing-pei-zhi-zhi-nan.html">针对大模型和智能体新手开发者的Linux环境配置指南 (1)</a></li><li><a href="./tag/zhen-ti.html">真题 (1)</a></li><li><a href="./tag/zheng-ding-ju-zhen.html">正定矩阵 (1)</a></li><li><a href="./tag/zheng-tai-fen-bu.html">正态分布 (1)</a></li><li><a href="./tag/zheng-ze-hua.html">正则化 (1)</a></li><li><a href="./tag/zhi-ce-flops-huan-bu-gou-si-ge-jing-dian-cpu-ce-shi-ji-zhun.html">只测-FLOPS-还不够四个经典-CPU-测试基准 (1)</a></li><li><a href="./tag/zhi-he-jian-yan.html">秩和检验 (1)</a></li><li><a href="./tag/zhi-neng-ti.html">智能体 (17)</a></li><li><a href="./tag/zhi-shi-ku.html">知识库 (1)</a></li><li><a href="./tag/zhi-shi-tu-pu.html">知识图谱 (1)</a></li><li><a href="./tag/zhi-shi-wai-zhi.html">知识外置 (1)</a></li><li><a href="./tag/zhi-shu.html">指数 (1)</a></li><li><a href="./tag/zhi-shu-han-shu.html">指数函数 (1)</a></li><li><a href="./tag/zhi-zhen-yue-jie-cyu-yan-gei-ni-de-zi-you-yi-ji-tou-tou-mai-de-lei.html">指针越界C语言给你的自由以及偷偷埋的雷 (1)</a></li><li><a href="./tag/zhong-duan.html">终端 (2)</a></li><li><a href="./tag/zhong-xin-ji-xian-ding-li.html">中心极限定理 (1)</a></li><li><a href="./tag/zhong-xin-shen-shi-si-wei-lian-wei-bi-shi-zhen-si-wei-yi-pian-icml-2026-lun-wen-de-lun-zheng-yu-qi-shi.html">重新审视-思维链未必是真思维-一篇ICML-2026-论文的论证与启示 (1)</a></li><li><a href="./tag/zhong-zhi-ding-li.html">中值定理 (1)</a></li><li><a href="./tag/zhu-ban.html">主板 (1)</a></li><li><a href="./tag/zhu-yu.html">术语 (1)</a></li><li><a href="./tag/zhuan-jia-huan-cun.html">专家缓存 (1)</a></li><li><a href="./tag/zhuan-shuo.html">专硕 (1)</a></li><li><a href="./tag/zhuang-ji.html">装机 (1)</a></li><li><a href="./tag/zhuang-ji-pei-zhi.html">装机配置 (1)</a></li><li><a href="./tag/zi-dong-hua.html">自动化 (1)</a></li><li><a href="./tag/zi-ming-ti-li-xue-shu-xue.html">自命题理学数学 (1)</a></li><li><a href="./tag/zi-wo-shen-cha.html">自我审查 (1)</a></li><li><a href="./tag/zi-xue.html">自学 (1)</a></li><li><a href="./tag/zi-xue-zhi-nan.html">自学指南 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skills-he-ji-geng-xin-cong-6-ge-ji-neng-dao-22-ge-yi-ji-bi-xu-cheng-ren-de-wen-ti.html">自用的-OpenCode-Skills-合集更新从-6-个技能到-22-个以及必须承认的问题 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skillzai-ci-geng-xin-22ge-skillszhong-xin-da-mo-liao-yi-bian-shun-lu-jie-jue-liao-opencodedao-zhi-zheng-ge-tu-xing-jie-mian-beng-kui.html">自用的OpenCode-Skill再次更新22个skills重新打磨了一遍顺路解决了OpenCode导致整个图形界面崩溃 (1)</a></li><li><a href="./tag/zim.html">ZIM (1)</a></li><li><a href="./tag/zluda-he-macos-shang-de-cuda-jian-rong-meng-xiang.html">ZLUDA-和-macOS-上的-CUDA-兼容梦想 (1)</a></li><li><a href="./tag/zu-he-shu-xue.html">组合数学 (1)</a></li><li><a href="./tag/zui-da-hou-yan.html">最大后验 (1)</a></li><li><a href="./tag/zui-da-si-ran.html">最大似然 (1)</a></li><li><a href="./tag/zuo-wen.html">作文 (4)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="./index.html" data-i18n="blog">博客</a> › <a href="category/sui-bi.html">随笔</a> › 1.7B 本地小模型到底能不能干活：12 项编码任务 + 8 项目常任务 + 四个智能体工具
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry" data-tags="随笔">
+    <header>
+    <h2 class="post-title" >1.7B 本地小模型到底能不能干活：12 项编码任务 + 8 项目常任务 + 四个智能体工具</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep" data-i18n="post_in">发布于</span>
+        <abbr class="date" title="2026-11-24T12:00:00+08:00"> 
+            <a href="./archive/2026/Nov/index.html">Tue 24 November 2026 </a>
+        </abbr>
+        <span class="meta-prep"> | 43 分钟 | <span data-i18n="tags_label">标签</span></span>
+                <a class="tag-badge" href="./tag/sui-bi.html">随笔</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <p>上一篇只测了七个"建个文件跑一下"的小任务，题目太浅，测不出东西。这一篇换了更接近现在主流智能体评测的做法：十二项编码任务（修测试、按规格实现、拆包重构、CLI、SQL、git 提交、并发……）、八项日常杂活（整理文件、洗表格、票据转 JSON、会议纪要、邮件回复、周报、预算表）、外加十六道单轮题，把两个 1.7B 模型和四个智能体工具放在同一套尺子下面量。</p>
+<p>先说结论：</p>
+<ol>
+<li><strong>在这个尺寸上，工具比模型重要。</strong> 同样是 LFM3-1.7B，最好的组合（OpenLaoKe）12 项里过 11 项，最差的（OpenCode）0 项。同一个模型换了壳，结果差 11 项。</li>
+<li><strong>Spark-1.7B 和 LFM3-1.7B 总量打平（19 对 20，各 48 次），但强项完全不同。</strong> 单轮 16 题是 5 对 12，LFM3 的算术和推理明显更稳；编码任务里两边各有一个高分组合（Jcode + Spark 7/12、OpenLaoKe + LFM3 11/12），换个壳就换个人赢。</li>
+<li><strong>日常任务比编码任务更难，不是更容易。</strong> 十二项编码 39/96，八项目常 17/64（端到端口径，第二次跑）。越是要"按精确格式产出"的活，1.7B 越容易差一点。</li>
+<li><strong>小模型最大的浪费不是不会做，而是不会停。</strong> LFM3 有大量"产物做对了，但 120 秒还没退出"的记录——见"失败解剖"。</li>
+<li><strong>这个尺寸的单次跑分根本不可复现。</strong> 同一模型同一套日常题跑两次，Spark 从 16/32 掉到 6/32、LFM3 从 8/32 涨到 11/32。任何"谁几比几"都别当结论背，详见"这套分数能不能复现"。</li>
+<li><strong>OpenCode 在这个尺寸上基本不可用。</strong> Spark 1/12、LFM3 0/12，几乎全部撞超时，连 merge 都过不了（唯一那分是蒙对的 SQL）；八项目常更是两模型全灭。</li>
+</ol>
+<h2>谁在比赛</h2>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>设置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模型</td>
+<td>LFM3-1.7B（Q4_K_M）、Spark-X2.5-1.7B（Q4_K_M）</td>
+</tr>
+<tr>
+<td>推理栈</td>
+<td>llama.cpp 1.0.0（build b12359），<code>--jinja --reasoning off</code>，temp 0.1</td>
+</tr>
+<tr>
+<td>机器</td>
+<td>MacBook Air M4 16G</td>
+</tr>
+<tr>
+<td>工具</td>
+<td>OpenLaoKe、pi、Jcode、OpenCode</td>
+</tr>
+<tr>
+<td>每格预算</td>
+<td>120 秒墙钟、25 步，thinking 全关，一格只跑一次</td>
+</tr>
+<tr>
+<td>判分</td>
+<td>只看文件系统：执行文件、打开文档、比对内容、看 git 状态。不采信模型自述</td>
+</tr>
+</tbody>
+</table>
+<h2>测试集怎么设计的，以及为什么它可信</h2>
+<p>三块题：</p>
+<table>
+<thead>
+<tr>
+<th>块</th>
+<th>数量</th>
+<th>内容</th>
+<th>判分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编码</td>
+<td>12</td>
+<td>merge、download（两个锚点）、修测试、按规格实现、拆包重构、命令行工具、JSON→CSV、写 SQL、日志抽取、git 提交、Word 表格、并发</td>
+<td>跑测试 / 执行文件 / 打开产物 / 对比精确内容</td>
+</tr>
+<tr>
+<td>日常</td>
+<td>8</td>
+<td>整理笔记、清洗表格、票据转 JSON、会议纪要、笔记索引、邮件回复、周报汇总、预算表（提示词全中文）</td>
+<td>文件名、CSV 行、JSON 字段、xlsx 求和、Markdown 表顺序</td>
+</tr>
+<tr>
+<td>单轮</td>
+<td>16</td>
+<td>算术 5、读代码 4、写代码 3、指令 2、数据格式 2</td>
+<td>人工逐题判最终答案</td>
+</tr>
+</tbody>
+</table>
+<p>编码和日常这两块里，每一项都写了三样东西：种子文件、参考解、验证器。跑分前先跑 <code>--selftest</code>，要求"参考解必须过、空目录必须不过"，12/12 和 8/8 都过才允许开跑。这一步不是形式主义：洗表格那一项最初就因为种子数据里 <code>bob</code> / <code>Bob</code> 大小写没对齐，参考解自己都过不了，被判了出来。</p>
+<p>另外两条纪律：</p>
+<ul>
+<li><strong>每个组合一个独立目录</strong>，种子文件由脚本铺好。曾经出现过平铺目录被后一个智能体搜索到、直接抄了上一个组合答案的情况（Jcode 干过一次），所以现在每个 run 都套在自己的父目录里。</li>
+<li><strong>一次一格。</strong> 1.7B 在这个温度下也会抖动，同题两次结果不同。我们只在日常任务上跑了两次作对照，发现"抖动"这个词把问题说得太轻了——详见"这套分数能不能复现"那一节。</li>
+</ul>
+<h2>编码任务：12 项</h2>
+<p><strong>Spark-1.7B</strong>（单元格 = 结果 + 墙钟秒数）</p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>OpenLaoKe</th>
+<th>pi</th>
+<th>Jcode</th>
+<th>OpenCode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>merge</td>
+<td>✅21s</td>
+<td>✅19s</td>
+<td>✅23s</td>
+<td>❌111s</td>
+</tr>
+<tr>
+<td>download</td>
+<td>✅17s</td>
+<td>✅12s</td>
+<td>✅21s</td>
+<td>❌109s</td>
+</tr>
+<tr>
+<td>修测试</td>
+<td>✅43s</td>
+<td>✅36s</td>
+<td>✅41s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>按规格实现</td>
+<td>❌46s</td>
+<td>❌59s</td>
+<td>⏱120s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>拆包重构</td>
+<td>⏱120s</td>
+<td>✅36s</td>
+<td>⏱120s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>命令行工具</td>
+<td>❌44s</td>
+<td>⏱120s</td>
+<td>❌44s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>JSON→CSV</td>
+<td>✅14s</td>
+<td>⏱120s</td>
+<td>❌15s</td>
+<td>❌113s</td>
+</tr>
+<tr>
+<td>写 SQL</td>
+<td>❌21s</td>
+<td>⏱120s</td>
+<td>✅32s</td>
+<td>✅117s</td>
+</tr>
+<tr>
+<td>日志抽取</td>
+<td>❌8s</td>
+<td>⏱120s</td>
+<td>✅47s</td>
+<td>❌109s</td>
+</tr>
+<tr>
+<td>git 提交</td>
+<td>⏱120s</td>
+<td>✅20s</td>
+<td>✅29s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>Word 表格</td>
+<td>✅30s</td>
+<td>✅39s</td>
+<td>✅58s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>并发</td>
+<td>❌23s</td>
+<td>❌45s</td>
+<td>⏱120s</td>
+<td>⏱120s</td>
+</tr>
+</tbody>
+</table>
+<p><strong>LFM3-1.7B</strong>（单元格 = 结果 + 墙钟秒数）</p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>OpenLaoKe</th>
+<th>pi</th>
+<th>Jcode</th>
+<th>OpenCode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>merge</td>
+<td>✅31s</td>
+<td>⏱120s</td>
+<td>✅22s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>download</td>
+<td>✅28s</td>
+<td>✅57s</td>
+<td>✅14s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>修测试</td>
+<td>✅65s</td>
+<td>⏱120s</td>
+<td>✅47s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>按规格实现</td>
+<td>✅54s</td>
+<td>⏱120s</td>
+<td>⏱120s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>拆包重构</td>
+<td>✅71s</td>
+<td>⏱120s</td>
+<td>⏱120s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>命令行工具</td>
+<td>✅52s</td>
+<td>⏱120s</td>
+<td>✅44s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>JSON→CSV</td>
+<td>✅34s</td>
+<td>⏱120s</td>
+<td>✅52s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>写 SQL</td>
+<td>❌57s</td>
+<td>⏱120s</td>
+<td>❌35s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>日志抽取</td>
+<td>✅28s</td>
+<td>⏱120s</td>
+<td>✅69s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>git 提交</td>
+<td>✅23s</td>
+<td>✅57s</td>
+<td>⏱120s</td>
+<td>❌91s</td>
+</tr>
+<tr>
+<td>Word 表格</td>
+<td>✅49s</td>
+<td>✅90s</td>
+<td>⏱120s</td>
+<td>⏱120s</td>
+</tr>
+<tr>
+<td>并发</td>
+<td>✅52s</td>
+<td>❌70s</td>
+<td>❌17s</td>
+<td>⏱120s</td>
+</tr>
+</tbody>
+</table>
+<p>按组合汇总：</p>
+<table>
+<thead>
+<tr>
+<th>组合</th>
+<th style="text-align: right;">通过</th>
+<th style="text-align: right;">通过项平均耗时</th>
+<th>失败形态（超时/没产出/产出不对）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenLaoKe + LFM3-1.7B</td>
+<td style="text-align: right;">11/12</td>
+<td style="text-align: right;">44.3s</td>
+<td>0 / 1 / 0</td>
+</tr>
+<tr>
+<td>Jcode + Spark-1.7B</td>
+<td style="text-align: right;">7/12</td>
+<td style="text-align: right;">36.0s</td>
+<td>3 / 0 / 2</td>
+</tr>
+<tr>
+<td>pi + Spark-1.7B</td>
+<td style="text-align: right;">6/12</td>
+<td style="text-align: right;">27.0s</td>
+<td>4 / 1 / 1</td>
+</tr>
+<tr>
+<td>Jcode + LFM3-1.7B</td>
+<td style="text-align: right;">6/12</td>
+<td style="text-align: right;">41.4s</td>
+<td>4 / 1 / 1</td>
+</tr>
+<tr>
+<td>OpenLaoKe + Spark-1.7B</td>
+<td style="text-align: right;">5/12</td>
+<td style="text-align: right;">24.9s</td>
+<td>2 / 2 / 3</td>
+</tr>
+<tr>
+<td>pi + LFM3-1.7B</td>
+<td style="text-align: right;">3/12</td>
+<td style="text-align: right;">68.2s</td>
+<td>8 / 0 / 1</td>
+</tr>
+<tr>
+<td>OpenCode + Spark-1.7B</td>
+<td style="text-align: right;">1/12</td>
+<td style="text-align: right;">117.2s</td>
+<td>7 / 4 / 0</td>
+</tr>
+<tr>
+<td>OpenCode + LFM3-1.7B</td>
+<td style="text-align: right;">0/12</td>
+<td style="text-align: right;">-</td>
+<td>11 / 0 / 1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Spark-1.7B：<strong>19/48</strong></li>
+<li>LFM3-1.7B：<strong>20/48</strong></li>
+</ul>
+<p><img alt="十二项编码任务矩阵" src="images/sota-17b/sota-matrix.png"></p>
+<p><img alt="每个组合通过了多少项" src="images/sota-17b/sota-scores.png"></p>
+<p>一眼能看出几件事：</p>
+<ul>
+<li><strong>OpenLaoKe + LFM3 11/12</strong>，唯一没过的是写 SQL。它对小模型做了针对性处理（工具调用格式容错、强制"写完要真跑一遍"、权限门不打断），在这套题上几乎满清。</li>
+<li><strong>pi + LFM3 只有 3/12</strong>，同样是 LFM3，换了壳就掉 8 项——而且失败多是 120 秒超时，不是答案错。</li>
+<li><strong>OpenCode 两个模型 1/12 和 0/12</strong>。它给 2B 模型的系统提示和工具 schema 太重，光读上下文就耗尽预算。</li>
+<li><strong>两个锚点（merge、download）</strong> 除了 OpenCode 全过，说明工具链本身是通的，后面的失败都是真失败。</li>
+</ul>
+<h2>日常任务：8 项</h2>
+<p>八项杂活，提示词全中文（整理笔记、洗表格、票据转 JSON、会议纪要、笔记索引、邮件回复、周报汇总、预算表）。下表是<strong>跑了两次</strong>里第二次（完整且带产物核验的那次）的逐格结果。<code>✅</code> 后面是秒数；<code>⚠️产</code> 表示文件内容全对但进程超时被杀（产物可用、交付不合格）；<code>❌</code> 是没做对；<code>⏱</code> 是全程超时没产物。</p>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>LFM3 OpenLaoKe</th>
+<th>LFM3 pi</th>
+<th>LFM3 Jcode</th>
+<th>LFM3 OpenCode</th>
+<th>Spark OpenLaoKe</th>
+<th>Spark pi</th>
+<th>Spark Jcode</th>
+<th>Spark OpenCode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>整理笔记</td>
+<td>⏱</td>
+<td>✅80</td>
+<td>⏱</td>
+<td>⏱</td>
+<td>❌20</td>
+<td>❌26</td>
+<td>⏱</td>
+<td>⏱</td>
+</tr>
+<tr>
+<td>清洗表格</td>
+<td>⏱</td>
+<td>⏱</td>
+<td>⏱</td>
+<td>⏱</td>
+<td>❌22</td>
+<td>❌36</td>
+<td>⏱</td>
+<td>⏱</td>
+</tr>
+<tr>
+<td>票据转 JSON</td>
+<td>✅43</td>
+<td>✅66</td>
+<td>✅33</td>
+<td>⏱</td>
+<td>✅24</td>
+<td>✅20</td>
+<td>✅22</td>
+<td>⏱</td>
+</tr>
+<tr>
+<td>会议纪要</td>
+<td>✅27</td>
+<td>✅60</td>
+<td>✅22</td>
+<td>⏱</td>
+<td>❌15</td>
+<td>❌8</td>
+<td>❌10</td>
+<td>⏱</td>
+</tr>
+<tr>
+<td>笔记索引</td>
+<td>❌46</td>
+<td>⏱</td>
+<td>❌92</td>
+<td>⏱</td>
+<td>❌30</td>
+<td>✅53</td>
+<td>❌29</td>
+<td>⏱</td>
+</tr>
+<tr>
+<td>邮件回复</td>
+<td>❌40</td>
+<td>✅65</td>
+<td>✅39</td>
+<td>⏱</td>
+<td>❌19</td>
+<td>✅29</td>
+<td>❌26</td>
+<td>⏱</td>
+</tr>
+<tr>
+<td>周报汇总</td>
+<td>❌48</td>
+<td>⏱</td>
+<td>✅88</td>
+<td>⏱</td>
+<td>❌15</td>
+<td>⏱</td>
+<td>❌29</td>
+<td>⏱</td>
+</tr>
+<tr>
+<td>预算表</td>
+<td>✅71</td>
+<td>⚠️产120</td>
+<td>❌68</td>
+<td>⏱</td>
+<td>❌92</td>
+<td>⏱</td>
+<td>✅117</td>
+<td>⏱</td>
+</tr>
+</tbody>
+</table>
+<p>按工具合计（8 项）：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>OpenLaoKe</th>
+<th>pi</th>
+<th>Jcode</th>
+<th>OpenCode</th>
+<th>合计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LFM3-1.7B</td>
+<td>3/8</td>
+<td>4/8</td>
+<td>4/8</td>
+<td>0/8</td>
+<td><strong>11/32</strong></td>
+</tr>
+<tr>
+<td>Spark-1.7B</td>
+<td>1/8</td>
+<td>3/8</td>
+<td>2/8</td>
+<td>0/8</td>
+<td><strong>6/32</strong></td>
+</tr>
+</tbody>
+</table>
+<p>两个口径要分开看：<strong>端到端按时交付</strong>（上表，超时就算没过）和 <strong>产物正确</strong>（文件存在且内容全对，不管是否超时退出）。LFM3 端到端 11、产物正确 12（pi 的预算表内容对但超时被杀）；Spark 两个口径都是 6。也就是说 LFM3 在杂活上"会做但收不了工"的情况比 Spark 多，而 Spark 是更多"根本没做对"。</p>
+<p>OpenCode 八个日常格 <strong>两个模型全超时</strong>，一个都没跑出来——这个尺寸加这套工具链基本进不了实战。</p>
+<h2>这套分数能不能复现：不能，而且差得离谱</h2>
+<p>这一节是这次最该说的话，比任何一次跑分都重要。</p>
+<p>八项目常我用两个模型各跑了两次，中间只改了脚本里记录"产物正确"这一列、没动任何提示词和模型。结果：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th style="text-align: right;">第一次</th>
+<th style="text-align: right;">第二次</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LFM3-1.7B</td>
+<td style="text-align: right;">8/32</td>
+<td style="text-align: right;">11/32</td>
+</tr>
+<tr>
+<td>Spark-1.7B</td>
+<td style="text-align: right;">16/32</td>
+<td style="text-align: right;">6/32</td>
+</tr>
+</tbody>
+</table>
+<p>Spark 从 16 掉到 6，LFM3 从 8 涨到 11。<strong>同一个模型、同一套题、同一台机器，总分能差出 10 分，而且两个模型往相反方向动。</strong> 这不是一两个格子抖，而是整行分数都在漂。</p>
+<p>这说明前一篇里"Jcode + Spark 7/7"这类高分格子，和这一篇任何单次的"谁几比几"，都高度不可复现。2B 以下的小模型在多轮工具调用里，每一步都在抛硬币，连乘八步之后，一次跑分基本等于抽样噪声，而不是模型的"真实水平"。</p>
+<p>所以这篇给的所有单格数字，只描述那一次，不要当结论背。真要排名次，每格至少跑 3 到 5 次取中位数、报方差；我们这套预算（一格一次）做不到，宁可把"测不准"这件事本身当成结论。能站得住的只有两种结论：一是 <strong>OpenCode 全灭</strong> 这种远超噪声的压倒性失败，二是"<strong>产物对了却没停</strong>"这种成形态反复出现的结构性问题，不是某一格的分数。</p>
+<h2>单轮能力：16 题</h2>
+<p>十道变十六道，分成五组，全部人工逐题判最终答案（不使用字符串匹配，上一篇已经踩过"100 分钟被判对"的坑）。</p>
+<table>
+<thead>
+<tr>
+<th>组</th>
+<th style="text-align: right;">Spark-1.7B</th>
+<th style="text-align: right;">LFM3-1.7B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>算术（5）</td>
+<td style="text-align: right;">0/5</td>
+<td style="text-align: right;">5/5</td>
+</tr>
+<tr>
+<td>读代码（4）</td>
+<td style="text-align: right;">1/4</td>
+<td style="text-align: right;">2/4</td>
+</tr>
+<tr>
+<td>写代码（3）</td>
+<td style="text-align: right;">2/3</td>
+<td style="text-align: right;">2/3</td>
+</tr>
+<tr>
+<td>指令（2）</td>
+<td style="text-align: right;">0/2</td>
+<td style="text-align: right;">1/2</td>
+</tr>
+<tr>
+<td>数据格式（2）</td>
+<td style="text-align: right;">2/2</td>
+<td style="text-align: right;">2/2</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td style="text-align: right;"><strong>5/16</strong></td>
+<td style="text-align: right;"><strong>12/16</strong></td>
+</tr>
+</tbody>
+</table>
+<p>最刺眼的差距在算术：<strong>Spark 五道全错</strong>（40 元涨 25% 再降 20% 答 30；30% 是 45 求 10% 答 35；数列 2,6,12,20,30 下一项答 22；150 公里 2.5 小时答 30 km/h；40 人里 60% 女生、女生四分之一戴眼镜答 12 人）。LFM3 五道全对，而且过程写得很清楚。</p>
+<p>读代码两边都一般：给 <code>s[1:4][::-1]</code> 求值，两个都答错（一个 abc、一个 edcba）。给默认参数 <code>b=[]</code> 那道，LFM3 把机制解释得完全正确，但没按要求写出 exact output，判错。</p>
+<p>指令组最能看出"听话"程度：要求"三行、每行一个颜色词"，Spark 给了三行 <code>-</code>，LFM3 给了 red/green/blue；要求"写一句关于海的话且不含字母 e"，Spark 答了一个单词 <code>Fish</code>，LFM3 写了一整句但里面有 e。</p>
+<p>逐题证据和模型原始回答都在文末附录。</p>
+<h2>速度</h2>
+<p>同一台机器、同一批服务器，<code>bench/speed_probe.py</code>，各跑三次取中位数：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: right;">prefill (tok/s)</th>
+<th style="text-align: right;">decode (tok/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LFM3-1.7B Q4</td>
+<td style="text-align: right;"><strong>207</strong></td>
+<td style="text-align: right;">35.4</td>
+</tr>
+<tr>
+<td>Spark-1.7B Q4</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">35.3</td>
+</tr>
+</tbody>
+</table>
+<p>decode 打平，prefill 差近三倍。但<strong>这次 prefill 的优势没有换来更快的任务完成</strong>：编码任务里 LFM3 的最好组合平均 44 秒，Spark 的最好组合 36 秒。原因还是"不会停"——LFM3 每轮想得更多，收工更慢，光快在第一步没用。</p>
+<h2>失败解剖</h2>
+<p>把 96 + 64 次失败按形态分开，结论就清楚了。</p>
+<table>
+<thead>
+<tr>
+<th>形态</th>
+<th>长什么样</th>
+<th>谁身上最多</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不会做</td>
+<td>文件没生成，或生成的是错的</td>
+<td>Spark 的算术类、OpenCode 全体</td>
+</tr>
+<tr>
+<td>会做但交不出来</td>
+<td>产物正确，格式差一点（少个字段、排序不对）</td>
+<td>两边都有，Spark 偏多</td>
+</tr>
+<tr>
+<td>会做但不会停</td>
+<td>产物已经写对，进程 120 秒还没退出</td>
+<td><strong>LFM3 最典型</strong></td>
+</tr>
+<tr>
+<td>工具链吃掉</td>
+<td>权限门、参数解析、上下文过重</td>
+<td>OpenCode；修复前的 OpenLaoKe</td>
+</tr>
+</tbody>
+</table>
+<p>第二种和第三种最值得说。</p>
+<p><strong>"会做但交不出来"</strong>：Spark 在清洗表格那项把空格和大小写都处理对了，但没去重、也没排序；在周报那项算出了三个商品的金额，总计写成了 32（正确 51）。它不是不会读表，是收尾时漏了一步。</p>
+<p><strong>"会做但不会停"</strong>：LFM3 在整理笔记那项把五个文件名全按 <code>日期-标题.md</code> 改好了，然后继续折腾到 120 秒被杀；在笔记索引那项表格也生成了，只是顺序反了（从旧到新），同样没退出。这类格子如果只看产物，是能用的；如果看"交付"，是不合格的。所以日常任务那张表给了两个口径：<strong>产物正确</strong> 和 <strong>按时交付</strong>。</p>
+<p>这也解释了为什么编码任务里 LFM3 的总量并没有输：编码任务多半有测试或脚本兜底，跑一下就结束；日常任务的"完成"标准是隐式的，小模型不知道该在哪停。</p>
+<p>日常任务这一轮里，这种形态尤其明显：LFM3 在 pi 下的预算表把三个分类金额和总计全算对了，进程却拖到 120 秒被杀，产物可用、端到端不算交付；整理笔记、笔记索引、清洗表格都有"改对了名字但没退出"的记录。而 Spark 的失败更多是第一种（根本没做对），不是"做对了不收工"。</p>
+<h2>给"用本地小模型干日常活"的实话</h2>
+<p>如果你真的想用 1.7B 在本地干杂活，这套数据支持的结论是：</p>
+<ol>
+<li><strong>选工具比选模型收益大。</strong> 同一个 LFM3，OpenLaoKe 11/12、pi 3/12。差的是工具会不会替模型兜住格式、权限、收尾。</li>
+<li><strong>任务要能验证，才交给它。</strong> 有测试、有 schema、有明确文件名的活（修测试、票据转 JSON、会议纪要）它做得不错；"写个报告""整理一下"这种没有判据的活，它容易多做或做半截。</li>
+<li><strong>给死格式，别给自由度。</strong> 票据转 JSON 是唯一两边都全过的日常任务，因为字段名、日期格式、单位都写死了。</li>
+<li><strong>必须有超时和兜底。</strong> 不是防它跑飞，是防它做完不收工还占着终端。</li>
+<li><strong>算术别指望。</strong> 需要算数的活，让它写代码去算，不要让它心算。Spark 五道算术全错，LFM3 全对，但两个都不该被信任到直接输出金额。</li>
+</ol>
+<h2>结论</h2>
+<p>把两轮（编码 + 日常）和十六题单轮拼起来，能站住的只有三句话：</p>
+<ol>
+<li><strong>工具比模型重要。</strong> 同一个 LFM3，换个壳从 11/12 到 0/12。OpenCode 在这个尺寸上全线超时，是唯一远超噪声、可以直接下的结论。</li>
+<li><strong>两个模型各有强项，但都不靠谱。</strong> LFM3 单轮推理（特别是算术）明显更稳，但多轮容易"做完不收工"；Spark 收尾干净但习惯性算错、思路偏简单。谁几比几的单次分数不可复现，别当结论。</li>
+<li><strong>1.7B 能干的是"有判据的活"。</strong> 有测试、schema、固定字段名的任务（修测试、票据转 JSON、会议纪要）表现远好于"整理一下"这种没有验收标准的活。</li>
+</ol>
+<h2>复现</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 两个服务（llama.cpp 1.0.0 / build b12359）</span>
+<span class="nb">cd</span><span class="w"> </span>~/models/LFM3-1.7B-GGUF<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>llama-server<span class="w"> </span>-m<span class="w"> </span>LFM3-1.7B-Q4_K_M.gguf<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--alias<span class="w"> </span>lfm3-1.7b-q4<span class="w"> </span>--host<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--port<span class="w"> </span><span class="m">8088</span><span class="w"> </span>-c<span class="w"> </span><span class="m">32768</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--temp<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span>--top-k<span class="w"> </span><span class="m">50</span><span class="w"> </span>--repeat-penalty<span class="w"> </span><span class="m">1</span>.1<span class="w"> </span>--reasoning<span class="w"> </span>off<span class="w"> </span>--jinja<span class="w"> </span>--no-webui
+
+<span class="nb">cd</span><span class="w"> </span>~/models/Spark-X2.5-1.7B-GGUF<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>llama-server<span class="w"> </span>-m<span class="w"> </span>Spark-X2.5-1.7B-Q4_K_M.gguf<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--alias<span class="w"> </span>spark-1.7b-q4<span class="w"> </span>--host<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--port<span class="w"> </span><span class="m">8093</span><span class="w"> </span>-c<span class="w"> </span><span class="m">32768</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--temp<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span>--top-k<span class="w"> </span><span class="m">50</span><span class="w"> </span>--repeat-penalty<span class="w"> </span><span class="m">1</span>.1<span class="w"> </span>--reasoning<span class="w"> </span>off<span class="w"> </span>--jinja<span class="w"> </span>--no-webui
+
+<span class="c1"># 先证明验证器本身是对的：参考解必须过，空目录必须不过</span>
+python<span class="w"> </span>bench/sota_matrix.py<span class="w"> </span>--selftest
+python<span class="w"> </span>bench/daily_matrix.py<span class="w"> </span>--selftest
+
+<span class="c1"># 十二项编码任务</span>
+python<span class="w"> </span>bench/sota_matrix.py<span class="w"> </span>--model<span class="w"> </span>spark-1.7b-q4<span class="w"> </span>--task<span class="w"> </span>all<span class="w"> </span>--timeout<span class="w"> </span><span class="m">120</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--json<span class="w"> </span>bench/results/sota-spark-1.7b-q4.json
+python<span class="w"> </span>bench/sota_matrix.py<span class="w"> </span>--model<span class="w"> </span>lfm3-1.7b-q4<span class="w"> </span>--task<span class="w"> </span>all<span class="w"> </span>--timeout<span class="w"> </span><span class="m">120</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--json<span class="w"> </span>bench/results/sota-lfm3-1.7b-q4.json
+
+<span class="c1"># 八项目常任务（同时记录"产物正确"和"按时交付"）</span>
+python<span class="w"> </span>bench/daily_matrix.py<span class="w"> </span>--model<span class="w"> </span>spark-1.7b-q4<span class="w"> </span>--task<span class="w"> </span>all<span class="w"> </span>--timeout<span class="w"> </span><span class="m">120</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--json<span class="w"> </span>bench/results/daily-spark-1.7b-q4.json
+python<span class="w"> </span>bench/daily_matrix.py<span class="w"> </span>--model<span class="w"> </span>lfm3-1.7b-q4<span class="w"> </span>--task<span class="w"> </span>all<span class="w"> </span>--timeout<span class="w"> </span><span class="m">120</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--json<span class="w"> </span>bench/results/daily-lfm3-1.7b-q4.json
+
+<span class="c1"># 十六题单轮能力（人工判分，脚本只存原文）</span>
+python<span class="w"> </span>bench/capability_probe2.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--target<span class="w"> </span><span class="nv">spark</span><span class="o">=</span>http://127.0.0.1:8093/v1:spark-1.7b-q4<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--target<span class="w"> </span><span class="nv">lfm3</span><span class="o">=</span>http://127.0.0.1:8088/v1:lfm3-1.7b-q4<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--max-tokens<span class="w"> </span><span class="m">1024</span><span class="w"> </span>--json<span class="w"> </span>bench/results/cap2.json
+
+<span class="c1"># 速度</span>
+python<span class="w"> </span>bench/speed_probe.py<span class="w"> </span>--target<span class="w"> </span>lfm3-1.7b-q4<span class="o">=</span>http://127.0.0.1:8088/v1:lfm3-1.7b-q4<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--repeats<span class="w"> </span><span class="m">3</span><span class="w"> </span>--max-tokens<span class="w"> </span><span class="m">128</span>
+
+<span class="c1"># 表格与图</span>
+python<span class="w"> </span>bench/sota_tables.py<span class="w"> </span>--results<span class="w"> </span>bench/results/sota-spark-1.7b-q4.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>bench/results/sota-lfm3-1.7b-q4.json
+python<span class="w"> </span>bench/make_sota_chart.py<span class="w"> </span>--spark<span class="w"> </span>bench/results/sota-spark-1.7b-q4.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--lfm3<span class="w"> </span>bench/results/sota-lfm3-1.7b-q4.json<span class="w"> </span>--out-dir<span class="w"> </span>../blog/微信公众号草稿/images/sota-17b
+</code></pre></div>
+
+<h2>附录：十六道题的原始回答</h2>
+<h3>第 1 题 · 算术 · <code>pct_chain</code></h3>
+<p><strong>提示词</strong></p>
+<div class="highlight"><pre><span></span><code>一件商品原价 40 元，先涨价 25%，再按新价降价 20%。最终价格多少元？只给数字。
+</code></pre></div>
+
+<p><strong>Spark-1.7B</strong> ❌ 答 30，正确 40</p>
+<div class="highlight"><pre><span></span><code>最终价格：30 元
+</code></pre></div>
+
+<p><strong>LFM3-1.7B</strong> ✅ 40，过程正确</p>
+<div class="highlight"><pre><span></span><code>40 * 1.25 = 50  
+50 * (1 - 0.20) = 50 * 0.8 = 40  
+
+最终价格是 **40** 元。
+</code></pre></div>
+
+<h3>第 2 题 · 算术 · <code>pct_back</code></h3>
+<p><strong>提示词</strong></p>
+<div class="highlight"><pre><span></span><code>A number's 30% is 45. What is 10% of that number? Answer with just the number.
+</code></pre></div>
+
+<p><strong>Spark-1.7B</strong> ❌ 答 35，正确 15</p>
+<div class="highlight"><pre><span></span><code>35
+</code></pre></div>
+
+<p><strong>LFM3-1.7B</strong> ✅ 15，过程正确</p>
+<div class="highlight"><pre><span></span><code>We are told: "A number's 30% is 45." That means 0.30 * N = 45. Solve for N: N = 45 / 0.30 = 150. Then we need 10% of that number: 0.10 * N = 0.10 * 150 = 15.
+
+Thus answer is 15.&lt;/think&gt;15
+</code></pre></div>
+
+<h3>第 3 题 · 算术 · <code>sequence</code></h3>
+<p><strong>提示词</strong></p>
+<div class="highlight"><pre><span></span><code>What number comes next: 2, 6, 12, 20, 30, ?  Answer with just the number.
+</code></pre></div>
+
+<p><strong>Spark-1.7B</strong> ❌ 答 22，正确 42</p>
+<div class="highlight"><pre><span></span><code>22
+</code></pre></div>
+
+<p><strong>LFM3-1.7B</strong> ✅ 42，差分推理正确</p>
+<div class="highlight"><pre><span></span><code>The sequence is: 2, 6, 12, 20, 30, ?
+
+Let's look at the differences between consecutive terms:
+- 6 - 2 = 4
+- 12 - 6 = 6
+- 20 - 12 = 8
+- 30 - 20 = 10
+
+The differences are increasing by 2 each time: 4, 6, 8, 10...
+
+So the next difference should be 12 (since 10 + 2 = 12).
+
+Therefore, the next term is:
+30 + 12 = 42.
+
+Answer: 42
+</code></pre></div>
+
+<h3>第 4 题 · 算术 · <code>rate</code></h3>
+<p><strong>提示词</strong></p>
+<div class="highlight"><pre><span></span><code>A car covers 150 km in 2.5 hours. What is its average speed in km/h? Answer with just the number.
+</code></pre></div>
+
+<p><strong>Spark-1.7B</strong> ❌ 答 30，正确 60</p>
+<div class="highlight"><pre><span></span><code>30
+</code></pre></div>
+
+<p><strong>LFM3-1.7B</strong> ✅ 60</p>
+<div class="highlight"><pre><span></span><code>To find the average speed, use the formula:
+
+\[
+\text{Average Speed} = \frac{\text{Distance}}{\text{Time}}
+\]
+
+Given:
+- Distance = 150 km
+- Time = 2.5 hours
+
+Substitute the values into the formula:
+
+\[
+\text{Average Speed} = \frac{150}{2.5}
+\]
+
+Perform the division:
+
+\[
+\frac{150}{2.5} = 60
+\]
+
+Thus, the average speed is 60 km/h.
+
+Answer: 60
+</code></pre></div>
+
+<h3>第 5 题 · 算术 · <code>zh_ratio</code></h3>
+<p><strong>提示词</strong></p>
+<div class="highlight"><pre><span></span><code>一个班有 40 人，其中 60% 是女生，女生里有四分之一戴眼镜。戴眼镜的女生有多少人？只给数字。
+</code></pre></div>
+
+<p><strong>Spark-1.7B</strong> ❌ 答 12 人，正确 6</p>
+<div class="highlight"><pre><span></span><code>12人
+</code></pre></div>
+
+<p><strong>LFM3-1.7B</strong> ✅ 6</p>
+<div class="highlight"><pre><span></span><code>40 * 0.6 = 24 (total girls)
+24 * 1/4 = 6 (girls wearing glasses)
+
+\boxed{6}
+</code></pre></div>
+
+<h3>第 6 题 · 读代码 · <code>read_alias</code></h3>
+<p><strong>提示词</strong></p>
+<div class="highlight"><pre><span></span><code>What does this print?
+
+```python
+x = [1, 2, 3]
+y = x
+y.append(4)
+print(len(x))
+</code></pre></div>
+
+<p>Answer with just the number.</p>
+<div class="highlight"><pre><span></span><code>**Spark-1.7B** ❌ 答 3，正确 4
+
+```text
+3
+</code></pre></div>
+
+<p><strong>LFM3-1.7B</strong> ✅ 先写 36，自我纠正后给 4</p>
+<div class="highlight"><pre><span></span><code>36
+
+In Python, `y` is an alias for `x`. When `y.append(4)` is called, it modifies the same list object as `x`, so `len(x)` becomes 4 after appending. Wait, that would be 4? Let me re-evaluate: Initially x = [1,2,3] length 3. Then y.append(4) adds to y which is x, making x become [1,2,3,4], so len(x) should be 4. But the question says "Answer with just the number." Let me double-check.
+
+Actually: 
+```python
+x = [1, 2, 3]
+y = x   # y refers to same list object as x
+y.append(4)
+# Now x is also modified because they share identity.
+print(len(x))  # should be 4
+</code></pre></div>
+
+<p>But wait, I recall that in Python, assignment <code>y = x</code> does not create a new list; it rebinds the name <code>y</code> to point to the same object. So yes, appending to y modifies x's contents.</p>
+<p>Thus len(x) after append is 4? But earlier I thought maybe 3+1=4. Let me count: original elements [1,2,3] plus appended 4 gives four elements. So answer should be 4.</p>
+<p>But the user asked "Answer with just the number." Hmm, but my initial reasoning said 36 incorrectly due to a typo? No, I mistakenly wrote 36 earlier in thought process? Let's re-evaluate: The code:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</code></pre></div>
+
+<p>After <code>y = x</code>, both names refer to the same list. Then <code>y.append(4)</code> adds 4 to that list. So now the list is <code>[1,2,3,4]</code>. Length is 4.</p>
+<p>Thus output: 4.</p>
+<p>But wait, I recall a common pitfall: In Python, <code>list.append</code> modifies the list in place; since y and x are same object, it changes both. So len(x) becomes 4.</p>
+<p>Therefore answer is 4.</p>
+<p>I'll go with 4.</think>4</p>
+<div class="highlight"><pre><span></span><code><span class="s s-Atom">###</span> <span class="s s-Atom">第</span> <span class="mi">7</span> <span class="s s-Atom">题</span> <span class="s s-Atom">·</span> <span class="s s-Atom">读代码</span> <span class="s s-Atom">·</span> <span class="err">`</span><span class="s s-Atom">read_slice</span><span class="err">`</span>
+
+<span class="s s-Atom">**提示词**</span>
+
+<span class="err">```</span><span class="s s-Atom">text</span>
+<span class="nv">What</span> <span class="s s-Atom">does</span> <span class="s s-Atom">this</span> <span class="s s-Atom">print</span><span class="nb">?</span>
+
+<span class="err">```</span><span class="s s-Atom">python</span>
+<span class="s s-Atom">s</span> <span class="o">=</span> <span class="s2">"abcdef"</span>
+<span class="nf">print</span><span class="p">(</span><span class="s s-Atom">s</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">4</span><span class="p">][</span><span class="o">::-</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+
+<p>Answer with just the string.</p>
+<div class="highlight"><pre><span></span><code>**Spark-1.7B** ❌ 答 abc，正确 dcb
+
+```text
+abc
+</code></pre></div>
+
+<p><strong>LFM3-1.7B</strong> ❌ 答 edcba，正确 dcb</p>
+<div class="highlight"><pre><span></span><code>"edcba"
+</code></pre></div>
+
+<h3>第 8 题 · 读代码 · <code>read_scope</code></h3>
+<p><strong>提示词</strong></p>
+<div class="highlight"><pre><span></span><code>What does this print?
+
+```python
+def f(a, b=[]):
+    b.append(a)
+    return b
+
+print(f(1), f(2))
+</code></pre></div>
+
+<p>Answer with the exact output.</p>
+<div class="highlight"><pre><span></span><code>**Spark-1.7B** ❌ 答 [1] [2]，正确 [1, 2] [1, 2]
+
+```text
+[1] [2]
+</code></pre></div>
+
+<p><strong>LFM3-1.7B</strong> ❌ 把机制解释对了，但没给出 exact output <code>[1, 2] [1, 2]</code></p>
+<div class="highlight"><pre><span></span><code>The function `f` takes two arguments, `a` and an optional default argument `b=[]`. In Python, default arguments are evaluated only once at function definition time. So the list `b` is created a single time when the function is defined. When you call `f(1)`, it uses this same list object and appends `1`, resulting in `[1]`. Then calling `f(2)` reuses the same list (since no new default argument is passed), appending `2`, so the list becomes `[1, 2]`. The function returns the same list each time.
+
+Thus:
+- `f(1)` returns `[1]`
+- `f(2)` returns `[1, 2]`
+
+So `print(f(1), f(2))` prints the two lists separated by a space: `[1] [1, 2]`.
+
+Output:
+</code></pre></div>
+
+<p>[1] [1, 2]</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<h3>第 9 题 · 读代码 · <code>read_except</code></h3>
+<p><strong>提示词</strong></p>
+<div class="highlight"><pre><span></span><code>What does this print?
+
+```python
+try:
+    print(int('7.5'))
+except ValueError:
+    print('value error')
+</code></pre></div>
+
+<p>Answer with the exact output.</p>
+<div class="highlight"><pre><span></span><code>**Spark-1.7B** ✅ value error
+
+```text
+value error
+</code></pre></div>
+
+<p><strong>LFM3-1.7B</strong> ✅ value error</p>
+<div class="highlight"><pre><span></span><code>The code attempts to convert the string `'7.5'` to an integer using `int()`. In Python, `int()` on a string representing a floating-point number raises a `ValueError` because it cannot directly represent decimals as integers without truncation or rounding. The `try` block fails, so the `except ValueError` clause is executed, printing `'value error'`.
+
+Output:
+</code></pre></div>
+
+<p>value error</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<h3>第 10 题 · 写代码 · <code>write_dedupe</code></h3>
+<p><strong>提示词</strong></p>
+<div class="highlight"><pre><span></span><code>Write one line of Python that turns the list `[3, 1, 3, 2, 1]` into `[3, 1, 2]`, keeping the first occurrence order. Code only.
+</code></pre></div>
+
+<p><strong>Spark-1.7B</strong> ❌ 过滤掉 3 和 1，结果只剩 [2]</p>
+<div class="highlight"><pre><span></span><code>`result = [x for x in [3, 1, 3, 2, 1] if x not in [3, 1]]`
+</code></pre></div>
+
+<p><strong>LFM3-1.7B</strong> ❌ 没给出可用的一行代码</p>
+<div class="highlight"><pre><span></span><code>```python
+result = [x for i, x in enumerate([3, 1, 3, 2, 1]) if x not in [result[j] for j in range(i) if result[j] == x][:i]]
+</code></pre></div>
+
+<p>Wait, that's overcomplicated. Simpler: keep first occurrence of each value? Actually "keeping the first occurrence order" means we want to remove duplicates but keep first occurrence? Input <code>[3, 1, 3, 2, 1]</code> -&gt; output <code>[3, 1, 2]</code>. That is unique elements in original order of first appearance. So just need list of elements preserving order and removing later duplicates. In Python: <code>list(dict.fromkeys(lst))</code> but that's not one line? It can be: <code>l = [3,1,3,2,1]; res = []</code> etc. But they ask "Write one line of Python that turns the list <code>[3, 1, 3, 2, 1]</code> into <code>[3, 1, 2]</code>, keeping the first occurrence order." So we can do: <code>result = [x for i,x in enumerate([3,1,3,2,1]) if x not in result[:i]]</code> but that uses result inside comprehension? Not allowed. Better to use a simple approach: iterate and append if not already present. One-liner using a loop with side effect? Could do <code>res = []</code> then for each element check membership in res before appending. But can't have multiple statements on one line unless we compress into list comprehensions or using walrus operator.</p>
+<p>We can write:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">lst</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">[:</span><span class="n">i</span><span class="p">]])(</span><span class="n">lst</span><span class="p">)</span>
+</code></pre></div>
+
+<p>But that's weird. Simpler: Use <code>dict.fromkeys</code> on the list? But we need to preserve original order of first occurrence; dict preserves insertion order from Python 3.7+. So:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]))]</span>
+</code></pre></div>
+
+<p>But that returns a new list: <code>list(dict.fromkeys([3,1,3,2,1]))</code> yields <code>[3,1,2]</code>. So one line:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="p">[</span><span class="o">*</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])]</span>
+</code></pre></div>
+
+<p>But that's not a single expression returning the result. We can just do: <code>result = list(dict.fromkeys([3, 1, 3, 2, 1]))</code>. That's two lines? Actually we can write as one line assignment:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="o">*</span><span class="n">_</span> <span class="p">,</span> <span class="p">[</span><span class="o">*</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])]</span>
+</code></pre></div>
+
+<p>No.</p>
+<p>Better: Use a list comprehension with a set to track seen items. But we need to preserve order and only add first occurrence. We can do:</p>
+<div class="highlight"><pre><span></span><code><span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">();</span> <span class="n">res</span> <span class="o">=</span> <span class="p">[];</span> <span class="p">[</span><span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="kc">True</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">x</span> <span class="ow">in</span> <span class="n">seen</span> <span class="ow">or</span> <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span>
+</code></pre></div>
+
+<p>But that's multiple statements.</p>
+<p>Simplest: Use <code>list(dict.fromkeys([3, 1, 3, 2, 1]))</code>. That is a one-liner expression. So the whole line:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">*</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])]</span> <span class="k">if</span> <span class="kc">False</span> <span class="k">else</span> <span class="kc">None</span><span class="p">]</span>
+</code></pre></div>
+
+<p>No.</p>
+<p>We can just write: <code>result = list(dict.fromkeys([3, 1, 3, 2, 1]))</code>. That's two statements? Actually it's one line with assignment. So the entire code is:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">*</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])]</span><span class="err">??</span> 
+</code></pre></div>
+
+<p>Let me think: The user said "Write one line of Python that turns the list <code>[3, 1, 3, 2, 1]</code> into <code>[3, 1, 2]</code>, keeping the first occurrence order. Code only."</p>
+<p>Thus we need to output a single line of code (maybe with assignment). Something like:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))]</span> 
+</code></pre></div>
+
+<p>But that returns the list? Actually <code>and</code> will evaluate to last value if first is truthy. So `[</p>
+<div class="highlight"><pre><span></span><code><span class="c1">### 第 11 题 · 写代码 · `write_bugfix`</span>
+
+<span class="o">**</span><span class="n">提示词</span><span class="o">**</span>
+
+<span class="n n-Quoted">`</span><span class="n n-Quoted n-Quoted-Escape">``</span><span class="n n-Quoted">text</span>
+<span class="n n-Quoted">This function should return the average of a list, but it crashes on an empty list and is wrong for odd cases: `</span><span class="n">def</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span><span class="n n-Quoted">`. Fix it in one line so an empty list returns 0.0. Code only.</span>
+</code></pre></div>
+
+<p><strong>Spark-1.7B</strong> ✅ 0.0 if not xs else sum(xs)/len(xs)</p>
+<div class="highlight"><pre><span></span><code>```python
+def avg(xs):
+    return 0.0 if not xs else sum(xs) / len(xs)
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>**LFM3-1.7B** ✅ 0.0 分支
+
+```text
+```python
+def avg(xs): return sum(xs)/len(xs) if xs else 0.0
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">### 第 12 题 · 写代码 · `write_regex`</span>
+
+<span class="o">**</span><span class="n">提示词</span><span class="o">**</span>
+
+<span class="n n-Quoted">`</span><span class="n n-Quoted n-Quoted-Escape">``</span><span class="n n-Quoted">text</span>
+<span class="n n-Quoted">Write a Python regex that matches an ISO date like 2026-11-23 and captures year, month and day. Code only.</span>
+</code></pre></div>
+
+<p><strong>Spark-1.7B</strong> ✅ (\d{4})-(\d{2})-(\d{2})</p>
+<div class="highlight"><pre><span></span><code>```python
+import re
+
+pattern = r'(\d{4})-(\d{2})-(\d{2})'
+
+def match_iso_date(text):
+    match = re.search(pattern, text)
+    if match:
+        return match.groups()
+    return None
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="o">**</span><span class="n">LFM3</span><span class="o">-</span><span class="mf">1.7</span><span class="n">B</span><span class="o">**</span> <span class="err">✅</span> <span class="o">^</span><span class="p">(</span>\<span class="n">d</span><span class="p">{</span><span class="mi">4</span><span class="p">})</span><span class="o">-</span><span class="p">(</span>\<span class="n">d</span><span class="p">{</span><span class="mi">2</span><span class="p">})</span><span class="o">-</span><span class="p">(</span>\<span class="n">d</span><span class="p">{</span><span class="mi">2</span><span class="p">})</span><span class="err">$</span>
+
+<span class="err">```</span><span class="n">text</span>
+<span class="err">```</span><span class="n">python</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'^(\d</span><span class="si">{4}</span><span class="s1">)-(\d</span><span class="si">{2}</span><span class="s1">)-(\d</span><span class="si">{2}</span><span class="s1">)$'</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s1">'2026-11-23'</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+    <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Year: </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">, Month: </span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">, Day: </span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">### 第 13 题 · 指令 · `follow_format`</span>
+
+<span class="o">**</span><span class="n">提示词</span><span class="o">**</span>
+
+<span class="n n-Quoted">`</span><span class="n n-Quoted n-Quoted-Escape">``</span><span class="n n-Quoted">text</span>
+<span class="n n-Quoted">Reply with exactly three lines, each starting with '-' and containing exactly one colour word, in this order: red, green, blue. Nothing else.</span>
+</code></pre></div>
+
+<p><strong>Spark-1.7B</strong> ❌ 三行都是 '-'，没有颜色词</p>
+<div class="highlight"><pre><span></span><code>- '-'
+- '-'
+- '-'
+</code></pre></div>
+
+<p><strong>LFM3-1.7B</strong> ✅ - red / - green / - blue</p>
+<div class="highlight"><pre><span></span><code>- red  
+- green  
+- blue
+</code></pre></div>
+
+<h3>第 14 题 · 指令 · <code>follow_negation</code></h3>
+<p><strong>提示词</strong></p>
+<div class="highlight"><pre><span></span><code>Write one short sentence about the sea. Do not use the letter 'e' anywhere.
+</code></pre></div>
+
+<p><strong>Spark-1.7B</strong> ❌ 答 'Fish'，不是句子</p>
+<div class="highlight"><pre><span></span><code>Fish
+</code></pre></div>
+
+<p><strong>LFM3-1.7B</strong> ❌ 句子里有 e，且没意识到违规</p>
+<div class="highlight"><pre><span></span><code>The vast ocean waves crash upon sandy shores, whispering ancient stories to all who hear them.&lt;/think&gt;The vast ocean waves crash upon sandy shores, whispering ancient stories to all who hear them.
+</code></pre></div>
+
+<h3>第 15 题 · 数据 · <code>json_path</code></h3>
+<p><strong>提示词</strong></p>
+<div class="highlight"><pre><span></span><code>Given {"a": {"b": [1, 2, {"c": 3}]}}, what is the value at a.b[2].c? Answer with just the value.
+</code></pre></div>
+
+<p><strong>Spark-1.7B</strong> ✅ 3</p>
+<div class="highlight"><pre><span></span><code>3
+</code></pre></div>
+
+<p><strong>LFM3-1.7B</strong> ✅ 3</p>
+<div class="highlight"><pre><span></span><code>The given dictionary is `{"a": {"b": [1, 2, {"c": 3}]}}`.
+
+To find `a.b[2].c`:
+- Start at `a`: it's the key "a" in the outer dict.
+- Then go to `a["b"]`, which is a list `[1, 2, {"c": 3}]`.
+- Index into this list with index 2: `list[2]` gives `{"c": 3}`.
+- So `a.b[2]` is the dictionary `{"c": 3}`.
+- Then access `.c` on that dictionary: `{"c": 3}["c"]` = `3`.
+
+Thus, the value at `a.b[2].c` is `3`.
+
+Answer: 3
+</code></pre></div>
+
+<h3>第 16 题 · 数据 · <code>sql_null</code></h3>
+<p><strong>提示词</strong></p>
+<div class="highlight"><pre><span></span><code>In SQL, what does `SELECT COUNT(*) FROM t WHERE x IS NULL` return? One short sentence.
+</code></pre></div>
+
+<p><strong>Spark-1.7B</strong> ✅ x 为 NULL 的行数</p>
+<div class="highlight"><pre><span></span><code>The number of rows in table `t` where the column `x` is NULL.
+</code></pre></div>
+
+<p><strong>LFM3-1.7B</strong> ✅ x 为 NULL 的行数</p>
+<div class="highlight"><pre><span></span><code>It returns the number of rows in table `t` where column `x` is `NULL`.
+</code></pre></div>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep" data-i18n="category_label">分类</span>:
+        <abbr class="category">
+            <a href="./category/sui-bi.html">随笔</a>
+        </abbr>
+       </footer>
+    <nav class="post-nav" aria-label="文章导航">
+<a class="pn-prev" href="./ln-1plus-u-from-e-taylor-order.html"><span class="pn-label">上一篇</span><br>从 e 到泰勒展开到无穷小的阶：ln(1+u) 为什么随着u趋于0而约等于 u</a>    </nav>
+</section>
+
+<section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
+    <div id="giscus-slot"></div>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    var sec = document.getElementById('giscus-comments'); if (!sec) return;
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) { var f = document.querySelector('iframe.giscus-frame'); if (f) f.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app'); }
+    var loaded = false;
+    function loadGiscus() {
+        if (loaded) return; loaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://giscus.app/client.js'; s.async = true; s.crossOrigin = 'anonymous';
+        s.setAttribute('data-repo', 'cycleuser/cycleuser.github.io');
+        s.setAttribute('data-repo-id', 'R_kgDOL4NKYA');
+        s.setAttribute('data-category', 'General');
+        s.setAttribute('data-category-id', 'DIC_kwDOL4NKYM4DBK3X');
+        s.setAttribute('data-mapping', 'pathname');
+        s.setAttribute('data-strict', '0');
+        s.setAttribute('data-reactions-enabled', '1');
+        s.setAttribute('data-emit-metadata', '0');
+        s.setAttribute('data-input-position', 'bottom');
+        s.setAttribute('data-theme', giscusTheme(getTheme()));
+        s.setAttribute('data-lang', 'zh-CN');
+        document.getElementById('giscus-slot').appendChild(s);
+        new MutationObserver(function() {
+            var t = giscusTheme(getTheme()); s.setAttribute('data-theme', t); sendTheme(t);
+        }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    }
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function(es) {
+            es.forEach(function(e) { if (e.isIntersecting) { loadGiscus(); io.disconnect(); } });
+        }, { rootMargin: '400px' });
+        io.observe(sec);
+    } else { loadGiscus(); }
+})();
+</script>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    function update() {
+        var t = giscusTheme(getTheme());
+        var s = document.querySelector('script[src*="giscus"]');
+        if (s) s.setAttribute('data-theme', t);
+        sendTheme(t);
+    }
+    // 初始设置
+    var s = document.querySelector('script[src*="giscus"]');
+    if (s) s.setAttribute('data-theme', giscusTheme(getTheme()));
+    // 监听明暗切换
+    new MutationObserver(function() { update(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    // 重试几次确保 iframe 加载完成
+    var tries = 0;
+    var timer = setInterval(function() {
+        if (document.querySelector('iframe.giscus-frame')) { sendTheme(giscusTheme(getTheme())); clearInterval(timer); }
+        if (++tries > 20) clearInterval(timer);
+    }, 500);
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <li><a href="./feeds/all.atom.xml" title="RSS" aria-label="RSS" target="_blank" rel="noopener">📡 RSS</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 下拉菜单键盘可达 */
+  (function () {
+    var subs = document.querySelectorAll('.menu li.has-sub');
+    Array.prototype.forEach.call(subs, function (li) {
+      var a = li.querySelector(':scope > a'); if (!a) return;
+      a.setAttribute('aria-haspopup', 'true'); a.setAttribute('aria-expanded', 'false');
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var open = li.classList.toggle('open');
+        a.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      li.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { li.classList.remove('open'); a.setAttribute('aria-expanded', 'false'); a.focus(); }
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest || !e.target.closest('.menu li.has-sub')) {
+        Array.prototype.forEach.call(document.querySelectorAll('.menu li.has-sub.open'), function (li) {
+          li.classList.remove('open');
+          var a = li.querySelector(':scope > a'); if (a) a.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      "工具":       { zh: "工具", en: "Tools" },
+      "游戏":       { zh: "游戏", en: "Games" },
+      "模型雷达":    { zh: "模型雷达", en: "Model Radar" },
+      "搜索":       { zh: "搜索", en: "Search" },
+      "2048":      { zh: "2048", en: "2048" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+<script defer src="./theme/js/enhance.js?v=21"></script>
+</body>
+</html>

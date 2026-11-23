@@ -2822,6 +2822,13 @@ BDO[DIR="rtl"] {
   --code-bg: #f4f3f1;
   --code-inline-bg: #ecebe9;
   --sel: #cfe4f2;
+  --earth-text: #2b2b2b;
+  --earth-text-soft: #3d3d3d;
+  --earth-title: #1a1a1a;
+  --earth-muted: #a3a3a3;
+  --earth-faint: #b0aca4;
+  --earth-accent: #b08968;
+  --earth-border: #f1ece5;
 }
 
 html[data-theme='dark'] {
@@ -2839,6 +2846,13 @@ html[data-theme='dark'] {
   --code-inline-bg: #2a3145;
   --sel: #343f60;
   color-scheme: dark;
+  --earth-text: #e8e6e3;
+  --earth-text-soft: #d6d3cf;
+  --earth-title: #f8f7f5;
+  --earth-muted: #c4bfb8;
+  --earth-faint: #a29b93;
+  --earth-accent: #e0b58a;
+  --earth-border: #3a435a;
 }
 
 ::selection { background: var(--sel); }

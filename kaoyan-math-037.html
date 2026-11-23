@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh">
+
+
+
+<head>
+    <title>CycleUser</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="定义下列 3 种变换称为矩阵的初等行变换。 (1)对换变换：交换矩阵 \( \mathbf{A} \) 的两行(row)位置； (2)倍乘变换：用一非零常数 \( c(\neq 0) \) 乘 …">
+    <link rel="canonical" href="https://blog.cycleuser.org/kaoyan-math-037.html">
+    <meta property="og:site_name" content="CycleUser">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="初等变换定义">
+    <meta property="og:description" content="定义下列 3 种变换称为矩阵的初等行变换。 (1)对换变换：交换矩阵 \( \mathbf{A} \) 的两行(row)位置； (2)倍乘变换：用一非零常数 \( c(\neq 0) \) 乘 …">
+    <meta property="og:url" content="https://blog.cycleuser.org/kaoyan-math-037.html">
+    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://blog.cycleuser.org/theme/image/default-logo.png">
+    <meta name="twitter:image" content="https://blog.cycleuser.org/theme/image/default-logo.png">
+    <link rel="alternate" type="application/atom+xml" title="CycleUser Atom" href="./feeds/all.atom.xml">
+    <link rel="alternate" type="application/rss+xml" title="CycleUser RSS" href="./feeds/all.rss.xml">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"\u521d\u7b49\u53d8\u6362\u5b9a\u4e49","datePublished":"2025-03-16T21:15:00+08:00","dateModified":"2025-03-16T21:15:00+08:00","author":{"@type":"Person","name":"CycleUser"},"publisher":{"@type":"Organization","name":"CycleUser"},"mainEntityOfPage":"https://blog.cycleuser.org/kaoyan-math-037.html","description":"\u5b9a\u4e49\u4e0b\u5217 3 \u79cd\u53d8\u6362\u79f0\u4e3a\u77e9\u9635\u7684\u521d\u7b49\u884c\u53d8\u6362\u3002 (1)\u5bf9\u6362\u53d8\u6362\uff1a\u4ea4\u6362\u77e9\u9635 \\( \\mathbf{A} \\) \u7684\u4e24\u884c(row)\u4f4d\u7f6e\uff1b (2)\u500d\u4e58\u53d8\u6362\uff1a\u7528\u4e00\u975e\u96f6\u5e38\u6570 \\( c(\\neq 0) \\) \u4e58 \u2026","keywords":["\u8003\u7814\u6570\u5b66", "\u7ebf\u6027\u4ee3\u6570"]}
+    </script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://giscus.app" crossorigin>
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9894037367471530"
+     crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9894037367471530">
+    <script>
+      (function () {
+        try {
+          var root = document.documentElement;
+          root.classList.remove('no-js');
+          root.classList.add('js');
+          var saved = localStorage.getItem('theme');
+          var prefersDark = false;
+          try {
+            prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          } catch(e) {}
+          var theme = saved || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', theme);
+          // Sync on system change when no manual override
+          if (!saved && window.matchMedia) {
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mq && mq.addEventListener) {
+              mq.addEventListener('change', function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            } else if (mq && mq.addListener) { // Safari <14
+              mq.addListener(function (ev) {
+                root.setAttribute('data-theme', ev.matches ? 'dark' : 'light');
+              });
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" id="responsive-highlight-css"  href='./theme/css/highlight.css?v=20' type="text/css" media="all" />
+    <link rel="stylesheet" id="github-markdown-css" href='./theme/css/github-markdown.css?v=20' type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='./theme/css/style.css?v=20' type="text/css" media="all" />
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?edacc2fd8b368948e096e3036935a648';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <link href="https://blog.cycleuser.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="CycleUser Full Atom Feed" />
+    <link href="https://blog.cycleuser.org/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="CycleUser Full RSS Feed" />
+</head>
+
+<body id="index" class="blog">
+<a class="skip-link" href="#content">跳到正文 / Skip to content</a>
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo" role="banner">
+            <a href="./index.html" class="site-name-link">CycleUser</a>
+        </div>
+        <nav id="menu" class="main-nav" aria-label="Primary">
+            <ul class="menu"><li class="active"><a href="./index.html" data-i18n="Homepage">Homepage</a></li><li class="active"><a href="./archives.html" data-i18n="Archives">Archives</a></li><li class="active"><a href="./zi-wo-hua-xiang.html" data-i18n="About">About</a></li><li class="active"><a href="./search.html" data-i18n="搜索">搜索</a></li><li class="has-sub"><a href="javascript:void(0)" data-i18n="工具">工具</a>
+                    <ul><li><a href="./软考学习中心.html" data-i18n="软考">软考</a></li><li><a href="./无人机学习中心.html" data-i18n="无人机">无人机</a></li><li><a href="./model-radar.html" data-i18n="模型雷达">模型雷达</a></li><li><a href="./电机检测.html" data-i18n="电机检测">电机检测</a></li><li><a href="./产状测量.html" data-i18n="产状测量">产状测量</a></li></ul>
+                </li><li class="has-sub"><a href="javascript:void(0)" data-i18n="游戏">游戏</a>
+                    <ul><li><a href="./打字练习.html" data-i18n="打字练习">打字练习</a></li><li><a href="./2048游戏.html" data-i18n="2048">2048</a></li><li><a href="./三国对战.html" data-i18n="三国对战">三国对战</a></li><li><a href="./雷电激战.html" data-i18n="雷电激战">雷电激战</a></li></ul>
+                </li><li class="has-sub"><a href="./categories.html" data-i18n="Categories">分类</a>
+                    <ul><li><a href="./category/academic.html">Academic (3)</a></li><li><a href="./category/ai.html">AI (6)</a></li><li><a href="./category/c.html">C (16)</a></li><li><a href="./category/camera.html">Camera (15)</a></li><li><a href="./category/chromebook.html">ChromeBook (2)</a></li><li><a href="./category/cuda.html">CUDA (1)</a></li><li><a href="./category/design.html">Design (1)</a></li><li><a href="./category/diy.html">DIY (1)</a></li><li><a href="./category/duke.html">Duke (1)</a></li><li><a href="./category/earth.html">Earth (75)</a></li><li><a href="./category/education.html">Education (23)</a></li><li><a href="./category/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./category/hackintosh.html">Hackintosh (7)</a></li><li><a href="./category/java.html">Java (1)</a></li><li><a href="./category/ji-zhu-jie-du.html">技术解读 (1)</a></li><li><a href="./category/kao-yan-shu-xue.html">考研数学 (53)</a></li><li><a href="./category/kao-yan-ying-yu.html">考研英语 (11)</a></li><li><a href="./category/linux.html">Linux (4)</a></li><li><a href="./category/llm.html">LLM (65)</a></li><li><a href="./category/ltfs.html">LTFS (1)</a></li><li><a href="./category/mac.html">Mac (3)</a></li><li><a href="./category/math.html">Math (32)</a></li><li><a href="./category/ml.html">ML (4)</a></li><li><a href="./category/modeling.html">Modeling (10)</a></li><li><a href="./category/nas.html">NAS (1)</a></li><li><a href="./category/nix.html">Nix (1)</a></li><li><a href="./category/photography.html">Photography (1)</a></li><li><a href="./category/programming.html">Programming (13)</a></li><li><a href="./category/pve.html">PVE (1)</a></li><li><a href="./category/python.html">Python (27)</a></li><li><a href="./category/qgis.html">QGIS (3)</a></li><li><a href="./category/qt.html">QT (1)</a></li><li><a href="./category/raspbian.html">Raspbian (1)</a></li><li><a href="./category/ren-gong-zhi-neng.html">人工智能 (1)</a></li><li><a href="./category/science.html">Science (2)</a></li><li><a href="./category/sdr.html">SDR (2)</a></li><li><a href="./category/software.html">Software (3)</a></li><li><a href="./category/story.html">Story (71)</a></li><li><a href="./category/sui-bi.html">随笔 (8)</a></li><li><a href="./category/tool.html">Tool (57)</a></li><li><a href="./category/tools.html">Tools (2)</a></li><li><a href="./category/virtualization.html">Virtualization (1)</a></li><li><a href="./category/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./category/windows.html">Windows (1)</a></li><li><a href="./category/work.html">Work (24)</a></li></ul>
+                </li>
+                <li class="has-sub"><a href="./tags.html" data-i18n="Tags">标签</a>
+                    <ul class="tags-sub"><li><a href="./tag/16gxian-cun.html">16G显存 (1)</a></li><li><a href="./tag/2080ti.html">2080Ti (1)</a></li><li><a href="./tag/24g.html">24G (1)</a></li><li><a href="./tag/3090.html">3090 (1)</a></li><li><a href="./tag/32g.html">32G (1)</a></li><li><a href="./tag/3dda-yin.html">3D打印 (1)</a></li><li><a href="./tag/4060ti.html">4060Ti (1)</a></li><li><a href="./tag/4090.html">4090 (1)</a></li><li><a href="./tag/5060ti.html">5060Ti (2)</a></li><li><a href="./tag/5070ti.html">5070Ti (1)</a></li><li><a href="./tag/5090.html">5090 (1)</a></li><li><a href="./tag/7900xtx.html">7900XTX (5)</a></li><li><a href="./tag/8gxian-cun.html">8G显存 (1)</a></li><li><a href="./tag/9bmo-xing.html">9B模型 (1)</a></li><li><a href="./tag/abbreviations.html">abbreviations (1)</a></li><li><a href="./tag/academic.html">academic (1)</a></li><li><a href="./tag/adamw.html">AdamW (1)</a></li><li><a href="./tag/advice.html">advice (1)</a></li><li><a href="./tag/aerodynamics.html">aerodynamics (3)</a></li><li><a href="./tag/agent.html">Agent (3)</a></li><li><a href="./tag/ai.html">AI (37)</a></li><li><a href="./tag/ai-max-395.html">AI Max 395 (1)</a></li><li><a href="./tag/aidata-science.html">AI，Data Science (1)</a></li><li><a href="./tag/aigc.html">AIGC (1)</a></li><li><a href="./tag/ailun-li.html">AI伦理 (1)</a></li><li><a href="./tag/airfoil.html">airfoil (1)</a></li><li><a href="./tag/algorithm.html">Algorithm (12)</a></li><li><a href="./tag/amd.html">AMD (2)</a></li><li><a href="./tag/anime.html">anime (1)</a></li><li><a href="./tag/arc.html">ARC (1)</a></li><li><a href="./tag/architecture.html">Architecture (3)</a></li><li><a href="./tag/arithmetic.html">arithmetic (1)</a></li><li><a href="./tag/attitude.html">Attitude (2)</a></li><li><a href="./tag/bayesian.html">Bayesian (2)</a></li><li><a href="./tag/bayesian-estimation.html">Bayesian Estimation (1)</a></li><li><a href="./tag/beginner.html">Beginner (3)</a></li><li><a href="./tag/ben-di-bu-shu.html">本地部署 (6)</a></li><li><a href="./tag/ben-di-bu-shu-bing-yun-xing-omnicoder-9bde-su-du-zhi-mi-moxing-vs-ollama.html">本地部署并运行omnicoder-9b的速度之谜MoXing-vs-Ollama (1)</a></li><li><a href="./tag/ben-di-mo-xing.html">本地模型 (14)</a></li><li><a href="./tag/ben-di-vszai-xian.html">本地vs在线 (1)</a></li><li><a href="./tag/bfcl.html">BFCL (4)</a></li><li><a href="./tag/bi-yao-xing.html">必要性 (1)</a></li><li><a href="./tag/bi-ye-lun-wen.html">毕业论文 (1)</a></li><li><a href="./tag/bian-cheng.html">编程 (1)</a></li><li><a href="./tag/bian-cheng-huan-jing.html">编程环境 (1)</a></li><li><a href="./tag/bian-cheng-zhu-shou.html">编程助手 (1)</a></li><li><a href="./tag/bianque.html">BianQue (1)</a></li><li><a href="./tag/binary.html">binary (1)</a></li><li><a href="./tag/bing-fei-gu-yi-wei-shi-yao-wo-geng-duo-yong-ming-ling-xing-gong-ju-er-bu-shi-gui.html">并非故意-为什么我更多用命令行工具而不是GUI (1)</a></li><li><a href="./tag/bing-xue.html">冰雪 (15)</a></li><li><a href="./tag/bioelectricity.html">Bioelectricity (1)</a></li><li><a href="./tag/book.html">Book (10)</a></li><li><a href="./tag/brent.html">Brent (1)</a></li><li><a href="./tag/bullshit.html">bullshit (1)</a></li><li><a href="./tag/c.html">C (10)</a></li><li><a href="./tag/camera.html">Camera (23)</a></li><li><a href="./tag/can-shu-hua-jian-mo.html">参数化建模 (1)</a></li><li><a href="./tag/career.html">career (1)</a></li><li><a href="./tag/causation.html">Causation (1)</a></li><li><a href="./tag/chai-fen-ce-shi.html">差分测试 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-da-mo-xing-omnicoder-9b-jian-ce-moxing-vs-ollama-dui-bi.html">超强的本地大模型-OmniCoder-9B-简测MoXing-vs-Ollama-对比 (1)</a></li><li><a href="./tag/chao-qiang-de-ben-di-xiao-mo-xing-omnicoder-9bde-an-zhuang-yu-shi-yong-zhi-nan.html">超强的本地小模型OmniCoder-9B的安装与使用指南 (1)</a></li><li><a href="./tag/chao-xiao-mo-xing.html">超小模型 (1)</a></li><li><a href="./tag/chat.html">Chat (1)</a></li><li><a href="./tag/chatgpt.html">ChatGPT (1)</a></li><li><a href="./tag/cheng-ben.html">成本 (1)</a></li><li><a href="./tag/cheng-chang.html">成长 (2)</a></li><li><a href="./tag/chi-xian.html">离线 (1)</a></li><li><a href="./tag/chouchou-pdflun-wen-zhong-ming-ming-gong-ju-sheng-ji-liao-zhe-ci-zhuan-men-you-hua-liao-zhong-wen-lun-wen-zhi-chi.html">Chou瞅-PDF论文重命名工具升级了这次专门优化了中文论文支持 (1)</a></li><li><a href="./tag/chouchou-yi-ge-pythonxiao-gong-ju-rang-ni-de-lun-wen-pdfwen-jian-ming-bu-zai-shi-luan-ma.html">Chou瞅一个Python小工具让你的论文PDF文件名不再是乱码 (1)</a></li><li><a href="./tag/chromebook.html">ChromeBook (2)</a></li><li><a href="./tag/chuan-re.html">传热 (1)</a></li><li><a href="./tag/ci-hui.html">词汇 (11)</a></li><li><a href="./tag/cli.html">CLI (1)</a></li><li><a href="./tag/code.html">Code (2)</a></li><li><a href="./tag/code-generation.html">Code Generation (6)</a></li><li><a href="./tag/coding.html">Coding (1)</a></li><li><a href="./tag/cognition.html">Cognition (1)</a></li><li><a href="./tag/comics.html">comics (1)</a></li><li><a href="./tag/communicate.html">Communicate (6)</a></li><li><a href="./tag/communication.html">communication (3)</a></li><li><a href="./tag/comparison.html">comparison (1)</a></li><li><a href="./tag/computability.html">Computability (12)</a></li><li><a href="./tag/computer.html">computer (3)</a></li><li><a href="./tag/conda.html">Conda (2)</a></li><li><a href="./tag/conda-forge.html">conda-forge (1)</a></li><li><a href="./tag/configback-kua-ping-tai-kai-fa-pei-zhi-wen-jian-de-wu-tong-bei-fen-qian-yi-guan-li-gong-ju.html">ConfigBack-跨平台开发配置文件的无痛备份迁移管理工具 (1)</a></li><li><a href="./tag/cong-shu-zu-dao-fu-za-shu-ju-cyu-yan-shi-zen-yao-yi-bu-bu-bian-fu-za-de.html">从数组到复杂数据C语言是怎么一步步变复杂的 (1)</a></li><li><a href="./tag/copytalker-kua-yue-yu-yan-zhang-ai-de-jin-shi-shi-yu-yin-fan-yi.html">CopyTalker-跨越语言障碍的近实时语音翻译 (1)</a></li><li><a href="./tag/correlation.html">Correlation (1)</a></li><li><a href="./tag/cpu.html">CPU (1)</a></li><li><a href="./tag/critical-thinking.html">critical-thinking (1)</a></li><li><a href="./tag/cs.html">CS (1)</a></li><li><a href="./tag/csv.html">csv (1)</a></li><li><a href="./tag/cuda.html">CUDA (7)</a></li><li><a href="./tag/culture.html">culture (1)</a></li><li><a href="./tag/cursor.html">Cursor (1)</a></li><li><a href="./tag/cyu-yan-fu-xi-quan-gong-lue-yi-wen-chi-tou-suo-you-zhi-shi-dian.html">C语言复习全攻略-一文吃透所有知识点 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-numc-yi-ge-numpy-feng-ge-de-c-yu-yan-ku.html">C语言基础教程NumC-一个-NumPy-风格的-C-语言库 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shi-xian-lei-si-dong-tai-lei-xing-dui-yong-hu-shu-ru-jie-xi-bing-qie-xuan-ze-he-gua-de-shu-ju-lei-xing.html">C语言基础教程-实现类似动态类型对用户输入解析并且选择合适的数据类型 (1)</a></li><li><a href="./tag/cyu-yan-ji-chu-jiao-cheng-shu-zu-xing-zhuang-50xing-200000lie-vs-200000xing-50lie-tong-yang-de-shu-ju-bu-tong-de-xing-neng.html">C语言基础教程数组形状-50行200000列-vs-200000行50列-同样的数据不同的性能 (1)</a></li><li><a href="./tag/da-gong.html">打工 (1)</a></li><li><a href="./tag/da-mo-xing.html">大模型 (1)</a></li><li><a href="./tag/da-qi.html">大气 (16)</a></li><li><a href="./tag/da-xue.html">大学 (3)</a></li><li><a href="./tag/da-xue-sheng.html">大学生 (3)</a></li><li><a href="./tag/da-xue-sheng-huo.html">大学生活 (1)</a></li><li><a href="./tag/da-yi.html">大一 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing.html">大语言模型 (1)</a></li><li><a href="./tag/da-yu-yan-mo-xing-li-mian-de-tokende-han-yi-he-yuan-liu.html">大语言模型里面的token的含义和源流 (1)</a></li><li><a href="./tag/dai-ma-neng-li.html">代码能力 (1)</a></li><li><a href="./tag/dai-ma-qian-yi.html">代码迁移 (1)</a></li><li><a href="./tag/dan-jing-du-fu-dian-shu-de-fen-bian-lu-wei-shi-yao-zai-ji-suan-ji-li-1000-mo-he-1000-mo-jia-001-ke-neng-shi-yi-yang-de.html">单精度浮点数的分辨率为什么在计算机里-1000-万和-1000-万加-001-可能是一样的 (1)</a></li><li><a href="./tag/dan-yi-zhi-ze-yuan-ze-xie-hao-pythonhan-shu-de-di-yi-bu.html">单一职责原则写好Python函数的第一步 (1)</a></li><li><a href="./tag/data.html">Data (3)</a></li><li><a href="./tag/data-science.html">Data Science (2)</a></li><li><a href="./tag/database.html">Database (1)</a></li><li><a href="./tag/datewise-photo-organizer-ji-yu-ri-qi-shi-jian-jin-xing-tu-pian-zu-zhi-he-lu-jing-guan-li-de-she-ying-fu-zhu-gong-ju-ruan-jian.html">Datewise-Photo-Organizer-基于日期时间进行图片组织和路径管理的摄影辅助工具软件 (1)</a></li><li><a href="./tag/decision-making.html">decision-making (1)</a></li><li><a href="./tag/decode.html">decode (1)</a></li><li><a href="./tag/deepseek.html">DeepSeek (2)</a></li><li><a href="./tag/design.html">Design (1)</a></li><li><a href="./tag/dian-che-nan-ti-han-shang-de-zhi-jia-hui-zai-shi-gu-qian-tu-ran-tui-chu-yao.html">电车难题厂商的智驾会在事故前突然退出么 (1)</a></li><li><a href="./tag/dian-yuan.html">电源 (1)</a></li><li><a href="./tag/dimension.html">dimension (1)</a></li><li><a href="./tag/discuss.html">Discuss (7)</a></li><li><a href="./tag/disease.html">Disease (1)</a></li><li><a href="./tag/diy.html">DIY (1)</a></li><li><a href="./tag/download.html">Download (1)</a></li><li><a href="./tag/earth.html">Earth (75)</a></li><li><a href="./tag/earth-science.html">Earth Science (1)</a></li><li><a href="./tag/education.html">Education (16)</a></li><li><a href="./tag/efficiency.html">efficiency (1)</a></li><li><a href="./tag/ekf.html">EKF (1)</a></li><li><a href="./tag/emotion.html">emotion (1)</a></li><li><a href="./tag/engineering.html">Engineering (1)</a></li><li><a href="./tag/environment.html">Environment (1)</a></li><li><a href="./tag/er-ji.html">耳机 (1)</a></li><li><a href="./tag/er-jin-zhi.html">二进制 (1)</a></li><li><a href="./tag/er-shou.html">二手 (1)</a></li><li><a href="./tag/ertinger-ting-yi-ge-jian-dan-de-yin-pin-jiang-zao-gong-ju.html">ErTing耳听一个简单的音频降噪工具 (1)</a></li><li><a href="./tag/exponential-smoothing.html">Exponential Smoothing (1)</a></li><li><a href="./tag/fa-lan-ke-fu.html">法兰克福 (1)</a></li><li><a href="./tag/family.html">family (1)</a></li><li><a href="./tag/fan-si.html">反思 (1)</a></li><li><a href="./tag/fanfufan-fu-ba-ollama-de-gguf-mo-xing-zhuan-cheng-huggingface-ge-shi-chun-hao-wan.html">FanFu凡赴-把-Ollama-的-GGUF-模型转成-HuggingFace-格式纯好玩 (1)</a></li><li><a href="./tag/fang-fa-bi-gui-mo-geng-zhong-yao-agenticqwenyu-needlede-xiao-mo-xing-zhi-neng-ti-ying-yong-tan-suo.html">方法比规模更重要AgenticQwen与Needle的小模型智能体应用探索 (1)</a></li><li><a href="./tag/fckzhihu.html">FckZhiHu (5)</a></li><li><a href="./tag/fengtang.html">FengTang (1)</a></li><li><a href="./tag/fibonacci.html">Fibonacci (1)</a></li><li><a href="./tag/filtering.html">Filtering (6)</a></li><li><a href="./tag/folderlensyi-ge-pyside6shi-xian-de-jian-dan-wen-jian-guan-li-qi-kai-fa-shi-li.html">FolderLens一个PySide6实现的简单文件管理器开发实例 (1)</a></li><li><a href="./tag/fractal.html">fractal (1)</a></li><li><a href="./tag/frequency-domain.html">Frequency Domain (1)</a></li><li><a href="./tag/freshman.html">freshman (5)</a></li><li><a href="./tag/fuckchunwan.html">FuckChunWan (1)</a></li><li><a href="./tag/fuckzhihu.html">FuckZhihu (1)</a></li><li><a href="./tag/function-calling.html">function calling (1)</a></li><li><a href="./tag/gai-lu-lun.html">概率论 (9)</a></li><li><a href="./tag/game.html">Game (2)</a></li><li><a href="./tag/gametheory.html">GameTheory (1)</a></li><li><a href="./tag/gangdan-de-zhi-shi-ku-shi-zen-yao-lian-cheng-de.html">GangDan-的知识库是怎么炼成的 (1)</a></li><li><a href="./tag/gangdan-geng-xin-ke-yong-zai-xian-mo-xing-cong-xie-zong-shu-dao-xie-wan-zheng-wen-zhang.html">GangDan-更新可用在线模型从写综述到写完整文章 (1)</a></li><li><a href="./tag/gangdan-wu-yue-zhong-de-ji-zhong-geng-xin-jing-zhun-xuan-wen-zhi-shi-ku-fen-xi-xue-xi-mo-kuai-quan-mian-xiu-fu.html">GangDan-五月中的集中更新精准选文知识库分析学习模块全面修复 (1)</a></li><li><a href="./tag/gangdan-you-geng-xin-liao-yi-bo-cong-kai-fa-zhu-shou-zhuan-xing-wei-zhi-shi-guan-li-yu-jiao-xue-fu-zhu-gong-ju.html">GangDan-又更新了一波从开发助手转型为知识管理与教学辅助工具 (1)</a></li><li><a href="./tag/gangdangang-dan-sheng-ji-kai-yuan-ben-di-zhi-shi-ku-zhi-chi-ben-di-mo-xing-he-zai-xian-mo-xing-de-shen-du-yan-jiu-zhu-shou.html">GangDan纲担升级开源本地知识库-支持本地模型和在线模型的深度研究助手 (1)</a></li><li><a href="./tag/gangdangang-dan-zhong-gou-ji-hu-zhong-zuo-liao-yi-bian.html">GangDan纲担重构-几乎重做了一遍 (1)</a></li><li><a href="./tag/gangdanji-xu-geng-xin-xian-zai-neng-zhi-jie-shang-chuan-cajgou-jian-zhi-shi-ku-liao.html">GangDan继续更新现在能直接上传CAJ构建知识库了 (1)</a></li><li><a href="./tag/gangdanzhi-shi-ku-dao-chu-gai-jin-ke-yi-zhi-jie-dao-chu-xia-zai-hao-de-wen-zhang-yuan-wen-liao.html">GangDan知识库导出改进-可以直接导出下载好的文章原文了 (1)</a></li><li><a href="./tag/gao-deng-shu-xue.html">高等数学 (30)</a></li><li><a href="./tag/gao-si-fen-bu.html">高斯分布 (1)</a></li><li><a href="./tag/gao-xiao-jiao-shi-jian-yi-da-yi-kai-xue-yao-you-dian-nao-huan-yao-an-zhuang-opencodeshi-yong-zhi-neng-ti.html">高校教师建议大一开学要有电脑还要安装OpenCode使用智能体 (1)</a></li><li><a href="./tag/ge-shi.html">格式 (1)</a></li><li><a href="./tag/gei-xin-shou-shi-xian-yi-wei-shu-zu-de-liang-chong-si-lu-chuan-tong-cyu-yan-vs-numcku.html">给新手实现一维数组的两种思路传统C语言-vs-NumC库 (1)</a></li><li><a href="./tag/gemma4.html">Gemma4 (1)</a></li><li><a href="./tag/general-education.html">general-education (1)</a></li><li><a href="./tag/geojstool-di-qiu-hua-xue-fen-xi-gong-ju-wang-ye-ban-de-geopytool.html">GeoJsTool-地球化学分析工具-网页版的GeoPyTool (1)</a></li><li><a href="./tag/geology.html">Geology (4)</a></li><li><a href="./tag/geometry.html">geometry (1)</a></li><li><a href="./tag/geopython.html">GeoPython (1)</a></li><li><a href="./tag/gfx1151.html">gfx1151 (1)</a></li><li><a href="./tag/gguf.html">GGUF (2)</a></li><li><a href="./tag/gis.html">GIS (3)</a></li><li><a href="./tag/glm.html">GLM (1)</a></li><li><a href="./tag/glumpy.html">GlumPy (2)</a></li><li><a href="./tag/golden-section.html">Golden Section (1)</a></li><li><a href="./tag/gong-ju.html">工具 (1)</a></li><li><a href="./tag/gong-ju-diao-yong.html">工具调用 (4)</a></li><li><a href="./tag/gong-zuo-zhan.html">工作站 (1)</a></li><li><a href="./tag/google-de-turboquant-suan-fa-ru-he-rang-aigeng-sheng-nei-cun-gao-ding-xiang-liang-liang-hua-nan-ti.html">Google-的-TurboQuant-算法如何让AI更省内存搞定向量量化难题 (1)</a></li><li><a href="./tag/gpt-35.html">GPT-3.5 (3)</a></li><li><a href="./tag/gpt-4o.html">GPT-4o (1)</a></li><li><a href="./tag/gpt-6-astra.html">GPT-6 Astra (1)</a></li><li><a href="./tag/gpt-oss.html">GPT-OSS (4)</a></li><li><a href="./tag/graduate-school.html">graduate-school (1)</a></li><li><a href="./tag/graduate-skills.html">Graduate Skills (1)</a></li><li><a href="./tag/granite4.html">granite4 (1)</a></li><li><a href="./tag/gsm8k.html">GSM8K (2)</a></li><li><a href="./tag/gu-ge.html">谷歌 (1)</a></li><li><a href="./tag/gu-ge-turboquant-lun-wen-zhong-yi-ji-yu-jin-zui-you-niu-qu-lu-de-gao-su-zai-xian-xiang-liang-liang-hua-suan-fa.html">谷歌-TurboQuant-论文中译基于近最优扭曲率的高速在线向量量化算法 (1)</a></li><li><a href="./tag/guan-xi-xing-shu-ju-ku.html">关系型数据库 (1)</a></li><li><a href="./tag/guide.html">Guide (1)</a></li><li><a href="./tag/hack.html">Hack (2)</a></li><li><a href="./tag/hackintosh.html">Hackintosh (4)</a></li><li><a href="./tag/hadoop.html">Hadoop (2)</a></li><li><a href="./tag/halogen.html">halogen (1)</a></li><li><a href="./tag/hardware.html">Hardware (2)</a></li><li><a href="./tag/hate.html">Hate (1)</a></li><li><a href="./tag/hbase.html">HBase (1)</a></li><li><a href="./tag/heibancong-markdownzhuan-chu-ppthuan-deng-pian.html">HeiBan从Markdown转出PPT幻灯片 (1)</a></li><li><a href="./tag/heibanhei-ban-jiang-markdownzhuan-huan-cheng-htmllai-dang-jiang-yi.html">HeiBan黑板-将Markdown转换成HTML来当讲义 (1)</a></li><li><a href="./tag/hellaswag.html">HellaSwag (2)</a></li><li><a href="./tag/hermes.html">Hermes (1)</a></li><li><a href="./tag/heroism.html">heroism (1)</a></li><li><a href="./tag/history.html">History (6)</a></li><li><a href="./tag/huan-jue.html">幻觉 (1)</a></li><li><a href="./tag/huan-wei-si-kao-he-ni-chou-sha.html">换位思考和你瞅啥 (1)</a></li><li><a href="./tag/huan-yi-ge-ba-wang-ye-zhuan-huan-cheng-markdownde-python-xiao-gong-ju.html">Huan-一个把网页转换成-Markdown的Python-小工具 (1)</a></li><li><a href="./tag/hui-yi.html">回忆 (3)</a></li><li><a href="./tag/humaneval.html">HumanEval (2)</a></li><li><a href="./tag/hypothesis-testing.html">hypothesis-testing (1)</a></li><li><a href="./tag/ide.html">IDE (2)</a></li><li><a href="./tag/imbalance.html">Imbalance (1)</a></li><li><a href="./tag/imu.html">IMU (1)</a></li><li><a href="./tag/jacobian.html">Jacobian (1)</a></li><li><a href="./tag/java-ji-chu-yu-fa-5fen-zhong-ru-men.html">Java-基础语法5分钟入门 (1)</a></li><li><a href="./tag/ji-chu-zhi-shi-chu-ji-tong-ji-gai-nian-de-jian-dan-jie-shao.html">基础知识初级统计概念的简单介绍 (1)</a></li><li><a href="./tag/ji-neng-she-ji.html">技能设计 (1)</a></li><li><a href="./tag/ji-nian.html">纪念 (1)</a></li><li><a href="./tag/ji-shi-ben.html">记事本 (1)</a></li><li><a href="./tag/ji-suan-ji.html">计算机 (1)</a></li><li><a href="./tag/ji-suan-ji-zu-cheng.html">计算机组成 (1)</a></li><li><a href="./tag/ji-yu-ben-di-mo-xing-de-bian-cheng-xue-xi-fu-zhu-huan-jing-da-jian-wan-zheng-zhi-nan.html">基于本地模型的编程学习辅助环境搭建完整指南 (1)</a></li><li><a href="./tag/ji-yu-tunade-virtualbox-yu-ubuntu-xu-ni-ji-bu-shu-zhi-nan.html">基于TUNA的-VirtualBox-与-Ubuntu-虚拟机部署指南 (1)</a></li><li><a href="./tag/ji-zhi-ke-jie-shi-xing.html">机制可解释性 (1)</a></li><li><a href="./tag/jia-qi.html">假期 (1)</a></li><li><a href="./tag/jia-she-jian-yan.html">假设检验 (1)</a></li><li><a href="./tag/jian-dan-shuo-shuo-pythonli-mian-de-han-shu-shi-di-yi-gong-min-first-class-citizen.html">简单说说Python里面的函数是第一公民First-Class-Citizen (1)</a></li><li><a href="./tag/jian-yi.html">建议 (1)</a></li><li><a href="./tag/jiang-zuo.html">讲座 (1)</a></li><li><a href="./tag/jiao-shi-jie.html">教师节 (1)</a></li><li><a href="./tag/jiao-xue.html">教学 (2)</a></li><li><a href="./tag/jiao-yu.html">教育 (6)</a></li><li><a href="./tag/jie-wei.html">价位 (1)</a></li><li><a href="./tag/jie-zhu-pythonlai-li-jie-zi-gua-ying-xin-pu-sen-ji-fen-yuan-li-shi-xian-yu-dong-tai-ke-shi-hua.html">借助Python来理解自适应辛普森积分原理实现与动态可视化 (1)</a></li><li><a href="./tag/jing-xiang.html">镜像 (1)</a></li><li><a href="./tag/jiu-wen-gao-bie-guo-qu-gao-bie-ke-xue-wang.html">旧文告别过去告别科学网 (1)</a></li><li><a href="./tag/jixingji-xing-dang-agent-dui-hua-chao-chu-shang-xia-wen-xian-zhi-zuo-liao-yi-ge-lei-si-xu-ni-ji-re-qian-yi-cao-lu-fang-an.html">JiXing记行-当-Agent-对话超出上下文限制做了一个类似虚拟机热迁移草率方案 (1)</a></li><li><a href="./tag/job.html">Job (1)</a></li><li><a href="./tag/job-hunting.html">job-hunting (1)</a></li><li><a href="./tag/json.html">json (1)</a></li><li><a href="./tag/jsonl.html">jsonl (1)</a></li><li><a href="./tag/junck.html">Junck (3)</a></li><li><a href="./tag/kalman.html">Kalman (1)</a></li><li><a href="./tag/kalman-filter.html">Kalman Filter (1)</a></li><li><a href="./tag/kao-yan-qu-mei-chu-shi-yu-fu-shi.html">考研祛魅初试与复试 (1)</a></li><li><a href="./tag/kao-yan-shu-xue.html">考研数学 (53)</a></li><li><a href="./tag/kao-yan-ying-yu.html">考研英语 (11)</a></li><li><a href="./tag/ke-biao.html">课表 (1)</a></li><li><a href="./tag/ke-shi-hua.html">可视化 (1)</a></li><li><a href="./tag/kivy.html">Kivy (3)</a></li><li><a href="./tag/kiwix.html">Kiwix (1)</a></li><li><a href="./tag/kuan-biao.html">宽表 (1)</a></li><li><a href="./tag/kv-cache.html">KV cache (1)</a></li><li><a href="./tag/kvhuan-cun.html">KV缓存 (1)</a></li><li><a href="./tag/lan-ya.html">蓝牙 (1)</a></li><li><a href="./tag/language.html">Language (1)</a></li><li><a href="./tag/lao-deng-chang-tan.html">老登常谈 (1)</a></li><li><a href="./tag/learn.html">Learn (4)</a></li><li><a href="./tag/learning.html">Learning (10)</a></li><li><a href="./tag/lens.html">Lens (19)</a></li><li><a href="./tag/lesson.html">Lesson (1)</a></li><li><a href="./tag/lfm.html">LFM (1)</a></li><li><a href="./tag/lfm25.html">lfm2.5 (1)</a></li><li><a href="./tag/li-xing-dui-bi.html">理性对比 (5)</a></li><li><a href="./tag/li-xing-xuan-gou.html">理性选购 (1)</a></li><li><a href="./tag/li-yong-chao-qiang-de-xiao-mo-xing-omnicoder-9b-shi-shi-turboquant-liang-hua-kv-cache-2-bit-tiao-zhan-fp1.html">利用超强的小模型-OmniCoder-9B-试试-TurboQuant-量化-KV-Cache-2-bit-挑战-FP1 (1)</a></li><li><a href="./tag/li-yong-pythonshi-xian-de-yu-ben-di-da-mo-xing-jiao-hu-de-posix-jian-rong-ceng.html">利用Python实现的与本地大模型交互的POSIX-兼容层 (1)</a></li><li><a href="./tag/liang-hua.html">量化 (5)</a></li><li><a href="./tag/liaoliao-rang-ben-di-da-yu-yan-mo-xing-ai-bang-ni-liao-tian-de-kai-yuan-gong-ju.html">Liao聊-让本地大语言模型-AI-帮你聊天的开源工具 (1)</a></li><li><a href="./tag/library.html">Library (1)</a></li><li><a href="./tag/life.html">life (16)</a></li><li><a href="./tag/lift.html">lift (1)</a></li><li><a href="./tag/linux.html">Linux (9)</a></li><li><a href="./tag/liquid-ai.html">Liquid AI (1)</a></li><li><a href="./tag/liquidai.html">LiquidAI (1)</a></li><li><a href="./tag/literature-survey.html">Literature Survey (1)</a></li><li><a href="./tag/llamacpp.html">llama.cpp (4)</a></li><li><a href="./tag/llamafactory.html">LlamaFactory (2)</a></li><li><a href="./tag/llm.html">LLM (13)</a></li><li><a href="./tag/ltfs.html">LTFS (1)</a></li><li><a href="./tag/lto.html">LTO (1)</a></li><li><a href="./tag/lu-di.html">陆地 (17)</a></li><li><a href="./tag/mac.html">Mac (11)</a></li><li><a href="./tag/macbook.html">MacBook (1)</a></li><li><a href="./tag/macbook-air-m4.html">MacBook Air M4 (2)</a></li><li><a href="./tag/macos.html">macOS (1)</a></li><li><a href="./tag/markdown.html">Markdown (1)</a></li><li><a href="./tag/materials.html">Materials (1)</a></li><li><a href="./tag/math.html">Math (5)</a></li><li><a href="./tag/mathematical-modeling.html">Mathematical Modeling (9)</a></li><li><a href="./tag/mathematics.html">mathematics (1)</a></li><li><a href="./tag/matplotlib.html">Matplotlib (1)</a></li><li><a href="./tag/maturity.html">maturity (1)</a></li><li><a href="./tag/mayavi.html">MayaVi (1)</a></li><li><a href="./tag/mcp.html">MCP (1)</a></li><li><a href="./tag/md.html">md (1)</a></li><li><a href="./tag/mechanics.html">Mechanics (1)</a></li><li><a href="./tag/memory.html">Memory (4)</a></li><li><a href="./tag/methodology.html">Methodology (1)</a></li><li><a href="./tag/mian-dui-wu-mai-ni-shi-wu-neng-wei-li-huan-shi-xiu-shou-pang-guan.html">面对雾霾你是无能为力还是袖手旁观 (1)</a></li><li><a href="./tag/mian-xiang-dui-xiang-bian-cheng-ru-men-yong-wu-xia-jiao-se-li-jie-python-zhong-de-lei.html">面向对象编程入门用武侠角色理解-Python-中的类 (1)</a></li><li><a href="./tag/microscope.html">Microscope (2)</a></li><li><a href="./tag/mindset.html">mindset (2)</a></li><li><a href="./tag/ming-ling-xing.html">命令行 (1)</a></li><li><a href="./tag/miniconda3.html">Miniconda3 (1)</a></li><li><a href="./tag/mit-csail.html">MIT CSAIL (1)</a></li><li><a href="./tag/ml.html">ML (4)</a></li><li><a href="./tag/mlx.html">mlx (1)</a></li><li><a href="./tag/mmlu.html">MMLU (2)</a></li><li><a href="./tag/mo-ni.html">模拟 (1)</a></li><li><a href="./tag/mo-xing-bian-ji.html">模型编辑 (1)</a></li><li><a href="./tag/mo-xing-ping-ce.html">模型评测 (1)</a></li><li><a href="./tag/mo-xing-xuan-ze.html">模型选择 (2)</a></li><li><a href="./tag/mobile.html">Mobile (1)</a></li><li><a href="./tag/moe.html">MoE (5)</a></li><li><a href="./tag/moon.html">Moon (1)</a></li><li><a href="./tag/mountblade.html">Mount&Blade (1)</a></li><li><a href="./tag/moving-average.html">Moving Average (1)</a></li><li><a href="./tag/moxing.html">moxing (1)</a></li><li><a href="./tag/moxing-he-ollama-dui-bi-cong-omnicoder-9bdao-geng-duo-mo-xing.html">MoXing-和-Ollama-对比从omnicoder-9b到更多模型 (1)</a></li><li><a href="./tag/moxing-su-du-zui-gao-da-dao-ollamade-201-tong-mo-xing-tong-ying-jian-de-shi-ce-dui-bi-omnicoder-2-9b-de-q4_k_m.html">MoXing-速度最高达到-Ollama的-201-同模型同硬件的实测对比OmniCoder-2-9B-的-Q4_K_M (1)</a></li><li><a href="./tag/moxing-wu-yue-geng-xin-suan-shi-lai-liao-ge-da-sao-chu.html">MoXing-五月更新算是来了个大扫除 (1)</a></li><li><a href="./tag/moxing-zhu-li-la-ji-lao-yong-bai-yuan-chao-lian-jie-xian-qia-ben-di-yun-xing-omnicoder-2-9bmo-xing-jie-guo-ye-zhi-you-shi-ji-ge-tokenss.html">MoXing-助力垃圾佬用百元超廉价显卡本地运行omnicoder-2-9b模型结果也只有十几个tokenss (1)</a></li><li><a href="./tag/moxingdi-yu-suan-chang-jing-yong-rx580xian-qia-qing-song-yun-xing-qwen35-9b-q4_k_mmo-xing.html">MoXing低预算场景用RX580显卡轻松运行Qwen35-9b-q4_k_m模型 (1)</a></li><li><a href="./tag/moxingsheng-ji-tong-shi-yun-xing-duo-ge-mo-xing-shi-li.html">MoXing升级同时运行多个模型实例 (1)</a></li><li><a href="./tag/moxingxin-sheng-ji-zhi-jie-duo-she-ollama-bu-fen-mo-xing-ti-su-50.html">MoXing新升级直接夺舍-Ollama-部分模型提速-50 (1)</a></li><li><a href="./tag/mtp.html">MTP (1)</a></li><li><a href="./tag/muon.html">Muon (1)</a></li><li><a href="./tag/n-cpu-moe.html">n-cpu-moe (1)</a></li><li><a href="./tag/n8n.html">n8n (1)</a></li><li><a href="./tag/nas.html">NAS (1)</a></li><li><a href="./tag/nasa.html">NASA (75)</a></li><li><a href="./tag/nei-cun.html">内存 (2)</a></li><li><a href="./tag/nemotron.html">Nemotron (1)</a></li><li><a href="./tag/network.html">Network (1)</a></li><li><a href="./tag/ni-de-dian-nao-mei-miao-neng-zuo-duo-shao-ci-fu-dian-yun-suan-flops-de-gu-shi.html">你的电脑每秒能做多少次浮点运算FLOPS-的故事 (1)</a></li><li><a href="./tag/niu-dun-fa-qiu-jie-guo-cheng-de-pythonshi-xian-ji-qi-xiang-jie.html">牛顿法求解过程的Python实现及其详解 (1)</a></li><li><a href="./tag/nixos.html">NixOS (1)</a></li><li><a href="./tag/non-gaussian.html">Non-Gaussian (1)</a></li><li><a href="./tag/nonlinear.html">Nonlinear (1)</a></li><li><a href="./tag/nonlinear-filtering.html">Nonlinear Filtering (2)</a></li><li><a href="./tag/nosql.html">NoSQL (1)</a></li><li><a href="./tag/numpy.html">NumPy (2)</a></li><li><a href="./tag/nuoyi-geng-xin-xin-zeng-zai-xian-zhuan-huan-yin-qing-mei-xian-qia-ye-bu-pa-chang-wen-dang-ye-bu-na-yao-tou-teng.html">NuoYi-更新新增在线转换引擎没显卡也不怕长文档也不那么头疼 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-geng-xin-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju-shao-wei-sheng-yi-dian-xian-cun-liao.html">NuoYi-挪移更新-离线的-PDFDOCX-转-Markdown-工具稍微省一点显存了 (1)</a></li><li><a href="./tag/nuoyi-nuo-yi-yi-ge-chi-xian-de-pdfdocx-zhuan-markdown-gong-ju.html">NuoYi-挪移-一个离线的-PDFDOCX-转-Markdown-工具 (1)</a></li><li><a href="./tag/nvidia.html">Nvidia (1)</a></li><li><a href="./tag/ocr.html">OCR (1)</a></li><li><a href="./tag/ollama.html">Ollama (22)</a></li><li><a href="./tag/ollamaaidgei-ni-guan-li-ben-di-da-mo-xing-pei-ge-de-li-zhu-shou.html">OllamaAid给你管理本地大模型配个得力助手 (1)</a></li><li><a href="./tag/ollamageng-xin-suo-you-ben-di-mo-xing.html">Ollama更新所有本地模型 (1)</a></li><li><a href="./tag/ollamaqian-ru-mo-xing-xuan-xing-zhi-nan-zhu-liu-mo-xing-shen-du-dui-bi.html">Ollama嵌入模型选型指南-主流模型深度对比 (1)</a></li><li><a href="./tag/omlx.html">omlx (1)</a></li><li><a href="./tag/opc.html">OPC (1)</a></li><li><a href="./tag/opencl.html">OpenCL (1)</a></li><li><a href="./tag/opencode.html">opencode (15)</a></li><li><a href="./tag/opencode-jin-jie-zhi-ji-neng-chuang-zuo-chai-jie-miao-shu-dian-xing-ren-wu-hou-yan-zheng-shi-xian-zai-zuo-cheng-ke-fu-yong-de-ji-neng.html">OpenCode-进阶之技能创作拆解描述典型任务后验证实现再做成可复用的技能 (1)</a></li><li><a href="./tag/opencode-skillsfen-xiang-yi-tao-zi-ji-luan-xie-de-huan-suan-shi-yong-de-ai-bian-ma-ji-neng-ku.html">OpenCode-Skills分享一套自己乱写的还算实用的-AI-编码技能库 (1)</a></li><li><a href="./tag/openlaoke.html">OpenLaoKe (1)</a></li><li><a href="./tag/openlaoke-geng-xin-ben-di-gguf-mo-xing-ling-api-fei-yong-pao-qi-lai.html">OpenLaoKe-更新本地-GGUF-模型零-API-费用跑起来 (1)</a></li><li><a href="./tag/openlaokelao-ke-yi-ge-ming-ling-xing-aizhu-shou.html">OpenLaoKe唠嗑一个命令行AI助手 (1)</a></li><li><a href="./tag/openscad.html">OpenSCAD (1)</a></li><li><a href="./tag/openwebui.html">OpenWebUI (2)</a></li><li><a href="./tag/optimal-estimation.html">Optimal Estimation (1)</a></li><li><a href="./tag/optimization.html">Optimization (2)</a></li><li><a href="./tag/os.html">os (1)</a></li><li><a href="./tag/osx-kvm.html">OSX-KVM (2)</a></li><li><a href="./tag/pandas.html">pandas (1)</a></li><li><a href="./tag/pao-mo.html">泡沫 (1)</a></li><li><a href="./tag/parenting.html">Parenting (1)</a></li><li><a href="./tag/particle-filter.html">Particle Filter (1)</a></li><li><a href="./tag/path.html">PATH (1)</a></li><li><a href="./tag/pdfjie-xi.html">PDF解析 (1)</a></li><li><a href="./tag/pdfti-qu.html">PDF提取 (1)</a></li><li><a href="./tag/performance.html">Performance (1)</a></li><li><a href="./tag/phd.html">PHD (2)</a></li><li><a href="./tag/philosophy.html">philosophy (2)</a></li><li><a href="./tag/photo.html">Photo (23)</a></li><li><a href="./tag/photography.html">Photography (2)</a></li><li><a href="./tag/physics.html">Physics (3)</a></li><li><a href="./tag/pi.html">pi (3)</a></li><li><a href="./tag/pi-agent.html">pi agent (1)</a></li><li><a href="./tag/ping-ce.html">评测 (1)</a></li><li><a href="./tag/poem.html">Poem (2)</a></li><li><a href="./tag/powershell.html">PowerShell (1)</a></li><li><a href="./tag/prefill.html">prefill (1)</a></li><li><a href="./tag/prerequisites.html">Prerequisites (1)</a></li><li><a href="./tag/programming.html">Programming (11)</a></li><li><a href="./tag/prompt.html">Prompt (1)</a></li><li><a href="./tag/psychology.html">Psychology (1)</a></li><li><a href="./tag/pve.html">PVE (2)</a></li><li><a href="./tag/pyenv.html">Pyenv (2)</a></li><li><a href="./tag/pyopencl.html">PyOpenCL (1)</a></li><li><a href="./tag/pyside6.html">PySide6 (1)</a></li><li><a href="./tag/python.html">Python (76)</a></li><li><a href="./tag/python-ji-chu-yu-fa-5fen-zhong-ru-men.html">Python-基础语法5分钟入门 (1)</a></li><li><a href="./tag/qemu.html">QEMU (1)</a></li><li><a href="./tag/qgis.html">QGIS (3)</a></li><li><a href="./tag/qian-wen.html">千问 (1)</a></li><li><a href="./tag/qt.html">QT (1)</a></li><li><a href="./tag/qu-shen-cha.html">去审查 (1)</a></li><li><a href="./tag/quan-zhong-kong-jian-bian-cheng.html">权重空间编程 (1)</a></li><li><a href="./tag/qwen.html">Qwen (6)</a></li><li><a href="./tag/qwen3.html">Qwen3 (10)</a></li><li><a href="./tag/qwen35.html">qwen3.5 (1)</a></li><li><a href="./tag/qwen35-08b.html">Qwen3.5-0.8B (1)</a></li><li><a href="./tag/qwen36.html">Qwen3.6 (3)</a></li><li><a href="./tag/qwen38.html">Qwen3.8 (4)</a></li><li><a href="./tag/qwen38-flash-next.html">Qwen3.8-Flash-Next (1)</a></li><li><a href="./tag/r9700.html">R9700 (2)</a></li><li><a href="./tag/radio.html">Radio (2)</a></li><li><a href="./tag/rag.html">RAG (1)</a></li><li><a href="./tag/raspberrypi.html">RaspberryPi (1)</a></li><li><a href="./tag/raspbian.html">Raspbian (1)</a></li><li><a href="./tag/re-fu-she.html">热辐射 (1)</a></li><li><a href="./tag/reading.html">reading (2)</a></li><li><a href="./tag/reflection.html">reflection (4)</a></li><li><a href="./tag/remote.html">Remote (1)</a></li><li><a href="./tag/research.html">Research (3)</a></li><li><a href="./tag/resume.html">resume (1)</a></li><li><a href="./tag/ri-chang-ren-wu.html">日常任务 (1)</a></li><li><a href="./tag/ri-chang-sheng-huo.html">日常生活 (1)</a></li><li><a href="./tag/rotation.html">Rotation (1)</a></li><li><a href="./tag/rtl-sdr.html">RTL-SDR (2)</a></li><li><a href="./tag/rtx-4070.html">RTX 4070 (1)</a></li><li><a href="./tag/rtx2060.html">RTX2060 (1)</a></li><li><a href="./tag/rtx3070.html">RTX3070 (1)</a></li><li><a href="./tag/rtx4060.html">RTX4060 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-jia-gou-shi-zhuan-ye-ying-yu-gao-pin-ci-hui-biao.html">软考高级系统架构设计师知识精要-架构师专业英语高频词汇表 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-ce-shi-yu-yun-xing-wei-hu.html">软考高级系统架构设计师知识精要-软件测试与运行维护 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-gong-cheng-yu-kai-fa-fang-fa.html">软考高级系统架构设计师知识精要-软件工程与开发方法 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-ruan-jian-jia-gou-she-ji-yu-ping-gu.html">软考高级系统架构设计师知识精要-软件架构设计与评估 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-an-quan-yu-qu-kuai-lian-ji-zhu.html">软考高级系统架构设计师知识精要-系统安全与区块链技术 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xi-tong-jian-mo-yu-umlshe-ji.html">软考高级系统架构设计师知识精要-系统建模与UML设计 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xi-xi-tong-yu-qi-ye-xin-xi-hua.html">软考高级系统架构设计师知识精要-信息系统与企业信息化 (1)</a></li><li><a href="./tag/ruan-kao-gao-ji-xi-tong-jia-gou-she-ji-shi-zhi-shi-jing-yao-xin-xing-ji-zhu-yu-ji-chu-she-shi.html">软考高级系统架构设计师知识精要-新兴技术与基础设施 (1)</a></li><li><a href="./tag/rust.html">Rust (2)</a></li><li><a href="./tag/rust-anything.html">rust-anything (1)</a></li><li><a href="./tag/rustyu-yan-cheng-xu-she-ji-ji-chu-di-san-zhang-fu-he-shu-ju-lei-xing-yu-xun-huan.html">Rust语言程序设计基础第三章复合数据类型与循环 (1)</a></li><li><a href="./tag/rx590.html">RX590 (1)</a></li><li><a href="./tag/rx6800xt.html">RX6800XT (1)</a></li><li><a href="./tag/sandbox.html">SandBox (1)</a></li><li><a href="./tag/scholar.html">Scholar (2)</a></li><li><a href="./tag/school.html">School (3)</a></li><li><a href="./tag/science.html">Science (3)</a></li><li><a href="./tag/search.html">Search (1)</a></li><li><a href="./tag/self-study.html">Self-Study (1)</a></li><li><a href="./tag/sequential-monte-carlo.html">Sequential Monte Carlo (1)</a></li><li><a href="./tag/server.html">Server (1)</a></li><li><a href="./tag/shang-xia-wen-guan-li.html">上下文管理 (1)</a></li><li><a href="./tag/shang-ye-xin-xi.html">商业信息 (1)</a></li><li><a href="./tag/shao-di.html">哨笛 (1)</a></li><li><a href="./tag/sheng-cheng-su-du.html">生成速度 (1)</a></li><li><a href="./tag/sheng-huo.html">生活 (1)</a></li><li><a href="./tag/shi-jie-yi-liu-da-xue-shuo-shuo-er-yi-huan-shi-zhen-de-qu-zuo.html">世界一流大学说说而已还是真的去做 (1)</a></li><li><a href="./tag/shi-pin-sheng-cheng.html">视频生成 (1)</a></li><li><a href="./tag/shi-sheng-guan-xi.html">师生关系 (1)</a></li><li><a href="./tag/shi-yong-llama-factory-cong-modelscope-xia-zai-mo-xing-bing-wei-diao.html">使用-LLaMA-Factory-从-ModelScope-下载模型并微调 (1)</a></li><li><a href="./tag/shi-yong-ollamakuai-su-bu-shu-bing-yun-xing-zui-xin-de-qwen3-30b-a3b-2507mo-xing.html">使用ollama快速部署并运行最新的qwen3-30b-a3b-2507模型 (1)</a></li><li><a href="./tag/shit.html">Shit (1)</a></li><li><a href="./tag/shu-ju-an-quan.html">数据安全 (1)</a></li><li><a href="./tag/shu-ju-fen-xi.html">数据分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-0zhang-cyu-yan-pythonde-di-ceng-shi-jiao.html">数据结构与算法基础-第0章-C语言Python的底层视角 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-1zhang-suan-fa-ji-chu-yu-fu-za-du-fen-xi.html">数据结构与算法基础-第1章-算法基础与复杂度分析 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-2zhang-xian-xing-shu-ju-jie-gou.html">数据结构与算法基础-第2章-线性数据结构 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-4zhang-tu-lun-ji-chu.html">数据结构与算法基础-第4章-图论基础 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-5zhang-pai-xu-suan-fa.html">数据结构与算法基础-第5章-排序算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-6zhang-sou-suo-suan-fa.html">数据结构与算法基础-第6章-搜索算法 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-7zhang-dong-tai-gui-hua.html">数据结构与算法基础-第7章-动态规划 (1)</a></li><li><a href="./tag/shu-ju-jie-gou-yu-suan-fa-ji-chu-di-8zhang-gao-ji-suan-fa.html">数据结构与算法基础-第8章-高级算法 (1)</a></li><li><a href="./tag/shu-ju-ke-shi-hua.html">数据可视化 (1)</a></li><li><a href="./tag/shu-ju-ke-xue.html">数据科学 (1)</a></li><li><a href="./tag/shu-ju-ku.html">数据库 (1)</a></li><li><a href="./tag/shu-ju-lei-xing.html">数据类型 (1)</a></li><li><a href="./tag/shu-ju-zhong-xin.html">数据中心 (1)</a></li><li><a href="./tag/shu-xue.html">数学 (1)</a></li><li><a href="./tag/shu-xue-jian-mo.html">数学建模 (2)</a></li><li><a href="./tag/shu-zhi-ji-fen-man-tan-ru-he-rang-yong-pythonqiu-ji-fen.html">数值积分漫谈如何让用Python求积分 (1)</a></li><li><a href="./tag/shuang-yu.html">双语 (76)</a></li><li><a href="./tag/shui-ke-xing-cun-zhi-nan-ru-guo-ni-bei-po-yao-qu-ting-ni-bu-xi-huan-de-ke-cheng-gai-zen-yao-ban.html">水课幸存指南-如果你被迫要去听你不喜欢的课程该怎么办 (1)</a></li><li><a href="./tag/shui-ti.html">水体 (21)</a></li><li><a href="./tag/si-kao.html">思考 (1)</a></li><li><a href="./tag/sigma-point.html">Sigma Point (1)</a></li><li><a href="./tag/signal-processing.html">Signal Processing (3)</a></li><li><a href="./tag/skill.html">skill (3)</a></li><li><a href="./tag/smollm2.html">smollm2 (1)</a></li><li><a href="./tag/software.html">Software (1)</a></li><li><a href="./tag/sou-suo.html">搜索 (1)</a></li><li><a href="./tag/spacex.html">SpaceX (1)</a></li><li><a href="./tag/sports.html">sports (1)</a></li><li><a href="./tag/sql.html">SQL (1)</a></li><li><a href="./tag/state-space.html">State Space (1)</a></li><li><a href="./tag/statistics.html">Statistics (3)</a></li><li><a href="./tag/story.html">Story (51)</a></li><li><a href="./tag/strata.html">Strata (1)</a></li><li><a href="./tag/strix-halo.html">Strix Halo (1)</a></li><li><a href="./tag/sui-bi.html">随笔 (7)</a></li><li><a href="./tag/t-bench.html">τ-bench (1)</a></li><li><a href="./tag/tai-kong.html">太空 (1)</a></li><li><a href="./tag/tape.html">Tape (1)</a></li><li><a href="./tag/telescope.html">Telescope (1)</a></li><li><a href="./tag/terminal.html">Terminal (1)</a></li><li><a href="./tag/textbook.html">textbook (1)</a></li><li><a href="./tag/thinking.html">Thinking (8)</a></li><li><a href="./tag/ti-xing-fa-qiu-ji-fen-de-pythonshi-xian.html">梯形法求积分的Python实现 (1)</a></li><li><a href="./tag/tian-biao.html">填表 (1)</a></li><li><a href="./tag/time-series.html">Time Series (1)</a></li><li><a href="./tag/ting-shuo-du-xie.html">听说读写 (1)</a></li><li><a href="./tag/tokenzi-you-yong-moxingzai-7900xtx-24gxian-qia-shang-ben-di-yun-xing-qwen36-27bmo-xing-gei-opencodeyong-lai-wen-dang-bian.html">Token自由-用MoXing在7900xtx-24G显卡上本地运行Qwen36-27B模型给OpenCode用来文档编 (1)</a></li><li><a href="./tag/toml.html">toml (1)</a></li><li><a href="./tag/tong-ji-xue.html">统计学 (2)</a></li><li><a href="./tag/tong-men-xiang-can-bai-yuan-xian-qia-de-ben-di-mo-xing-da-zhan-rx580-16g-2048sp-vs-rx590-8g-2304sp.html">同门相残-百元显卡的本地模型大战RX580-16G-2048SP-VS-RX590-8G-2304SP (1)</a></li><li><a href="./tag/tong-nian.html">童年 (1)</a></li><li><a href="./tag/tong-xue.html">同学 (1)</a></li><li><a href="./tag/tong-yi-nei-cun.html">统一内存 (1)</a></li><li><a href="./tag/tool.html">Tool (8)</a></li><li><a href="./tag/tool-calling.html">tool calling (3)</a></li><li><a href="./tag/toolbench.html">ToolBench (1)</a></li><li><a href="./tag/tools.html">Tools (10)</a></li><li><a href="./tag/tou-ji-jie-ma.html">投机解码 (1)</a></li><li><a href="./tag/tpu.html">TPU (1)</a></li><li><a href="./tag/traffic.html">Traffic (1)</a></li><li><a href="./tag/translate.html">Translate (2)</a></li><li><a href="./tag/translation.html">Translation (1)</a></li><li><a href="./tag/transpaste-sheng-ji-yi-ge-jian-tie-ban-fan-yi-gong-ju-de-zi-wo-xiu-yang.html">TransPaste-升级一个剪贴板翻译工具的自我修养 (1)</a></li><li><a href="./tag/transpaste-yi-kuan-ji-yu-ben-di-da-yu-yan-mo-xing-de-qing-liang-ji-jian-tie-ban-fan-yi-gong-ju.html">TransPaste-一款基于本地大语言模型的轻量级剪贴板翻译工具 (1)</a></li><li><a href="./tag/transpasteben-di-ai-fan-yi-gong-ju-xin-ban-ben-sheng-ji-hou-zhi-chi-geng-duo-xi-li-du-de-fan-yi-kong-zhi.html">TransPaste本地-AI-翻译工具新版本升级后支持更多细粒度的翻译控制 (1)</a></li><li><a href="./tag/trimesh.html">trimesh (1)</a></li><li><a href="./tag/tui.html">TUI (1)</a></li><li><a href="./tag/tui-jian-yi-kuan-markdownde-kua-ping-tai-chi-xian-bian-ji-qi-zhi-chi-sui-shi-yu-lan.html">推荐一款MarkDown的跨平台离线编辑器支持随时预览 (1)</a></li><li><a href="./tag/tui-li.html">推理 (1)</a></li><li><a href="./tag/tui-li-yin-qing.html">推理引擎 (1)</a></li><li><a href="./tag/tuna.html">TUNA (1)</a></li><li><a href="./tag/turing.html">Turing (12)</a></li><li><a href="./tag/tutorial.html">tutorial (2)</a></li><li><a href="./tag/txt.html">txt (1)</a></li><li><a href="./tag/uav.html">UAV (1)</a></li><li><a href="./tag/ubuntu.html">Ubuntu (4)</a></li><li><a href="./tag/ubuntu-shou-dong-an-zhuang-ollama-0171-lai-yun-xing-qwen3535b-a3b-de-xiang-xi-zhi-nan.html">Ubuntu-手动安装-Ollama-0171-来运行-qwen3535b-a3b-的详细指南 (1)</a></li><li><a href="./tag/ui.html">UI (1)</a></li><li><a href="./tag/ukf.html">UKF (1)</a></li><li><a href="./tag/university.html">university (14)</a></li><li><a href="./tag/unscented-transform.html">Unscented Transform (1)</a></li><li><a href="./tag/ustc.html">USTC (1)</a></li><li><a href="./tag/ventoy.html">Ventoy (1)</a></li><li><a href="./tag/vibe-coding.html">Vibe Coding (2)</a></li><li><a href="./tag/vibe-coding-fen-wei-bian-cheng-an-li-tong-guo-dui-hua-shi-xian-ke-yong-de-kuai-su-cha-biao-gong-ju.html">Vibe-Coding-氛围编程案例-通过对话实现可用的快速查表工具 (1)</a></li><li><a href="./tag/vibecoding.html">VibeCoding (1)</a></li><li><a href="./tag/video.html">video (2)</a></li><li><a href="./tag/vidtogif-yi-ge-jian-dan-gao-xiao-de-shi-pin-zhuan-gif-gong-ju.html">VidToGif-一个简单高效的视频转-GIF-工具 (1)</a></li><li><a href="./tag/virtual-machine.html">Virtual Machine (1)</a></li><li><a href="./tag/virtualbox.html">VirtualBox (1)</a></li><li><a href="./tag/virtualization.html">Virtualization (1)</a></li><li><a href="./tag/virtualmachine.html">VirtualMachine (2)</a></li><li><a href="./tag/vispy.html">VisPy (1)</a></li><li><a href="./tag/visualization.html">Visualization (8)</a></li><li><a href="./tag/vm.html">VM (1)</a></li><li><a href="./tag/vmwarexu-ni-ji-yun-xing-macosunlcokrecoveryosoc4vm-shi-xian-ti-gong-bai-du-yun-pan-xia-zai.html">VMware虚拟机运行macOSunlcokrecoveryosOC4VM-实现提供百度云盘下载 (1)</a></li><li><a href="./tag/void-moxingdi-cheng-ben-fang-an-yong-rx580xian-qia-ben-di-yun-xing-qwen359bmo-xing-da-zao-lei-cursorti-yan.html">Void-MoXing低成本方案用RX580显卡本地运行qwen359B模型打造类Cursor体验 (1)</a></li><li><a href="./tag/vscode.html">VSCode (1)</a></li><li><a href="./tag/vtk.html">VTK (1)</a></li><li><a href="./tag/wai-yu.html">外语 (1)</a></li><li><a href="./tag/web.html">Web (1)</a></li><li><a href="./tag/wen-ben.html">文本 (2)</a></li><li><a href="./tag/wen-ben-shou-ji.html">文本收集 (1)</a></li><li><a href="./tag/wen-dang-he-cha.html">文档核查 (1)</a></li><li><a href="./tag/wiener-filter.html">Wiener Filter (1)</a></li><li><a href="./tag/windows.html">Windows (5)</a></li><li><a href="./tag/windows-xi-tong-xia-cong-qing-hua-da-xue-tuna-jing-xiang-an-zhuang-miniconda3-wan-zheng-zhi-nan.html">Windows-系统下从清华大学-TUNA-镜像安装-Miniconda3-完整指南 (1)</a></li><li><a href="./tag/windows11.html">Windows11 (1)</a></li><li><a href="./tag/wingetguigei-windows-bao-guan-li-qi-jia-ge-tu-xing-jie-mian.html">WinGetGUI给-Windows-包管理器加个图形界面 (1)</a></li><li><a href="./tag/winogrande.html">WinoGrande (1)</a></li><li><a href="./tag/workflow.html">workflow (1)</a></li><li><a href="./tag/wu-chai-li-lun.html">误差理论 (1)</a></li><li><a href="./tag/x99.html">X99 (1)</a></li><li><a href="./tag/xcode.html">Xcode (1)</a></li><li><a href="./tag/xia-zai.html">下载 (1)</a></li><li><a href="./tag/xian-cun.html">显存 (4)</a></li><li><a href="./tag/xian-jiao-hui-zai-rang-ta-zuo-da-mo-xing-ding-zhi-hua-li-cpthe-sftdao-di-zai-gan-shi-yao.html">先教会再让它做大模型定制化里CPT和SFT到底在干什么 (1)</a></li><li><a href="./tag/xian-qia.html">显卡 (3)</a></li><li><a href="./tag/xian-qia-xuan-gou.html">显卡选购 (2)</a></li><li><a href="./tag/xian-xing-dai-shu.html">线性代数 (15)</a></li><li><a href="./tag/xiang-sheng.html">相声 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-er-hui-jiu-suan-shi-sun-wu-kong-shang-da-xue-ye-de-yong-gong.html">小猴子学编程第二回就算是孙悟空上大学也得用功 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-san-hui-shi-yi-zhi-pa-zai-na-zi-yuan-zi-ai-huan-shi-gan-jin-zhun-bei-qu-xin-fu-ben.html">小猴子学编程第三回是一直趴在那自怨自艾还是赶紧准备去新副本 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-si-hui-chong-zhi-bu-hui-rang-ni-bian-qiang-xue-xi-cai-hui.html">小猴子学编程第四回充值不会让你变强学习才会 (1)</a></li><li><a href="./tag/xiao-hou-zi-xue-bian-cheng-di-yi-hui-na-pa-shi-sun-wu-kong-ye-xu-yao-xue-xi.html">小猴子学编程第一回哪怕是孙悟空也需要学习 (1)</a></li><li><a href="./tag/xiao-mo-xing.html">小模型 (3)</a></li><li><a href="./tag/xiao-mo-xing-ping-ce.html">小模型评测 (2)</a></li><li><a href="./tag/xiao-you.html">校友 (1)</a></li><li><a href="./tag/xiexie-ba-markdown-zhuan-cheng-wei-xin-gong-zhong-hao-ge-shi-wang-ye-de-xiao-gong-ju.html">Xie写把-Markdown-转成微信公众号格式网页的小工具 (1)</a></li><li><a href="./tag/xin-shou.html">新手 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-markdown-shu-xue-gong-shi-zhi-nan.html">新手向的-Markdown-数学公式指南 (1)</a></li><li><a href="./tag/xin-shou-xiang-de-ruan-kao-gao-ji-jia-gou-shi-wan-quan-bei-kao-zhi-nan.html">新手向的软考高级架构师完全备考指南 (1)</a></li><li><a href="./tag/xing-neng-shi-ce.html">性能实测 (1)</a></li><li><a href="./tag/xing-neng-you-hua.html">性能优化 (1)</a></li><li><a href="./tag/xiu-liao-transpastede-4ge-bug.html">修了TransPaste的4个bug (1)</a></li><li><a href="./tag/xu-xu-tu-zhi.html">徐徐图之 (1)</a></li><li><a href="./tag/xue-xi.html">学习 (2)</a></li><li><a href="./tag/xue-xi-fu-zhu.html">学习辅助 (1)</a></li><li><a href="./tag/xue-xi-lu-de-qian-shi-jin-sheng-cong-quan-ju-dan-yi-dao-zhu-ceng-ding-zhi.html">学习率的前世今生从全局单一到逐层定制 (1)</a></li><li><a href="./tag/xue-xi-lu-xian.html">学习路线 (1)</a></li><li><a href="./tag/xue-xi-zi-yuan.html">学习资源 (1)</a></li><li><a href="./tag/xue-zhu.html">学术 (1)</a></li><li><a href="./tag/xue-zhu-lun-wen-zhong-chang-jian-yan-jiu-fang-fa-zong-shu-ji-jian-dan-ju-li.html">学术论文中常见研究方法综述及简单举例 (1)</a></li><li><a href="./tag/xue-zhu-yan-jiu-zhi-chi-gong-ju-fen-lei-yu-wen-xian-huo-qu-fang-fa.html">学术研究支持工具分类与文献获取方法 (1)</a></li><li><a href="./tag/ya-suo.html">压缩 (1)</a></li><li><a href="./tag/yaml.html">yaml (1)</a></li><li><a href="./tag/yan-ji.html">验机 (1)</a></li><li><a href="./tag/yan-jiu-sheng.html">研究生 (1)</a></li><li><a href="./tag/yang-la-ji.html">洋垃圾 (2)</a></li><li><a href="./tag/yi-xue-chang-jing-yong-duo-mo-tai-da-mo-xing-you-ke-neng-wan-quan-bu-kao-pu-si-tan-fu-da-xue-li-fei-fei-tuan-dui-xin-yan-jiu-jie-kai-duo-mo-tai-aide-hai-shi-shen-lou-xiao-ying.html">医学场景用多模态大模型有可能完全不靠谱斯坦福大学李飞飞团队新研究揭开多模态AI的海市蜃楼效应 (1)</a></li><li><a href="./tag/yi-zhi-tiny-fastboot-scriptdao-macosban-ben-gei-motorola-g100guo-xing-ban-ben-xt2533-4shua-ru-g6.html">移植Tiny-Fastboot-Script到macOS版本给Motorola-G100国行版本XT2533-4刷入G6 (1)</a></li><li><a href="./tag/yin-pin.html">音频 (1)</a></li><li><a href="./tag/ying-jian.html">硬件 (1)</a></li><li><a href="./tag/ying-pan.html">硬盘 (2)</a></li><li><a href="./tag/ying-yong-chang-jing.html">应用场景 (1)</a></li><li><a href="./tag/ying-yu.html">英语 (1)</a></li><li><a href="./tag/yong-wan-quan-kai-yuan-mian-fei-de-ben-di-mo-xing-lai-dui-shi-pin-zhong-de-yin-pin-jin-xing-jiang-zao.html">用完全开源免费的本地模型来对视频中的音频进行降噪 (1)</a></li><li><a href="./tag/you-jian.html">邮件 (1)</a></li><li><a href="./tag/you-xi.html">游戏 (1)</a></li><li><a href="./tag/you-xi-shi-zen-yao-yun-xing-de-ru-guo-zhi-zhi-dao-chong-zhi-shi-ji-shang-bing-bu-yi-ding-neng-bian-qiang.html">游戏是怎么运行的如果只知道充值实际上并不一定能变强 (1)</a></li><li><a href="./tag/yu-er.html">育儿 (1)</a></li><li><a href="./tag/yu-suan.html">预算 (1)</a></li><li><a href="./tag/yuan-cheng.html">远程 (1)</a></li><li><a href="./tag/zai-xian-api.html">在线API (1)</a></li><li><a href="./tag/zhe-ji-tian-wo-chuan-yue-liao-shi-jian.html">这几天我穿越了时间 (1)</a></li><li><a href="./tag/zhe-xue.html">哲学 (1)</a></li><li><a href="./tag/zhen-dui-da-mo-xing-he-zhi-neng-ti-xin-shou-kai-fa-zhe-de-linuxhuan-jing-pei-zhi-zhi-nan.html">针对大模型和智能体新手开发者的Linux环境配置指南 (1)</a></li><li><a href="./tag/zheng-tai-fen-bu.html">正态分布 (1)</a></li><li><a href="./tag/zhi-ce-flops-huan-bu-gou-si-ge-jing-dian-cpu-ce-shi-ji-zhun.html">只测-FLOPS-还不够四个经典-CPU-测试基准 (1)</a></li><li><a href="./tag/zhi-neng-ti.html">智能体 (6)</a></li><li><a href="./tag/zhi-shi-ku.html">知识库 (1)</a></li><li><a href="./tag/zhi-shi-wai-zhi.html">知识外置 (1)</a></li><li><a href="./tag/zhi-zhen-yue-jie-cyu-yan-gei-ni-de-zi-you-yi-ji-tou-tou-mai-de-lei.html">指针越界C语言给你的自由以及偷偷埋的雷 (1)</a></li><li><a href="./tag/zhong-duan.html">终端 (2)</a></li><li><a href="./tag/zhong-xin-ji-xian-ding-li.html">中心极限定理 (1)</a></li><li><a href="./tag/zhong-xin-shen-shi-si-wei-lian-wei-bi-shi-zhen-si-wei-yi-pian-icml-2026-lun-wen-de-lun-zheng-yu-qi-shi.html">重新审视-思维链未必是真思维-一篇ICML-2026-论文的论证与启示 (1)</a></li><li><a href="./tag/zhu-ban.html">主板 (1)</a></li><li><a href="./tag/zhuang-ji.html">装机 (1)</a></li><li><a href="./tag/zhuang-ji-pei-zhi.html">装机配置 (1)</a></li><li><a href="./tag/zi-dong-hua.html">自动化 (1)</a></li><li><a href="./tag/zi-xue-zhi-nan.html">自学指南 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skills-he-ji-geng-xin-cong-6-ge-ji-neng-dao-22-ge-yi-ji-bi-xu-cheng-ren-de-wen-ti.html">自用的-OpenCode-Skills-合集更新从-6-个技能到-22-个以及必须承认的问题 (1)</a></li><li><a href="./tag/zi-yong-de-opencode-skillzai-ci-geng-xin-22ge-skillszhong-xin-da-mo-liao-yi-bian-shun-lu-jie-jue-liao-opencodedao-zhi-zheng-ge-tu-xing-jie-mian-beng-kui.html">自用的OpenCode-Skill再次更新22个skills重新打磨了一遍顺路解决了OpenCode导致整个图形界面崩溃 (1)</a></li><li><a href="./tag/zim.html">ZIM (1)</a></li><li><a href="./tag/zluda-he-macos-shang-de-cuda-jian-rong-meng-xiang.html">ZLUDA-和-macOS-上的-CUDA-兼容梦想 (1)</a></li></ul>
+                </li>
+            </ul>
+        </nav><!-- /#menu -->
+        <div id="header-controls">
+            <button id="lang-toggle" class="theme-toggle" aria-label="切换语言 / language" title="中 / EN">中</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="切换明暗模式">🌙</button>
+        </div>
+        <button class="header-handle" id="header-handle" title="收起 / 展开菜单栏" aria-label="收起菜单栏">▲</button>
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-940" >
+                <div class="markdown-body">
+                    <section class="breadcrumb-list">
+<a href="./index.html" data-i18n="blog">博客</a> › <a href="category/kao-yan-shu-xue.html">考研数学</a> › 初等变换定义
+                    </section>
+                </div>
+
+
+<section id="post" class="post hentry" data-tags="考研数学,线性代数">
+    <header>
+    <h2 class="post-title" >初等变换定义</h2>
+    
+    <div class="post-meta">
+        <span class="meta-prep" data-i18n="post_in">发布于</span>
+        <abbr class="date" title="2025-03-16T21:15:00+08:00"> 
+            <a href="./archive/2025/Mar/index.html">Sun 16 March 2025 </a>
+        </abbr>
+        <span class="meta-prep"> | 53 分钟 | <span data-i18n="tags_label">标签</span></span>
+                <a class="tag-badge" href="./tag/kao-yan-shu-xue.html">考研数学</a>
+                <a class="tag-badge" href="./tag/xian-xing-dai-shu.html">线性代数</a>
+        <!-- TOBE COMMENTS -->
+    </div>
+    </header>
+    <div class="post-entry markdown-body">
+        <p>定义下列 3 种变换称为矩阵的初等行变换。
+(1)对换变换：交换矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 的两行(row)位置；
+(2)倍乘变换：用一非零常数 <span class="arithmatex">\( c(\neq 0) \)</span> 乘矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 的某一行；
+(3)倍加变换：把矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 的某一行的 <span class="arithmatex">\( k \)</span> 倍加到矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 的另一行上去。
+类似地， 有矩阵的初等列 (column) 变换， 两者统称为矩阵的初等变换。
+注 1： 一个 <span class="arithmatex">\( m \times n \)</span> 型矩阵经初等变换后仍是 <span class="arithmatex">\( m \times n \)</span> 型矩阵。
+注 2： 初等变换是可逆的。对换变换的逆变换是其自身，倍乘变换 <span class="arithmatex">\( k_i(kc_i) \)</span> 的逆变换是 <span class="arithmatex">\( \frac{1}{k}r_i\left( \frac{1}{k}c_i\right) \)</span>，倍加变换 <span class="arithmatex">\( r_i + kr_j(c_i + kc_j) \)</span> 的逆变换是 <span class="arithmatex">\( r_i - kr_j(c_i - kc_j) \)</span> . 例如，如果 <span class="arithmatex">\( \mathbf{A}\xrightarrow[]{r_i + kr_j}\mathbf{B} \)</span>，那么 <span class="arithmatex">\( \mathbf{B}\xrightarrow[]{r_i - kr_j}\mathbf{A} \)</span> .</p>
+<h3>2.9.2 初等变换相关定理</h3>
+<p>定理 1： 任给 <span class="arithmatex">\( m \times n \)</span> 型矩阵 <span class="arithmatex">\( \mathbf{A} \)</span>，皆可经过有限次初等行变换化为行阶梯形矩阵或行最简形矩阵。</p>
+<p>[\left( \begin{array}{lll} 1 &amp; 2 &amp; 3 \ 0 &amp; 4 &amp; 5 \ 0 &amp; 0 &amp; 6 \end{array}\right) ,\left( \begin{array}{llll} 1 &amp; 2 &amp; 0 &amp; 1 \ 0 &amp; 0 &amp; 3 &amp; 5 \ 0 &amp; 0 &amp; 0 &amp; 0 \end{array}\right) ,\left( \begin{array}{llll} 1 &amp; - 1 &amp; 0 &amp; 1 \ 0 &amp; 0 &amp; 1 &amp; 3 \ 0 &amp; 0 &amp; 0 &amp; 0 \end{array}\right)]
+定理 2： 对于任意一个 <span class="arithmatex">\( m \times n \)</span> 矩阵 <span class="arithmatex">\( \mathbf{A} \)</span>，总可经过有限次初等变换(初等行变换和初等列变换)变为标准型矩阵 (标准形是唯一的)</p>
+<p>[\mathbf{E}<em _times="\times" m n>{m \times n}^{(r)} = \left( \begin{matrix} \mathbf{E}_r &amp; \mathbf{O} \ \mathbf{O} &amp; \mathbf{O} \end{matrix}\right)</em>]
+此标准形由三个数 <span class="arithmatex">\( m,n,r \)</span> 完全确定，其中 <span class="arithmatex">\( r \)</span> 是行阶梯矩阵中非零行的行数。 并约定 <span class="arithmatex">\( r = 0 \)</span> 时， <span class="arithmatex">\( \mathbf{E}_{m \times n}^{(0)} \)</span> 为零矩阵。</p>
+<p>【例 1】用初等变换将 <span class="arithmatex">\( \left( \begin{matrix} 1 &amp; - 1 &amp; 0 &amp; 2 \\ 0 &amp; 2 &amp; 2 &amp; - 1 \\ 0 &amp; 0 &amp; 3 &amp; - 1 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{matrix}\right) \)</span> 化为标准形矩阵。</p>
+<p><strong>解</strong></p>
+<p>原矩阵已是上三角形且 <span class="arithmatex">\(r=3\)</span>，所以标准形必为 <span class="arithmatex">\(\operatorname{diag}(1,1,1,0)\)</span>，下面用初等变换把它具体做出来。
+先把三个主元化为 1：第 2 行乘 <span class="arithmatex">\(\frac{1}{2}\)</span>，第 3 行乘 <span class="arithmatex">\(\frac{1}{3}\)</span>，得 [ \begin{pmatrix}1&amp;-1&amp;0&amp;2\0&amp;1&amp;1&amp;-\frac{1}{2}\0&amp;0&amp;1&amp;-\frac{1}{3}\0&amp;0&amp;0&amp;0\end{pmatrix}. ]
+再用第 2、3 行消去第 1 行的非主元：第 1 行加第 2 行，再减第 3 行；第 2 行减第 3 行，得 [ \begin{pmatrix}1&amp;0&amp;0&amp;\frac{11}{6}\0&amp;1&amp;0&amp;-\frac{1}{6}\0&amp;0&amp;1&amp;-\frac{1}{3}\0&amp;0&amp;0&amp;0\end{pmatrix}. ]
+最后用列变换消去第 4 列：第 4 列减去第 1 列的 <span class="arithmatex">\(\frac{11}{6}\)</span> 倍、加上第 2 列的 <span class="arithmatex">\(\frac{1}{6}\)</span> 倍、加上第 3 列的 <span class="arithmatex">\(\frac{1}{3}\)</span> 倍，得标准形 [ \begin{pmatrix}1&amp;0&amp;0&amp;0\0&amp;1&amp;0&amp;0\0&amp;0&amp;1&amp;0\0&amp;0&amp;0&amp;0\end{pmatrix}. ]
+行变换与列变换都是可逆变换，故原矩阵与它等价。</p>
+<h3>2.9.3 矩阵等价</h3>
+<p>定义： 如果矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 经过有限次初等变换变成矩阵 <span class="arithmatex">\( \mathbf{B} \)</span>，就称矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 与矩阵 <span class="arithmatex">\( \mathbf{B} \)</span> 等价，记作 <span class="arithmatex">\( \mathbf{A} \cong \mathbf{B} \)</span> 性质：
+(1)对称性：若 <span class="arithmatex">\( \mathbf{A} \cong \mathbf{B} \)</span>，则 <span class="arithmatex">\( \mathbf{B} \cong \mathbf{A} \)</span>
+(2)传递性：若 <span class="arithmatex">\( \mathbf{A} \cong \mathbf{B},\mathbf{B} \cong \mathbf{C} \)</span>，则 <span class="arithmatex">\( \mathbf{A} \cong \mathbf{C} \)</span>
+结论：矩阵等价，其对应的标准形相同。</p>
+<p>【例 2】设矩阵 <span class="arithmatex">\( \mathbf{A} = \left( \begin{array}{lll} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \\ a_{31} &amp; a_{32} &amp; a_{33} \end{array}\right) ,\mathbf{B} = \left( \begin{array}{lll} 3a_{11} &amp; 3a_{11} - 2a_{12} &amp; a_{13} \\ 3a_{21} &amp; 3a_{21} - 2a_{22} &amp; a_{23} \\ 3a_{31} &amp; 3a_{31} - 2a_{32} &amp; a_{33} \end{array}\right) \)</span>，证明： 矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 与 <span class="arithmatex">\( \mathbf{B} \)</span> 等价。</p>
+<p><strong>解</strong></p>
+<p>注意 <span class="arithmatex">\(\mathbf{B}\)</span> 的三列都是 <span class="arithmatex">\(\mathbf{A}\)</span> 的三列的组合：第 1 列是 <span class="arithmatex">\(3\)</span> 倍第 1 列，第 2 列是 <span class="arithmatex">\(3\)</span> 倍第 1 列减 <span class="arithmatex">\(2\)</span> 倍第 2 列，第 3 列不动。
+于是可写成矩阵等式 <span class="arithmatex">\(\mathbf{B}=\mathbf{A}\mathbf{C}\)</span>，其中 [ \mathbf{C}=\begin{pmatrix}3&amp;3&amp;0\0&amp;-2&amp;0\0&amp;0&amp;1\end{pmatrix}. ]
+验证：<span class="arithmatex">\(\mathbf{A}\mathbf{C}\)</span> 的第 <span class="arithmatex">\(j\)</span> 列等于 <span class="arithmatex">\(\mathbf{A}\)</span> 各列按 <span class="arithmatex">\(\mathbf{C}\)</span> 第 <span class="arithmatex">\(j\)</span> 列加权求和，正好给出上述三列。
+而 <span class="arithmatex">\(|\mathbf{C}|=3\times(-2)\times 1=-6\neq 0\)</span>，<span class="arithmatex">\(\mathbf{C}\)</span> 可逆，即右乘一个可逆矩阵相当于作若干次初等列变换。
+初等变换不改变矩阵的秩，且存在可逆矩阵 <span class="arithmatex">\(\mathbf{C}\)</span> 使 <span class="arithmatex">\(\mathbf{B}=\mathbf{A}\mathbf{C}\)</span>，故 <span class="arithmatex">\(\mathbf{A}\)</span> 与 <span class="arithmatex">\(\mathbf{B}\)</span> 等价(同型且同秩)。</p>
+<h3>2.9.4 初等矩阵的定义</h3>
+<p>由单位矩阵 <span class="arithmatex">\( \mathbf{E} \)</span> 经一次初等变换得到的矩阵称为初等矩阵。 三种初等变换对应三种初等矩阵如下：
+(1)对换矩阵：交换单位矩阵的第 <span class="arithmatex">\( i,j \)</span> 两行(或列)所得到的矩阵</p>
+<p><img alt="" src="https://raw.githubusercontent.com/cycleuser/cycleuser.github.io/main/img/kaoyan-math/jichu-xiandai-005.jpg"></p>
+<p>(2)倍乘矩阵： 用不为零的数 <span class="arithmatex">\( k \)</span> 去乘单位矩阵的第 <span class="arithmatex">\( i \)</span> 行(或列)所得到的矩阵</p>
+<p>[\mathbf{E}_i(k) = \left( \begin{matrix} 1 &amp; &amp; &amp; &amp; &amp; &amp; \ &amp; \ddots &amp; &amp; &amp; &amp; &amp; \ &amp; &amp; 1 &amp; &amp; &amp; &amp; \ &amp; &amp; &amp; k &amp; &amp; &amp; \ &amp; &amp; &amp; &amp; 1 &amp; &amp; \ &amp; &amp; &amp; &amp; &amp; \ddots &amp; \ &amp; &amp; &amp; &amp; &amp; &amp; 1 \end{matrix}\right) \text{ 第 }i\text{ 行 }]
+(3)倍加矩阵：将单位矩阵的第 <span class="arithmatex">\( j \)</span> 行乘以常数 <span class="arithmatex">\( k \)</span> 加到第 <span class="arithmatex">\( i \)</span> 行(<span class="arithmatex">\( j \neq i \)</span>)(或第 <span class="arithmatex">\( i \)</span> 列乘以常数 <span class="arithmatex">\( k \)</span> 加到 <span class="arithmatex">\( j \)</span> 列)得到的矩阵</p>
+<div class="arithmatex">\[E_{ij}(k) = \left( \begin{matrix} 1 &amp; &amp; &amp; &amp; &amp; &amp; \\ &amp; \ddots &amp; &amp; &amp; &amp; &amp; \\ &amp; &amp; 1 &amp; \cdots &amp; k &amp; &amp; \\ &amp; &amp; &amp; \ddots &amp; \vdots &amp; &amp; \\ &amp; &amp; &amp; &amp; 1 &amp; &amp; \\ &amp; &amp; &amp; &amp; &amp; \ddots &amp; \\ &amp; &amp; &amp; &amp; &amp; &amp; 1 \end{matrix}\right) \text{ 第 }j\text{ 行 }\]</div>
+<h3>2.9.5 初等矩阵相关定理</h3>
+<p>引例： 计算下列初等矩阵与矩阵 <span class="arithmatex">\( \mathbf{A} = \left( a_{ij}\right)_{3 \times n},\mathbf{B} = \left( b_{ij}\right)_{3 \times 2},\mathbf{C} = \left( c_{ij}\right)_{3 \times 3} \)</span> 的乘积。</p>
+<div class="arithmatex">\[\left( \begin{array}{lll} 1 &amp; 0 &amp; 0 \\ 0 &amp; k &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array}\right) \left( \begin{array}{llll} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\ a_{31} &amp; a_{32} &amp; \cdots &amp; a_{3n} \end{array}\right) = \left( \begin{array}{llll} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ ka_{21} &amp; ka_{22} &amp; \cdots &amp; ka_{2n} \\ a_{31} &amp; a_{32} &amp; \cdots &amp; a_{3n} \end{array}\right)\]</div>
+<div class="arithmatex">\[\left( \begin{array}{lll} 1 &amp; 0 &amp; k \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array}\right) \left( \begin{array}{ll} b_{11} &amp; b_{12} \\ b_{21} &amp; b_{22} \\ b_{31} &amp; b_{32} \end{array}\right) = \left( \begin{matrix} b_{11} + kb_{31} &amp; b_{12} + kb_{32} \\ b_{21} &amp; b_{22} \\ b_{31} &amp; b_{32} \end{matrix}\right)\]</div>
+<p>[\left( \begin{array}{lll} c_{11} &amp; c_{12} &amp; c_{13} \ c_{21} &amp; c_{22} &amp; c_{23} \ c_{31} &amp; c_{32} &amp; c_{33} \end{array}\right) \left( \begin{array}{lll} 1 &amp; 0 &amp; 0 \ 0 &amp; 0 &amp; 1 \ 0 &amp; 1 &amp; 0 \end{array}\right) = \left( \begin{array}{lll} c_{11} &amp; c_{13} &amp; c_{12} \ c_{21} &amp; c_{23} &amp; c_{22} \ c_{31} &amp; c_{33} &amp; c_{32} \end{array}\right)]
+可以发现，初等矩阵左乘 <span class="arithmatex">\( \mathbf{A},\mathbf{B} \)</span> (右乘 <span class="arithmatex">\( \mathbf{C} \)</span> ) 的结果是对 <span class="arithmatex">\( \mathbf{A},\mathbf{B} \)</span> 做初等行变换 (对 <span class="arithmatex">\( \mathbf{C} \)</span> 做初等列变换). 这样， 初等变换与初等矩阵就可以建立起对应关系， 对矩阵进行初等变换可以用相应的初等矩阵左乘或右乘来表示。
+因此有定理如下：
+定理 1： 设 <span class="arithmatex">\( \mathbf{A} \)</span> 是一个 <span class="arithmatex">\( m \times n \)</span> 矩阵，对 <span class="arithmatex">\( \mathbf{A} \)</span> 施行一次初等列变换，相当于在 <span class="arithmatex">\( \mathbf{A} \)</span> 的右边乘以相应的 <span class="arithmatex">\( n \)</span> 阶初等矩阵； 对 <span class="arithmatex">\( \mathbf{A} \)</span> 施行一次初等行变换，相当于在 <span class="arithmatex">\( \mathbf{A} \)</span> 的左边乘以相应的 <span class="arithmatex">\( m \)</span> 阶初等矩阵。
+基于此， 我们可以将 2.9.2 初等变换介绍的两个定理进行深化：
+定理 2： 对任意一个 <span class="arithmatex">\( m \times n \)</span> 矩阵 <span class="arithmatex">\( \mathbf{A} \)</span>，总存在行最简形矩阵 <span class="arithmatex">\( \mathbf{U} \)</span> 和 <span class="arithmatex">\( \mathbf{m} \)</span> 阶初等矩阵 <span class="arithmatex">\( \mathbf{P}_1,\mathbf{P}_2,\cdots ,\mathbf{P}_s \)</span>，使得</p>
+<p>[\mathbf{P}_s\cdots \mathbf{P}_2\mathbf{P}_1\mathbf{A} = \mathbf{U}]
+定理 3： 对任意 <span class="arithmatex">\( m \times n \)</span> 矩阵 <span class="arithmatex">\( \mathbf{A} \)</span>，必可找到 <span class="arithmatex">\( m \)</span> 阶初等矩阵 <span class="arithmatex">\( \mathbf{P}_1,\mathbf{P}_2,\cdots ,\mathbf{P}_s \)</span> 及 <span class="arithmatex">\( n \)</span> 阶初等矩阵 <span class="arithmatex">\( \mathbf{Q}_1,\mathbf{Q}_2,\cdots ,\mathbf{Q}_t \)</span>，使得</p>
+<p>[\mathbf{P}<em _times="\times" m n>s\cdots \mathbf{P}_2\mathbf{P}_1\mathbf{A}\mathbf{Q}_1\mathbf{Q}_2\cdots \mathbf{Q}_t = \mathbf{E}</em>,]
+其中 }^{(r)<span class="arithmatex">\( r \)</span> 是一个不超过 <span class="arithmatex">\( \min (m,n) \)</span> 的非负整数。</p>
+<h3>2.9.6 初等矩阵相关结论</h3>
+<p>(1) <span class="arithmatex">\( |E_{ij}| = - 1 \)</span> (2) <span class="arithmatex">\( \left| E_i(k)\right| = k(k \neq 0) \)</span> (3) <span class="arithmatex">\( \left| E_{ij}(k)\right| = 1 \)</span> (1) <span class="arithmatex">\( \mathbf{E}_{ij}^{-1} = \mathbf{E}_{ij} \)</span> (2) <span class="arithmatex">\( \mathbf{E}_i^{-1}(k) = \mathbf{E}_i\left( \frac{1}{k}\right) \)</span> (3) <span class="arithmatex">\( \mathbf{E}_{ij}^{-1}(k) = \mathbf{E}_{ij}(-k) \)</span> (1) <span class="arithmatex">\( \mathbf{E}_{ij}^{\mathrm{T}} = \mathbf{E}_{ij} \)</span> (2) <span class="arithmatex">\( \mathbf{E}_i^{\mathrm{T}}(k) = \mathbf{E}_i(k) \)</span> (3) <span class="arithmatex">\( \mathbf{E}_{ij}^{\mathrm{T}}(k) = \mathbf{E}_{ji}(k) \)</span> .</p>
+<p>【例 3】 <span class="arithmatex">\( \left( \begin{array}{lll} 0 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array}\right)^{100}\left( \begin{array}{lll} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{array}\right) \left( \begin{array}{lll} 1 &amp; - 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array}\right) = \)</span> 人</p>
+<p><strong>解</strong></p>
+<p>左边第一个因子是交换第 1、2 行的初等矩阵 <span class="arithmatex">\(\mathbf{P}\)</span>，<span class="arithmatex">\(\mathbf{P}^{2}=\mathbf{E}\)</span>，所以 <span class="arithmatex">\(\mathbf{P}^{100}=(\mathbf{P}^{2})^{50}=\mathbf{E}\)</span>，它整体不起作用。
+第三个因子右乘于矩阵，实现的是列变换：它的第 2 列是 <span class="arithmatex">\((-1,1,0)^{\mathrm{T}}\)</span>，故把第 2 列换成"第 2 列减第 1 列"，第 1、3 列不变。
+对 <span class="arithmatex">\(\begin{pmatrix}1&amp;2&amp;3\\4&amp;5&amp;6\\7&amp;8&amp;9\end{pmatrix}\)</span> 作此变换，第 2 列 <span class="arithmatex">\((2,5,8)^{\mathrm{T}}\)</span> 减去第 1 列 <span class="arithmatex">\((1,4,7)^{\mathrm{T}}\)</span> 得 <span class="arithmatex">\((1,1,1)^{\mathrm{T}}\)</span>，故 [ \begin{pmatrix}1&amp;1&amp;3\4&amp;1&amp;6\7&amp;1&amp;9\end{pmatrix}. ]
+要点：左乘初等矩阵管行变换，右乘初等矩阵管列变换；偶次幂的换行矩阵退化为单位阵。
+【例 4】设 <span class="arithmatex">\( \mathbf{A} = \left( a_{ij}\right)_{3 \times 3} \)</span>，且 <span class="arithmatex">\( |\mathbf{A}| = 2,\mathbf{B} = \left( \begin{array}{lll} a_{11} &amp; a_{12} &amp; 3a_{11} + a_{13} \\ a_{21} &amp; a_{22} &amp; 3a_{21} + a_{23} \\ a_{31} &amp; a_{32} &amp; 3a_{31} + a_{33} \end{array}\right) \)</span>，求 <span class="arithmatex">\( \mathbf{A}^ * \mathbf{B} \)</span> .</p>
+<p><strong>解</strong></p>
+<p>观察 <span class="arithmatex">\(\mathbf{B}\)</span> 的列：第 1、2 列与 <span class="arithmatex">\(\mathbf{A}\)</span> 相同，第 3 列是 <span class="arithmatex">\(\mathbf{A}\)</span> 第 1 列的 3 倍加第 3 列。故 <span class="arithmatex">\(\mathbf{B}=\mathbf{A}\mathbf{C}\)</span>，其中 [ \mathbf{C}=\begin{pmatrix}1&amp;0&amp;3\0&amp;1&amp;0\0&amp;0&amp;1\end{pmatrix},\qquad |\mathbf{C}|=1. ]
+由 <span class="arithmatex">\(\mathbf{A}^{*}\mathbf{A}=|\mathbf{A}|\mathbf{E}=2\mathbf{E}\)</span> 得 [ \mathbf{A}^{<em>}\mathbf{B}=\mathbf{A}^{</em>}\mathbf{A}\mathbf{C}=2\mathbf{E}\cdot\mathbf{C}=2\mathbf{C}=\begin{pmatrix}2&amp;0&amp;6\0&amp;2&amp;0\0&amp;0&amp;2\end{pmatrix}. ]
+这里不需要先求 <span class="arithmatex">\(\mathbf{A}^{*}\)</span> 的具体元素，只要用 <span class="arithmatex">\(\mathbf{A}^{*}\mathbf{A}=|\mathbf{A}|\mathbf{E}\)</span> 把伴随矩阵"吃掉"，这正是此类题的通用手法。
+核对：<span class="arithmatex">\(|\mathbf{A}^{*}\mathbf{B}|=|\mathbf{A}|^{2}|\mathbf{B}|=4\times 2=8\)</span>，而 <span class="arithmatex">\(|2\mathbf{C}|=2^{3}\cdot 1=8\)</span>，两者一致。
+【例 5】设 <span class="arithmatex">\( \mathbf{A} \)</span> 是 3 阶矩阵，将 <span class="arithmatex">\( \mathbf{A} \)</span> 的第 1、2 行互换得矩阵 <span class="arithmatex">\( \mathbf{B} \)</span>，再将 <span class="arithmatex">\( \mathbf{B} \)</span> 的第 2、3 列互换得单位矩阵，记 <span class="arithmatex">\( \mathbf{P}_1 = \left( \begin{array}{lll} 0 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array}\right) ,\mathbf{P}_2 = \left( \begin{array}{lll} 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 0 \end{array}\right) \)</span>，则 <span class="arithmatex">\( \mathbf{A}^ * = (\;) \)</span> (A) <span class="arithmatex">\( \mathbf{P}_1\mathbf{P}_2 \)</span> (B) <span class="arithmatex">\( \mathbf{P}_2\mathbf{P}_1 \)</span> (C) <span class="arithmatex">\( - \mathbf{P}_1^{-1}\mathbf{P}_2 \)</span> (D) <span class="arithmatex">\( - \mathbf{P}_1\mathbf{P}_2^{-1} \)</span> .</p>
+<p><strong>解</strong></p>
+<p>答案：B
+按题意，第一次操作是交换 <span class="arithmatex">\(\mathbf{A}\)</span> 的第 1、2 行，即 <span class="arithmatex">\(\mathbf{B}=\mathbf{P}_{1}\mathbf{A}\)</span>；第二次是交换 <span class="arithmatex">\(\mathbf{B}\)</span> 的第 2、3 列得到 <span class="arithmatex">\(\mathbf{E}\)</span>，即 <span class="arithmatex">\(\mathbf{B}\mathbf{P}_{2}=\mathbf{E}\)</span>。
+两个矩阵都是交换两行(列)的初等矩阵，满足 <span class="arithmatex">\(\mathbf{P}_{1}^{2}=\mathbf{P}_{2}^{2}=\mathbf{E}\)</span>，故 <span class="arithmatex">\(\mathbf{P}_{1}^{-1}=\mathbf{P}_{1},\ \mathbf{P}_{2}^{-1}=\mathbf{P}_{2}\)</span>。
+由 <span class="arithmatex">\(\mathbf{P}_{1}\mathbf{A}\mathbf{P}_{2}=\mathbf{E}\)</span> 得 <span class="arithmatex">\(\mathbf{A}=\mathbf{P}_{1}^{-1}\mathbf{P}_{2}^{-1}=\mathbf{P}_{1}\mathbf{P}_{2}\)</span>。
+再算行列式：<span class="arithmatex">\(|\mathbf{A}|=|\mathbf{P}_{1}||\mathbf{P}_{2}|=(-1)(-1)=1\)</span>，所以 <span class="arithmatex">\(\mathbf{A}^{*}=|\mathbf{A}|\mathbf{A}^{-1}=\mathbf{A}^{-1}\)</span>。
+而 <span class="arithmatex">\(\mathbf{A}^{-1}=(\mathbf{P}_{1}\mathbf{P}_{2})^{-1}=\mathbf{P}_{2}^{-1}\mathbf{P}_{1}^{-1}=\mathbf{P}_{2}\mathbf{P}_{1}\)</span>，故 <span class="arithmatex">\(\mathbf{A}^{*}=\mathbf{P}_{2}\mathbf{P}_{1}\)</span>，选 B。
+关键一步是注意求逆要颠倒次序，若把 <span class="arithmatex">\(\mathbf{P}_{1}\mathbf{P}_{2}\)</span> 的次序写反就会误选 A。</p>
+<h3>2.9.7 利用初等变换法求逆矩阵</h3>
+<p>除了利用伴随矩阵求逆矩阵，还可从初等变换的角度来求逆矩阵。
+前面已经介绍过，对任何矩阵 <span class="arithmatex">\( \mathbf{A} \)</span>，都可经若干次初等行变换将其化为行最简形矩阵，即存在初等矩阵 <span class="arithmatex">\( \mathbf{P}_1,\mathbf{P}_2,\cdots ,\mathbf{P}_s \)</span>，使得 <span class="arithmatex">\( \mathbf{P}_s\cdots \mathbf{P}_2\mathbf{P}_1\mathbf{A} = \mathbf{U} \)</span> .
+若矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 可逆，则此结论可进一步加强为： 可逆矩阵可以经过若干次初等行变换化为单位矩阵。
+进而得到如下推论： 可逆矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 可以表示为若干个初等矩阵的乘积。
+推论证明如下：
+存在初等矩阵 <span class="arithmatex">\( \mathbf{P}_1,\mathbf{P}_2,\cdots ,\mathbf{P}_s \)</span> 使得 <span class="arithmatex">\( \mathbf{P}_s\cdots \mathbf{P}_2\mathbf{P}_1\mathbf{A} = \mathbf{E} \)</span>
+所以</p>
+<p>[\begin{aligned}
+\mathbf{A} &amp;= \left( \mathbf{P}_s\cdots \mathbf{P}_2\mathbf{P}_1\right)^{-1} \
+&amp;= \mathbf{P}_1^{-1}\mathbf{P}_2^{-1}\cdots \mathbf{P}_s^{-1},
+\end{aligned}]
+其中 <span class="arithmatex">\( \mathbf{P}_1^{-1},\mathbf{P}_2^{-1},\cdots ,\mathbf{P}_s^{-1} \)</span> 仍是初等矩阵，推论得证。
+基于此，可用初等变换求逆矩阵。根据 <span class="arithmatex">\( \mathbf{A}^{-1} = \mathbf{P}_s\cdots \mathbf{P}_2\mathbf{P}_1 \)</span>，于是</p>
+<p>[\mathbf{A}^{-1}(\mathbf{A},\mathbf{E}) = (\mathbf{E},\mathbf{A}^{-1}) \Rightarrow \mathbf{P}_s\cdots \mathbf{P}_2\mathbf{P}_1(\mathbf{A},\mathbf{E}) = (\mathbf{E},\mathbf{A}^{-1})]
+这个过程相当于</p>
+<p>[(A,E) \xrightarrow[]{\text{ 初等行变换 }}(E,A^{-1})]
+类似有</p>
+<p>[\left( \begin{array}{l} \mathbf{A} \ \mathbf{E} \end{array}\right) \xrightarrow[]{\text{ 初等列变换 }}\left( \begin{matrix} \mathbf{E} \ \mathbf{A}^{-1} \end{matrix}\right)]
+这两种用初等变换求逆矩阵的方法， 便是我们求逆矩阵的常用方法。 但是必须注意， 当用初等行 (列) 变换求逆矩阵时，必须始终施以行(列)变换，不能交叉混用。</p>
+<p>【例 6】设 <span class="arithmatex">\( \mathbf{A} = \left( \begin{array}{rrr} 0 &amp; 1 &amp; 3 \\ 1 &amp; - 1 &amp; 0 \\ - 1 &amp; 2 &amp; 1 \end{array}\right) \)</span>，求 <span class="arithmatex">\( \mathbf{A}^{-1} \)</span> .</p>
+<p><strong>解</strong></p>
+<p>对 <span class="arithmatex">\((\mathbf{A}\mid\mathbf{E})\)</span> 作初等行变换。先交换第 1、2 行使左上角为 1：[ \left(\begin{array}{ccc|ccc}1&amp;-1&amp;0&amp;0&amp;1&amp;0\0&amp;1&amp;3&amp;1&amp;0&amp;0\-1&amp;2&amp;1&amp;0&amp;0&amp;1\end{array}\right). ]
+第 3 行加第 1 行，再减第 2 行：[ \left(\begin{array}{ccc|ccc}1&amp;-1&amp;0&amp;0&amp;1&amp;0\0&amp;1&amp;3&amp;1&amp;0&amp;0\0&amp;0&amp;-2&amp;-1&amp;1&amp;1\end{array}\right). ]
+第 3 行乘 <span class="arithmatex">\(-\frac{1}{2}\)</span>：<span class="arithmatex">\((0,0,1\mid \frac{1}{2},-\frac{1}{2},-\frac{1}{2})\)</span>。第 1 行加第 2 行得 <span class="arithmatex">\((1,0,3\mid 1,1,0)\)</span>，再减第 3 行的 3 倍；第 2 行减第 3 行的 3 倍：[ \left(\begin{array}{ccc|ccc}1&amp;0&amp;0&amp;-\frac{1}{2}&amp;\frac{5}{2}&amp;\frac{3}{2}\0&amp;1&amp;0&amp;-\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{3}{2}\0&amp;0&amp;1&amp;\frac{1}{2}&amp;-\frac{1}{2}&amp;-\frac{1}{2}\end{array}\right). ]
+故 [ \mathbf{A}^{-1}=\begin{pmatrix}-\frac{1}{2}&amp;\frac{5}{2}&amp;\frac{3}{2}\-\frac{1}{2}&amp;\frac{3}{2}&amp;\frac{3}{2}\\frac{1}{2}&amp;-\frac{1}{2}&amp;-\frac{1}{2}\end{pmatrix}=\frac{1}{2}\begin{pmatrix}-1&amp;5&amp;3\-1&amp;3&amp;3\1&amp;-1&amp;-1\end{pmatrix}. ]
+验算 <span class="arithmatex">\(|\mathbf{A}|=2\)</span>，与 <span class="arithmatex">\(\mathbf{A}^{-1}\)</span> 的行列式 <span class="arithmatex">\(-\frac{1}{2}\)</span> 互为倒数，一致。</p>
+<h3>2.10.1 子式、秩的概念</h3>
+<p>下面引入一个重要的概念一矩阵的秩。 在此之前， 先引入另一个概念一子式。
+定义： 在矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 中任取 <span class="arithmatex">\( k \)</span> 行 <span class="arithmatex">\( k \)</span> 列，由位于这些行列相交处的所有元素 (保持原序) 所构成的 <span class="arithmatex">\( k \)</span> 阶行列式叫作矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 的 <span class="arithmatex">\( k \)</span> 阶子式。
+示例： <span class="arithmatex">\( \mathbf{A} = \left\lbrack \begin{matrix} 1 &amp; 2 &amp; 3 &amp; 4 \\ - 1 &amp; 0 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; - 1 &amp; 0 \end{matrix}\right\rbrack \)</span>，矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 的第 1、3 行与第 2、4 列相交处的元素就构成一个二阶子式 <span class="arithmatex">\( \left| \begin{array}{ll} 2 &amp; 4 \\ 1 &amp; 0 \end{array}\right| \)</span> . <span class="arithmatex">\( \left| \begin{matrix} 1 &amp; 2 &amp; 3 \\ - 1 &amp; 0 &amp; 2 \\ 0 &amp; 1 &amp; - 1 \end{matrix}\right| \)</span> 为矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 的一个 3 阶子式。
+定义： 设 <span class="arithmatex">\( \mathbf{A} \)</span> 为 <span class="arithmatex">\( m \times n \)</span> 矩阵。 如果 <span class="arithmatex">\( \mathbf{A} \)</span> 的所有不为零的子式的最高阶数为 <span class="arithmatex">\( \mathbf{r} \)</span>，则称 <span class="arithmatex">\( \mathbf{r} \)</span> 为矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 的秩 (rank)，记作 <span class="arithmatex">\( r(\mathbf{A}) = \mathbf{r} \)</span> .
+规定零矩阵的秩是 0，进而有 <span class="arithmatex">\( \mathbf{A} = \mathbf{O} \Leftrightarrow r(\mathbf{A}) = 0 \)</span> .
+注： <span class="arithmatex">\( r(\mathbf{A}) = r \)</span> 说明存在 <span class="arithmatex">\( r \)</span> 阶子式不为零，而任何 <span class="arithmatex">\( r + 1 \)</span> 阶子式(若有)皆为零(更高阶的子式亦为零).
+从定义不难得到结论如下：
+( 1 ) <span class="arithmatex">\( 0 \leq r(\mathbf{A}) \leq \min \{ m,n\} \)</span> (2) <span class="arithmatex">\( r(\mathbf{A}) &lt; k \Leftrightarrow \)</span> 矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 的任意一个 <span class="arithmatex">\( k \)</span> 阶子式均为 0 (3) <span class="arithmatex">\( r(\mathbf{A}) \geq s \Leftrightarrow \)</span> 矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 存在一个 <span class="arithmatex">\( s \)</span> 阶子式不为 0.
+(4)当 <span class="arithmatex">\( \mathbf{A} \)</span> 为 <span class="arithmatex">\( n \)</span> 阶方阵时， <span class="arithmatex">\( |\mathbf{A}| \neq 0 \)</span> 的充要条件为 <span class="arithmatex">\( r(\mathbf{A}) = n \)</span> . 如果 <span class="arithmatex">\( r(\mathbf{A}) = n \)</span>，称 <span class="arithmatex">\( \mathbf{A} \)</span> 为满秩矩阵。
+(5)对于行阶梯矩阵，其秩等于它的非零行数。
+注：经过初等行变换，将原矩阵变为阶梯形矩阵，假设变换后的阶梯形矩阵有 <span class="arithmatex">\( s \)</span> 行非零，剩下的 <span class="arithmatex">\( n - s \)</span> 行全零。那么肯定能找到一个 <span class="arithmatex">\( s \)</span> 阶子式不为零，而显然所有 <span class="arithmatex">\( s + 1 \)</span> 阶子式全为零。因此阶梯形矩阵秩为 <span class="arithmatex">\( s \)</span> .
+由此可见，对于行阶梯矩阵，其秩就等于它的非零行数。既然如此，能否利用行阶梯阵来求一般矩阵的秩呢？ 毕竟直接利用秩的定义求一般矩阵的秩是极不方便的， 有没有什么简便方法？ 由于用初等变换可以把矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 化为行阶梯矩阵，而行阶梯矩阵的非零行数便是它的秩，所以自然地问能否用初等变换化行阶梯矩阵的方式来求出矩阵的秩。
+而初等变换不改变矩阵的秩！ (该定理的证明过程不要求掌握)， 故大功告成！</p>
+<h3>2.10.2 矩阵的秩相关结论</h3>
+<p>最后， 给出一些常用的矩阵的秩相关结论如下。
+(6)初等变换不改变矩阵的秩。
+(7)设 <span class="arithmatex">\( \mathbf{A} \)</span> 为 <span class="arithmatex">\( m \times n \)</span> 矩阵，若 <span class="arithmatex">\( \mathbf{P},\mathbf{Q} \)</span> 分别为 <span class="arithmatex">\( m,n \)</span> 阶可逆矩阵，则 <span class="arithmatex">\( r(\mathbf{A}) = r(\mathbf{P}\mathbf{A}) = r(\mathbf{A}\mathbf{Q}) = r(\mathbf{P}\mathbf{A}\mathbf{Q}) \)</span> (8)矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 与矩阵 <span class="arithmatex">\( \mathbf{B} \)</span> 等价 <span class="arithmatex">\( \Leftrightarrow r(\mathbf{A}) = r(\mathbf{B}) \)</span> (9)设 <span class="arithmatex">\( \mathbf{A} \)</span> 为 <span class="arithmatex">\( m \times n \)</span> 矩阵，则 <span class="arithmatex">\( \mathbf{A} \)</span> 行满秩 <span class="arithmatex">\( \Leftrightarrow r(\mathbf{A}) = m \Leftrightarrow \mathbf{A} \)</span> 的等价标准型为 <span class="arithmatex">\( (\mathbf{E}_m\mathbf{O}) \)</span> (10)设 <span class="arithmatex">\( \mathbf{A} \)</span> 为 <span class="arithmatex">\( m \times n \)</span> 矩阵，则 <span class="arithmatex">\( \mathbf{A} \)</span> 列满秩 <span class="arithmatex">\( \Leftrightarrow r(\mathbf{A}) = n \Leftrightarrow \mathbf{A} \)</span> 的等价标准型为 <span class="arithmatex">\( \left( \begin{matrix} \mathbf{E}_n \\ \mathbf{O} \end{matrix}\right) \)</span> (11) <span class="arithmatex">\( r(k\mathbf{A}) = r(\mathbf{A}) ,\;k \neq 0 \)</span> (12) <span class="arithmatex">\( r(\mathbf{A}) = r\left( \mathbf{A}^{\mathrm{T}}\right) = r\left( \mathbf{A}^{\mathrm{T}}\mathbf{A}\right) = r\left( \mathbf{A}\mathbf{A}^{\mathrm{T}}\right) \)</span> (13)设 <span class="arithmatex">\( \mathbf{A} \)</span> 为 <span class="arithmatex">\( m \times n \)</span> 矩阵， <span class="arithmatex">\( \mathbf{B} \)</span> 为 <span class="arithmatex">\( n \times s \)</span> 矩阵，则 <span class="arithmatex">\( r(\mathbf{A}\mathbf{B}) \leq \min \{ r(\mathbf{A}) ,r(\mathbf{B}) \} \)</span> (14)若 <span class="arithmatex">\( \mathbf{A} \)</span> 是 <span class="arithmatex">\( m \times n \)</span> 矩阵， <span class="arithmatex">\( \mathbf{B} \)</span> 是 <span class="arithmatex">\( n \times s \)</span> 矩阵， <span class="arithmatex">\( \mathbf{AB} = \mathbf{O} \)</span>，则 <span class="arithmatex">\( r(\mathbf{A}) + r(\mathbf{B}) \leq n \)</span> (15) <span class="arithmatex">\( r\left( \mathbf{A}^ *\right) = \left\{ \begin{array}{ll} n, &amp; \text{ 若 }r(\mathbf{A}) = n \\ 1, &amp; \text{ 若 }r(\mathbf{A}) = n - 1. \\ 0, &amp; \text{ 若 }r(\mathbf{A}) &lt; n - 1 \end{array}\right. \)</span>
+(16)设 <span class="arithmatex">\( \mathbf{A} \)</span> 为 <span class="arithmatex">\( m \times n \)</span> 矩阵， <span class="arithmatex">\( \mathbf{B} \)</span> 为 <span class="arithmatex">\( m \times s \)</span> 矩阵，则 <span class="arithmatex">\( \max \{ r(\mathbf{A}) ,r(\mathbf{B}) \} \leq r(\mathbf{A},\mathbf{B}) \leq r(\mathbf{A}) + r(\mathbf{B}) \)</span>
+(17)设 <span class="arithmatex">\( \mathbf{A},\mathbf{B} \)</span> 均为 <span class="arithmatex">\( m \times n \)</span> 矩阵，则 <span class="arithmatex">\( r(\mathbf{A} \pm \mathbf{B}) \leq r(\mathbf{A},\mathbf{B}) \leq r(\mathbf{A}) + r(\mathbf{B}) \)</span> (18) <span class="arithmatex">\( r\left\lbrack \begin{array}{ll} A &amp; O \\ O &amp; B \end{array}\right\rbrack = r\left\lbrack \begin{array}{ll} O &amp; A \\ B &amp; O \end{array}\right\rbrack = r(A) + r(B) \)</span> (19) <span class="arithmatex">\( r\left\lbrack \begin{array}{ll} A &amp; C \\ O &amp; B \end{array}\right\rbrack = r\left\lbrack \begin{array}{ll} A &amp; O \\ C &amp; B \end{array}\right\rbrack \geq r(A) + r(B) \)</span> .</p>
+<p>【例 1】设矩阵 <span class="arithmatex">\( A = \left( \begin{array}{llll} a &amp; 1 &amp; 1 &amp; 1 \\ 1 &amp; a &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; a &amp; 1 \\ 1 &amp; 1 &amp; 1 &amp; a \end{array}\right) \)</span>，且 <span class="arithmatex">\( r(A) = 3 \)</span>，则 <span class="arithmatex">\( a = \)</span></p>
+<p><strong>解</strong></p>
+<p>把 <span class="arithmatex">\(\mathbf{A}\)</span> 写成 <span class="arithmatex">\(\mathbf{A}=(a-1)\mathbf{E}+\mathbf{J}\)</span>，其中 <span class="arithmatex">\(\mathbf{J}\)</span> 为全 1 矩阵。<span class="arithmatex">\(\mathbf{J}\)</span> 的特征值为 <span class="arithmatex">\(4\)</span>(对应特征向量 <span class="arithmatex">\((1,1,1,1)^{\mathrm{T}}\)</span>)与 <span class="arithmatex">\(0\)</span>(三重)，故 <span class="arithmatex">\(\mathbf{A}\)</span> 的特征值为 [\begin{aligned}
+\lambda_{1} &amp;= a+3, \
+\lambda_{2} &amp;= \lambda_{3} \
+&amp;= \lambda_{4} \
+&amp;= a-1.
+\end{aligned}]
+于是 <span class="arithmatex">\(|\mathbf{A}|=(a+3)(a-1)^{3}\)</span>，且 <span class="arithmatex">\(r(\mathbf{A})=3\)</span> 要求特征值中恰有一个为零、其余三个非零。
+若 <span class="arithmatex">\(a=1\)</span>，则 <span class="arithmatex">\(\lambda_{2}=\lambda_{3}=\lambda_{4}=0\)</span>，<span class="arithmatex">\(\mathbf{A}=\mathbf{J}\)</span>，<span class="arithmatex">\(r(\mathbf{A})=1\)</span>，不合题意。
+若 <span class="arithmatex">\(a=-3\)</span>，则 <span class="arithmatex">\(\lambda_{1}=0\)</span>，其余三个特征值为 <span class="arithmatex">\(-4\neq 0\)</span>。此时 <span class="arithmatex">\(\mathbf{A}=-3\mathbf{E}+\mathbf{J}\)</span> 是实对称矩阵，可对角化，秩等于非零特征值的个数，故 <span class="arithmatex">\(r(\mathbf{A})=3\)</span>，符合题意。
+说明：先定特征值再数零的个数，比硬解四阶行列式方程快，也能顺手排除 <span class="arithmatex">\(a=1\)</span> 这个“行列式为零但秩只有 1”的假解。
+【例 2】设矩阵 <span class="arithmatex">\( A = \left( \begin{matrix} 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ a_1 &amp; a_2 &amp; a_3 &amp; a_4 &amp; a_5 \\ a_1^2 &amp; a_2^2 &amp; a_3^2 &amp; a_4^2 &amp; a_5^2 \\ a_1^3 &amp; a_2^3 &amp; a_3^3 &amp; a_4^3 &amp; a_5^3 \\ \left( a_1 + 1\right)^3 &amp; \left( a_2 + 1\right)^3 &amp; \left( a_3 + 1\right)^3 &amp; \left( a_4 + 1\right)^3 &amp; \left( a_5 + 1\right)^3 \end{matrix}\right) \)</span>，其中 <span class="arithmatex">\( a_i \neq a_j(i \neq j) \)</span>，则 <span class="arithmatex">\( r(A) = \)</span></p>
+<p><strong>解</strong></p>
+<p>答案：4。</p>
+<p>记 <span class="arithmatex">\(A\)</span> 的第 <span class="arithmatex">\(i\)</span> 行为 <span class="arithmatex">\(r_i\)</span>，则第 5 行元素为</p>
+<div class="arithmatex">\[
+(a_i+1)^3=a_i^3+3a_i^2+3a_i+1,
+\]</div>
+<p>即第 5 行恰是前四行的线性组合：<span class="arithmatex">\(r_5=r_1+3r_2+3r_3+r_4\)</span>，故 <span class="arithmatex">\(r(A)\le 4\)</span>。
+另一方面，取前四行、前四列构成的 4 阶子式，它是关于 <span class="arithmatex">\(a_1,a_2,a_3,a_4\)</span> 的范德蒙德行列式</p>
+<div class="arithmatex">\[
+\begin{vmatrix}1&amp;1&amp;1&amp;1\\ a_1&amp;a_2&amp;a_3&amp;a_4\\ a_1^2&amp;a_2^2&amp;a_3^2&amp;a_4^2\\ a_1^3&amp;a_2^3&amp;a_3^3&amp;a_4^3\end{vmatrix}=\prod_{1\le i&lt;j\le 4}(a_j-a_i)\ne 0,
+\]</div>
+<p>于是 <span class="arithmatex">\(r(A)\ge 4\)</span>。两个方向合起来得 <span class="arithmatex">\(r(A)=4\)</span>。</p>
+<p>关键点：<span class="arithmatex">\(a_i\)</span> 两两不等保证范德蒙德行列式非零，而 <span class="arithmatex">\((a_i+1)^3\)</span> 的展开只用了 <span class="arithmatex">\(1,a,a^2,a^3\)</span> 这四个幂次，因此第 5 行必然可被前四行表出。
+【例 3】设矩阵 <span class="arithmatex">\( \left( \begin{matrix} 1 &amp; 2 &amp; - 1 &amp; 1 \\ 2 &amp; 0 &amp; a &amp; 0 \\ 0 &amp; - 4 &amp; 5 &amp; - 2 \end{matrix}\right) \)</span> 的秩为 2，则 <span class="arithmatex">\( a = \)</span></p>
+<p><strong>解</strong></p>
+<p>答案：<span class="arithmatex">\(a=3\)</span>。</p>
+<p>设三行依次为 <span class="arithmatex">\(r_1,r_2,r_3\)</span>。先做初等行变换 <span class="arithmatex">\(r_2-2r_1\)</span>，得</p>
+<div class="arithmatex">\[
+\begin{pmatrix}1&amp;2&amp;-1&amp;1\\ 0&amp;-4&amp;a+2&amp;-2\\ 0&amp;-4&amp;5&amp;-2\end{pmatrix}.
+\]</div>
+<p>再令 <span class="arithmatex">\(r_3-r_2\)</span>(变换后的第二行)，得</p>
+<div class="arithmatex">\[
+\begin{pmatrix}1&amp;2&amp;-1&amp;1\\ 0&amp;-4&amp;a+2&amp;-2\\ 0&amp;0&amp;3-a&amp;0\end{pmatrix}.
+\]</div>
+<p>矩阵秩为 2，而前两行显然不成比例(第一行首元为 1，第二行首元为 0 且 <span class="arithmatex">\((2,-4)\)</span> 部分非零)，故 <span class="arithmatex">\(r(A)=2\)</span> 当且仅当第三行全为零，即 <span class="arithmatex">\(3-a=0\)</span>，所以 <span class="arithmatex">\(a=3\)</span>。</p>
+<p>回代检验：<span class="arithmatex">\(a=3\)</span> 时 <span class="arithmatex">\(r_3=(0,-4,5,-2)\)</span> 与 <span class="arithmatex">\(r_2-2r_1=(0,-4,5,-2)\)</span> 完全相同，三行中只有两个独立行，秩确为 2；若 <span class="arithmatex">\(a\ne 3\)</span> 则出现三个非零行，秩为 3。
+【例 4】设矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 是 <span class="arithmatex">\( m \times n \)</span> 矩阵， <span class="arithmatex">\( r(\mathbf{A}) = r &lt; m &lt; n \)</span>，则下列说法中正确的个数有().
+① <span class="arithmatex">\( \mathbf{A} \)</span> 的任一 <span class="arithmatex">\( r - 1 \)</span> 阶子式均不为 0 ② <span class="arithmatex">\( |\mathbf{A}| = 0 \)</span>
+③ <span class="arithmatex">\( \mathbf{A} \)</span> 的任一 <span class="arithmatex">\( r \)</span> 阶子式均不为 0
+④ <span class="arithmatex">\( \mathbf{A} \)</span> 经初等行变换可以化为 <span class="arithmatex">\( \left( \begin{matrix} \mathbf{E}_r &amp; \mathbf{O} \\ \mathbf{O} &amp; \mathbf{O} \end{matrix}\right) \)</span>
+(A) 0 个 (B) 1 个 (C) 2 个 (D) 3 个</p>
+<p><strong>解</strong></p>
+<p>答案：(A)0 个。</p>
+<p>① 错。<span class="arithmatex">\(r(A)=r\)</span> 只保证「存在」一个 <span class="arithmatex">\(r\)</span> 阶非零子式，并不保证所有 <span class="arithmatex">\(r-1\)</span> 阶子式都非零；例如取 <span class="arithmatex">\(A\)</span> 中某两列成比例，就含有等于 0 的 <span class="arithmatex">\(r-1\)</span> 阶子式。
+② 错。<span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(m\times n\)</span> 矩阵且 <span class="arithmatex">\(m\ne n\)</span>，行列式 <span class="arithmatex">\(|A|\)</span> 本身没有定义，不能写成 <span class="arithmatex">\(|A|=0\)</span>(只能说 <span class="arithmatex">\(A\)</span> 的任一 <span class="arithmatex">\(m\)</span> 阶子式为 0)。
+③ 错。与①同类错误：秩为 <span class="arithmatex">\(r\)</span> 的含义是「最高阶非零子式的阶数为 <span class="arithmatex">\(r\)</span>」，即至少有一个 <span class="arithmatex">\(r\)</span> 阶子式非零、所有 <span class="arithmatex">\(r+1\)</span> 阶子式为零，而不是任一 <span class="arithmatex">\(r\)</span> 阶子式都非零。
+④ 错。仅用初等行变换只能把 <span class="arithmatex">\(A\)</span> 化为行阶梯形</p>
+<div class="arithmatex">\[
+\begin{pmatrix}E_r&amp;C\\ O&amp;O\end{pmatrix},
+\]</div>
+<p>其中 <span class="arithmatex">\(C\)</span> 是 <span class="arithmatex">\(r\times(n-r)\)</span> 的一般矩阵；要把 <span class="arithmatex">\(C\)</span> 也消成 <span class="arithmatex">\(O\)</span>，必须再用初等列变换。所以「经初等行变换」达不到题述形状。</p>
+<p>四条全错，正确个数为 0。
+【例 5】设 <span class="arithmatex">\( \mathbf{A} \)</span> 是 <span class="arithmatex">\( 4 \times 3 \)</span> 矩阵， <span class="arithmatex">\( \mathbf{r}(\mathbf{A}) = 2,\mathbf{B} = \left( \begin{array}{lll} 1 &amp; 0 &amp; 4 \\ 0 &amp; 2 &amp; 0 \\ 2 &amp; 0 &amp; 3 \end{array}\right) \)</span>，求 <span class="arithmatex">\( \mathbf{r}(\mathbf{AB}) \)</span> .</p>
+<p><strong>解</strong></p>
+<p>先看 <span class="arithmatex">\(B\)</span> 是否可逆。按第一行展开：</p>
+<p>[</p>
+<p>|B|=1\cdot\begin{vmatrix}2&amp;0\ 0&amp;3\end{vmatrix}-0+4\cdot\begin{vmatrix}0&amp;2\ 2&amp;0\end{vmatrix}=1\cdot 6+4\cdot(-4)=6-16=-10\ne 0,</p>
+<p>]</p>
+<p>故 <span class="arithmatex">\(B\)</span> 是 3 阶可逆矩阵，<span class="arithmatex">\(r(B)=3\)</span>。</p>
+<p>用秩的不等式 <span class="arithmatex">\(r(AB)\le \min\{r(A),r(B)\}=2\)</span> 得 <span class="arithmatex">\(r(AB)\le 2\)</span>。</p>
+<p>再由 <span class="arithmatex">\(A=AB\cdot B^{-1}\)</span> 得 <span class="arithmatex">\(r(A)\le r(AB)\)</span>，即 <span class="arithmatex">\(r(AB)\ge r(A)=2\)</span>。</p>
+<p>两端夹住，<span class="arithmatex">\(r(AB)=2\)</span>。</p>
+<p>一般结论：右乘可逆矩阵不改变秩，即 <span class="arithmatex">\(r(AB)=r(A)\)</span>；同理左乘可逆矩阵也不改变秩。本题 <span class="arithmatex">\(B\)</span> 可逆，故 <span class="arithmatex">\(r(AB)=r(A)=2\)</span>。
+【例 6】已知 <span class="arithmatex">\( \mathbf{Q} = \left( \begin{array}{lll} 1 &amp; 2 &amp; 3 \\ 2 &amp; 4 &amp; k \\ 3 &amp; 6 &amp; 9 \end{array}\right) ,\mathbf{P} \)</span> 为 3 阶非零矩阵，且 <span class="arithmatex">\( \mathbf{P}\mathbf{Q} = \mathbf{O} \)</span>，则必有 <span class="arithmatex">\( (\;) \)</span> (A) 当 <span class="arithmatex">\( k = 6 \)</span> 时， <span class="arithmatex">\( r(\mathbf{P}) = 1 \)</span> (B) 当 <span class="arithmatex">\( k = 6,r(\mathbf{P}) = 2 \)</span>
+(C) 当 <span class="arithmatex">\( k \neq 6 \)</span> 时， <span class="arithmatex">\( r(\mathbf{P}) = 1 \)</span> (D) 当 <span class="arithmatex">\( k \neq 6,r(\mathbf{P}) = 2 \)</span></p>
+<p><strong>解</strong></p>
+<p>答案：(C)。</p>
+<p>先定 <span class="arithmatex">\(r(Q)\)</span>。第一行 <span class="arithmatex">\((1,2,3)\)</span>，第三行 <span class="arithmatex">\((3,6,9)=3(1,2,3)\)</span>，第二行 <span class="arithmatex">\((2,4,k)=2(1,2,3)\)</span> 当且仅当 <span class="arithmatex">\(k=6\)</span>。故</p>
+<div class="arithmatex">\[
+k=6\ \Rightarrow\ r(Q)=1,\qquad k\ne 6\ \Rightarrow\ r(Q)=2.
+\]</div>
+<p>由 <span class="arithmatex">\(PQ=O\)</span> 及 Sylvester 不等式 <span class="arithmatex">\(r(P)+r(Q)-3\le r(PQ)=0\)</span>，得</p>
+<div class="arithmatex">\[
+r(P)\le 3-r(Q).
+\]</div>
+<p>又 <span class="arithmatex">\(P\ne O\)</span> 故 <span class="arithmatex">\(r(P)\ge 1\)</span>。</p>
+<p>若 <span class="arithmatex">\(k=6\)</span>，则 <span class="arithmatex">\(r(Q)=1\)</span>，<span class="arithmatex">\(1\le r(P)\le 2\)</span>，<span class="arithmatex">\(r(P)\)</span> 可以是 1 也可以是 2，所以 (A)(B) 都只是「可能」而非「必有」。</p>
+<p>若 <span class="arithmatex">\(k\ne 6\)</span>，则 <span class="arithmatex">\(r(Q)=2\)</span>，<span class="arithmatex">\(1\le r(P)\le 1\)</span>，只能 <span class="arithmatex">\(r(P)=1\)</span>，(C) 成立；(D) 与 (C) 矛盾，故排除。选 (C)。
+【例 7】设矩阵 <span class="arithmatex">\( \mathbf{A} = \left( \begin{array}{lll} a &amp; b &amp; b \\ b &amp; a &amp; b \\ b &amp; b &amp; a \end{array}\right) \left( a,b\text{ 均不为 0 }\right) \)</span>，且 <span class="arithmatex">\( r\left( \mathbf{A}^ *\right) = 1 \)</span>，则必有()
+(A) <span class="arithmatex">\( a = b \)</span> (B) <span class="arithmatex">\( a = b \)</span> 或 <span class="arithmatex">\( a + 2b \neq 0 \)</span>
+(C) <span class="arithmatex">\( a + 2b = 0 \)</span> (D) <span class="arithmatex">\( a \neq b \)</span> 且 <span class="arithmatex">\( a + 2b \neq 0 \)</span></p>
+<p><strong>解</strong></p>
+<p>答案：(C)。</p>
+<p>先算行列式。把第二、三行都减去第一行，再提取公因子化简，可得</p>
+<p>[</p>
+<p>|A|=\begin{vmatrix}a&amp;b&amp;b\ b&amp;a&amp;b\ b&amp;b&amp;a\end{vmatrix}=(a+2b)(a-b)^2.</p>
+<p>]</p>
+<p>对 3 阶矩阵，伴随矩阵的秩只有三种可能：<span class="arithmatex">\(r(A)=3\Rightarrow r(A^*)=3\)</span>，<span class="arithmatex">\(r(A)=2\Rightarrow r(A^*)=1\)</span>，<span class="arithmatex">\(r(A)\le 1\Rightarrow r(A^*)=0\)</span>。题设 <span class="arithmatex">\(r(A^*)=1\)</span>，故必须 <span class="arithmatex">\(r(A)=2\)</span>，即 <span class="arithmatex">\(|A|=0\)</span> 但存在非零的 2 阶子式。</p>
+<p>由 <span class="arithmatex">\((a+2b)(a-b)^2=0\)</span> 得两种情形。若 <span class="arithmatex">\(a=b\)</span>，因 <span class="arithmatex">\(b\ne 0\)</span>，<span class="arithmatex">\(A=b\begin{pmatrix}1&amp;1&amp;1\\1&amp;1&amp;1\\1&amp;1&amp;1\end{pmatrix}\)</span>，<span class="arithmatex">\(r(A)=1\)</span>，此时 <span class="arithmatex">\(r(A^*)=0\)</span>，不合题意。</p>
+<p>故只能 <span class="arithmatex">\(a+2b=0\)</span>(此时 <span class="arithmatex">\(a=-2b\ne b\)</span>)。验证：此时 <span class="arithmatex">\(|A|=0\)</span>，而左上角 2 阶子式 <span class="arithmatex">\(a^2-b^2=4b^2-b^2=3b^2\ne 0\)</span>，故 <span class="arithmatex">\(r(A)=2\)</span>，从而 <span class="arithmatex">\(r(A^*)=1\)</span>，符合。</p>
+<p>所以必有 <span class="arithmatex">\(a+2b=0\)</span>，选 (C)。
+【例 8】设矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 是 <span class="arithmatex">\( m \times n \)</span> 矩阵， <span class="arithmatex">\( \mathbf{B} \)</span> 是 <span class="arithmatex">\( n \times m \)</span> 矩阵，则下列说法中正确的是().
+(A) 当 <span class="arithmatex">\( m &gt; n \)</span> 时，必有 <span class="arithmatex">\( |AB| = 0 \)</span> (B) 当 <span class="arithmatex">\( m &gt; n \)</span> 时，必有 <span class="arithmatex">\( |AB| \neq 0 \)</span>
+(C) 当 <span class="arithmatex">\( m &lt; n \)</span> 时，必有 <span class="arithmatex">\( |AB| = 0 \)</span> (D) 当 <span class="arithmatex">\( m &lt; n \)</span> 时，必有 <span class="arithmatex">\( |AB| \neq 0 \)</span></p>
+<p><strong>解</strong></p>
+<p>答案：(A)。</p>
+<p><span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(m\times n\)</span>，<span class="arithmatex">\(B\)</span> 为 <span class="arithmatex">\(n\times m\)</span>，故 <span class="arithmatex">\(AB\)</span> 是 <span class="arithmatex">\(m\)</span> 阶方阵，<span class="arithmatex">\(|AB|\)</span> 才有意义。</p>
+<p>由秩的不等式</p>
+<div class="arithmatex">\[
+r(AB)\le \min\{r(A),r(B)\}\le \min\{m,n\}.
+\]</div>
+<p>当 <span class="arithmatex">\(m&gt;n\)</span> 时 <span class="arithmatex">\(r(AB)\le n&lt;m\)</span>，<span class="arithmatex">\(m\)</span> 阶方阵 <span class="arithmatex">\(AB\)</span> 不满秩，故 <span class="arithmatex">\(|AB|=0\)</span>，(A) 正确、 (B) 错误。</p>
+<p>当 <span class="arithmatex">\(m&lt;n\)</span> 时，<span class="arithmatex">\(r(AB)\le m\)</span> 并不能断言等于 <span class="arithmatex">\(m\)</span>：取 <span class="arithmatex">\(A=O\)</span> 就有 <span class="arithmatex">\(AB=O\)</span>，<span class="arithmatex">\(|AB|=0\)</span>；取 <span class="arithmatex">\(A=(E_m\ O)\)</span>、<span class="arithmatex">\(B=\begin{pmatrix}E_m\\ O\end{pmatrix}\)</span> 则 <span class="arithmatex">\(AB=E_m\)</span>，<span class="arithmatex">\(|AB|=1\ne 0\)</span>。两种情形都可能出现，故 (C)(D) 中的「必有」均不成立。</p>
+<p>结论：只有 (A) 正确。
+【例 9】设 <span class="arithmatex">\( \mathbf{A} \)</span> 为 <span class="arithmatex">\( m \times n \)</span> 矩阵， <span class="arithmatex">\( \mathbf{B} \)</span> 为 <span class="arithmatex">\( n \times m \)</span> 矩阵， <span class="arithmatex">\( \mathbf{E} \)</span> 为 <span class="arithmatex">\( m \)</span> 阶单位矩阵，若 <span class="arithmatex">\( \mathbf{AB} = \mathbf{E} \)</span>，则()
+(A) <span class="arithmatex">\( r(\mathbf{A}) = m,r(\mathbf{B}) = m \)</span> (B) <span class="arithmatex">\( r(\mathbf{A}) = m,r(\mathbf{B}) = n \)</span>
+(C) <span class="arithmatex">\( r(\mathbf{A}) = n,r(\mathbf{B}) = m \)</span> (D) <span class="arithmatex">\( r(\mathbf{A}) = n,r(\mathbf{B}) = n \)</span></p>
+<p><strong>解</strong></p>
+<p>答案：(A)。</p>
+<p><span class="arithmatex">\(AB=E_m\)</span> 说明 <span class="arithmatex">\(AB\)</span> 是 <span class="arithmatex">\(m\)</span> 阶单位矩阵，于是 <span class="arithmatex">\(r(AB)=m\)</span>。</p>
+<p>一方面由 <span class="arithmatex">\(r(AB)\le r(A)\)</span> 得 <span class="arithmatex">\(r(A)\ge m\)</span>；另一方面 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(m\times n\)</span> 矩阵，<span class="arithmatex">\(r(A)\le m\)</span>，故 <span class="arithmatex">\(r(A)=m\)</span>(这也蕴含 <span class="arithmatex">\(m\le n\)</span>)。</p>
+<p>再由 <span class="arithmatex">\(r(AB)\le r(B)\)</span> 得 <span class="arithmatex">\(r(B)\ge m\)</span>；而 <span class="arithmatex">\(B\)</span> 是 <span class="arithmatex">\(n\times m\)</span> 矩阵，<span class="arithmatex">\(r(B)\le m\)</span>，故 <span class="arithmatex">\(r(B)=m\)</span>。</p>
+<p>所以 <span class="arithmatex">\(r(A)=m,\ r(B)=m\)</span>，选 (A)。</p>
+<p>补充：<span class="arithmatex">\(AB=E_m\)</span> 只说明 <span class="arithmatex">\(A\)</span> 行满秩、<span class="arithmatex">\(B\)</span> 列满秩，并不蕴含 <span class="arithmatex">\(BA=E_n\)</span>(当 <span class="arithmatex">\(m&lt;n\)</span> 时 <span class="arithmatex">\(BA\)</span> 甚至不是同阶单位矩阵)，这也正是 (B)(C)(D) 混淆「行满秩/列满秩」的地方。
+【例 10】设 <span class="arithmatex">\( \mathbf{n} \)</span> 阶矩阵 <span class="arithmatex">\( \mathbf{A} \)</span> 满足 <span class="arithmatex">\( \mathbf{A}^2 = \mathbf{A} \)</span>，证明： <span class="arithmatex">\( r(\mathbf{A}) + r(\mathbf{A} - \mathbf{E}) = \mathbf{n} \)</span> .</p>
+<p><strong>解</strong></p>
+<p>证明：由 <span class="arithmatex">\(A^2=A\)</span> 得 <span class="arithmatex">\(A^2-A=O\)</span>，即 <span class="arithmatex">\(A(A-E)=O\)</span>。
+第一步(上界)：对 <span class="arithmatex">\(n\)</span> 阶矩阵有 Sylvester 不等式 <span class="arithmatex">\(r(X)+r(Y)-n\le r(XY)\)</span>，取 <span class="arithmatex">\(X=A,\ Y=A-E\)</span>，因 <span class="arithmatex">\(A(A-E)=O\)</span> 故</p>
+<div class="arithmatex">\[
+r(A)+r(A-E)-n\le r(A(A-E))=0,\quad\text{即}\quad r(A)+r(A-E)\le n.\tag{1}
+\]</div>
+<p>第二步(下界)：由 <span class="arithmatex">\(r(X)+r(Y)\ge r(X+Y)\)</span>，取 <span class="arithmatex">\(X=A,\ Y=E-A\)</span>，注意 <span class="arithmatex">\(r(E-A)=r(A-E)\)</span>，故</p>
+<div class="arithmatex">\[
+r(A)+r(A-E)=r(A)+r(E-A)\ge r\bigl(A+E-A\bigr)=r(E)=n.\tag{2}
+\]</div>
+<p>由 (1)(2) 两端夹住，得 <span class="arithmatex">\(r(A)+r(A-E)=n\)</span>。证毕。另证：幂等矩阵 <span class="arithmatex">\(A\)</span> 必可对角化，<span class="arithmatex">\(P^{-1}AP=\begin{pmatrix}E_r&amp;O\\ O&amp;O\end{pmatrix}\)</span>，<span class="arithmatex">\(r=r(A)\)</span>，此时 <span class="arithmatex">\(r(A-E)=n-r\)</span>，两秩相加即得 <span class="arithmatex">\(n\)</span>。</p>
+    </div><!-- /.entry-content -->
+    <footer class="post-meta">
+        <span class="meta-prep" data-i18n="category_label">分类</span>:
+        <abbr class="category">
+            <a href="./category/kao-yan-shu-xue.html">考研数学</a>
+        </abbr>
+       </footer>
+    <nav class="post-nav" aria-label="文章导航">
+<a class="pn-prev" href="./kaoyan-math-036.html"><span class="pn-label">上一篇</span><br>分块矩阵的运算</a><a class="pn-next" href="./kaoyan-math-038.html"><span class="pn-label">下一篇</span><br>高斯消元法(Gauss 消元法)</a>    </nav>
+</section>
+
+<section id="giscus-comments" class="giscus" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);">
+    <div id="giscus-slot"></div>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    var sec = document.getElementById('giscus-comments'); if (!sec) return;
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) { var f = document.querySelector('iframe.giscus-frame'); if (f) f.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app'); }
+    var loaded = false;
+    function loadGiscus() {
+        if (loaded) return; loaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://giscus.app/client.js'; s.async = true; s.crossOrigin = 'anonymous';
+        s.setAttribute('data-repo', 'cycleuser/cycleuser.github.io');
+        s.setAttribute('data-repo-id', 'R_kgDOL4NKYA');
+        s.setAttribute('data-category', 'General');
+        s.setAttribute('data-category-id', 'DIC_kwDOL4NKYM4DBK3X');
+        s.setAttribute('data-mapping', 'pathname');
+        s.setAttribute('data-strict', '0');
+        s.setAttribute('data-reactions-enabled', '1');
+        s.setAttribute('data-emit-metadata', '0');
+        s.setAttribute('data-input-position', 'bottom');
+        s.setAttribute('data-theme', giscusTheme(getTheme()));
+        s.setAttribute('data-lang', 'zh-CN');
+        document.getElementById('giscus-slot').appendChild(s);
+        new MutationObserver(function() {
+            var t = giscusTheme(getTheme()); s.setAttribute('data-theme', t); sendTheme(t);
+        }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    }
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function(es) {
+            es.forEach(function(e) { if (e.isIntersecting) { loadGiscus(); io.disconnect(); } });
+        }, { rootMargin: '400px' });
+        io.observe(sec);
+    } else { loadGiscus(); }
+})();
+</script>
+    <noscript>
+        <div style="padding: 16px; background: var(--elev-1); border-radius: 8px; color: var(--text-muted);">
+            请启用 JavaScript 以查看由 <a href="https://giscus.app/">Giscus</a> 驱动的评论。
+        </div>
+    </noscript>
+</section>
+<script>
+(function() {
+    function getTheme() { return document.documentElement.getAttribute('data-theme') || 'light'; }
+    function giscusTheme(t) { return t === 'dark' ? 'transparent_dark' : 'light'; }
+    function sendTheme(t) {
+        var iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: t } } }, 'https://giscus.app');
+    }
+    function update() {
+        var t = giscusTheme(getTheme());
+        var s = document.querySelector('script[src*="giscus"]');
+        if (s) s.setAttribute('data-theme', t);
+        sendTheme(t);
+    }
+    // 初始设置
+    var s = document.querySelector('script[src*="giscus"]');
+    if (s) s.setAttribute('data-theme', giscusTheme(getTheme()));
+    // 监听明暗切换
+    new MutationObserver(function() { update(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    // 重试几次确保 iframe 加载完成
+    var tries = 0;
+    var timer = setInterval(function() {
+        if (document.querySelector('iframe.giscus-frame')) { sendTheme(giscusTheme(getTheme())); clearInterval(timer); }
+        if (++tries > 20) clearInterval(timer);
+    }, 500);
+})();
+</script>
+
+        </section><!-- #content -->
+    </section><!-- /#wrapper -->
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <li><a href="./feeds/all.atom.xml" title="RSS" aria-label="RSS" target="_blank" rel="noopener">📡 RSS</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid col-300 copyright" >
+            <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+                <img src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+            </a>
+        </div>
+        <div class="grid col-300 ">
+
+        </div>
+        <div class="grid col-300 fit powered">
+            Powered by <a href="https://getpelican.com/">Pelican</a> <br />
+            which takes great advantage of <a href="https://python.org">Python</a>
+        </div>
+    </section></footer>
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    function setIcon(theme) {
+      btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function current() {
+      return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    setIcon(current());
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      setIcon(next);
+    });
+  })();
+</script>
+<script>
+  /* 顶栏收起/展开把手 */
+  (function () {
+    var header = document.getElementById('header');
+    var handle = document.getElementById('header-handle');
+    if (!header || !handle) return;
+    var KEY = 'header_collapsed';
+    function setCollapsed(c) {
+      header.classList.toggle('header-collapsed', c);
+      handle.textContent = c ? '▼' : '▲';
+      try { localStorage.setItem(KEY, c ? '1' : '0'); } catch (e) {}
+    }
+    handle.addEventListener('click', function () {
+      setCollapsed(!header.classList.contains('header-collapsed'));
+    });
+    try { if (localStorage.getItem(KEY) === '1') setCollapsed(true); } catch (e) {}
+  })();
+</script>
+<script>
+  /* 下拉菜单键盘可达 */
+  (function () {
+    var subs = document.querySelectorAll('.menu li.has-sub');
+    Array.prototype.forEach.call(subs, function (li) {
+      var a = li.querySelector(':scope > a'); if (!a) return;
+      a.setAttribute('aria-haspopup', 'true'); a.setAttribute('aria-expanded', 'false');
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var open = li.classList.toggle('open');
+        a.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      li.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { li.classList.remove('open'); a.setAttribute('aria-expanded', 'false'); a.focus(); }
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest || !e.target.closest('.menu li.has-sub')) {
+        Array.prototype.forEach.call(document.querySelectorAll('.menu li.has-sub.open'), function (li) {
+          li.classList.remove('open');
+          var a = li.querySelector(':scope > a'); if (a) a.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  })();
+</script>
+<script>
+  /* 中英文切换 */
+  (function () {
+    var DICT = {
+      "Homepage":   { zh: "主页",   en: "Homepage" },
+      "Archives":   { zh: "归档",   en: "Archives" },
+      "About":      { zh: "关于",   en: "About" },
+      "Categories": { zh: "分类",   en: "Categories" },
+      "Tags":       { zh: "标签",   en: "Tags" },
+      "三国对战":    { zh: "三国对战", en: "Three Kingdoms" },
+      "雷电激战":    { zh: "雷电激战", en: "Raiden Strike" },
+      "产状测量":    { zh: "产状测量", en: "Attitude Meter" },
+      "软考":       { zh: "软考", en: "SoftExam" },
+      "无人机":     { zh: "无人机", en: "UAV Guide" },
+      "电机检测":   { zh: "电机检测", en: "Motor Diag" },
+      "知识手册":   { zh: "知识手册", en: "Handbook" },
+      "工具":       { zh: "工具", en: "Tools" },
+      "游戏":       { zh: "游戏", en: "Games" },
+      "模型雷达":    { zh: "模型雷达", en: "Model Radar" },
+      "搜索":       { zh: "搜索", en: "Search" },
+      "2048":      { zh: "2048", en: "2048" },
+      /* 通用 UI */
+      "timeline":     { zh: "时间线", en: "Timeline" },
+      "latest":       { zh: "最新 ↑", en: "Latest ↑" },
+      "archives_title": { zh: "归档", en: "Archives" },
+      "categories_title": { zh: "分类", en: "Categories" },
+      "tags_title":   { zh: "标签", en: "Tags" },
+      "post_in":      { zh: "发布于", en: "Posted" },
+      "tags_label":   { zh: "标签", en: "Tags" },
+      "category_label": { zh: "分类", en: "Category" },
+      "blog":         { zh: "博客", en: "Blog" },
+      "articles_in":  { zh: "分类下的文章：", en: "Articles in category:" },
+      "articles_tagged": { zh: "标签下的文章：", en: "Articles tagged:" },
+      "expand_month": { zh: "展开月份", en: "Expand months" },
+      "month_suffix": { zh: " 月", en: "" }
+    };
+    var btn = document.getElementById('lang-toggle');
+    function getLang() {
+      try { return localStorage.getItem('lang') || 'zh'; } catch (e) { return 'zh'; }
+    }
+    function tr(key, lang) { return (DICT[key] && DICT[key][lang]) ? DICT[key][lang] : null; }
+    function apply(lang) {
+      document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh' : 'en');
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n'), lang);
+        if (v !== null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var v = tr(el.getAttribute('data-i18n-title'), lang);
+        if (v !== null) el.setAttribute('title', v);
+      });
+      if (btn) {
+        btn.textContent = (lang === 'zh') ? '中' : 'EN';
+        btn.setAttribute('title', lang === 'zh' ? '切换到英文' : 'Switch to Chinese');
+      }
+      // 供其它脚本读取（如时间线月份后缀）
+      window.__lang = lang;
+      document.dispatchEvent(new CustomEvent('langchange', { detail: { lang: lang } }));
+    }
+    window.__i18nTr = tr;
+    apply(getLang());
+    if (btn) btn.addEventListener('click', function () {
+      var next = getLang() === 'zh' ? 'en' : 'zh';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      apply(next);
+    });
+  })();
+</script>
+<!-- KaTeX: 数学公式渲染（GitHub 风格） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement === "undefined") return;
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: "$$", right: "$$", display: true},
+        {left: "\\[", right: "\\]", display: true},
+        {left: "$", right: "$", display: false},
+        {left: "\\(", right: "\\)", display: false}
+      ],
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      throwOnError: false
+    });
+  });
+</script>
+<script defer src="./theme/js/enhance.js?v=20"></script>
+</body>
+</html>
